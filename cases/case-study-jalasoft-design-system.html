@@ -121,6 +121,9 @@
   .ac-images{display:flex; gap:10px;}
   .ac-images .img-placeholder{flex:1 1 0; min-width:0;}
 
+  /* COLOR TOKENS */
+  .tokens-visual{aspect-ratio:1024/972;}
+
   /* TEACHING - distinct treatment */
   .teaching-block{
     background:var(--accent-soft); border:1px solid rgba(194,252,80,.2); border-radius:var(--radius); padding:48px;
@@ -222,7 +225,7 @@
       </div>
 
       <div class="hero-cover img-placeholder has-image">
-        <img src="../Img/jalasoft/3UD7yDsVVX7rpXfKtHNEJ3sUIbU.webp" alt="Jalasoft design system applied across Planning Poker, the BPM platform, and the bootcamp brand materials">
+        <img src="../Img/jalasoft/ne6MQRmzafqsVxvnU7LYAnHxoeI.webp" alt="Jalasoft website homepage hero, shown across three laptop mockups">
       </div>
     </div>
   </header>
@@ -302,7 +305,6 @@
             <p class="ac-text">The company site needed a redesign: a new hero, the metrics that mattered (1,000+ employees, years in the market), a working blog, and a dedicated page for the bootcamp program. Every type and color decision came straight from the system already in place, which meant the visual identity question was already answered before the project started.</p>
           </div>
           <div class="ac-images">
-            <div class="img-placeholder small has-image"><img src="../Img/jalasoft/ne6MQRmzafqsVxvnU7LYAnHxoeI.webp" alt="Jalasoft website homepage hero, shown across three laptop mockups"></div>
             <div class="img-placeholder small has-image"><img src="../Img/jalasoft/huVkAwwrDi4iopHUaWRTVco6L4.webp" alt="Jalasoft website hero banner color variants, red, white, and dark"></div>
           </div>
         </div>
@@ -324,7 +326,7 @@
             <p class="ac-text"><a href="/elearn-app" style="color:var(--accent);">View the Elearn App case &rarr;</a></p>
           </div>
           <div class="ac-images">
-            <div class="img-placeholder small has-image"><img src="../Img/jalasoft/tCyofcqzAOVA2VKxIatq3eaAL4.webp" alt="Elearn App bootcamp challenge screen, light and dark variants"></div>
+            <div class="img-placeholder small has-image"><img src="../Img/jalasoft/3UD7yDsVVX7rpXfKtHNEJ3sUIbU.webp" alt="Elearn App and bootcamp surfaces, student challenges, leaderboard, and profile card"></div>
           </div>
         </div>
 
@@ -332,10 +334,28 @@
     </div>
   </section>
 
+  <!-- COLOR TOKENS -->
+  <section id="color-tokens" aria-labelledby="color-tokens-title">
+    <div class="container">
+      <div class="section-eyebrow mono">04 · Design Tokens</div>
+      <h2 class="section-title" id="color-tokens-title">From Fixed Colors to Variables</h2>
+      <div class="feature-block">
+        <div class="feature-text">
+          <p>Inside the bootcamp I taught, students went through App Rebuild, a challenge where they picked an app they used regularly, screenshotted it, and rebuilt a high-fidelity replica of its interface in Figma. I designed and built that tool on top of the same design system.</p>
+          <p>App Rebuild needed a dark mode variant, and that was the moment the system's color values stopped being good enough. Up to then, every color was a fixed hex value: the accent red, the Raisin Black, the Alice Blue. A dark variant meant a second full set of values, hardcoded and disconnected from the first, with no guarantee they would ever stay in sync.</p>
+          <p>Instead, I rebuilt the system's colors as tokens: variables with a light and a dark value, referenced by name instead of by hex code everywhere they were used. Once that was in place for App Rebuild, it was not a one-off fix anymore, it became how the entire design system defined color going forward.</p>
+        </div>
+        <div class="feature-visual img-placeholder has-image tokens-visual">
+          <img src="../Img/jalasoft/tCyofcqzAOVA2VKxIatq3eaAL4.webp" alt="App Rebuild challenge screen shown in dark mode and light mode, the moment fixed hex colors became variables">
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- TEACHING -->
   <section id="teaching" aria-labelledby="teaching-title">
     <div class="container">
-      <div class="section-eyebrow mono">04 · Teaching</div>
+      <div class="section-eyebrow mono">05 · Teaching</div>
       <h2 class="section-title" id="teaching-title">Training the next generation</h2>
       <div class="teaching-block">
         <div class="teaching-number mono">10–12</div>
@@ -353,7 +373,7 @@
   <!-- CLIENT WORK -->
   <section id="client-work" aria-labelledby="client-work-title">
     <div class="container">
-      <div class="section-eyebrow mono">05 · Client Work</div>
+      <div class="section-eyebrow mono">06 · Client Work</div>
       <h2 class="section-title" id="client-work-title">Moving to direct client engagements</h2>
       <p class="section-lede">After this internal-facing period, I was allocated directly to client projects. Three of these already have full case studies on this portfolio.</p>
 
