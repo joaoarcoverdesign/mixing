@@ -239,18 +239,21 @@ section{position:relative;}
 .work-arrow:disabled{opacity:.35;pointer-events:none;}
 .work-arrow svg{width:16px;height:16px;}
 .work-viewport{
-  flex:1 1 auto;overflow:hidden;display:flex;align-items:center;
+  flex:1 1 auto;min-height:0;overflow:hidden;display:flex;align-items:stretch;
   -webkit-mask-image:linear-gradient(to right, transparent 0, #000 var(--px), #000 calc(100% - clamp(40px,6vw,120px)), transparent 100%);
   mask-image:linear-gradient(to right, transparent 0, #000 var(--px), #000 calc(100% - clamp(40px,6vw,120px)), transparent 100%);
 }
 .work-track{display:flex;gap:clamp(24px,4vw,56px);padding:0 var(--px);will-change:transform;}
 .work-item{
   flex:0 0 auto;width:clamp(448px,47.6vw,784px);
-  display:flex;flex-direction:column;
+  display:flex;flex-direction:column;justify-content:center;min-height:0;
 }
+/* text block never shrinks/clips — only the media flexes to fit whatever
+   vertical room the viewport actually has (short laptop screens included) */
+.work-item > *{flex-shrink:0;}
 .work-media{
   position:relative;overflow:hidden;border-radius:4px;
-  aspect-ratio:1440/820;max-height:clamp(240px,42vh,440px);
+  aspect-ratio:1440/820;flex:1 1 auto;min-height:140px;max-height:clamp(240px,42vh,440px);
   background:var(--surface);margin-bottom:16px;
 }
 .work-media img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s var(--ease);}
@@ -503,7 +506,7 @@ section{position:relative;}
           </a>
           <span class="work-idx">/ 02</span>
           <h3 class="work-name">Valt Network</h3>
-          <p class="work-desc">Designing the professional layer for private-market investors and high-growth companies — from zero to a full-featured social product.</p>
+          <p class="work-desc">Designing the professional layer for private-market investors and high-growth companies.</p>
           <div class="work-tags"><span>Fintech</span><span>Social Product</span><span>0 → 1</span></div>
           <p class="work-link">Live product · 12-month build →</p>
         </article>
