@@ -238,7 +238,11 @@ section{position:relative;}
 .work-arrow:active{transform:scale(.92);}
 .work-arrow:disabled{opacity:.35;pointer-events:none;}
 .work-arrow svg{width:16px;height:16px;}
-.work-viewport{flex:1 1 auto;overflow:hidden;display:flex;align-items:center;}
+.work-viewport{
+  flex:1 1 auto;overflow:hidden;display:flex;align-items:center;
+  -webkit-mask-image:linear-gradient(to right, transparent 0, #000 var(--px), #000 calc(100% - clamp(40px,6vw,120px)), transparent 100%);
+  mask-image:linear-gradient(to right, transparent 0, #000 var(--px), #000 calc(100% - clamp(40px,6vw,120px)), transparent 100%);
+}
 .work-track{display:flex;gap:clamp(24px,4vw,56px);padding:0 var(--px);will-change:transform;}
 .work-item{
   flex:0 0 auto;width:clamp(448px,47.6vw,784px);
@@ -452,7 +456,7 @@ section{position:relative;}
         <img src="Img/browser-1.png" alt="Qconcursos — platform homepage, shown in browser" loading="lazy">
       </div>
     </div>
-    <div class="stat-row rv">
+    <div class="stat-row">
       <div class="m-stat"><div class="num">600K→<i>10M+</i></div><div class="lab">Users on the platform</div></div>
       <div class="m-stat"><div class="num">R$<i>208M</i></div><div class="lab">Acquisition by Yduqs Group</div></div>
       <div class="m-stat"><div class="num"><i>43%</i></div><div class="lab">Faster onboarding, MBA</div></div>
@@ -554,9 +558,9 @@ section{position:relative;}
 
       <div class="testi-author-row">
         <div class="testi-avatars" id="testiAvatars">
-          <button class="testi-avatar is-active" type="button" data-index="0" aria-pressed="true" aria-label="Show testimonial from Orlando Campos" style="background-image:url('../img/testimonials/orlando-campos.png');"></button>
-          <button class="testi-avatar" type="button" data-index="1" aria-pressed="false" aria-label="Show testimonial from Bernard de Luna" style="background-image:url('../img/testimonials/bernard-de-luna.png');"></button>
-          <button class="testi-avatar" type="button" data-index="2" aria-pressed="false" aria-label="Show testimonial from Mauricio Salazar" style="background-image:url('../img/testimonials/mauricio-salazar.png');"></button>
+          <button class="testi-avatar is-active" type="button" data-index="0" aria-pressed="true" aria-label="Show testimonial from Orlando Campos" style="background-image:url('Img/testimonials/orlando-campos.png');"></button>
+          <button class="testi-avatar" type="button" data-index="1" aria-pressed="false" aria-label="Show testimonial from Bernard de Luna" style="background-image:url('Img/testimonials/bernard-de-luna.png');"></button>
+          <button class="testi-avatar" type="button" data-index="2" aria-pressed="false" aria-label="Show testimonial from Mauricio Salazar" style="background-image:url('Img/testimonials/mauricio-salazar.png');"></button>
         </div>
         <span class="testi-divider" aria-hidden="true"></span>
         <div class="testi-meta" id="testiMeta">
@@ -564,7 +568,7 @@ section{position:relative;}
           <p class="testi-role" id="testiRole">Academic Coordinator</p>
         </div>
         <span class="testi-logo-chip" id="testiLogoChip" aria-hidden="true">
-          <img id="testiLogo" src="../img/1654778420300.jpg" alt="">
+          <img id="testiLogo" src="Img/1654778420300.jpg" alt="">
         </span>
       </div>
     </div>
@@ -980,19 +984,19 @@ section{position:relative;}
         quote: "João doesn’t just design, he raises the bar for everyone. As our UX and Figma educator, he’s trained dozens of LATAM engineers who now think in product.",
         name: "Orlando Campos",
         role: "Academic Coordinator",
-        logo: "../img/1654778420300.jpg"
+        logo: "Img/1654778420300.jpg"
       },
       {
         quote: "João’s redesign of our course page raised the bar for the whole product. Rigorous work that scaled to millions of users without missing a beat.",
         name: "Bernard de Luna",
         role: "Product Director",
-        logo: "../img/logos/color/logos-qc.svg"
+        logo: "Img/logos/color/logos-qc.svg"
       },
       {
         quote: "João built our design system from a brand guideline into a component library over a thousand people now build with daily.",
         name: "Mauricio Salazar",
         role: "Development Engineer",
-        logo: "../img/logos/color/logos-jala.svg"
+        logo: "Img/logos/color/logos-jala.svg"
       }
     ];
 
