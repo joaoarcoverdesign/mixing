@@ -88,6 +88,8 @@
   }
   .img-placeholder.small{aspect-ratio:4/3;}
   .img-placeholder-label{font-family:'Urbanist', sans-serif; font-weight:500; font-size:12px; color:var(--ink-soft); max-width:280px;}
+  .img-placeholder.has-image{background:none; border:1px solid var(--line); padding:0; display:block;}
+  .img-placeholder.has-image img{width:100%; height:100%; object-fit:cover; display:block; border-radius:inherit;}
 
   section{padding:72px 0;}
   section + section{border-top:1px solid var(--line);}
@@ -117,16 +119,18 @@
   .architecture-card .ac-title{font-family:'Urbanist', sans-serif; font-size:19px; font-weight:800; margin-bottom:10px;}
   .architecture-card .ac-text{font-size:14.5px; color:var(--ink-soft); margin-bottom:0;}
   .ac-images{display:flex; gap:10px;}
-  .ac-images .img-placeholder{aspect-ratio:1/1;}
+  .ac-images .img-placeholder{flex:1 1 0; min-width:0;}
 
   /* TEACHING - distinct treatment */
   .teaching-block{
     background:var(--accent-soft); border:1px solid rgba(194,252,80,.2); border-radius:var(--radius); padding:48px;
-    display:grid; grid-template-columns:auto 1fr; gap:32px; align-items:center;
+    display:grid; grid-template-columns:auto 1fr auto; gap:32px; align-items:center;
   }
   .teaching-number{font-family:var(--serif); font-style:italic; font-size:56px; font-weight:500; color:var(--accent); line-height:1;}
   .teaching-block h3{font-family:'Urbanist', sans-serif; font-size:22px; font-weight:800; margin-bottom:12px;}
   .teaching-block p{color:var(--ink-soft); font-size:15px; max-width:560px;}
+  .teaching-image{width:220px; aspect-ratio:16/10; border-radius:calc(var(--radius) - 4px); overflow:hidden; border:1px solid rgba(194,252,80,.25); flex:0 0 auto;}
+  .teaching-image img{width:100%; height:100%; object-fit:cover; display:block;}
 
   /* NEXT CARDS (client work) */
   .next-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;}
@@ -167,6 +171,7 @@
     .next-grid{grid-template-columns:1fr;}
     .learnings-grid{grid-template-columns:1fr;}
     .teaching-block{grid-template-columns:1fr; text-align:left;}
+    .teaching-image{width:100%;}
     .nav-links{gap:18px;}
   }
 </style>
@@ -216,8 +221,8 @@
         </div>
       </div>
 
-      <div class="hero-cover img-placeholder">
-        <span class="img-placeholder-label">HERO COVER: design system swatches / typography sheet (not yet chosen)</span>
+      <div class="hero-cover img-placeholder has-image">
+        <img src="../Img/jalasoft/3UD7yDsVVX7rpXfKtHNEJ3sUIbU.webp" alt="Jalasoft design system applied across Planning Poker, the BPM platform, and the bootcamp brand materials">
       </div>
     </div>
   </header>
@@ -257,8 +262,8 @@
           <p>It started with the company's Brand Guidelines. From that starting point, I built a complete design system: a typographic hierarchy covering titles, body copy, and buttons, and a three-tier color system (primary, secondary, and tertiary) anchored by a red brand color (Pantone red, #EF293D).</p>
           <p>This became the shared foundation every platform below was built on top of.</p>
         </div>
-        <div class="feature-visual img-placeholder">
-          <span class="img-placeholder-label">Typography hierarchy + color palette reference sheet</span>
+        <div class="feature-visual img-placeholder has-image">
+          <img src="../Img/jalasoft/4v6eDh4UP7P5keigKFCPZnW9Zl4.webp" alt="Jalasoft typography hierarchy and four-tier color palette reference sheet">
         </div>
       </div>
     </div>
@@ -275,8 +280,8 @@
           <p>I redesigned the navbar, the task views, and the full hiring process flow, using only the components already defined in the system. If the type scale or the color tokens did not hold up under an interface this dense, this is where it would have shown.</p>
           <p>It held up. And that gave me something to point to when the next two projects came up.</p>
         </div>
-        <div class="feature-visual img-placeholder">
-          <span class="img-placeholder-label">BPM platform overview / tasks screen</span>
+        <div class="feature-visual img-placeholder has-image">
+          <img src="../Img/jalasoft/6B02ERCQlSFFlaUsFIF5kJ8xjGE.webp" alt="Jalasoft BPM platform, case list view with tasks, colaborators, and process filters">
         </div>
       </div>
     </div>
@@ -297,7 +302,8 @@
             <p class="ac-text">The company site needed a redesign: a new hero, the metrics that mattered (1,000+ employees, years in the market), a working blog, and a dedicated page for the bootcamp program. Every type and color decision came straight from the system already in place, which meant the visual identity question was already answered before the project started.</p>
           </div>
           <div class="ac-images">
-            <div class="img-placeholder small"><span class="img-placeholder-label">Website homepage hero</span></div>
+            <div class="img-placeholder small has-image"><img src="../Img/jalasoft/ne6MQRmzafqsVxvnU7LYAnHxoeI.webp" alt="Jalasoft website homepage hero, shown across three laptop mockups"></div>
+            <div class="img-placeholder small has-image"><img src="../Img/jalasoft/huVkAwwrDi4iopHUaWRTVco6L4.webp" alt="Jalasoft website hero banner color variants, red, white, and dark"></div>
           </div>
         </div>
 
@@ -307,7 +313,7 @@
             <p class="ac-text">A lightweight agile estimation tool for teams, built end to end with the same components: problem statement, research &amp; discovery, testing &amp; iteration, and a documented conclusion. Where the BPM redesign took months, this one took a fraction of that, because there was nothing left to decide about how it should look.</p>
           </div>
           <div class="ac-images">
-            <div class="img-placeholder small"><span class="img-placeholder-label">Planning Poker problem statement / app view</span></div>
+            <div class="img-placeholder small has-image"><img src="../Img/jalasoft/4uakVy3FQfqaG7MV3YIIXZi02OU.webp" alt="Planning Poker app, issue list and voting cards"></div>
           </div>
         </div>
 
@@ -318,7 +324,7 @@
             <p class="ac-text"><a href="/elearn-app" style="color:var(--accent);">View the Elearn App case &rarr;</a></p>
           </div>
           <div class="ac-images">
-            <div class="img-placeholder small"><span class="img-placeholder-label">Elearn App, student/teacher/admin surfaces</span></div>
+            <div class="img-placeholder small has-image"><img src="../Img/jalasoft/tCyofcqzAOVA2VKxIatq3eaAL4.webp" alt="Elearn App bootcamp challenge screen, light and dark variants"></div>
           </div>
         </div>
 
@@ -336,6 +342,9 @@
         <div>
           <h3>UX/UI Design, Full Stack Developer Bootcamp</h3>
           <p>Six to eight months into the role, I was invited to design and teach the UX/UI Design curriculum inside the company's Full Stack Developer Bootcamp, building the course from scratch and teaching it across 10 to 12 cohorts throughout Latin America.</p>
+        </div>
+        <div class="teaching-image">
+          <img src="../Img/jalasoft/pDHifzebZ20pc2bYXORpTviPByU.webp" alt="UX UI Design, Bootcamp Brasil course cover slide">
         </div>
       </div>
     </div>
