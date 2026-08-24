@@ -88,10 +88,9 @@
   }
   .img-placeholder.small{aspect-ratio:4/3;}
   .img-placeholder-label{font-family:'Urbanist', sans-serif; font-weight:500; font-size:12px; color:var(--ink-soft); max-width:280px;}
-  .img-placeholder.has-image{background:none; border:1px solid var(--line); padding:0; display:block; overflow:hidden;}
-  .img-placeholder.has-image img{width:100%; height:100%; object-fit:cover; display:block; border-radius:inherit;}
-  .hero-cover.has-image{border:none; aspect-ratio:2048/869;}
-  .hero-cover.has-image img{object-fit:contain;}
+  .img-placeholder.has-image{background:none; border:none; padding:0; display:block; overflow:hidden;}
+  .img-placeholder.has-image img{width:100%; height:100%; object-fit:contain; display:block; border-radius:inherit;}
+  .hero-cover.has-image{aspect-ratio:2048/869;}
 
   section{padding:72px 0;}
   section + section{border-top:1px solid var(--line);}
@@ -134,8 +133,8 @@
   .teaching-number{font-family:var(--serif); font-style:italic; font-size:56px; font-weight:500; color:var(--accent); line-height:1;}
   .teaching-block h3{font-family:'Urbanist', sans-serif; font-size:22px; font-weight:800; margin-bottom:12px;}
   .teaching-block p{color:var(--ink-soft); font-size:15px; max-width:560px;}
-  .teaching-image{width:220px; aspect-ratio:16/10; border-radius:calc(var(--radius) - 4px); overflow:hidden; border:1px solid rgba(194,252,80,.25); flex:0 0 auto;}
-  .teaching-image img{width:100%; height:100%; object-fit:cover; display:block;}
+  .teaching-image{width:220px; aspect-ratio:1024/576; border-radius:calc(var(--radius) - 4px); overflow:hidden; flex:0 0 auto;}
+  .teaching-image img{width:100%; height:100%; object-fit:contain; display:block;}
 
   /* NEXT CARDS (client work) */
   .next-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;}
@@ -267,7 +266,7 @@
           <p>It started with the company's Brand Guidelines. From that starting point, I built a complete design system: a typographic hierarchy covering titles, body copy, and buttons, and a three-tier color system (primary, secondary, and tertiary) anchored by a red brand color (Pantone red, #EF293D).</p>
           <p>This became the shared foundation every platform below was built on top of.</p>
         </div>
-        <div class="feature-visual img-placeholder has-image">
+        <div class="feature-visual img-placeholder has-image" style="aspect-ratio:1440/795;">
           <img src="../Img/jalasoft/4v6eDh4UP7P5keigKFCPZnW9Zl4.webp" alt="Jalasoft typography hierarchy and four-tier color palette reference sheet">
         </div>
       </div>
@@ -285,7 +284,7 @@
           <p>I redesigned the navbar, the task views, and the full hiring process flow, using only the components already defined in the system. If the type scale or the color tokens did not hold up under an interface this dense, this is where it would have shown.</p>
           <p>It held up. And that gave me something to point to when the next two projects came up.</p>
         </div>
-        <div class="feature-visual img-placeholder has-image">
+        <div class="feature-visual img-placeholder has-image" style="aspect-ratio:2048/1115;">
           <img src="../Img/jalasoft/6B02ERCQlSFFlaUsFIF5kJ8xjGE.webp" alt="Jalasoft BPM platform, case list view with tasks, colaborators, and process filters">
         </div>
       </div>
@@ -307,7 +306,7 @@
             <p class="ac-text">The company site needed a redesign: a new hero, the metrics that mattered (1,000+ employees, years in the market), a working blog, and a dedicated page for the bootcamp program. Every type and color decision came straight from the system already in place, which meant the visual identity question was already answered before the project started.</p>
           </div>
           <div class="ac-images">
-            <div class="img-placeholder small has-image"><img src="../Img/jalasoft/huVkAwwrDi4iopHUaWRTVco6L4.webp" alt="Jalasoft website hero banner color variants, red, white, and dark"></div>
+            <div class="img-placeholder small has-image" style="aspect-ratio:1024/570;"><img src="../Img/jalasoft/huVkAwwrDi4iopHUaWRTVco6L4.webp" alt="Jalasoft website hero banner color variants, red, white, and dark"></div>
           </div>
         </div>
 
