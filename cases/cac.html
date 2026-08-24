@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Car Air Comfort — Mobile App · Case Study · Abdalla Design</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../CSS/case-v5.css" />
+
+  <style>
+    .cac-cover {
+      background: linear-gradient(135deg, #060F0A 0%, #0D2118 50%, #060F0A 100%);
+      width: 100%; aspect-ratio: 16/7;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden; border-radius: var(--radius-card);
+      margin-top: 48px;
+    }
+    .cac-cover-glow {
+      position: absolute; width: 400px; height: 200px; border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(27,127,78,0.2) 0%, transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+    }
+    .cac-cover-glyph {
+      font-family: var(--font-display); font-size: 160px; font-weight: 900;
+      color: rgba(27,127,78,0.15); letter-spacing: -0.06em; user-select: none;
+      position: relative; z-index: 1;
+    }
+    .cac-cover-label {
+      position: absolute; bottom: 32px; left: 32px;
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4);
+    }
+    .cac-accent { color: #1B7F4E; }
+
+    .app-screens {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; margin-top: 40px;
+    }
+    .app-screen {
+      background: var(--color-surface); overflow: hidden;
+      border: 1px solid var(--color-border); aspect-ratio: 9/16;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .app-screen img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .app-screen-label {
+      position: absolute; bottom: 12px; left: 12px;
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em;
+      text-transform: uppercase; background: rgba(0,0,0,0.6);
+      color: rgba(255,255,255,0.8); padding: 4px 8px; border-radius: 2px;
+    }
+
+    .persona-strip {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-left: 4px solid #1B7F4E; padding: 36px 40px;
+      display: grid; grid-template-columns: 240px 1fr; gap: 48px;
+      align-items: start; margin-top: 40px;
+    }
+    .persona-id-name { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+    .persona-id-role { font-family: var(--font-mono); font-size: 11px; color: var(--color-muted); letter-spacing: 0.08em; margin-bottom: 20px; }
+    .persona-id-detail { font-size: 13px; color: var(--color-muted-2); margin-bottom: 8px; }
+    .persona-need-title { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 12px; }
+    .persona-need-list { list-style: none; padding: 0; }
+    .persona-need-list li { font-size: 14px; color: var(--color-text); padding: 6px 0; border-bottom: 1px solid var(--color-border); }
+    .persona-need-list li::before { content: "→ "; color: #1B7F4E; }
+
+    .temp-dial {
+      background: #060F0A; border-radius: var(--radius-card);
+      padding: 48px; text-align: center; border: 1px solid rgba(27,127,78,0.3);
+      margin-top: 40px;
+    }
+    .temp-dial-value {
+      font-family: var(--font-display); font-size: 88px; font-weight: 900;
+      color: #1B7F4E; line-height: 1;
+    }
+    .temp-dial-unit { font-family: var(--font-mono); font-size: 18px; color: rgba(255,255,255,0.4); }
+    .temp-dial-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-top: 16px; }
+
+    @media (max-width: 768px) {
+      .app-screens { grid-template-columns: 1fr; }
+      .persona-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a href="../portfolio-v3.html" class="nav-back" aria-label="Back to portfolio">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M10 3L5 8l5 5"/>
+      </svg>
+      Portfolio
+    </a>
+
+    <a href="../portfolio-v3.html" class="nav-brand" aria-label="Abdalla Design home">
+      Abdalla Design
+    </a>
+
+    <a href="case-study-elearn-app.html" class="nav-next" aria-label="Next case study">
+      Next
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 3l5 5-5 5"/>
+      </svg>
+    </a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ═══ HERO ═══ -->
+  <section id="hero" aria-labelledby="hero-title">
+    <div class="container">
+      <div class="hero-meta" role="list">
+        <span class="meta-tag" role="listitem">Mobile App</span>
+        <span class="meta-tag highlight" role="listitem">IoT · Automotive</span>
+        <span class="meta-tag" role="listitem">UX/UI Design</span>
+        <span class="meta-tag" role="listitem">iOS / Android</span>
+      </div>
+
+      <h1 class="hero-title" id="hero-title">
+        Car Air Comfort — <em>Climate Control</em> Reimagined
+      </h1>
+
+      <p class="hero-subtitle">
+        A mobile IoT application that lets drivers pre-condition their car's interior temperature before they even step inside — solving one of the most universal frustrations of driving in hot climates.
+      </p>
+
+      <div class="hero-specs" role="list">
+        <div class="spec-item" role="listitem">
+          <p class="spec-label">Role</p>
+          <p class="spec-value">UX/UI Designer</p>
+        </div>
+        <div class="spec-item" role="listitem">
+          <p class="spec-label">Platform</p>
+          <p class="spec-value">iOS · Android</p>
+        </div>
+        <div class="spec-item" role="listitem">
+          <p class="spec-label">Domain</p>
+          <p class="spec-value">IoT · Automotive<br/>Smart Home</p>
+        </div>
+        <div class="spec-item" role="listitem">
+          <p class="spec-label">Deliverables</p>
+          <p class="spec-value">Research · Persona<br/>Wireframes · Hi-Fi</p>
+        </div>
+      </div>
+
+      <div class="cac-cover" role="img" aria-label="Car Air Comfort app cover">
+        <div class="cac-cover-glow"></div>
+        <span class="cac-cover-glyph">CAC</span>
+        <span class="cac-cover-label">Car Air Comfort · IoT Climate Control · Mobile App</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROBLEM ═══ -->
+  <section id="problem" aria-labelledby="problem-title">
+    <div class="container">
+      <p class="section-eyebrow">The Problem</p>
+      <h2 class="section-title" id="problem-title">The hot car <em>problem</em></h2>
+
+      <div class="overview-layout">
+        <div class="overview-sidebar">
+          <h3>The Pain Point</h3>
+          <p>In hot countries, entering a parked car during summer means sitting in temperatures that can reach 60–70°C. Air conditioning systems take 5–10 minutes to cool the cabin to a comfortable level — minutes spent sweating and waiting.</p>
+
+          <h3>The Solution Space</h3>
+          <p>Modern vehicles increasingly support remote start and HVAC control via connectivity modules. The design opportunity: a simple, intuitive mobile interface that turns this technical capability into a genuinely useful experience.</p>
+        </div>
+
+        <div class="overview-content">
+          <h3>Root Cause Analysis</h3>
+          <p>The problem is not just physical discomfort — it's a ritual disruption. Getting into a hot car interrupts momentum, forces drivers to idle or endure heat, and in cases with children or elderly passengers, can present genuine health risks. The current solution (remote start keys) is hardware-dependent, single-function, and unavailable on most vehicles.</p>
+
+          <div class="challenge-quote">
+            <p><strong>Design Brief:</strong> Create a mobile app that allows users to remotely activate and control their car's air conditioning system — reaching the ideal temperature before they arrive at the vehicle. The interface must feel effortless, require minimal interaction, and communicate temperature state clearly.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="temp-dial">
+        <div class="temp-dial-value">23°</div>
+        <div class="temp-dial-unit">C</div>
+        <div class="temp-dial-label">Target Cabin Temperature · Set Remotely · Arrives Cool</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PERSONA ═══ -->
+  <section id="persona" aria-labelledby="persona-title">
+    <div class="container">
+      <p class="section-eyebrow">User Persona</p>
+      <h2 class="section-title" id="persona-title">Designing for <em>Monica</em></h2>
+      <p class="section-body" style="margin-top: 24px;">
+        A single primary persona synthesised from user research — grounding all design decisions in a real, concrete human context.
+      </p>
+
+      <div class="persona-strip animate-in">
+        <div>
+          <div class="persona-id-name">Monica Bezerra</div>
+          <div class="persona-id-role">Lawyer · Age 38</div>
+          <div class="persona-id-detail">Telecommunications company</div>
+          <div class="persona-id-detail">Brasília, Brazil</div>
+          <div class="persona-id-detail" style="margin-top: 16px; font-style: italic; color: var(--color-muted);">"I need my commute to be as smooth as my morning — I can't show up to meetings sweating."</div>
+        </div>
+        <div>
+          <div>
+            <div class="persona-need-title">Goals</div>
+            <ul class="persona-need-list">
+              <li>Arrive at appointments composed and professional</li>
+              <li>Minimise friction in daily routines between work and childcare</li>
+              <li>Maintain personal wellness even in demanding schedules</li>
+              <li>Feel in control of her environment at all times</li>
+            </ul>
+          </div>
+          <div style="margin-top: 24px;">
+            <div class="persona-need-title">Frustrations</div>
+            <ul class="persona-need-list">
+              <li>Entering a scorching car after a long day at the office</li>
+              <li>Wasting time waiting for the AC to reach a bearable temperature</li>
+              <li>Current remote start options are tied to specific car models or fobs</li>
+              <li>Lack of a simple, universal smartphone solution</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROCESS ═══ -->
+  <section id="process" aria-labelledby="process-title">
+    <div class="container">
+      <p class="section-eyebrow">Design Process</p>
+      <h2 class="section-title" id="process-title">From research to <em>prototype</em></h2>
+
+      <div class="features-list">
+        <div class="feature-item animate-in">
+          <p class="feature-number">Phase 01</p>
+          <h3 class="feature-title">Discovery — Mind Map</h3>
+          <p class="feature-desc">A comprehensive mind map was built to explore all dimensions of the problem: user contexts, technical constraints, competitor solutions, and edge cases (elderly users, children, pets, extreme heat scenarios).</p>
+          <div class="feature-details">
+            <h4>Key Areas Mapped</h4>
+            <ul>
+              <li>User contexts (commute, shopping, school pickup, travel)</li>
+              <li>Temperature sensitivity profiles (health conditions, age groups)</li>
+              <li>Connectivity methods (Bluetooth, cellular, OBD-II)</li>
+              <li>Safety considerations (engine-on, garage detection, time limits)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="feature-item animate-in">
+          <p class="feature-number">Phase 02</p>
+          <h3 class="feature-title">Persona Development</h3>
+          <p class="feature-desc">Monica Bezerra was built from interview synthesis — a high-agency professional whose relationship with time and comfort reflects the core user segment: urban, working adults in hot climates who depend on their car daily.</p>
+        </div>
+
+        <div class="feature-item animate-in">
+          <p class="feature-number">Phase 03</p>
+          <h3 class="feature-title">User Journey Mapping</h3>
+          <p class="feature-desc">A full journey map traced Monica's experience from leaving her office to reaching a cool car — identifying the exact moments of frustration, the decision points, and the emotional arc the app needed to address.</p>
+          <div class="feature-details">
+            <h4>Journey Stages</h4>
+            <ul>
+              <li>Preparing to leave (packing up, gathering keys)</li>
+              <li>App trigger point (opening CAC on the way to parking)</li>
+              <li>Waiting vs. immediate departure decision</li>
+              <li>Arriving at a pre-cooled vehicle</li>
+              <li>Ongoing temperature management during the drive</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="feature-item animate-in">
+          <p class="feature-number">Phase 04</p>
+          <h3 class="feature-title">Wireframes to Hi-Fi Prototype</h3>
+          <p class="feature-desc">Sketch frames established the interaction model. Mid-fidelity wireframes validated the flow. High-fidelity screens brought the CAC visual identity to life — a dark automotive aesthetic with a signature green temperature accent.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ APP SCREENS ═══ -->
+  <section id="screens" aria-labelledby="screens-title">
+    <div class="container">
+      <p class="section-eyebrow">Hi-Fi Prototype</p>
+      <h2 class="section-title" id="screens-title">The app, <em>built</em></h2>
+      <p class="section-body" style="margin-top: 24px;">
+        High-fidelity screens showing the core application states — off, activating, and at target temperature.
+      </p>
+
+      <div class="app-screens">
+        <div class="app-screen animate-in">
+          <img src="../img/CAC/Car Air Confort/App on.png" alt="Car Air Comfort — App main screen" loading="lazy" />
+          <span class="app-screen-label">Main State</span>
+        </div>
+        <div class="app-screen animate-in">
+          <img src="../img/CAC/Car Air Confort/App on-1.png" alt="Car Air Comfort — App active state" loading="lazy" />
+          <span class="app-screen-label">Active / Cooling</span>
+        </div>
+        <div class="app-screen animate-in">
+          <img src="../img/CAC/Car Air Confort/App on-2.png" alt="Car Air Comfort — App temperature reached" loading="lazy" />
+          <span class="app-screen-label">Target Reached</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ KEY FEATURES ═══ -->
+  <section id="features" aria-labelledby="features-title">
+    <div class="container">
+      <p class="section-eyebrow">Core Features</p>
+      <h2 class="section-title" id="features-title">Design <em>decisions</em></h2>
+
+      <div class="advantage-grid">
+        <div class="advantage-card animate-in">
+          <div class="advantage-num">01</div>
+          <h3 class="advantage-title">One-Tap Activation</h3>
+          <p class="advantage-desc">The primary action — start cooling — requires a single tap. No navigation, no sub-menus. The design prioritises speed over configuration at the core interaction level.</p>
+        </div>
+        <div class="advantage-card animate-in">
+          <div class="advantage-num">02</div>
+          <h3 class="advantage-title">Real-Time Temperature Feedback</h3>
+          <p class="advantage-desc">A live cabin temperature display reassures users that the system is working. Seeing the temperature drop removes anxiety and eliminates the need to repeatedly tap or check.</p>
+        </div>
+        <div class="advantage-card animate-in">
+          <div class="advantage-num">03</div>
+          <h3 class="advantage-title">Target Temperature Presets</h3>
+          <p class="advantage-desc">Users can save preferred temperatures for different contexts — "Morning commute", "School pickup", "After gym" — reducing decision fatigue on repeat journeys.</p>
+        </div>
+        <div class="advantage-card animate-in">
+          <div class="advantage-num">04</div>
+          <h3 class="advantage-title">Smart Safety Limits</h3>
+          <p class="advantage-desc">Automatic shutoff after 10 minutes if no motion is detected near the vehicle. Garage detection disables activation in enclosed spaces. Safety without friction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ NEXT PROJECT ═══ -->
+  <section id="next-project" aria-labelledby="next-title">
+    <div class="container">
+      <p class="section-eyebrow" style="margin-bottom: 32px;">More Work</p>
+      <div class="next-inner" role="list" aria-labelledby="next-title">
+        <h2 class="sr-only" id="next-title">Other case studies</h2>
+
+        <a href="case-study-elearn-app.html" class="next-card" role="listitem" aria-label="Next case study: Elearn App">
+          <p class="next-label">Next Case Study</p>
+          <h3 class="next-title">Educational Platform — Jalasoft</h3>
+          <p class="next-desc">Research-driven LMS for bootcamp students, teachers and managers.</p>
+          <div class="next-img">
+            <div class="img-placeholder" role="img">
+              <span class="img-placeholder-label" style="font-size:9px">Thumbnail · Elearn App</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="case-study-aqua.html" class="next-card" role="listitem" aria-label="Case study: Aqua App">
+          <p class="next-label">Also Worth Seeing</p>
+          <h3 class="next-title">Aqua — Astrological Dating App</h3>
+          <p class="next-desc">Finding cosmic compatibility through Synastry calculations.</p>
+          <div class="next-img">
+            <div class="img-placeholder" role="img">
+              <span class="img-placeholder-label" style="font-size:9px">Thumbnail · Aqua App</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer role="contentinfo">
+  <div class="container">
+    <p class="footer-copy">© 2026 Abdalla Design · João — Senior UX/UI Designer</p>
+    <nav class="footer-socials" aria-label="Social media links">
+      <a href="https://abdalladesigns.framer.website" target="_blank" rel="noopener">Portfolio</a>
+      <a href="https://www.linkedin.com/in/abdalladesign/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.behance.net/joaoabdalla" target="_blank" rel="noopener">Behance</a>
+      <a href="https://dribbble.com/abdalladesign" target="_blank" rel="noopener">Dribbble</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.animate-in').forEach(function(el) {
+    observer.observe(el);
+  });
+})();
+</script>
+</body>
+</html>

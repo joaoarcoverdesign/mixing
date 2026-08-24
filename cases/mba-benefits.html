@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Benefits Advice · Case Study · Abdalla Design</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../CSS/case-v5.css" />
+</head>
+
+<body>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a href="#" class="nav-back" aria-label="Back to portfolio">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M10 3L5 8l5 5"/>
+      </svg>
+      Portfolio
+    </a>
+
+    <a href="#" class="nav-brand" aria-label="Abdalla Design home">
+      Abdalla Design
+    </a>
+
+    <a href="#" class="nav-next" aria-label="Next case study">
+      Next
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 3l5 5-5 5"/>
+      </svg>
+    </a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ═══ HERO ═══ -->
+  <section id="hero" aria-labelledby="hero-title">
+    <div class="container">
+      <div class="hero-meta" role="list">
+        <span class="meta-tag" role="listitem">Product Design</span>
+        <span class="meta-tag highlight" role="listitem">Healthcare SaaS</span>
+        <span class="meta-tag" role="listitem">Multi-Role Platform</span>
+        <span class="meta-tag" role="listitem">Web + Mobile</span>
+      </div>
+
+      <h1 class="hero-title" id="hero-title">
+        My Benefits Advice<br/><em>Healthcare Enrollment, Simplified</em>
+      </h1>
+
+      <p class="hero-subtitle">
+        Designing a multi-role healthcare benefits administration platform for the US market, connecting employers, brokers, and employees through a personalized recommendation engine built from zero.
+      </p>
+
+      <div class="hero-specs" role="list">
+        <div class="spec-item" role="listitem">
+          <p class="spec-label">Client</p>
+          <p class="spec-value">My Benefits Advice</p>
+        </div>
+        <div class="spec-item" role="listitem">
+          <p class="spec-label">My Role</p>
+          <p class="spec-value">Lead Product Designer</p>
+        </div>
+        <div class="spec-item" role="listitem">
+          <p class="spec-label">Timeline</p>
+          <p class="spec-value">2024</p>
+        </div>
+        <div class="spec-item" role="listitem">
+          <p class="spec-label">Deliverables</p>
+          <p class="spec-value">UX Architecture · UI Design · Design System · Mobile</p>
+        </div>
+      </div>
+
+      <div class="hero-cover">
+        <!-- REPLACE with: 595shots_so.png (two iPhones, teal gradient) -->
+        <img
+          src="../img/mba/595shots_so.png"
+          alt="My Benefits Advice Employee journey on mobile: login, recommendation engine, and personal profile screens"
+          style="width:100%; display:block;"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ OVERVIEW ═══ -->
+  <section id="overview" aria-labelledby="overview-title">
+    <div class="container">
+      <p class="section-eyebrow">Overview</p>
+      <h2 class="section-title" id="overview-title">The project <em>at a glance</em></h2>
+
+      <div class="overview-layout">
+        <div class="overview-sidebar">
+          <h3>Context</h3>
+          <p>My Benefits Advice is a Colorado-based startup building a healthcare benefits administration (BenAdmin) platform for the US market, competing directly with established enterprise players.</p>
+
+          <h3>My Contribution</h3>
+          <p>I owned end-to-end UX and UI across four distinct user surfaces: Admin Portal, Employer Setup, Broker Dashboard, and the Employee Journey. Working as an independent contractor, I led the product from concept definition through shipped product.</p>
+
+          <div class="role-tags" role="list" aria-label="Skills applied">
+            <span class="role-tag" role="listitem">UX Architecture</span>
+            <span class="role-tag" role="listitem">Information Architecture</span>
+            <span class="role-tag" role="listitem">Interaction Design</span>
+            <span class="role-tag" role="listitem">UI Design</span>
+            <span class="role-tag" role="listitem">Design System</span>
+            <span class="role-tag" role="listitem">Mobile Design</span>
+          </div>
+        </div>
+
+        <div class="overview-content">
+          <h3>The core product</h3>
+          <p>The platform connects four user types MBA Admin, Broker, Employer, and Employee. Each has distinct permissions, data access, and workflows. The system orchestrates a complete enrollment lifecycle: from employer setup and census import to employee recommendation and plan election.</p>
+
+          <p>The product's core differentiator is the <strong>recommendation engine</strong>: employees complete a weighted survey and receive a personalized health plan recommendation, making a complex, high-stakes decision feel guided and human.</p>
+
+          <div class="challenge-quote">
+            <p><strong>The hardest design challenge:</strong> Building trust in a platform that handles SSNs, payroll data, and healthcare decisions. Users range ranging from corporate HR teams to frontline employees with varying tech comfort. Security couldn't just be implemented. It had to be felt.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROBLEM ═══ -->
+  <section id="problem" aria-labelledby="problem-title">
+    <div class="container">
+      <p class="section-eyebrow">The Challenge</p>
+      <h2 class="section-title" id="problem-title">
+        Benefits enrollment was<br/><em>broken for everyone</em>
+      </h2>
+      <p class="section-body" style="max-width:480px; margin-top: 20px;">
+        The existing BenAdmin market forces all user types into the same dense, confusing interface. Employers can't see what employees need. Employees can't understand what they're choosing.
+      </p>
+
+      <div class="problem-cards" aria-label="Key problems identified">
+        <div class="problem-card animate-in" role="article">
+          <p class="problem-card-num">Problem 01</p>
+          <p class="problem-card-text"><strong>No role-based experience.</strong> Existing platforms mixed employer, broker, and employee contexts into a single UI, creating confusion, data exposure risks, and costly HR support tickets.</p>
+        </div>
+        <div class="problem-card animate-in" role="article">
+          <p class="problem-card-num">Problem 02</p>
+          <p class="problem-card-text"><strong>Employees guessing at plan selection.</strong> No guidance, no personalization. Just a list of plans with insurance jargon, leading to high abandonment, poor enrollment rates, and frustrated HR teams dealing with the fallout.</p>
+        </div>
+        <div class="problem-card animate-in" role="article">
+          <p class="problem-card-num">Problem 03</p>
+          <p class="problem-card-text"><strong>Census management was a nightmare.</strong> Employers had no structured, validated way to import employee data. Manual entry errors created compliance risk and enrollment delays across the board.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROCESS ═══ -->
+  <section id="process" aria-labelledby="process-title">
+    <div class="container">
+      <div class="process-header">
+        <p class="section-eyebrow">Design Process</p>
+        <h2 class="section-title" id="process-title">From four user types to <em>one coherent system</em></h2>
+        <p class="section-body" style="margin-top: 24px;">
+          The platform required designing four distinct experiences that shared a single data model. I mapped all user journeys, defined the permission architecture, then designed surface by surface keeping data consistency as the north star throughout.
+        </p>
+      </div>
+
+      <div class="process-timeline">
+
+        <div class="process-step animate-in">
+          <p class="process-num">Step 01</p>
+          <h3 class="process-title">User Architecture & Permission Mapping</h3>
+          <p class="process-desc">Mapped four user types (MBA Admin, Broker, Employer, Employee) into a permission model defining who sees what, who can edit what, and how users are created and invited across the system. This architecture became the foundation for every design decision that followed.</p>
+        </div>
+
+        <div class="process-step animate-in">
+          <p class="process-num">Step 02</p>
+          <h3 class="process-title">Wireframing the Employee Journey</h3>
+          <p class="process-desc">The Employee Journey login, profile, survey, recommendation, election, confirmation was the most complex flow in the product. I wireframed both mobile and desktop in parallel, mapping every state including edge cases: out-of-enrollment-period, SSN verification failed, and dependent management.</p>
+          <div class="process-img">
+            <!-- REPLACE with: wireframe overview image (WF- Employee Journey) -->
+            <img
+              src="../img/mba/wf-employee-journey.png"
+              alt="Wireframe overview Employee Journey v2 mobile and desktop, showing Add Dependent, Recommendation, and Confirmation flows"
+              style="width:100%; display:block; border-radius: 8px;"
+            />
+          </div>
+        </div>
+
+        <div class="process-step animate-in">
+          <p class="process-num">Step 03</p>
+          <h3 class="process-title">Employer Setup Multi-Step Wizard</h3>
+          <p class="process-desc">Designed a 5-step employer onboarding wizard covering company info, communications configuration, enrollment dates, contacts, and product/payment setup. The challenge: making a complex compliance-heavy flow feel manageable for HR teams with no technical background.</p>
+          <div class="process-img">
+            <!-- REPLACE with: Employer_Setup_22.png -->
+            <img
+              src="../img/mba/Employer_Setup_22.png"
+              alt="Employer Setup Step 4 Contacts screen showing main contact, payroll contact, CSV census upload, enrollers assignment, and employee search"
+              style="width:100%; display:block; border-radius: 8px;"
+            />
+          </div>
+        </div>
+
+        <div class="process-step animate-in">
+          <p class="process-num">Step 04</p>
+          <h3 class="process-title">High-Fidelity UI All Four Surfaces</h3>
+          <p class="process-desc">Built high-fidelity screens across Admin Portal, Employer Dashboard, Broker Dashboard, and Employee Journey maintaining visual consistency while keeping each surface contextually appropriate for its user. The design system ensured components could be shared across surfaces without context bleed.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ THE WORK / MOCKUPS ═══ -->
+  <section id="mockups" aria-labelledby="mockups-title">
+    <div class="container">
+      <div class="mockups-header">
+        <p class="section-eyebrow">The Work</p>
+        <h2 class="section-title" id="mockups-title">Selected <em>screens</em></h2>
+        <p class="section-body">Admin command center, employer setup, and the employee recommendation flow the three surfaces that define the product.</p>
+      </div>
+
+      <div class="mockup-grid-primary">
+        <div class="mockup-cell mockup-cell-lg">
+          <!-- REPLACE with: 809shots_so.png (desktop browser, recommendation screen) -->
+          <img
+            src="../img/mba/809shots_so.png"
+            alt="My Benefits Advice Desktop view of Step 3: recommendation screen showing Universal Life with Long Term Care plan options and custom coverage slider"
+            style="width:100%; height:100%; object-fit:cover; border-radius: 8px;"
+          />
+        </div>
+        <div class="mockup-cell mockup-cell-lg">
+          <!-- REPLACE with: Admin list of employers screenshot -->
+          <img
+            src="../img/mba/admin-list-cases.png"
+            alt="Admin Portal List of employers showing Cases, Products, State, N Employees, Enrollment Period, and contextual Actions menu"
+            style="width:100%; height:100%; object-fit:cover; border-radius: 8px;"
+          />
+        </div>
+      </div>
+
+      <div class="mockup-grid-secondary">
+        <div class="mockup-cell mockup-cell-sm">
+          <!-- REPLACE with: MBA-MOB.png (three iPhones) -->
+          <img
+            src="../img/mba/MBA-MOB.png"
+            alt="Mobile flow Login, recommendation engine, and personal profile screens on iPhone"
+            style="width:100%; height:100%; object-fit:cover; border-radius: 8px;"
+          />
+        </div>
+        <div class="mockup-cell mockup-cell-sm">
+          <!-- REPLACE with: mba-employee_Jpurmey_-_add_dependent_8.png -->
+          <img
+            src="../img/mba/mba-employee_Jpurmey_-_add_dependent_8.png"
+            alt="Employee Journey Personal Profile screen showing SSN field, date of birth, and Spouse/Dependents management"
+            style="width:100%; height:100%; object-fit:cover; border-radius: 8px;"
+          />
+        </div>
+        <div class="mockup-cell mockup-cell-sm">
+          <!-- REPLACE with: Employer_Setup_22.png cropped -->
+          <img
+            src="../img/mba/Employer_Setup_22.png"
+            alt="Employer Setup Step 4 Contacts with CSV census upload dropzone and enrollers assignment"
+            style="width:100%; height:100%; object-fit:cover; border-radius: 8px;"
+          />
+        </div>
+      </div>
+
+      <div class="mockup-caption">
+        <span class="mockup-caption-num" aria-hidden="true">↑</span>
+        <p class="mockup-caption-text">Desktop recommendation engine, Admin employer list, mobile employee journey, dependent management, and employer setup wizard five surfaces, one coherent system.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DESIGN DECISIONS ═══ -->
+  <section id="decisions" aria-labelledby="decisions-title">
+    <div class="container">
+      <div class="decisions-header">
+        <p class="section-eyebrow">Design Decisions</p>
+        <h2 class="section-title" id="decisions-title">Key choices<br/>and <em>why</em></h2>
+        <p class="section-body">The reasoning behind the most important decisions not just what was built, but the thinking that got there.</p>
+      </div>
+
+      <div class="decisions-grid" role="list">
+
+        <div class="decision-card animate-in" role="listitem">
+          <p class="decision-num">Decision 01</p>
+          <div class="decision-img">
+            <!-- REPLACE with: 595shots_so.png -->
+            <img
+              src="../img/mba/595shots_so.png"
+              alt="Employee journey mobile screens showing step-by-step progression"
+              style="width:100%; height:100%; object-fit:cover; border-radius:6px;"
+            />
+          </div>
+          <h3 class="decision-title">Trust Barrier as Guided Onboarding</h3>
+          <p class="decision-body">SSN verification is a compliance requirement but it's also the moment employees are most likely to abandon. Instead of hiding the friction, I made it a visible progression: Register → Verify SSN → Unlock full access. Each step communicated security proactively, reducing abandonment by reframing verification as protection, not obstacle.</p>
+        </div>
+
+        <div class="decision-card animate-in" role="listitem">
+          <p class="decision-num">Decision 02</p>
+          <div class="decision-img">
+            <!-- REPLACE with: admin-list-cases screenshot -->
+            <img
+              src="../img/mba/admin-list-cases.png"
+              alt="Admin list showing employer data filtered by role permissions"
+              style="width:100%; height:100%; object-fit:cover; border-radius:6px;"
+            />
+          </div>
+          <h3 class="decision-title">Permission-First Data Filtering</h3>
+          <p class="decision-body">Rather than showing all data and disabling what users can't touch, I pre-filtered every list, dropdown, and table to the user's permission scope. An Employer user never sees other employers' data. A Broker sees only their group. This prevents errors before they happen no error messages needed in the happy path.</p>
+        </div>
+
+        <div class="decision-card animate-in" role="listitem">
+          <p class="decision-num">Decision 03</p>
+          <div class="decision-img">
+            <!-- REPLACE with: 809shots_so.png (recommendation screen) -->
+            <img
+              src="../img/mba/809shots_so.png"
+              alt="Recommendation engine showing plan options with Recommended badge and custom coverage slider"
+              style="width:100%; height:100%; object-fit:cover; border-radius:6px;"
+            />
+          </div>
+          <h3 class="decision-title">Making the Recommendation Visible</h3>
+          <p class="decision-body">The recommendation engine is the product's core differentiator but only if employees trust it. I designed the output to show a "Recommended" badge on the best-fit plan, a custom slider for coverage adjustment, and benefit breakdowns in plain English. The goal: make a complex actuarial output feel like personalized advice, not a black box.</p>
+        </div>
+
+        <div class="decision-card animate-in" role="listitem">
+          <p class="decision-num">Decision 04</p>
+          <div class="decision-img">
+            <!-- REPLACE with: modals CSV import success/error screenshots -->
+            <img
+              src="../img/mba/modals-csv.png"
+              alt="CSV import modals showing success state and error state with field-level feedback"
+              style="width:100%; height:100%; object-fit:cover; border-radius:6px;"
+            />
+          </div>
+          <h3 class="decision-title">CSV Import with Inline Validation</h3>
+          <p class="decision-body">Employers import hundreds of employee records via CSV and errors in that data have real compliance consequences. I designed a three-state validation flow: upload → field mapping confirmation → success or field-level error report. HR teams see exactly which rows failed and why, before committing the import. No silent failures.</p>
+        </div>
+
+        <div class="decision-card animate-in" role="listitem">
+          <p class="decision-num">Decision 05</p>
+          <div class="decision-img">
+            <!-- REPLACE with: Employer_Setup_22.png -->
+            <img
+              src="../img/mba/Employer_Setup_22.png"
+              alt="Employer Setup 5-step wizard with progress sidebar"
+              style="width:100%; height:100%; object-fit:cover; border-radius:6px;"
+            />
+          </div>
+          <h3 class="decision-title">5-Step Wizard for Employer Onboarding</h3>
+          <p class="decision-body">Employer setup involves compliance-heavy decisions: enrollment windows, payroll contacts, product elections, and employee census import. A single long form would feel overwhelming. I broke it into a 5-step wizard with a persistent progress sidebar each step scoped to one domain, with clear completion states. Complexity without overwhelm.</p>
+        </div>
+
+        <div class="decision-card animate-in" role="listitem">
+          <p class="decision-num">Decision 06</p>
+          <div class="decision-img">
+            <!-- REPLACE with: MBA-Employee_Journey__1_.png or __2_.png -->
+            <img
+              src="../img/mba/MBA-Employee_Journey__1_.png"
+              alt="Mobile-first employee journey designed for shared and personal devices"
+              style="width:100%; height:100%; object-fit:cover; border-radius:6px;"
+            />
+          </div>
+          <h3 class="decision-title">Mobile-First Employee Experience</h3>
+          <p class="decision-body">While employers and admins work on desktop, employees complete enrollment on their phones often during onboarding sessions or open enrollment events. I designed the employee journey mobile-first: large tap targets, step-by-step progression, and a UI that works in both personal and employer-provided device contexts.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ RESULTS ═══ -->
+  <section id="results" aria-labelledby="results-title">
+    <div class="container">
+      <div class="results-layout">
+        <div class="results-sticky">
+          <p class="section-eyebrow">Outcome</p>
+          <h2 class="section-title" id="results-title">The<br/><em>impact</em></h2>
+          <p class="section-body" style="margin-top: 16px;">
+            The platform is live and active at mybenefitsadvice.com. As an independent contractor, post-launch analytics are outside my engagement scope. The design system and UX architecture I delivered became the foundation the product is built on.
+          </p>
+
+          <div class="testimonial-block">
+            <p class="testimonial-text">"Designed and delivered a custom software solution from scratch, from market research through implementation. Created user-centric designs ensuring seamless navigation and accessibility for a diverse user base."</p>
+            <p class="testimonial-author">Project scope, My Benefits Advice · Colorado, USA · 2024</p>
+          </div>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="metric-cell animate-in" role="article">
+            <div class="metric-num">4</div>
+            <div class="metric-label">User Roles Designed</div>
+            <div class="metric-desc">Admin, Broker, Employer, and Employee. Each with distinct permissions, data visibility, and workflows</div>
+          </div>
+          <div class="metric-cell animate-in" role="article">
+            <div class="metric-num">5</div>
+            <div class="metric-label">Platform Areas</div>
+            <div class="metric-desc">Admin Portal, Employer Setup, Broker Dashboard, Employee Journey, and Reporting. All built from zero</div>
+          </div>
+          <div class="metric-cell animate-in" role="article">
+            <div class="metric-num">2×</div>
+            <div class="metric-label">Platform Coverage</div>
+            <div class="metric-desc">Full desktop web experience for employers and admins, plus a mobile-first journey for employees</div>
+          </div>
+          <div class="metric-cell animate-in" role="article">
+            <div class="metric-num">✓</div>
+            <div class="metric-label">Shipped & Live</div>
+            <div class="metric-desc">Product launched to the US healthcare benefits market and is actively used by employer groups</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ LEARNINGS ═══ -->
+  <section id="learnings" aria-labelledby="learnings-title">
+    <div class="container">
+      <p class="section-eyebrow">Learnings</p>
+      <h2 class="section-title" id="learnings-title">What I<br/><em>took away</em></h2>
+
+      <div class="learnings-grid" role="list">
+        <div class="learning-card animate-in" role="listitem">
+          <p class="learning-type type-win">What worked well</p>
+          <h3 class="learning-title">Permission Architecture First</h3>
+          <p class="learning-body">Mapping the full permission model before designing any screens was the best decision of the project. It prevented dozens of downstream design conflicts and gave the engineering team a clear data model to implement against. In multi-role SaaS, architecture is design.</p>
+        </div>
+
+        <div class="learning-card animate-in" role="listitem">
+          <p class="learning-type type-challenge">What I'd push further</p>
+          <h3 class="learning-title">Earlier User Testing on the Recommendation Output</h3>
+          <p class="learning-body">The recommendation engine was the product's biggest differentiator, but also its biggest risk. Employees had to trust an algorithm with a healthcare decision. I'd invest more time validating the output design with real employees before finalizing: does the "Recommended" label feel trustworthy, or does it feel pushy?</p>
+        </div>
+
+        <div class="learning-card animate-in" role="listitem">
+          <p class="learning-type type-win">Key insight</p>
+          <h3 class="learning-title">Compliance UX Is a Design Opportunity</h3>
+          <p class="learning-body">SSN verification, enrollment windows, and data consent are legally required, and most platforms treat them as UI debt. I found that designing these constraints with care (clear language, visible progress, proactive security cues) actually built more trust than hiding them would have. Compliance became a feature, not a footnote.</p>
+        </div>
+
+        <div class="learning-card animate-in" role="listitem">
+          <p class="learning-type type-challenge">Constraint I navigated</p>
+          <h3 class="learning-title">Designing for Four Users Simultaneously</h3>
+          <p class="learning-body">Every screen, modal, and navigation state had to make sense within its user's context, while sharing the same underlying data. The hardest part wasn't designing any single surface. The real challenge was maintaining coherence across all four without letting one user's complexity bleed into another's experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ NEXT PROJECT ═══ -->
+  <section id="next-project" aria-labelledby="next-title">
+    <div class="container">
+      <p class="section-eyebrow" style="margin-bottom: 32px;">More Work</p>
+
+      <div class="next-inner" role="list" aria-labelledby="next-title">
+        <h2 class="sr-only" id="next-title">Other case studies</h2>
+
+        <a href="#" class="next-card" role="listitem" aria-label="Next case study: WinTeam Kiosk">
+          <p class="next-label">Next Case Study</p>
+          <h3 class="next-title">WinTeam Kiosk Device</h3>
+          <p class="next-desc">Dual-platform system for enterprise workforce time tracking at scale.</p>
+          <div class="next-img">
+            <div class="img-placeholder" role="img" aria-label="Thumbnail WinTeam Kiosk">
+              <span class="img-placeholder-label" style="font-size:9px">Thumbnail · WinTeam Kiosk</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="next-card" role="listitem" aria-label="Case study: Vault Network">
+          <p class="next-label">Also Worth Seeing</p>
+          <h3 class="next-title">Vault Network</h3>
+          <p class="next-desc">End-to-end design of a private market social product, from zero to shipped.</p>
+          <div class="next-img">
+            <div class="img-placeholder" role="img" aria-label="Thumbnail Vault Network">
+              <span class="img-placeholder-label" style="font-size:9px">Thumbnail · Vault Network</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer role="contentinfo">
+  <div class="container">
+    <p class="footer-copy">© 2025 Abdalla Design · João, Senior UX/UI Designer</p>
+    <nav class="footer-socials" aria-label="Social media links">
+      <a href="https://abdalladesigns.framer.website" target="_blank" rel="noopener">Portfolio</a>
+      <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#" target="_blank" rel="noopener">Behance</a>
+      <a href="#" target="_blank" rel="noopener">Dribbble</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  /* ── Scroll animations ── */
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.animate-in').forEach(function(el) {
+    observer.observe(el);
+  });
+
+})();
+</script>
+</body>
+</html>

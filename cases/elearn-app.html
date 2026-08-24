@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Educational Platform — Jalasoft Bootcamps · Case Study · Abdalla Design</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../CSS/case-v5.css" />
+
+  <style>
+    .elearn-cover {
+      background: linear-gradient(135deg, #1A0A0E 0%, #2D0E16 50%, #1A0A0E 100%);
+      width: 100%; aspect-ratio: 16/7;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden; border-radius: var(--radius-card);
+      margin-top: 48px;
+    }
+    .elearn-cover-glyph {
+      font-family: var(--font-display); font-size: 160px; font-weight: 900;
+      color: rgba(239,41,61,0.12); letter-spacing: -0.06em; user-select: none;
+    }
+    .elearn-cover-label {
+      position: absolute; bottom: 32px; left: 32px;
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4);
+    }
+    .elearn-accent { color: #EF293D; }
+    .process-steps {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2px; margin-top: 40px;
+    }
+    .process-step {
+      background: var(--color-surface); padding: 28px 24px;
+      border: 1px solid var(--color-border);
+    }
+    .process-step-num {
+      font-family: var(--font-mono); font-size: 10px;
+      color: #EF293D; letter-spacing: 0.12em; margin-bottom: 12px;
+    }
+    .process-step-title { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+    .process-step-desc { font-size: 13px; color: var(--color-muted); line-height: 1.5; }
+    .persona-card {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      padding: 32px; border-left: 4px solid #EF293D;
+    }
+    .persona-name { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+    .persona-role { font-family: var(--font-mono); font-size: 11px; color: var(--color-muted); letter-spacing: 0.08em; margin-bottom: 20px; }
+    .persona-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; }
+    .persona-section-title { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 10px; }
+    .persona-list { list-style: none; padding: 0; }
+    .persona-list li { font-size: 13px; color: var(--color-muted-2); padding: 4px 0; border-bottom: 1px solid var(--color-border); }
+    .insight-row {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 40px;
+    }
+    .insight-item {
+      background: var(--color-surface); padding: 32px 28px;
+      border: 1px solid var(--color-border);
+    }
+    .insight-actor {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: #EF293D; margin-bottom: 12px;
+    }
+    .insight-quote {
+      font-size: 14px; font-style: italic; color: var(--color-muted-2);
+      line-height: 1.6; border-left: 2px solid var(--color-border); padding-left: 16px;
+    }
+    @media (max-width: 768px) {
+      .insight-row { grid-template-columns: 1fr; }
+      .persona-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a href="../portfolio-v3.html" class="nav-back" aria-label="Back to portfolio">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M10 3L5 8l5 5"/>
+      </svg>
+      Portfolio
+    </a>
+
+    <a href="../portfolio-v3.html" class="nav-brand" aria-label="Abdalla Design home">
+      Abdalla Design
+    </a>
+
+    <a href="case-study-aqua.html" class="nav-next" aria-label="Next case study">
+      Next
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 3l5 5-5 5"/>
+      </svg>
+    </a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ═══ HERO ═══ -->
+  <section id="hero" aria-labelledby="hero-title">
+    <div class="container">
+      <div class="hero-meta" role="list">
+        <span class="meta-tag" role="listitem">Edtech</span>
+        <span class="meta-tag highlight" role="listitem">Educational Platform</span>
+        <span class="meta-tag" role="listitem">UX Research</span>
+        <span class="meta-tag" role="listitem">Web App</span>
+      </div>
+
+      <h1 class="hero-title" id="hero-title">
+        Educational App for <em>Jalasoft Bootcamps</em>
+      </h1>
+
+      <p class="hero-subtitle">
+        A research-driven platform built for students, teachers, and managers — bridging the gap between engineering talent and user-centred design across LATAM bootcamps.
+      </p>
+
+      <div class="hero-specs" role="list">
+        <div class="spec-item" role="listitem">
+          <p class="spec-label">Role</p>
+          <p class="spec-value">Lead UX/UI Designer</p>
+        </div>
+        <div class="spec-item" role="listitem">
+          <p class="spec-label">Client</p>
+          <p class="spec-value">Jalasoft<br/>Jala University</p>
+        </div>
+        <div class="spec-item" role="listitem">
+          <p class="spec-label">Platform</p>
+          <p class="spec-value">Web Application</p>
+        </div>
+        <div class="spec-item" role="listitem">
+          <p class="spec-label">Scope</p>
+          <p class="spec-value">Research · IA · UX · UI<br/>Prototyping</p>
+        </div>
+      </div>
+
+      <div class="elearn-cover" role="img" aria-label="Educational Platform cover">
+        <span class="elearn-cover-glyph">Ed</span>
+        <span class="elearn-cover-label">Jalasoft Educational Platform · Bootcamp LMS</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ OVERVIEW ═══ -->
+  <section id="overview" aria-labelledby="overview-title">
+    <div class="container">
+      <p class="section-eyebrow">Overview</p>
+      <h2 class="section-title" id="overview-title">The <em>challenge</em></h2>
+
+      <div class="overview-layout">
+        <div class="overview-sidebar">
+          <h3>Context</h3>
+          <p>Jalasoft and Jala University run intensive technology bootcamps for LATAM engineers and CS students. The existing tools were fragmented — students, teachers, and administrators operated in siloed, ad-hoc workflows with no unified digital experience.</p>
+
+          <h3>Mission</h3>
+          <p>Design a cohesive educational platform that addresses the distinct needs of three user profiles, from onboarding to progress tracking and bootcamp management.</p>
+        </div>
+
+        <div class="overview-content">
+          <h3>What We Found</h3>
+          <p>Through stakeholder interviews across all three user groups, clear pain points emerged. Students wanted a more immersive and structured experience — not just exercises, but real design processes. Teachers lacked tools for syllabus visibility and student communication. Administrators needed systems to detect students at risk of dropout before it happened.</p>
+
+          <div class="challenge-quote">
+            <p><strong>Core Design Tension:</strong> The platform needed to serve radically different mental models — a student learning by doing, a teacher managing a cohort, and an administrator monitoring health metrics — within a single unified system.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ RESEARCH INSIGHTS ═══ -->
+  <section id="research" aria-labelledby="research-title">
+    <div class="container">
+      <p class="section-eyebrow">User Research</p>
+      <h2 class="section-title" id="research-title">Voices from the <em>field</em></h2>
+      <p class="section-body" style="margin-top: 24px;">
+        Structured interviews with students, teachers, and administrators revealed three distinct sets of needs that shaped the entire design strategy.
+      </p>
+
+      <div class="insight-row">
+        <div class="insight-item animate-in">
+          <p class="insight-actor">Students</p>
+          <p class="insight-quote">"Better onboarding experience, more focus on UI, real projects that included the entire design process — not just fragments."</p>
+        </div>
+        <div class="insight-item animate-in">
+          <p class="insight-actor">Teachers</p>
+          <p class="insight-quote">"We need syllabus visibility, staff communication channels, and a way to track where each student actually is in their learning journey."</p>
+        </div>
+        <div class="insight-item animate-in">
+          <p class="insight-actor">Administrators</p>
+          <p class="insight-quote">"If we could see early warning signals — who might drop out, who's falling behind — we could intervene before it's too late."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PERSONAS ═══ -->
+  <section id="personas" aria-labelledby="personas-title">
+    <div class="container">
+      <p class="section-eyebrow">Proto-Personas</p>
+      <h2 class="section-title" id="personas-title">Understanding the <em>users</em></h2>
+      <p class="section-body" style="margin-top: 24px;">
+        Three proto-personas built from interview synthesis — grounded in real behaviours, not assumptions.
+      </p>
+
+      <div class="features-list" style="margin-top: 40px;">
+        <div class="feature-item animate-in">
+          <p class="feature-number">Persona 01</p>
+          <h3 class="feature-title">The Bootcamp Student</h3>
+          <p class="feature-desc">Junior engineer transitioning into design. Motivated but overwhelmed by lack of structure and unclear expectations. Wants guided real-world projects, not abstract exercises.</p>
+          <div class="feature-details">
+            <h4>Key Needs</h4>
+            <ul>
+              <li>Clear onboarding that sets expectations from day one</li>
+              <li>UI-focused lessons with tangible visual outcomes</li>
+              <li>Access to the full design process — research through handoff</li>
+              <li>Feedback loops that show progress</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="feature-item animate-in">
+          <p class="feature-number">Persona 02</p>
+          <h3 class="feature-title">The Bootcamp Teacher</h3>
+          <p class="feature-desc">Senior designer or experienced practitioner tasked with structuring and delivering curriculum. Manages cohorts without dedicated communication tools.</p>
+          <div class="feature-details">
+            <h4>Key Needs</h4>
+            <ul>
+              <li>Syllabus builder with visibility into delivery schedule</li>
+              <li>Direct communication channel with students and staff</li>
+              <li>Per-student progress tracking and performance signals</li>
+              <li>Resource library for sharing materials</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="feature-item animate-in">
+          <p class="feature-number">Persona 03</p>
+          <h3 class="feature-title">The Bootcamp Manager</h3>
+          <p class="feature-desc">Operational administrator overseeing multiple bootcamp cohorts. Needs macro visibility to identify risk before it becomes attrition.</p>
+          <div class="feature-details">
+            <h4>Key Needs</h4>
+            <ul>
+              <li>Dashboard with cohort health indicators</li>
+              <li>Early warning system for at-risk students</li>
+              <li>Bootcamp configuration and scheduling tools</li>
+              <li>Reporting for outcomes and completion rates</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROCESS ═══ -->
+  <section id="process" aria-labelledby="process-title">
+    <div class="container">
+      <p class="section-eyebrow">Design Process</p>
+      <h2 class="section-title" id="process-title">From insight to <em>interface</em></h2>
+
+      <div class="process-steps">
+        <div class="process-step animate-in">
+          <p class="process-step-num">Step 01</p>
+          <h3 class="process-step-title">Discovery</h3>
+          <p class="process-step-desc">Stakeholder interviews across all three user groups. Affinity mapping to cluster pain points by theme.</p>
+        </div>
+        <div class="process-step animate-in">
+          <p class="process-step-num">Step 02</p>
+          <h3 class="process-step-title">Synthesis</h3>
+          <p class="process-step-desc">Empathy mapping and Value Proposition Canvas for each persona. "How Might We" exercises to reframe challenges as opportunities.</p>
+        </div>
+        <div class="process-step animate-in">
+          <p class="process-step-num">Step 03</p>
+          <h3 class="process-step-title">Architecture</h3>
+          <p class="process-step-desc">Information architecture defining role-based access, navigation structure, and content hierarchy for each user type.</p>
+        </div>
+        <div class="process-step animate-in">
+          <p class="process-step-num">Step 04</p>
+          <h3 class="process-step-title">Wireframes</h3>
+          <p class="process-step-desc">Low and mid-fidelity wireframes for priority screens. Iterative cycles with stakeholder feedback at each step.</p>
+        </div>
+        <div class="process-step animate-in">
+          <p class="process-step-num">Step 05</p>
+          <h3 class="process-step-title">UI Design</h3>
+          <p class="process-step-desc">High-fidelity interface using Manrope and Nunito typefaces, with a primary palette anchored by <span class="elearn-accent">#EF293D</span> — the Jalasoft brand red.</p>
+        </div>
+        <div class="process-step animate-in">
+          <p class="process-step-num">Step 06</p>
+          <h3 class="process-step-title">Prototype</h3>
+          <p class="process-step-desc">Interactive Figma prototype with full user flows for all three personas — validated in usability sessions with real bootcamp participants.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ KEY SCREENS ═══ -->
+  <section id="screens" aria-labelledby="screens-title">
+    <div class="container">
+      <p class="section-eyebrow">Design Deliverables</p>
+      <h2 class="section-title" id="screens-title">Priority <em>screens</em></h2>
+
+      <div class="features-list">
+        <div class="feature-item animate-in">
+          <p class="feature-number">Screen 01</p>
+          <h3 class="feature-title">Student Dashboard & Onboarding</h3>
+          <p class="feature-desc">A welcoming entry point that contextualises where the student is in their bootcamp journey. Progress rings, active modules, and upcoming deadlines at a glance.</p>
+          <div class="feature-visual">
+            <div class="img-placeholder" style="min-height: 320px;" role="img">
+              <span class="img-placeholder-label">Student Dashboard · Onboarding Flow</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-item animate-in">
+          <p class="feature-number">Screen 02</p>
+          <h3 class="feature-title">Teacher — Syllabus Builder</h3>
+          <p class="feature-desc">A drag-and-drop curriculum builder allowing teachers to structure modules, assign materials, and publish their schedule to students in one workflow.</p>
+        </div>
+
+        <div class="feature-item animate-in">
+          <p class="feature-number">Screen 03</p>
+          <h3 class="feature-title">Admin — Cohort Health Monitor</h3>
+          <p class="feature-desc">Real-time dashboard showing engagement rates, completion percentages, and at-risk student flags — enabling proactive intervention before dropout occurs.</p>
+          <div class="feature-visual">
+            <div class="img-placeholder" style="min-height: 280px;" role="img">
+              <span class="img-placeholder-label">Admin Dashboard · Cohort Health Monitor</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-item animate-in">
+          <p class="feature-number">Screen 04</p>
+          <h3 class="feature-title">Project Submission Flow</h3>
+          <p class="feature-desc">End-to-end submission experience where students upload their design work, receive structured feedback, and track revision history — mirroring real-world design workflows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ OUTCOMES ═══ -->
+  <section id="outcomes" aria-labelledby="outcomes-title">
+    <div class="container">
+      <p class="section-eyebrow">Outcomes</p>
+      <h2 class="section-title" id="outcomes-title">Design <em>impact</em></h2>
+
+      <div class="advantage-grid">
+        <div class="advantage-card animate-in">
+          <div class="advantage-num">01</div>
+          <h3 class="advantage-title">Unified Multi-Role Platform</h3>
+          <p class="advantage-desc">Three distinct user experiences — student, teacher, administrator — delivered within a single coherent design system. Each role sees only what is relevant to them.</p>
+        </div>
+        <div class="advantage-card animate-in">
+          <div class="advantage-num">02</div>
+          <h3 class="advantage-title">Research-First Culture</h3>
+          <p class="advantage-desc">The project introduced structured UX research practices within Jalasoft's design process — interviews, personas, and journey maps became team standards.</p>
+        </div>
+        <div class="advantage-card animate-in">
+          <div class="advantage-num">03</div>
+          <h3 class="advantage-title">Dropout Prevention Signal</h3>
+          <p class="advantage-desc">The admin monitoring dashboard provides early warning signals — a direct design response to the attrition problem identified during discovery.</p>
+        </div>
+        <div class="advantage-card animate-in">
+          <div class="advantage-num">04</div>
+          <h3 class="advantage-title">Real-World Process Embedded</h3>
+          <p class="advantage-desc">The student project submission flow mirrors professional design workflows — creating a pedagogical feedback loop between the platform's UX and what it teaches.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ NEXT PROJECT ═══ -->
+  <section id="next-project" aria-labelledby="next-title">
+    <div class="container">
+      <p class="section-eyebrow" style="margin-bottom: 32px;">More Work</p>
+      <div class="next-inner" role="list" aria-labelledby="next-title">
+        <h2 class="sr-only" id="next-title">Other case studies</h2>
+
+        <a href="case-study-aqua.html" class="next-card" role="listitem" aria-label="Next case study: Aqua">
+          <p class="next-label">Next Case Study</p>
+          <h3 class="next-title">Aqua — Astrological Dating App</h3>
+          <p class="next-desc">Finding cosmic compatibility through Synastry calculations and personalised UX.</p>
+          <div class="next-img">
+            <div class="img-placeholder" role="img">
+              <span class="img-placeholder-label" style="font-size:9px">Thumbnail · Aqua App</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="case-study-cac.html" class="next-card" role="listitem" aria-label="Case study: Car Air Comfort">
+          <p class="next-label">Also Worth Seeing</p>
+          <h3 class="next-title">Car Air Comfort</h3>
+          <p class="next-desc">IoT mobile app bringing comfort to every car journey in hot climates.</p>
+          <div class="next-img">
+            <div class="img-placeholder" role="img">
+              <span class="img-placeholder-label" style="font-size:9px">Thumbnail · Car Air Comfort</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer role="contentinfo">
+  <div class="container">
+    <p class="footer-copy">© 2026 Abdalla Design · João — Senior UX/UI Designer</p>
+    <nav class="footer-socials" aria-label="Social media links">
+      <a href="https://abdalladesigns.framer.website" target="_blank" rel="noopener">Portfolio</a>
+      <a href="https://www.linkedin.com/in/abdalladesign/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.behance.net/joaoabdalla" target="_blank" rel="noopener">Behance</a>
+      <a href="https://dribbble.com/abdalladesign" target="_blank" rel="noopener">Dribbble</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.animate-in').forEach(function(el) {
+    observer.observe(el);
+  });
+})();
+</script>
+</body>
+</html>

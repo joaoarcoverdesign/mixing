@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aqua — Astrological Dating App · Case Study · Abdalla Design</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../CSS/case-v5.css" />
+
+  <style>
+    .aqua-cover {
+      background: linear-gradient(135deg, #05051A 0%, #130D2E 40%, #1A0535 100%);
+      width: 100%; aspect-ratio: 16/7;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden; border-radius: var(--radius-card);
+      margin-top: 48px;
+    }
+    .aqua-cover-orb {
+      position: absolute; width: 320px; height: 320px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(108,78,255,0.25) 0%, transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+    }
+    .aqua-cover-glyph {
+      font-family: var(--font-display); font-size: 160px; font-weight: 900;
+      color: rgba(108,78,255,0.18); letter-spacing: -0.06em; user-select: none;
+      position: relative; z-index: 1;
+    }
+    .aqua-cover-label {
+      position: absolute; bottom: 32px; left: 32px;
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4);
+    }
+    .aqua-accent { color: #6C4EFF; }
+
+    .framework-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; margin-top: 40px;
+    }
+    .framework-item {
+      background: var(--color-surface); padding: 32px 28px;
+      border: 1px solid var(--color-border);
+    }
+    .framework-label {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: #6C4EFF; margin-bottom: 16px;
+      display: block;
+    }
+    .framework-heading { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+    .framework-body { font-size: 14px; color: var(--color-muted-2); line-height: 1.65; }
+
+    .synastry-card {
+      background: #05051A; color: rgba(255,255,255,0.9);
+      border: 1px solid rgba(108,78,255,0.3); padding: 48px;
+      border-radius: var(--radius-card); margin-top: 40px;
+    }
+    .synastry-title {
+      font-size: 22px; font-weight: 700; margin-bottom: 16px;
+      color: #fff;
+    }
+    .synastry-body {
+      font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.6);
+      max-width: 620px;
+    }
+    .synastry-metrics {
+      display: flex; gap: 48px; margin-top: 36px;
+      flex-wrap: wrap;
+    }
+    .synastry-metric-val {
+      font-family: var(--font-display); font-size: 40px; font-weight: 900;
+      color: #6C4EFF; line-height: 1;
+    }
+    .synastry-metric-label {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .framework-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a href="../portfolio-v3.html" class="nav-back" aria-label="Back to portfolio">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M10 3L5 8l5 5"/>
+      </svg>
+      Portfolio
+    </a>
+
+    <a href="../portfolio-v3.html" class="nav-brand" aria-label="Abdalla Design home">
+      Abdalla Design
+    </a>
+
+    <a href="case-study-cac.html" class="nav-next" aria-label="Next case study">
+      Next
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 3l5 5-5 5"/>
+      </svg>
+    </a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ═══ HERO ═══ -->
+  <section id="hero" aria-labelledby="hero-title">
+    <div class="container">
+      <div class="hero-meta" role="list">
+        <span class="meta-tag" role="listitem">Mobile App</span>
+        <span class="meta-tag highlight" role="listitem">Dating · Astrology</span>
+        <span class="meta-tag" role="listitem">UX/UI Design</span>
+        <span class="meta-tag" role="listitem">iOS / Android</span>
+      </div>
+
+      <h1 class="hero-title" id="hero-title">
+        Aqua — Find Your <em>Cosmic Connection</em>
+      </h1>
+
+      <p class="hero-subtitle">
+        An astrological dating app that moves beyond swipes — using Synastry calculations to surface genuine compatibility and deliver personalised cosmic insights for self-awareness.
+      </p>
+
+      <div class="hero-specs" role="list">
+        <div class="spec-item" role="listitem">
+          <p class="spec-label">Role</p>
+          <p class="spec-value">UX/UI Designer</p>
+        </div>
+        <div class="spec-item" role="listitem">
+          <p class="spec-label">Platform</p>
+          <p class="spec-value">iOS · Android</p>
+        </div>
+        <div class="spec-item" role="listitem">
+          <p class="spec-label">Domain</p>
+          <p class="spec-value">Dating · Astrology<br/>Social Discovery</p>
+        </div>
+        <div class="spec-item" role="listitem">
+          <p class="spec-label">Scope</p>
+          <p class="spec-value">Concept to Hi-Fi<br/>Prototype</p>
+        </div>
+      </div>
+
+      <div class="aqua-cover" role="img" aria-label="Aqua app cover — cosmic design">
+        <div class="aqua-cover-orb"></div>
+        <span class="aqua-cover-glyph">Aq</span>
+        <span class="aqua-cover-label">Aqua · Astrological Dating App · Cosmic Compatibility</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROBLEM ═══ -->
+  <section id="problem" aria-labelledby="problem-title">
+    <div class="container">
+      <p class="section-eyebrow">The Problem</p>
+      <h2 class="section-title" id="problem-title">The compatibility <em>gap</em></h2>
+
+      <div class="overview-layout">
+        <div class="overview-sidebar">
+          <h3>Market Reality</h3>
+          <p>Dating apps are built on proximity and aesthetics — but compatibility is invisible in a swipe. Most platforms introduce strangers with no shared reference point, leading to high churn and emotional exhaustion.</p>
+
+          <h3>The Opportunity</h3>
+          <p>Astrology has become one of the most culturally significant self-knowledge frameworks for the 18–35 demographic. Aqua places it at the centre of the matching engine — making compatibility legible and meaningful.</p>
+        </div>
+
+        <div class="overview-content">
+          <h3>Root Cause</h3>
+          <p>Dating applications frequently introduce incompatible individuals, resulting in confusion and disappointment for users seeking meaningful connections. The superficial matching logic — photos, location, mutual swipe — fails to surface the relational dynamics that determine long-term compatibility.</p>
+
+          <div class="challenge-quote">
+            <p><strong>Design Hypothesis:</strong> If we make compatibility visible and grounded in a shared cultural framework (astrology), users will experience fewer mismatches and develop stronger trust in the platform's suggestions — reducing churn and increasing engagement depth.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHY / WHAT / HOW ═══ -->
+  <section id="framework" aria-labelledby="framework-title">
+    <div class="container">
+      <p class="section-eyebrow">Design Framework</p>
+      <h2 class="section-title" id="framework-title">Why · What · <em>How</em></h2>
+
+      <div class="framework-grid">
+        <div class="framework-item animate-in">
+          <span class="framework-label">Why</span>
+          <h3 class="framework-heading">People want meaningful connections</h3>
+          <p class="framework-body">Users invest time, emotional energy, and vulnerability in dating apps. When matches consistently disappoint, trust in the product collapses. Aqua addresses the root need: not more matches, but better ones.</p>
+        </div>
+        <div class="framework-item animate-in">
+          <span class="framework-label">What</span>
+          <h3 class="framework-heading">A compatibility engine powered by astrology</h3>
+          <p class="framework-body">Aqua uses Synastry — the astrological technique of comparing two birth charts to assess relational dynamics — as the core matching signal. This creates a compatibility score that feels personal and meaningful, not algorithmic.</p>
+        </div>
+        <div class="framework-item animate-in">
+          <span class="framework-label">How</span>
+          <h3 class="framework-heading">Personalised insights + discovery tools</h3>
+          <p class="framework-body">Users receive their own astrological profile for self-awareness, compatibility breakdowns with each potential match, and curated discovery tools to find like-minded individuals — all within an intuitive, visually rich interface.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SYNASTRY ENGINE ═══ -->
+  <section id="synastry" aria-labelledby="synastry-title">
+    <div class="container">
+      <p class="section-eyebrow">Core Feature</p>
+      <h2 class="section-title" id="synastry-title">The Synastry <em>Engine</em></h2>
+
+      <div class="synastry-card">
+        <h3 class="synastry-title">Compatibility made visible</h3>
+        <p class="synastry-body">Synastry is the practice of comparing two astrological birth charts to assess the relational dynamics between individuals. In Aqua, each potential match generates a compatibility breakdown across key dimensions — emotional resonance, intellectual connection, physical attraction, and long-term potential — giving users a richer basis for decision-making than appearance alone.</p>
+        <div class="synastry-metrics">
+          <div>
+            <div class="synastry-metric-val">12</div>
+            <div class="synastry-metric-label">Compatibility Dimensions</div>
+          </div>
+          <div>
+            <div class="synastry-metric-val">4</div>
+            <div class="synastry-metric-label">Relationship Quadrants</div>
+          </div>
+          <div>
+            <div class="synastry-metric-val">∞</div>
+            <div class="synastry-metric-label">Unique Matches</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ KEY SCREENS ═══ -->
+  <section id="screens" aria-labelledby="screens-title">
+    <div class="container">
+      <p class="section-eyebrow">Design Deliverables</p>
+      <h2 class="section-title" id="screens-title">Key <em>screens</em></h2>
+
+      <div class="features-list">
+        <div class="feature-item animate-in">
+          <p class="feature-number">Screen 01</p>
+          <h3 class="feature-title">Onboarding & Birth Chart Setup</h3>
+          <p class="feature-desc">A guided onboarding flow collecting birth date, time, and location to generate the user's astrological profile. Designed as a moment of self-discovery — not a form, but a ritual.</p>
+          <div class="feature-visual">
+            <div class="img-placeholder" style="min-height: 360px;" role="img">
+              <span class="img-placeholder-label">Onboarding Flow · Birth Chart Setup · Aqua</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-item animate-in">
+          <p class="feature-number">Screen 02</p>
+          <h3 class="feature-title">Personal Cosmic Profile</h3>
+          <p class="feature-desc">The user's astrological identity card — sun sign, moon sign, rising sign, and dominant planetary influences. A self-awareness tool that deepens engagement before discovery.</p>
+        </div>
+
+        <div class="feature-item animate-in">
+          <p class="feature-number">Screen 03</p>
+          <h3 class="feature-title">Match Discovery & Compatibility Score</h3>
+          <p class="feature-desc">Each potential match displays a compatibility percentage with a breakdown by relationship dimension. Users understand why two charts work together — or don't — before initiating contact.</p>
+          <div class="feature-visual">
+            <div class="img-placeholder" style="min-height: 320px;" role="img">
+              <span class="img-placeholder-label">Match Card · Synastry Score Breakdown · Aqua</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-item animate-in">
+          <p class="feature-number">Screen 04</p>
+          <h3 class="feature-title">Synastry Deep Dive</h3>
+          <p class="feature-desc">An expanded compatibility report available for any match — showing planetary aspects, challenge areas, and relationship potential in accessible language, not astrological jargon.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DIFFERENTIATORS ═══ -->
+  <section id="differentiators" aria-labelledby="diff-title">
+    <div class="container">
+      <p class="section-eyebrow">Design Principles</p>
+      <h2 class="section-title" id="diff-title">What makes Aqua <em>different</em></h2>
+
+      <div class="advantage-grid">
+        <div class="advantage-card animate-in">
+          <div class="advantage-num">01</div>
+          <h3 class="advantage-title">Compatibility Before Connection</h3>
+          <p class="advantage-desc">The Synastry score is visible before any conversation begins — giving users informed context for every potential connection, not a post-hoc rationalisation.</p>
+        </div>
+        <div class="advantage-card animate-in">
+          <div class="advantage-num">02</div>
+          <h3 class="advantage-title">Self-Knowledge as Engagement</h3>
+          <p class="advantage-desc">Aqua's cosmic profile feature drives retention through self-discovery. Users return to learn about themselves — not just to browse matches.</p>
+        </div>
+        <div class="advantage-card animate-in">
+          <div class="advantage-num">03</div>
+          <h3 class="advantage-title">Accessible Astrology</h3>
+          <p class="advantage-desc">Complex astrological concepts are translated into plain language — no prior knowledge required. The design democratises a rich cultural framework.</p>
+        </div>
+        <div class="advantage-card animate-in">
+          <div class="advantage-num">04</div>
+          <h3 class="advantage-title">Visual Language of the Cosmos</h3>
+          <p class="advantage-desc">Deep indigo palette, orbital motion design patterns, and celestial iconography create an immersive identity that sets Aqua apart from generic dating app aesthetics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ NEXT PROJECT ═══ -->
+  <section id="next-project" aria-labelledby="next-title">
+    <div class="container">
+      <p class="section-eyebrow" style="margin-bottom: 32px;">More Work</p>
+      <div class="next-inner" role="list" aria-labelledby="next-title">
+        <h2 class="sr-only" id="next-title">Other case studies</h2>
+
+        <a href="case-study-cac.html" class="next-card" role="listitem" aria-label="Next case study: Car Air Comfort">
+          <p class="next-label">Next Case Study</p>
+          <h3 class="next-title">Car Air Comfort</h3>
+          <p class="next-desc">IoT mobile app bringing comfort to every car journey in hot climates.</p>
+          <div class="next-img">
+            <div class="img-placeholder" role="img">
+              <span class="img-placeholder-label" style="font-size:9px">Thumbnail · Car Air Comfort</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="case-study-elearn-app.html" class="next-card" role="listitem" aria-label="Case study: Educational Platform">
+          <p class="next-label">Also Worth Seeing</p>
+          <h3 class="next-title">Educational Platform — Jalasoft</h3>
+          <p class="next-desc">Research-driven LMS for bootcamp students, teachers and managers.</p>
+          <div class="next-img">
+            <div class="img-placeholder" role="img">
+              <span class="img-placeholder-label" style="font-size:9px">Thumbnail · Elearn App</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer role="contentinfo">
+  <div class="container">
+    <p class="footer-copy">© 2026 Abdalla Design · João — Senior UX/UI Designer</p>
+    <nav class="footer-socials" aria-label="Social media links">
+      <a href="https://abdalladesigns.framer.website" target="_blank" rel="noopener">Portfolio</a>
+      <a href="https://www.linkedin.com/in/abdalladesign/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.behance.net/joaoabdalla" target="_blank" rel="noopener">Behance</a>
+      <a href="https://dribbble.com/abdalladesign" target="_blank" rel="noopener">Dribbble</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.animate-in').forEach(function(el) {
+    observer.observe(el);
+  });
+})();
+</script>
+</body>
+</html>
