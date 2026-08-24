@@ -353,16 +353,8 @@ section{position:relative;}
 .testi-meta.is-swap{opacity:0;}
 .testi-name{font-weight:700;font-size:16px;color:var(--white);}
 .testi-role{font-size:13px;color:var(--muted);}
-.testi-logo-chip{
-  margin-left:auto;width:38px;height:38px;border-radius:10px;flex:0 0 auto;
-  background:#fff;display:flex;align-items:center;justify-content:center;padding:6px;
-  box-shadow:0 4px 14px rgba(0,0,0,.3);
-  transition:opacity .3s var(--ease);
-}
-.testi-logo-chip.is-swap{opacity:0;}
-.testi-logo-chip img{width:100%;height:100%;object-fit:contain;}
 @media (prefers-reduced-motion:reduce){
-  .testi-quote,.testi-meta,.testi-logo-chip,.testi-avatar{transition:none;}
+  .testi-quote,.testi-meta,.testi-avatar{transition:none;}
 }
 
 /* ════════ CLOSING CTA ════════ */
@@ -568,11 +560,8 @@ section{position:relative;}
         <span class="testi-divider" aria-hidden="true"></span>
         <div class="testi-meta" id="testiMeta">
           <p class="testi-name" id="testiName">Orlando Campos</p>
-          <p class="testi-role" id="testiRole">Academic Coordinator</p>
+          <p class="testi-role" id="testiRole">Academic Coordinator at Jala University</p>
         </div>
-        <span class="testi-logo-chip" id="testiLogoChip" aria-hidden="true">
-          <img id="testiLogo" src="Img/1654778420300.jpg" alt="">
-        </span>
       </div>
     </div>
   </section>
@@ -986,20 +975,17 @@ section{position:relative;}
       {
         quote: "João doesn’t just design, he raises the bar for everyone. As our UX and Figma educator, he’s trained dozens of LATAM engineers who now think in product.",
         name: "Orlando Campos",
-        role: "Academic Coordinator",
-        logo: "Img/1654778420300.jpg"
+        role: "Academic Coordinator at Jala University"
       },
       {
         quote: "João’s redesign of our course page raised the bar for the whole product. Rigorous work that scaled to millions of users without missing a beat.",
         name: "Bernard de Luna",
-        role: "Product Director",
-        logo: "Img/logos/color/logos-qc.svg"
+        role: "Product Director at Qconcursos"
       },
       {
         quote: "João built our design system from a brand guideline into a component library over a thousand people now build with daily.",
         name: "Mauricio Salazar",
-        role: "Development Engineer",
-        logo: "Img/logos/color/logos-jala.svg"
+        role: "Development Engineer at Jalasoft"
       }
     ];
 
@@ -1008,8 +994,6 @@ section{position:relative;}
     var metaEl = document.getElementById("testiMeta");
     var nameEl = document.getElementById("testiName");
     var roleEl = document.getElementById("testiRole");
-    var logoChip = document.getElementById("testiLogoChip");
-    var logoImg = document.getElementById("testiLogo");
     if (!avatars || !quoteEl) return;
 
     var buttons = Array.prototype.slice.call(avatars.querySelectorAll(".testi-avatar"));
@@ -1029,7 +1013,6 @@ section{position:relative;}
       quoteEl.textContent = item.quote;
       nameEl.textContent = item.name;
       roleEl.textContent = item.role;
-      logoImg.src = item.logo;
     }
 
     function goTo(index) {
@@ -1039,13 +1022,11 @@ section{position:relative;}
 
       quoteEl.classList.add("is-swap");
       metaEl.classList.add("is-swap");
-      logoChip.classList.add("is-swap");
 
       window.setTimeout(function () {
         applyContent(index);
         quoteEl.classList.remove("is-swap");
         metaEl.classList.remove("is-swap");
-        logoChip.classList.remove("is-swap");
       }, swapDelay);
     }
 
