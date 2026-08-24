@@ -109,13 +109,27 @@
   .feature-block{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;}
   .feature-block .feature-text p{margin-bottom:14px; color:var(--ink-soft); font-size:15px;}
   .feature-block .feature-text h3{font-size:22px; font-weight:800; margin-bottom:14px;}
+  .feature-block.stacked{grid-template-columns:1fr; gap:32px;}
+  .feature-block.stacked .feature-text p{max-width:none;}
+
+  /* THE FIRST TEST — title, then split text, then a full-width fluid visual */
+  .split-text{display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-bottom:44px;}
+  .split-text p{color:var(--ink-soft); font-size:15px; margin-bottom:14px;}
+  .split-text p:last-child{margin-bottom:0;}
+
+  .fluid-visual{position:relative; overflow:hidden;}
+  .fluid-visual .img-placeholder{border-radius:0; border:none;}
+  .fluid-visual::after{
+    content:""; position:absolute; left:0; right:0; bottom:0; height:110px;
+    background:linear-gradient(to bottom, transparent, var(--paper) 90%);
+    pointer-events:none;
+  }
 
   /* CARD GRID for products */
   .card-intro{font-family:var(--serif); font-style:italic; font-size:16px; color:var(--ink-soft); max-width:600px; margin-bottom:36px;}
-  .architecture-grid{display:flex; flex-direction:column; gap:28px;}
+  .architecture-grid{display:flex; flex-direction:column; gap:56px;}
   .architecture-card{
-    background:var(--card-bg); border:1px solid var(--line); border-radius:var(--radius);
-    padding:32px; display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start;
+    display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:center;
   }
   .architecture-card .ac-title{font-family:'Urbanist', sans-serif; font-size:19px; font-weight:800; margin-bottom:10px;}
   .architecture-card .ac-text{font-size:14.5px; color:var(--ink-soft); margin-bottom:0;}
@@ -127,13 +141,13 @@
 
   /* TEACHING - distinct treatment */
   .teaching-block{
-    display:grid; grid-template-columns:auto 1fr auto; gap:32px; align-items:center;
+    display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;
   }
-  .teaching-number{font-family:var(--serif); font-style:italic; font-size:56px; font-weight:500; color:var(--accent); line-height:1;}
-  .teaching-block h3{font-family:'Urbanist', sans-serif; font-size:22px; font-weight:800; margin-bottom:12px;}
-  .teaching-block p{color:var(--ink-soft); font-size:15px; max-width:560px;}
-  .teaching-image{width:220px; aspect-ratio:1024/576; border-radius:calc(var(--radius) - 4px); overflow:hidden; flex:0 0 auto;}
-  .teaching-image img{width:100%; height:100%; object-fit:contain; display:block;}
+  .teaching-image{aspect-ratio:1024/576; border-radius:var(--radius); overflow:hidden;}
+  .teaching-image img{width:100%; height:100%; object-fit:cover; display:block;}
+  .teaching-number{font-family:var(--serif); font-style:italic; font-size:56px; font-weight:500; color:var(--accent); line-height:1; margin-bottom:12px;}
+  .teaching-content h3{font-family:'Urbanist', sans-serif; font-size:22px; font-weight:800; margin-bottom:12px;}
+  .teaching-content p{color:var(--ink-soft); font-size:15px; max-width:560px;}
 
   /* NEXT CARDS (client work) */
   .next-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;}
@@ -170,11 +184,11 @@
     .hero-specs{grid-template-columns:repeat(2,1fr);}
     .overview-layout{grid-template-columns:1fr;}
     .feature-block{grid-template-columns:1fr;}
+    .split-text{grid-template-columns:1fr;}
     .architecture-card{grid-template-columns:1fr;}
     .next-grid{grid-template-columns:1fr;}
     .learnings-grid{grid-template-columns:1fr;}
-    .teaching-block{grid-template-columns:1fr; text-align:left;}
-    .teaching-image{width:100%;}
+    .teaching-block{grid-template-columns:1fr;}
     .nav-links{gap:18px;}
   }
 </style>
@@ -260,13 +274,13 @@
     <div class="container">
       <div class="section-eyebrow mono">01 · Foundation</div>
       <h2 class="section-title" id="foundation-title">The Design System</h2>
-      <div class="feature-block">
+      <div class="feature-block stacked">
+        <div class="feature-visual img-placeholder has-image" style="aspect-ratio:1440/795;">
+          <img src="../Img/jalasoft/4v6eDh4UP7P5keigKFCPZnW9Zl4.webp" alt="Jalasoft typography hierarchy and four-tier color palette reference sheet">
+        </div>
         <div class="feature-text">
           <p>It started with the company's Brand Guidelines. From that starting point, I built a complete design system: a typographic hierarchy covering titles, body copy, and buttons, and a three-tier color system (primary, secondary, and tertiary) anchored by a red brand color (Pantone red, #EF293D).</p>
           <p>This became the shared foundation every platform below was built on top of.</p>
-        </div>
-        <div class="feature-visual img-placeholder has-image" style="aspect-ratio:1440/795;">
-          <img src="../Img/jalasoft/4v6eDh4UP7P5keigKFCPZnW9Zl4.webp" alt="Jalasoft typography hierarchy and four-tier color palette reference sheet">
         </div>
       </div>
     </div>
@@ -277,12 +291,14 @@
     <div class="container">
       <div class="section-eyebrow mono">02 · The First Test</div>
       <h2 class="section-title" id="first-test-title">BPM Platform Redesign</h2>
-      <div class="feature-block">
-        <div class="feature-text">
-          <p>The system's first real assignment was also its hardest: a redesign of the company's internal BPM platform, the tool employees used to manage tasks and the hiring process. This was not a greenfield product where a clean system is easy to apply. It was a live, in-use platform with real workflows and real complaints, surfaced through direct UX interviews with the people who used it every day.</p>
+      <div class="split-text">
+        <p>The system's first real assignment was also its hardest: a redesign of the company's internal BPM platform, the tool employees used to manage tasks and the hiring process. This was not a greenfield product where a clean system is easy to apply. It was a live, in-use platform with real workflows and real complaints, surfaced through direct UX interviews with the people who used it every day.</p>
+        <div>
           <p>I redesigned the navbar, the task views, and the full hiring process flow, using only the components already defined in the system. If the type scale or the color tokens did not hold up under an interface this dense, this is where it would have shown.</p>
           <p>It held up. And that gave me something to point to when the next two projects came up.</p>
         </div>
+      </div>
+      <div class="fluid-visual">
         <div class="feature-visual img-placeholder has-image" style="aspect-ratio:2048/1115;">
           <img src="../Img/jalasoft/6B02ERCQlSFFlaUsFIF5kJ8xjGE.webp" alt="Jalasoft BPM platform, case list view with tasks, colaborators, and process filters">
         </div>
@@ -358,13 +374,12 @@
       <div class="section-eyebrow mono">05 · Teaching</div>
       <h2 class="section-title" id="teaching-title">Training the next generation</h2>
       <div class="teaching-block">
-        <div class="teaching-number mono">10–12</div>
-        <div>
-          <h3>UX/UI Design, Full Stack Developer Bootcamp</h3>
-          <p>Six to eight months into the role, I was invited to design and teach the UX/UI Design curriculum inside the company's Full Stack Developer Bootcamp, building the course from scratch and teaching it across 10 to 12 cohorts throughout Latin America.</p>
-        </div>
         <div class="teaching-image">
           <img src="../Img/jalasoft/pDHifzebZ20pc2bYXORpTviPByU.webp" alt="UX UI Design, Bootcamp Brasil course cover slide">
+        </div>
+        <div class="teaching-content">
+          <h3>UX/UI Design, Full Stack Developer Bootcamp</h3>
+          <p>Six to eight months into the role, I was invited to design and teach the UX/UI Design curriculum inside the company's Full Stack Developer Bootcamp, building the course from scratch and teaching it across 10 to 12 cohorts throughout Latin America.</p>
         </div>
       </div>
     </div>
@@ -390,7 +405,7 @@
         </a>
         <a class="next-card" href="/vault-network">
           <div class="nc-label mono">Case Study</div>
-          <div class="nc-title">Vault Network</div>
+          <div class="nc-title">Valt Network</div>
           <div class="nc-cta mono">View case →</div>
         </a>
       </div>
@@ -436,7 +451,7 @@
         </a>
         <a class="next-card" href="/vault-network">
           <div class="nc-label mono">Case Study</div>
-          <div class="nc-title">Vault Network</div>
+          <div class="nc-title">Valt Network</div>
           <div class="nc-cta mono">View case →</div>
         </a>
       </div>
