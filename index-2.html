@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>João Abdalla — Senior Product Designer · UX/UI</title>
+<meta name="description" content="Designer who builds and operates AI systems for the design process. Remote from Brazil, working with US & EU teams.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ════════ TOKENS — Arcoverdesign v5 style guide ════════ */
+:root{
+  --bg:        #11161A;
+  --bg-deep:   #0C1013;
+  --surface:   #1A2025;
+  --line:      rgba(255,255,255,.08);
+  --accent:    #C2FC50;
+  --white:     #F4F6F3;
+  --muted:     #9BA4AA;
+  --dim:       #5E676D;
+  --serif:     'Lora', Georgia, serif;
+  --sans:      'Urbanist', sans-serif;
+  --px: clamp(20px, 5vw, 72px);
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scrollbar-width:thin;scrollbar-color:#2c343a var(--bg-deep);}
+body{
+  background:var(--bg);
+  color:var(--white);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  line-height:1.5;
+}
+::selection{background:var(--accent);color:var(--bg-deep);}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+button{font:inherit;background:none;border:none;cursor:pointer;color:inherit;}
+
+/* ════════ NAV ════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  transition:transform .5s var(--ease);
+}
+nav.is-hidden{transform:translateY(-110%);}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px var(--px);
+  background:linear-gradient(rgba(12,16,19,.85),rgba(12,16,19,.4) 70%,transparent);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+.nav-logo{
+  font-family:var(--serif);font-style:italic;font-weight:600;font-size:20px;color:var(--white);
+}
+.nav-brand{display:flex;align-items:center;gap:13px;}
+.nav-avatar{
+  width:44px;height:44px;border-radius:50%;flex:0 0 auto;
+  object-fit:cover;border:2px solid var(--white);
+}
+.nav-brand-text{display:flex;flex-direction:column;line-height:1.2;}
+.nav-name{font-family:var(--sans);font-weight:700;font-size:17px;letter-spacing:-.01em;color:var(--white);}
+.nav-role{font-family:var(--sans);font-weight:400;font-size:12px;color:var(--muted);margin-top:1px;}
+@media (max-width:480px){.nav-role{display:none;}}
+.nav-links{display:flex;gap:34px;list-style:none;align-items:center;}
+.nav-links a{
+  font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);position:relative;padding:4px 0;transition:color .25s;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;
+  background:var(--accent);transform:scaleX(0);transform-origin:right;
+  transition:transform .4s var(--ease);
+}
+.nav-links a:hover{color:var(--white);}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left;}
+@media (max-width:720px){.nav-links{gap:20px;}}
+@media (max-width:560px){.nav-links a:not(:last-child){display:none;}}
+
+/* ════════ BUTTONS ════════ */
+.btn-main{
+  position:relative;display:inline-flex;align-items:center;gap:12px;
+  background:var(--accent);color:var(--bg-deep);
+  font-weight:700;font-size:15px;letter-spacing:.02em;
+  padding:18px 34px;border-radius:99px;overflow:hidden;
+  transition:transform .3s var(--ease);
+}
+.btn-main:hover{transform:translateY(-2px);}
+.btn-main .flair{
+  position:absolute;inset:0;background:var(--white);border-radius:inherit;
+  transform:translateY(101%);transition:transform .45s var(--ease);
+}
+.btn-main:hover .flair{transform:translateY(0);}
+.btn-main span{position:relative;z-index:1;}
+
+/* ════════ HERO ════════ */
+.hero2{
+  position:relative;overflow:hidden;
+  padding:clamp(140px,20vh,200px) var(--px) 0;
+}
+.hero2-glow{
+  position:absolute;top:-15%;left:50%;transform:translateX(-50%);width:70%;height:65%;
+  background:radial-gradient(closest-side, rgba(194,252,80,.14), transparent 72%);
+  filter:blur(10px);pointer-events:none;z-index:0;
+}
+.kinetic-canvas{
+  position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;
+}
+@media (prefers-reduced-motion:reduce){.kinetic-canvas{display:none;}}
+.hero2-content{position:relative;z-index:1;max-width:1100px;margin:0 auto;text-align:center;}
+.hero2-title{
+  font-family:var(--sans);font-weight:800;text-transform:uppercase;
+  font-size:clamp(36px, 5.8vw, 72px);
+  line-height:1.08;letter-spacing:-.02em;
+  max-width:700px;margin:0 auto clamp(8px,1.2vh,14px);
+}
+.hero2-title .sep{color:var(--accent);margin:0 4px;}
+.hero2-sub{
+  font-family:var(--serif);font-style:italic;font-weight:500;
+  font-size:clamp(19px,2.8vw,30px);line-height:1.4;
+  color:var(--white);opacity:.88;white-space:nowrap;
+  margin:0 auto clamp(28px,4.5vh,40px);
+}
+@media (max-width:900px){.hero2-sub{white-space:normal;}}
+.hero2-meta{
+  font-size:15px;color:var(--muted);
+  margin-bottom:clamp(34px,5vh,44px);
+}
+.hero2-meta b{color:var(--white);font-weight:600;}
+.hero2-actions{
+  position:relative;z-index:1;
+  display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;
+  margin-bottom:clamp(80px,11vh,120px);
+}
+.social-row{display:flex;gap:12px;}
+.social-btn{
+  width:44px;height:44px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+}
+.social-btn:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(0,0,0,.35);}
+.social-btn.dribbble{background:#EA4C89;}
+.social-btn.behance{background:#1769FF;}
+.social-btn.linkedin{background:#0A66C2;}
+
+/* ════════ HERO MEDIA (mockup) ════════ */
+.hero2-media{
+  position:relative;max-width:1440px;margin:0 auto;
+}
+.mock-glow{
+  position:absolute;inset:10% -8% 14%;z-index:0;
+  background:radial-gradient(55% 55% at 50% 45%, rgba(194,252,80,.20), transparent 72%);
+  filter:blur(50px);
+}
+.mock-frame{
+  position:relative;z-index:1;
+  height:clamp(360px,40vw,600px);
+}
+.mock-card{
+  position:absolute;cursor:pointer;will-change:left,top,width,transform;
+  transition:left .6s var(--ease),top .6s var(--ease),width .6s var(--ease),
+             transform .6s var(--ease),transform-origin .6s var(--ease);
+}
+.mock-card img{width:100%;display:block;filter:drop-shadow(0 30px 55px rgba(0,0,0,.5));}
+
+/* slot recipes — which card sits where is controlled by data-slot, swapped on click */
+.mock-card[data-slot="front"]{
+  left:21%;top:-5.6%;width:58%;z-index:3;
+  transform:rotate(0deg);transform-origin:50% 50%;
+  cursor:default;
+}
+.mock-card[data-slot="back-left"]{left:1%;top:6%;width:47%;z-index:1;transform:rotate(-9deg);transform-origin:78% 16%;}
+
+.mock-card[data-slot="back-right"]{left:52%;top:3%;width:47%;z-index:2;transform:rotate(9deg);transform-origin:22% 16%;}
+
+@media (prefers-reduced-motion:reduce){
+  .mock-card{transition:none;}
+}
+
+/* stat row — same component pattern as the v5 manifesto stats */
+.stat-row{
+  position:relative;z-index:5;
+  left:50%;right:50%;
+  width:100vw;margin-left:-50vw;margin-right:-50vw;
+  display:flex;justify-content:center;align-items:center;gap:clamp(32px,7vw,90px);flex-wrap:wrap;
+  background:var(--bg);
+  margin-top:clamp(-100px,-7vw,-40px);
+  padding:clamp(40px,6vh,70px) var(--px);
+}
+.m-stat .num{
+  font-weight:800;font-size:clamp(30px,3.6vw,44px);letter-spacing:-.03em;line-height:1;
+  color:var(--white);
+}
+.m-stat .num i{color:var(--accent);font-style:normal;}
+.m-stat .lab{margin-top:8px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+
+/* ════════ SECTIONS COMMON (v5 pattern) ════════ */
+section{position:relative;}
+.sec-pad{padding:clamp(90px,14vh,150px) var(--px);}
+.sec-head{
+  display:flex;align-items:baseline;justify-content:space-between;gap:24px;
+  margin-bottom:clamp(40px,7vh,72px);
+}
+.sec-label{
+  display:flex;align-items:center;gap:12px;
+  font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);
+}
+.sec-label::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);}
+.sec-count{font-family:var(--serif);font-style:italic;color:var(--dim);font-size:15px;}
+.sec-title{
+  font-weight:800;font-size:clamp(30px,4.6vw,58px);
+  line-height:1.05;letter-spacing:-.03em;text-transform:uppercase;
+}
+.sec-title em{
+  font-family:var(--serif);font-style:italic;font-weight:500;text-transform:lowercase;
+  color:var(--accent);
+}
+
+/* ════════ WORK — pinned horizontal scroll (v5 pattern) ════════ */
+.work{background:var(--bg-deep);}
+.work-pin{
+  position:sticky;top:0;height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  overflow:hidden;
+  padding:clamp(50px,7vh,80px) 0;
+}
+.work-head{padding:0 var(--px);margin-bottom:clamp(18px,2.5vh,28px);flex:0 0 auto;}
+.work-controls{display:flex;align-items:center;gap:14px;flex:0 0 auto;}
+.work-arrow{
+  width:40px;height:40px;border-radius:50%;border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--white);transition:background .25s,border-color .25s,transform .25s var(--ease);
+}
+.work-arrow:hover{background:var(--accent);border-color:var(--accent);color:var(--bg-deep);}
+.work-arrow:active{transform:scale(.92);}
+.work-arrow:disabled{opacity:.35;pointer-events:none;}
+.work-arrow svg{width:16px;height:16px;}
+.work-viewport{flex:1 1 auto;overflow:hidden;display:flex;align-items:center;}
+.work-track{display:flex;gap:clamp(24px,4vw,56px);padding:0 var(--px);will-change:transform;}
+.work-item{
+  flex:0 0 auto;width:clamp(448px,47.6vw,784px);
+  display:flex;flex-direction:column;
+}
+.work-media{
+  position:relative;overflow:hidden;border-radius:4px;
+  aspect-ratio:1440/820;max-height:clamp(240px,42vh,440px);
+  background:var(--surface);margin-bottom:16px;
+}
+.work-media img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s var(--ease);}
+.work-media:hover img{transform:scale(1.06);}
+.work-idx{
+  font-family:var(--serif);font-style:italic;font-size:15px;color:var(--accent);
+  margin-bottom:8px;display:block;
+}
+.work-name{
+  font-weight:800;font-size:clamp(24px,2.6vw,36px);letter-spacing:-.025em;
+  text-transform:uppercase;line-height:1;margin-bottom:10px;
+}
+.work-desc{
+  color:var(--muted);font-size:16px;margin-bottom:8px;
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;
+}
+.work-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;}
+.work-tags span{
+  font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:7px 14px;
+}
+.work-link{
+  color:var(--accent);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;
+}
+.work-footer{
+  display:flex;align-items:center;gap:20px;
+  padding:0 var(--px);margin-top:clamp(28px,4vh,40px);flex:0 0 auto;
+}
+.work-progress{
+  position:relative;height:2px;flex:1 1 auto;
+  background:var(--line);border-radius:99px;overflow:hidden;
+}
+.work-progress-fill{
+  position:absolute;top:0;left:0;height:100%;width:0%;
+  background:var(--accent);border-radius:inherit;
+}
+
+/* mobile / coarse-pointer fallback — native horizontal scroll, no pin */
+@media (max-width:860px), (pointer:coarse){
+  .work-pin{position:static;height:auto;overflow:visible;}
+  .work-viewport{
+    overflow-x:auto;-webkit-overflow-scrolling:touch;
+    scroll-snap-type:x proximity;scrollbar-width:thin;
+  }
+  .work-track{transform:none !important;}
+  .work-item{width:min(588px,82vw);scroll-snap-align:start;}
+  .work-footer{display:none;}
+}
+
+/* ════════ TESTIMONIALS + CLOSING — shared kinetic-grid wrap, reads as one section ════════ */
+.kinetic-wrap{position:relative;overflow:hidden;background:var(--bg);}
+.testi .sec-head{justify-content:center;text-align:center;}
+.testi .sec-label{justify-content:center;}
+.testi-card{
+  position:relative;overflow:hidden;
+  max-width:840px;margin:0 auto;
+  background:var(--surface);border:1px solid var(--line);border-radius:28px;
+  padding:clamp(36px,6vw,64px);
+  box-shadow:0 25px 70px rgba(0,0,0,.4);
+}
+.testi-glow{
+  position:absolute;top:-30%;right:-15%;width:60%;height:80%;z-index:0;
+  background:radial-gradient(closest-side, rgba(194,252,80,.12), transparent 72%);
+  filter:blur(20px);pointer-events:none;
+}
+.testi-mark{
+  position:relative;z-index:1;
+  font-family:var(--serif);font-style:italic;font-weight:600;
+  font-size:56px;line-height:1;color:var(--accent);margin-bottom:4px;
+}
+.testi-quote{
+  position:relative;z-index:1;
+  font-family:var(--serif);font-style:italic;font-weight:500;
+  font-size:clamp(20px,2.4vw,28px);line-height:1.5;color:var(--white);
+  min-height:clamp(96px,14vw,132px);
+  margin-bottom:clamp(32px,5vw,48px);
+  transition:opacity .3s var(--ease),transform .3s var(--ease);
+}
+.testi-quote.is-swap{opacity:0;transform:translateY(6px);}
+.testi-author-row{position:relative;z-index:1;display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+.testi-avatars{display:flex;align-items:center;}
+.testi-avatar{
+  width:52px;height:52px;border-radius:50%;flex:0 0 auto;
+  background-size:cover;background-position:center;background-color:var(--dim);
+  border:2px solid var(--surface);margin-left:-14px;position:relative;
+  opacity:.5;transform:scale(.82);filter:grayscale(.6);
+  transition:transform .4s var(--ease),opacity .4s var(--ease),filter .4s var(--ease),box-shadow .4s var(--ease);
+}
+.testi-avatar:first-child{margin-left:0;}
+.testi-avatar:hover{opacity:.8;}
+.testi-avatar.is-active{
+  opacity:1;transform:scale(1.12);z-index:5;filter:none;
+  border-color:var(--accent);box-shadow:0 10px 24px rgba(0,0,0,.45);
+}
+.testi-divider{width:1px;height:34px;background:var(--line);flex:0 0 auto;}
+.testi-meta{display:flex;flex-direction:column;gap:2px;transition:opacity .3s var(--ease);}
+.testi-meta.is-swap{opacity:0;}
+.testi-name{font-weight:700;font-size:16px;color:var(--white);}
+.testi-role{font-size:13px;color:var(--muted);}
+.testi-logo-chip{
+  margin-left:auto;width:38px;height:38px;border-radius:10px;flex:0 0 auto;
+  background:#fff;display:flex;align-items:center;justify-content:center;padding:6px;
+  box-shadow:0 4px 14px rgba(0,0,0,.3);
+  transition:opacity .3s var(--ease);
+}
+.testi-logo-chip.is-swap{opacity:0;}
+.testi-logo-chip img{width:100%;height:100%;object-fit:contain;}
+@media (prefers-reduced-motion:reduce){
+  .testi-quote,.testi-meta,.testi-logo-chip,.testi-avatar{transition:none;}
+}
+
+/* ════════ CLOSING CTA ════════ */
+.closing{text-align:center;position:relative;overflow:hidden;}
+.closing::before{
+  content:"";position:absolute;inset:auto 0 -20% 0;height:70%;
+  background:radial-gradient(50% 60% at 50% 100%, rgba(194,252,80,.16), transparent 70%);
+  pointer-events:none;
+}
+.closing-kicker{
+  font-family:var(--serif);font-style:italic;font-size:clamp(16px,1.8vw,20px);
+  color:var(--muted);margin-bottom:18px;position:relative;z-index:1;
+}
+.closing-title{
+  position:relative;z-index:1;
+  font-weight:800;font-size:clamp(34px,6.4vw,80px);
+  letter-spacing:-.03em;line-height:1.02;text-transform:uppercase;
+  margin-bottom:clamp(36px,6vh,54px);
+}
+.closing-title em{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:lowercase;color:var(--accent);}
+.closing .btn-main{position:relative;z-index:1;}
+
+/* ════════ FOOTER ════════ */
+.foot-bottom{
+  display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  padding:28px var(--px) 40px;border-top:1px solid var(--line);
+  font-size:13px;color:var(--dim);background:var(--bg-deep);
+}
+
+/* ════════ REVEAL ════════ */
+.rv{opacity:0;transform:translateY(32px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
+.rv.is-in{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}}
+</style>
+</head>
+<body>
+
+<!-- ════════ NAV ════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-brand">
+      <img class="nav-avatar" src="Img/joao-avatar.jpg" alt="João Abdalla">
+      <span class="nav-brand-text">
+        <span class="nav-name">João Abdalla</span>
+        <span class="nav-role">Product designer UX UI</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#work">Works</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- ════════ HERO ════════ -->
+<section class="hero2">
+  <canvas class="kinetic-canvas" id="kineticCanvas" aria-hidden="true"></canvas>
+  <div class="hero2-glow" aria-hidden="true"></div>
+  <div class="hero2-content">
+    <h1 class="hero2-title">Senior Product Designer <span class="sep">•</span> UX UI</h1>
+    <p class="hero2-sub">Designer who builds and operates AI systems for the design process.</p>
+    <p class="hero2-meta">Remote from <b>Brazil</b>, working with <b>US &amp; EU</b> teams</p>
+  </div>
+
+  <div class="hero2-actions">
+    <a class="btn-main" href="#work"><span class="flair"></span><span>View Case Studies</span></a>
+    <div class="social-row">
+      <a class="social-btn dribbble" href="https://dribbble.com/abdalladesign" target="_blank" rel="noopener" aria-label="Dribbble">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 100 20 10 10 0 000-20Zm6.6 4.6a8.4 8.4 0 011.9 5.1c-.3-.06-3-.6-5.7-.26-.06-.14-.1-.29-.17-.44-.17-.4-.35-.8-.54-1.18 3-1.24 4.4-3 4.48-3.2ZM12 3.6c1.9 0 3.6.68 4.96 1.8-.06.1-1.3 1.76-4.2 2.83A46.5 46.5 0 009.8 3.9 8.4 8.4 0 0112 3.6ZM8.1 4.5a44.3 44.3 0 012.94 4.24C7.9 9.5 5 9.5 4.7 9.5a8.44 8.44 0 013.4-5Zm-3.7 7.53v-.24c.3 0 3.75.05 7.03-1a17 17 0 01.4.83c-.1.03-.2.06-.28.09-3.4 1.1-5.2 4.1-5.35 4.36a8.36 8.36 0 01-1.8-4.04Zm7.6 6.87c-1.6 0-3.08-.5-4.3-1.36.12-.24 1.5-2.87 5.25-4.2.02 0 .03-.01.05-.02a35.7 35.7 0 011.87 6.9 8.4 8.4 0 01-2.87.68Zm4.28-1.34a37.4 37.4 0 00-1.7-6.28c2.5-.4 4.7.26 5 .35a8.44 8.44 0 01-3.3 5.93Z" fill="#fff"/></svg>
+      </a>
+      <a class="social-btn behance" href="https://www.behance.net/joaoabdalla" target="_blank" rel="noopener" aria-label="Behance">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 6h5.6c1.4 0 2.5.34 3.3 1 .8.68 1.2 1.6 1.2 2.75 0 .68-.16 1.27-.48 1.77-.3.5-.76.9-1.36 1.2.82.24 1.44.65 1.86 1.24.42.6.63 1.32.63 2.16 0 .77-.14 1.44-.4 2-.28.56-.66 1-1.14 1.36-.48.35-1.04.6-1.68.76-.64.15-1.32.23-2.05.23H4V6Zm2.6 5.16h2.6c.6 0 1.08-.14 1.44-.42.36-.28.54-.7.54-1.24 0-.6-.18-1.03-.55-1.3-.36-.27-.86-.4-1.5-.4H6.6v3.36Zm0 5.5h2.9c.7 0 1.25-.16 1.65-.47.4-.32.6-.78.6-1.4 0-.62-.2-1.08-.6-1.4-.4-.3-.96-.46-1.68-.46H6.6v3.73ZM14.5 8.4h5.4v1.35h-5.4V8.4Zm2.7 3.1c1.5 0 2.65.42 3.46 1.26.8.83 1.2 2 1.2 3.5v.5h-6.65c.04.7.28 1.24.7 1.62.44.38 1 .57 1.7.57.5 0 .95-.1 1.32-.3.38-.2.66-.5.85-.87h2.03c-.3.9-.83 1.6-1.6 2.1-.77.5-1.66.76-2.68.76-1.4 0-2.55-.44-3.42-1.32-.87-.88-1.3-2.05-1.3-3.5 0-1.4.44-2.55 1.3-3.44.87-.9 2-1.34 3.34-1.34Zm-2.2 3.72h4.35c-.06-.63-.28-1.1-.66-1.44-.38-.34-.9-.5-1.5-.5-.6 0-1.1.17-1.5.5-.4.34-.63.82-.7 1.44Z" fill="#fff"/></svg>
+      </a>
+      <a class="social-btn linkedin" href="https://www.linkedin.com/in/abdalladesign/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6.94 5a1.94 1.94 0 11-3.88 0 1.94 1.94 0 013.88 0ZM3.3 8.5h3.7V20H3.3V8.5Zm6.4 0h3.55v1.57h.05c.5-.9 1.7-1.86 3.5-1.86 3.75 0 4.44 2.4 4.44 5.5V20h-3.7v-5.5c0-1.3-.02-3-1.86-3-1.86 0-2.14 1.4-2.14 2.9V20H9.7V8.5Z" fill="#fff"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- product mockup -->
+  <div class="hero2-media">
+    <div class="mock-glow" aria-hidden="true"></div>
+    <div class="mock-frame rv" id="mockFrame">
+      <div class="mock-card" data-slot="back-left" role="button" tabindex="0" aria-label="Bring Jalasoft to front">
+        <img src="Img/browser.png" alt="Jalasoft — brand and web redesign, shown in browser" loading="lazy">
+      </div>
+      <div class="mock-card" data-slot="back-right" role="button" tabindex="0" aria-label="Bring Quero Simulados to front">
+        <img src="Img/browser-2.png" alt="Quero Simulados — exam practice platform, shown in browser" loading="lazy">
+      </div>
+      <div class="mock-card" data-slot="front" role="button" tabindex="0" aria-label="Qconcursos, currently in front">
+        <img src="Img/browser-1.png" alt="Qconcursos — platform homepage, shown in browser" loading="lazy">
+      </div>
+    </div>
+    <div class="stat-row rv">
+      <div class="m-stat"><div class="num">600K→<i>10M+</i></div><div class="lab">Users on the platform</div></div>
+      <div class="m-stat"><div class="num">R$<i>208M</i></div><div class="lab">Acquisition by Yduqs Group</div></div>
+      <div class="m-stat"><div class="num"><i>43%</i></div><div class="lab">Faster onboarding, MBA</div></div>
+      <div class="m-stat"><div class="num">20<i>+</i></div><div class="lab">Years of experience</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ SELECTED WORK ════════ -->
+<section class="work" id="work">
+  <div class="work-pin" id="workPin">
+    <div class="sec-head work-head">
+      <div>
+        <span class="sec-label" style="margin-bottom:18px;">Selected work</span>
+        <h2 class="sec-title">Results that made a <em>difference</em></h2>
+      </div>
+      <div class="work-controls">
+        <button class="work-arrow" id="workPrev" type="button" aria-label="Previous case">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="work-arrow" id="workNext" type="button" aria-label="Next case">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="work-viewport" id="workViewport">
+      <div class="work-track" id="workTrack">
+
+        <article class="work-item rv">
+          <a class="work-media" href="../cases/case-study-jalasoft-design-system.html">
+            <img src="Img/style%20guides.png" alt="Jalasoft — design system built from a brand guideline">
+          </a>
+          <span class="work-idx">/ 01</span>
+          <h3 class="work-name">Jalasoft Design System</h3>
+          <p class="work-desc">Building a design system from a brand guideline, then scaling it across a company of over a thousand people.</p>
+          <div class="work-tags"><span>Enterprise</span><span>Design System</span><span>Brand &amp; Web</span></div>
+          <p class="work-link">Scaled across 1,000+ people →</p>
+        </article>
+
+        <article class="work-item rv">
+          <a class="work-media" href="../cases/vault-network.html">
+            <img src="Img/valt.avif" alt="Valt Network — product design">
+          </a>
+          <span class="work-idx">/ 02</span>
+          <h3 class="work-name">Valt Network</h3>
+          <p class="work-desc">Designing the professional layer for private-market investors and high-growth companies — from zero to a full-featured social product.</p>
+          <div class="work-tags"><span>Fintech</span><span>Social Product</span><span>0 → 1</span></div>
+          <p class="work-link">Live product · 12-month build →</p>
+        </article>
+
+        <article class="work-item rv">
+          <a class="work-media" href="../cases/mba-benefits.html">
+            <img src="Img/MBA-painel-mobile.png" alt="My Benefits Advice — personalized plan-recommendation flow">
+          </a>
+          <span class="work-idx">/ 03</span>
+          <h3 class="work-name">My Benefits Advice</h3>
+          <p class="work-desc">Health benefits platform with a personalized plan-recommendation engine for employees.</p>
+          <div class="work-tags"><span>Enterprise</span><span>Onboarding</span><span>Fintech</span></div>
+          <p class="work-link">43% faster onboarding →</p>
+        </article>
+
+        <article class="work-item rv">
+          <div class="work-media">
+            <img src="Img/Home.png" alt="Qconcursos — platform redesign" style="object-position:top;">
+          </div>
+          <span class="work-idx">/ 04</span>
+          <h3 class="work-name">Qconcursos</h3>
+          <p class="work-desc">From 600K to 10M — designing for scale at Brazil's largest exam-prep edtech.</p>
+          <div class="work-tags"><span>Edtech</span><span>8M+ Users</span><span>Team Lead</span></div>
+          <p class="work-link">600K → 10M+ users on the platform</p>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="work-footer">
+      <div class="work-progress" aria-hidden="true"><span class="work-progress-fill" id="workProgressFill"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ TESTIMONIALS + CLOSING — shared kinetic-grid wrap, reads as one section ════════ -->
+<div class="kinetic-wrap" id="testiClosingWrap">
+  <canvas class="kinetic-canvas" id="kineticCanvas2" aria-hidden="true"></canvas>
+
+  <section class="testi sec-pad" id="testimonials">
+    <div class="sec-head">
+      <div>
+        <span class="sec-label" style="margin-bottom:18px;">Testimonials</span>
+        <h2 class="sec-title">What people <em>are saying</em></h2>
+      </div>
+    </div>
+
+    <div class="testi-card rv">
+      <div class="testi-glow" aria-hidden="true"></div>
+      <span class="testi-mark" aria-hidden="true">&ldquo;</span>
+      <p class="testi-quote" id="testiQuote">João doesn&rsquo;t just design, he raises the bar for everyone. As our UX and Figma educator, he&rsquo;s trained dozens of LATAM engineers who now think in product.</p>
+
+      <div class="testi-author-row">
+        <div class="testi-avatars" id="testiAvatars">
+          <button class="testi-avatar is-active" type="button" data-index="0" aria-pressed="true" aria-label="Show testimonial from Orlando Campos" style="background-image:url('../img/testimonials/orlando-campos.png');"></button>
+          <button class="testi-avatar" type="button" data-index="1" aria-pressed="false" aria-label="Show testimonial from Bernard de Luna" style="background-image:url('../img/testimonials/bernard-de-luna.png');"></button>
+          <button class="testi-avatar" type="button" data-index="2" aria-pressed="false" aria-label="Show testimonial from Mauricio Salazar" style="background-image:url('../img/testimonials/mauricio-salazar.png');"></button>
+        </div>
+        <span class="testi-divider" aria-hidden="true"></span>
+        <div class="testi-meta" id="testiMeta">
+          <p class="testi-name" id="testiName">Orlando Campos</p>
+          <p class="testi-role" id="testiRole">Academic Coordinator</p>
+        </div>
+        <span class="testi-logo-chip" id="testiLogoChip" aria-hidden="true">
+          <img id="testiLogo" src="../img/1654778420300.jpg" alt="">
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ CLOSING CTA ════════ -->
+  <section class="closing sec-pad" id="contact">
+    <p class="closing-kicker rv">No contracts. No queues. Just great design.</p>
+    <h2 class="closing-title rv">Ready to have a designer <em>who truly gets it?</em></h2>
+    <a class="btn-main rv" href="https://wa.me/5561993734553?text=Hi%20Jo%C3%A3o%2C%20I%20want%20to%20talk%20about%20my%20product." target="_blank" rel="noopener">
+      <span class="flair"></span><span>Start a conversation →</span>
+    </a>
+  </section>
+</div>
+
+</main>
+
+<footer>
+  <div class="foot-bottom">
+    <span>© 2026 João Abdalla. All rights reserved.</span>
+    <span>PT · EN · ES</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* kinetic grid — canvas background that warps toward the cursor and ripples on click.
+     Reusable: instantiated once for the hero, and once more spanning the testimonials +
+     closing wrap so both read as a single continuous section. */
+  function initKineticCanvas(canvas, section) {
+    if (!canvas || !section) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    var ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    var CELL_SIZE = 55;
+    var INFLUENCE_RADIUS = 260;
+    var MAX_WARP = 22;
+    var DOT_SPACING = 28;
+    var LERP_SPEED = 0.08;
+
+    var LINE_BASE = { r: 255, g: 255, b: 255, a: 0.1 };
+    var NODE_BASE_RADIUS = 1.6;
+    var NODE_ACTIVE_RADIUS = 3;
+    var LINE_ACTIVE = { r: 194, g: 252, b: 80, a: 0.85 };  // var(--accent)
+    var NODE_ACTIVE = { r: 194, g: 252, b: 80, a: 1 };
+    var GLOW_RGB = "194,252,80";
+    var RIPPLE_RGB = "194,252,80";
+
+    var mouse = { x: -9999, y: -9999 };
+    var targetMouse = { x: -9999, y: -9999 };
+    var ripples = [];
+    var size = { w: 0, h: 0 };
+    var rafId = null;
+
+    function lerpN(a, b, t) { return a + (b - a) * t; }
+    function lerpColor(base, active, t) {
+      var r = Math.round(lerpN(base.r, active.r, t));
+      var g = Math.round(lerpN(base.g, active.g, t));
+      var b = Math.round(lerpN(base.b, active.b, t));
+      var a = lerpN(base.a, active.a, t);
+      return "rgba(" + r + "," + g + "," + b + "," + a.toFixed(3) + ")";
+    }
+
+    function getWarpedPoint(gx, gy, col, row, cols, rows) {
+      var edgeMargin = 1.5;
+      var colPin = Math.min(col / edgeMargin, (cols - 1 - col) / edgeMargin, 1);
+      var rowPin = Math.min(row / edgeMargin, (rows - 1 - row) / edgeMargin, 1);
+      var pinFactor = colPin * colPin * rowPin * rowPin;
+
+      var dx = gx - mouse.x, dy = gy - mouse.y;
+      var dist = Math.sqrt(dx * dx + dy * dy);
+      var proximity = Math.max(0, 1 - dist / INFLUENCE_RADIUS) * pinFactor;
+
+      var rx = 0, ry = 0;
+      for (var i = 0; i < ripples.length; i++) {
+        var r = ripples[i];
+        var rdx = gx - r.x, rdy = gy - r.y;
+        var rdist = Math.sqrt(rdx * rdx + rdy * rdy);
+        var waveWidth = 55;
+        var diff = rdist - r.radius;
+        if (Math.abs(diff) < waveWidth) {
+          var strength = (1 - Math.abs(diff) / waveWidth) * r.opacity * 18 * pinFactor;
+          var angle = Math.atan2(rdy, rdx);
+          var sign = diff < 0 ? -1 : 1;
+          rx += Math.cos(angle) * strength * sign * -1;
+          ry += Math.sin(angle) * strength * sign * -1;
+        }
+      }
+
+      if (dist < INFLUENCE_RADIUS && dist > 0 && pinFactor > 0) {
+        var t = dist / INFLUENCE_RADIUS;
+        var eased = t < 0.01 ? 0 : (1 - t) * (1 - t) * Math.min(1, dist / 60);
+        var warpAmt = eased * MAX_WARP * pinFactor;
+        var a2 = Math.atan2(dy, dx);
+        return {
+          pt: { x: gx - Math.cos(a2) * warpAmt + rx, y: gy - Math.sin(a2) * warpAmt + ry },
+          proximity: proximity
+        };
+      }
+      return { pt: { x: gx + rx, y: gy + ry }, proximity: proximity };
+    }
+
+    function draw(now) {
+      var W = size.w, H = size.h;
+      if (!W || !H) return;
+      ctx.clearRect(0, 0, W, H);
+
+      ctx.fillStyle = "rgba(255,255,255,0.05)";
+      for (var x = DOT_SPACING / 2; x < W; x += DOT_SPACING) {
+        for (var y = DOT_SPACING / 2; y < H; y += DOT_SPACING) {
+          ctx.beginPath();
+          ctx.arc(x, y, 0.7, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      for (var i = ripples.length - 1; i >= 0; i--) {
+        var r = ripples[i];
+        var age = (now - r.born) / 1000;
+        r.radius = Math.max(0, age * 400);
+        r.opacity = Math.max(0, 1 - age * 1.2);
+        if (r.opacity <= 0) ripples.splice(i, 1);
+      }
+
+      var cols = Math.max(2, Math.ceil(W / CELL_SIZE)) + 1;
+      var rows = Math.max(2, Math.ceil(H / CELL_SIZE)) + 1;
+      var cellW = W / (cols - 1);
+      var cellH = H / (rows - 1);
+
+      var pts = [], prox = [];
+      for (var row = 0; row < rows; row++) {
+        pts[row] = []; prox[row] = [];
+        for (var col = 0; col < cols; col++) {
+          var res = getWarpedPoint(col * cellW, row * cellH, col, row, cols, rows);
+          pts[row][col] = res.pt;
+          prox[row][col] = res.proximity;
+        }
+      }
+
+      function drawSeg(p1, p2, pr1, pr2) {
+        var avg = (pr1 + pr2) / 2;
+        var t = avg * avg * (3 - 2 * avg);
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.strokeStyle = lerpColor(LINE_BASE, LINE_ACTIVE, t);
+        ctx.lineWidth = lerpN(0.8, 1.4, t);
+        ctx.stroke();
+      }
+      ctx.lineCap = "butt";
+      for (var row2 = 0; row2 < rows; row2++)
+        for (var col2 = 0; col2 < cols - 1; col2++)
+          drawSeg(pts[row2][col2], pts[row2][col2 + 1], prox[row2][col2], prox[row2][col2 + 1]);
+      for (var col3 = 0; col3 < cols; col3++)
+        for (var row3 = 0; row3 < rows - 1; row3++)
+          drawSeg(pts[row3][col3], pts[row3 + 1][col3], prox[row3][col3], prox[row3 + 1][col3]);
+
+      for (var row4 = 0; row4 < rows; row4++) {
+        for (var col4 = 0; col4 < cols; col4++) {
+          var p = pts[row4][col4];
+          var pr = prox[row4][col4];
+          var t2 = pr * pr * (3 - 2 * pr);
+          var rad = lerpN(NODE_BASE_RADIUS, NODE_ACTIVE_RADIUS, t2);
+
+          if (t2 > 0.3) {
+            var glowR = rad + lerpN(0, 6, (t2 - 0.3) / 0.7);
+            var grd = ctx.createRadialGradient(p.x, p.y, rad * 0.5, p.x, p.y, glowR);
+            grd.addColorStop(0, "rgba(" + GLOW_RGB + "," + (t2 * 0.3).toFixed(3) + ")");
+            grd.addColorStop(1, "rgba(" + GLOW_RGB + ",0)");
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, glowR, 0, Math.PI * 2);
+            ctx.fillStyle = grd;
+            ctx.fill();
+          }
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, rad, 0, Math.PI * 2);
+          ctx.fillStyle = lerpColor({ r: 255, g: 255, b: 255, a: 0.18 }, NODE_ACTIVE, t2);
+          ctx.fill();
+        }
+      }
+
+      for (var j = 0; j < ripples.length; j++) {
+        var rp = ripples[j];
+        var safeRadius = Math.max(0, rp.radius);
+        ctx.beginPath();
+        ctx.arc(rp.x, rp.y, safeRadius, 0, Math.PI * 2);
+        ctx.strokeStyle = "rgba(" + RIPPLE_RGB + "," + (rp.opacity * 0.3).toFixed(3) + ")";
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+      }
+    }
+
+    function animate(now) {
+      mouse.x = lerpN(mouse.x, targetMouse.x, LERP_SPEED);
+      mouse.y = lerpN(mouse.y, targetMouse.y, LERP_SPEED);
+      draw(now);
+      rafId = requestAnimationFrame(animate);
+    }
+
+    function setSize() {
+      var rect = section.getBoundingClientRect();
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      var w = Math.round(rect.width);
+      var h = Math.round(rect.height);
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      size = { w: w, h: h };
+    }
+
+    function inSection(clientX, clientY) {
+      var rect = section.getBoundingClientRect();
+      return clientX >= rect.left && clientX <= rect.right && clientY >= rect.top && clientY <= rect.bottom;
+    }
+
+    function onMove(e) {
+      var rect = section.getBoundingClientRect();
+      if (inSection(e.clientX, e.clientY)) {
+        targetMouse.x = e.clientX - rect.left;
+        targetMouse.y = e.clientY - rect.top;
+      } else {
+        targetMouse.x = -9999;
+        targetMouse.y = -9999;
+      }
+    }
+
+    function onClick(e) {
+      var rect = section.getBoundingClientRect();
+      if (!inSection(e.clientX, e.clientY)) return;
+      ripples.push({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+        radius: 0, opacity: 1, born: performance.now()
+      });
+    }
+
+    setSize();
+    window.addEventListener("resize", setSize, { passive: true });
+    window.addEventListener("mousemove", onMove, { passive: true });
+    window.addEventListener("click", onClick, { passive: true });
+    rafId = requestAnimationFrame(animate);
+
+    // the section's height can change after layout settles (images loading, content
+    // reveals) — keep the canvas buffer in sync so the warp math stays aligned
+    if ("ResizeObserver" in window) {
+      var ro = new ResizeObserver(function () { setSize(); });
+      ro.observe(section);
+    } else {
+      window.addEventListener("load", setSize);
+    }
+  }
+
+  initKineticCanvas(document.getElementById("kineticCanvas"), document.querySelector(".hero2"));
+  initKineticCanvas(document.getElementById("kineticCanvas2"), document.getElementById("testiClosingWrap"));
+
+  /* nav hide/show on scroll */
+  var lastY = 0, nav = document.getElementById("nav");
+  window.addEventListener("scroll", function(){
+    var y = window.scrollY;
+    if (y > 140 && y > lastY) nav.classList.add("is-hidden");
+    else nav.classList.remove("is-hidden");
+    lastY = y;
+  }, { passive: true });
+
+  /* hero mockup — click a background project to bring it to front */
+  (function () {
+    var frame = document.getElementById("mockFrame");
+    if (!frame) return;
+    var cards = Array.prototype.slice.call(frame.querySelectorAll(".mock-card"));
+    if (!cards.length) return;
+
+    function bringToFront(card) {
+      var clickedSlot = card.dataset.slot;
+      if (clickedSlot === "front") return;
+      var frontCard = cards.filter(function (c) { return c.dataset.slot === "front"; })[0];
+      if (!frontCard) return;
+      frontCard.dataset.slot = clickedSlot;
+      card.dataset.slot = "front";
+    }
+
+    var userInteracted = false;
+    cards.forEach(function (card) {
+      card.addEventListener("click", function () { userInteracted = true; bringToFront(card); });
+      card.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          userInteracted = true;
+          bringToFront(card);
+        }
+      });
+    });
+
+    // one-time hint: swap each background card to front on its own, 3s apart,
+    // so first-time visitors notice the mockups are clickable — runs twice, then stops for good
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setTimeout(function () {
+        if (userInteracted) return;
+        var hintCard = cards.filter(function (c) { return c.dataset.slot === "back-left"; })[0];
+        if (hintCard) bringToFront(hintCard);
+
+        setTimeout(function () {
+          if (userInteracted) return;
+          var secondHintCard = cards.filter(function (c) { return c.dataset.slot === "back-right"; })[0];
+          if (secondHintCard) bringToFront(secondHintCard);
+        }, 3000);
+      }, 3000);
+    }
+  })();
+
+  /* scroll reveal */
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var items = document.querySelectorAll(".rv");
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    items.forEach(function(el){ el.classList.add("is-in"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-in");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    items.forEach(function(el){ io.observe(el); });
+  }
+
+  /* selected work — pin + scroll-linked horizontal traversal */
+  (function () {
+    var section = document.getElementById("work");
+    var pin = document.getElementById("workPin");
+    var viewport = document.getElementById("workViewport");
+    var track = document.getElementById("workTrack");
+    var fill = document.getElementById("workProgressFill");
+    var prevBtn = document.getElementById("workPrev");
+    var nextBtn = document.getElementById("workNext");
+    if (!section || !pin || !viewport || !track) return;
+
+    var mqDesktop = window.matchMedia("(min-width:861px) and (pointer:fine)");
+    var maxX = 0, active = false, ticking = false;
+
+    function measure() {
+      maxX = Math.max(0, track.scrollWidth - viewport.clientWidth);
+      section.style.height = active ? (window.innerHeight + maxX) + "px" : "";
+    }
+
+    function render() {
+      ticking = false;
+      if (!active) return;
+      var rect = section.getBoundingClientRect();
+      var progress = maxX > 0 ? (-rect.top) / maxX : 0;
+      progress = Math.max(0, Math.min(1, progress));
+      track.style.transform = "translateX(" + (-progress * maxX) + "px)";
+      if (fill) fill.style.width = (progress * 100) + "%";
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(render);
+      }
+    }
+
+    function enable() {
+      if (active) return;
+      active = true;
+      measure();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      render();
+    }
+
+    function disable() {
+      if (!active) return;
+      active = false;
+      section.style.height = "";
+      track.style.transform = "";
+      if (fill) fill.style.width = "";
+      window.removeEventListener("scroll", onScroll);
+    }
+
+    function sync() {
+      if (mqDesktop.matches && !reduceMotion && track.children.length > 1) enable();
+      else disable();
+      measure();
+      render();
+    }
+
+    function step(dir) {
+      var amount = viewport.clientWidth * 0.85;
+      if (active) window.scrollBy({ top: dir * amount, behavior: "smooth" });
+      else viewport.scrollBy({ left: dir * amount, behavior: "smooth" });
+    }
+
+    window.addEventListener("resize", function () { measure(); render(); }, { passive: true });
+    window.addEventListener("load", function () { measure(); render(); });
+    if (mqDesktop.addEventListener) mqDesktop.addEventListener("change", sync);
+    else mqDesktop.addListener(sync);
+
+    if (prevBtn) prevBtn.addEventListener("click", function () { step(-1); });
+    if (nextBtn) nextBtn.addEventListener("click", function () { step(1); });
+
+    sync();
+  })();
+
+  /* testimonials — click an avatar to bring it forward and swap the quote */
+  (function () {
+    var data = [
+      {
+        quote: "João doesn’t just design, he raises the bar for everyone. As our UX and Figma educator, he’s trained dozens of LATAM engineers who now think in product.",
+        name: "Orlando Campos",
+        role: "Academic Coordinator",
+        logo: "../img/1654778420300.jpg"
+      },
+      {
+        quote: "João’s redesign of our course page raised the bar for the whole product. Rigorous work that scaled to millions of users without missing a beat.",
+        name: "Bernard de Luna",
+        role: "Product Director",
+        logo: "../img/logos/color/logos-qc.svg"
+      },
+      {
+        quote: "João built our design system from a brand guideline into a component library over a thousand people now build with daily.",
+        name: "Mauricio Salazar",
+        role: "Development Engineer",
+        logo: "../img/logos/color/logos-jala.svg"
+      }
+    ];
+
+    var avatars = document.getElementById("testiAvatars");
+    var quoteEl = document.getElementById("testiQuote");
+    var metaEl = document.getElementById("testiMeta");
+    var nameEl = document.getElementById("testiName");
+    var roleEl = document.getElementById("testiRole");
+    var logoChip = document.getElementById("testiLogoChip");
+    var logoImg = document.getElementById("testiLogo");
+    if (!avatars || !quoteEl) return;
+
+    var buttons = Array.prototype.slice.call(avatars.querySelectorAll(".testi-avatar"));
+    var current = 0;
+    var swapDelay = reduceMotion ? 0 : 220;
+
+    function setActive(index) {
+      buttons.forEach(function (btn, i) {
+        var isActive = i === index;
+        btn.classList.toggle("is-active", isActive);
+        btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+    }
+
+    function applyContent(index) {
+      var item = data[index];
+      quoteEl.textContent = item.quote;
+      nameEl.textContent = item.name;
+      roleEl.textContent = item.role;
+      logoImg.src = item.logo;
+    }
+
+    function goTo(index) {
+      if (index === current) return;
+      current = index;
+      setActive(index);
+
+      quoteEl.classList.add("is-swap");
+      metaEl.classList.add("is-swap");
+      logoChip.classList.add("is-swap");
+
+      window.setTimeout(function () {
+        applyContent(index);
+        quoteEl.classList.remove("is-swap");
+        metaEl.classList.remove("is-swap");
+        logoChip.classList.remove("is-swap");
+      }, swapDelay);
+    }
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        goTo(parseInt(btn.getAttribute("data-index"), 10));
+      });
+    });
+  })();
+})();
+</script>
+</body>
+</html>
