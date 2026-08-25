@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R7PLZLRLYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-R7PLZLRLYJ');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — João Abdalla — Senior Product Designer · UX/UI</title>
+<meta name="description" content="Senior Product Designer with 20+ years shipping digital products across edtech, fintech, and enterprise SaaS. Based in Brazil, working remotely with US and EU teams.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ════════ TOKENS — Arcoverdesign v5 style guide (shared with index.html) ════════ */
+:root{
+  --bg:        #11161A;
+  --bg-deep:   #0C1013;
+  --surface:   #1A2025;
+  --line:      rgba(255,255,255,.08);
+  --accent:    #C2FC50;
+  --white:     #F4F6F3;
+  --muted:     #9BA4AA;
+  --dim:       #5E676D;
+  --serif:     'Lora', Georgia, serif;
+  --sans:      'Urbanist', sans-serif;
+  --px: clamp(20px, 5vw, 72px);
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scrollbar-width:thin;scrollbar-color:#2c343a var(--bg-deep);}
+body{
+  background:var(--bg);
+  color:var(--white);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  line-height:1.5;
+}
+::selection{background:var(--accent);color:var(--bg-deep);}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+button{font:inherit;background:none;border:none;cursor:pointer;color:inherit;}
+
+/* ════════ NAV (shared) ════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  transition:transform .5s var(--ease);
+}
+nav.is-hidden{transform:translateY(-110%);}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px var(--px);
+  background:linear-gradient(rgba(12,16,19,.85),rgba(12,16,19,.4) 70%,transparent);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+.nav-logo{font-family:var(--serif);font-style:italic;font-weight:600;font-size:20px;color:var(--white);}
+.nav-brand{display:flex;align-items:center;gap:13px;}
+.nav-avatar{
+  width:44px;height:44px;border-radius:50%;flex:0 0 auto;
+  object-fit:cover;border:2px solid var(--white);
+}
+.nav-brand-text{display:flex;flex-direction:column;line-height:1.2;}
+.nav-name{font-family:var(--sans);font-weight:700;font-size:17px;letter-spacing:-.01em;color:var(--white);}
+.nav-role{font-family:var(--sans);font-weight:400;font-size:12px;color:var(--muted);margin-top:1px;}
+@media (max-width:480px){.nav-role{display:none;}}
+.nav-links{display:flex;gap:34px;list-style:none;align-items:center;}
+.nav-links a{
+  font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);position:relative;padding:4px 0;transition:color .25s;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;
+  background:var(--accent);transform:scaleX(0);transform-origin:right;
+  transition:transform .4s var(--ease);
+}
+.nav-links a:hover{color:var(--white);}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left;}
+.nav-links a.is-active{color:var(--accent);}
+.nav-links a.is-active::after{transform:scaleX(1);background:var(--accent);}
+@media (max-width:720px){.nav-links{gap:20px;}}
+@media (max-width:560px){.nav-links a:not(:last-child){display:none;}}
+
+/* ════════ BUTTONS (shared) ════════ */
+.btn-main{
+  position:relative;display:inline-flex;align-items:center;gap:12px;
+  background:var(--accent);color:var(--bg-deep);
+  font-weight:700;font-size:15px;letter-spacing:.02em;
+  padding:18px 34px;border-radius:99px;overflow:hidden;
+  transition:transform .3s var(--ease);
+}
+.btn-main:hover{transform:translateY(-2px);}
+.btn-main .flair{
+  position:absolute;inset:0;background:var(--white);border-radius:inherit;
+  transform:translateY(101%);transition:transform .45s var(--ease);
+}
+.btn-main:hover .flair{transform:translateY(0);}
+.btn-main span{position:relative;z-index:1;}
+
+.social-row{display:flex;gap:12px;}
+.social-btn{
+  width:44px;height:44px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+}
+.social-btn:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(0,0,0,.35);}
+.social-btn.dribbble{background:#EA4C89;}
+.social-btn.behance{background:#1769FF;}
+.social-btn.linkedin{background:#0A66C2;}
+
+/* ════════ SECTION COMMON (shared v5 pattern) ════════ */
+section{position:relative;}
+.sec-pad{padding:clamp(90px,14vh,150px) var(--px);}
+.sec-label{
+  display:flex;align-items:center;gap:12px;
+  font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);
+  margin-bottom:18px;
+}
+.sec-label::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);}
+.sec-title{
+  font-weight:800;font-size:clamp(30px,4.6vw,58px);
+  line-height:1.05;letter-spacing:-.03em;text-transform:uppercase;
+}
+.sec-title em{
+  font-family:var(--serif);font-style:italic;font-weight:500;text-transform:lowercase;
+  color:var(--accent);
+}
+.kinetic-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+@media (prefers-reduced-motion:reduce){.kinetic-canvas{display:none;}}
+
+/* ════════ ABOUT HERO ════════ */
+.about-hero{overflow:hidden;padding:clamp(140px,20vh,190px) var(--px) clamp(70px,9vh,100px);}
+.about-hero-glow{
+  position:absolute;top:-20%;left:-10%;width:60%;height:70%;z-index:0;
+  background:radial-gradient(closest-side, rgba(194,252,80,.14), transparent 72%);
+  filter:blur(10px);pointer-events:none;
+}
+.about-hero-grid{
+  position:relative;z-index:1;max-width:1280px;margin:0 auto;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(40px,6vw,90px);align-items:center;
+}
+@media (max-width:900px){.about-hero-grid{grid-template-columns:1fr;}}
+
+.about-hero-title{
+  font-weight:800;font-size:clamp(30px,4.2vw,52px);
+  line-height:1.14;letter-spacing:-.025em;
+}
+.about-hero-title i{color:var(--accent);font-style:normal;}
+.about-hero-lede{
+  margin-top:clamp(22px,3vh,30px);
+  font-family:var(--serif);font-style:italic;font-weight:500;
+  font-size:clamp(17px,1.8vw,21px);line-height:1.6;color:var(--white);opacity:.9;
+  max-width:52ch;
+}
+.about-hero-meta{
+  margin-top:clamp(26px,3.6vh,36px);
+  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+}
+.status-pill{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:9px 16px 9px 12px;border:1px solid var(--line);border-radius:99px;
+  font-size:13px;font-weight:600;color:var(--muted);
+}
+.status-dot{
+  width:8px;height:8px;border-radius:50%;background:var(--accent);flex:0 0 auto;
+  box-shadow:0 0 0 0 rgba(194,252,80,.6);
+  animation:pulse-dot 2.4s var(--ease) infinite;
+}
+@keyframes pulse-dot{
+  0%{box-shadow:0 0 0 0 rgba(194,252,80,.5);}
+  70%{box-shadow:0 0 0 9px rgba(194,252,80,0);}
+  100%{box-shadow:0 0 0 0 rgba(194,252,80,0);}
+}
+.meta-loc{font-size:13px;color:var(--dim);}
+.meta-loc b{color:var(--muted);font-weight:600;}
+@media (prefers-reduced-motion:reduce){.status-dot{animation:none;}}
+
+/* portrait stage */
+.portrait-stage{position:relative;width:min(340px,72vw);margin:0 auto;}
+.portrait-glow{
+  position:absolute;inset:-18% -14%;z-index:0;
+  background:radial-gradient(55% 55% at 50% 45%, rgba(194,252,80,.24), transparent 72%);
+  filter:blur(38px);
+}
+.portrait-frame{
+  position:relative;z-index:1;aspect-ratio:1/1;border-radius:50%;overflow:hidden;
+  border:3px solid var(--accent);
+  box-shadow:0 30px 60px rgba(0,0,0,.5);
+}
+.portrait-frame img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transform:scale(1.4);transform-origin:50% 22%;
+  filter:contrast(1.04) saturate(1.05);
+}
+.portrait-badge{
+  position:absolute;z-index:3;
+  background:var(--surface);border:1px solid var(--line);border-radius:16px;
+  padding:11px 16px;box-shadow:0 18px 40px rgba(0,0,0,.4);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  animation:float-badge 6s var(--ease) infinite;
+}
+.portrait-badge .num{font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--white);line-height:1;}
+.portrait-badge .num i{color:var(--accent);font-style:normal;}
+.portrait-badge .lab{margin-top:3px;font-size:10.5px;letter-spacing:.06em;color:var(--muted);white-space:nowrap;}
+.badge-a{top:-4%;left:-16%;animation-delay:0s;}
+.badge-b{bottom:2%;right:-18%;animation-delay:-3s;}
+@keyframes float-badge{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-8px);}
+}
+@media (max-width:900px){.badge-a{left:-6%;}.badge-b{right:-6%;}}
+@media (max-width:560px){.portrait-badge{display:none;}}
+@media (prefers-reduced-motion:reduce){.portrait-badge{animation:none;}}
+
+.portrait-caption{
+  margin-top:26px;text-align:center;font-size:13px;color:var(--muted);
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.portrait-caption b{color:var(--white);font-weight:600;}
+
+/* ════════ STATS STRIP ════════ */
+.about-stats{background:var(--bg-deep);}
+.about-stats-row{
+  max-width:1180px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(28px,4vw,40px);
+}
+@media (max-width:760px){.about-stats-row{grid-template-columns:repeat(2,1fr);}}
+.a-stat{padding:0 clamp(0px,1vw,8px);border-left:1px solid var(--line);}
+.a-stat:first-child{border-left:none;}
+@media (max-width:760px){.a-stat:nth-child(odd){border-left:none;}}
+.a-stat .num{font-weight:800;font-size:clamp(28px,3.4vw,42px);letter-spacing:-.03em;line-height:1;color:var(--white);}
+.a-stat .num i{color:var(--accent);font-style:normal;}
+.a-stat .lab{margin-top:10px;font-size:13px;letter-spacing:.06em;color:var(--muted);line-height:1.4;}
+
+/* ════════ STORY / CHAPTERS ════════ */
+.chapters{max-width:900px;margin:0 auto;}
+.chapter{
+  display:grid;grid-template-columns:100px 1fr;gap:clamp(16px,3vw,36px);
+  padding:clamp(30px,4vh,44px) 0;border-top:1px solid var(--line);
+}
+.chapters .chapter:first-child{border-top:none;padding-top:0;}
+.chapter-idx{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--accent);padding-top:4px;}
+.chapter-name{
+  font-weight:800;font-size:clamp(18px,1.8vw,22px);text-transform:uppercase;
+  letter-spacing:-.01em;margin-bottom:10px;
+}
+.chapter-text{color:var(--muted);font-size:clamp(16px,1.5vw,18px);line-height:1.7;max-width:64ch;}
+.chapter-text b{color:var(--white);font-weight:600;}
+.chapter-text em{font-family:var(--serif);font-style:italic;color:var(--accent);font-weight:500;}
+
+/* ════════ QUOTE ════════ */
+.about-quote{max-width:820px;margin:0 auto;text-align:center;position:relative;z-index:1;}
+.about-quote .mark{
+  font-family:var(--serif);font-style:italic;font-weight:600;
+  font-size:56px;line-height:1;color:var(--accent);margin-bottom:4px;
+}
+.about-quote blockquote{
+  font-family:var(--serif);font-style:italic;font-weight:500;
+  font-size:clamp(22px,3.2vw,36px);line-height:1.5;color:var(--white);
+}
+.about-quote blockquote em{color:var(--accent);}
+
+/* ════════ CONTACT ════════ */
+.about-contact{background:var(--bg-deep);overflow:hidden;}
+.about-contact::before{
+  content:"";position:absolute;inset:auto 0 -20% 0;height:70%;
+  background:radial-gradient(50% 60% at 50% 100%, rgba(194,252,80,.14), transparent 70%);
+  pointer-events:none;
+}
+.contact-grid{
+  position:relative;z-index:1;max-width:1180px;margin:0 auto;
+  display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(40px,6vw,80px);align-items:end;
+}
+@media (max-width:860px){.contact-grid{grid-template-columns:1fr;}}
+.contact-copy p{color:var(--muted);font-size:clamp(16px,1.6vw,18px);line-height:1.65;max-width:56ch;margin-top:16px;}
+.contact-copy p:first-of-type{margin-top:24px;}
+.contact-facts{
+  margin-top:clamp(26px,3.4vh,34px);display:flex;flex-direction:column;gap:8px;
+  font-size:14px;color:var(--dim);
+}
+.contact-facts b{color:var(--muted);font-weight:600;}
+.contact-actions{display:flex;flex-direction:column;align-items:flex-start;gap:26px;}
+@media (max-width:860px){.contact-actions{align-items:flex-start;margin-top:8px;}}
+
+/* ════════ REVEAL (shared) ════════ */
+.rv{opacity:0;transform:translateY(32px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
+.rv.is-in{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}}
+
+/* ════════ FOOTER (shared) ════════ */
+.foot-bottom{
+  display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  padding:28px var(--px) 40px;border-top:1px solid var(--line);
+  font-size:13px;color:var(--dim);background:var(--bg-deep);
+}
+</style>
+</head>
+<body>
+
+<!-- ════════ NAV ════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html#top" class="nav-brand">
+      <img class="nav-avatar" src="Img/joao-avatar.jpg" alt="João Abdalla">
+      <span class="nav-brand-text">
+        <span class="nav-name">João Abdalla</span>
+        <span class="nav-role">Product designer UX UI</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#work">Works</a></li>
+      <li><a href="about.html" class="is-active" aria-current="page">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- ════════ ABOUT HERO ════════ -->
+<section class="about-hero" id="about">
+  <canvas class="kinetic-canvas" id="kineticCanvas" aria-hidden="true"></canvas>
+  <div class="about-hero-glow" aria-hidden="true"></div>
+
+  <div class="about-hero-grid">
+    <div class="about-hero-copy rv">
+      <span class="sec-label">About</span>
+      <h1 class="about-hero-title">Senior Product Designer with <i>20+ years</i> shipping digital products across edtech, fintech, and enterprise SaaS.</h1>
+      <p class="about-hero-lede">I'm João Abdalla — based in Brazil, working remotely with international teams.</p>
+      <div class="about-hero-meta">
+        <span class="status-pill"><span class="status-dot" aria-hidden="true"></span> Available for remote collaboration</span>
+        <span class="meta-loc">Based in <b>Brasília, Brazil</b> · <b>US &amp; EU</b> teams</span>
+      </div>
+    </div>
+
+    <div class="about-hero-portrait rv">
+      <div class="portrait-stage">
+        <div class="portrait-glow" aria-hidden="true"></div>
+        <div class="portrait-frame">
+          <img src="Img/joao%20avatar%20grtande.jpg" alt="João Abdalla, Senior Product Designer" loading="eager">
+        </div>
+        <div class="portrait-badge badge-a">
+          <div class="num">Since <i>2005</i></div>
+          <div class="lab">Marketing &amp; digital design</div>
+        </div>
+        <div class="portrait-badge badge-b">
+          <div class="num"><i>8M+</i> users</div>
+          <div class="lab">Platform led at scale</div>
+        </div>
+      </div>
+      <p class="portrait-caption">🎓 Teaching UX/UI &amp; Figma at <b>Jala University</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ STATS STRIP ════════ -->
+<section class="sec-pad about-stats" style="padding-top:clamp(50px,7vh,80px);padding-bottom:clamp(50px,7vh,80px);">
+  <div class="about-stats-row">
+    <div class="a-stat rv"><div class="num">20<i>+</i></div><div class="lab">Years across UX/UI, product strategy &amp; front-end</div></div>
+    <div class="a-stat rv"><div class="num"><i>8M+</i></div><div class="lab">Active users on Brazil's largest exam-prep platform</div></div>
+    <div class="a-stat rv"><div class="num">0<i>→</i>1</div><div class="lab">Multi-role enterprise systems built from zero</div></div>
+    <div class="a-stat rv"><div class="num"><i>LATAM</i></div><div class="lab">Designers &amp; engineers trained at Jala University</div></div>
+  </div>
+</section>
+
+<!-- ════════ STORY ════════ -->
+<section class="sec-pad about-story">
+  <div class="sec-head" style="margin-bottom:clamp(40px,7vh,72px);">
+    <div class="rv">
+      <span class="sec-label">The long version</span>
+      <h2 class="sec-title">How I got <em>here</em></h2>
+    </div>
+  </div>
+
+  <div class="chapters">
+    <div class="chapter rv">
+      <span class="chapter-idx">/ 01</span>
+      <div>
+        <h3 class="chapter-name">Foundation</h3>
+        <p class="chapter-text">I graduated in <b>2005</b> with a specialization in marketing and digital design, and over the past 20+ years I've worked across <b>UX/UI, product strategy, and front-end development</b> — designing products where the stakes are real: compliance, payroll, healthcare decisions, financial data.</p>
+      </div>
+    </div>
+
+    <div class="chapter rv">
+      <span class="chapter-idx">/ 02</span>
+      <div>
+        <h3 class="chapter-name">Scale</h3>
+        <p class="chapter-text">I've led design for Brazil's largest exam-prep platform, with <b>8M+ active users</b>, built multi-role enterprise systems from zero, and shipped products for US-based SaaS teams as a remote contractor. I also teach UX/UI and Figma at <b>Jala University</b>, training the next generation of LATAM designers and engineers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ PHILOSOPHY QUOTE ════════ -->
+<section class="sec-pad about-quote-wrap">
+  <div class="about-quote rv">
+    <span class="mark" aria-hidden="true">&ldquo;</span>
+    <blockquote>I care about <em>the system underneath the screen</em> as much as the screen itself — because the best interface in the world doesn't help if the structure behind it is broken.</blockquote>
+  </div>
+</section>
+
+<!-- ════════ CONTACT ════════ -->
+<div class="kinetic-wrap" id="contactWrap" style="position:relative;">
+<section class="sec-pad about-contact" id="contact">
+  <canvas class="kinetic-canvas" id="kineticCanvas2" aria-hidden="true"></canvas>
+  <div class="contact-grid">
+    <div class="contact-copy rv">
+      <span class="sec-label">Contact</span>
+      <h2 class="sec-title">Let's build something <em>that matters</em></h2>
+      <p>Got a product or feature to design? Need a Senior Product Designer to plug into your team?</p>
+      <p>I'm available for remote collaboration as an independent contractor (UX/UI, Product Design).</p>
+      <div class="contact-facts">
+        <span><b>Based in</b> Brasília, Brazil</span>
+        <span>Working with <b>US &amp; EU</b> time zones, async and in real time — invoicing in <b>USD</b>.</span>
+      </div>
+    </div>
+
+    <div class="contact-actions rv">
+      <a class="btn-main" href="https://www.linkedin.com/in/abdalladesign/" target="_blank" rel="noopener">
+        <span class="flair"></span><span>Connect with me on LinkedIn →</span>
+      </a>
+      <div class="social-row">
+        <a class="social-btn dribbble" href="https://dribbble.com/abdalladesign" target="_blank" rel="noopener" aria-label="Dribbble">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 100 20 10 10 0 000-20Zm6.6 4.6a8.4 8.4 0 011.9 5.1c-.3-.06-3-.6-5.7-.26-.06-.14-.1-.29-.17-.44-.17-.4-.35-.8-.54-1.18 3-1.24 4.4-3 4.48-3.2ZM12 3.6c1.9 0 3.6.68 4.96 1.8-.06.1-1.3 1.76-4.2 2.83A46.5 46.5 0 009.8 3.9 8.4 8.4 0 0112 3.6ZM8.1 4.5a44.3 44.3 0 012.94 4.24C7.9 9.5 5 9.5 4.7 9.5a8.44 8.44 0 013.4-5Zm-3.7 7.53v-.24c.3 0 3.75.05 7.03-1a17 17 0 01.4.83c-.1.03-.2.06-.28.09-3.4 1.1-5.2 4.1-5.35 4.36a8.36 8.36 0 01-1.8-4.04Zm7.6 6.87c-1.6 0-3.08-.5-4.3-1.36.12-.24 1.5-2.87 5.25-4.2.02 0 .03-.01.05-.02a35.7 35.7 0 011.87 6.9 8.4 8.4 0 01-2.87.68Zm4.28-1.34a37.4 37.4 0 00-1.7-6.28c2.5-.4 4.7.26 5 .35a8.44 8.44 0 01-3.3 5.93Z" fill="#fff"/></svg>
+        </a>
+        <a class="social-btn behance" href="https://www.behance.net/joaoabdalla" target="_blank" rel="noopener" aria-label="Behance">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 6h5.6c1.4 0 2.5.34 3.3 1 .8.68 1.2 1.6 1.2 2.75 0 .68-.16 1.27-.48 1.77-.3.5-.76.9-1.36 1.2.82.24 1.44.65 1.86 1.24.42.6.63 1.32.63 2.16 0 .77-.14 1.44-.4 2-.28.56-.66 1-1.14 1.36-.48.35-1.04.6-1.68.76-.64.15-1.32.23-2.05.23H4V6Zm2.6 5.16h2.6c.6 0 1.08-.14 1.44-.42.36-.28.54-.7.54-1.24 0-.6-.18-1.03-.55-1.3-.36-.27-.86-.4-1.5-.4H6.6v3.36Zm0 5.5h2.9c.7 0 1.25-.16 1.65-.47.4-.32.6-.78.6-1.4 0-.62-.2-1.08-.6-1.4-.4-.3-.96-.46-1.68-.46H6.6v3.73ZM14.5 8.4h5.4v1.35h-5.4V8.4Zm2.7 3.1c1.5 0 2.65.42 3.46 1.26.8.83 1.2 2 1.2 3.5v.5h-6.65c.04.7.28 1.24.7 1.62.44.38 1 .57 1.7.57.5 0 .95-.1 1.32-.3.38-.2.66-.5.85-.87h2.03c-.3.9-.83 1.6-1.6 2.1-.77.5-1.66.76-2.68.76-1.4 0-2.55-.44-3.42-1.32-.87-.88-1.3-2.05-1.3-3.5 0-1.4.44-2.55 1.3-3.44.87-.9 2-1.34 3.34-1.34Zm-2.2 3.72h4.35c-.06-.63-.28-1.1-.66-1.44-.38-.34-.9-.5-1.5-.5-.6 0-1.1.17-1.5.5-.4.34-.63.82-.7 1.44Z" fill="#fff"/></svg>
+        </a>
+        <a class="social-btn linkedin" href="https://www.linkedin.com/in/abdalladesign/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6.94 5a1.94 1.94 0 11-3.88 0 1.94 1.94 0 013.88 0ZM3.3 8.5h3.7V20H3.3V8.5Zm6.4 0h3.55v1.57h.05c.5-.9 1.7-1.86 3.5-1.86 3.75 0 4.44 2.4 4.44 5.5V20h-3.7v-5.5c0-1.3-.02-3-1.86-3-1.86 0-2.14 1.4-2.14 2.9V20H9.7V8.5Z" fill="#fff"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+</main>
+
+<footer>
+  <div class="foot-bottom">
+    <span>© 2026 João Abdalla. All rights reserved.</span>
+    <span>PT · EN · ES</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* kinetic grid — canvas background that warps toward the cursor and ripples on click.
+     Same reusable component as the homepage: one instance per section. */
+  function initKineticCanvas(canvas, section) {
+    if (!canvas || !section) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    var ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    var CELL_SIZE = 55;
+    var INFLUENCE_RADIUS = 260;
+    var MAX_WARP = 22;
+    var DOT_SPACING = 28;
+    var LERP_SPEED = 0.08;
+
+    var LINE_BASE = { r: 255, g: 255, b: 255, a: 0.1 };
+    var NODE_BASE_RADIUS = 1.6;
+    var NODE_ACTIVE_RADIUS = 3;
+    var LINE_ACTIVE = { r: 194, g: 252, b: 80, a: 0.85 };
+    var NODE_ACTIVE = { r: 194, g: 252, b: 80, a: 1 };
+    var GLOW_RGB = "194,252,80";
+    var RIPPLE_RGB = "194,252,80";
+
+    var mouse = { x: -9999, y: -9999 };
+    var targetMouse = { x: -9999, y: -9999 };
+    var ripples = [];
+    var size = { w: 0, h: 0 };
+    var rafId = null;
+
+    function lerpN(a, b, t) { return a + (b - a) * t; }
+    function lerpColor(base, active, t) {
+      var r = Math.round(lerpN(base.r, active.r, t));
+      var g = Math.round(lerpN(base.g, active.g, t));
+      var b = Math.round(lerpN(base.b, active.b, t));
+      var a = lerpN(base.a, active.a, t);
+      return "rgba(" + r + "," + g + "," + b + "," + a.toFixed(3) + ")";
+    }
+
+    function getWarpedPoint(gx, gy, col, row, cols, rows) {
+      var edgeMargin = 1.5;
+      var colPin = Math.min(col / edgeMargin, (cols - 1 - col) / edgeMargin, 1);
+      var rowPin = Math.min(row / edgeMargin, (rows - 1 - row) / edgeMargin, 1);
+      var pinFactor = colPin * colPin * rowPin * rowPin;
+
+      var dx = gx - mouse.x, dy = gy - mouse.y;
+      var dist = Math.sqrt(dx * dx + dy * dy);
+      var proximity = Math.max(0, 1 - dist / INFLUENCE_RADIUS) * pinFactor;
+
+      var rx = 0, ry = 0;
+      for (var i = 0; i < ripples.length; i++) {
+        var r = ripples[i];
+        var rdx = gx - r.x, rdy = gy - r.y;
+        var rdist = Math.sqrt(rdx * rdx + rdy * rdy);
+        var waveWidth = 55;
+        var diff = rdist - r.radius;
+        if (Math.abs(diff) < waveWidth) {
+          var strength = (1 - Math.abs(diff) / waveWidth) * r.opacity * 18 * pinFactor;
+          var angle = Math.atan2(rdy, rdx);
+          var sign = diff < 0 ? -1 : 1;
+          rx += Math.cos(angle) * strength * sign * -1;
+          ry += Math.sin(angle) * strength * sign * -1;
+        }
+      }
+
+      if (dist < INFLUENCE_RADIUS && dist > 0 && pinFactor > 0) {
+        var t = dist / INFLUENCE_RADIUS;
+        var eased = t < 0.01 ? 0 : (1 - t) * (1 - t) * Math.min(1, dist / 60);
+        var warpAmt = eased * MAX_WARP * pinFactor;
+        var a2 = Math.atan2(dy, dx);
+        return {
+          pt: { x: gx - Math.cos(a2) * warpAmt + rx, y: gy - Math.sin(a2) * warpAmt + ry },
+          proximity: proximity
+        };
+      }
+      return { pt: { x: gx + rx, y: gy + ry }, proximity: proximity };
+    }
+
+    function draw(now) {
+      var W = size.w, H = size.h;
+      if (!W || !H) return;
+      ctx.clearRect(0, 0, W, H);
+
+      ctx.fillStyle = "rgba(255,255,255,0.05)";
+      for (var x = DOT_SPACING / 2; x < W; x += DOT_SPACING) {
+        for (var y = DOT_SPACING / 2; y < H; y += DOT_SPACING) {
+          ctx.beginPath();
+          ctx.arc(x, y, 0.7, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      for (var i = ripples.length - 1; i >= 0; i--) {
+        var r = ripples[i];
+        var age = (now - r.born) / 1000;
+        r.radius = Math.max(0, age * 400);
+        r.opacity = Math.max(0, 1 - age * 1.2);
+        if (r.opacity <= 0) ripples.splice(i, 1);
+      }
+
+      var cols = Math.max(2, Math.ceil(W / CELL_SIZE)) + 1;
+      var rows = Math.max(2, Math.ceil(H / CELL_SIZE)) + 1;
+      var cellW = W / (cols - 1);
+      var cellH = H / (rows - 1);
+
+      var pts = [], prox = [];
+      for (var row = 0; row < rows; row++) {
+        pts[row] = []; prox[row] = [];
+        for (var col = 0; col < cols; col++) {
+          var res = getWarpedPoint(col * cellW, row * cellH, col, row, cols, rows);
+          pts[row][col] = res.pt;
+          prox[row][col] = res.proximity;
+        }
+      }
+
+      function drawSeg(p1, p2, pr1, pr2) {
+        var avg = (pr1 + pr2) / 2;
+        var t = avg * avg * (3 - 2 * avg);
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.strokeStyle = lerpColor(LINE_BASE, LINE_ACTIVE, t);
+        ctx.lineWidth = lerpN(0.8, 1.4, t);
+        ctx.stroke();
+      }
+      ctx.lineCap = "butt";
+      for (var row2 = 0; row2 < rows; row2++)
+        for (var col2 = 0; col2 < cols - 1; col2++)
+          drawSeg(pts[row2][col2], pts[row2][col2 + 1], prox[row2][col2], prox[row2][col2 + 1]);
+      for (var col3 = 0; col3 < cols; col3++)
+        for (var row3 = 0; row3 < rows - 1; row3++)
+          drawSeg(pts[row3][col3], pts[row3 + 1][col3], prox[row3][col3], prox[row3 + 1][col3]);
+
+      for (var row4 = 0; row4 < rows; row4++) {
+        for (var col4 = 0; col4 < cols; col4++) {
+          var p = pts[row4][col4];
+          var pr = prox[row4][col4];
+          var t2 = pr * pr * (3 - 2 * pr);
+          var rad = lerpN(NODE_BASE_RADIUS, NODE_ACTIVE_RADIUS, t2);
+
+          if (t2 > 0.3) {
+            var glowR = rad + lerpN(0, 6, (t2 - 0.3) / 0.7);
+            var grd = ctx.createRadialGradient(p.x, p.y, rad * 0.5, p.x, p.y, glowR);
+            grd.addColorStop(0, "rgba(" + GLOW_RGB + "," + (t2 * 0.3).toFixed(3) + ")");
+            grd.addColorStop(1, "rgba(" + GLOW_RGB + ",0)");
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, glowR, 0, Math.PI * 2);
+            ctx.fillStyle = grd;
+            ctx.fill();
+          }
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, rad, 0, Math.PI * 2);
+          ctx.fillStyle = lerpColor({ r: 255, g: 255, b: 255, a: 0.18 }, NODE_ACTIVE, t2);
+          ctx.fill();
+        }
+      }
+
+      for (var j = 0; j < ripples.length; j++) {
+        var rp = ripples[j];
+        var safeRadius = Math.max(0, rp.radius);
+        ctx.beginPath();
+        ctx.arc(rp.x, rp.y, safeRadius, 0, Math.PI * 2);
+        ctx.strokeStyle = "rgba(" + RIPPLE_RGB + "," + (rp.opacity * 0.3).toFixed(3) + ")";
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+      }
+    }
+
+    function animate(now) {
+      mouse.x = lerpN(mouse.x, targetMouse.x, LERP_SPEED);
+      mouse.y = lerpN(mouse.y, targetMouse.y, LERP_SPEED);
+      draw(now);
+      rafId = requestAnimationFrame(animate);
+    }
+
+    function setSize() {
+      var rect = section.getBoundingClientRect();
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      var w = Math.round(rect.width);
+      var h = Math.round(rect.height);
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      size = { w: w, h: h };
+    }
+
+    function inSection(clientX, clientY) {
+      var rect = section.getBoundingClientRect();
+      return clientX >= rect.left && clientX <= rect.right && clientY >= rect.top && clientY <= rect.bottom;
+    }
+
+    function onMove(e) {
+      var rect = section.getBoundingClientRect();
+      if (inSection(e.clientX, e.clientY)) {
+        targetMouse.x = e.clientX - rect.left;
+        targetMouse.y = e.clientY - rect.top;
+      } else {
+        targetMouse.x = -9999;
+        targetMouse.y = -9999;
+      }
+    }
+
+    function onClick(e) {
+      var rect = section.getBoundingClientRect();
+      if (!inSection(e.clientX, e.clientY)) return;
+      ripples.push({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+        radius: 0, opacity: 1, born: performance.now()
+      });
+    }
+
+    setSize();
+    window.addEventListener("resize", setSize, { passive: true });
+    window.addEventListener("mousemove", onMove, { passive: true });
+    window.addEventListener("click", onClick, { passive: true });
+    rafId = requestAnimationFrame(animate);
+
+    if ("ResizeObserver" in window) {
+      var ro = new ResizeObserver(function () { setSize(); });
+      ro.observe(section);
+    } else {
+      window.addEventListener("load", setSize);
+    }
+  }
+
+  initKineticCanvas(document.getElementById("kineticCanvas"), document.querySelector(".about-hero"));
+  initKineticCanvas(document.getElementById("kineticCanvas2"), document.getElementById("contactWrap"));
+
+  /* smooth in-page anchor scroll */
+  (function () {
+    var navEl = document.getElementById("nav");
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function easeInOutCubic(t) {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function scrollToTarget(target) {
+      var navH = navEl ? navEl.getBoundingClientRect().height : 0;
+      var startY = window.pageYOffset;
+      var destY = Math.max(0, startY + target.getBoundingClientRect().top - navH - 16);
+      var distance = destY - startY;
+
+      if (reduceMotion || !distance) {
+        window.scrollTo(0, destY);
+        return;
+      }
+
+      var duration = Math.min(1200, Math.max(500, Math.abs(distance) * 0.6));
+      var startTime = null;
+
+      function step(now) {
+        if (startTime === null) startTime = now;
+        var t = Math.min(1, (now - startTime) / duration);
+        window.scrollTo(0, startY + distance * easeInOutCubic(t));
+        if (t < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      var id = link.getAttribute("href").slice(1);
+      if (!id) return;
+      var target = document.getElementById(id);
+      if (!target) return;
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        scrollToTarget(target);
+        history.pushState(null, "", "#" + id);
+      });
+    });
+  })();
+
+  /* nav hide/show on scroll */
+  var lastY = 0, nav = document.getElementById("nav");
+  window.addEventListener("scroll", function(){
+    var y = window.scrollY;
+    if (y > 140 && y > lastY) nav.classList.add("is-hidden");
+    else nav.classList.remove("is-hidden");
+    lastY = y;
+  }, { passive: true });
+
+  /* scroll reveal */
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var items = document.querySelectorAll(".rv");
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    items.forEach(function(el){ el.classList.add("is-in"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-in");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    items.forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>

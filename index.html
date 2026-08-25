@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R7PLZLRLYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-R7PLZLRLYJ');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>João Abdalla — Senior Product Designer · UX/UI</title>
@@ -404,7 +412,7 @@ section{position:relative;}
     </a>
     <ul class="nav-links">
       <li><a href="#work">Works</a></li>
-      <li><a href="#about">About</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -482,7 +490,7 @@ section{position:relative;}
       <div class="work-track" id="workTrack">
 
         <article class="work-item rv">
-          <a class="work-media" href="../cases/case-study-jalasoft-design-system.html">
+          <a class="work-media" href="cases/jalasoft.html">
             <img src="Img/style%20guides.png" alt="Jalasoft — design system built from a brand guideline">
           </a>
           <span class="work-idx">/ 01</span>
@@ -493,7 +501,7 @@ section{position:relative;}
         </article>
 
         <article class="work-item rv">
-          <a class="work-media" href="../cases/vault-network.html">
+          <a class="work-media" href="cases/valt.html">
             <img src="Img/valt.avif" alt="Valt Network — product design">
           </a>
           <span class="work-idx">/ 02</span>
@@ -504,7 +512,7 @@ section{position:relative;}
         </article>
 
         <article class="work-item rv">
-          <a class="work-media" href="../cases/mba-benefits.html">
+          <a class="work-media" href="cases/mba.html">
             <img src="Img/MBA-painel-mobile.png" alt="My Benefits Advice — personalized plan-recommendation flow">
           </a>
           <span class="work-idx">/ 03</span>
@@ -515,9 +523,9 @@ section{position:relative;}
         </article>
 
         <article class="work-item rv">
-          <div class="work-media">
+          <a class="work-media" href="cases/qconcursos.html">
             <img src="Img/Home.png" alt="Qconcursos — platform redesign" style="object-position:top;">
-          </div>
+          </a>
           <span class="work-idx">/ 04</span>
           <h3 class="work-name">Qconcursos</h3>
           <p class="work-desc">From 600K to 10M — designing for scale at Brazil's largest exam-prep edtech.</p>
@@ -820,6 +828,52 @@ section{position:relative;}
 
   initKineticCanvas(document.getElementById("kineticCanvas"), document.querySelector(".hero2"));
   initKineticCanvas(document.getElementById("kineticCanvas2"), document.getElementById("testiClosingWrap"));
+
+  /* smooth in-page anchor scroll — eased scroll animation instead of an instant jump,
+     offset so the fixed nav never covers the target section's top */
+  (function () {
+    var navEl = document.getElementById("nav");
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function easeInOutCubic(t) {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function scrollToTarget(target) {
+      var navH = navEl ? navEl.getBoundingClientRect().height : 0;
+      var startY = window.pageYOffset;
+      var destY = Math.max(0, startY + target.getBoundingClientRect().top - navH - 16);
+      var distance = destY - startY;
+
+      if (reduceMotion || !distance) {
+        window.scrollTo(0, destY);
+        return;
+      }
+
+      var duration = Math.min(1200, Math.max(500, Math.abs(distance) * 0.6));
+      var startTime = null;
+
+      function step(now) {
+        if (startTime === null) startTime = now;
+        var t = Math.min(1, (now - startTime) / duration);
+        window.scrollTo(0, startY + distance * easeInOutCubic(t));
+        if (t < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      var id = link.getAttribute("href").slice(1);
+      if (!id) return;
+      var target = document.getElementById(id);
+      if (!target) return;
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        scrollToTarget(target);
+        history.pushState(null, "", "#" + id);
+      });
+    });
+  })();
 
   /* nav hide/show on scroll */
   var lastY = 0, nav = document.getElementById("nav");

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R7PLZLRLYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-R7PLZLRLYJ');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jalasoft: One System, Three Platforms | Abdalla Design</title>
+<meta name="description" content="Building a design system from a brand guideline, then proving it on the company's hardest internal platform before reusing it twice more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* Arcoverdesign V5 identity */
+  :root{
+    --ink:#F4F6F3;
+    --ink-soft:#9BA4AA;
+    --paper:#11161A;
+    --paper-alt:#1D2329;
+    --line:rgba(255,255,255,.08);
+    --accent:#C2FC50;
+    --accent-soft:rgba(194,252,80,.08);
+    --win:#6EE895;
+    --challenge:#FBAE6C;
+    --card-bg:#1A2025;
+    --radius:14px;
+    --serif:'Lora', Georgia, serif;
+    --px: clamp(20px, 5vw, 72px);
+    --ease: cubic-bezier(.22,1,.36,1);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Urbanist', sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--accent); color:#0C1013;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .mono{font-family:'Urbanist', sans-serif; font-weight:600; letter-spacing:.08em;}
+  .container{max-width:1080px; margin:0 auto; padding:0 32px;}
+
+  /* NAV */
+  nav{position:fixed; top:0; left:0; right:0; z-index:900; transition:transform .5s var(--ease);}
+  nav.is-hidden{transform:translateY(-110%);}
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:22px var(--px);
+    background:linear-gradient(rgba(12,16,19,.85),rgba(12,16,19,.4) 70%,transparent);
+    backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  }
+  .nav-brand{display:flex; align-items:center; gap:13px;}
+  .nav-avatar{width:44px; height:44px; border-radius:50%; flex:0 0 auto; object-fit:cover; border:2px solid var(--ink);}
+  .nav-brand-text{display:flex; flex-direction:column; line-height:1.2;}
+  .nav-name{font-family:'Urbanist', sans-serif; font-weight:700; font-size:17px; letter-spacing:-.01em; color:var(--ink);}
+  .nav-role{font-family:'Urbanist', sans-serif; font-weight:400; font-size:12px; color:var(--ink-soft); margin-top:1px;}
+  @media (max-width:480px){.nav-role{display:none;}}
+  .nav-links{display:flex; gap:34px; list-style:none; align-items:center;}
+  .nav-links a{
+    font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-soft); position:relative; padding:4px 0; transition:color .25s;
+  }
+  .nav-links a::after{
+    content:""; position:absolute; left:0; bottom:0; height:1px; width:100%;
+    background:var(--accent); transform:scaleX(0); transform-origin:right;
+    transition:transform .4s var(--ease);
+  }
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links a:hover::after{transform:scaleX(1); transform-origin:left;}
+  @media (max-width:720px){.nav-links{gap:20px;}}
+  @media (max-width:560px){.nav-links a:not(:last-child){display:none;}}
+
+  /* HERO */
+  .hero{padding:140px 0 64px;}
+  .hero-meta{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:28px;}
+  .meta-tag{
+    font-family:'Urbanist', sans-serif; font-weight:600; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    padding:6px 12px; border:1px solid var(--line); border-radius:100px; color:var(--ink-soft);
+  }
+  .meta-tag.highlight{background:rgba(194,252,80,.12); border-color:rgba(194,252,80,.35); color:var(--accent);}
+  .hero-title{font-family:'Urbanist', sans-serif;
+    font-size:clamp(28px, 4.2vw, 44px); font-weight:800; line-height:1.15; letter-spacing:-.01em;
+    max-width:820px; margin-bottom:24px;
+  }
+  .hero-subtitle{
+    font-family:var(--serif); font-style:italic; font-weight:500;
+    font-size:19px; color:var(--ink); opacity:.85; max-width:640px; margin-bottom:40px;
+  }
+  .hero-specs{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:24px;
+    border-top:1px solid var(--line); padding-top:24px; margin-bottom:48px;
+  }
+  .spec-item .spec-label{font-family:'Urbanist', sans-serif; font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); margin-bottom:6px;}
+  .spec-item .spec-value{font-size:15px; font-weight:700;}
+  .hero-cover{
+    width:100%; aspect-ratio:16/9; border-radius:var(--radius); overflow:hidden;
+  }
+
+  /* IMG PLACEHOLDER */
+  .img-placeholder{
+    width:100%; aspect-ratio:16/10;
+    background:repeating-linear-gradient(135deg, var(--paper-alt), var(--paper-alt) 10px, #171D22 10px, #171D22 20px);
+    border:1px dashed rgba(255,255,255,.16); border-radius:var(--radius);
+    display:flex; align-items:center; justify-content:center; text-align:center; padding:24px;
+  }
+  .img-placeholder.small{aspect-ratio:4/3;}
+  .img-placeholder-label{font-family:'Urbanist', sans-serif; font-weight:500; font-size:12px; color:var(--ink-soft); max-width:280px;}
+  .img-placeholder.filled{background:none; border:none; padding:0; overflow:hidden; aspect-ratio:auto !important; height:auto !important;}
+  .img-placeholder.filled img{width:100%; height:auto; display:block;}
+
+  section{padding:72px 0;}
+  section + section{border-top:1px solid var(--line);}
+  .section-eyebrow{font-family:'Urbanist', sans-serif; font-weight:700; font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--accent); margin-bottom:12px;}
+  .section-title{font-family:'Urbanist', sans-serif; font-size:clamp(26px,3.2vw,38px); font-weight:800; letter-spacing:-.01em; text-transform:uppercase; margin-bottom:20px; max-width:640px;}
+  .section-lede{color:var(--ink-soft); max-width:620px; font-size:16px; margin-bottom:40px;}
+
+  /* OVERVIEW */
+  .overview-layout{display:grid; grid-template-columns:260px 1fr; gap:56px;}
+  .overview-sidebar .ov-block{margin-bottom:28px;}
+  .overview-sidebar .ov-label{font-family:'Urbanist', sans-serif; font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); margin-bottom:6px;}
+  .overview-sidebar .ov-value{font-size:15px; font-weight:700; line-height:1.4;}
+  .overview-content p{margin-bottom:16px; font-size:16px; max-width:600px; color:var(--ink-soft);}
+
+  /* FOUNDATION - feature block */
+  .feature-block{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;}
+  .feature-block .feature-text p{margin-bottom:14px; color:var(--ink-soft); font-size:15px;}
+  .feature-block .feature-text h3{font-size:22px; font-weight:800; margin-bottom:14px;}
+  .feature-block.stacked{grid-template-columns:1fr; gap:32px;}
+  .feature-block.stacked .feature-text p{max-width:none;}
+
+  /* THE FIRST TEST — title, then split text, then a full-width fluid visual */
+  .split-text{display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-bottom:44px;}
+  .split-text p{color:var(--ink-soft); font-size:15px; margin-bottom:14px;}
+  .split-text p:last-child{margin-bottom:0;}
+
+  .fluid-visual{position:relative; overflow:hidden;}
+  .fluid-visual .img-placeholder{border-radius:0; border:none;}
+
+  /* CARD GRID for products */
+  .card-intro{font-family:var(--serif); font-style:italic; font-size:16px; color:var(--ink-soft); max-width:600px; margin-bottom:36px;}
+  .architecture-grid{display:flex; flex-direction:column; gap:56px;}
+  .architecture-card{
+    display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:center;
+  }
+  .architecture-card .ac-title{font-family:'Urbanist', sans-serif; font-size:19px; font-weight:800; margin-bottom:10px;}
+  .architecture-card .ac-text{font-size:14.5px; color:var(--ink-soft); margin-bottom:0;}
+  .ac-images{display:flex; gap:10px;}
+  .ac-images .img-placeholder{aspect-ratio:1/1;}
+
+  /* TEACHING - distinct treatment */
+  .teaching-block{
+    display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;
+  }
+  .teaching-image{border-radius:calc(var(--radius) - 4px); overflow:hidden;}
+  .teaching-image img{width:100%; height:auto; display:block;}
+  .teaching-number{font-family:var(--serif); font-style:italic; font-size:56px; font-weight:500; color:var(--accent); line-height:1; margin-bottom:12px;}
+  .teaching-content h3{font-family:'Urbanist', sans-serif; font-size:22px; font-weight:800; margin-bottom:12px;}
+  .teaching-content p{color:var(--ink-soft); font-size:15px; max-width:560px;}
+
+  /* NEXT CARDS (client work) */
+  .next-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;}
+  .next-grid.two-col{grid-template-columns:repeat(2, 1fr);}
+  .next-card{
+    border:1px solid var(--line); border-radius:var(--radius); padding:24px; background:var(--card-bg);
+    transition:border-color .2s, transform .2s;
+  }
+  .next-card:hover{border-color:var(--accent); transform:translateY(-2px);}
+  .next-card .nc-label{font-family:'Urbanist', sans-serif; font-weight:600; font-size:11px; text-transform:uppercase; color:var(--ink-soft); margin-bottom:8px;}
+  .next-card .nc-title{font-family:'Urbanist', sans-serif; font-size:17px; font-weight:700; margin-bottom:10px;}
+  .next-card .nc-cta{font-family:'Urbanist', sans-serif; font-weight:600; font-size:12px; color:var(--accent);}
+
+  /* LEARNINGS */
+  .learnings-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  .learning-card{
+    border-radius:var(--radius); padding:28px; border:1px solid var(--line); background:var(--card-bg);
+  }
+  .learning-card.win{border-left:3px solid var(--win);}
+  .learning-card.challenge{border-left:3px solid var(--challenge);}
+  .learning-card .lc-tag{font-family:'Urbanist', sans-serif; font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:10px; display:block;}
+  .learning-card.win .lc-tag{color:var(--win);}
+  .learning-card.challenge .lc-tag{color:var(--challenge);}
+  .learning-card p{font-size:14.5px; color:var(--ink-soft);}
+
+  /* FOOTER */
+  footer{padding:48px 0; border-top:1px solid var(--line);}
+  .footer-inner{display:flex; justify-content:space-between; align-items:center; font-family:'Urbanist', sans-serif; font-weight:600; font-size:12px; color:var(--ink-soft);}
+  .footer-social{display:flex; gap:20px;}
+
+  .animate-in{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .animate-in.is-visible{opacity:1; transform:translateY(0);}
+
+  @media (max-width: 860px){
+    .hero-specs{grid-template-columns:repeat(2,1fr);}
+    .overview-layout{grid-template-columns:1fr;}
+    .feature-block{grid-template-columns:1fr;}
+    .split-text{grid-template-columns:1fr;}
+    .architecture-card{grid-template-columns:1fr;}
+    .next-grid{grid-template-columns:1fr;}
+    .learnings-grid{grid-template-columns:1fr;}
+    .teaching-block{grid-template-columns:1fr;}
+    .nav-links{gap:18px;}
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../index.html#top" class="nav-brand">
+      <img class="nav-avatar" src="../Img/joao-avatar.jpg" alt="João Abdalla">
+      <span class="nav-brand-text">
+        <span class="nav-name">João Abdalla</span>
+        <span class="nav-role">Product designer UX UI</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html#work">Works</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <header class="hero" id="hero" role="banner" aria-labelledby="hero-title">
+    <div class="container">
+      <div class="hero-meta">
+        <span class="meta-tag">Product Design</span>
+        <span class="meta-tag highlight">Design Systems</span>
+        <span class="meta-tag">B2B SaaS</span>
+      </div>
+      <h1 class="hero-title" id="hero-title">One System, Three Platforms: Proving a Design System in Practice</h1>
+      <p class="hero-subtitle">A design system means nothing until someone bets a real project on it. See how a system built from a brand guideline was tested first on the company's hardest internal platform, and only reused twice more because it held up.</p>
+
+      <div class="hero-specs">
+        <div class="spec-item">
+          <div class="spec-label mono">Client</div>
+          <div class="spec-value">Jalasoft</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label mono">Role</div>
+          <div class="spec-value">Product Designer</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label mono">Period</div>
+          <div class="spec-value">2021–2026</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label mono">Scope</div>
+          <div class="spec-value">1 system, 3 platforms</div>
+        </div>
+      </div>
+
+      <div class="hero-cover img-placeholder filled">
+        <img src="../Img/jalasoft/capa.avif" alt="Jalasoft's design system applied to the company website, shown alongside the BPM platform and brand imagery">
+      </div>
+    </div>
+  </header>
+
+  <!-- OVERVIEW -->
+  <section id="overview" aria-labelledby="overview-title">
+    <div class="container">
+      <div class="section-eyebrow mono">Overview</div>
+      <h2 class="section-title" id="overview-title">Building the system, then proving it scales</h2>
+      <div class="overview-layout">
+        <div class="overview-sidebar">
+          <div class="ov-block">
+            <div class="ov-label mono">Company</div>
+            <div class="ov-value">Jalasoft, nearshore software outsourcing and staff augmentation</div>
+          </div>
+          <div class="ov-block">
+            <div class="ov-label mono">Format</div>
+            <div class="ov-value">One system, proven once under real conditions, then extended</div>
+          </div>
+        </div>
+        <div class="overview-content">
+          <p>I joined Jalasoft in 2021. Before I arrived, every internal tool looked like it came from a different company: different type scales, different button styles, slightly different shades of the same brand color, because each one had been designed in isolation. One of my first tasks was to fix this at the root, turning the company's Brand Guidelines into a working Design System: a type scale built on Manrope and Nunito, and a four-level color system anchored on the brand's Pantone red.</p>
+          <p>A design system on paper is just a bet. It only proves itself the first time a real project depends on it. That test came almost immediately, with the redesign of the company's internal BPM platform, the tool every employee used for tasks and hiring. It was the least forgiving place to find out whether the system actually worked, and it did. That result was what justified reusing it twice more: on the company website and in a new team-estimation tool called Planning Poker.</p>
+          <p>This case follows that sequence. These aren't three unrelated projects that happen to share a color palette — it's one system, proven once under real conditions, then extended. Alongside this, I designed and taught a UX/UI curriculum across Latin America, and later moved into working directly on client projects, both covered briefly below.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDATION -->
+  <section id="foundation" aria-labelledby="foundation-title">
+    <div class="container">
+      <div class="section-eyebrow mono">01 · Foundation</div>
+      <h2 class="section-title" id="foundation-title">The Design System</h2>
+      <div class="feature-block stacked">
+        <div class="feature-visual img-placeholder filled">
+          <img src="../Img/jalasoft/style-guides.avif" alt="Reference sheet with the Manrope/Nunito type hierarchy and the brand color palette">
+        </div>
+        <div class="feature-text">
+          <p>The starting point was the company's Brand Guidelines, a document built for marketing, not product. My job was to translate it into something a designer could actually use to build interfaces: a type hierarchy in Manrope for headings and Nunito for body text, and a four-level color system built around a brand red (Pantone red, #EF293D), with Raisin Black, Alice Blue, and white rounding out the supporting roles.</p>
+          <p>The goal wasn't decoration. It was giving every future product a shared vocabulary, so no one had to reinvent type scales or pick a slightly-wrong shade of red again.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE FIRST TEST -->
+  <section id="first-test" aria-labelledby="first-test-title">
+    <div class="container">
+      <div class="section-eyebrow mono">02 · The First Test</div>
+      <h2 class="section-title" id="first-test-title">BPM Platform Redesign</h2>
+      <div class="split-text">
+        <p>The system's first real assignment was also its hardest: a redesign of the company's internal BPM platform, the tool employees used to manage tasks and the hiring process. This wasn't a greenfield product, where applying a clean system is easy. It was a platform already in use, with real flows and real complaints, surfaced through direct UX interviews with the people who used the tool every day.</p>
+        <div>
+          <p>I redesigned the navbar, the task screens, and the full hiring workflow, using only the components already defined in the system. If the type scale or color tokens couldn't hold up in an interface this dense, this is where it would show.</p>
+          <p>It held up. And that gave me something concrete to point to when the next two projects came along.</p>
+        </div>
+      </div>
+      <div class="fluid-visual">
+        <div class="feature-visual img-placeholder filled">
+          <img src="../Img/jalasoft/bpm.avif" alt="BPM platform case list screen, redesigned with the design system's components">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXTENDING THE SYSTEM -->
+  <section id="extending-system" aria-labelledby="extending-system-title">
+    <div class="container">
+      <div class="section-eyebrow mono">03 · Extending the System</div>
+      <h2 class="section-title" id="extending-system-title">Website, Planning Poker, and Elearn App</h2>
+      <p class="card-intro">With the system proven on the hardest internal case, extending it to the rest of the company's products was a different kind of work: less about testing the system and more about applying it fast, across products with very different shapes.</p>
+
+      <div class="architecture-grid">
+
+        <div class="architecture-card">
+          <div>
+            <div class="ac-title">Jalasoft Website</div>
+            <p class="ac-text">The institutional website needed a redesign: a new hero, the metrics that mattered (1,000+ employees, years in the market), a working blog, and a page dedicated to the bootcamp program. Every typography and color decision came straight from the existing system, which meant visual identity was already settled before the project even started.</p>
+          </div>
+          <div class="ac-images">
+            <div class="img-placeholder small filled"><img src="../Img/jalasoft/jalasoft-home-mobile-version.avif" alt="Jalasoft website hero, mobile color variants"></div>
+          </div>
+        </div>
+
+        <div class="architecture-card">
+          <div>
+            <div class="ac-title">Planning Poker</div>
+            <p class="ac-text">A lightweight agile estimation tool for teams, built end to end with the same components: problem, research and discovery, testing and iteration, and a documented conclusion. While the BPM redesign took months, this one took a fraction of that time, because there was nothing left to decide about how it should look.</p>
+          </div>
+          <div class="ac-images">
+            <div class="img-placeholder small filled"><img src="../Img/jalasoft/pokerplanning.avif" alt="Planning Poker app, issue and voting screens"></div>
+          </div>
+        </div>
+
+        <div class="architecture-card">
+          <div>
+            <div class="ac-title">Elearn App</div>
+            <p class="ac-text">The system's longest reach was a full learning platform for Jalasoft and Jala University's bootcamps, serving students, teachers, and admins in a single connected product. I ran the project solo, end to end, from stakeholder interviews to final UI, building every screen on the same Manrope, Nunito, and color tokens defined at the start of this case.</p>
+          </div>
+          <div class="ac-images">
+            <div class="img-placeholder small filled"><img src="../Img/jalasoft/elearn-app.webp" alt="Elearn App, student, teacher, and admin screens"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TOKENS & DARK MODE -->
+  <section id="tokens-dark-mode" aria-labelledby="tokens-dark-mode-title">
+    <div class="container">
+      <div class="section-eyebrow mono">04 · Tokens &amp; Dark Mode</div>
+      <h2 class="section-title" id="tokens-dark-mode-title">From Fixed Colors to Variables</h2>
+      <div class="feature-block">
+        <div class="feature-text">
+          <p>Inside the bootcamp I taught, students went through App Rebuild, a challenge where they picked an app they used regularly, screenshotted it, and rebuilt a high-fidelity replica of its interface in Figma. I designed and built that tool on top of the same design system.</p>
+          <p>App Rebuild needed a dark mode variant, and that was the moment the system's color values stopped being good enough. Up to then, every color was a fixed hex value: the accent red, the Raisin Black, the Alice Blue. A dark variant meant a second full set of values, hardcoded and disconnected from the first, with no guarantee they would ever stay in sync.</p>
+          <p>Instead, I rebuilt the system's colors as tokens: variables with a light and a dark value, referenced by name instead of by hex code everywhere they were used. Once that was in place for App Rebuild, it was not a one-off fix anymore, it became how the entire design system defined color going forward.</p>
+        </div>
+        <div class="feature-visual img-placeholder filled">
+          <img src="../Img/jalasoft/variables.avif" alt="App Rebuild challenge screen shown in light and dark mode, built on the system's new color tokens">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEACHING -->
+  <section id="teaching" aria-labelledby="teaching-title">
+    <div class="container">
+      <div class="section-eyebrow mono">05 · Teaching</div>
+      <h2 class="section-title" id="teaching-title">Training the next generation</h2>
+      <div class="teaching-block">
+        <div class="teaching-image">
+          <img src="../Img/jalasoft/pDHifzebZ20pc2bYXORpTviPByU.webp" alt="UX/UI Design course cover, Bootcamp Brazil">
+        </div>
+        <div class="teaching-content">
+          <h3>UX/UI Design, Full Stack Developer Bootcamp</h3>
+          <p>Six to eight months after joining the company, I was invited to design and teach the UX/UI Design curriculum inside the company's Full Stack Developer Bootcamp. I built the course from scratch and taught 10 to 12 cohorts across Latin America.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT WORK -->
+  <section id="client-work" aria-labelledby="client-work-title">
+    <div class="container">
+      <div class="section-eyebrow mono">06 · Client Work</div>
+      <h2 class="section-title" id="client-work-title">Moving into direct client work</h2>
+      <p class="section-lede">After this more internally-focused period, I moved into working directly on client projects. Two of these already have a full case study in this portfolio.</p>
+
+      <div class="next-grid two-col">
+        <a class="next-card" href="mba.html">
+          <div class="nc-label mono">Case Study</div>
+          <div class="nc-title">My Benefits Advice</div>
+          <div class="nc-cta mono">See case study →</div>
+        </a>
+        <a class="next-card" href="valt.html">
+          <div class="nc-label mono">Case Study</div>
+          <div class="nc-title">Valt Network</div>
+          <div class="nc-cta mono">See case study →</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEARNINGS -->
+  <section id="learnings" aria-labelledby="learnings-title">
+    <div class="container">
+      <div class="section-eyebrow mono">Learnings</div>
+      <h2 class="section-title" id="learnings-title">What extending one system across three products taught me</h2>
+      <div class="learnings-grid">
+        <div class="learning-card win">
+          <span class="lc-tag mono">Win</span>
+          <p>Testing the system on the hardest project first, instead of the easiest, is what made the next two fast. A system that only survives on simple products hasn't really been proven.</p>
+        </div>
+        <div class="learning-card win">
+          <span class="lc-tag mono">Win</span>
+          <p>The website and Planning Poker shipped faster than the BPM redesign for a specific reason: the visual decisions were already made. That speed is the real return on a design system, not a slide about consistency.</p>
+        </div>
+        <div class="learning-card challenge">
+          <span class="lc-tag mono">Challenge</span>
+          <p>A system built for a dense internal tool doesn't automatically fit an institutional website or a lightweight app. Every reuse still demanded decisions about which parts of the system to keep and which to adapt.</p>
+        </div>
+        <div class="learning-card challenge">
+          <span class="lc-tag mono">Challenge</span>
+          <p>Teaching forced me to explain design decisions as principles, not just as Figma files — a different kind of rigor than simply shipping alone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MORE WORK -->
+  <section id="more-work" aria-labelledby="more-work-title">
+    <div class="container">
+      <div class="section-eyebrow mono">More Work</div>
+      <h2 class="section-title" id="more-work-title">Keep exploring</h2>
+      <div class="next-grid two-col">
+        <a class="next-card" href="valt.html">
+          <div class="nc-label mono">Next Case Study</div>
+          <div class="nc-title">Valt Network</div>
+          <div class="nc-cta mono">See case study →</div>
+        </a>
+        <a class="next-card" href="mba.html">
+          <div class="nc-label mono">Also Worth Seeing</div>
+          <div class="nc-title">My Benefits Advice</div>
+          <div class="nc-cta mono">See case study →</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="container footer-inner">
+    <div>© 2026 Abdalla Design. All rights reserved.</div>
+    <div class="footer-social">
+      <a href="#">LinkedIn</a>
+      <a href="#">Dribbble</a>
+      <a href="#">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+</script>
+<script>
+  (function(){
+    var lastY = 0, nav = document.getElementById("nav");
+    if (!nav) return;
+    window.addEventListener("scroll", function(){
+      var y = window.scrollY;
+      if (y > 140 && y > lastY) nav.classList.add("is-hidden");
+      else nav.classList.remove("is-hidden");
+      lastY = y;
+    }, { passive: true });
+  })();
+</script>
+
+</body>
+</html>

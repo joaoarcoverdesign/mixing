@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R7PLZLRLYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-R7PLZLRLYJ');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Benefits Advice — Healthcare Enrollment, Simplified | Abdalla Design</title>
+<meta name="description" content="Designing a multi-role healthcare benefits administration platform for the US market, connecting employers, brokers, and employees through a personalized recommendation engine built from zero.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* abdalladesign visual identity — matches index.html (Arcoverdesign v5) */
+  --bg:#11161A;
+  --bg-deep:#0C1013;
+  --surface:#1A2025;
+  --ink:#F4F6F3;
+  --ink-soft:#9BA4AA;
+  --ink-dim:#5E676D;
+  --num-dim:#333B41;
+  --line:rgba(255,255,255,.08);
+  --line-soft:rgba(255,255,255,.05);
+  --accent:#C2FC50;
+  --accent-soft:rgba(194,252,80,.12);
+  --win:#6EE895;
+  --challenge:#FBAE6C;
+  --radius-lg:16px;
+  --radius-md:14px;
+  --sans:'Urbanist', sans-serif;
+  --body:'Urbanist', sans-serif;
+  --serif:'Lora', Georgia, serif;
+  --px: clamp(20px, 5vw, 72px);
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:var(--body);
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--accent);color:var(--bg-deep);}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+ul{list-style:none;}
+.container{max-width:1160px;margin:0 auto;padding:0 var(--px);}
+.mono{font-family:var(--sans);font-weight:600;letter-spacing:.06em;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;transition:transform .5s var(--ease);}
+nav.is-hidden{transform:translateY(-110%);}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px var(--px);
+  background:linear-gradient(rgba(12,16,19,.85),rgba(12,16,19,.4) 70%,transparent);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+}
+.nav-brand{display:flex;align-items:center;gap:13px;}
+.nav-avatar{width:44px;height:44px;border-radius:50%;flex:0 0 auto;object-fit:cover;border:2px solid var(--ink);}
+.nav-brand-text{display:flex;flex-direction:column;line-height:1.2;}
+.nav-name{font-family:var(--sans);font-weight:700;font-size:17px;letter-spacing:-.01em;color:var(--ink);}
+.nav-role{font-family:var(--sans);font-weight:400;font-size:12px;color:var(--ink-soft);margin-top:1px;}
+@media (max-width:480px){.nav-role{display:none;}}
+.nav-links{display:flex;gap:34px;list-style:none;align-items:center;}
+.nav-links a{
+  font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-soft);position:relative;padding:4px 0;transition:color .25s;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;
+  background:var(--accent);transform:scaleX(0);transform-origin:right;
+  transition:transform .4s var(--ease);
+}
+.nav-links a:hover{color:var(--ink);}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left;}
+@media (max-width:720px){.nav-links{gap:20px;}}
+@media (max-width:560px){.nav-links a:not(:last-child){display:none;}}
+
+/* HERO */
+.hero{padding:140px 0 64px;}
+.hero-title{font-family:var(--sans);font-weight:800;font-size:clamp(32px,5.2vw,56px);line-height:1.06;letter-spacing:-.02em;margin-bottom:14px;color:var(--ink);}
+.hero-sub{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(18px,2.2vw,22px);color:var(--ink);opacity:.85;margin-bottom:24px;}
+.hero-text{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:660px;margin-bottom:44px;}
+.hero-specs{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid var(--line);padding-top:28px;margin-bottom:48px;}
+.spec-label{font-family:var(--sans);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-dim);margin-bottom:8px;}
+.spec-value{font-size:15px;font-weight:700;line-height:1.4;color:var(--ink);}
+
+/* IMG PLACEHOLDER */
+.img-placeholder{
+  width:100%;
+  background:repeating-linear-gradient(135deg, var(--surface), var(--surface) 10px, #171D22 10px, #171D22 20px);
+  border:1px dashed rgba(255,255,255,.16);border-radius:var(--radius-md);
+  display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;position:relative;
+}
+.img-placeholder .ph-label{font-family:var(--body);font-style:italic;font-size:13px;color:var(--ink-soft);max-width:320px;line-height:1.55;}
+.ph-hero{aspect-ratio:16/8;}
+.ph-wide{aspect-ratio:16/9;}
+.ph-tall{aspect-ratio:4/5;}
+.ph-square{aspect-ratio:1/1;}
+.img-duo{display:flex;gap:16px;}
+.img-duo .img-placeholder{flex:1;aspect-ratio:4/5;}
+.img-placeholder.filled{background:none;border:none;padding:0;overflow:hidden;aspect-ratio:auto !important;height:auto !important;}
+.img-placeholder.filled img{width:100%;height:auto;display:block;}
+
+/* SECTIONS */
+section{padding:88px 0;}
+section+section{border-top:1px solid var(--line);}
+.eyebrow{font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);flex:0 0 auto;}
+.sec-title{font-family:var(--sans);font-weight:800;font-size:clamp(26px,3.6vw,40px);line-height:1.18;letter-spacing:-.01em;text-transform:uppercase;max-width:760px;margin-bottom:22px;color:var(--ink);}
+.sec-title .it{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:lowercase;color:var(--accent);display:block;}
+.sec-lede{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:640px;margin-bottom:44px;}
+
+/* OVERVIEW */
+.ov-block{margin-bottom:26px;max-width:780px;}
+.ov-block:last-child{margin-bottom:0;}
+.ov-label{font-family:var(--sans);font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);margin-bottom:10px;}
+.ov-text{font-family:var(--body);font-size:16px;line-height:1.75;color:var(--ink-soft);}
+
+/* DEEP FULL-BLEED SECTION (was "navy") */
+.section-navy{background:var(--bg-deep);color:var(--ink);}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.insight-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:28px;}
+.insight-card.on-navy{background:var(--surface);border-color:var(--line);}
+.insight-label{font-family:var(--sans);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--challenge);margin-bottom:12px;}
+.insight-card.on-navy .insight-label{color:var(--accent);}
+.insight-title{font-family:var(--sans);font-weight:800;font-size:17px;margin-bottom:10px;letter-spacing:-.01em;color:var(--ink);}
+.insight-text{font-family:var(--body);font-size:14.5px;color:var(--ink-soft);line-height:1.7;}
+
+/* PROCESS STEPS (no image) */
+.step{padding:32px 0;border-top:1px solid var(--line);}
+.step:first-child{border-top:none;padding-top:0;}
+.step-num{font-family:var(--serif);font-style:italic;font-weight:500;font-size:36px;color:var(--num-dim);line-height:1;margin-bottom:14px;}
+.step-title{font-family:var(--sans);font-weight:800;font-size:20px;margin-bottom:12px;letter-spacing:-.01em;max-width:640px;color:var(--ink);}
+.step-text{font-family:var(--body);color:var(--ink-soft);font-size:15px;line-height:1.75;max-width:720px;}
+
+/* DECISION CARD (text + image, alternating) */
+.decision{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(28px,4vw,48px);margin-bottom:28px;}
+.decision:last-child{margin-bottom:0;}
+.decision.reverse .decision-media{order:-1;}
+.decision-eyebrow{font-family:var(--sans);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:12px;}
+.decision-title{font-family:var(--sans);font-weight:800;font-size:21px;margin-bottom:14px;letter-spacing:-.01em;color:var(--ink);}
+.decision-text{font-family:var(--body);font-size:15px;color:var(--ink-soft);line-height:1.75;}
+
+/* QUOTE */
+.quote-block{border-left:3px solid var(--accent);padding-left:24px;margin:32px 0;max-width:720px;}
+.quote-block p{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink);line-height:1.65;}
+.quote-cap{font-family:var(--sans);font-weight:600;font-size:12.5px;color:var(--ink-dim);margin-top:14px;}
+
+/* STATS CARDS */
+.stats-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.stat-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:28px;}
+.stat-card .stat-big{font-family:var(--sans);font-weight:800;font-size:clamp(28px,3vw,36px);color:var(--accent);margin-bottom:12px;}
+.stat-card .stat-lab{font-family:var(--sans);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);margin-bottom:10px;}
+.stat-card .stat-desc{font-family:var(--body);font-size:13.5px;color:var(--ink-soft);line-height:1.6;}
+.stats-final-line{text-align:center;font-family:var(--serif);font-style:italic;color:var(--ink-soft);margin-top:36px;font-size:15px;}
+
+/* RETROSPECTIVE */
+.grid-2x2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.learn-card{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--line);border-radius:var(--radius-md);padding:28px;}
+.learn-tag{font-family:var(--sans);font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;display:block;color:var(--ink-dim);}
+.learn-title{font-family:var(--sans);font-weight:800;font-size:16.5px;margin-bottom:10px;letter-spacing:-.005em;color:var(--ink);}
+.learn-text{font-family:var(--body);font-size:14.5px;color:var(--ink-soft);line-height:1.7;}
+
+/* NEXT / MORE WORK */
+.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.next-card{border:1px solid var(--line);border-radius:var(--radius-lg);padding:28px;background:var(--surface);transition:border-color .2s,transform .2s;}
+.next-card:hover{border-color:var(--accent);transform:translateY(-2px);}
+.next-label{font-family:var(--sans);font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-dim);margin-bottom:10px;}
+.next-title{font-family:var(--sans);font-weight:800;font-size:19px;margin-bottom:10px;letter-spacing:-.01em;color:var(--ink);}
+.next-text{font-family:var(--body);font-size:14.5px;color:var(--ink-soft);margin-bottom:20px;}
+
+/* FOOTER */
+footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep);}
+.footer-inner{text-align:center;font-family:var(--sans);font-weight:600;font-size:13px;color:var(--ink-dim);}
+
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+.rv.is-in{opacity:1;transform:none;}
+
+@media (max-width:860px){
+  .hero-specs{grid-template-columns:repeat(2,1fr);}
+  .grid-3{grid-template-columns:1fr;}
+  .decision{grid-template-columns:1fr;}
+  .decision.reverse .decision-media{order:0;}
+  .stats-cards{grid-template-columns:repeat(2,1fr);}
+  .grid-2x2{grid-template-columns:1fr;}
+  .next-grid{grid-template-columns:1fr;}
+  .img-duo{flex-direction:column;}
+  .nav-links{gap:18px;}
+}
+@media (max-width:560px){
+  .stats-cards{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../index.html#top" class="nav-brand">
+      <img class="nav-avatar" src="../Img/joao-avatar.jpg" alt="João Abdalla">
+      <span class="nav-brand-text">
+        <span class="nav-name">João Abdalla</span>
+        <span class="nav-role">Product designer UX UI</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html#work">Works</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <header class="hero container" role="banner">
+    <h1 class="hero-title rv">My Benefits Advice</h1>
+    <p class="hero-sub rv">Healthcare Enrollment, Simplified</p>
+    <p class="hero-text rv">Designing a multi-role healthcare benefits administration platform for the US market, connecting employers, brokers, and employees through a personalized recommendation engine built from zero.</p>
+
+    <div class="hero-specs rv">
+      <div><div class="spec-label">Client</div><div class="spec-value">My Benefits Advice</div></div>
+      <div><div class="spec-label">My Role</div><div class="spec-value">Lead Product Designer</div></div>
+      <div><div class="spec-label">Timeline</div><div class="spec-value">2024</div></div>
+      <div><div class="spec-label">Deliverables</div><div class="spec-value">UX Architecture · UI Design · Design System · Multi-role flows</div></div>
+    </div>
+
+    <div class="img-placeholder filled ph-hero rv">
+      <img src="../Img/mba/capa.avif" alt="My Benefits Advice platform overview — enrollment and plan selection screens">
+    </div>
+  </header>
+
+  <!-- OVERVIEW -->
+  <section id="overview">
+    <div class="container">
+      <div class="eyebrow rv">Overview</div>
+      <h2 class="sec-title rv">The project at a glance</h2>
+
+      <div class="rv">
+        <div class="ov-block">
+          <div class="ov-label">Context</div>
+          <p class="ov-text">My Benefits Advice is a Colorado-based startup building a healthcare benefits administration (BenAdmin) platform for the US market, competing directly with established enterprise players.</p>
+        </div>
+        <div class="ov-block">
+          <div class="ov-label">My Contribution</div>
+          <p class="ov-text">I owned end-to-end UX and UI across four distinct user surfaces: Admin Portal, Employer Setup, Broker Dashboard, and the Employee Journey. Working as an independent contractor, I led the product from concept definition through shipped product.</p>
+        </div>
+        <div class="ov-block">
+          <div class="ov-label">One platform, four user types</div>
+          <p class="ov-text">The platform connects four user types — MBA Admin, Broker, Employer, and Employee. Each has distinct permissions, data access, and workflows. The system orchestrates a complete enrollment lifecycle: from employer setup and census import to employee recommendation and plan election. The product's core differentiator is the recommendation engine: employees complete a weighted survey and receive a personalized health plan recommendation, making a complex, high-stakes decision feel guided and human.</p>
+        </div>
+        <div class="ov-block">
+          <div class="ov-label">The hardest design challenge:</div>
+          <p class="ov-text">Building trust in a platform that handles SSNs, payroll data, and healthcare decisions. Users range from corporate HR teams to frontline employees with varying tech comfort. Security couldn't just be implemented. It had to be felt.</p>
+        </div>
+      </div>
+
+      <div class="img-placeholder filled ph-wide rv" style="margin-top:20px;">
+        <img src="../Img/mba/p-glance.avif" alt="My Benefits Advice project overview — the platform's four user-facing surfaces at a glance">
+      </div>
+    </div>
+  </section>
+
+  <!-- THE CHALLENGE (deep full-bleed) -->
+  <section class="section-navy">
+    <div class="container">
+      <div class="eyebrow rv">The Challenge</div>
+      <h2 class="sec-title rv">Benefits enrollment was broken<span class="it">for everyone</span></h2>
+      <p class="sec-lede rv">The existing BenAdmin market forces all user types into the same dense, confusing interface. Employers can't see what employees need. Employees can't understand what they're choosing.</p>
+
+      <div class="grid-3 rv">
+        <div class="insight-card on-navy">
+          <div class="insight-label">Problem 01</div>
+          <h3 class="insight-title">No role-based experience.</h3>
+          <p class="insight-text">Existing platforms mixed employer, broker, and employee contexts into a single UI, creating confusion, data exposure risks, and costly HR support tickets.</p>
+        </div>
+        <div class="insight-card on-navy">
+          <div class="insight-label">Problem 02</div>
+          <h3 class="insight-title">Employees guessing at plan selection.</h3>
+          <p class="insight-text">No guidance, no personalization. Just a list of plans with insurance jargon, leading to high abandonment, poor enrollment rates, and frustrated HR teams dealing with the fallout.</p>
+        </div>
+        <div class="insight-card on-navy">
+          <div class="insight-label">Problem 03</div>
+          <h3 class="insight-title">Census management was a nightmare.</h3>
+          <p class="insight-text">Employers had no structured, validated way to import employee data. Manual entry errors created compliance risk and enrollment delays across the board.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN PROCESS -->
+  <section id="design-process">
+    <div class="container">
+      <div class="eyebrow rv">Design Process</div>
+      <h2 class="sec-title rv">From four user types<span class="it">to one coherent system</span></h2>
+      <p class="sec-lede rv">The platform required designing four distinct experiences that shared a single data model. I mapped all user journeys, defined the permission architecture, and then designed surface by surface, keeping data consistency as the north star throughout.</p>
+
+      <div class="rv">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3 class="step-title">User Architecture &amp; Permission Mapping</h3>
+          <p class="step-text">Mapped four user types (MBA Admin, Broker, Employer, Employee) into a permission model defining who sees what, who can edit what, and how users are created and invited across the system. This architecture became the foundation for every design decision that followed.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3 class="step-title">Wireframing the Employee Journey</h3>
+          <p class="step-text">The Employee Journey — login, profile, survey, recommendation, election, confirmation — was the most complex flow in the product. I wireframed both mobile and desktop in parallel, mapping every state including edge cases: out-of-enrollment-period, SSN verification failed, and dependent management.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3 class="step-title">Employer Setup Multi-Step Wizard</h3>
+          <p class="step-text">Designed a 5-step employer onboarding wizard covering company info, communications configuration, enrollment dates, contacts, and product/payment setup. The challenge: making a complex compliance-heavy flow feel manageable for HR teams with no technical background.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <h3 class="step-title">High-Fidelity UI — All Four Surfaces</h3>
+          <p class="step-text">Built high-fidelity screens across Admin Portal, Employer Dashboard, Broker Dashboard, and Employee Journey — maintaining visual consistency while keeping each surface contextually appropriate for its user. The design system ensured components could be shared across surfaces without context bleed.</p>
+        </div>
+      </div>
+
+      <div class="img-placeholder filled ph-hero rv" style="margin-top:20px;">
+        <img src="../Img/mba/wireframe.avif" alt="Employee journey wireframes covering login, survey, recommendation, and election flows">
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN DECISIONS -->
+  <section id="design-decisions">
+    <div class="container">
+      <div class="eyebrow rv">Design Decisions</div>
+      <h2 class="sec-title rv">Key choices<span class="it">and why</span></h2>
+      <p class="sec-lede rv">The reasoning behind the most important decisions — not just what was built, but the thinking that got there.</p>
+
+      <div class="decision rv">
+        <div>
+          <div class="decision-eyebrow">Decision 01</div>
+          <h3 class="decision-title">Trust Barrier as Guided Onboarding</h3>
+          <p class="decision-text">SSN verification is a compliance requirement — but it's also the moment employees are most likely to abandon. Instead of hiding the friction, I made it a visible progression: Register → Verify SSN → Unlock full access. Each step communicated security proactively, reducing abandonment by reframing verification as protection, not obstacle.</p>
+        </div>
+        <div class="decision-media img-placeholder filled ph-tall">
+          <img src="../Img/mba/decision 1.avif" alt="SSN verification flow, shown as a guided step within onboarding">
+        </div>
+      </div>
+
+      <div class="decision reverse rv">
+        <div>
+          <div class="decision-eyebrow">Decision 02</div>
+          <h3 class="decision-title">Permission-First Data Filtering</h3>
+          <p class="decision-text">Rather than showing all data and disabling what users can't touch, I pre-filtered every list, dropdown, and table to the user's permission scope. An Employer user never sees other employers' data. A Broker sees only their group. This prevents errors before they happen — no error messages needed in the happy path.</p>
+        </div>
+        <div class="decision-media img-placeholder filled ph-wide">
+          <img src="../Img/mba/d2.avif" alt="Employer list, pre-filtered to each user's permission scope">
+        </div>
+      </div>
+
+      <div class="decision rv">
+        <div>
+          <div class="decision-eyebrow">Decision 03</div>
+          <h3 class="decision-title">Making the Recommendation Visible</h3>
+          <p class="decision-text">The recommendation engine is the product's core differentiator — but only if employees trust it. I designed the output to show a "Recommended" badge on the best-fit plan, a custom slider for coverage adjustment, and benefit breakdowns in plain English. The goal: make a complex actuarial output feel like personalized advice, not a black box.</p>
+        </div>
+        <div class="decision-media img-placeholder filled ph-wide">
+          <img src="../Img/mba/d3.avif" alt="Plan recommendation screen with a Recommended badge and coverage slider">
+        </div>
+      </div>
+
+      <div class="decision reverse rv">
+        <div>
+          <div class="decision-eyebrow">Decision 04</div>
+          <h3 class="decision-title">CSV Import with Inline Validation</h3>
+          <p class="decision-text">Employers import hundreds of employee records via CSV — and errors in that data have real compliance consequences. I designed a three-state validation flow: upload → field mapping confirmation → success or field-level error report. HR teams see exactly which rows failed and why, before committing the import. No silent failures.</p>
+        </div>
+        <div class="decision-media img-placeholder filled ph-wide">
+          <img src="../Img/mba/d4.avif" alt="CSV census import flow with field-level validation and error reporting">
+        </div>
+      </div>
+
+      <div class="decision rv">
+        <div>
+          <div class="decision-eyebrow">Decision 05</div>
+          <h3 class="decision-title">Wizard for Employer Onboarding</h3>
+          <p class="decision-text">Employer setup involves compliance-heavy decisions: enrollment windows, payroll contacts, product elections, and employee census import. A single long form would feel overwhelming. I broke it into a 5-step wizard with a persistent progress sidebar — each step scoped to one domain, with clear completion states. Complexity without overwhelm.</p>
+        </div>
+        <div class="decision-media img-placeholder filled ph-wide">
+          <img src="../Img/mba/d5.avif" alt="Employer onboarding wizard with a persistent progress sidebar">
+        </div>
+      </div>
+
+      <div class="decision reverse rv">
+        <div>
+          <div class="decision-eyebrow">Decision 06</div>
+          <h3 class="decision-title">Mobile-First Employee Experience</h3>
+          <p class="decision-text">While employers and admins work on desktop, employees complete enrollment on their phones — often during onboarding sessions or open enrollment events. I designed the employee journey mobile-first: large tap targets, step-by-step progression, and a UI that works in both personal and employer-provided device contexts.</p>
+        </div>
+        <div class="decision-media img-duo">
+          <div class="img-placeholder filled"><img src="../Img/mba/d6.avif" alt="Mobile employee journey screens, stacked"></div>
+          <div class="img-placeholder filled"><img src="../Img/mba/ui mockp-mobile.avif" alt="Mobile UI mockup of the employee enrollment experience"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTCOME -->
+  <section id="outcome">
+    <div class="container">
+      <div class="eyebrow rv">Outcome</div>
+      <h2 class="sec-title rv">The<span class="it">impact</span></h2>
+
+      <div class="rv">
+        <p class="ov-text" style="font-size:16.5px;max-width:760px;">The platform is live and active at mybenefitsadvice.com. As an independent contractor, post-launch analytics are outside my engagement scope. The design system and UX architecture I delivered became the foundation the product is built on.</p>
+
+        <div class="quote-block">
+          <p>"Designed and delivered a custom software solution from scratch, from market research through implementation. Created user-centric designs ensuring seamless navigation and accessibility for a diverse user base."</p>
+          <div class="quote-cap">Project scope, My Benefits Advice · Colorado, USA · 2024</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS STRIP -->
+  <section id="stats">
+    <div class="container">
+      <div class="stats-cards rv">
+        <div class="stat-card">
+          <div class="stat-big">4</div>
+          <div class="stat-lab">User Roles Designed</div>
+          <p class="stat-desc">Admin, Broker, Employer, and Employee. Each with distinct permissions, data visibility, and workflows.</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-big">5</div>
+          <div class="stat-lab">Platform Areas</div>
+          <p class="stat-desc">Admin Portal, Employer Setup, Broker Dashboard, Employee Journey, and Reporting. All built from zero.</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-big">2×</div>
+          <div class="stat-lab">Platform Coverages</div>
+          <p class="stat-desc">Full desktop web experience for employers and admins, plus a mobile-first journey for employees.</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-big">✓</div>
+          <div class="stat-lab">Shipped &amp; Live</div>
+          <p class="stat-desc">Product launched to the US healthcare benefits market and is actively used by employer groups.</p>
+        </div>
+      </div>
+      <p class="stats-final-line rv">The platform is live and active at mybenefitsadvice.com</p>
+    </div>
+  </section>
+
+  <!-- RETROSPECTIVE -->
+  <section id="retrospective">
+    <div class="container">
+      <div class="eyebrow rv">Retrospective</div>
+      <h2 class="sec-title rv">What I took away</h2>
+
+      <div class="grid-2x2 rv">
+        <div class="learn-card">
+          <span class="learn-tag">What Worked Well</span>
+          <h3 class="learn-title">Permission Architecture First</h3>
+          <p class="learn-text">Mapping the full permission model before designing any screens was the best decision of the project. It prevented dozens of downstream design conflicts and gave the engineering team a clear data model to implement against. In multi-role SaaS, architecture is design.</p>
+        </div>
+        <div class="learn-card">
+          <span class="learn-tag">What I'd Do Differently</span>
+          <h3 class="learn-title">Earlier User Testing on the Recommendation Output</h3>
+          <p class="learn-text">The recommendation engine was the product's biggest differentiator, but also its biggest risk. Employees had to trust an algorithm with a healthcare decision. I'd invest more time validating the output design with real employees before finalizing: does the "Recommended" label feel trustworthy, or does it feel pushy?</p>
+        </div>
+        <div class="learn-card">
+          <span class="learn-tag">Key Insight</span>
+          <h3 class="learn-title">Compliance UX Is a Design Opportunity</h3>
+          <p class="learn-text">SSN verification, enrollment windows, and data consent are legally required, and most platforms treat them as UI debt. I found that designing these constraints with care (clear language, visible progress, proactive security cues) actually built more trust than hiding them would have. Compliance became a feature, not a footnote.</p>
+        </div>
+        <div class="learn-card">
+          <span class="learn-tag">Constraint I Navigated</span>
+          <h3 class="learn-title">Designing for Four Users Simultaneously</h3>
+          <p class="learn-text">Every screen, modal, and navigation state had to make sense within its user's context, while sharing the same underlying data. The hardest part wasn't designing any single surface. The real challenge was maintaining coherence across all four without letting one user's complexity bleed into another's experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MORE WORK -->
+  <section id="more-work">
+    <div class="container">
+      <div class="eyebrow rv">More Work</div>
+      <div class="next-grid rv">
+        <a class="next-card" href="jalasoft.html">
+          <div class="next-label">Next Case Study</div>
+          <h3 class="next-title">Jalasoft Design System</h3>
+          <p class="next-text">Building a design system from a brand guideline, then scaling it across a company of 1,000+ people.</p>
+          <div class="img-placeholder" style="aspect-ratio:4/3;"><span class="ph-label">Mockup dos componentes do design system Jalasoft</span></div>
+        </a>
+        <a class="next-card" href="valt.html">
+          <div class="next-label">Also Worth Seeing</div>
+          <h3 class="next-title">Valt Network</h3>
+          <p class="next-text">Private market social network. Designed from zero to live product.</p>
+          <div class="img-placeholder" style="aspect-ratio:4/3;"><span class="ph-label">Mockup relacionado a Valt</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">Copyright © abdalladesign 2026</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+</script>
+<script>
+  (function(){
+    var lastY = 0, nav = document.getElementById("nav");
+    if (!nav) return;
+    window.addEventListener("scroll", function(){
+      var y = window.scrollY;
+      if (y > 140 && y > lastY) nav.classList.add("is-hidden");
+      else nav.classList.remove("is-hidden");
+      lastY = y;
+    }, { passive: true });
+  })();
+</script>
+
+</body>
+</html>

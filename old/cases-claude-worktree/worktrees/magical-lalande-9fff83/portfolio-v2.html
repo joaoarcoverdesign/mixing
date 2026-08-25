@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>João Abdalla — Senior UX/UI Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  /* ═══════════════════════════════════════════════════
+     DESIGN SYSTEM — case-file style applied to portfolio
+  ═══════════════════════════════════════════════════ */
+  :root {
+    --color-bg:          #F7F7F7;
+    --color-surface:     #FFFFFF;
+    --color-surface-2:   #F0F0F0;
+    --color-border:      #E2E2E2;
+    --color-border-dark: #CCCCCC;
+    --color-accent:      #333333;
+    --color-accent-dim:  rgba(51,51,51,0.08);
+    --color-accent-border: rgba(51,51,51,0.2);
+    --color-text:        #111111;
+    --color-muted:       #888888;
+    --color-muted-2:     #555555;
+    --font-display: 'Lato', sans-serif;
+    --font-ui:      'Lato', sans-serif;
+    --font-mono:    'DM Mono', monospace;
+    --section-py:   clamp(72px, 9vw, 120px);
+    --container:    1160px;
+    --radius-card:  10px;
+    --radius-sm:    5px;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-ui);
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  *:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 clamp(20px, 5vw, 48px);
+  }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
+  /* ══════════════════════════════════════
+     NAV
+  ══════════════════════════════════════ */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 18px 0;
+    background: rgba(247,247,247,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--color-border);
+    transition: padding 0.3s;
+  }
+  nav .container {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: var(--font-ui); font-size: 13px;
+    font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex; gap: 36px; list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--color-muted); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--color-text); }
+
+  .nav-cta {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--color-bg); background: var(--color-text);
+    text-decoration: none; padding: 10px 22px;
+    border-radius: var(--radius-sm);
+    transition: opacity 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.75; }
+
+  /* ══════════════════════════════════════
+     SECTION UTILITIES
+  ══════════════════════════════════════ */
+  section {
+    padding: var(--section-py) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .section-eyebrow {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--color-muted); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-eyebrow::before {
+    content: ''; display: block;
+    width: 20px; height: 1px; background: var(--color-muted);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 300; line-height: 1.05;
+    color: var(--color-text); margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+  .section-title em { font-style: italic; }
+
+  .section-body {
+    font-size: 16px; line-height: 1.8;
+    color: var(--color-muted-2);
+  }
+
+  /* ══════════════════════════════════════
+     HERO
+  ══════════════════════════════════════ */
+  #hero {
+    padding: 140px 0 var(--section-py);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .hero-eyebrow-row {
+    display: flex; align-items: center; gap: 16px;
+    flex-wrap: wrap; margin-bottom: 36px;
+  }
+
+  .hero-tag {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--color-accent);
+    background: var(--color-accent-dim);
+    border: 1px solid var(--color-accent-border);
+    padding: 5px 12px; border-radius: 100px;
+    display: inline-block;
+  }
+
+  .hero-location {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--color-muted);
+    border: 1px solid var(--color-border-dark);
+    padding: 5px 12px; border-radius: 100px;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 7vw, 96px);
+    font-weight: 300; line-height: 1.0;
+    letter-spacing: -0.03em; color: var(--color-text);
+    margin-bottom: 32px;
+  }
+  h1 em { font-style: italic; }
+
+  .hero-sub {
+    font-size: clamp(15px, 1.8vw, 18px);
+    font-weight: 300; color: var(--color-muted-2);
+    max-width: 560px; line-height: 1.7; margin-bottom: 48px;
+  }
+
+  .hero-actions {
+    display: flex; align-items: center; gap: 24px;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--color-bg); background: var(--color-text);
+    text-decoration: none; padding: 14px 28px;
+    border-radius: var(--radius-sm);
+    transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.75; }
+
+  .btn-ghost {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--color-muted); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid var(--color-border-dark);
+    padding-bottom: 2px; transition: color 0.2s, border-color 0.2s;
+  }
+  .btn-ghost:hover { color: var(--color-text); border-color: var(--color-text); }
+
+  .hero-stats {
+    display: flex; gap: 48px;
+    margin-top: 80px; padding-top: 40px;
+    border-top: 1px solid var(--color-border);
+    flex-wrap: wrap;
+  }
+  .stat-item {}
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 42px; font-weight: 300; line-height: 1;
+    color: var(--color-text); letter-spacing: -0.03em;
+  }
+  .stat-desc {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--color-muted); margin-top: 4px;
+  }
+
+  /* ══════════════════════════════════════
+     ABOUT
+  ══════════════════════════════════════ */
+  #about { background: var(--color-surface); }
+
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: start; margin-top: 64px;
+  }
+
+  .about-text p {
+    font-size: 16px; font-weight: 300;
+    color: var(--color-muted-2); line-height: 1.8; margin-bottom: 20px;
+  }
+  .about-text p strong { font-weight: 700; color: var(--color-text); }
+
+  .about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
+
+  .tag {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid var(--color-border-dark);
+    color: var(--color-muted-2); padding: 5px 12px;
+    border-radius: var(--radius-sm);
+  }
+
+  .about-right { display: flex; flex-direction: column; gap: 32px; }
+
+  .about-photo-placeholder {
+    width: 100%; aspect-ratio: 3/4;
+    background: var(--color-text);
+    border-radius: var(--radius-sm);
+    display: flex; align-items: flex-end;
+    padding: 24px; position: relative; overflow: hidden;
+  }
+  .about-photo-placeholder::before {
+    content: 'JA'; position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -60%);
+    font-family: var(--font-display); font-size: 96px; font-weight: 300;
+    color: rgba(255,255,255,0.06); letter-spacing: -0.05em;
+  }
+  .about-photo-caption {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: rgba(247,247,247,0.4); position: relative; z-index: 1;
+  }
+
+  .info-list { display: flex; flex-direction: column; }
+  .info-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 0; border-bottom: 1px solid var(--color-border); font-size: 14px;
+  }
+  .info-row:first-child { border-top: 1px solid var(--color-border); }
+  .info-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); }
+  .info-val { font-size: 13px; color: var(--color-text); font-weight: 400; }
+  .info-val.available { color: var(--color-accent); font-weight: 600; }
+
+  /* ══════════════════════════════════════
+     PROJECTS
+  ══════════════════════════════════════ */
+  #projects { background: var(--color-bg); }
+
+  .filter-bar {
+    display: flex; gap: 8px; margin-top: 48px; margin-bottom: 48px; flex-wrap: wrap;
+  }
+  .filter-btn {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 8px 16px; border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border-dark);
+    background: transparent; color: var(--color-muted);
+    cursor: pointer; transition: all 0.2s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--color-text); color: var(--color-bg); border-color: var(--color-text);
+  }
+
+  .projects-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+  }
+  .project-card {
+    background: var(--color-surface); overflow: hidden; cursor: pointer;
+    position: relative; border: 1px solid var(--color-border);
+    transition: border-color 0.2s;
+  }
+  .project-card:hover { border-color: var(--color-accent-border); }
+  .project-card:nth-child(1) { grid-column: span 2; }
+  .project-card:nth-child(4) { grid-column: span 2; }
+
+  .project-img {
+    width: 100%; aspect-ratio: 16/9;
+    background: var(--color-surface-2);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .project-card:nth-child(1) .project-img { aspect-ratio: 16/8; }
+  .project-card:nth-child(4) .project-img { aspect-ratio: 16/8; }
+
+  .project-img-inner {
+    font-family: var(--font-display); font-size: 72px; font-weight: 300;
+    color: var(--color-border-dark); letter-spacing: -0.04em;
+    user-select: none; transition: transform 0.4s;
+  }
+  .project-card:hover .project-img-inner { transform: scale(1.05); }
+
+  .project-accent {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  }
+
+  .project-info { padding: 28px 28px 32px; }
+  .project-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .project-company {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-muted);
+  }
+  .project-year { font-family: var(--font-mono); font-size: 11px; color: var(--color-muted); }
+  .project-title { font-size: 18px; font-weight: 600; color: var(--color-text); margin-bottom: 10px; line-height: 1.3; }
+  .project-desc { font-size: 13px; font-weight: 300; color: var(--color-muted-2); line-height: 1.6; }
+  .project-tags { display: flex; gap: 6px; margin-top: 16px; flex-wrap: wrap; }
+  .project-tag {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    border: 1px solid var(--color-border-dark);
+    color: var(--color-muted); padding: 4px 10px; border-radius: 3px;
+  }
+
+  a.project-card {
+    display: block; text-decoration: none; color: inherit;
+  }
+
+  .project-img-photo {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: top center;
+    display: block; transition: transform 0.4s var(--ease-out-expo);
+  }
+  .project-card:hover .project-img-photo { transform: scale(1.04); }
+
+  /* MBA card */
+  .project-img.mba-img {
+    background: linear-gradient(135deg, #d4f5ee 0%, #b8e8f5 50%, #c8f0e8 100%);
+  }
+  .mba-img .mba-mobile {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+    display: block; transition: transform 0.4s var(--ease-out-expo);
+  }
+  .project-card:hover .mba-img .mba-mobile { transform: scale(1.04); }
+  .project-case-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--color-accent); margin-top: 20px;
+    border-bottom: 1px solid var(--color-accent-border);
+    padding-bottom: 2px;
+    transition: border-color 0.2s;
+  }
+  a.project-card:hover .project-case-link { border-color: var(--color-accent); }
+
+  /* ══════════════════════════════════════
+     EXPERTISE — dark section
+  ══════════════════════════════════════ */
+  #expertise {
+    background: var(--color-text);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  #expertise .section-eyebrow { color: rgba(247,247,247,0.4); }
+  #expertise .section-eyebrow::before { background: rgba(247,247,247,0.4); }
+  #expertise .section-title { color: var(--color-bg); }
+
+  .expertise-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.08);
+    margin-top: 64px;
+  }
+  .expertise-card { background: var(--color-text); padding: 48px 36px; transition: background 0.3s; }
+  .expertise-card:hover { background: #1a1a1a; }
+  .expertise-icon {
+    font-size: 20px; margin-bottom: 28px; display: block;
+    color: rgba(247,247,247,0.35);
+  }
+  .expertise-title { font-size: 20px; font-weight: 600; color: var(--color-bg); margin-bottom: 14px; }
+  .expertise-desc { font-size: 14px; font-weight: 300; color: rgba(247,247,247,0.5); line-height: 1.7; margin-bottom: 24px; }
+  .expertise-tools { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tool-tag {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(247,247,247,0.45); padding: 4px 10px; border-radius: 3px;
+  }
+
+  /* ══════════════════════════════════════
+     TIMELINE
+  ══════════════════════════════════════ */
+  #timeline { background: var(--color-bg); }
+
+  .timeline-container {
+    display: flex; flex-direction: column; gap: 0; margin-top: 64px;
+  }
+  .tl-item {
+    display: grid; grid-template-columns: 200px 1px 1fr;
+    gap: 0 48px; position: relative;
+  }
+  .tl-date-col { text-align: right; padding-top: 6px; }
+  .tl-period {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.08em; color: var(--color-muted); display: block;
+  }
+  .tl-current {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--color-accent); display: inline-block; margin-top: 4px;
+  }
+  .tl-spine {
+    width: 1px; background: var(--color-border);
+    position: relative; display: flex; justify-content: center;
+  }
+  .tl-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--color-bg); border: 1.5px solid var(--color-border-dark);
+    position: absolute; top: 8px; left: 50%; transform: translateX(-50%); z-index: 2;
+  }
+  .tl-dot.active { background: var(--color-accent); border-color: var(--color-accent); }
+  .tl-content-col { padding-bottom: 56px; }
+  .tl-role { font-size: 18px; font-weight: 600; color: var(--color-text); margin-bottom: 4px; }
+  .tl-company {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--color-muted); margin-bottom: 12px;
+  }
+  .tl-desc { font-size: 14px; font-weight: 300; color: var(--color-muted-2); line-height: 1.7; max-width: 560px; }
+  .tl-tags { display: flex; gap: 6px; margin-top: 14px; flex-wrap: wrap; }
+
+  /* ══════════════════════════════════════
+     EDUCATION
+  ══════════════════════════════════════ */
+  #education { background: var(--color-surface-2); }
+
+  .edu-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; margin-top: 64px;
+  }
+  .edu-list { display: flex; flex-direction: column; gap: 28px; }
+  .edu-item {
+    padding-left: 20px; border-left: 2px solid var(--color-border);
+    transition: border-color 0.2s;
+  }
+  .edu-item:hover { border-left-color: var(--color-accent); }
+  .edu-degree { font-size: 15px; font-weight: 600; color: var(--color-text); margin-bottom: 4px; }
+  .edu-school {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.06em; color: var(--color-muted);
+  }
+  .edu-year {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.06em; color: var(--color-accent); margin-top: 4px;
+  }
+
+  .teaching-card {
+    background: var(--color-text); border-radius: var(--radius-sm);
+    padding: 48px; height: 100%;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .teaching-label {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(247,247,247,0.3); margin-bottom: 20px;
+  }
+  .teaching-title {
+    font-size: 26px; font-weight: 300; color: var(--color-bg);
+    line-height: 1.2; margin-bottom: 20px;
+  }
+  .teaching-desc {
+    font-size: 15px; font-weight: 300; color: rgba(247,247,247,0.6);
+    line-height: 1.7; flex: 1; margin-bottom: 32px;
+  }
+  .teaching-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(247,247,247,0.5); border: 1px solid rgba(255,255,255,0.15);
+    padding: 8px 16px; border-radius: var(--radius-sm);
+  }
+  .teaching-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: rgba(247,247,247,0.4); }
+
+  /* ══════════════════════════════════════
+     CONTACT — dark section
+  ══════════════════════════════════════ */
+  #contact { background: var(--color-text); border-bottom: none; }
+  #contact .section-eyebrow { color: rgba(247,247,247,0.4); }
+  #contact .section-eyebrow::before { background: rgba(247,247,247,0.4); }
+  #contact .section-title { color: var(--color-bg); }
+
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: start; margin-top: 64px;
+  }
+  .contact-intro {
+    font-size: clamp(24px, 3vw, 36px); font-weight: 300;
+    color: var(--color-bg); line-height: 1.3; margin-bottom: 40px;
+  }
+  .contact-intro em { font-style: italic; color: rgba(247,247,247,0.5); }
+
+  .contact-email {
+    font-size: 16px; font-weight: 300; color: rgba(247,247,247,0.6);
+    text-decoration: none; border-bottom: 1px solid rgba(247,247,247,0.2);
+    padding-bottom: 4px; transition: color 0.2s, border-color 0.2s;
+    display: inline-block; margin-bottom: 48px;
+  }
+  .contact-email:hover { color: var(--color-bg); border-color: var(--color-bg); }
+
+  .social-grid { display: flex; flex-direction: column; gap: 1px; background: rgba(255,255,255,0.06); }
+  .social-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 24px; background: var(--color-text);
+    text-decoration: none; transition: background 0.2s;
+  }
+  .social-item:hover { background: #1a1a1a; }
+  .social-left { display: flex; align-items: center; gap: 16px; }
+  .social-platform {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(247,247,247,0.3); width: 80px;
+  }
+  .social-handle { font-size: 14px; font-weight: 300; color: var(--color-bg); }
+  .social-arrow { color: rgba(247,247,247,0.3); font-size: 18px; transition: transform 0.2s, color 0.2s; }
+  .social-item:hover .social-arrow { transform: translate(3px, -3px); color: var(--color-bg); }
+
+  .contact-form-side { display: flex; flex-direction: column; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(247,247,247,0.3);
+  }
+  .form-group input,
+  .form-group textarea {
+    font-family: var(--font-ui); font-size: 15px; font-weight: 300;
+    color: var(--color-bg); background: rgba(247,247,247,0.05);
+    border: 1px solid rgba(247,247,247,0.1); border-radius: var(--radius-sm);
+    padding: 14px 18px; outline: none; transition: border-color 0.2s; resize: none;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus { border-color: rgba(247,247,247,0.3); }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(247,247,247,0.2); }
+  .form-submit {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--color-text); background: var(--color-bg);
+    border: none; border-radius: var(--radius-sm);
+    padding: 14px 28px; cursor: pointer;
+    transition: opacity 0.2s; align-self: flex-start; margin-top: 8px;
+  }
+  .form-submit:hover { opacity: 0.8; }
+
+  /* ══════════════════════════════════════
+     FOOTER
+  ══════════════════════════════════════ */
+  footer {
+    background: var(--color-text);
+    border-top: 1px solid rgba(247,247,247,0.06);
+    padding: 40px 0;
+  }
+  footer .container {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-copy {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.06em; color: rgba(247,247,247,0.3);
+  }
+  .footer-logo {
+    font-family: var(--font-ui); font-size: 13px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(247,247,247,0.4); text-decoration: none;
+  }
+
+  /* ══════════════════════════════════════
+     ANIMATIONS
+  ══════════════════════════════════════ */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow-row { animation: fadeUp 0.6s var(--ease-out-expo) both; animation-delay: 0.1s; }
+  h1               { animation: fadeUp 0.6s var(--ease-out-expo) both; animation-delay: 0.2s; }
+  .hero-sub        { animation: fadeUp 0.6s var(--ease-out-expo) both; animation-delay: 0.3s; }
+  .hero-actions    { animation: fadeUp 0.6s var(--ease-out-expo) both; animation-delay: 0.4s; }
+  .hero-stats      { animation: fadeUp 0.6s var(--ease-out-expo) both; animation-delay: 0.5s; }
+
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.65s var(--ease-out-expo), transform 0.65s var(--ease-out-expo);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal:nth-child(2) { transition-delay: 0.1s; }
+  .reveal:nth-child(3) { transition-delay: 0.2s; }
+  .reveal:nth-child(4) { transition-delay: 0.3s; }
+  .reveal:nth-child(5) { transition-delay: 0.4s; }
+  .reveal:nth-child(6) { transition-delay: 0.5s; }
+
+  /* ══════════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════════ */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .about-grid, .edu-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card:nth-child(1), .project-card:nth-child(4) { grid-column: span 1; }
+    .expertise-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 28px; }
+    .tl-item { grid-template-columns: 100px 1px 1fr; gap: 0 24px; }
+    footer .container { flex-direction: column; gap: 12px; text-align: center; }
+  }
+  @media (max-width: 600px) {
+    .tl-item { grid-template-columns: 1fr; }
+    .tl-date-col { text-align: left; }
+    .tl-spine { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav aria-label="Portfolio navigation">
+  <div class="container">
+    <a href="#hero" class="nav-logo">João Abdalla</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Work</a></li>
+      <li><a href="#expertise">Skills</a></li>
+      <li><a href="#timeline">Career</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="mailto:abdalladesign@yahoo.com.br" class="nav-cta">Hire me</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-eyebrow-row">
+      <span class="hero-tag">Available for new projects</span>
+      <span class="hero-location">Senior UX/UI · Brasília, Brazil</span>
+    </div>
+
+    <h1>Designing products<br>that <em>matter.</em></h1>
+
+    <p class="hero-sub">20+ years crafting digital experiences — from edtech platforms with 8M+ users to fintech apps and enterprise SaaS products across the Americas.</p>
+
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">View my work →</a>
+      <a href="#contact" class="btn-ghost">Let's talk</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">20+</div>
+        <div class="stat-desc">Years of experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">8M+</div>
+        <div class="stat-desc">Users impacted</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3</div>
+        <div class="stat-desc">Continents worked</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">15+</div>
+        <div class="stat-desc">Products launched</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <p class="section-eyebrow">01 — About</p>
+    <h2 class="section-title">About <em>me</em></h2>
+
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I'm <strong>João Abdalla</strong>, a Senior UX/UI Product Designer based in Brasília with a background that spans Industrial Design, front-end development, and digital marketing — giving me a uniquely full-stack perspective on product creation.</p>
+        <p>Currently leading design at <strong>Jalasoft</strong>, where I craft enterprise products and digital platforms for clients across North America. I also teach UX/UI Design at <strong>Jala University</strong>, helping LATAM engineers master Figma and user-centred design thinking.</p>
+        <p>Fluent in English, with two years of residency in London — I work comfortably across cultures and time zones.</p>
+
+        <div class="about-tags">
+          <span class="tag">UX Research</span>
+          <span class="tag">UI Design</span>
+          <span class="tag">Design Systems</span>
+          <span class="tag">Prototyping</span>
+          <span class="tag">Front-end</span>
+          <span class="tag">Product Strategy</span>
+          <span class="tag">Figma</span>
+          <span class="tag">Bilingual EN/PT</span>
+        </div>
+      </div>
+
+      <div class="about-right reveal">
+        <div class="about-photo-placeholder">
+          <span class="about-photo-caption">João Abdalla · Designer</span>
+        </div>
+
+        <div class="info-list">
+          <div class="info-row">
+            <span class="info-label">Based in</span>
+            <span class="info-val">Brasília, Brazil</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Current role</span>
+            <span class="info-val">Senior UX/UI @ Jalasoft</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Languages</span>
+            <span class="info-val">Portuguese · English</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Education</span>
+            <span class="info-val">ESPM · UniverCidade</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Availability</span>
+            <span class="info-val available">Open to projects</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <p class="section-eyebrow">02 — Work</p>
+    <h2 class="section-title">Selected <em>work</em></h2>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="app">App</button>
+      <button class="filter-btn" data-filter="web">Web</button>
+      <button class="filter-btn" data-filter="enterprise">Enterprise</button>
+      <button class="filter-btn" data-filter="edtech">Edtech</button>
+    </div>
+
+    <div class="projects-grid">
+      <a href="cases/case-study-vault-network.html" class="project-card reveal" data-tags="app,fintech">
+        <div class="project-img" style="background: #0D1B2A;">
+          <div class="project-img-inner" style="color: rgba(255,255,255,0.08);">VC</div>
+          <div class="project-accent" style="background: linear-gradient(90deg, #555, #999);"></div>
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="project-company">Valt Connect · True North</span>
+            <span class="project-year">2025</span>
+          </div>
+          <h3 class="project-title">Social network for pre-market investors</h3>
+          <p class="project-desc">A professional platform connecting investors and business professionals to discover pre-market stock opportunities and build strategic networks.</p>
+          <div class="project-tags">
+            <span class="project-tag">Social Network</span>
+            <span class="project-tag">Fintech</span>
+            <span class="project-tag">iOS/Android</span>
+          </div>
+          <span class="project-case-link">View case study →</span>
+        </div>
+      </a>
+
+      <a href="cases/case-study-winteam-kiosk.html" class="project-card reveal" data-tags="enterprise,web">
+        <div class="project-img" style="background: #0A1628;">
+          <div class="project-img-inner" style="color: rgba(255,255,255,0.08);">WW</div>
+          <div class="project-accent" style="background: #555;"></div>
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="project-company">WorkWave · Nebraska</span>
+            <span class="project-year">2024</span>
+          </div>
+          <h3 class="project-title">Field service management platform</h3>
+          <p class="project-desc">Redesigned core UX flows for a field service SaaS platform serving thousands of business customers across the United States.</p>
+          <div class="project-tags">
+            <span class="project-tag">SaaS</span>
+            <span class="project-tag">Enterprise</span>
+            <span class="project-tag">Web App</span>
+          </div>
+          <span class="project-case-link">View case study →</span>
+        </div>
+      </a>
+
+      <a href="cases/case-study-mba-benefits.html" class="project-card reveal" data-tags="app,web">
+        <div class="project-img mba-img">
+          <img src="img/mba/595shots_so.png" alt="My Benefit Advice — mobile interface" class="mba-mobile">
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="project-company">My Benefit Advice · Colorado</span>
+            <span class="project-year">2024</span>
+          </div>
+          <h3 class="project-title">Health insurance comparison platform</h3>
+          <p class="project-desc">From concept to launch — designed a custom health insurance marketplace tailored to competitive market conditions.</p>
+          <div class="project-tags">
+            <span class="project-tag">Healthtech</span>
+            <span class="project-tag">Product Design</span>
+          </div>
+          <span class="project-case-link">View case study →</span>
+        </div>
+      </a>
+
+      <div class="project-card reveal" data-tags="edtech,web,app">
+        <div class="project-img" style="background: #1A0D2E;">
+          <div class="project-img-inner" style="color: rgba(255,255,255,0.08);">Qc</div>
+          <div class="project-accent" style="background: linear-gradient(90deg, #666, #999);"></div>
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="project-company">Qconcursos · Brazil</span>
+            <span class="project-year">2014 – 2019</span>
+          </div>
+          <h3 class="project-title">Brazil's leading edtech for public exams</h3>
+          <p class="project-desc">Participated in building a platform reaching 8M+ active users — including question banks, mock exams, writing courses, and a lawyer certification product.</p>
+          <div class="project-tags">
+            <span class="project-tag">Edtech</span>
+            <span class="project-tag">8M+ Users</span>
+            <span class="project-tag">Product</span>
+            <span class="project-tag">Team Lead</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-tags="enterprise">
+        <div class="project-img" style="background: #001C3D;">
+          <div class="project-img-inner" style="color: rgba(255,255,255,0.08);">BB</div>
+          <div class="project-accent" style="background: #888;"></div>
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="project-company">Banco do Brasil · Cast</span>
+            <span class="project-year">2020 – 2021</span>
+          </div>
+          <h3 class="project-title">Unified test automation platform</h3>
+          <p class="project-desc">Designed a continuous testing platform and employee expertise registry system for one of Brazil's largest banks.</p>
+          <div class="project-tags">
+            <span class="project-tag">Enterprise</span>
+            <span class="project-tag">Banking</span>
+            <span class="project-tag">UX</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-tags="web,enterprise">
+        <div class="project-img" style="background: #0D1F1A;">
+          <div class="project-img-inner" style="color: rgba(255,255,255,0.08);">Jl</div>
+          <div class="project-accent" style="background: #777;"></div>
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="project-company">Jalasoft</span>
+            <span class="project-year">2021 – Present</span>
+          </div>
+          <h3 class="project-title">Enterprise product suite & company website</h3>
+          <p class="project-desc">Led design for Flow, HCM, Planning Poker, BPM, Workinly, and the full Jalasoft corporate website ecosystem.</p>
+          <div class="project-tags">
+            <span class="project-tag">Design Lead</span>
+            <span class="project-tag">Design System</span>
+            <span class="project-tag">Web</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="container">
+    <p class="section-eyebrow">03 — Skills</p>
+    <h2 class="section-title">My <em>expertise</em></h2>
+
+    <div class="expertise-grid">
+      <div class="expertise-card reveal">
+        <span class="expertise-icon">✦</span>
+        <h3 class="expertise-title">UX Design</h3>
+        <p class="expertise-desc">Research-driven design process. From user interviews and journey mapping to information architecture and usability testing.</p>
+        <div class="expertise-tools">
+          <span class="tool-tag">User Research</span>
+          <span class="tool-tag">Journey Mapping</span>
+          <span class="tool-tag">Wireframing</span>
+          <span class="tool-tag">Maze</span>
+          <span class="tool-tag">Hotjar</span>
+        </div>
+      </div>
+
+      <div class="expertise-card reveal">
+        <span class="expertise-icon">◈</span>
+        <h3 class="expertise-title">UI Design</h3>
+        <p class="expertise-desc">Pixel-perfect interfaces with strong visual hierarchy. Design systems that scale and brand identities that resonate.</p>
+        <div class="expertise-tools">
+          <span class="tool-tag">Figma</span>
+          <span class="tool-tag">Design Systems</span>
+          <span class="tool-tag">Prototyping</span>
+          <span class="tool-tag">FigJam</span>
+          <span class="tool-tag">Motion</span>
+        </div>
+      </div>
+
+      <div class="expertise-card reveal">
+        <span class="expertise-icon">⌘</span>
+        <h3 class="expertise-title">Front-end</h3>
+        <p class="expertise-desc">I code what I design. HTML, CSS, and JavaScript fluency means tighter collaboration with dev teams and faster iterations.</p>
+        <div class="expertise-tools">
+          <span class="tool-tag">HTML/CSS</span>
+          <span class="tool-tag">JavaScript</span>
+          <span class="tool-tag">PHP</span>
+          <span class="tool-tag">MySQL</span>
+          <span class="tool-tag">Accessibility</span>
+        </div>
+      </div>
+
+      <div class="expertise-card reveal">
+        <span class="expertise-icon">◎</span>
+        <h3 class="expertise-title">Product Strategy</h3>
+        <p class="expertise-desc">End-to-end ownership. Discovery, OKRs, roadmapping, cross-functional collaboration, and stakeholder alignment.</p>
+        <div class="expertise-tools">
+          <span class="tool-tag">PM3 Certified</span>
+          <span class="tool-tag">OKRs</span>
+          <span class="tool-tag">Roadmapping</span>
+          <span class="tool-tag">Jira</span>
+          <span class="tool-tag">Notion</span>
+        </div>
+      </div>
+
+      <div class="expertise-card reveal">
+        <span class="expertise-icon">▲</span>
+        <h3 class="expertise-title">Design Leadership</h3>
+        <p class="expertise-desc">Led design teams at Qconcursos. Mentoring junior designers, running design critiques, and building team culture.</p>
+        <div class="expertise-tools">
+          <span class="tool-tag">Team Lead</span>
+          <span class="tool-tag">Design Critique</span>
+          <span class="tool-tag">Mentoring</span>
+          <span class="tool-tag">Miro</span>
+        </div>
+      </div>
+
+      <div class="expertise-card reveal">
+        <span class="expertise-icon">❋</span>
+        <h3 class="expertise-title">Teaching</h3>
+        <p class="expertise-desc">UX/UI Educator at Jala University. Creating and delivering design courses for engineers and CS undergraduates across LATAM.</p>
+        <div class="expertise-tools">
+          <span class="tool-tag">Figma Educator</span>
+          <span class="tool-tag">Curriculum Design</span>
+          <span class="tool-tag">LATAM</span>
+          <span class="tool-tag">CS Students</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="container">
+    <p class="section-eyebrow">04 — Career</p>
+    <h2 class="section-title">20 years of <em>craft</em></h2>
+
+    <div class="timeline-container">
+      <div class="tl-item reveal">
+        <div class="tl-date-col">
+          <span class="tl-period">2021 – now</span>
+          <span class="tl-current">● Current</span>
+        </div>
+        <div class="tl-spine"><div class="tl-dot active"></div></div>
+        <div class="tl-content-col">
+          <div class="tl-role">Senior UX/UI Product Designer</div>
+          <div class="tl-company">Jalasoft + Jala University</div>
+          <p class="tl-desc">Leading end-to-end design for enterprise products (Flow, HCM, BPM, Workinly) and corporate websites. Also teaching Figma and UX Design to LATAM students and CS undergraduates.</p>
+          <div class="tl-tags">
+            <span class="tag">Design Lead</span><span class="tag">Educator</span><span class="tag">Enterprise</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-date-col"><span class="tl-period">2020 – 2021</span></div>
+        <div class="tl-spine"><div class="tl-dot"></div></div>
+        <div class="tl-content-col">
+          <div class="tl-role">Senior UX/UI Product Designer</div>
+          <div class="tl-company">Cast Informática · Banco do Brasil</div>
+          <p class="tl-desc">Built a unified test automation platform for Banco do Brasil. Designed onboarding, employee expertise registry, and branding systems.</p>
+          <div class="tl-tags"><span class="tag">Banking</span><span class="tag">Enterprise</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-date-col"><span class="tl-period">2014 – 2019</span></div>
+        <div class="tl-spine"><div class="tl-dot"></div></div>
+        <div class="tl-content-col">
+          <div class="tl-role">Senior UX/UI Product Designer</div>
+          <div class="tl-company">Qconcursos.com</div>
+          <p class="tl-desc">Five years building Brazil's largest edtech platform for public service exams — reaching 8M+ active users. Led a design team to launch multiple new products.</p>
+          <div class="tl-tags"><span class="tag">8M+ Users</span><span class="tag">Edtech</span><span class="tag">Team Lead</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-date-col"><span class="tl-period">2010 – 2013</span></div>
+        <div class="tl-spine"><div class="tl-dot"></div></div>
+        <div class="tl-content-col">
+          <div class="tl-role">Web Design · Front-end · Digital Marketing</div>
+          <div class="tl-company">Ebix / Usix Technology</div>
+          <p class="tl-desc">Worked on digital projects for major insurance companies at this large multinational.</p>
+          <div class="tl-tags"><span class="tag">Insurance</span><span class="tag">Front-end</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-date-col"><span class="tl-period">2007 – 2009</span></div>
+        <div class="tl-spine"><div class="tl-dot"></div></div>
+        <div class="tl-content-col">
+          <div class="tl-role">Web & Graphic Designer</div>
+          <div class="tl-company">Super Rádio Tupi · Qx3 Design · CEO Arco-Verde</div>
+          <p class="tl-desc">Designed for Brazil's largest radio station, built home brokers for fintech clients, and founded my own design agency (Arco-Verde).</p>
+          <div class="tl-tags"><span class="tag">Media</span><span class="tag">Fintech</span><span class="tag">Founder</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-date-col"><span class="tl-period">2005 – 2007</span></div>
+        <div class="tl-spine"><div class="tl-dot"></div></div>
+        <div class="tl-content-col">
+          <div class="tl-role">Web & Graphic Designer</div>
+          <div class="tl-company">Agência Camaleão · IBQN</div>
+          <p class="tl-desc">Early career designing websites, print materials, and periodical newspapers. Foundation in web standards and accessibility.</p>
+          <div class="tl-tags"><span class="tag">Agency</span><span class="tag">Web Design</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <p class="section-eyebrow">05 — Formation</p>
+    <h2 class="section-title">Education &amp; <em>formation</em></h2>
+
+    <div class="edu-grid">
+      <div>
+        <div class="edu-list">
+          <div class="edu-item reveal">
+            <div class="edu-degree">Post Graduation in Marketing &amp; Digital Design</div>
+            <div class="edu-school">ESPM — Rio de Janeiro</div>
+            <div class="edu-year">2012 – 2014</div>
+          </div>
+          <div class="edu-item reveal">
+            <div class="edu-degree">Industrial Design — Visual Programming</div>
+            <div class="edu-school">UniverCidade — Rio de Janeiro</div>
+            <div class="edu-year">2001 – 2005</div>
+          </div>
+          <div class="edu-item reveal">
+            <div class="edu-degree">Product Management</div>
+            <div class="edu-school">PM3 Courses</div>
+            <div class="edu-year">2020</div>
+          </div>
+          <div class="edu-item reveal">
+            <div class="edu-degree">Information Architecture · Web Standards · Web Development</div>
+            <div class="edu-school">iLearn — Centro de Treinamento em Informática</div>
+            <div class="edu-year">2007 – 2008</div>
+          </div>
+          <div class="edu-item reveal">
+            <div class="edu-degree">Sound Engineering / Music Technology</div>
+            <div class="edu-school">Westminster College — London, UK</div>
+            <div class="edu-year">2000</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="teaching-card">
+          <div>
+            <div class="teaching-label">Currently teaching</div>
+            <div class="teaching-title">UX/UI Design Educator at Jala University</div>
+            <p class="teaching-desc">Creating and delivering comprehensive UX/UI Design courses with Figma for LATAM students and engineers. Also serving as a design teacher for Computer Science undergraduates — guiding through user-centred design and real-world applications.</p>
+          </div>
+          <div>
+            <span class="teaching-badge">Active since 2022</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-eyebrow">06 — Contact</p>
+    <h2 class="section-title">Let's <em>create</em></h2>
+
+    <div class="contact-grid">
+      <div>
+        <p class="contact-intro">Have a project in mind? I'd love to <em>hear about it.</em></p>
+        <a href="mailto:abdalladesign@yahoo.com.br" class="contact-email">abdalladesign@yahoo.com.br</a>
+
+        <div class="social-grid">
+          <a href="https://www.linkedin.com/in/abdalladesign/" class="social-item" target="_blank" rel="noopener">
+            <div class="social-left">
+              <span class="social-platform">LinkedIn</span>
+              <span class="social-handle">abdalladesign</span>
+            </div>
+            <span class="social-arrow">↗</span>
+          </a>
+          <a href="https://www.behance.net/joaoabdalla" class="social-item" target="_blank" rel="noopener">
+            <div class="social-left">
+              <span class="social-platform">Behance</span>
+              <span class="social-handle">joaoabdalla</span>
+            </div>
+            <span class="social-arrow">↗</span>
+          </a>
+          <a href="https://dribbble.com/abdalladesign" class="social-item" target="_blank" rel="noopener">
+            <div class="social-left">
+              <span class="social-platform">Dribbble</span>
+              <span class="social-handle">abdalladesign</span>
+            </div>
+            <span class="social-arrow">↗</span>
+          </a>
+          <a href="https://abdalladesigns.framer.website/" class="social-item" target="_blank" rel="noopener">
+            <div class="social-left">
+              <span class="social-platform">Portfolio</span>
+              <span class="social-handle">abdalladesigns.framer.website</span>
+            </div>
+            <span class="social-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form-side reveal">
+        <div class="form-group">
+          <label>Your name</label>
+          <input type="text" placeholder="John Smith">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="john@company.com">
+        </div>
+        <div class="form-group">
+          <label>Project brief</label>
+          <textarea rows="5" placeholder="Tell me about your project, timeline, and budget..."></textarea>
+        </div>
+        <button class="form-submit">Send message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <span class="footer-copy">© 2026 João Abdalla. All rights reserved.</span>
+    <a href="#hero" class="footer-logo">João Abdalla</a>
+  </div>
+</footer>
+
+<script>
+  // Filter projects
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.project-card').forEach(card => {
+        const tags = card.dataset.tags || '';
+        if (filter === 'all' || tags.includes(filter)) {
+          card.style.opacity = '1';
+          card.style.transform = 'scale(1)';
+        } else {
+          card.style.opacity = '0.25';
+          card.style.transform = 'scale(0.97)';
+        }
+        card.style.transition = 'opacity 0.3s, transform 0.3s';
+      });
+    });
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Nav shrink on scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    nav.style.padding = window.scrollY > 60 ? '12px 0' : '18px 0';
+  });
+
+  // Form submit
+  document.querySelector('.form-submit').addEventListener('click', () => {
+    const btn = document.querySelector('.form-submit');
+    btn.textContent = 'Message sent ✓';
+    btn.style.background = 'rgba(247,247,247,0.7)';
+    setTimeout(() => {
+      btn.textContent = 'Send message →';
+      btn.style.background = '';
+    }, 3000);
+  });
+</script>
+
+</body>
+</html>

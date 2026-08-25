@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WorkWave Kiosk Mode — Case Study · Abdalla Design</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../CSS/main.css" />
+</head>
+
+<body>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a href="#" class="nav-back" aria-label="Back to portfolio">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M10 3L5 8l5 5"/>
+      </svg>
+      Portfolio
+    </a>
+    
+    <a href="#" class="nav-brand" aria-label="Abdalla Design home">
+      Abdalla Design
+    </a>
+    
+    <a href="#" class="nav-next" aria-label="Next case study">
+      Next
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 3l5 5-5 5"/>
+      </svg>
+    </a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ═══ HERO ═══ -->
+  <section id="hero" aria-labelledby="hero-title">
+    <div class="container">
+      <div class="hero-meta" role="list">
+        <span class="meta-tag" role="listitem">Product Design</span>
+        <span class="meta-tag highlight" role="listitem">UX Architecture</span>
+        <span class="meta-tag" role="listitem">Enterprise SaaS</span>
+        <span class="meta-tag" role="listitem">Web + Mobile</span>
+      </div>
+
+      <h1 class="hero-title" id="hero-title">
+        WorkWave <em>Kiosk Mode</em>
+      </h1>
+
+      <p class="hero-subtitle">
+        Designing a dual-platform system for facility services companies: a web admin experience for operations teams and a touch-first kiosk app for frontline workers to clock in and out without personal devices.
+      </p>
+
+      <div class="hero-specs" role="list">
+        <div class="spec-item" role="listitem">
+          <p class="spec-label">Role</p>
+          <p class="spec-value">Product Designer</p>
+        </div>
+        <div class="spec-item" role="listitem">
+          <p class="spec-label">Platform</p>
+          <p class="spec-value">Web (Admin/Supervisor)<br/>Mobile Kiosk (Frontline)</p>
+        </div>
+        <div class="spec-item" role="listitem">
+          <p class="spec-label">Timeline</p>
+          <p class="spec-value">Q3 2024<br/>16 weeks</p>
+        </div>
+        <div class="spec-item" role="listitem">
+          <p class="spec-label">Deliverables</p>
+          <p class="spec-value">Requirements analysis, UX architecture, Interaction design, Responsive UI</p>
+        </div>
+      </div>
+
+      <div class="hero-cover">
+        <img src="../img/woorkwave/capa kioske.png" alt="Hero Image · WinTeam Kiosk Interface Overview — Template Management + Device Management + Kiosk App" style="width:100%; display:block;" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ OVERVIEW ═══ -->
+  <section id="overview" aria-labelledby="overview-title">
+    <div class="container">
+      <p class="section-eyebrow">Overview</p>
+      <h2 class="section-title" id="overview-title">The <em>challenge</em></h2>
+
+      <div class="overview-layout">
+        <div class="overview-sidebar">
+          <h3>Business Context</h3>
+          <p>WorkWave is a US-based enterprise SaaS platform serving field service businesses: security companies, facility management, and pest control. Their frontline workers, including security guards, janitors, and facility staff, often operate in environments where issuing personal devices is impractical or cost-prohibitive.</p>
+
+          <h3>The Gap</h3>
+          <p>Before this feature, there was no standardized way to configure a shared device with location, job, and language rules, manage multiple devices at scale, or ensure compliance across a fleet of kiosk stations. Workers had to use personal phones or paper, creating punch errors, compliance gaps, and payroll issues.</p>
+        </div>
+
+        <div class="overview-content">
+          <div class="challenge-quote">
+            <p>How do we build an admin experience powerful enough for operations teams managing hundreds of devices, while keeping the employee-facing kiosk interface so simple that any frontline worker can use it in seconds?</p>
+          </div>
+
+          <h3>Two Interconnected Surface Areas</h3>
+          <p><strong>Web platform:</strong> Admin & Supervisor tools to configure device templates and manage devices at scale. Role-based permissions, bulk operations, and compliance validation.</p>
+          
+          <p><strong>Kiosk app:</strong> A touch-first interface for frontline employees to clock in, clock out, and manage meal breaks without credentials or personal phones. Multilingual, offline-resilient, built for shared use.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ USERS & PERSONAS ═══ -->
+  <section id="research" aria-labelledby="research-title">
+    <div class="container">
+      <p class="section-eyebrow">Users & Personas</p>
+      <h2 class="section-title" id="research-title">Who we're <em>designing for</em></h2>
+      <p class="section-body" style="margin-top: 24px;">
+        Three distinct user groups with different goals, permissions, and contexts. The design had to serve all three without compromising on security or simplicity.
+      </p>
+
+      <div class="personas-grid">
+        <div class="persona-card animate-in">
+          <p class="persona-role">Admin</p>
+          <h3 class="persona-name">Corporate Operations</h3>
+          <p class="persona-context">Corporate/IT level, full system access across all locations and branches</p>
+          <p class="persona-goals-label">Key Goals</p>
+          <p class="persona-goals">Authorize jobs for kiosk use, manage all templates globally, remote device control, ensure compliance at scale</p>
+        </div>
+
+        <div class="persona-card animate-in">
+          <p class="persona-role">Supervisor</p>
+          <h3 class="persona-name">Location Manager</h3>
+          <p class="persona-context">Branch-level manager, limited to their location's scope</p>
+          <p class="persona-goals-label">Key Goals</p>
+          <p class="persona-goals">Create/edit templates, enable kiosk mode on-device, assign devices to templates, monitor device fleet</p>
+        </div>
+
+        <div class="persona-card animate-in">
+          <p class="persona-role">Frontline Employee</p>
+          <h3 class="persona-name">Security Guard / Facility Worker</h3>
+          <p class="persona-context">Warehouse, security post, facility. Often multilingual, varying tech comfort</p>
+          <p class="persona-goals-label">Key Goals</p>
+          <p class="persona-goals">Clock in/out quickly, select job, manage meal breaks, with minimal friction and no training</p>
+        </div>
+      </div>
+
+      <div class="challenge-quote" style="margin-top: 48px;">
+        <p><strong>Critical tension:</strong> Supervisors only see data within their location security scope. Admins see everything. This role-based data visibility was a core constraint throughout the design. Every list, dropdown, and filter had to respect the user's permission layer.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROCESS ═══ -->
+  <section id="process" aria-labelledby="process-title">
+    <div class="container">
+      <div class="process-header">
+        <p class="section-eyebrow">Design Process</p>
+        <h2 class="section-title" id="process-title">From requirements to <em>design decisions</em></h2>
+        <p class="section-body" style="margin-top: 24px;">
+          The input document covered 16+ user stories across three feature modules. I mapped them into a structured hierarchy and drove answers to open design questions through deliberate decisions.
+        </p>
+      </div>
+
+      <div class="process-timeline">
+        <div class="process-step animate-in">
+          <p class="process-num">Step 01</p>
+          <h3 class="process-title">Requirements Analysis</h3>
+          <p class="process-desc">Mapped 16+ user stories into three core modules: Template Management (web), Device Management (web), and Kiosk Experience (tablet). Identified dependencies, validation rules, and permission constraints.</p>
+          <div class="process-img">
+            <div class="img-placeholder" style="min-height: 280px;" role="img">
+              <span class="img-placeholder-label" style="font-size:10px">Information Architecture · Feature Module Map</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="process-step animate-in">
+          <p class="process-num">Step 02</p>
+          <h3 class="process-title">Design Questions Resolution</h3>
+          <p class="process-desc">The requirements document flagged multiple open questions. I drove answers through design decisions: navigation patterns, permission-aware UI filtering, form validation strategy, save vs. cancel flows, and confirmation modals.</p>
+        </div>
+
+        <div class="process-step animate-in">
+          <p class="process-num">Step 03</p>
+          <h3 class="process-title">UX Architecture</h3>
+          <p class="process-desc">Built wireframes covering both platforms. Established cascading relationships (location → job filtering), context-aware UI states (disable vs. hide patterns), and responsive behavior for portrait/landscape tablet use.</p>
+          <div class="process-img">
+            <div class="img-placeholder" style="min-height: 320px;" role="img">
+              <span class="img-placeholder-label" style="font-size:10px">Wireframes · Template Creation Flow</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="process-step animate-in">
+          <p class="process-num">Step 04</p>
+          <h3 class="process-title">Interaction Design</h3>
+          <p class="process-desc">Designed high-fidelity screens using the WinTeam design system. Reused established table/list components, modal patterns, and form controls. Designed custom kiosk interface with large touch targets and multilingual support.</p>
+          <div class="process-img">
+            <div class="img-placeholder" style="min-height: 360px;" role="img">
+              <span class="img-placeholder-label" style="font-size:10px">High-Fidelity Mockups · Kiosk Employee Flow</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FEATURES ═══ -->
+  <section id="features" aria-labelledby="features-title">
+    <div class="container">
+      <div class="features-header">
+        <p class="section-eyebrow">Feature Deep Dives</p>
+        <h2 class="section-title" id="features-title">Core features and <em>design thinking</em></h2>
+        <p class="section-body" style="margin-top: 24px;">
+          Three interconnected features, each solving a distinct problem while maintaining data consistency across the platform.
+        </p>
+      </div>
+
+      <!-- Feature 1: Template Management -->
+      <div class="feature-block animate-in">
+          <p class="feature-tag">Feature 01 · Web Platform</p>
+          <h3 class="feature-title">Template Management</h3>
+          <p class="feature-desc">
+            Operations teams need a reusable configuration unit, a "profile" they can apply to any device. A template bundles jobs, locations, language settings, time format, and geolocation rules.
+          </p>
+
+        <div class="feature-content">
+          <div class="feature-details">
+            <h4>Key Design Decisions</h4>
+            <ul>
+              <li><strong>Location → Job dependency:</strong> When the user picks a location, the job list filters to only show jobs associated with that location. Validation prevents saving if jobs are orphaned.</li>
+              <li><strong>Duplicate flow:</strong> Creates a prefilled form with "Copy of [Template Name]". All operational fields carry over, audit fields reset.</li>
+              <li><strong>Template list:</strong> Defaults to active templates. Device count chip expands inline device list without page change.</li>
+            </ul>
+
+
+          </div>
+
+          <div class="feature-visual">
+            <div class="img-placeholder" style="width:100%; height:100%; min-height:400px;" role="img">
+              <span class="img-placeholder-label">Template Creation Screen<br/>Location/Job Cascading + Validation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 2: Device Management -->
+      <div class="feature-block animate-in">
+          <p class="feature-tag">Feature 02 · Web Platform</p>
+          <h3 class="feature-title">Device Management</h3>
+          <p class="feature-desc">
+            Supervisors need to monitor a fleet of devices, checking their status, assigned template, and last heartbeat, to make targeted edits. Admins need remote control capabilities.
+          </p>
+
+        <div class="feature-content">
+          <div class="feature-visual">
+            <div class="img-placeholder" style="width:100%; height:100%; min-height:400px;" role="img">
+              <span class="img-placeholder-label">Device Detail View<br/>Read-only vs. Editable Fields</span>
+            </div>
+          </div>
+
+          <div class="feature-details">
+            <h4>Key Design Decisions</h4>
+            <ul>
+              <li><strong>Read-only vs. editable:</strong> A clear visual distinction between system-managed fields and user-editable ones, so supervisors always know what they can change and what the system controls.</li>
+              <li><strong>Active status validation:</strong> Cannot activate a device assigned to an inactive template. The toggle appears disabled with a contextual message explaining why.</li>
+              <li><strong>Remote disable (Admin):</strong> Admins can deactivate kiosk mode remotely. Only Supervisors can re-enable from the device, a deliberate asymmetry for accountability.</li>
+              <li><strong>Bulk assignment:</strong> Supervisors can reassign multiple devices to a new template in one action, critical for scale operations managing dozens of locations.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 3: Kiosk Experience -->
+      <div class="feature-block animate-in">
+          <p class="feature-tag">Feature 03 · Tablet/Mobile</p>
+          <h3 class="feature-title">Kiosk Experience</h3>
+          <p class="feature-desc">
+            A shared device in a high-traffic, time-sensitive context. Every extra tap is friction for workers trying to start or end a shift. The interface works for employees with varying language skills and tech comfort.
+          </p>
+
+        <div class="feature-content">
+          <div class="feature-details">
+<h4>Design Principles in Action</h4>
+            <ul>
+              <li><strong>One action per step:</strong> The entire clock-in flow is five taps: splash, employee ID, action, job selection, and confirm. No menus, no navigation, no training required.</li>
+              <li><strong>Context-aware actions:</strong> The system only shows what makes sense for each worker's current state. Clocked in? You see "Clock Out" and "Start Meal", nothing else. Errors prevented before they happen.</li>
+              <li><strong>Built for real environments:</strong> Audio and visual confirmation on every punch for noisy job sites. Multilingual support for English, Spanish, and French Canadian workers. Offline-resilient: punches queue locally and sync automatically when reconnected.</li>
+            </ul>
+          </div>
+
+          <div class="feature-visual">
+            <div class="img-placeholder" style="width:100%; height:100%; min-height:480px;" role="img">
+              <span class="img-placeholder-label">Kiosk Employee Flow<br/>Splash → ID Entry → Action Selection → Job Selection → Confirmation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DESIGN DECISIONS ═══ -->
+  <section id="decisions" aria-labelledby="decisions-title">
+    <div class="container">
+      <div class="decisions-header">
+        <p class="section-eyebrow">Design Decisions</p>
+        <h2 class="section-title" id="decisions-title">Key choices<br/>and <em>why</em></h2>
+        <p class="section-body">The thinking behind the most important design decisions. Not just what was built, but the reasoning that got there.</p>
+      </div>
+
+      <div class="decisions-grid" role="list">
+        <div class="decision-card animate-in" role="listitem">
+          <p class="decision-num">Decision 01</p>
+          <div class="decision-img" aria-label="Decision visual placeholder">
+            <div class="img-placeholder" role="img" aria-label="Comparison: Pre-filter vs. Error-after-save">
+              <span class="img-placeholder-label" style="font-size:9px">Permission-First Filtering · Before/After</span>
+            </div>
+          </div>
+          <h3 class="decision-title">Permission-First Filtering</h3>
+          <p class="decision-body">Rather than showing error states after the fact, the UI pre-filters all dropdowns and lists to the user's allowed scope. A supervisor in Omaha never sees Chicago jobs, preventing errors by never showing data a user can't act on. Maintains data integrity while reducing cognitive load.</p>
+        </div>
+
+        <div class="decision-card animate-in" role="listitem">
+          <p class="decision-num">Decision 02</p>
+          <div class="decision-img" aria-label="Decision visual placeholder">
+            <div class="img-placeholder" role="img" aria-label="Cascading validation pattern">
+              <span class="img-placeholder-label" style="font-size:9px">Location → Job Cascading · Validation Flow</span>
+            </div>
+          </div>
+          <h3 class="decision-title">Cascading Location → Job Validation</h3>
+          <p class="decision-body">When location changes, job list filters immediately. If a location is removed and jobs are orphaned, inline validation prevents saving rather than triggering a blocking error modal. This relationship was surfaced through real-time feedback, guiding users to fix data integrity issues before they occur.</p>
+        </div>
+
+        <div class="decision-card animate-in" role="listitem">
+          <p class="decision-num">Decision 03</p>
+          <div class="decision-img" aria-label="Decision visual placeholder">
+            <div class="img-placeholder" role="img" aria-label="Context-aware kiosk buttons">
+              <span class="img-placeholder-label" style="font-size:9px">Context-Aware UI · Button States</span>
+            </div>
+          </div>
+          <h3 class="decision-title">Context-Aware Kiosk Buttons</h3>
+          <p class="decision-body">An employee who is clocked in sees "Clock Out" and "Start Meal", not "Clock In". Prevents duplicate punches without error messages in the happy path. Reduces punch errors by making the right action obvious, not by catching mistakes after they happen.</p>
+        </div>
+
+        <div class="decision-card animate-in" role="listitem">
+          <p class="decision-num">Decision 04</p>
+          <div class="decision-img" aria-label="Decision visual placeholder">
+            <div class="img-placeholder" role="img" aria-label="Disabled vs. hidden pattern">
+              <span class="img-placeholder-label" style="font-size:9px">Disabled with Tooltip · Discoverability Pattern</span>
+            </div>
+          </div>
+          <h3 class="decision-title">Disabled (Not Hidden) with Tooltips</h3>
+          <p class="decision-body">"Assign to device" button is disabled (not hidden) for inactive templates, visible as a disabled state with a tooltip explaining why. Preserves discoverability while communicating constraints. Users understand the system's rules without trial-and-error.</p>
+        </div>
+
+        <div class="decision-card animate-in" role="listitem">
+          <p class="decision-num">Decision 05</p>
+          <div class="decision-img" aria-label="Decision visual placeholder">
+            <div class="img-placeholder" role="img" aria-label="Manual save confirmation flow">
+              <span class="img-placeholder-label" style="font-size:9px">Confirmation Modals · Save/Cancel Patterns</span>
+            </div>
+          </div>
+          <h3 class="decision-title">Manual Save with Confirmation Modals</h3>
+          <p class="decision-body">All creation and edit flows use manual save with confirmation, consistent with WorkWave patterns and critical for operations context where accidental saves have real consequences. Two-option confirmations: "Save + go to list" or "Back to edit", giving users control over next step.</p>
+        </div>
+
+        <div class="decision-card animate-in" role="listitem">
+          <p class="decision-num">Decision 06</p>
+          <div class="decision-img" aria-label="Decision visual placeholder">
+            <div class="img-placeholder" role="img" aria-label="Asymmetric permissions model">
+              <span class="img-placeholder-label" style="font-size:9px">Admin vs. Supervisor Permissions · Flow Diagram</span>
+            </div>
+          </div>
+          <h3 class="decision-title">Asymmetric Enable/Disable Permissions</h3>
+          <p class="decision-body">Admin can disable kiosk mode remotely for security; only Supervisor can re-enable from device. This deliberate asymmetry enforces accountability, preventing unauthorized reactivation while giving Admins emergency control. Security and operational flexibility in balance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ RESULTS ═══ -->
+  <section id="results" aria-labelledby="results-title">
+    <div class="container">
+      <div class="results-layout">
+        <div class="results-sticky">
+          <p class="section-eyebrow">Outcome</p>
+          <h2 class="section-title" id="results-title">Design<br/><em>delivered</em></h2>
+          <p class="section-body" style="margin-top: 16px;">
+            Design scope completed and handed off to the WorkWave engineering team. The Figma deliverable served as the single source of truth, resolving open requirements questions through design decisions rather than leaving them for development to figure out.
+          </p>
+          <p class="section-body" style="margin-top: 16px;">
+            Worked remotely as an independent contractor embedded in the US product team throughout the 16-week engagement.
+          </p>
+
+          <a href="https://www.workwave.com/winteam/" target="_blank" rel="noopener" style="display:inline-block; margin-top:24px; padding: 12px 24px; background: #111; color: #fff; border: 1px solid #333; border-radius: 6px; font-size: 14px; text-decoration: none; font-weight: 600;">
+            View WorkWave WinTeam →
+          </a>
+
+          <div class="testimonial-block" aria-label="Project reflection" style="margin-top:32px">
+            <p class="testimonial-text">"The requirements document surfaced a lot of open questions early. By resolving them through design decisions rather than leaving them for development, the Figma deliverable served as a shared source of truth that reduced back-and-forth during implementation."</p>
+            <p class="testimonial-author">— Design Process Reflection</p>
+          </div>
+        </div>
+
+        <div class="metrics-grid" aria-label="What success looks like">
+          <div class="metric-cell animate-in" role="article">
+            <div class="metric-num">↑</div>
+            <div class="metric-label">Faster Clock-ins</div>
+            <div class="metric-desc">Workers start and end shifts in seconds, with no queues, no paper, no personal devices needed</div>
+          </div>
+          <div class="metric-cell animate-in" role="article">
+            <div class="metric-num">✓</div>
+            <div class="metric-label">Compliance by Design</div>
+            <div class="metric-desc">Break rules and job requirements enforced through the interface, not through training or audits after the fact</div>
+          </div>
+          <div class="metric-cell animate-in" role="article">
+            <div class="metric-num">⚡</div>
+            <div class="metric-label">Scale Without Friction</div>
+            <div class="metric-desc">One template change propagates to every device at a location, so operations teams manage fleets, not individual devices</div>
+          </div>
+          <div class="metric-cell animate-in" role="article">
+            <div class="metric-num">$</div>
+            <div class="metric-label">Reduced Payroll Errors</div>
+            <div class="metric-desc">Accurate time tracking at the point of punch eliminates the manual corrections that cost operations teams hours every pay cycle</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ LEARNINGS ═══ -->
+  <section id="learnings" aria-labelledby="learnings-title">
+    <div class="container">
+      <p class="section-eyebrow">Learnings</p>
+      <h2 class="section-title" id="learnings-title">What I<br/><em>took away</em></h2>
+
+      <div class="learnings-grid" role="list">
+        <div class="learning-card animate-in" role="listitem">
+          <p class="learning-type type-win">What worked well</p>
+          <h3 class="learning-title">Early Resolution of Open Questions</h3>
+          <p class="learning-body">The requirements document surfaced many open questions. By driving answers through design decisions (not leaving them for development), the Figma deliverable became a single source of truth. This reduced implementation back-and-forth and prevented misalignment later.</p>
+        </div>
+
+        <div class="learning-card animate-in" role="listitem">
+          <p class="learning-type type-challenge">What I'd push further</p>
+          <h3 class="learning-title">Metrics Dashboard Design</h3>
+          <p class="learning-body">The metrics framework was defined but not yet instrumented. In a follow-up phase, I'd design an analytics dashboard surfacing device health and punch compliance data directly within WorkWave, closing the loop between configuration and compliance outcomes.</p>
+        </div>
+
+        <div class="learning-card animate-in" role="listitem">
+          <p class="learning-type type-win">Key insight</p>
+          <h3 class="learning-title">Templates as Connective Tissue</h3>
+          <p class="learning-body">The dual-platform nature required maintaining two distinct interaction paradigms while ensuring the underlying data model was consistent. The template system was the connective tissue, and getting that right first unlocked everything downstream.</p>
+        </div>
+
+        <div class="learning-card animate-in" role="listitem">
+          <p class="learning-type type-challenge">Constraint I navigated</p>
+          <h3 class="learning-title">Role-Based Data Visibility Everywhere</h3>
+          <p class="learning-body">Every screen, dropdown, and filter had to respect user permissions. Supervisors see only their location; Admins see everything. This wasn't a feature. It was a fundamental constraint that shaped every interaction pattern. Permission-first filtering became the design principle that made the system work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ NEXT PROJECT ═══ -->
+  <section id="next-project" aria-labelledby="next-title">
+    <div class="container">
+      <p class="section-eyebrow" style="margin-bottom: 32px;">More Work</p>
+
+      <div class="next-inner" role="list" aria-labelledby="next-title">
+        <h2 class="sr-only" id="next-title">Other case studies</h2>
+
+        <a href="#" class="next-card" role="listitem" aria-label="Next case study: WorkWave Platform Modernization">
+          <p class="next-label">Next Case Study</p>
+          <h3 class="next-title">WorkWave Platform Modernization</h3>
+          <p class="next-desc">Redesigning the admin and supervisor web platform, modernizing the legacy UI while introducing advanced search and filtering for field service operations.</p>
+          <div class="next-img" aria-label="WorkWave modernization preview placeholder">
+            <div class="img-placeholder" role="img" aria-label="Placeholder: Thumbnail WorkWave Modernization">
+              <span class="img-placeholder-label" style="font-size:9px">Thumbnail · WorkWave Platform Modernization</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="next-card" role="listitem" aria-label="Case study: My Benefit Advice">
+          <p class="next-label">Also Worth Seeing</p>
+          <h3 class="next-title">My Benefit Advice</h3>
+          <p class="next-desc">Healthcare benefits platform, simplifying complex decisions for employees.</p>
+          <div class="next-img" aria-label="My Benefit Advice preview placeholder">
+            <div class="img-placeholder" role="img" aria-label="Placeholder: Thumbnail do case My Benefit Advice">
+              <span class="img-placeholder-label" style="font-size:9px">Thumbnail · My Benefit Advice</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer role="contentinfo">
+  <div class="container">
+    <p class="footer-copy">© 2026 Abdalla Design · João Abdalla — Senior UX/UI Designer · Brasília, Brazil</p>
+    <nav class="footer-socials" aria-label="Social media links">
+      <a href="https://abdalladesign.com" target="_blank" rel="noopener">Portfolio</a>
+      <a href="https://linkedin.com/in/abdalladesign" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  /* ── Scroll animations ── */
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.animate-in').forEach(function(el) {
+    observer.observe(el);
+  });
+
+})();
+</script>
+</body>
+</html>
