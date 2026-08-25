@@ -1,0 +1,16 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "mixing-pearl.vercel.app" }],
+      "destination": "https://abdalladesign.vercel.app/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "mixing-jbdalla-gmailcoms-projects.vercel.app" }],
+      "destination": "https://abdalladesign.vercel.app/:path*",
+      "permanent": true
+    }
+  ]
+}
