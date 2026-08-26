@@ -315,12 +315,38 @@ section{position:relative;}
 .kinetic-wrap{position:relative;overflow:hidden;background:var(--bg);}
 .testi .sec-head{justify-content:center;text-align:center;}
 .testi .sec-label{justify-content:center;}
+/* animated conic-gradient border — ported from the BorderRotate React component
+   (registered as an angle so the browser can tween it smoothly; degrades to a
+   static gradient border in browsers without @property support) */
+@property --gradient-angle{
+  syntax:'<angle>';
+  inherits:false;
+  initial-value:0deg;
+}
+@keyframes gradient-rotate{
+  to{--gradient-angle:360deg;}
+}
 .testi-card{
+  --gb-dim:#1c2410;
+  --gb-mid:var(--accent);
+  --gb-bright:#f2ffd1;
   position:relative;overflow:hidden;
   max-width:840px;margin:0 auto;
-  background:var(--surface);border:1px solid var(--line);border-radius:28px;
+  border:1px solid transparent;border-radius:28px;
   padding:clamp(36px,6vw,64px);
   box-shadow:0 25px 70px rgba(0,0,0,.4);
+  background-image:
+    linear-gradient(var(--surface), var(--surface)),
+    conic-gradient(from var(--gradient-angle,0deg),
+      var(--gb-dim) 0%,
+      var(--gb-dim) 72%,
+      var(--gb-mid) 84%,
+      var(--gb-bright) 90%,
+      var(--gb-mid) 96%,
+      var(--gb-dim) 100%);
+  background-origin:padding-box, border-box;
+  background-clip:padding-box, border-box;
+  animation:gradient-rotate 5s linear infinite;
 }
 .testi-glow{
   position:absolute;top:-30%;right:-15%;width:60%;height:80%;z-index:0;
@@ -363,6 +389,7 @@ section{position:relative;}
 .testi-role{font-size:13px;color:var(--muted);}
 @media (prefers-reduced-motion:reduce){
   .testi-quote,.testi-meta,.testi-avatar{transition:none;}
+  .testi-card{animation:none;}
 }
 
 /* ════════ CLOSING CTA ════════ */
