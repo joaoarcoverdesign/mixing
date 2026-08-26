@@ -204,6 +204,9 @@ nav.is-hidden{transform:translateY(-110%);}
 }
 .m-stat .num i{color:var(--accent);font-style:normal;}
 .m-stat .lab{margin-top:8px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+@media (max-width:640px){
+  .stat-row{flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:26px;}
+}
 
 /* ════════ SECTIONS COMMON (v5 pattern) ════════ */
 section{position:relative;}
@@ -315,6 +318,7 @@ section{position:relative;}
 .kinetic-wrap{position:relative;overflow:hidden;background:var(--bg);}
 .testi .sec-head{justify-content:center;text-align:center;}
 .testi .sec-label{justify-content:center;}
+
 /* animated conic-gradient border — ported from the BorderRotate React component
    (registered as an angle so the browser can tween it smoothly; degrades to a
    static gradient border in browsers without @property support) */
@@ -558,6 +562,17 @@ section{position:relative;}
           <p class="work-desc">From 600K to 10M — designing for scale at Brazil's largest exam-prep edtech.</p>
           <div class="work-tags"><span>Edtech</span><span>8M+ Users</span><span>Team Lead</span></div>
           <p class="work-link">600K → 10M+ users on the platform</p>
+        </article>
+
+        <article class="work-item rv">
+          <a class="work-media" href="cases/qconcursos-filter.html">
+            <img src="Img/qconcurso/filtro-questoes.png" alt="QConcursos — cascading question filter, live product screenshot">
+          </a>
+          <span class="work-idx">/ 05</span>
+          <h3 class="work-name">The Filter Behind the Growth</h3>
+          <p class="work-desc">A 12-field cascading filter that turned a 605K-question database into a usable product — and a pricing call that quietly added R$27M a year.</p>
+          <div class="work-tags"><span>Edtech</span><span>Filtering UX</span><span>Pricing</span></div>
+          <p class="work-link">R$27M added, part of the R$208M acquisition →</p>
         </article>
 
       </div>

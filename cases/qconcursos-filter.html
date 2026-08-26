@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R7PLZLRLYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-R7PLZLRLYJ');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QConcursos — The Filter Behind the Growth | Abdalla Design</title>
+<meta name="description" content="An alternative case from five years at QConcursos: how a 12-field cascading filter turned a 605K-question database into a usable product, and how a pricing decision quietly added R$27M a year — both part of the story behind the company's R$208M acquisition.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* abdalladesign visual identity — matches index.html (Arcoverdesign v5) */
+  --bg:#11161A;
+  --bg-deep:#0C1013;
+  --surface:#1A2025;
+  --ink:#F4F6F3;
+  --ink-soft:#9BA4AA;
+  --ink-dim:#5E676D;
+  --num-dim:#333B41;
+  --line:rgba(255,255,255,.08);
+  --line-soft:rgba(255,255,255,.05);
+  --accent:#C2FC50;
+  --accent-soft:rgba(194,252,80,.12);
+  --win:#6EE895;
+  --challenge:#FBAE6C;
+  --radius-lg:16px;
+  --radius-md:14px;
+  --sans:'Urbanist', sans-serif;
+  --body:'Urbanist', sans-serif;
+  --serif:'Lora', Georgia, serif;
+  --px: clamp(20px, 5vw, 72px);
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:var(--body);
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--accent);color:var(--bg-deep);}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+ul{list-style:none;}
+.container{max-width:1160px;margin:0 auto;padding:0 var(--px);}
+.mono{font-family:var(--sans);font-weight:600;letter-spacing:.06em;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;transition:transform .5s var(--ease);}
+nav.is-hidden{transform:translateY(-110%);}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px var(--px);
+  background:linear-gradient(rgba(12,16,19,.85),rgba(12,16,19,.4) 70%,transparent);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+}
+.nav-brand{display:flex;align-items:center;gap:13px;}
+.nav-avatar{width:44px;height:44px;border-radius:50%;flex:0 0 auto;object-fit:cover;border:2px solid var(--ink);}
+.nav-brand-text{display:flex;flex-direction:column;line-height:1.2;}
+.nav-name{font-family:var(--sans);font-weight:700;font-size:17px;letter-spacing:-.01em;color:var(--ink);}
+.nav-role{font-family:var(--sans);font-weight:400;font-size:12px;color:var(--ink-soft);margin-top:1px;}
+@media (max-width:480px){.nav-role{display:none;}}
+.nav-links{display:flex;gap:34px;list-style:none;align-items:center;}
+.nav-links a{
+  font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-soft);position:relative;padding:4px 0;transition:color .25s;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;
+  background:var(--accent);transform:scaleX(0);transform-origin:right;
+  transition:transform .4s var(--ease);
+}
+.nav-links a:hover{color:var(--ink);}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left;}
+@media (max-width:720px){.nav-links{gap:20px;}}
+@media (max-width:560px){.nav-links a:not(:last-child){display:none;}}
+
+/* HERO */
+.hero{padding:140px 0 64px;}
+.hero-title{font-family:var(--sans);font-weight:800;font-size:clamp(28px,4.6vw,48px);line-height:1.12;letter-spacing:-.02em;margin-bottom:18px;max-width:900px;color:var(--ink);}
+.hero-text{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:660px;margin-bottom:36px;}
+.hero-specs{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid var(--line);padding-top:28px;margin-bottom:48px;}
+.spec-label{font-family:var(--sans);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-dim);margin-bottom:8px;}
+.spec-value{font-size:15px;font-weight:700;line-height:1.4;color:var(--ink);}
+
+/* IMG PLACEHOLDER */
+.img-placeholder{
+  width:100%;
+  background:repeating-linear-gradient(135deg, var(--surface), var(--surface) 10px, #171D22 10px, #171D22 20px);
+  border:1px dashed rgba(255,255,255,.16);border-radius:var(--radius-md);
+  display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;position:relative;
+}
+.img-placeholder .ph-label{font-family:var(--body);font-style:italic;font-size:13px;color:var(--ink-soft);max-width:320px;line-height:1.55;}
+.ph-hero{aspect-ratio:16/8;}
+.ph-wide{aspect-ratio:16/9;}
+.ph-tall{aspect-ratio:4/5;}
+.ph-square{aspect-ratio:1/1;}
+.img-duo{display:flex;gap:16px;align-items:flex-start;}
+.img-duo .img-placeholder{flex:1;aspect-ratio:4/3;}
+.img-duo .shot{flex:1;}
+.img-stack{display:flex;flex-direction:column;gap:16px;}
+.img-stack .img-placeholder{aspect-ratio:16/9;}
+.img-grid-2x2{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;}
+
+/* REAL SCREENSHOT FRAME — container fits the image, image fits the container (no crop, no letterboxing) */
+.shot{
+  width:100%;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);
+  padding:14px;overflow:hidden;
+}
+.shot img{width:100%;height:auto;display:block;border-radius:6px;}
+.shot-caption{font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.03em;color:var(--ink-dim);margin-top:12px;text-align:center;}
+
+/* SECTIONS */
+section{padding:88px 0;}
+section+section{border-top:1px solid var(--line);}
+.eyebrow{font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);flex:0 0 auto;}
+.sec-title{font-family:var(--sans);font-weight:800;font-size:clamp(26px,3.6vw,40px);line-height:1.18;letter-spacing:-.01em;text-transform:uppercase;max-width:760px;margin-bottom:22px;color:var(--ink);}
+.sec-title .it{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:lowercase;color:var(--accent);display:block;}
+.sec-lede{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:640px;margin-bottom:44px;}
+
+/* TAG PILLS */
+.tag-row{display:flex;flex-wrap:wrap;gap:10px;}
+.tag-pill{font-family:var(--sans);font-weight:600;font-size:12.5px;color:var(--ink-soft);border:1px solid var(--line);border-radius:99px;padding:8px 16px;background:transparent;}
+.tag-pill.solid{background:var(--accent);color:var(--bg-deep);border-color:var(--accent);}
+
+/* OVERVIEW */
+.ov-meta-row{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:36px;padding-bottom:36px;border-bottom:1px solid var(--line);}
+.ov-block{margin-bottom:26px;max-width:760px;}
+.ov-block:last-child{margin-bottom:0;}
+.ov-grid{display:grid;grid-template-columns:220px 1fr;gap:56px;padding-bottom:36px;border-bottom:1px solid var(--line);}
+.ov-sidebar{display:flex;flex-direction:column;gap:28px;}
+.ov-sidebar .ov-block{margin-bottom:0;max-width:none;}
+.ov-grid .ov-body{margin-bottom:0;}
+.ov-label{font-family:var(--sans);font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);margin-bottom:10px;}
+.ov-text{font-family:var(--body);font-size:16px;line-height:1.75;color:var(--ink-soft);}
+.ov-body p{font-family:var(--body);font-size:16px;line-height:1.8;color:var(--ink-soft);max-width:760px;margin-bottom:20px;}
+.ov-body p:last-child{margin-bottom:0;}
+
+/* STATS STRIP (deep, full-bleed) */
+.stats-strip{background:var(--bg-deep);color:var(--ink);}
+.stats-strip .eyebrow{color:var(--ink-dim);margin-bottom:24px;}
+.stats-row{display:flex;flex-wrap:wrap;gap:clamp(28px,5vw,64px);justify-content:space-between;}
+.stat-item .stat-num{font-family:var(--sans);font-weight:800;font-size:clamp(24px,3vw,34px);letter-spacing:-.02em;margin-bottom:10px;color:var(--accent);}
+.stat-item .stat-lab{font-family:var(--sans);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);}
+.stats-note{font-family:var(--body);font-style:italic;font-size:13px;color:var(--ink-dim);margin-top:32px;max-width:760px;line-height:1.65;}
+
+/* PHASE / DECISION BLOCKS (numbered, with image) */
+.phase{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding:64px 0;border-top:1px solid var(--line);}
+.phase:first-child{border-top:none;padding-top:0;}
+.phase.reverse .phase-media{order:-1;}
+.phase-num{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(36px,4.6vw,52px);color:var(--num-dim);line-height:1;margin-bottom:14px;}
+.phase-title{font-family:var(--sans);font-weight:800;font-size:22px;margin-bottom:6px;letter-spacing:-.01em;color:var(--ink);}
+.phase-period{font-family:var(--sans);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-dim);margin-bottom:16px;}
+.phase-text{font-family:var(--body);font-size:15.5px;color:var(--ink-soft);line-height:1.75;}
+.transition-note{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink-dim);padding-top:40px;border-top:1px solid var(--line);margin-top:8px;}
+
+/* DEEP DIVE */
+.plain-list{border-top:1px solid var(--line);margin-top:8px;}
+.plain-list li{padding:16px 0;border-bottom:1px solid var(--line);font-family:var(--body);color:var(--ink-soft);font-size:15.5px;}
+
+/* HIGHLIGHT BLOCK */
+.highlight-block{background:var(--surface);border-left:3px solid var(--accent);border-radius:var(--radius-md);padding:clamp(28px,4vw,48px);}
+.highlight-block p{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(18px,2vw,22px);line-height:1.6;color:var(--ink);}
+
+/* INSIGHT CARD (design decisions, text only) */
+.insight-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:28px;}
+.insight-title{font-family:var(--sans);font-weight:800;font-size:17px;margin-bottom:10px;letter-spacing:-.01em;color:var(--ink);}
+.insight-text{font-family:var(--body);font-size:14.5px;color:var(--ink-soft);line-height:1.7;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+
+/* LEARNINGS / RETROSPECTIVE */
+.grid-2x2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.learn-card{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--line);border-radius:var(--radius-md);padding:28px;}
+.learn-card.win{border-left-color:var(--win);}
+.learn-card.challenge{border-left-color:var(--challenge);}
+.learn-tag{font-family:var(--sans);font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;display:block;color:var(--ink-dim);}
+.learn-card.win .learn-tag{color:var(--win);}
+.learn-card.challenge .learn-tag{color:var(--challenge);}
+.learn-title{font-family:var(--sans);font-weight:800;font-size:16.5px;margin-bottom:10px;letter-spacing:-.005em;color:var(--ink);}
+.learn-text{font-family:var(--body);font-size:14.5px;color:var(--ink-soft);line-height:1.7;}
+
+/* GROWTH CHART */
+.chart-wrap{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:clamp(24px,4vw,44px);}
+.chart-svg{width:100%;height:auto;display:block;}
+.chart-note{font-family:var(--body);font-style:italic;font-size:13px;color:var(--ink-dim);margin-top:20px;max-width:640px;line-height:1.65;}
+
+/* CASCADE MECHANISM */
+.cascade-row{display:flex;align-items:stretch;gap:0;flex-wrap:wrap;}
+.cascade-step{flex:1;min-width:180px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:24px 20px;position:relative;}
+.cascade-num{font-family:var(--sans);font-weight:800;font-size:12px;color:var(--accent);letter-spacing:.08em;margin-bottom:10px;}
+.cascade-title{font-family:var(--sans);font-weight:800;font-size:15.5px;color:var(--ink);margin-bottom:8px;}
+.cascade-text{font-family:var(--body);font-size:13.5px;color:var(--ink-soft);line-height:1.6;}
+.cascade-arrow{display:flex;align-items:center;justify-content:center;flex:0 0 auto;width:40px;color:var(--ink-dim);font-family:var(--sans);font-weight:700;font-size:18px;}
+@media (max-width:860px){
+  .cascade-row{flex-direction:column;}
+  .cascade-arrow{width:auto;height:32px;transform:rotate(90deg);}
+}
+
+/* BEFORE/AFTER */
+.ba-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;}
+.ba-col .ba-label{font-family:var(--sans);font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;}
+.ba-col.before .ba-label{color:var(--ink-dim);}
+.ba-col.after .ba-label{color:var(--accent);}
+.ba-price{font-family:var(--sans);font-weight:800;font-size:22px;color:var(--ink);margin-top:14px;text-align:center;}
+
+/* NEXT / MORE WORK */
+.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.next-card{border:1px solid var(--line);border-radius:var(--radius-lg);padding:28px;background:var(--surface);transition:border-color .2s,transform .2s;}
+.next-card:hover{border-color:var(--accent);transform:translateY(-2px);}
+.next-label{font-family:var(--sans);font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-dim);margin-bottom:10px;}
+.next-title{font-family:var(--sans);font-weight:800;font-size:19px;margin-bottom:10px;letter-spacing:-.01em;color:var(--ink);}
+.next-text{font-family:var(--body);font-size:14.5px;color:var(--ink-soft);margin-bottom:20px;}
+
+/* FOOTER */
+footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep);}
+.footer-inner{text-align:center;font-family:var(--sans);font-weight:600;font-size:13px;color:var(--ink-dim);}
+
+/* ALT-CASE BANNER */
+.alt-banner{background:var(--accent-soft);border:1px solid rgba(194,252,80,.28);border-radius:var(--radius-md);padding:16px 22px;font-family:var(--body);font-size:13.5px;color:var(--ink-soft);margin-bottom:40px;line-height:1.6;}
+.alt-banner strong{color:var(--ink);}
+.alt-banner a{color:var(--accent);text-decoration:underline;text-underline-offset:3px;}
+
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+.rv.is-in{opacity:1;transform:none;}
+
+@media (max-width:860px){
+  .hero-specs{grid-template-columns:repeat(2,1fr);}
+  .ov-meta-row{grid-template-columns:1fr;}
+  .ov-grid{grid-template-columns:1fr;gap:28px;}
+  .phase{grid-template-columns:1fr;}
+  .phase.reverse .phase-media{order:0;}
+  .img-duo{flex-direction:column;}
+  .img-grid-2x2{grid-template-columns:1fr;}
+  .grid-3{grid-template-columns:1fr;}
+  .grid-4{grid-template-columns:1fr 1fr;}
+  .grid-2x2{grid-template-columns:1fr;}
+  .ba-row{grid-template-columns:1fr;}
+  .next-grid{grid-template-columns:1fr;}
+  .stats-row{gap:28px;}
+  .nav-links{gap:18px;}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../index.html#top" class="nav-brand">
+      <img class="nav-avatar" src="../Img/joao-avatar.jpg" alt="João Abdalla">
+      <span class="nav-brand-text">
+        <span class="nav-name">João Abdalla</span>
+        <span class="nav-role">Product designer UX UI</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html#work">Works</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <header class="hero container" role="banner">
+    <div class="tag-row rv" style="margin-bottom:28px;">
+      <span class="tag-pill">Product Design</span>
+      <span class="tag-pill solid">Edtech</span>
+      <span class="tag-pill">Search &amp; Filtering</span>
+      <span class="tag-pill">Pricing Strategy</span>
+    </div>
+    <h1 class="hero-title rv">From 600K to 10M Users: The Filter Behind QConcursos' Growth</h1>
+    <p class="hero-text rv">An alternative cut of the same five years at Brazil's largest exam-prep platform — this time centered on the search filter that turned a 605K-question database from noise into signal, and a pricing decision that quietly moved the revenue needle, both part of the story behind the company's R$208M acquisition.</p>
+
+    <div class="hero-specs rv">
+      <div><div class="spec-label">Client</div><div class="spec-value">QConcursos.com</div></div>
+      <div><div class="spec-label">Role</div><div class="spec-value">UX/UI Designer</div></div>
+      <div><div class="spec-label">Period</div><div class="spec-value">2014–2019</div></div>
+      <div><div class="spec-label">Scale</div><div class="spec-value">600K → 10M+ users</div></div>
+    </div>
+
+    <img class="rv" src="../Img/qconcurso/filtro-capa.png" alt="QConcursos brand collage — homepage, course dashboard and pattern illustrations" style="width:100%;height:auto;display:block;border-radius:6px;">
+  </header>
+
+  <!-- OVERVIEW -->
+  <section id="overview">
+    <div class="container">
+      <div class="alt-banner rv">This is a second, independent case study from my time at QConcursos — it tells a different part of the story than <a href="qconcursos.html">the course-page redesign case</a>. Read either on its own, or both for the fuller picture.</div>
+
+      <div class="eyebrow rv">01 · Context</div>
+      <h2 class="sec-title rv">The business.</h2>
+
+      <div class="ov-grid rv">
+        <div class="ov-sidebar">
+          <div class="ov-block">
+            <div class="ov-label">Product Category</div>
+            <p class="ov-text">EdTech platform · Brazil's largest civil-service exam-prep platform</p>
+          </div>
+          <div class="ov-block">
+            <div class="ov-label">Core Value Prop</div>
+            <p class="ov-text">Questions, mock exams, and courses organized by examining board, job role, and subject — for Brazil's most competitive civil-service exam market.</p>
+          </div>
+        </div>
+
+        <div class="ov-body">
+          <p>QConcursos is Brazil's largest platform for civil-service exam preparation. In Brazil, federal, state, and municipal government positions are fiercely competitive — they offer stability and strong salaries, and candidates often study for years before passing. The platform organizes questions, mock exams, and courses by examining board, job role, and subject.</p>
+          <p>I joined in 2014, working directly with the three founders. Over five years, as the company grew from hundreds of thousands to millions of users, my role evolved from generalist to the Product &amp; Innovation team, where I led the redesign that is the focus of this case. The platform's differentiator was always the sheer size of its question database — and it's exactly that volume that becomes the central challenge in what follows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS STRIP -->
+  <section class="stats-strip">
+    <div class="container">
+      <div class="eyebrow rv">Public Platform Numbers · 2017</div>
+      <div class="stats-row rv">
+        <div class="stat-item"><div class="stat-num">3.75M</div><div class="stat-lab">Registered students</div></div>
+        <div class="stat-item"><div class="stat-num">605K</div><div class="stat-lab">Catalogued questions</div></div>
+        <div class="stat-item"><div class="stat-num">48.4K</div><div class="stat-lab">Exams mapped</div></div>
+        <div class="stat-item"><div class="stat-num">11.5K</div><div class="stat-lab">Contests covered</div></div>
+      </div>
+      <p class="stats-note rv">The platform's defining trait was always the size of its database — and that same size is what turns into the core challenge of this case.</p>
+    </div>
+  </section>
+
+  <!-- GROWTH -->
+  <section id="growth">
+    <div class="container">
+      <div class="eyebrow rv">02 · Growth</div>
+      <h2 class="sec-title rv">The scale of the challenge.</h2>
+      <p class="sec-lede rv">An illustrative growth curve, anchored to the known milestones — every year in between is an interpolation, not a measured data point.</p>
+
+      <div class="chart-wrap rv">
+        <svg class="chart-svg" viewBox="0 0 900 320" preserveAspectRatio="xMidYMid meet">
+          <line x1="60" y1="260" x2="860" y2="260" stroke="rgba(255,255,255,.14)" stroke-width="1"/>
+          <path d="M 100 235 C 300 232, 400 150, 480 130 C 600 100, 700 40, 820 30" fill="none" stroke="rgba(194,252,80,.5)" stroke-width="2" stroke-dasharray="6 6"/>
+          <circle cx="100" cy="235" r="6" fill="#C2FC50"/>
+          <text x="100" y="285" text-anchor="middle" font-family="Urbanist, sans-serif" font-weight="700" font-size="14" fill="#F4F6F3">2014</text>
+          <text x="100" y="215" text-anchor="middle" font-family="Urbanist, sans-serif" font-weight="600" font-size="13" fill="#9BA4AA">~600K users</text>
+
+          <circle cx="480" cy="130" r="6" fill="#C2FC50"/>
+          <text x="480" y="285" text-anchor="middle" font-family="Urbanist, sans-serif" font-weight="700" font-size="14" fill="#F4F6F3">2017</text>
+          <text x="480" y="108" text-anchor="middle" font-family="Urbanist, sans-serif" font-weight="600" font-size="13" fill="#9BA4AA">3.75M students</text>
+
+          <circle cx="820" cy="30" r="6" fill="#C2FC50"/>
+          <text x="820" y="285" text-anchor="middle" font-family="Urbanist, sans-serif" font-weight="700" font-size="14" fill="#F4F6F3">2019</text>
+          <text x="820" y="12" text-anchor="middle" font-family="Urbanist, sans-serif" font-weight="600" font-size="13" fill="#9BA4AA">10M+ users</text>
+        </svg>
+        <p class="chart-note">2014 — ~600K users at the start of my time there. 2017 — 3.75M registered students (public figure). 2019 — 10M+ active users, my exit. The curve between points is illustrative only.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section id="problem">
+    <div class="container">
+      <div class="eyebrow rv">03 · The Challenge</div>
+      <h2 class="sec-title rv">The problem.</h2>
+
+      <div class="ov-body rv">
+        <p>As the question catalog grew, finding the <em>right</em> question — for the right examining board, the right job role, the right subject — became progressively harder. A candidate studying for one specific contest needed surgical precision, not a generic keyword search.</p>
+      </div>
+
+      <div class="highlight-block rv" style="margin-top:8px;">
+        <p>605K+ questions catalogued on the platform (public data, 2017). Without a structured way to filter by examining board, institution, job role, and subject at the same time, that volume turned into noise instead of value.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="container">
+      <div class="eyebrow rv">04 · Process</div>
+      <h2 class="sec-title rv">How I validated the problem.</h2>
+
+      <div class="ov-body rv">
+        <p>Before designing anything, the team talked to Customer Support to understand the recurring complaints about searching for questions. Tickets were categorized by topic and criticality level, and when a topic accumulated a high volume of repeated complaints, it moved up the redesign priority queue. A usage-metrics panel, visible to the team, helped confirm where the friction actually was.</p>
+      </div>
+
+      <ul class="plain-list rv">
+        <li><strong style="color:var(--ink);">3 criticality levels</strong> used to classify tickets — critical, medium, secondary</li>
+        <li>The <strong style="color:var(--ink);">question filter</strong> was one of the topics that emerged from that classification as a top priority</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- DESIGN: SOLUTION -->
+  <section id="solution">
+    <div class="container">
+      <div class="eyebrow rv">05 · Design</div>
+      <h2 class="sec-title rv">The solution: question filter.</h2>
+      <p class="sec-lede rv">A panel with 12 filter fields — Subject, Topic, Examining Board, Institution, Year, Job Role, Level, Study Area, Specialization Area, Modality, Difficulty, and Keyword — where each selection automatically refines the available options in every other field.</p>
+
+      <div class="shot rv">
+        <img src="../Img/qconcurso/filtro-questoes.png" alt="QConcursos question filter panel with 12 combinable fields, live product screenshot">
+        <div class="shot-caption">Live product screenshot — Questions filter panel</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MECHANISM -->
+  <section id="mechanism">
+    <div class="container">
+      <div class="eyebrow rv">06 · Mechanism</div>
+      <h2 class="sec-title rv">How it works: cascading filter.</h2>
+      <p class="sec-lede rv">No field is independent. Choosing a value automatically narrows the available options in the fields that follow, guiding the user to the exact set of questions they need.</p>
+
+      <div class="cascade-row rv">
+        <div class="cascade-step">
+          <div class="cascade-num">STEP 1</div>
+          <div class="cascade-title">Subject</div>
+          <div class="cascade-text">e.g. Administrative Law</div>
+        </div>
+        <div class="cascade-arrow">→</div>
+        <div class="cascade-step">
+          <div class="cascade-num">STEP 2</div>
+          <div class="cascade-title">Examining board</div>
+          <div class="cascade-text">Options filtered to the boards that actually test that subject</div>
+        </div>
+        <div class="cascade-arrow">→</div>
+        <div class="cascade-step">
+          <div class="cascade-num">STEP 3</div>
+          <div class="cascade-title">Institution</div>
+          <div class="cascade-text">Options filtered to who hired that examining board</div>
+        </div>
+        <div class="cascade-arrow">→</div>
+        <div class="cascade-step">
+          <div class="cascade-num">RESULT</div>
+          <div class="cascade-title">Only what matters</div>
+          <div class="cascade-text">Just the questions that are actually relevant</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSISTENCY -->
+  <section id="consistency">
+    <div class="container">
+      <div class="eyebrow rv">07 · Consistency</div>
+      <h2 class="sec-title rv">The pattern repeats.</h2>
+
+      <div class="ov-body rv">
+        <p>The same cascading-filter logic — fields that refine each other — didn't stay confined to the Questions section. It was reapplied across other areas of the platform, including the Military Contests search. Contest status, region, state, year, examining board, and institution work as dependent filters — the same progressive-refinement principle applied with different facets. An interaction pattern designed once, reused across several sections of the platform.</p>
+      </div>
+
+      <div class="shot rv" style="margin-top:8px;">
+        <img src="../Img/qconcurso/filtro-militares.png" alt="QConcursos Military Contests filter, applying the same cascading-filter pattern, live product screenshot">
+        <div class="shot-caption">Live product screenshot — Military Contests filter, same pattern reapplied</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="stats-strip" id="results">
+    <div class="container">
+      <div class="eyebrow rv">09 · Results</div>
+      <h2 class="sec-title rv" style="color:var(--ink);">Impact on the user.</h2>
+      <div class="stats-row rv">
+        <div class="stat-item"><div class="stat-num">~60%</div><div class="stat-lab">Less time to find the right question</div></div>
+        <div class="stat-item"><div class="stat-num">12</div><div class="stat-lab">Combinable filter fields</div></div>
+        <div class="stat-item"><div class="stat-num">1</div><div class="stat-lab">Entry point for the section</div></div>
+      </div>
+      <p class="stats-note rv">Estimated time saved from filtering by board, role and subject at once instead of separate searches. 12 combinable fields vs. 1 keyword-search field in the previous version. The new panel became the single entry point that came to concentrate most of the traffic to the Questions section. Illustrative estimates — the platform had no detailed analytics instrumentation at launch time, so these numbers represent a plausible reading of the gain, not a period-accurate measurement.</p>
+    </div>
+  </section>
+
+  <!-- EVOLUTION -->
+  <section id="evolution">
+    <div class="container">
+      <div class="eyebrow rv">08 · Evolution</div>
+      <h2 class="sec-title rv">Evolution through usability testing.</h2>
+      <p class="sec-lede rv">Three of the improvements introduced after the initial launch, prioritized from usability testing with real platform users.</p>
+
+      <div class="grid-3 rv">
+        <div class="insight-card">
+          <h3 class="insight-title">Save filters</h3>
+          <p class="insight-text">Usability testing showed that redoing the same search every time was a friction point. Saving a filter became a feature, along with a visible trail of active filters — each individually removable — to keep it clear what was being applied.</p>
+        </div>
+        <div class="insight-card">
+          <h3 class="insight-title">Exclude questions</h3>
+          <p class="insight-text">Repeated, outdated, or already-mastered questions could be removed from the results, keeping the filter relevant throughout a student's studies.</p>
+        </div>
+        <div class="insight-card">
+          <h3 class="insight-title">Commented answer key</h3>
+          <p class="insight-text">A teacher's explanation per question, in both video and text, for whoever prefers to read or watch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARKET PATTERN -->
+  <section id="market">
+    <div class="container">
+      <div class="eyebrow rv">10 · Market Pattern</div>
+      <h2 class="sec-title rv">Impact on the market.</h2>
+      <p class="sec-lede rv">The cascading multi-criteria filter stopped being a one-off QConcursos differentiator and became a reference point among exam-prep platforms in the years that followed, with competitors adopting similar filter logic.</p>
+
+      <div class="ba-row rv" style="margin-bottom:36px;">
+        <div class="ba-col before">
+          <div class="ba-label">Before</div>
+          <p class="ov-text">Keyword search</p>
+        </div>
+        <div class="ba-col after">
+          <div class="ba-label">After</div>
+          <p class="ov-text">12-field cascading filter</p>
+        </div>
+      </div>
+
+      <div class="shot rv">
+        <img src="../Img/qconcurso/mercado-concorrente.png" alt="Competitor exam-prep platform question filter, showing a similar multi-field cascading pattern, live product screenshot">
+        <div class="shot-caption">A competitor's later question filter — illustrative of the pattern's spread across the category</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUSINESS OUTCOME -->
+  <section id="outcome">
+    <div class="container">
+      <div class="eyebrow rv">11 · Exit</div>
+      <h2 class="sec-title rv">The business outcome.</h2>
+
+      <div class="highlight-block rv" style="margin-bottom:36px;">
+        <p>R$208 million — the value of QConcursos' acquisition by Grupo Yduqs (owner of Estácio, IBMEC and Damásio), announced in early 2020.</p>
+      </div>
+
+      <div class="ov-body rv">
+        <p>The question-filter redesign, and the broader design work of that phase, were part of the product maturation that helped prepare the platform for that acquisition. It wasn't the isolated cause of the value paid — but it was a measurable part of the story of how the product evolved from a functional tool into a category-reference platform.</p>
+      </div>
+
+      <div class="grid-4 rv" style="margin-top:32px;">
+        <div class="insight-card"><div class="insight-title">2014</div><div class="insight-text">~600K users</div></div>
+        <div class="insight-card"><div class="insight-title">2017</div><div class="insight-text">3.75M students</div></div>
+        <div class="insight-card"><div class="insight-title">2019</div><div class="insight-text">10M+ users</div></div>
+        <div class="insight-card"><div class="insight-title">2020</div><div class="insight-text">R$208M · acquisition</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BONUS: PRICING -->
+  <section id="pricing">
+    <div class="container">
+      <div class="eyebrow rv">Bonus · Pricing</div>
+      <h2 class="sec-title rv">The price no one notices.</h2>
+
+      <div class="ov-body rv">
+        <p>With the subscriber base already in the millions, I questioned the founder responsible for finance about the logic behind the R$13.25 Premium monthly plan. His answer revealed the calculation behind the price — and opened space for a proposal: use the "charm pricing" concept to raise the value without creating a sense of loss for people already paying.</p>
+      </div>
+
+      <div class="highlight-block rv" style="margin-bottom:44px;">
+        <p>R$13.25 → R$13.90 — a R$0.65 increase, perceptible, but below the loss-perception threshold.</p>
+      </div>
+
+      <h3 class="phase-title rv" style="margin-bottom:20px;">The change in practice.</h3>
+      <p class="sec-lede rv" style="margin-bottom:28px;">The same plans page, desktop and mobile, before and after the adjustment. No other visual or flow change — only the price.</p>
+
+      <div class="ba-row rv">
+        <div class="ba-col before">
+          <div class="ba-label">Before</div>
+          <div class="shot"><img src="../Img/qconcurso/pricing-antes.png" alt="QConcursos plans page before the pricing adjustment, Premium at R$13.25 per month, live product screenshot"></div>
+          <div class="ba-price">R$13,25/mo</div>
+        </div>
+        <div class="ba-col after">
+          <div class="ba-label">After</div>
+          <div class="shot"><img src="../Img/qconcurso/pricing-depois.png" alt="QConcursos plans page after the pricing adjustment, Premium at R$13.90 per month, live product screenshot"></div>
+          <div class="ba-price">R$13,90/mo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING IMPACT -->
+  <section class="stats-strip" id="pricing-impact">
+    <div class="container">
+      <div class="eyebrow rv">Impact</div>
+      <h2 class="sec-title rv" style="color:var(--ink);">The result of the adjustment.</h2>
+      <div class="stats-row rv">
+        <div class="stat-item"><div class="stat-num">R$2.28M</div><div class="stat-lab">Additional revenue / month</div></div>
+        <div class="stat-item"><div class="stat-num">R$27.3M</div><div class="stat-lab">Additional revenue / year</div></div>
+        <div class="stat-item"><div class="stat-num">3</div><div class="stat-lab">Metrics used to validate safety</div></div>
+      </div>
+      <p class="stats-note rv">Monthly and annual figures are estimated over a base of ~3.5M subscribers. Safety of the change was validated by tracking three metrics: cancellation rate, acquisition rate, and stated cancellation reason. Illustrative estimate based on the subscriber base reported by me and the prices shown in the platform screenshots — not real-time revenue instrumentation.</p>
+    </div>
+  </section>
+
+  <!-- LEARNINGS -->
+  <section id="retrospective">
+    <div class="container">
+      <div class="eyebrow rv">12 · Close</div>
+      <h2 class="sec-title rv">Learnings.</h2>
+
+      <div class="grid-2x2 rv">
+        <div class="learn-card win">
+          <span class="learn-tag">Win</span>
+          <h3 class="learn-title">Validate before designing</h3>
+          <p class="learn-text">Validating the problem with real data — Customer Support, surveys, public usage data — before designing any solution avoided rework in the filter redesign.</p>
+        </div>
+        <div class="learn-card win">
+          <span class="learn-tag">Win</span>
+          <h3 class="learn-title">Refine &gt; reinvent</h3>
+          <p class="learn-text">Not every redesign needs to reinvent the structure. The biggest gain is sometimes in giving clarity and organization to a product users already rely on.</p>
+        </div>
+        <div class="learn-card challenge">
+          <span class="learn-tag">Challenge</span>
+          <h3 class="learn-title">Missing post-launch metrics</h3>
+          <p class="learn-text">There wasn't instrumentation structured enough to quantitatively prove the filter's impact — only the platform's overall growth.</p>
+        </div>
+        <div class="learn-card challenge">
+          <span class="learn-tag">Challenge</span>
+          <h3 class="learn-title">Business context reshuffles priorities</h3>
+          <p class="learn-text">Working five years on the same platform showed how design priorities shift when business context — like preparing for an acquisition — enters the picture.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TODAY WITH AI -->
+  <section id="today-ai">
+    <div class="container">
+      <div class="eyebrow rv">13 · Today</div>
+      <h2 class="sec-title rv">How I'd do it today, with AI.</h2>
+
+      <div class="grid-3 rv" style="margin-bottom:20px;">
+        <div class="insight-card">
+          <h3 class="insight-title">1 · AI ticket triage</h3>
+          <p class="insight-text">Today I'd use AI to auto-pre-classify Customer Support tickets by topic and criticality, speeding up the problem-validation stage that used to be manual.</p>
+        </div>
+        <div class="insight-card">
+          <h3 class="insight-title">2 · Faster prototypes and variations</h3>
+          <p class="insight-text">AI-assisted generation tools would let us test multiple UI variations of the filter in hours, not days, before validating with real users.</p>
+        </div>
+        <div class="insight-card">
+          <h3 class="insight-title">3 · Faster research synthesis</h3>
+          <p class="insight-text">AI would help synthesize interviews and usability tests faster, identifying friction patterns without relying solely on manual transcript reading.</p>
+        </div>
+      </div>
+      <div class="grid-3 rv">
+        <div class="insight-card">
+          <h3 class="insight-title">4 · Metrics from day one</h3>
+          <p class="insight-text">With today's AI-supported analytics tools, I'd instrument the launch from the start — closing the measurement gap that remained a learning from this case.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MORE WORK -->
+  <section id="more-work">
+    <div class="container">
+      <div class="eyebrow rv">More Work</div>
+      <div class="next-grid rv">
+        <a class="next-card" href="qconcursos.html">
+          <div class="next-label">Also From QConcursos</div>
+          <h3 class="next-title">Course Page Redesign</h3>
+          <p class="next-text">The other half of the story — rebuilding the core course-consumption experience millions of users spent the most time in.</p>
+          <div class="shot" style="aspect-ratio:4/3;padding:0;"><img src="../Img/qconcurso/old%20new.avif" alt="QConcursos course page, before and after the redesign" style="height:100%;object-fit:cover;"></div>
+        </a>
+        <a class="next-card" href="jalasoft.html">
+          <div class="next-label">Next Case Study</div>
+          <h3 class="next-title">Jalasoft Design System</h3>
+          <p class="next-text">Building a design system from a brand guideline, then scaling it across a company of 1,000+ people.</p>
+          <div class="shot" style="aspect-ratio:4/3;padding:0;"><img src="../Img/jalasoft/elearn-app.webp" alt="Jalasoft design system component mockup" style="height:100%;object-fit:cover;"></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">Copyright © abdalladesign 2026</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+</script>
+<script>
+  (function(){
+    var lastY = 0, nav = document.getElementById("nav");
+    if (!nav) return;
+    window.addEventListener("scroll", function(){
+      var y = window.scrollY;
+      if (y > 140 && y > lastY) nav.classList.add("is-hidden");
+      else nav.classList.remove("is-hidden");
+      lastY = y;
+    }, { passive: true });
+  })();
+</script>
+
+</body>
+</html>
