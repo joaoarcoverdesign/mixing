@@ -36,7 +36,8 @@
   --challenge:#FBAE6C;
   --radius-lg:16px;
   --radius-md:14px;
-  --img-grad:linear-gradient(to right, #E6EAF5 7%, #F4EAEE 29%, #F6DADB 50%, #F9CE9C 100%);
+  --img-grad:linear-gradient(22deg, #FEDFD4 0%, #FDE2DF 18%, #FAE5E6 32%, #F6E8EB 46%, #F1EDF2 62%, #EDF0F8 80%, #EBF2FB 100%);
+  --img-grad-cool:linear-gradient(22deg, #FEDFD4 0%, #FDE2DF 18%, #FAE5E6 32%, #F6E8EB 46%, #F1EDF2 62%, #EDF0F8 80%, #EBF2FB 100%);
   --sans:'Urbanist', sans-serif;
   --body:'Urbanist', sans-serif;
   --serif:'Lora', Georgia, serif;
@@ -89,13 +90,29 @@ nav.is-hidden{transform:translateY(-110%);}
 @media (max-width:560px){.nav-links a:not(:last-child){display:none;}}
 
 /* HERO */
-.hero{padding:140px 0 64px;}
+.hero{padding:140px 0 56px;}
 .hero-title{font-family:var(--sans);font-weight:800;font-size:clamp(32px,5.2vw,56px);line-height:1.06;letter-spacing:-.02em;margin-bottom:14px;color:var(--ink);}
 .hero-sub{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(18px,2.2vw,22px);color:var(--ink);opacity:.85;margin-bottom:24px;}
-.hero-text{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:640px;margin-bottom:44px;}
-.hero-specs{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid var(--line);padding-top:28px;margin-bottom:48px;}
+.hero-text{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:640px;margin-bottom:40px;}
+
+/* HERO SPEC BOX */
+.hero-specs{
+  position:relative;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+  border:1px solid var(--line);border-radius:var(--radius-md);
+  padding:22px 28px;margin-bottom:48px;
+}
 .spec-label{font-family:var(--sans);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-dim);margin-bottom:8px;}
-.spec-value{font-size:15px;font-weight:700;line-height:1.4;color:var(--ink);}
+.spec-value{font-size:14px;font-weight:600;line-height:1.45;color:var(--ink);}
+.spec-circle{
+  position:absolute;right:-19px;top:50%;transform:translateY(-50%);
+  width:38px;height:38px;border-radius:50%;
+  background:var(--bg-deep);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--ink-soft);font-size:15px;transition:.25s var(--ease);
+}
+.spec-circle:hover{background:var(--accent);color:var(--bg-deep);transform:translateY(-50%) rotate(45deg);}
+@media (max-width:640px){.spec-circle{display:none;}}
 
 /* IMG PLACEHOLDER */
 .img-placeholder{
@@ -107,12 +124,40 @@ nav.is-hidden{transform:translateY(-110%);}
 .img-placeholder .ph-label{font-family:var(--body);font-style:italic;font-size:13px;color:var(--ink-soft);max-width:320px;line-height:1.55;}
 .img-placeholder.has-img{border:none;background:var(--img-grad);padding:0;overflow:hidden;}
 .img-placeholder.has-img img{width:100%;height:100%;object-fit:cover;}
-.img-placeholder.has-img.contain img{object-fit:contain;background:var(--img-grad);}
+.img-placeholder.has-img.contain img{object-fit:contain;background:transparent;}
+.img-placeholder.has-img.pad{padding:clamp(22px,5vw,64px);}
+.img-placeholder.has-img.cool{background:var(--img-grad-cool);}
 .ph-hero{aspect-ratio:16/8;}
 .ph-wide{aspect-ratio:16/9;}
 .ph-tall{aspect-ratio:4/5;}
 .ph-square{aspect-ratio:1/1;}
-.img-caption{margin-top:14px;font-family:var(--sans);font-weight:600;font-size:13px;color:var(--ink-dim);text-align:center;}
+.img-caption{display:block;margin-top:14px;font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);text-align:center;}
+a.img-caption{transition:color .2s;}
+a.img-caption:hover{color:var(--accent);}
+
+/* BLEED IMAGE — image carries its own background; devices overflow into its transparent zone */
+.bleed-img{display:block;width:100%;height:auto;}
+
+/* MOCKUP SLAB — device/screenshot rising out of a coloured panel, cropped at the bottom */
+.mockup{
+  position:relative;width:100%;
+  border-radius:var(--radius-lg);
+  background:var(--img-grad);
+  overflow:hidden;
+}
+.mockup.cool{background:var(--img-grad-cool);}
+.mockup.bleed{overflow:visible;}
+.mockup::before{content:"";display:block;padding-top:var(--ar,52%);}
+.mockup > img{
+  position:absolute;left:50%;top:var(--t,8%);
+  transform:translateX(-50%);
+  width:var(--w,82%);max-width:none;height:auto;
+}
+.mockup.shot > img{border-radius:10px;box-shadow:0 24px 60px -20px rgba(20,24,32,.35);}
+@media (max-width:640px){
+  .mockup::before{padding-top:var(--ar-m,var(--ar,60%));}
+  .mockup > img{width:var(--w-m,calc(var(--w,82%) + 6%));top:var(--t-m,var(--t,7%));}
+}
 
 /* SECTIONS */
 section{padding:88px 0;}
@@ -124,61 +169,92 @@ section+section{border-top:1px solid var(--line);}
 .sec-title .it.solo{text-transform:none;color:var(--ink);}
 .sec-lede{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:600px;margin-bottom:44px;}
 
-/* OVERVIEW blocks */
-.ov-block{margin-bottom:26px;max-width:760px;}
+/* centered section head (overview only, mirrors reference) */
+.head-center{text-align:center;}
+.head-center .eyebrow{justify-content:center;}
+.head-center .sec-title{margin-left:auto;margin-right:auto;}
+
+/* OVERVIEW */
+.ov-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start;margin-bottom:52px;}
+.ov-block{margin-bottom:26px;}
 .ov-block:last-child{margin-bottom:0;}
-.ov-label{font-family:var(--sans);font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);margin-bottom:10px;}
-.ov-text{font-family:var(--body);font-size:16px;line-height:1.75;color:var(--ink-soft);}
-.tag-row{display:flex;flex-wrap:wrap;gap:10px;margin:32px 0 44px;}
-.tag-pill{font-family:var(--sans);font-weight:600;font-size:12.5px;color:var(--ink-soft);border:1px solid var(--line);border-radius:99px;padding:8px 16px;background:transparent;}
+.ov-label{font-family:var(--sans);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-dim);margin-bottom:10px;}
+.ov-text{font-family:var(--body);font-size:15.5px;line-height:1.75;color:var(--ink-soft);}
 
-/* SPLIT (intro + stacked problems) */
-.split-2{display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:start;}
-.split-intro p{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);line-height:1.75;}
-.stack{display:flex;flex-direction:column;gap:20px;}
+/* capabilities list box */
+.cap-list{border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;}
+.cap-list li{
+  padding:15px 20px;text-align:center;border-top:1px solid var(--line);
+  font-family:var(--sans);font-weight:700;font-size:11.5px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-soft);
+}
+.cap-list li:first-child{border-top:none;}
+.cap-list li.is-accent{padding:0;background:var(--accent);color:var(--bg-deep);border-top-color:transparent;}
+.cap-list li.is-accent a{display:flex;align-items:center;justify-content:center;gap:8px;padding:15px 20px;color:var(--bg-deep);transition:opacity .2s;}
+.cap-list li.is-accent a:hover{opacity:.7;}
 
-/* INSIGHT CARD (problems / decisions text) */
-.insight-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:28px;}
-.insight-label{font-family:var(--sans);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--challenge);margin-bottom:12px;}
-.insight-title{font-family:var(--sans);font-weight:800;font-size:17px;margin-bottom:10px;letter-spacing:-.01em;color:var(--ink);}
-.insight-text{font-family:var(--body);font-size:14.5px;color:var(--ink-soft);line-height:1.7;}
+/* INFORMATION-GAPS split (heading left, problems right) */
+.gap-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+.gap-grid .sec-title{margin-bottom:20px;}
+.gap-grid .sec-lede{margin-bottom:0;}
+.problem{margin-bottom:28px;}
+.problem:last-child{margin-bottom:0;}
+.problem-label{font-family:var(--sans);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:8px;}
+.problem p{font-family:var(--body);font-size:14.5px;line-height:1.7;color:var(--ink-soft);}
+.problem p strong{color:var(--ink);font-weight:700;}
 
-/* PROCESS STEPS (no image) */
-.step{display:grid;grid-template-columns:96px 1fr;gap:28px;padding:36px 0;border-top:1px solid var(--line);}
+/* PROCESS STEPS */
+.step{display:grid;grid-template-columns:110px 1fr;gap:28px;padding:34px 0;border-top:1px solid var(--line);}
 .step:first-child{border-top:none;padding-top:0;}
-.step-num{font-family:var(--serif);font-style:italic;font-weight:500;font-size:40px;color:var(--num-dim);line-height:1;}
-.step-label{font-family:var(--sans);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:10px;}
-.step-title{font-family:var(--sans);font-weight:800;font-size:21px;margin-bottom:12px;letter-spacing:-.01em;color:var(--ink);}
-.step-text{font-family:var(--body);color:var(--ink-soft);font-size:15px;line-height:1.75;margin-bottom:18px;max-width:680px;}
+.step-aside{display:flex;flex-direction:column;}
+.step-num{font-family:var(--serif);font-style:italic;font-weight:500;font-size:38px;color:var(--num-dim);line-height:1;}
+.step-label{font-family:var(--sans);font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-dim);margin-top:10px;}
+.step-title{font-family:var(--sans);font-weight:800;font-size:20px;margin-bottom:12px;letter-spacing:-.01em;color:var(--ink);}
+.step-text{font-family:var(--body);color:var(--ink-soft);font-size:14.5px;line-height:1.75;margin-bottom:16px;max-width:680px;}
+.tag-row{display:flex;flex-wrap:wrap;gap:10px;}
+.tag-pill{font-family:var(--sans);font-weight:600;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--line);border-radius:99px;padding:7px 14px;background:transparent;}
 
-/* DECISION CARD (text + image) */
-.decision{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(28px,4vw,48px);margin-bottom:28px;}
+/* KEY CHOICES — tinted full-bleed band */
+#design-decisions{background:var(--bg-deep);}
+.decision{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:stretch;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(28px,4vw,48px);margin-bottom:28px;overflow:hidden;}
 .decision:last-child{margin-bottom:0;}
 .decision.reverse .decision-media{order:-1;}
 .decision.stacked{grid-template-columns:1fr;}
-.decision-eyebrow{font-family:var(--sans);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:12px;}
+.decision-body{align-self:center;}
+.decision-eyebrow{font-family:var(--sans);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:12px;}
 .decision-title{font-family:var(--sans);font-weight:800;font-size:22px;margin-bottom:16px;letter-spacing:-.01em;color:var(--ink);}
-.decision-text{font-family:var(--body);font-size:15.5px;color:var(--ink-soft);line-height:1.75;}
+.decision-text{font-family:var(--body);font-size:15px;color:var(--ink-soft);line-height:1.75;}
+.decision:not(.stacked) .decision-media{
+  align-self:stretch;
+  border-radius:var(--radius-md);
+}
+.decision.stacked .decision-media{border-radius:var(--radius-md);}
 
-/* LEARNINGS GRID */
-.grid-2x2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-.learn-card{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--line);border-radius:var(--radius-md);padding:28px;}
-.learn-tag{font-family:var(--sans);font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;display:block;color:var(--ink-dim);}
-.learn-title{font-family:var(--sans);font-weight:800;font-size:16.5px;margin-bottom:10px;letter-spacing:-.005em;color:var(--ink);}
-.learn-text{font-family:var(--body);font-size:14.5px;color:var(--ink-soft);line-height:1.7;}
+/* LEARNINGS — borderless grid */
+.grid-2x2{display:grid;grid-template-columns:1fr 1fr;gap:44px 56px;}
+.learn-card{padding:24px 0 0;border-top:1px solid var(--line);}
+.learn-tag{font-family:var(--sans);font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px;display:block;color:var(--ink-dim);}
+.learn-title{font-family:var(--sans);font-weight:800;font-size:17px;margin-bottom:10px;letter-spacing:-.005em;color:var(--ink);}
+.learn-text{font-family:var(--body);font-size:14px;color:var(--ink-soft);line-height:1.7;}
 
-/* OUTCOME */
-.outcome-split{display:grid;grid-template-columns:1fr 0.9fr;gap:56px;align-items:center;}
-.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--bg-deep);font-family:var(--sans);font-weight:700;font-size:14px;padding:16px 30px;border-radius:99px;margin-top:8px;transition:transform .25s var(--ease);}
-.btn:hover{transform:translateY(-2px);background:var(--ink);}
+/* OUTCOME — full-bleed warm band */
+#outcome{background:var(--img-grad);color:var(--bg-deep);border-top:none;}
+#outcome .eyebrow{color:rgba(12,16,19,.5);}
+#outcome .eyebrow::before{background:var(--bg-deep);}
+#outcome .sec-title,#outcome .sec-title .it.solo{color:var(--bg-deep);}
+#outcome .ov-text{color:rgba(12,16,19,.72);}
+.outcome-split{display:grid;grid-template-columns:1fr .9fr;gap:56px;align-items:center;}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;background:#1B7F74;color:#fff;font-family:var(--sans);font-weight:700;font-size:13.5px;padding:15px 28px;border-radius:99px;margin-top:20px;transition:transform .25s var(--ease),background .25s var(--ease);}
+.btn:hover{transform:translateY(-2px);background:#15675E;}
+.img-placeholder.has-img.outcome-orbit{background:transparent;padding:0;}
 
-/* NEXT / MORE WORK */
-.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
-.next-card{border:1px solid var(--line);border-radius:var(--radius-lg);padding:28px;background:var(--surface);transition:border-color .2s,transform .2s;}
-.next-card:hover{border-color:var(--accent);transform:translateY(-2px);}
-.next-label{font-family:var(--sans);font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-dim);margin-bottom:10px;}
-.next-title{font-family:var(--sans);font-weight:800;font-size:19px;margin-bottom:10px;letter-spacing:-.01em;color:var(--ink);}
-.next-text{font-family:var(--body);font-size:14.5px;color:var(--ink-soft);margin-bottom:20px;}
+/* MORE WORK — borderless */
+.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+.next-card{display:block;}
+.next-label{font-family:var(--sans);font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-dim);margin-bottom:10px;}
+.next-title{font-family:var(--sans);font-weight:800;font-size:20px;margin-bottom:10px;letter-spacing:-.01em;color:var(--ink);transition:color .2s;}
+.next-card:hover .next-title{color:var(--accent);}
+.next-text{font-family:var(--body);font-size:14px;color:var(--ink-soft);margin-bottom:22px;max-width:420px;}
 
 /* FOOTER */
 footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep);}
@@ -188,14 +264,19 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
 .rv.is-in{opacity:1;transform:none;}
 
 @media (max-width:860px){
-  .hero-specs{grid-template-columns:repeat(2,1fr);}
-  .split-2{grid-template-columns:1fr;}
-  .decision{grid-template-columns:1fr;}
+  .hero-specs{grid-template-columns:repeat(2,1fr);gap:20px;}
+  .ov-grid{grid-template-columns:1fr;gap:36px;}
+  .gap-grid{grid-template-columns:1fr;gap:32px;}
+  .decision{grid-template-columns:1fr;gap:28px;}
   .decision.reverse .decision-media{order:0;}
-  .grid-2x2{grid-template-columns:1fr;}
-  .outcome-split{grid-template-columns:1fr;}
-  .next-grid{grid-template-columns:1fr;}
-  .step{grid-template-columns:1fr;gap:12px;}
+  .decision-body{align-self:auto;}
+  .grid-2x2{grid-template-columns:1fr;gap:0;}
+  .learn-card{margin-top:32px;}
+  .outcome-split{grid-template-columns:1fr;gap:36px;}
+  .next-grid{grid-template-columns:1fr;gap:44px;}
+  .step{grid-template-columns:1fr;gap:14px;}
+  .step-aside{flex-direction:row;align-items:baseline;gap:14px;}
+  .step-label{margin-top:0;}
   .nav-links{gap:18px;}
 }
 </style>
@@ -232,73 +313,81 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
       <div><div class="spec-label">My Role</div><div class="spec-value">Lead UX/UI Designer</div></div>
       <div><div class="spec-label">Timeline</div><div class="spec-value">2025–2026</div></div>
       <div><div class="spec-label">Deliverables</div><div class="spec-value">Landing Page · Social Product · Design System</div></div>
+      <a class="spec-circle" href="https://www.valtnetwork.com/" target="_blank" rel="noopener" aria-label="Visit valtnetwork.com">↗</a>
     </div>
 
-    <div class="img-placeholder has-img rv" style="aspect-ratio:1332/688;">
-      <img src="../Img/valt/capa.png" alt="Valt Network directory and profile dossier, desktop dashboard">
+    <div class="mockup bleed rv" style="--ar:40%;--w:88%;--t:7%;--ar-m:60%;--w-m:96%;margin-bottom:88px;">
+      <img src="../Img/valt/capa-nobg.png" alt="Valt Network directory and profile dossier, desktop dashboard">
     </div>
+    <a class="img-caption rv" href="https://www.valtnetwork.com/" target="_blank" rel="noopener" style="margin-top:0;">valtnetwork.com ↗</a>
   </header>
 
   <!-- OVERVIEW -->
   <section id="overview">
     <div class="container">
-      <div class="eyebrow rv">Overview</div>
-      <h2 class="sec-title rv">The project at a glance</h2>
-
-      <div class="rv">
-        <div class="ov-block">
-          <div class="ov-label">Context</div>
-          <p class="ov-text">Valt Network is a private market social network connecting investors — LPs, GPs, Angels, Family Offices — with high-growth private companies actively seeking capital. The platform was designed to replace fragmented, informal relationship-building in the private market with a structured, verified, and intelligence-driven environment.</p>
-        </div>
-        <div class="ov-block">
-          <div class="ov-label">Owned the end-to-end UX and UI</div>
-          <p class="ov-text">I owned the end-to-end UX and UI of both the landing page and the social product experience. Starting from concept definition, I led user flows, information architecture, wireframing, high-fidelity design, and the design system that supports the product.</p>
-        </div>
+      <div class="head-center rv">
+        <div class="eyebrow">Overview</div>
+        <h2 class="sec-title">The project at a glance</h2>
       </div>
 
-      <div class="tag-row rv">
-        <span class="tag-pill">User Research</span>
-        <span class="tag-pill">Wireframing</span>
-        <span class="tag-pill">Design System</span>
-        <span class="tag-pill">Information Architecture</span>
-        <span class="tag-pill">UI Design</span>
-        <span class="tag-pill">Prototyping</span>
+      <div class="ov-grid rv">
+        <div>
+          <div class="ov-block">
+            <div class="ov-label">Context</div>
+            <p class="ov-text">Valt Network is a private market social network connecting investors — LPs, GPs, Angels, Family Offices — with high-growth private companies actively seeking capital. The platform was designed to replace fragmented, informal relationship-building in the private market with a structured, verified, and intelligence-driven environment.</p>
+          </div>
+          <div class="ov-block">
+            <div class="ov-label">Owned the end-to-end UX and UI</div>
+            <p class="ov-text">I owned the end-to-end UX and UI of both the landing page and the social product experience. Starting from concept definition, I led user flows, information architecture, wireframing, high-fidelity design, and the design system that supports the product.</p>
+          </div>
+        </div>
+
+        <ul class="cap-list">
+          <li>User Research</li>
+          <li>Wireframing</li>
+          <li>Design System</li>
+          <li>Information Architecture</li>
+          <li>UI Design</li>
+          <li>Prototyping</li>
+          <li class="is-accent"><a href="https://www.valtnetwork.com/" target="_blank" rel="noopener">Landing Page ↗</a></li>
+        </ul>
       </div>
 
       <div class="rv">
-        <div class="img-placeholder has-img contain ph-wide">
-          <img src="../Img/valt/feed-banner.png" alt="Social feed · Valt Network web app">
+        <div class="img-placeholder has-img ph-wide">
+          <img src="../Img/valt/mck-landing.png" alt="Valt Network landing page — connecting the private markets">
         </div>
+        <p class="img-caption">Landing page · Valt Network</p>
       </div>
     </div>
   </section>
 
-  <!-- LANDING PAGE -->
+  <!-- INFORMATION GAPS -->
   <section id="landing-page">
     <div class="container">
-      <h2 class="sec-title rv">Private markets were built<span class="it">on information gaps</span></h2>
+      <div class="gap-grid rv">
+        <div>
+          <h2 class="sec-title">Private markets were built<span class="it">on information gaps</span></h2>
+          <p class="sec-lede">Before Valt, serious investors and growth-stage companies had no structured, verified place to find each other. The status quo was broken — and that was the opportunity.</p>
+        </div>
+        <div>
+          <div class="problem">
+            <div class="problem-label">Problem 01</div>
+            <p><strong>No verified identity layer.</strong> Existing platforms mixed professionals with noise — unverified profiles, anonymous actors, and irrelevant connections diluted signal for serious investors.</p>
+          </div>
+          <div class="problem">
+            <div class="problem-label">Problem 02</div>
+            <p><strong>Founders cold-emailing into the void.</strong> Private companies had no structured channel to surface to thesis-aligned investors — and no way to control what information was shared or with whom.</p>
+          </div>
+          <div class="problem">
+            <div class="problem-label">Problem 03</div>
+            <p><strong>Zero deal flow intelligence.</strong> Investors had to rely on personal networks and luck to discover opportunities early. There was no platform providing structured signals for private market deal flow.</p>
+          </div>
+        </div>
+      </div>
 
-      <div class="split-2 rv">
-        <div class="split-intro">
-          <p>Before Valt, serious investors and growth-stage companies had no structured, verified place to find each other. The status quo was broken — and that was the opportunity.</p>
-        </div>
-        <div class="stack">
-          <div class="insight-card">
-            <div class="insight-label">Problem 01</div>
-            <h3 class="insight-title">No verified identity layer.</h3>
-            <p class="insight-text">Existing platforms mixed professionals with noise — unverified profiles, anonymous actors, and irrelevant connections diluted signal for serious investors.</p>
-          </div>
-          <div class="insight-card">
-            <div class="insight-label">Problem 02</div>
-            <h3 class="insight-title">Founders cold-emailing into the void.</h3>
-            <p class="insight-text">Private companies had no structured channel to surface to thesis-aligned investors — and no way to control what information was shared or with whom.</p>
-          </div>
-          <div class="insight-card">
-            <div class="insight-label">Problem 03</div>
-            <h3 class="insight-title">Zero deal flow intelligence.</h3>
-            <p class="insight-text">Investors had to rely on personal networks and luck to discover opportunities early. There was no platform providing structured signals for private market deal flow.</p>
-          </div>
-        </div>
+      <div class="rv" style="margin-top:48px;">
+        <img class="bleed-img" src="../Img/valt/3mobiles.png" alt="Valt Network mobile app — directory, verified profile, and connections">
       </div>
     </div>
   </section>
@@ -307,46 +396,49 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <section id="process">
     <div class="container">
       <div class="eyebrow rv">Process</div>
-      <h2 class="sec-title rv">How I approached it</h2>
+      <h2 class="sec-title rv">How I<span class="it solo">approached it</span></h2>
       <p class="sec-lede rv">A structured design process from discovery to delivery — anchored in user needs and business constraints.</p>
 
       <div class="rv">
         <div class="step">
-          <div class="step-num">01</div>
+          <div class="step-aside"><div class="step-num">01</div><div class="step-label">Discovery</div></div>
           <div>
-            <div class="step-label">Discovery</div>
             <h3 class="step-title">Understanding the Private Market</h3>
             <p class="step-text">Stakeholder interviews with investors and founders to map existing workflows, pain points, and mental models around deal flow. Competitive analysis of existing platforms (LinkedIn, AngelList, Carta) to identify the whitespace.</p>
             <div class="tag-row"><span class="tag-pill">Research Synthesis</span><span class="tag-pill">User Personas</span><span class="tag-pill">Competitive Audit</span></div>
           </div>
         </div>
         <div class="step">
-          <div class="step-num">02</div>
+          <div class="step-aside"><div class="step-num">02</div><div class="step-label">Define</div></div>
           <div>
-            <div class="step-label">Define</div>
             <h3 class="step-title">Information Architecture &amp; User Flows</h3>
             <p class="step-text">Mapped the core journeys for both user types — investor and company — across discovery, verification, connection, and deal flow. Defined the IA for the social product and the landing page conversion funnel.</p>
             <div class="tag-row"><span class="tag-pill">User Flows</span><span class="tag-pill">Information Architecture</span><span class="tag-pill">Jobs-to-be-Done</span></div>
           </div>
         </div>
         <div class="step">
-          <div class="step-num">03</div>
+          <div class="step-aside"><div class="step-num">03</div><div class="step-label">Design</div></div>
           <div>
-            <div class="step-label">Design</div>
             <h3 class="step-title">Wireframes &amp; High-Fidelity UI</h3>
             <p class="step-text">From low-fidelity wireframes to high-fidelity screens — iterated rapidly based on internal reviews. Built the design system (components, tokens, patterns) in parallel to ensure consistency across the product and landing page.</p>
             <div class="tag-row"><span class="tag-pill">Wireframes</span><span class="tag-pill">Design System</span><span class="tag-pill">Hi-Fi Screens</span><span class="tag-pill">Component Library</span></div>
           </div>
         </div>
         <div class="step">
-          <div class="step-num">04</div>
+          <div class="step-aside"><div class="step-num">04</div><div class="step-label">Deliver</div></div>
           <div>
-            <div class="step-label">Deliver</div>
             <h3 class="step-title">Prototyping &amp; Handoff</h3>
             <p class="step-text">Interactive prototype for key user flows — verification, profile setup, deal discovery, and connection. Structured handoff documentation for the development team including specs, tokens, and interaction notes.</p>
             <div class="tag-row"><span class="tag-pill">Interactive Prototype</span><span class="tag-pill">Dev Handoff</span><span class="tag-pill">Documentation</span></div>
           </div>
         </div>
+      </div>
+
+      <div class="rv" style="margin-top:44px;">
+        <div class="mockup cool shot" style="--ar:50%;--w:60%;--t:12%;--ar-m:74%;--w-m:78%;">
+          <img src="../Img/valt/feed.avif" alt="Valt Network web app — social feed">
+        </div>
+        <p class="img-caption">Social feed · Valt Network web app</p>
       </div>
     </div>
   </section>
@@ -355,17 +447,17 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <section id="design-decisions">
     <div class="container">
       <div class="eyebrow rv">Design Decisions</div>
-      <h2 class="sec-title rv">Key choices and why</h2>
+      <h2 class="sec-title rv">Key choices<span class="it">and why</span></h2>
       <p class="sec-lede rv">The reasoning behind the most important decisions — not just what was built, but the thinking that got there.</p>
 
-      <div class="decision reverse rv">
+      <div class="decision rv">
         <div class="decision-body">
           <div class="decision-eyebrow">Decision 01</div>
           <h3 class="decision-title">Verification as the Foundation</h3>
           <p class="decision-text">Private markets run on trust. Before designing any feature, I established verified identity as the core constraint: every profile, connection, and deal signal had to be anchored to a verified user. This shaped the entire onboarding flow and prevented the noise problem that plagues LinkedIn and AngelList.</p>
         </div>
-        <div class="decision-media img-placeholder has-img ph-tall" style="aspect-ratio:354/537;">
-          <img src="../Img/valt/decision1-verification.png" alt="Valt Network mobile: deal flow notification and verified profile">
+        <div class="decision-media mockup" style="--ar:116%;--w:62%;--t:5%;--ar-m:130%;--w-m:66%;">
+          <img src="../Img/valt/verification.avif" alt="Valt Network mobile: deal flow notification and verified profile">
         </div>
       </div>
 
@@ -375,9 +467,8 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
           <h3 class="decision-title">Two Distinct User Experiences</h3>
           <p class="decision-text">Investors and companies have fundamentally different goals. Rather than forcing both into one generic feed, I designed separate profile architectures: investors have a mandate-driven profile showing thesis and focus areas; companies have a dossier-style profile controlling what information is shared and with whom.</p>
         </div>
-        <div class="decision-media img-placeholder has-img contain ph-wide">
-          <img src="../Img/valt/Frame%2013300.png" alt="Company dossier profile — mandate-driven, desktop">
-        </div>
+        <img class="decision-media bleed-img" src="../Img/valt/company-profile.png" alt="Company dossier profile — mandate-driven, desktop">
+
       </div>
     </div>
   </section>
@@ -386,7 +477,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <section id="learnings">
     <div class="container">
       <div class="eyebrow rv">Learnings</div>
-      <h2 class="sec-title rv">What I took away</h2>
+      <h2 class="sec-title rv">What I<span class="it">took away</span></h2>
 
       <div class="grid-2x2 rv">
         <div class="learn-card">
@@ -416,15 +507,14 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- OUTCOME -->
   <section id="outcome">
     <div class="container">
-      <div class="eyebrow rv">Outcome</div>
-      <h2 class="sec-title rv"><span class="it solo">The platform is live.</span></h2>
-
       <div class="outcome-split rv">
         <div>
-          <p class="ov-text" style="font-size:16.5px;">Valt Network launched at valtnetwork.com. A full-featured private market social product, built from zero over a 12-month engagement.</p>
-          <a href="https://valtnetwork.com" target="_blank" rel="noopener" class="btn"><span>Check it live →</span></a>
+          <div class="eyebrow">Outcome</div>
+          <h2 class="sec-title"><span class="it solo">The platform is live.</span></h2>
+          <p class="ov-text" style="font-size:16px;max-width:440px;">Valt Network launched at valtnetwork.com. A full-featured private market social product, built from zero over a 12-month engagement.</p>
+          <a href="https://www.valtnetwork.com/" target="_blank" rel="noopener" class="btn"><span>Check it live →</span></a>
         </div>
-        <div class="img-placeholder has-img contain ph-square">
+        <div class="img-placeholder has-img contain outcome-orbit ph-square">
           <img src="../Img/valt/Frame%201000004279.png" alt="Orbital network diagram — verified connections around a central profile">
         </div>
       </div>

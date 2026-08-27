@@ -34,6 +34,7 @@
   --accent-soft:rgba(194,252,80,.12);
   --win:#6EE895;
   --challenge:#FBAE6C;
+  --brand-blue:#2563EB;
   --radius-lg:16px;
   --radius-md:14px;
   --sans:'Urbanist', sans-serif;
@@ -107,11 +108,19 @@ nav.is-hidden{transform:translateY(-110%);}
 .img-placeholder.has-img{border:none;background:var(--surface);padding:0;overflow:hidden;}
 .img-placeholder.has-img img{width:100%;height:100%;object-fit:cover;}
 .img-placeholder.has-img.contain img{object-fit:contain;background:var(--surface);}
+/* real screenshot, natural height (no crop) */
+.img-placeholder.filled{background:var(--bg-deep);border:1px solid var(--line);padding:0;overflow:hidden;aspect-ratio:auto !important;height:auto !important;}
+.img-placeholder.filled img{width:100%;height:auto;display:block;border-radius:inherit;}
 .ph-hero{aspect-ratio:16/8;}
 .ph-wide{aspect-ratio:16/9;}
 .ph-tall{aspect-ratio:4/5;}
 .ph-square{aspect-ratio:1/1;}
-.img-caption{margin-top:14px;font-family:var(--sans);font-weight:600;font-size:13px;color:var(--ink-dim);text-align:center;}
+.img-caption{margin-top:14px;font-family:var(--serif);font-style:italic;font-size:13.5px;color:var(--ink-dim);text-align:center;}
+
+/* image groupings */
+.img-duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;}
+.img-row-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start;}
+.img-row-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:start;}
 
 /* SECTIONS */
 section{padding:88px 0;}
@@ -136,11 +145,6 @@ section+section{border-top:1px solid var(--line);}
 .highlight-block p{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(17px,2vw,21px);line-height:1.6;color:var(--ink);}
 .highlight-block p .lede-label{font-style:normal;font-family:var(--sans);font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:12px;}
 
-/* SPLIT (intro + stacked cards) */
-.split-2{display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:start;}
-.split-intro p{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);line-height:1.75;}
-.stack{display:flex;flex-direction:column;gap:20px;}
-
 /* INSIGHT CARD (goals / personas / decisions text) */
 .insight-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:28px;}
 .insight-label{font-family:var(--sans);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:12px;}
@@ -148,10 +152,17 @@ section+section{border-top:1px solid var(--line);}
 .insight-text{font-family:var(--body);font-size:14.5px;color:var(--ink-soft);line-height:1.7;}
 
 /* GRIDS */
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 
 /* PERSONA */
+.persona-avatar{
+  width:56px;height:56px;border-radius:50%;margin-bottom:16px;
+  background:repeating-linear-gradient(135deg,var(--surface),var(--surface) 6px,#171D22 6px,#171D22 12px);
+  border:1px dashed rgba(255,255,255,.18);
+}
+.persona-avatar.has-img{border:none;overflow:hidden;background:var(--surface);}
+.persona-avatar.has-img img{width:100%;height:100%;object-fit:cover;}
 .persona-label{font-family:var(--sans);font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--challenge);margin-bottom:10px;}
 .persona-goals{font-family:var(--body);font-size:13.5px;color:var(--ink-soft);line-height:1.65;margin-top:16px;padding-top:16px;border-top:1px solid var(--line);}
 .persona-goals strong{display:block;font-family:var(--sans);font-weight:800;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:6px;}
@@ -164,9 +175,15 @@ section+section{border-top:1px solid var(--line);}
 .step-title{font-family:var(--sans);font-weight:800;font-size:21px;margin-bottom:12px;letter-spacing:-.01em;color:var(--ink);}
 .step-text{font-family:var(--body);color:var(--ink-soft);font-size:15px;line-height:1.75;margin-bottom:0;max-width:680px;}
 
+/* CONTEXT PHOTO (full-bleed feel) */
+.context-photo{padding:0;border-top:1px solid var(--line);}
+.context-photo .img-placeholder{border-radius:0;border-left:none;border-right:none;}
+.context-photo .ph-strip{aspect-ratio:16/7;}
+
 /* DECISION / FEATURE CARD (text + image) */
 .decision{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(28px,4vw,48px);margin-bottom:28px;}
 .decision:last-child{margin-bottom:0;}
+.decision.top{align-items:flex-start;}
 .decision.reverse .decision-media{order:-1;}
 .decision.stacked{grid-template-columns:1fr;gap:32px;}
 .decision-eyebrow{font-family:var(--sans);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:12px;}
@@ -179,6 +196,26 @@ section+section{border-top:1px solid var(--line);}
 .plain-list li{padding:14px 0;border-bottom:1px solid var(--line);font-family:var(--body);color:var(--ink-soft);font-size:14.5px;line-height:1.7;}
 .plain-list li strong{color:var(--ink);}
 
+/* SCORE STRIP (product-brand full-bleed moment) */
+.score-strip{background:linear-gradient(135deg,#1E3A8A 0%,var(--brand-blue) 100%);color:#fff;}
+.score-strip .eyebrow{color:rgba(255,255,255,.7);}
+.score-strip .eyebrow::before{background:#fff;}
+.score-wordmark{font-family:var(--sans);font-weight:800;font-size:18px;letter-spacing:.02em;color:#fff;margin-bottom:6px;}
+.score-line{font-family:var(--serif);font-style:italic;font-size:16px;color:rgba(255,255,255,.85);margin-bottom:38px;max-width:520px;}
+.score-badges{display:flex;gap:clamp(16px,4vw,44px);flex-wrap:wrap;}
+.score-badge{
+  width:clamp(104px,15vw,140px);aspect-ratio:1/1;border-radius:50%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.35);
+}
+.score-badge .n{font-family:var(--sans);font-weight:800;font-size:clamp(28px,4vw,40px);line-height:1;color:#fff;}
+.score-badge .l{font-family:var(--sans);font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.75);margin-top:8px;text-align:center;padding:0 8px;}
+.score-badge.you{border-color:var(--win);}
+.score-badge.you .n{color:var(--win);}
+.score-badge.state{border-color:#fff;}
+.score-badge.nat{border-color:var(--challenge);}
+.score-badge.nat .n{color:var(--challenge);}
+
 /* STATS STRIP (deep, full-bleed) */
 .stats-strip{background:var(--bg-deep);color:var(--ink);}
 .stats-strip .eyebrow{color:var(--ink-dim);margin-bottom:26px;}
@@ -189,10 +226,12 @@ section+section{border-top:1px solid var(--line);}
 
 /* LEARNINGS GRID */
 .grid-2x2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-.learn-card{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--line);border-radius:var(--radius-md);padding:28px;}
-.learn-card.win{border-left-color:var(--win);}
-.learn-card.challenge{border-left-color:var(--challenge);}
+.learn-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:28px;}
 .learn-tag{font-family:var(--sans);font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;display:block;color:var(--ink-dim);}
+.learn-card.win .learn-tag::before,
+.learn-card.challenge .learn-tag::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:8px;vertical-align:middle;position:relative;top:-1px;}
+.learn-card.win .learn-tag::before{background:var(--win);}
+.learn-card.challenge .learn-tag::before{background:var(--challenge);}
 .learn-card.win .learn-tag{color:var(--win);}
 .learn-card.challenge .learn-tag{color:var(--challenge);}
 .learn-title{font-family:var(--sans);font-weight:800;font-size:16.5px;margin-bottom:10px;letter-spacing:-.005em;color:var(--ink);}
@@ -215,14 +254,19 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
 
 @media (max-width:860px){
   .hero-specs{grid-template-columns:repeat(2,1fr);}
-  .split-2{grid-template-columns:1fr;}
+  .grid-2{grid-template-columns:1fr;}
   .decision{grid-template-columns:1fr;}
   .decision.reverse .decision-media{order:0;}
-  .grid-2,.grid-3,.grid-2x2{grid-template-columns:1fr;}
+  .grid-3,.grid-2x2{grid-template-columns:1fr;}
+  .img-duo,.img-row-3{grid-template-columns:1fr 1fr;}
+  .img-row-4{grid-template-columns:1fr 1fr;}
   .stats-grid{grid-template-columns:1fr 1fr;}
   .next-grid{grid-template-columns:1fr;}
   .step{grid-template-columns:1fr;gap:12px;}
   .nav-links{gap:18px;}
+}
+@media (max-width:520px){
+  .img-duo,.img-row-3,.img-row-4{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -261,11 +305,11 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
     </div>
 
     <div class="img-placeholder ph-hero rv">
-      <span class="ph-label">Quero Simulados results page — score, national average and ranking position on a single screen</span>
+      <span class="ph-label">Quero Simulados results screen — score, national average and ranking position beside the distraction-free exam timer</span>
     </div>
   </header>
 
-  <!-- OVERVIEW -->
+  <!-- THE CHALLENGE -->
   <section id="overview">
     <div class="container">
       <div class="eyebrow rv">Overview</div>
@@ -282,25 +326,18 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
         </div>
       </div>
 
-      <div class="highlight-block rv" style="margin:8px 0 44px;">
-        <p><span class="lede-label">Core Question</span>How do we turn an individual exam score into a meaningful performance signal that tells students exactly where they stand against thousands of real competitors?</p>
+      <div class="img-placeholder ph-wide rv" style="margin:12px 0 44px;">
+        <span class="ph-label">Early concept mockups — results dashboard and exam screen explored across phone and desktop</span>
       </div>
 
-      <div class="split-2 rv">
-        <div class="split-intro">
-          <p><strong style="color:var(--ink);">Two core product goals</strong> framed every decision that followed — one about information, one about emotion.</p>
+      <div class="grid-2 rv">
+        <div class="highlight-block">
+          <p><span class="lede-label">Core Question</span>How do we turn an individual exam score into a meaningful performance signal that tells students exactly where they stand against thousands of real competitors?</p>
         </div>
-        <div class="stack">
-          <div class="insight-card">
-            <div class="insight-label">Goal 01</div>
-            <h3 class="insight-title">Performance with context</h3>
-            <p class="insight-text">Give students their score, the national average, and their ranking position broken down by subject and by Brazilian state.</p>
-          </div>
-          <div class="insight-card">
-            <div class="insight-label">Goal 02</div>
-            <h3 class="insight-title">Calm under pressure</h3>
-            <p class="insight-text">Design an exam experience that absorbs student anxiety through clarity, focus, and real-time feedback.</p>
-          </div>
+        <div class="insight-card">
+          <div class="insight-label">Two Core Product Goals</div>
+          <p class="insight-text" style="margin-bottom:14px;"><strong style="color:var(--ink);font-family:var(--sans);">01 · Performance with context.</strong> Give students their score, the national average, and their ranking position broken down by subject and by Brazilian state.</p>
+          <p class="insight-text"><strong style="color:var(--ink);font-family:var(--sans);">02 · Calm under pressure.</strong> Design an exam experience that absorbs student anxiety through clarity, focus, and real-time feedback.</p>
         </div>
       </div>
     </div>
@@ -315,18 +352,21 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
 
       <div class="grid-3 rv">
         <div class="insight-card">
+          <div class="persona-avatar"></div>
           <div class="persona-label">Beginner</div>
           <h3 class="insight-title">Gabriel, 31</h3>
           <p class="insight-text">Determined and career-focused. Already has a degree but wants a government position for stability and salary.</p>
           <div class="persona-goals"><strong>Key goals</strong>Understand where to start, track progress over time, build confidence before the real exam.</div>
         </div>
         <div class="insight-card">
+          <div class="persona-avatar"></div>
           <div class="persona-label">Intermediary</div>
           <h3 class="insight-title">Diogo, 37</h3>
           <p class="insight-text">Effortless and dedicated. Sees studying as a way to change his life. Has been preparing for a while but lacks direction.</p>
           <div class="persona-goals"><strong>Key goals</strong>Know which subjects need more attention, compare performance with others at the same level, stay motivated.</div>
         </div>
         <div class="insight-card">
+          <div class="persona-avatar"></div>
           <div class="persona-label">Perfeccionista</div>
           <h3 class="insight-title">Advanced Student</h3>
           <p class="insight-text">High performer who wants to fine-tune results. Studies consistently and needs granular performance data.</p>
@@ -384,6 +424,13 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
     </div>
   </section>
 
+  <!-- CONTEXT PHOTO -->
+  <section class="context-photo">
+    <div class="img-placeholder ph-strip rv">
+      <span class="ph-label">Workspace photo — the real study context this product lives in: laptop, handwritten notes, coffee</span>
+    </div>
+  </section>
+
   <!-- FEATURE DEEP DIVES -->
   <section id="features">
     <div class="container">
@@ -391,10 +438,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
       <h2 class="sec-title rv">Core features and design thinking</h2>
       <p class="sec-lede rv">Four interconnected experiences, each solving a distinct student need while maintaining product coherence.</p>
 
-      <div class="decision stacked rv">
-        <div class="decision-media img-placeholder ph-wide">
-          <span class="ph-label">The Comparative — score, national average and state ranking, with a subject-by-subject breakdown</span>
-        </div>
+      <div class="decision top rv">
         <div class="decision-body">
           <div class="decision-eyebrow">Feature 01 · The Comparative</div>
           <h3 class="decision-title">Performance with context</h3>
@@ -406,12 +450,12 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
             <li><strong>Subject breakdown:</strong> Performance by discipline highlights exact strengths and weaknesses, and suggests related simulations to improve weak areas.</li>
           </ul>
         </div>
+        <div class="decision-media img-placeholder ph-tall">
+          <span class="ph-label">The Comparative — score, national average and state ranking, with a subject-by-subject breakdown</span>
+        </div>
       </div>
 
-      <div class="decision stacked rv">
-        <div class="decision-media img-placeholder ph-wide">
-          <span class="ph-label">Exam experience — no header, no navigation, collapsible question navigator, color-coded answer card</span>
-        </div>
+      <div class="decision top reverse rv">
         <div class="decision-body">
           <div class="decision-eyebrow">Feature 02 · Exam Experience</div>
           <h3 class="decision-title">Tranquility and reliability under pressure</h3>
@@ -424,40 +468,75 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
             <li><strong>Annotation space:</strong> Students can add notes alongside each question during the exam, replicating real exam behavior.</li>
           </ul>
         </div>
+        <div class="decision-media img-placeholder ph-wide">
+          <span class="ph-label">Exam experience — no header, no navigation, collapsible question navigator, color-coded answer card</span>
+        </div>
       </div>
 
       <div class="decision stacked rv">
-        <div class="decision-media img-placeholder ph-wide">
-          <span class="ph-label">Onboarding — mobile-first flow, one concept per screen, progressive disclosure</span>
-        </div>
         <div class="decision-body">
           <div class="decision-eyebrow">Feature 03 · Onboarding</div>
           <h3 class="decision-title">Friendly, familiar, communicative</h3>
           <p class="decision-text">First-time engagement is fragile. The onboarding was designed to introduce the product value without overwhelming new users. Clear interactions, easy to adapt and learn, with no training required.</p>
-          <div class="kd-label">Key Design Decisions</div>
-          <ul class="plain-list">
-            <li><strong>Mobile first:</strong> The entire onboarding flow was prototyped on mobile before scaling to desktop. The smallest screen defined the constraints for every other breakpoint.</li>
-            <li><strong>Progressive disclosure:</strong> One concept per screen. Students are not shown everything at once. Each step reveals only what is needed to move forward.</li>
-            <li><strong>Emotional balance:</strong> The home page balances rational and emotional. Sometimes stimulating the student about how close they are to their dream (the job position), sometimes offering tools to measure that progress.</li>
-          </ul>
         </div>
+        <div class="img-row-4">
+          <div class="img-placeholder ph-tall"><span class="ph-label">Onboarding step 1</span></div>
+          <div class="img-placeholder ph-tall"><span class="ph-label">Onboarding step 2</span></div>
+          <div class="img-placeholder ph-tall"><span class="ph-label">Onboarding step 3</span></div>
+          <div class="img-placeholder ph-tall"><span class="ph-label">Onboarding step 4</span></div>
+        </div>
+        <ul class="plain-list" style="margin-top:0;">
+          <li><strong>Mobile first:</strong> The entire onboarding flow was prototyped on mobile before scaling to desktop. The smallest screen defined the constraints for every other breakpoint.</li>
+          <li><strong>Progressive disclosure:</strong> One concept per screen. Students are not shown everything at once. Each step reveals only what is needed to move forward.</li>
+          <li><strong>Emotional balance:</strong> The home page balances rational and emotional — sometimes stimulating the student about how close they are to the job position, sometimes offering tools to measure that progress.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- USER JOURNEY EMAILS -->
+  <section id="emails">
+    <div class="container">
+      <div class="eyebrow rv">User Journey Emails</div>
+      <h2 class="sec-title rv">From purchase to exam completion</h2>
+      <p class="sec-lede rv">To monitor the journey from purchase until the simulation is executed, we designed a full email sequence. Each email had one clear action and one clear message. No noise, no distraction — just the next step the student needed to take.</p>
+
+      <div class="img-row-3 rv" style="margin-bottom:44px;">
+        <div class="img-placeholder ph-tall"><span class="ph-label">Welcome email — warm, celebratory, single CTA</span></div>
+        <div class="img-placeholder ph-tall"><span class="ph-label">Reminder email — urgency without pressure</span></div>
+        <div class="img-placeholder ph-tall"><span class="ph-label">Results email — compare your result, next steps</span></div>
       </div>
 
-      <div class="decision stacked rv">
-        <div class="decision-media img-placeholder ph-wide">
-          <span class="ph-label">User journey email sequence — welcome, reminder, results, encouragement, each with a single CTA</span>
+      <div class="grid-3 rv">
+        <div class="insight-card">
+          <div class="insight-label">01</div>
+          <h3 class="insight-title">One action per email</h3>
+          <p class="insight-text">Each email in the sequence had a single CTA. Welcome, reminder, results, encouragement. Students always knew exactly what to do next.</p>
         </div>
-        <div class="decision-body">
-          <div class="decision-eyebrow">Feature 04 · User Journey Emails</div>
-          <h3 class="decision-title">From purchase to exam completion</h3>
-          <p class="decision-text">To monitor the purchase process until the simulation is executed, we designed a full email sequence. Each email had one clear action and one clear message. No noise, no distraction. Just the next step the student needed to take.</p>
-          <div class="kd-label">Key Design Decisions</div>
-          <ul class="plain-list">
-            <li><strong>One action per email:</strong> Each email in the sequence had a single CTA. Welcome, reminder, results, encouragement. Students always knew exactly what to do next.</li>
-            <li><strong>Tone matches the moment:</strong> Welcome email is warm and celebratory. Reminder email creates urgency without pressure. Results email celebrates the achievement and suggests next steps.</li>
-            <li><strong>Journey continuity:</strong> The email sequence was designed as a connected experience, not isolated messages. Each email referenced the previous step and pointed to the next one.</li>
-          </ul>
+        <div class="insight-card">
+          <div class="insight-label">02</div>
+          <h3 class="insight-title">Tone matches the moment</h3>
+          <p class="insight-text">Welcome is warm and celebratory. Reminder creates urgency without pressure. Results celebrates the achievement and suggests next steps.</p>
         </div>
+        <div class="insight-card">
+          <div class="insight-label">03</div>
+          <h3 class="insight-title">Journey continuity</h3>
+          <p class="insight-text">The sequence was designed as one connected experience, not isolated messages. Each email referenced the previous step and pointed to the next.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCORE STRIP -->
+  <section class="score-strip">
+    <div class="container">
+      <div class="eyebrow rv">The Comparative</div>
+      <div class="score-wordmark rv">Quero Simulados</div>
+      <p class="score-line rv">One screen answers the only question that mattered to students: where do I stand?</p>
+      <div class="score-badges rv">
+        <div class="score-badge you"><span class="n">93</span><span class="l">Your Score</span></div>
+        <div class="score-badge state"><span class="n">85</span><span class="l">State Average</span></div>
+        <div class="score-badge nat"><span class="n">74</span><span class="l">National Average</span></div>
       </div>
     </div>
   </section>
@@ -477,19 +556,27 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
             <p class="step-text">Research showed students did not just want to practice. They wanted to know where they stood. Instead of building another score screen, we made the ranking the hero of the results page. Your score only makes sense in context. The comparative gave that context.</p>
           </div>
         </div>
-        <div class="step">
-          <div class="step-num">02</div>
-          <div>
-            <h3 class="step-title">Distraction-Free Exam Interface</h3>
-            <p class="step-text">A government exam can take up to 4 hours. Concentration is the product. Every UI element that was not essential to answering questions was removed or hidden. The collapsible sidebar, minimal header, and focus mode were not nice-to-haves. They were the core UX principle.</p>
-          </div>
+      </div>
+
+      <div class="decision top reverse rv">
+        <div class="decision-body">
+          <div class="decision-eyebrow">Decision 02</div>
+          <h3 class="decision-title">Distraction-Free Exam Interface</h3>
+          <p class="decision-text">A government exam can take up to 4 hours. Concentration is the product. Every UI element that was not essential to answering questions was removed or hidden. The collapsible sidebar, minimal header, and focus mode were not nice-to-haves. They were the core UX principle.</p>
         </div>
-        <div class="step">
-          <div class="step-num">03</div>
-          <div>
-            <h3 class="step-title">Design System from Day One</h3>
-            <p class="step-text">Building the spacing scale, atomic grid, and component library in parallel with the first screens meant every decision made early stayed consistent through delivery. For a product with this many states and screen types, the system was the real deliverable.</p>
-          </div>
+        <div class="decision-media img-placeholder ph-tall">
+          <span class="ph-label">Focus mode — the exam screen stripped to the question and the timer (2h30m)</span>
+        </div>
+      </div>
+
+      <div class="decision top rv">
+        <div class="decision-body">
+          <div class="decision-eyebrow">Decision 03</div>
+          <h3 class="decision-title">Design System from Day One</h3>
+          <p class="decision-text">Building the spacing scale, atomic grid, and component library in parallel with the first screens meant every decision made early stayed consistent through delivery. For a product with this many states and screen types, the system was the real deliverable.</p>
+        </div>
+        <div class="decision-media img-placeholder ph-wide">
+          <span class="ph-label">Style guide — spacing scale, atomic grid, type scale and WCAG contrast validation</span>
         </div>
       </div>
     </div>
@@ -517,6 +604,15 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
         <div class="stat-item"><div class="stat-num">40</div><div class="stat-lab">Student Interviews</div><div class="stat-desc">Qualitative research that directly shaped every major product decision</div></div>
         <div class="stat-item"><div class="stat-num">3</div><div class="stat-lab">User Profiles</div><div class="stat-desc">Beginner, Intermediary, Perfeccionista. Distinct journeys, one coherent product</div></div>
         <div class="stat-item"><div class="stat-num">5yr</div><div class="stat-lab">At Qconcursos</div><div class="stat-desc">5 years leading design across multiple product launches on Brazil's largest exam platform</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING ILLUSTRATION -->
+  <section id="closing">
+    <div class="container">
+      <div class="img-placeholder ph-wide rv">
+        <span class="ph-label">Launch campaign illustration set — PWA 2019, media assets and product marketing graphics</span>
       </div>
     </div>
   </section>

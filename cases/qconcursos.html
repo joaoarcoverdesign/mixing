@@ -112,25 +112,20 @@ nav.is-hidden{transform:translateY(-110%);}
 .img-duo .shot{flex:1;}
 .img-stack{display:flex;flex-direction:column;gap:16px;}
 .img-stack .img-placeholder{aspect-ratio:16/9;}
+.img-stack.is-flush .shot{border:0;background:none;padding:0;overflow:visible;}
+.img-stack.is-flush .shot img{border-radius:var(--radius-md);}
 
 /* STICKY STACKING SCROLL — the media images pile up over each other as you scroll */
 .phase-stack{align-items:flex-start;}
 .phase-stack > div:first-child{position:sticky;top:120px;align-self:start;}
 .img-stack.is-sticky{gap:26px;padding-bottom:12vh;}
-.img-stack.is-sticky .shot{position:sticky;box-shadow:0 -10px 40px rgba(0,0,0,.45);}
-.img-stack.is-sticky .shot:nth-child(1){top:96px;}
-.img-stack.is-sticky .shot:nth-child(2){top:116px;}
-.img-stack.is-sticky .shot:nth-child(3){top:136px;}
-.img-stack.is-sticky .shot:nth-child(4){top:156px;}
-.img-stack.is-sticky .shot:nth-child(5){top:176px;}
+.img-stack.is-sticky .shot{position:sticky;border:0;background:none;padding:0;box-shadow:0 -10px 40px rgba(0,0,0,.45);}
+.img-stack.is-sticky .shot img{aspect-ratio:4/3;object-fit:cover;object-position:top center;border-radius:var(--radius-md);}
+.img-stack.is-sticky .shot{top:110px;}
 @media (max-width:860px){
   .phase-stack > div:first-child{position:static;top:auto;}
   .img-stack.is-sticky{gap:18px;padding-bottom:8vh;}
-  .img-stack.is-sticky .shot:nth-child(1){top:74px;}
-  .img-stack.is-sticky .shot:nth-child(2){top:88px;}
-  .img-stack.is-sticky .shot:nth-child(3){top:102px;}
-  .img-stack.is-sticky .shot:nth-child(4){top:116px;}
-  .img-stack.is-sticky .shot:nth-child(5){top:130px;}
+  .img-stack.is-sticky .shot{top:80px;}
 }
 @media (prefers-reduced-motion:reduce){
   .img-stack.is-sticky .shot{position:static;box-shadow:none;}
@@ -189,10 +184,24 @@ section+section{border-top:1px solid var(--line);}
 .phase-period{font-family:var(--sans);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-dim);margin-bottom:16px;}
 .phase-text{font-family:var(--body);font-size:15.5px;color:var(--ink-soft);line-height:1.75;}
 .transition-note{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink-dim);padding-top:40px;border-top:1px solid var(--line);margin-top:8px;}
+.phase-solo{padding:64px 0;border-top:1px solid var(--line);}
 
 /* DEEP DIVE */
 .plain-list{border-top:1px solid var(--line);margin-top:8px;}
 .plain-list li{padding:16px 0;border-bottom:1px solid var(--line);font-family:var(--body);color:var(--ink-soft);font-size:15.5px;}
+.dd-row{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;padding:44px 0;border-top:1px solid var(--line);}
+.dd-row:first-of-type{border-top:none;padding-top:28px;}
+.dd-title{font-family:var(--sans);font-weight:800;font-size:20px;letter-spacing:-.01em;color:var(--ink);margin-bottom:14px;}
+.dd-col p{font-family:var(--body);font-size:16px;line-height:1.8;color:var(--ink-soft);}
+.dd-shot{width:100%;height:auto;border-radius:var(--radius-md);}
+.dd-findings{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:26px 30px;}
+.dd-findings-label{font-family:var(--sans);font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);margin-bottom:6px;}
+.dd-findings li{padding:13px 0;border-bottom:1px solid var(--line);font-family:var(--body);color:var(--ink-soft);font-size:15px;line-height:1.5;}
+.dd-findings li:last-child{border-bottom:none;padding-bottom:0;}
+@media (max-width:860px){
+  .dd-row{grid-template-columns:1fr;gap:24px;padding:30px 0;}
+  .dd-row:first-of-type{padding-top:8px;}
+}
 
 /* HIGHLIGHT BLOCK */
 .highlight-block{background:var(--surface);border-left:3px solid var(--accent);border-radius:var(--radius-md);padding:clamp(28px,4vw,48px);}
@@ -206,10 +215,12 @@ section+section{border-top:1px solid var(--line);}
 
 /* LEARNINGS / RETROSPECTIVE */
 .grid-2x2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-.learn-card{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--line);border-radius:var(--radius-md);padding:28px;}
-.learn-card.win{border-left-color:var(--win);}
-.learn-card.challenge{border-left-color:var(--challenge);}
+.learn-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:28px;}
 .learn-tag{font-family:var(--sans);font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;display:block;color:var(--ink-dim);}
+.learn-card.win .learn-tag::before,
+.learn-card.challenge .learn-tag::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:8px;vertical-align:middle;position:relative;top:-1px;}
+.learn-card.win .learn-tag::before{background:var(--win);}
+.learn-card.challenge .learn-tag::before{background:var(--challenge);}
 .learn-card.win .learn-tag{color:var(--win);}
 .learn-card.challenge .learn-tag{color:var(--challenge);}
 .learn-title{font-family:var(--sans);font-weight:800;font-size:16.5px;margin-bottom:10px;letter-spacing:-.005em;color:var(--ink);}
@@ -286,7 +297,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
     </div>
 
     <div class="shot rv">
-      <img src="../Img/qconcurso/capa2.png" alt="QConcursos landing page, early orange-gradient version, circa 2014">
+      <img src="../Img/qconcurso/qcon.webp" alt="QConcursos landing page, orange-gradient version — 'A sua aprovação começa aqui!'">
     </div>
   </header>
 
@@ -372,7 +383,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
           <div class="phase-period">2017 – 2019</div>
           <p class="phase-text">Embedded in the product and innovation teams, I contributed to the company's first design system (pattern inventory and component guidelines), launched Quero Simulados (a standalone mock exam product), redesigned the subscription plan pages for desktop and mobile, and led the full redesign of the core course-consumption experience — the Deep Dive below.</p>
         </div>
-        <div class="phase-media img-stack">
+        <div class="phase-media img-stack is-flush">
           <div class="shot"><img src="../Img/qconcurso/querosimulado.avif" alt="Quero Simulados dashboard, blue theme"></div>
           <div class="shot"><img src="../Img/qconcurso/pricing.avif" alt="Subscription plans page, combined desktop and mobile mockup"></div>
         </div>
@@ -389,18 +400,34 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
       <h2 class="sec-title rv">Course Page Redesign.</h2>
       <p class="sec-lede rv">A full redesign of the core course-consumption experience — the feature millions of users spent the most time in.</p>
 
-      <div class="ov-body rv">
-        <p>By 2018, QConcursos had grown into Brazil's dominant exam-prep platform — but the core course page, the feature users spent the most time in, was built on a legacy architecture. Despite strong engagement metrics, support tickets consistently flagged usability issues and missing features. With an acquisition on the horizon, the product team had both business pressure and a rare window to invest in a rethink.</p>
-        <p>Before designing anything, I analyzed customer support tickets from the past six months and ran a short in-product survey. Both sources told the same story: users were frustrated by the video player, struggled to find supplemental material, and had no way to take notes or track their progress through the course syllabus. These weren't hunches — they were the most-mentioned themes across hundreds of messages.</p>
+      <div class="dd-row rv">
+        <div class="dd-col">
+          <h3 class="dd-title">Business context</h3>
+          <p>By 2018, QConcursos had grown into Brazil's dominant exam-prep platform — but the core course page, the feature users spent the most time in, was built on a legacy architecture. Despite strong engagement metrics, support tickets consistently flagged usability issues and missing features. With an acquisition on the horizon, the product team had both business pressure and a rare window to invest in a rethink.</p>
+        </div>
+        <div class="dd-col">
+          <img class="dd-shot" src="../Img/qconcurso/cursos.avif" alt="The legacy course page — 'Os melhores cursos preparatórios' — before the redesign">
+        </div>
       </div>
 
-      <ul class="plain-list rv">
-        <li>Difficulty keeping track of course progress</li>
-        <li>Not knowing where to resume studies after an interruption</li>
-        <li>No way to organize or retrieve notes</li>
-        <li>Unclear how long a course or module would take</li>
-        <li>Confusing navigation between modules</li>
-      </ul>
+      <div class="dd-row rv">
+        <div class="dd-col">
+          <h3 class="dd-title">Validating with support data</h3>
+          <p>Before designing anything, I analyzed customer support tickets from the past six months and ran a short in-product survey. Both sources told the same story: users were frustrated by the video player, struggled to find supplemental material, and had no way to take notes or track their progress through the course syllabus. These weren't hunches — they were the most-mentioned themes across hundreds of messages.</p>
+        </div>
+        <div class="dd-col">
+          <div class="dd-findings">
+            <div class="dd-findings-label">Research findings</div>
+            <ul>
+              <li>Difficulty keeping track of course progress</li>
+              <li>Not knowing where to resume studies after an interruption</li>
+              <li>No way to organize or retrieve notes</li>
+              <li>Unclear how long a course or module would take</li>
+              <li>Confusing navigation between modules</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -415,8 +442,8 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
           <h3 class="phase-title">New video player</h3>
           <p class="phase-text" style="margin-top:16px;">The original player was a basic embed with minimal controls. The redesigned experience introduced full-screen mode, playback speed controls, chapter navigation, and a visible progress bar — matching what users expected from modern streaming platforms and removing the need to context-switch to external players.</p>
         </div>
-        <div class="phase-media img-placeholder ph-wide">
-          <span class="ph-label">Player de vídeo dark-mode com controles e barra de progresso</span>
+        <div class="shot phase-media">
+          <img src="../Img/qconcurso/player-box.webp" alt="Redesigned dark-mode video player with controls, chapter navigation and progress bar">
         </div>
       </div>
 
@@ -431,14 +458,14 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
         </div>
       </div>
 
-      <div class="phase reverse rv">
+      <div class="phase rv">
         <div>
           <div class="phase-num">03</div>
           <h3 class="phase-title">Notes system</h3>
           <p class="phase-text" style="margin-top:16px;">Survey results showed that a significant percentage of users were taking notes in separate notebooks or text files because the platform offered nothing. We introduced a persistent notes panel — anchored to the course sidebar — where users could write, edit, and review timestamped notes per lesson without ever leaving the page.</p>
         </div>
         <div class="shot phase-media">
-          <img src="../Img/qconcurso/note%20system.avif" alt="Side notes panel — timestamped notes per lesson">
+          <img src="../Img/qconcurso/notes.webp" alt="Side notes panel — 'Minhas Anotações' — timestamped notes per lesson, expandable and collapsible">
         </div>
       </div>
 
@@ -453,14 +480,12 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
         </div>
       </div>
 
-      <div class="phase rv">
-        <div>
-          <div class="phase-num">05</div>
-          <h3 class="phase-title">Course syllabus</h3>
-          <p class="phase-text" style="margin-top:16px;">The old platform had no visible syllabus — users couldn't tell how long a course was, how many modules it contained, or what was covered before buying or starting. We designed a collapsible module tree with lesson counts, durations, and visual completion states — giving users the mental map they'd always been missing.</p>
-        </div>
-        <div class="shot phase-media">
-          <img src="../Img/qconcurso/course%20sylabus.avif" alt="Collapsible module tree — course syllabus with lesson counts and durations">
+      <div class="phase-solo rv">
+        <div class="phase-num">05</div>
+        <h3 class="phase-title">Course syllabus</h3>
+        <p class="phase-text" style="margin-top:16px;max-width:760px;">The old platform had no visible syllabus — users couldn't tell how long a course was, how many modules it contained, or what was covered before buying or starting. We designed a collapsible module tree with lesson counts, durations, and visual completion states — giving users the mental map they'd always been missing.</p>
+        <div class="shot phase-media" style="margin-top:32px;">
+          <img src="../Img/qconcurso/programa-curso.webp" alt="Course player with the 'Programa do curso' panel open — collapsible module tree with lesson counts, durations and completion states">
         </div>
       </div>
     </div>

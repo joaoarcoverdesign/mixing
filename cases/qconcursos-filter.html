@@ -188,10 +188,12 @@ section+section{border-top:1px solid var(--line);}
 
 /* LEARNINGS / RETROSPECTIVE */
 .grid-2x2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-.learn-card{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--line);border-radius:var(--radius-md);padding:28px;}
-.learn-card.win{border-left-color:var(--win);}
-.learn-card.challenge{border-left-color:var(--challenge);}
+.learn-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:28px;}
 .learn-tag{font-family:var(--sans);font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;display:block;color:var(--ink-dim);}
+.learn-card.win .learn-tag::before,
+.learn-card.challenge .learn-tag::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:8px;vertical-align:middle;position:relative;top:-1px;}
+.learn-card.win .learn-tag::before{background:var(--win);}
+.learn-card.challenge .learn-tag::before{background:var(--challenge);}
 .learn-card.win .learn-tag{color:var(--win);}
 .learn-card.challenge .learn-tag{color:var(--challenge);}
 .learn-title{font-family:var(--sans);font-weight:800;font-size:16.5px;margin-bottom:10px;letter-spacing:-.005em;color:var(--ink);}

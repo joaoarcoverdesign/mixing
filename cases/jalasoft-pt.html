@@ -188,9 +188,11 @@
   .learning-card{
     border-radius:var(--radius); padding:28px; border:1px solid var(--line); background:var(--card-bg);
   }
-  .learning-card.win{border-left:3px solid var(--win);}
-  .learning-card.challenge{border-left:3px solid var(--challenge);}
   .learning-card .lc-tag{font-family:'Urbanist', sans-serif; font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:10px; display:block;}
+  .learning-card.win .lc-tag::before,
+  .learning-card.challenge .lc-tag::before{content:""; display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:8px; vertical-align:middle; position:relative; top:-1px;}
+  .learning-card.win .lc-tag::before{background:var(--win);}
+  .learning-card.challenge .lc-tag::before{background:var(--challenge);}
   .learning-card.win .lc-tag{color:var(--win);}
   .learning-card.challenge .lc-tag{color:var(--challenge);}
   .learning-card p{font-size:14.5px; color:var(--ink-soft);}
