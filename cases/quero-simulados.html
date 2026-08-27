@@ -111,6 +111,11 @@ nav.is-hidden{transform:translateY(-110%);}
 /* real screenshot, natural height (no crop) */
 .img-placeholder.filled{background:var(--bg-deep);border:1px solid var(--line);padding:0;overflow:hidden;aspect-ratio:auto !important;height:auto !important;}
 .img-placeholder.filled img{width:100%;height:auto;display:block;border-radius:inherit;}
+/* long full-page screenshot in a scrollable frame — hidden scrollbar, scrolls on hover */
+.shot-scroll{max-height:560px;overflow:hidden;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg-deep);scrollbar-width:none;-ms-overflow-style:none;}
+.shot-scroll::-webkit-scrollbar{display:none;}
+.shot-scroll:hover{overflow-y:auto;}
+.shot-scroll img{width:100%;height:auto;display:block;}
 .ph-hero{aspect-ratio:16/8;}
 .ph-wide{aspect-ratio:16/9;}
 .ph-tall{aspect-ratio:4/5;}
@@ -135,6 +140,8 @@ section+section{border-top:1px solid var(--line);}
 /* OVERVIEW blocks */
 .ov-block{margin-bottom:26px;max-width:760px;}
 .ov-block:last-child{margin-bottom:0;}
+.ov-2col{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+.ov-2col .ov-block{max-width:none;margin-bottom:0;}
 .ov-label{font-family:var(--sans);font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);margin-bottom:10px;}
 .ov-text{font-family:var(--body);font-size:16px;line-height:1.75;color:var(--ink-soft);}
 .tag-row{display:flex;flex-wrap:wrap;gap:10px;margin:32px 0 44px;}
@@ -142,6 +149,7 @@ section+section{border-top:1px solid var(--line);}
 
 /* HIGHLIGHT BLOCK */
 .highlight-block{background:var(--surface);border-left:3px solid var(--accent);border-radius:var(--radius-md);padding:clamp(26px,4vw,44px);}
+.grid-2 .highlight-block{padding:28px;}
 .highlight-block p{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(17px,2vw,21px);line-height:1.6;color:var(--ink);}
 .highlight-block p .lede-label{font-style:normal;font-family:var(--sans);font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:12px;}
 
@@ -152,7 +160,7 @@ section+section{border-top:1px solid var(--line);}
 .insight-text{font-family:var(--body);font-size:14.5px;color:var(--ink-soft);line-height:1.7;}
 
 /* GRIDS */
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch;}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 
 /* PERSONA */
@@ -174,11 +182,13 @@ section+section{border-top:1px solid var(--line);}
 .step-label{font-family:var(--sans);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:10px;}
 .step-title{font-family:var(--sans);font-weight:800;font-size:21px;margin-bottom:12px;letter-spacing:-.01em;color:var(--ink);}
 .step-text{font-family:var(--body);color:var(--ink-soft);font-size:15px;line-height:1.75;margin-bottom:0;max-width:680px;}
+.step-split{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:44px;align-items:start;}
+.step-media-duo{display:flex;gap:20px;align-items:flex-start;justify-content:flex-end;}
+.step-media-duo img{width:calc(50% - 10px);max-width:230px;height:auto;}
 
-/* CONTEXT PHOTO (full-bleed feel) */
-.context-photo{padding:0;border-top:1px solid var(--line);}
-.context-photo .img-placeholder{border-radius:0;border-left:none;border-right:none;}
-.context-photo .ph-strip{aspect-ratio:16/7;}
+/* CONTEXT PHOTO (framed inside the container, natural height) */
+.context-photo .frame{border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-deep);}
+.context-photo .frame img{width:100%;height:auto;display:block;}
 
 /* DECISION / FEATURE CARD (text + image) */
 .decision{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(28px,4vw,48px);margin-bottom:28px;}
@@ -192,29 +202,17 @@ section+section{border-top:1px solid var(--line);}
 
 /* KEY-DECISION LIST inside a feature */
 .kd-label{font-family:var(--sans);font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-dim);margin-top:26px;}
+.decision-split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.kd-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;border-top:1px solid var(--line);padding-top:24px;margin-top:14px;}
+.kd-grid p{font-family:var(--body);font-size:14px;color:var(--ink-soft);line-height:1.7;}
+.kd-grid p strong{color:var(--ink);}
 .plain-list{border-top:1px solid var(--line);margin-top:14px;}
 .plain-list li{padding:14px 0;border-bottom:1px solid var(--line);font-family:var(--body);color:var(--ink-soft);font-size:14.5px;line-height:1.7;}
 .plain-list li strong{color:var(--ink);}
 
 /* SCORE STRIP (product-brand full-bleed moment) */
-.score-strip{background:linear-gradient(135deg,#1E3A8A 0%,var(--brand-blue) 100%);color:#fff;}
-.score-strip .eyebrow{color:rgba(255,255,255,.7);}
-.score-strip .eyebrow::before{background:#fff;}
-.score-wordmark{font-family:var(--sans);font-weight:800;font-size:18px;letter-spacing:.02em;color:#fff;margin-bottom:6px;}
-.score-line{font-family:var(--serif);font-style:italic;font-size:16px;color:rgba(255,255,255,.85);margin-bottom:38px;max-width:520px;}
-.score-badges{display:flex;gap:clamp(16px,4vw,44px);flex-wrap:wrap;}
-.score-badge{
-  width:clamp(104px,15vw,140px);aspect-ratio:1/1;border-radius:50%;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.35);
-}
-.score-badge .n{font-family:var(--sans);font-weight:800;font-size:clamp(28px,4vw,40px);line-height:1;color:#fff;}
-.score-badge .l{font-family:var(--sans);font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.75);margin-top:8px;text-align:center;padding:0 8px;}
-.score-badge.you{border-color:var(--win);}
-.score-badge.you .n{color:var(--win);}
-.score-badge.state{border-color:#fff;}
-.score-badge.nat{border-color:var(--challenge);}
-.score-badge.nat .n{color:var(--challenge);}
+.score-strip{background:#5886FB;padding:0;}
+.score-strip img{display:block;width:100%;max-width:1240px;margin:0 auto;}
 
 /* STATS STRIP (deep, full-bleed) */
 .stats-strip{background:var(--bg-deep);color:var(--ink);}
@@ -252,17 +250,50 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
 .rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
 .rv.is-in{opacity:1;transform:none;}
 
+/* LIGHTBOX */
+.zoomable{cursor:zoom-in;}
+.lightbox{
+  position:fixed;inset:0;z-index:2000;
+  display:flex;align-items:flex-start;justify-content:center;
+  padding:clamp(14px,5vh,60px) clamp(14px,5vw,60px);
+  background:rgba(8,10,13,.94);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  opacity:0;visibility:hidden;transition:opacity .28s var(--ease),visibility .28s;
+  overflow-y:auto;overscroll-behavior:contain;cursor:zoom-out;
+}
+.lightbox.is-open{opacity:1;visibility:visible;}
+.lightbox img{
+  max-width:min(1400px,100%);width:auto;height:auto;margin:auto;
+  border-radius:var(--radius-md);box-shadow:0 30px 90px rgba(0,0,0,.6);
+  transform:scale(.96);transition:transform .28s var(--ease);cursor:default;
+}
+.lightbox.is-open img{transform:scale(1);}
+.lightbox-close{
+  position:fixed;top:16px;right:18px;z-index:2001;
+  width:42px;height:42px;border-radius:50%;
+  border:1px solid var(--line);background:rgba(20,25,30,.72);
+  color:var(--ink);font-size:22px;line-height:1;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  transition:background .2s var(--ease),transform .3s var(--ease);
+}
+.lightbox-close:hover{background:var(--surface);transform:rotate(90deg);}
+@media (max-width:600px){.lightbox{padding:10px;}}
+
 @media (max-width:860px){
   .hero-specs{grid-template-columns:repeat(2,1fr);}
   .grid-2{grid-template-columns:1fr;}
+  .ov-2col{grid-template-columns:1fr;gap:28px;}
   .decision{grid-template-columns:1fr;}
   .decision.reverse .decision-media{order:0;}
+  .decision-split{grid-template-columns:1fr;gap:28px;}
+  .kd-grid{grid-template-columns:1fr;gap:18px;}
   .grid-3,.grid-2x2{grid-template-columns:1fr;}
   .img-duo,.img-row-3{grid-template-columns:1fr 1fr;}
   .img-row-4{grid-template-columns:1fr 1fr;}
   .stats-grid{grid-template-columns:1fr 1fr;}
   .next-grid{grid-template-columns:1fr;}
   .step{grid-template-columns:1fr;gap:12px;}
+  .step-split{grid-template-columns:1fr;gap:24px;}
   .nav-links{gap:18px;}
 }
 @media (max-width:520px){
@@ -304,8 +335,8 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
       <div><div class="spec-label">Deliverables</div><div class="spec-value">UX Research · Product Design · Design System · Mobile First</div></div>
     </div>
 
-    <div class="img-placeholder ph-hero rv">
-      <span class="ph-label">Quero Simulados results screen — score, national average and ranking position beside the distraction-free exam timer</span>
+    <div class="img-placeholder filled rv">
+      <img src="../Img/quero-simulados/hero-dashboard-exam.png" alt="Quero Simulados — study dashboard beside the distraction-free exam interface with a 2h30m timer">
     </div>
   </header>
 
@@ -315,7 +346,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
       <div class="eyebrow rv">Overview</div>
       <h2 class="sec-title rv">The challenge</h2>
 
-      <div class="rv">
+      <div class="ov-2col rv">
         <div class="ov-block">
           <div class="ov-label">Business Context</div>
           <p class="ov-text">Qconcursos is Brazil's largest exam-prep platform, with over 8 million registered users. More than half of them already used a limited native simulation tool. That data revealed a clear product opportunity: build a dedicated mock exam experience born from real user demand.</p>
@@ -326,8 +357,8 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
         </div>
       </div>
 
-      <div class="img-placeholder ph-wide rv" style="margin:12px 0 44px;">
-        <span class="ph-label">Early concept mockups — results dashboard and exam screen explored across phone and desktop</span>
+      <div class="img-placeholder filled rv" style="margin:12px 0 44px;background:#fff;border-color:transparent;">
+        <img src="../Img/quero-simulados/challenge-devices.png" alt="Quero Simulados concept mockups — student dashboard and results comparison across phone, desktop and mobile">
       </div>
 
       <div class="grid-2 rv">
@@ -352,21 +383,21 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
 
       <div class="grid-3 rv">
         <div class="insight-card">
-          <div class="persona-avatar"></div>
+          <div class="persona-avatar has-img"><img src="../Img/quero-simulados/persona-1.avif" alt="Gabriel, 31 — beginner persona"></div>
           <div class="persona-label">Beginner</div>
           <h3 class="insight-title">Gabriel, 31</h3>
           <p class="insight-text">Determined and career-focused. Already has a degree but wants a government position for stability and salary.</p>
           <div class="persona-goals"><strong>Key goals</strong>Understand where to start, track progress over time, build confidence before the real exam.</div>
         </div>
         <div class="insight-card">
-          <div class="persona-avatar"></div>
+          <div class="persona-avatar has-img"><img src="../Img/quero-simulados/persona-2.avif" alt="Diogo, 37 — intermediary persona"></div>
           <div class="persona-label">Intermediary</div>
           <h3 class="insight-title">Diogo, 37</h3>
           <p class="insight-text">Effortless and dedicated. Sees studying as a way to change his life. Has been preparing for a while but lacks direction.</p>
           <div class="persona-goals"><strong>Key goals</strong>Know which subjects need more attention, compare performance with others at the same level, stay motivated.</div>
         </div>
         <div class="insight-card">
-          <div class="persona-avatar"></div>
+          <div class="persona-avatar has-img"><img src="../Img/quero-simulados/persona-3.avif" alt="Advanced student — perfectionist persona"></div>
           <div class="persona-label">Perfeccionista</div>
           <h3 class="insight-title">Advanced Student</h3>
           <p class="insight-text">High performer who wants to fine-tune results. Studies consistently and needs granular performance data.</p>
@@ -426,8 +457,10 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
 
   <!-- CONTEXT PHOTO -->
   <section class="context-photo">
-    <div class="img-placeholder ph-strip rv">
-      <span class="ph-label">Workspace photo — the real study context this product lives in: laptop, handwritten notes, coffee</span>
+    <div class="container">
+      <div class="frame rv">
+        <img src="../Img/quero-simulados/workspace-photo.png" alt="Quero Simulados results page on a laptop on a study desk, with a phone showing the student panel">
+      </div>
     </div>
   </section>
 
@@ -438,20 +471,24 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
       <h2 class="sec-title rv">Core features and design thinking</h2>
       <p class="sec-lede rv">Four interconnected experiences, each solving a distinct student need while maintaining product coherence.</p>
 
-      <div class="decision top rv">
-        <div class="decision-body">
-          <div class="decision-eyebrow">Feature 01 · The Comparative</div>
-          <h3 class="decision-title">Performance with context</h3>
-          <p class="decision-text">The feature most requested by students became the core of the product. After completing a simulation, students see their score, the national average, and their ranking position broken down by subject and by Brazilian state. One number became a full performance picture.</p>
-          <div class="kd-label">Key Design Decisions</div>
-          <ul class="plain-list">
-            <li><strong>Score with context:</strong> Students see their score, the national average, and their ranking position simultaneously. One screen tells the full story.</li>
-            <li><strong>State-level ranking:</strong> Added after launch based on direct user feedback. Students wanted to know if they would pass in their specific state, not just nationally.</li>
-            <li><strong>Subject breakdown:</strong> Performance by discipline highlights exact strengths and weaknesses, and suggests related simulations to improve weak areas.</li>
-          </ul>
+      <div class="decision stacked rv">
+        <div class="decision-split">
+          <div class="decision-body">
+            <div class="decision-eyebrow">Feature 01 · The Comparative</div>
+            <h3 class="decision-title">Performance with context</h3>
+            <p class="decision-text">The feature most requested by students became the core of the product. After completing a simulation, students see their score, the national average, and their ranking position broken down by subject and by Brazilian state. One number became a full performance picture.</p>
+          </div>
+          <div class="decision-media img-placeholder filled">
+            <img src="../Img/quero-simulados/feature-1.webp" alt="Quero Simulados results — score, national average and ranking on desktop and mobile">
+          </div>
         </div>
-        <div class="decision-media img-placeholder ph-tall">
-          <span class="ph-label">The Comparative — score, national average and state ranking, with a subject-by-subject breakdown</span>
+        <div>
+          <div class="kd-label">Key Design Decisions</div>
+          <div class="kd-grid">
+            <p><strong>Score with context:</strong> Students see their score, the national average, and their ranking position simultaneously. One screen tells the full story.</p>
+            <p><strong>State-level ranking:</strong> Added after launch based on direct user feedback. Students wanted to know if they would pass in their specific state, not just nationally.</p>
+            <p><strong>Subject breakdown:</strong> Performance by discipline highlights exact strengths and weaknesses, and suggests related simulations to improve weak areas.</p>
+          </div>
         </div>
       </div>
 
@@ -468,28 +505,27 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
             <li><strong>Annotation space:</strong> Students can add notes alongside each question during the exam, replicating real exam behavior.</li>
           </ul>
         </div>
-        <div class="decision-media img-placeholder ph-wide">
-          <span class="ph-label">Exam experience — no header, no navigation, collapsible question navigator, color-coded answer card</span>
+        <div class="decision-media img-placeholder filled">
+          <img src="../Img/quero-simulados/exam-desktop-crop.png" alt="Exam interface — question on the left, collapsible dark navigator on the right with timer, colour-coded answer card and annotations panel">
         </div>
       </div>
 
       <div class="decision stacked rv">
         <div class="decision-body">
-          <div class="decision-eyebrow">Feature 03 · Onboarding</div>
+          <div class="decision-eyebrow">Feature 03 · Onboarding &amp; Home</div>
           <h3 class="decision-title">Friendly, familiar, communicative</h3>
-          <p class="decision-text">First-time engagement is fragile. The onboarding was designed to introduce the product value without overwhelming new users. Clear interactions, easy to adapt and learn, with no training required.</p>
+          <p class="decision-text">First-time engagement is fragile. The onboarding and home were designed to introduce the product value without overwhelming new users. Clear interactions, easy to adapt and learn, with no training required — and a home page that balances the rational and the emotional.</p>
+          <div class="kd-label">Key Design Decisions</div>
+          <ul class="plain-list">
+            <li><strong>Mobile first:</strong> The entire onboarding flow was prototyped on mobile before scaling to desktop. The smallest screen defined the constraints for every other breakpoint.</li>
+            <li><strong>Progressive disclosure:</strong> One concept per screen. Students are not shown everything at once. Each step reveals only what is needed to move forward.</li>
+            <li><strong>Emotional balance:</strong> The home page balances rational and emotional — sometimes stimulating the student about how close they are to the job position, sometimes offering tools to measure that progress.</li>
+          </ul>
         </div>
-        <div class="img-row-4">
-          <div class="img-placeholder ph-tall"><span class="ph-label">Onboarding step 1</span></div>
-          <div class="img-placeholder ph-tall"><span class="ph-label">Onboarding step 2</span></div>
-          <div class="img-placeholder ph-tall"><span class="ph-label">Onboarding step 3</span></div>
-          <div class="img-placeholder ph-tall"><span class="ph-label">Onboarding step 4</span></div>
+        <div>
+          <div class="shot-scroll"><img src="../Img/quero-simulados/home-landing-fill.png" alt="Quero Simulados home page — motivational hero, exclusive mock exams, performance-comparison section and free sign-up"></div>
+          <div class="img-caption">Home page — hover to scroll</div>
         </div>
-        <ul class="plain-list" style="margin-top:0;">
-          <li><strong>Mobile first:</strong> The entire onboarding flow was prototyped on mobile before scaling to desktop. The smallest screen defined the constraints for every other breakpoint.</li>
-          <li><strong>Progressive disclosure:</strong> One concept per screen. Students are not shown everything at once. Each step reveals only what is needed to move forward.</li>
-          <li><strong>Emotional balance:</strong> The home page balances rational and emotional — sometimes stimulating the student about how close they are to the job position, sometimes offering tools to measure that progress.</li>
-        </ul>
       </div>
     </div>
   </section>
@@ -501,10 +537,8 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
       <h2 class="sec-title rv">From purchase to exam completion</h2>
       <p class="sec-lede rv">To monitor the journey from purchase until the simulation is executed, we designed a full email sequence. Each email had one clear action and one clear message. No noise, no distraction — just the next step the student needed to take.</p>
 
-      <div class="img-row-3 rv" style="margin-bottom:44px;">
-        <div class="img-placeholder ph-tall"><span class="ph-label">Welcome email — warm, celebratory, single CTA</span></div>
-        <div class="img-placeholder ph-tall"><span class="ph-label">Reminder email — urgency without pressure</span></div>
-        <div class="img-placeholder ph-tall"><span class="ph-label">Results email — compare your result, next steps</span></div>
+      <div class="rv" style="margin-bottom:44px;">
+        <img src="../Img/quero-simulados/email-journeys.png" alt="Quero Simulados email sequence — welcome, purchase confirmation and performance-comparison emails, each with a single call to action" style="width:100%;height:auto;display:block;">
       </div>
 
       <div class="grid-3 rv">
@@ -529,16 +563,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
 
   <!-- SCORE STRIP -->
   <section class="score-strip">
-    <div class="container">
-      <div class="eyebrow rv">The Comparative</div>
-      <div class="score-wordmark rv">Quero Simulados</div>
-      <p class="score-line rv">One screen answers the only question that mattered to students: where do I stand?</p>
-      <div class="score-badges rv">
-        <div class="score-badge you"><span class="n">93</span><span class="l">Your Score</span></div>
-        <div class="score-badge state"><span class="n">85</span><span class="l">State Average</span></div>
-        <div class="score-badge nat"><span class="n">74</span><span class="l">National Average</span></div>
-      </div>
-    </div>
+    <img class="rv" src="../Img/quero-simulados/score-banner.png" alt="Quero Simulados comparison banner — three students scoring 93, 85 and 74 on the PRF 2019 mock exam">
   </section>
 
   <!-- DESIGN DECISIONS -->
@@ -554,29 +579,44 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
           <div>
             <h3 class="step-title">The Comparative as the Core</h3>
             <p class="step-text">Research showed students did not just want to practice. They wanted to know where they stood. Instead of building another score screen, we made the ranking the hero of the results page. Your score only makes sense in context. The comparative gave that context.</p>
+            <div class="img-row-3" style="margin-top:24px">
+              <img src="../Img/quero-simulados/comparative01.png" alt="Score card — the student's mock exam score, questions answered, right, wrong and blank counts, and overall percentage">
+              <img src="../Img/quero-simulados/comparative-02.png" alt="National average card — the student's score next to the national average, above and below-average counts, and approval likelihood">
+              <img src="../Img/quero-simulados/comparative03.png" alt="Ranking card — the student's overall ranking position with per-subject and per-state breakdowns">
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="decision top reverse rv">
-        <div class="decision-body">
-          <div class="decision-eyebrow">Decision 02</div>
-          <h3 class="decision-title">Distraction-Free Exam Interface</h3>
-          <p class="decision-text">A government exam can take up to 4 hours. Concentration is the product. Every UI element that was not essential to answering questions was removed or hidden. The collapsible sidebar, minimal header, and focus mode were not nice-to-haves. They were the core UX principle.</p>
-        </div>
-        <div class="decision-media img-placeholder ph-tall">
-          <span class="ph-label">Focus mode — the exam screen stripped to the question and the timer (2h30m)</span>
+      <div class="rv">
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-split">
+            <div>
+              <h3 class="step-title">Distraction-Free Exam Interface</h3>
+              <p class="step-text">A government exam can take up to 4 hours. Concentration is the product. Every UI element that was not essential to answering questions was removed or hidden. The collapsible sidebar, minimal header, and focus mode were not nice-to-haves. They were the core UX principle.</p>
+            </div>
+            <div class="step-media-duo">
+              <img src="../Img/quero-simulados/exam-question-phone.png" alt="Exam question screen on mobile — just the question text, a minimal header and the collapsed timer">
+              <img src="../Img/quero-simulados/exam-timer-phone.png" alt="Focus-mode timer on mobile — 2h30m countdown, progress bar and the answered-questions grid">
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="decision top rv">
-        <div class="decision-body">
-          <div class="decision-eyebrow">Decision 03</div>
-          <h3 class="decision-title">Design System from Day One</h3>
-          <p class="decision-text">Building the spacing scale, atomic grid, and component library in parallel with the first screens meant every decision made early stayed consistent through delivery. For a product with this many states and screen types, the system was the real deliverable.</p>
-        </div>
-        <div class="decision-media img-placeholder ph-wide">
-          <span class="ph-label">Style guide — spacing scale, atomic grid, type scale and WCAG contrast validation</span>
+      <div class="rv">
+        <div class="step">
+          <div class="step-num">03</div>
+          <div>
+            <h3 class="step-title">Design System from Day One</h3>
+            <p class="step-text">Building the spacing scale, atomic grid, and component library in parallel with the first screens meant every decision made early stayed consistent through delivery. For a product with this many states and screen types, the system was the real deliverable.</p>
+            <div class="img-placeholder filled" style="margin-top:24px">
+              <img src="../Img/quero-simulados/style-guide-spacing.png" alt="Spacing patterns — base-10 and base-16 scales, atomic 4px grid and text-interpretation rules">
+            </div>
+            <div class="img-placeholder filled" style="margin-top:16px">
+              <img src="../Img/quero-simulados/style-guide-contrast.png" alt="Contrast test — colour pairs run through a WCAG contrast checker, before and after adjustment">
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -586,7 +626,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <section id="outcome">
     <div class="container">
       <div class="eyebrow rv">Outcome</div>
-      <h2 class="sec-title rv"><span class="it solo">Shipped. Tested. Validated.</span></h2>
+      <h2 class="sec-title rv">Shipped. Tested. Validated.</h2>
 
       <div class="rv">
         <p class="ov-text" style="max-width:760px;margin-bottom:20px;">Quero Simulados launched and was tested with real students before release. User feedback generated meaningful product iterations, including a ranking by Brazilian state, which became one of the most valued features after launch.</p>
@@ -611,8 +651,8 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- CLOSING ILLUSTRATION -->
   <section id="closing">
     <div class="container">
-      <div class="img-placeholder ph-wide rv">
-        <span class="ph-label">Launch campaign illustration set — PWA 2019, media assets and product marketing graphics</span>
+      <div class="img-placeholder filled rv">
+        <img src="../Img/quero-simulados/showcase-iso.png" alt="Isometric collage of Quero Simulados screens — answer card, score comparison and student dashboard">
       </div>
     </div>
   </section>
@@ -671,6 +711,11 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
 
 </main>
 
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+  <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
+  <img src="" alt="">
+</div>
+
 <footer>
   <div class="container footer-inner">Copyright © abdalladesign 2026</div>
 </footer>
@@ -685,6 +730,41 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
     });
   }, { threshold: 0.12 });
   document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+</script>
+<script>
+  (function(){
+    var lb = document.getElementById('lightbox');
+    if (!lb) return;
+    var lbImg = lb.querySelector('img');
+    var scroller = null;
+    var imgs = [].slice.call(document.querySelectorAll('main img')).filter(function(im){
+      return !im.closest('a') && !im.classList.contains('nav-avatar') && !im.closest('.persona-avatar');
+    });
+    if (!imgs.length) return;
+
+    function open(src, alt){
+      lbImg.src = src;
+      lbImg.alt = alt || '';
+      lb.scrollTop = 0;
+      lb.classList.add('is-open');
+      lb.setAttribute('aria-hidden', 'false');
+      scroller = document.scrollingElement || document.documentElement;
+      document.body.style.overflow = 'hidden';
+    }
+    function close(){
+      lb.classList.remove('is-open');
+      lb.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      setTimeout(function(){ if (!lb.classList.contains('is-open')) lbImg.removeAttribute('src'); }, 300);
+    }
+
+    imgs.forEach(function(im){
+      im.classList.add('zoomable');
+      im.addEventListener('click', function(){ open(im.currentSrc || im.src, im.alt); });
+    });
+    lb.addEventListener('click', function(e){ if (e.target !== lbImg) close(); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && lb.classList.contains('is-open')) close(); });
+  })();
 </script>
 <script>
   (function(){
