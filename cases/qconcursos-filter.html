@@ -11,6 +11,8 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../Img/favicon.png">
+<link rel="apple-touch-icon" href="../Img/favicon.png">
 <title>QConcursos — The Filter Behind the Growth | Abdalla Design</title>
 <meta name="description" content="An alternative case from five years at QConcursos: how a 12-field cascading filter turned a 605K-question database into a usable product, and how a pricing decision quietly added R$27M a year — both part of the story behind the company's R$208M acquisition.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -146,6 +148,10 @@ section+section{border-top:1px solid var(--line);}
 .ov-text{font-family:var(--body);font-size:16px;line-height:1.75;color:var(--ink-soft);}
 .ov-body p{font-family:var(--body);font-size:16px;line-height:1.8;color:var(--ink-soft);max-width:760px;margin-bottom:20px;}
 .ov-body p:last-child{margin-bottom:0;}
+/* spacing between a content text block and the box that follows it */
+.ov-body + .highlight-block,
+.ov-body + .plain-list,
+.ov-body + .shot{margin-top:44px;}
 
 /* STATS STRIP (deep, full-bleed) */
 .stats-strip{background:var(--bg-deep);color:var(--ink);}
@@ -166,7 +172,7 @@ section+section{border-top:1px solid var(--line);}
 .transition-note{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink-dim);padding-top:40px;border-top:1px solid var(--line);margin-top:8px;}
 
 /* DEEP DIVE */
-.plain-list{border-top:1px solid var(--line);margin-top:8px;}
+.plain-list{border-top:1px solid var(--line);}
 .plain-list li{padding:16px 0;border-bottom:1px solid var(--line);font-family:var(--body);color:var(--ink-soft);font-size:15.5px;}
 
 /* HIGHLIGHT BLOCK */
@@ -292,7 +298,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
       <div><div class="spec-label">Scale</div><div class="spec-value">600K → 10M+ users</div></div>
     </div>
 
-    <img class="rv" src="../Img/qconcurso/filtro-capa.png" alt="QConcursos brand collage — homepage, course dashboard and pattern illustrations" style="width:100%;height:auto;display:block;border-radius:6px;">
+    <img class="rv" src="../Img/qconcurso/filtro-questoes.png" alt="QConcursos question filter panel with 12 combinable fields, live product screenshot" style="width:100%;height:auto;display:block;border-radius:6px;">
   </header>
 
   <!-- OVERVIEW -->
@@ -375,7 +381,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
         <p>As the question catalog grew, finding the <em>right</em> question — for the right examining board, the right job role, the right subject — became progressively harder. A candidate studying for one specific contest needed surgical precision, not a generic keyword search.</p>
       </div>
 
-      <div class="highlight-block rv" style="margin-top:8px;">
+      <div class="highlight-block rv">
         <p>605K+ questions catalogued on the platform (public data, 2017). Without a structured way to filter by examining board, institution, job role, and subject at the same time, that volume turned into noise instead of value.</p>
       </div>
     </div>
@@ -457,7 +463,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
         <p>The same cascading-filter logic — fields that refine each other — didn't stay confined to the Questions section. It was reapplied across other areas of the platform, including the Military Contests search. Contest status, region, state, year, examining board, and institution work as dependent filters — the same progressive-refinement principle applied with different facets. An interaction pattern designed once, reused across several sections of the platform.</p>
       </div>
 
-      <div class="shot rv" style="margin-top:8px;">
+      <div class="shot rv">
         <img src="../Img/qconcurso/filtro-militares.png" alt="QConcursos Military Contests filter, applying the same cascading-filter pattern, live product screenshot">
         <div class="shot-caption">Live product screenshot — Military Contests filter, same pattern reapplied</div>
       </div>

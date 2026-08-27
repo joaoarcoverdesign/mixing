@@ -11,6 +11,8 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../Img/favicon.png">
+<link rel="apple-touch-icon" href="../Img/favicon.png">
 <title>Valt Network — Private Market Social | Abdalla Design</title>
 <meta name="description" content="Designing the professional layer for private market investors and high-growth companies, from zero to a full-featured social product.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,6 +36,7 @@
   --challenge:#FBAE6C;
   --radius-lg:16px;
   --radius-md:14px;
+  --img-grad:linear-gradient(to right, #E6EAF5 7%, #F4EAEE 29%, #F6DADB 50%, #F9CE9C 100%);
   --sans:'Urbanist', sans-serif;
   --body:'Urbanist', sans-serif;
   --serif:'Lora', Georgia, serif;
@@ -102,9 +105,9 @@ nav.is-hidden{transform:translateY(-110%);}
   display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;position:relative;
 }
 .img-placeholder .ph-label{font-family:var(--body);font-style:italic;font-size:13px;color:var(--ink-soft);max-width:320px;line-height:1.55;}
-.img-placeholder.has-img{border:none;background:var(--surface);padding:0;overflow:hidden;}
+.img-placeholder.has-img{border:none;background:var(--img-grad);padding:0;overflow:hidden;}
 .img-placeholder.has-img img{width:100%;height:100%;object-fit:cover;}
-.img-placeholder.has-img.contain img{object-fit:contain;background:var(--surface);}
+.img-placeholder.has-img.contain img{object-fit:contain;background:var(--img-grad);}
 .ph-hero{aspect-ratio:16/8;}
 .ph-wide{aspect-ratio:16/9;}
 .ph-tall{aspect-ratio:4/5;}
@@ -231,7 +234,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
       <div><div class="spec-label">Deliverables</div><div class="spec-value">Landing Page · Social Product · Design System</div></div>
     </div>
 
-    <div class="img-placeholder has-img contain ph-hero rv">
+    <div class="img-placeholder has-img rv" style="aspect-ratio:1332/688;">
       <img src="../Img/valt/capa.png" alt="Valt Network directory and profile dossier, desktop dashboard">
     </div>
   </header>
@@ -264,9 +267,8 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
 
       <div class="rv">
         <div class="img-placeholder has-img contain ph-wide">
-          <img src="../Img/valt/WP2.png" alt="Valt Network social feed, web app">
+          <img src="../Img/valt/feed-banner.png" alt="Social feed · Valt Network web app">
         </div>
-        <div class="img-caption">Social feed · Valt Network web app</div>
       </div>
     </div>
   </section>
@@ -362,8 +364,8 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
           <h3 class="decision-title">Verification as the Foundation</h3>
           <p class="decision-text">Private markets run on trust. Before designing any feature, I established verified identity as the core constraint: every profile, connection, and deal signal had to be anchored to a verified user. This shaped the entire onboarding flow and prevented the noise problem that plagues LinkedIn and AngelList.</p>
         </div>
-        <div class="decision-media img-placeholder has-img contain ph-tall">
-          <img src="../Img/valt/higgsfield/hf_20260528_203805_63fb0288-e1e2-41f7-b55d-cf9990474158.png" alt="Valt Network mobile: deal flow notification and verified profile">
+        <div class="decision-media img-placeholder has-img ph-tall" style="aspect-ratio:354/537;">
+          <img src="../Img/valt/decision1-verification.png" alt="Valt Network mobile: deal flow notification and verified profile">
         </div>
       </div>
 
@@ -438,13 +440,13 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
           <div class="next-label">Next Case Study</div>
           <h3 class="next-title">My Benefits Advice</h3>
           <p class="next-text">Healthcare benefits platform with a personalized plan-recommendation engine for employees.</p>
-          <div class="img-placeholder" style="aspect-ratio:4/3;"><span class="ph-label">Mockup do painel de recomendação (mobile)</span></div>
+          <div class="img-placeholder has-img contain" style="aspect-ratio:4/3;"><img src="../Img/mba/ui%20mockp-mobile.avif" alt="Mockup do painel de recomendação (mobile)"></div>
         </a>
         <a class="next-card" href="jalasoft.html">
           <div class="next-label">Also Worth Seeing</div>
           <h3 class="next-title">Jalasoft Design System</h3>
           <p class="next-text">Building a design system from a brand guideline, then scaling it across a company of 1,000+ people.</p>
-          <div class="img-placeholder" style="aspect-ratio:4/3;"><span class="ph-label">Mockup dos componentes do design system Jalasoft</span></div>
+          <div class="img-placeholder has-img contain" style="aspect-ratio:4/3;"><img src="../Img/jalasoft/elearn-app.webp" alt="Mockup dos componentes do design system Jalasoft"></div>
         </a>
       </div>
     </div>

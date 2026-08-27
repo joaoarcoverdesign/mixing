@@ -11,6 +11,8 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../Img/favicon.png">
+<link rel="apple-touch-icon" href="../Img/favicon.png">
 <title>QConcursos — From 600K to 10M | Abdalla Design</title>
 <meta name="description" content="Five years building, refining, and scaling Brazil's leading civil-service exam-prep platform — ending with a strategic redesign that helped position the company for acquisition.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -110,6 +112,31 @@ nav.is-hidden{transform:translateY(-110%);}
 .img-duo .shot{flex:1;}
 .img-stack{display:flex;flex-direction:column;gap:16px;}
 .img-stack .img-placeholder{aspect-ratio:16/9;}
+
+/* STICKY STACKING SCROLL — the media images pile up over each other as you scroll */
+.phase-stack{align-items:flex-start;}
+.phase-stack > div:first-child{position:sticky;top:120px;align-self:start;}
+.img-stack.is-sticky{gap:26px;padding-bottom:12vh;}
+.img-stack.is-sticky .shot{position:sticky;box-shadow:0 -10px 40px rgba(0,0,0,.45);}
+.img-stack.is-sticky .shot:nth-child(1){top:96px;}
+.img-stack.is-sticky .shot:nth-child(2){top:116px;}
+.img-stack.is-sticky .shot:nth-child(3){top:136px;}
+.img-stack.is-sticky .shot:nth-child(4){top:156px;}
+.img-stack.is-sticky .shot:nth-child(5){top:176px;}
+@media (max-width:860px){
+  .phase-stack > div:first-child{position:static;top:auto;}
+  .img-stack.is-sticky{gap:18px;padding-bottom:8vh;}
+  .img-stack.is-sticky .shot:nth-child(1){top:74px;}
+  .img-stack.is-sticky .shot:nth-child(2){top:88px;}
+  .img-stack.is-sticky .shot:nth-child(3){top:102px;}
+  .img-stack.is-sticky .shot:nth-child(4){top:116px;}
+  .img-stack.is-sticky .shot:nth-child(5){top:130px;}
+}
+@media (prefers-reduced-motion:reduce){
+  .img-stack.is-sticky .shot{position:static;box-shadow:none;}
+  .img-stack.is-sticky{padding-bottom:0;}
+  .phase-stack > div:first-child{position:static;top:auto;}
+}
 .img-grid-2x2{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;}
 
 /* REAL SCREENSHOT FRAME — container fits the image, image fits the container (no crop, no letterboxing) */
@@ -287,10 +314,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
         </div>
       </div>
 
-      <div class="img-duo rv" style="margin-top:48px;">
-        <div class="shot"><img src="../Img/qconcurso/cursos.avif" alt="QConcursos course-listing homepage, intermediate visual era"></div>
-        <div class="shot"><img src="../Img/qconcurso/vestibular%20mock%20up.webp" alt="Landing page for the Vestibular vertical, part of QConcursos' expanded offering"></div>
-      </div>
+      <img class="rv" src="../Img/qconcurso/vestibular%20mock%20up.webp" alt="Landing page for the Vestibular vertical, part of QConcursos' expanded offering, shown on desktop" style="width:100%;height:auto;display:block;border-radius:8px;margin-top:48px;">
     </div>
   </section>
 
@@ -326,14 +350,14 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
         </div>
       </div>
 
-      <div class="phase reverse rv">
+      <div class="phase phase-stack rv">
         <div>
           <div class="phase-num">02</div>
           <h3 class="phase-title">New Products, Led End to End</h3>
           <div class="phase-period">Mid 2015 – 2017</div>
           <p class="phase-text">As the platform matured, I moved into a product incubation role — leading design from concept for four new products that expanded QConcursos beyond exam prep: Redação Perfeita (essay correction), Ordem Perfeita (bar exam prep), Concursos no Brasil (content discovery), and Qenglish.us (English learning). Each was designed end to end, from positioning to core flows, while staying consistent with the main platform.</p>
         </div>
-        <div class="phase-media img-grid-2x2">
+        <div class="phase-media img-stack is-sticky">
           <div class="shot"><img src="../Img/qconcurso/redacao.avif" alt="Redação Perfeita — essay correction product landing page"></div>
           <div class="shot"><img src="../Img/qconcurso/oab.avif" alt="Ordem Perfeita — OAB bar exam prep product landing page"></div>
           <div class="shot"><img src="../Img/qconcurso/concursos-brasil.avif" alt="Concursos no Brasil — content discovery product landing page"></div>
@@ -341,7 +365,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
         </div>
       </div>
 
-      <div class="phase rv">
+      <div class="phase rv" style="align-items:flex-start;">
         <div>
           <div class="phase-num">03</div>
           <h3 class="phase-title">Product &amp; Innovation</h3>
@@ -407,7 +431,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
         </div>
       </div>
 
-      <div class="phase rv">
+      <div class="phase reverse rv">
         <div>
           <div class="phase-num">03</div>
           <h3 class="phase-title">Notes system</h3>
@@ -526,13 +550,13 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
           <div class="next-label">Next Case Study</div>
           <h3 class="next-title">Jalasoft Design System</h3>
           <p class="next-text">Building a design system from a brand guideline, then scaling it across a company of 1,000+ people.</p>
-          <div class="img-placeholder" style="aspect-ratio:4/3;"><span class="ph-label">Mockup dos componentes do design system Jalasoft</span></div>
+          <div class="shot" style="aspect-ratio:4/3;padding:0;"><img src="../Img/jalasoft/elearn-app.webp" alt="Mockup dos componentes do design system Jalasoft" style="height:100%;object-fit:cover;"></div>
         </a>
         <a class="next-card" href="mba.html">
           <div class="next-label">Also Worth Seeing</div>
           <h3 class="next-title">My Benefits Advice</h3>
           <p class="next-text">Healthcare benefits platform with a personalized plan-recommendation engine for employees.</p>
-          <div class="img-placeholder" style="aspect-ratio:4/3;"><span class="ph-label">Mockup do painel de recomendação (mobile)</span></div>
+          <div class="shot" style="aspect-ratio:4/3;padding:0;"><img src="../Img/mba/ui%20mockp-mobile.avif" alt="Mockup do painel de recomendação (mobile)" style="height:100%;object-fit:cover;"></div>
         </a>
       </div>
     </div>

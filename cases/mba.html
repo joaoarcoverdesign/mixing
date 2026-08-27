@@ -11,6 +11,8 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../Img/favicon.png">
+<link rel="apple-touch-icon" href="../Img/favicon.png">
 <title>My Benefits Advice — Healthcare Enrollment, Simplified | Abdalla Design</title>
 <meta name="description" content="Designing a multi-role healthcare benefits administration platform for the US market, connecting employers, brokers, and employees through a personalized recommendation engine built from zero.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -108,8 +110,8 @@ nav.is-hidden{transform:translateY(-110%);}
 .ph-square{aspect-ratio:1/1;}
 .img-duo{display:flex;gap:16px;}
 .img-duo .img-placeholder{flex:1;aspect-ratio:4/5;}
-.img-placeholder.filled{background:none;border:none;padding:0;overflow:hidden;aspect-ratio:auto !important;height:auto !important;}
-.img-placeholder.filled img{width:100%;height:auto;display:block;}
+.img-placeholder.filled{background:var(--bg-deep);border:1px solid var(--line);border-radius:var(--radius-md);padding:0;overflow:hidden;aspect-ratio:auto !important;height:auto !important;}
+.img-placeholder.filled img{width:100%;height:auto;display:block;border-radius:inherit;}
 
 /* SECTIONS */
 section{padding:88px 0;}
@@ -150,6 +152,14 @@ section+section{border-top:1px solid var(--line);}
 .decision-eyebrow{font-family:var(--sans);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:12px;}
 .decision-title{font-family:var(--sans);font-weight:800;font-size:21px;margin-bottom:14px;letter-spacing:-.01em;color:var(--ink);}
 .decision-text{font-family:var(--body);font-size:15px;color:var(--ink-soft);line-height:1.75;}
+
+/* KEY CHOICES — radial gradient panel behind images */
+#design-decisions .img-placeholder.filled{
+  background:radial-gradient(circle at 50% 45%, #4F8CBA 0%, #306185 97%);
+  border:none;
+  padding:clamp(20px,4vw,44px);
+}
+#design-decisions .img-placeholder.filled img{border-radius:8px;}
 
 /* QUOTE */
 .quote-block{border-left:3px solid var(--accent);padding-left:24px;margin:32px 0;max-width:720px;}
@@ -237,7 +247,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
     </div>
 
     <div class="img-placeholder filled ph-hero rv">
-      <img src="../Img/mba/capa.avif" alt="My Benefits Advice platform overview — enrollment and plan selection screens">
+      <img src="../Img/mba/Frame%201000004255.png" alt="Three iPhone mockups side by side — login, plan selection with slider, and personal profile screens">
     </div>
   </header>
 
@@ -497,13 +507,13 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
           <div class="next-label">Next Case Study</div>
           <h3 class="next-title">Jalasoft Design System</h3>
           <p class="next-text">Building a design system from a brand guideline, then scaling it across a company of 1,000+ people.</p>
-          <div class="img-placeholder" style="aspect-ratio:4/3;"><span class="ph-label">Mockup dos componentes do design system Jalasoft</span></div>
+          <div class="img-placeholder filled"><img src="../Img/jalasoft/elearn-app.webp" alt="Mockup dos componentes do design system Jalasoft"></div>
         </a>
         <a class="next-card" href="valt.html">
           <div class="next-label">Also Worth Seeing</div>
           <h3 class="next-title">Valt Network</h3>
           <p class="next-text">Private market social network. Designed from zero to live product.</p>
-          <div class="img-placeholder" style="aspect-ratio:4/3;"><span class="ph-label">Mockup relacionado a Valt</span></div>
+          <div class="img-placeholder filled"><img src="../Img/valt/company%20profile2.png" alt="Valt Network company profile dossier and secondary market activity"></div>
         </a>
       </div>
     </div>

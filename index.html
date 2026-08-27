@@ -11,6 +11,8 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="Img/favicon.png">
+<link rel="apple-touch-icon" href="Img/favicon.png">
 <title>João Abdalla — Senior Product Designer · UX/UI</title>
 <meta name="description" content="Designer who builds and operates AI systems for the design process. Remote from Brazil, working with US & EU teams.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -178,7 +180,7 @@ nav.is-hidden{transform:translateY(-110%);}
 .mock-card[data-slot="front"]{
   left:21%;top:-5.6%;width:58%;z-index:3;
   transform:rotate(0deg);transform-origin:50% 50%;
-  cursor:default;
+  cursor:pointer;
 }
 .mock-card[data-slot="back-left"]{left:1%;top:6%;width:47%;z-index:1;transform:rotate(-9deg);transform-origin:78% 16%;}
 
@@ -236,9 +238,9 @@ section{position:relative;}
   position:sticky;top:0;height:100vh;
   display:flex;flex-direction:column;justify-content:center;
   overflow:hidden;
-  padding:clamp(50px,7vh,80px) 0;
+  padding:clamp(28px,3.5vh,56px) 0;
 }
-.work-head{padding:0 var(--px);margin-bottom:clamp(18px,2.5vh,28px);flex:0 0 auto;}
+.work-head{padding:0 var(--px);margin-bottom:clamp(32px,6vh,88px);flex:0 0 auto;align-items:flex-end;}
 .work-controls{display:flex;align-items:center;gap:14px;flex:0 0 auto;}
 .work-arrow{
   width:40px;height:40px;border-radius:50%;border:1px solid var(--line);
@@ -254,44 +256,55 @@ section{position:relative;}
   -webkit-mask-image:linear-gradient(to right, transparent 0, #000 var(--px), #000 calc(100% - clamp(40px,6vw,120px)), transparent 100%);
   mask-image:linear-gradient(to right, transparent 0, #000 var(--px), #000 calc(100% - clamp(40px,6vw,120px)), transparent 100%);
 }
-.work-track{display:flex;gap:clamp(24px,4vw,56px);padding:0 var(--px);will-change:transform;}
+.work-track{display:flex;gap:clamp(24px,3.5vw,56px);padding:0 var(--px);will-change:transform;}
 .work-item{
-  flex:0 0 auto;width:clamp(448px,47.6vw,784px);
-  display:flex;flex-direction:column;justify-content:center;min-height:0;
+  flex:0 0 auto;width:clamp(300px,31vw,520px);
+  display:flex;flex-direction:column;justify-content:flex-start;min-height:0;
+  cursor:pointer;
 }
-/* text block never shrinks/clips — only the media flexes to fit whatever
-   vertical room the viewport actually has (short laptop screens included) */
+/* media size comes from card width (aspect-ratio, capped by a vh-based max-height
+   so the whole card clears the pinned viewport on short screens) — never from
+   flex-grow. Every card is the same width, so images stay the same size; the
+   line-clamped desc and 2-line min-height on the title keep idx/title/tags/CTA
+   aligned across the row */
 .work-item > *{flex-shrink:0;}
 .work-media{
-  position:relative;overflow:hidden;border-radius:4px;
-  aspect-ratio:1440/820;flex:1 1 auto;min-height:140px;max-height:clamp(240px,42vh,440px);
-  background:var(--surface);margin-bottom:16px;
+  position:relative;overflow:hidden;border-radius:4px;display:block;
+  aspect-ratio:1440/820;flex:0 0 auto;width:100%;max-height:clamp(170px,30vh,420px);
+  background:var(--surface);margin-bottom:clamp(16px,2.4vh,28px);
 }
 .work-media img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s var(--ease);}
-.work-media:hover img{transform:scale(1.06);}
+/* image stays flush to the card edges; the text content gets a left/right inset */
+.work-idx,.work-name,.work-desc,.work-tags,.work-link{padding-left:clamp(18px,2.4vw,34px);padding-right:clamp(18px,2.4vw,34px);}
+.work-item:hover .work-media img{transform:scale(1.06);}
 .work-idx{
   font-family:var(--serif);font-style:italic;font-size:15px;color:var(--accent);
-  margin-bottom:8px;display:block;
+  margin-bottom:4px;display:block;
 }
 .work-name{
   font-weight:800;font-size:clamp(24px,2.6vw,36px);letter-spacing:-.025em;
-  text-transform:uppercase;line-height:1;margin-bottom:10px;
+  text-transform:uppercase;line-height:1.05;margin-bottom:clamp(10px,1.6vh,18px);
+  min-height:2.1em;transition:color .25s var(--ease);
 }
+.work-item:hover .work-name{color:var(--accent);}
 .work-desc{
-  color:var(--muted);font-size:16px;margin-bottom:8px;
+  color:var(--muted);font-size:16px;line-height:1.5;min-height:3em;margin-bottom:clamp(12px,2vh,26px);
   display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;
 }
-.work-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;}
+.work-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:clamp(14px,2.4vh,34px);}
 .work-tags span{
   font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
   color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:7px 14px;
 }
 .work-link{
+  display:inline-flex;align-items:center;gap:8px;
   color:var(--accent);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;
 }
+.work-link-arrow{display:inline-block;transition:transform .3s var(--ease);}
+.work-item:hover .work-link-arrow{transform:translateX(5px);}
 .work-footer{
   display:flex;align-items:center;gap:20px;
-  padding:0 var(--px);margin-top:clamp(28px,4vh,40px);flex:0 0 auto;
+  padding:0 var(--px);margin-top:clamp(16px,2vh,28px);flex:0 0 auto;
 }
 .work-progress{
   position:relative;height:2px;flex:1 1 auto;
@@ -310,7 +323,7 @@ section{position:relative;}
     scroll-snap-type:x proximity;scrollbar-width:thin;
   }
   .work-track{transform:none !important;}
-  .work-item{width:min(588px,82vw);scroll-snap-align:start;}
+  .work-item{width:min(412px,74vw);scroll-snap-align:start;}
   .work-footer{display:none;}
 }
 
@@ -480,13 +493,13 @@ section{position:relative;}
   <div class="hero2-media">
     <div class="mock-glow" aria-hidden="true"></div>
     <div class="mock-frame rv" id="mockFrame">
-      <div class="mock-card" data-slot="back-left" role="button" tabindex="0" aria-label="Bring Jalasoft to front">
+      <div class="mock-card" data-slot="back-left" data-href="cases/jalasoft.html" role="button" tabindex="0" aria-label="Bring Jalasoft to front">
         <img src="Img/browser.png" alt="Jalasoft — brand and web redesign, shown in browser" loading="lazy">
       </div>
-      <div class="mock-card" data-slot="back-right" role="button" tabindex="0" aria-label="Bring Quero Simulados to front">
+      <div class="mock-card" data-slot="back-right" data-href="cases/quero-simulados.html" role="button" tabindex="0" aria-label="Bring Quero Simulados to front">
         <img src="Img/browser-2.png" alt="Quero Simulados — exam practice platform, shown in browser" loading="lazy">
       </div>
-      <div class="mock-card" data-slot="front" role="button" tabindex="0" aria-label="Qconcursos, currently in front">
+      <div class="mock-card" data-slot="front" data-href="cases/qconcursos.html" role="button" tabindex="0" aria-label="Open the Qconcursos case study">
         <img src="Img/browser-1.png" alt="Qconcursos — platform homepage, shown in browser" loading="lazy">
       </div>
     </div>
@@ -520,60 +533,60 @@ section{position:relative;}
     <div class="work-viewport" id="workViewport">
       <div class="work-track" id="workTrack">
 
-        <article class="work-item rv">
-          <a class="work-media" href="cases/qconcursos-filter.html">
-            <img src="Img/qconcurso/filtro-questoes.png" alt="QConcursos — cascading question filter, live product screenshot">
-          </a>
+        <a class="work-item rv" href="cases/qconcursos-filter.html">
+          <span class="work-media">
+            <img src="Img/cards%20home/card-filter.png" alt="QConcursos — cascading question filter, live product screenshot">
+          </span>
           <span class="work-idx">/ 01</span>
           <h3 class="work-name">The Filter Behind the Growth</h3>
           <p class="work-desc">A 12-field cascading filter that turned a 605K-question database into a usable product — and a pricing call that quietly added R$27M a year.</p>
           <div class="work-tags"><span>Edtech</span><span>Filtering UX</span><span>Pricing</span></div>
-          <p class="work-link">R$27M added, part of the R$208M acquisition →</p>
-        </article>
+          <span class="work-link">R$27M added, part of the R$208M acquisition <span class="work-link-arrow">→</span></span>
+        </a>
 
-        <article class="work-item rv">
-          <a class="work-media" href="cases/jalasoft.html">
-            <img src="Img/style%20guides.png" alt="Jalasoft — design system built from a brand guideline">
-          </a>
+        <a class="work-item rv" href="cases/jalasoft.html">
+          <span class="work-media">
+            <img src="Img/cards%20home/card-jalasoft.png" alt="Jalasoft — design system built from a brand guideline">
+          </span>
           <span class="work-idx">/ 02</span>
           <h3 class="work-name">Jalasoft Design System</h3>
           <p class="work-desc">Building a design system from a brand guideline, then scaling it across a company of over a thousand people.</p>
           <div class="work-tags"><span>Enterprise</span><span>Design System</span><span>Brand &amp; Web</span></div>
-          <p class="work-link">Scaled across 1,000+ people →</p>
-        </article>
+          <span class="work-link">Scaled across 1,000+ people <span class="work-link-arrow">→</span></span>
+        </a>
 
-        <article class="work-item rv">
-          <a class="work-media" href="cases/valt.html">
-            <img src="Img/valt.avif" alt="Valt Network — product design">
-          </a>
+        <a class="work-item rv" href="cases/valt.html">
+          <span class="work-media">
+            <img src="Img/cards%20home/card-valt.png" alt="Valt Network — product design">
+          </span>
           <span class="work-idx">/ 03</span>
           <h3 class="work-name">Valt Network</h3>
           <p class="work-desc">Designing the professional layer for private-market investors and high-growth companies.</p>
           <div class="work-tags"><span>Fintech</span><span>Social Product</span><span>0 → 1</span></div>
-          <p class="work-link">Live product · 12-month build →</p>
-        </article>
+          <span class="work-link">Live product · 12-month build <span class="work-link-arrow">→</span></span>
+        </a>
 
-        <article class="work-item rv">
-          <a class="work-media" href="cases/mba.html">
-            <img src="Img/MBA-painel-mobile.png" alt="My Benefits Advice — personalized plan-recommendation flow">
-          </a>
+        <a class="work-item rv" href="cases/mba.html">
+          <span class="work-media">
+            <img src="Img/cards%20home/card-MBA.png" alt="My Benefits Advice — personalized plan-recommendation flow">
+          </span>
           <span class="work-idx">/ 04</span>
           <h3 class="work-name">My Benefits Advice</h3>
           <p class="work-desc">Health benefits platform with a personalized plan-recommendation engine for employees.</p>
           <div class="work-tags"><span>Enterprise</span><span>Onboarding</span><span>Fintech</span></div>
-          <p class="work-link">43% faster onboarding →</p>
-        </article>
+          <span class="work-link">43% faster onboarding <span class="work-link-arrow">→</span></span>
+        </a>
 
-        <article class="work-item rv">
-          <a class="work-media" href="cases/qconcursos.html">
-            <img src="Img/Home.png" alt="Qconcursos — platform redesign" style="object-position:top;">
-          </a>
+        <a class="work-item rv" href="cases/qconcursos.html">
+          <span class="work-media">
+            <img src="Img/cards%20home/card--qcopncursos.png" alt="Qconcursos — platform redesign">
+          </span>
           <span class="work-idx">/ 05</span>
           <h3 class="work-name">Qconcursos</h3>
           <p class="work-desc">From 600K to 10M — designing for scale at Brazil's largest exam-prep edtech.</p>
           <div class="work-tags"><span>Edtech</span><span>8M+ Users</span><span>Team Lead</span></div>
-          <p class="work-link">600K → 10M+ users on the platform</p>
-        </article>
+          <span class="work-link">600K → 10M+ users on the platform <span class="work-link-arrow">→</span></span>
+        </a>
 
       </div>
     </div>
@@ -942,14 +955,24 @@ section{position:relative;}
       card.dataset.slot = "front";
     }
 
+    // a background card swaps to the front on click; the front card is a link
+    // straight to its case study
+    function activate(card) {
+      userInteracted = true;
+      if (card.dataset.slot === "front") {
+        if (card.dataset.href) window.location.href = card.dataset.href;
+        return;
+      }
+      bringToFront(card);
+    }
+
     var userInteracted = false;
     cards.forEach(function (card) {
-      card.addEventListener("click", function () { userInteracted = true; bringToFront(card); });
+      card.addEventListener("click", function () { activate(card); });
       card.addEventListener("keydown", function (e) {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
-          userInteracted = true;
-          bringToFront(card);
+          activate(card);
         }
       });
     });
@@ -1048,8 +1071,17 @@ section{position:relative;}
       render();
     }
 
+    // one click = exactly one card's pitch (its rendered width + the gap to the
+    // next one), read straight off the layout instead of guessing a fraction of
+    // the viewport — so each press lands flush on the next/previous case
+    function cardPitch() {
+      var items = track.children;
+      if (items.length > 1) return items[1].offsetLeft - items[0].offsetLeft;
+      return viewport.clientWidth;
+    }
+
     function step(dir) {
-      var amount = viewport.clientWidth * 0.85;
+      var amount = cardPitch();
       if (active) window.scrollBy({ top: dir * amount, behavior: "smooth" });
       else viewport.scrollBy({ left: dir * amount, behavior: "smooth" });
     }

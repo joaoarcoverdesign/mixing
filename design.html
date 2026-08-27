@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="Img/favicon.png">
+<link rel="apple-touch-icon" href="Img/favicon.png">
+<title>Design System — Arcoverdesign v5 · João Abdalla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Urbanist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ════════ TOKENS — copiados 1:1 de index.html / cases/*.html ════════ */
+:root{
+  --bg:        #11161A;
+  --bg-deep:   #0C1013;
+  --surface:   #1A2025;
+  --line:      rgba(255,255,255,.08);
+  --line-soft: rgba(255,255,255,.05);
+  --accent:    #C2FC50;
+  --accent-soft: rgba(194,252,80,.12);
+  --white:     #F4F6F3;
+  --muted:     #9BA4AA;
+  --dim:       #5E676D;
+  --num-dim:   #333B41;
+  --win:       #6EE895;
+  --challenge: #FBAE6C;
+  --radius-lg: 16px;
+  --radius-md: 14px;
+  --serif:     'Lora', Georgia, serif;
+  --sans:      'Urbanist', sans-serif;
+  --mono:      'JetBrains Mono', monospace;
+  --px: clamp(20px, 5vw, 72px);
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scrollbar-width:thin;scrollbar-color:#2c343a var(--bg-deep);}
+body{
+  background:var(--bg);color:var(--white);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;line-height:1.5;
+}
+::selection{background:var(--accent);color:var(--bg-deep);}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+
+/* ════════ DOC LAYOUT (não faz parte do design system — é a moldura desta página) ════════ */
+.doc-shell{display:grid;grid-template-columns:240px 1fr;min-height:100vh;}
+.doc-nav{
+  position:sticky;top:0;align-self:start;height:100vh;overflow-y:auto;
+  padding:32px 20px;border-right:1px solid var(--line);background:var(--bg-deep);
+}
+.doc-nav-logo{font-family:var(--serif);font-style:italic;font-weight:600;font-size:18px;margin-bottom:4px;}
+.doc-nav-sub{font-size:11px;color:var(--dim);letter-spacing:.08em;text-transform:uppercase;margin-bottom:28px;display:block;}
+.doc-nav a{
+  display:block;padding:7px 10px;border-radius:8px;font-size:13px;color:var(--muted);
+  font-weight:600;transition:background .2s,color .2s;
+}
+.doc-nav a:hover{background:var(--surface);color:var(--white);}
+.doc-main{padding:0 0 120px;}
+.doc-hero{padding:clamp(56px,8vw,88px) var(--px) 48px;border-bottom:1px solid var(--line);position:relative;overflow:hidden;}
+.doc-hero::before{
+  content:"";position:absolute;top:-30%;left:-10%;width:60%;height:80%;
+  background:radial-gradient(closest-side, rgba(194,252,80,.14), transparent 72%);
+  filter:blur(20px);pointer-events:none;
+}
+.doc-hero h1{position:relative;font-weight:800;font-size:clamp(30px,4vw,46px);letter-spacing:-.02em;text-transform:uppercase;margin-bottom:14px;}
+.doc-hero h1 em{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:lowercase;color:var(--accent);}
+.doc-hero p{position:relative;color:var(--muted);max-width:640px;font-size:16px;line-height:1.7;}
+.doc-section{padding:clamp(48px,7vw,72px) var(--px);border-bottom:1px solid var(--line);}
+.doc-section:last-child{border-bottom:none;}
+.doc-kicker{
+  display:flex;align-items:center;gap:12px;font-size:12px;font-weight:700;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;
+}
+.doc-kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);}
+.doc-title{font-weight:800;font-size:clamp(24px,2.8vw,34px);letter-spacing:-.02em;text-transform:uppercase;margin-bottom:10px;}
+.doc-title em{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:lowercase;color:var(--accent);}
+.doc-lede{color:var(--muted);max-width:70ch;margin-bottom:36px;font-size:15px;line-height:1.7;}
+.doc-grid{display:grid;gap:20px;}
+.doc-grid.cols-2{grid-template-columns:repeat(2,1fr);}
+.doc-grid.cols-3{grid-template-columns:repeat(3,1fr);}
+.doc-grid.cols-4{grid-template-columns:repeat(4,1fr);}
+@media (max-width:1000px){.doc-grid.cols-4{grid-template-columns:repeat(2,1fr);}.doc-grid.cols-3{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:640px){.doc-grid.cols-2,.doc-grid.cols-3,.doc-grid.cols-4{grid-template-columns:1fr;}.doc-shell{grid-template-columns:1fr;}.doc-nav{position:static;height:auto;}}
+.doc-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:20px;}
+.doc-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:10px;}
+code, .doc-code{
+  font-family:var(--mono);font-size:12.5px;background:var(--bg-deep);border:1px solid var(--line);
+  border-radius:8px;padding:2px 7px;color:var(--accent);
+}
+pre.doc-code{display:block;padding:16px 18px;white-space:pre-wrap;word-break:break-word;line-height:1.6;color:var(--muted);}
+pre.doc-code .tok{color:var(--accent);}
+
+/* ════════ 1. COLORS ════════ */
+.swatch{border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--line);}
+.swatch-fill{height:74px;}
+.swatch-meta{padding:12px 14px;background:var(--surface);}
+.swatch-name{font-weight:700;font-size:13.5px;}
+.swatch-hex{font-family:var(--mono);font-size:12px;color:var(--dim);margin-top:2px;}
+.swatch-use{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.5;}
+
+/* ════════ 2. TYPE ════════ */
+.type-row{display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding:22px 0;border-top:1px solid var(--line);flex-wrap:wrap;}
+.type-row:first-of-type{border-top:none;}
+.type-sample{flex:1 1 420px;}
+.type-meta{flex:0 0 auto;font-family:var(--mono);font-size:11.5px;color:var(--dim);text-align:right;line-height:1.6;}
+.t-display{font-weight:800;font-size:clamp(30px,4vw,46px);letter-spacing:-.02em;text-transform:uppercase;line-height:1.05;}
+.t-display em{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:lowercase;color:var(--accent);}
+.t-h2{font-weight:800;font-size:clamp(24px,3vw,34px);letter-spacing:-.02em;text-transform:uppercase;}
+.t-serif-italic{font-family:var(--serif);font-style:italic;font-weight:500;font-size:22px;color:var(--white);opacity:.9;}
+.t-eyebrow{font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);}
+.t-body{font-size:16px;color:var(--muted);max-width:56ch;line-height:1.7;}
+.t-label{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+
+/* ════════ 3. SPACING ════════ */
+.space-row{display:flex;align-items:center;gap:16px;margin-bottom:10px;}
+.space-bar{height:14px;background:var(--accent);border-radius:4px;}
+.space-tag{font-family:var(--mono);font-size:12px;color:var(--muted);width:150px;flex:0 0 auto;}
+
+/* ════════ 4. RADIUS ════════ */
+.radius-box{width:100%;height:80px;background:var(--surface);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;color:var(--muted);}
+
+/* ════════ 5. SHADOW / GLOW ════════ */
+.shadow-box{
+  height:100px;border-radius:var(--radius-md);background:var(--surface);
+  display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;color:var(--muted);
+  margin-bottom:8px;
+}
+.glow-demo{position:relative;height:140px;border-radius:var(--radius-md);overflow:hidden;background:var(--bg-deep);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;}
+.glow-demo::before{content:"";position:absolute;inset:-20%;background:radial-gradient(closest-side, rgba(194,252,80,.22), transparent 72%);filter:blur(18px);}
+.glow-demo span{position:relative;font-family:var(--mono);font-size:12px;color:var(--muted);}
+
+/* ════════ 6. ICONS ════════ */
+.icon-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+.icon-chip{
+  width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;
+}
+.icon-chip.dribbble{background:#EA4C89;}
+.icon-chip.behance{background:#1769FF;}
+.icon-chip.linkedin{background:#0A66C2;}
+.icon-chip.neutral{background:var(--surface);border:1px solid var(--line);color:var(--white);}
+
+/* ════════ 7. COMPONENTS ════════ */
+.demo-stage{background:var(--bg-deep);border:1px solid var(--line);border-radius:var(--radius-md);padding:32px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;}
+
+/* button */
+.btn-main{
+  position:relative;display:inline-flex;align-items:center;gap:12px;
+  background:var(--accent);color:var(--bg-deep);
+  font-weight:700;font-size:15px;letter-spacing:.02em;
+  padding:18px 34px;border-radius:99px;overflow:hidden;
+  transition:transform .3s var(--ease);
+}
+.btn-main:hover{transform:translateY(-2px);}
+.btn-main .flair{position:absolute;inset:0;background:var(--white);border-radius:inherit;transform:translateY(101%);transition:transform .45s var(--ease);}
+.btn-main:hover .flair{transform:translateY(0);}
+.btn-main span{position:relative;z-index:1;}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:10px;padding:16px 30px;border-radius:99px;
+  border:1px solid var(--line);font-weight:700;font-size:15px;color:var(--white);
+  transition:border-color .25s,background .25s;
+}
+.btn-ghost:hover{border-color:var(--accent);background:var(--surface);}
+
+/* social button */
+.social-btn{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;transition:transform .3s var(--ease),box-shadow .3s var(--ease);}
+.social-btn:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(0,0,0,.35);}
+.social-btn.dribbble{background:#EA4C89;}
+.social-btn.behance{background:#1769FF;}
+.social-btn.linkedin{background:#0A66C2;}
+
+/* section head */
+.sec-label{display:flex;align-items:center;gap:12px;font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);}
+.sec-label::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);}
+.sec-title{font-weight:800;font-size:clamp(24px,3vw,34px);line-height:1.05;letter-spacing:-.02em;text-transform:uppercase;margin-top:12px;}
+.sec-title em{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:lowercase;color:var(--accent);}
+
+/* tags */
+.tag-set{display:flex;gap:8px;flex-wrap:wrap;}
+.tag-set span{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:7px 14px;}
+
+/* status pill */
+.status-pill{display:inline-flex;align-items:center;gap:9px;padding:9px 16px 9px 12px;border:1px solid var(--line);border-radius:99px;font-size:13px;font-weight:600;color:var(--muted);}
+.status-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:0 0 auto;box-shadow:0 0 0 0 rgba(194,252,80,.6);animation:pulse-dot 2.4s var(--ease) infinite;}
+@keyframes pulse-dot{0%{box-shadow:0 0 0 0 rgba(194,252,80,.5);}70%{box-shadow:0 0 0 9px rgba(194,252,80,0);}100%{box-shadow:0 0 0 0 rgba(194,252,80,0);}}
+
+/* stat block */
+.m-stat .num{font-weight:800;font-size:clamp(26px,3vw,36px);letter-spacing:-.03em;line-height:1;color:var(--white);}
+.m-stat .num i{color:var(--accent);font-style:normal;}
+.m-stat .lab{margin-top:8px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+
+/* work card */
+.work-item-demo{width:min(360px,100%);}
+.work-media-demo{position:relative;overflow:hidden;border-radius:4px;aspect-ratio:16/10;background:linear-gradient(135deg,#1A2025,#0C1013);margin-bottom:16px;display:flex;align-items:center;justify-content:center;color:var(--dim);font-family:var(--mono);font-size:12px;border:1px solid var(--line);}
+.work-idx{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--accent);margin-bottom:8px;display:block;}
+.work-name{font-weight:800;font-size:22px;letter-spacing:-.025em;text-transform:uppercase;line-height:1;margin-bottom:10px;}
+.work-desc{color:var(--muted);font-size:15px;margin-bottom:10px;line-height:1.5;}
+.work-link{color:var(--accent);font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;}
+
+/* testimonial card */
+.testi-card-demo{position:relative;overflow:hidden;max-width:560px;background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:36px;box-shadow:0 25px 70px rgba(0,0,0,.4);}
+.testi-mark{font-family:var(--serif);font-style:italic;font-weight:600;font-size:44px;line-height:1;color:var(--accent);margin-bottom:4px;display:block;}
+.testi-quote-demo{font-family:var(--serif);font-style:italic;font-weight:500;font-size:19px;line-height:1.5;color:var(--white);margin-bottom:26px;}
+.testi-author-row{display:flex;align-items:center;gap:14px;}
+.testi-avatar-demo{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#6b9c2f);border:2px solid var(--accent);flex:0 0 auto;}
+.testi-name{font-weight:700;font-size:14px;}
+.testi-role{font-size:12px;color:var(--muted);}
+
+/* portrait badge */
+.badge-demo{position:relative;display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:11px 16px;box-shadow:0 18px 40px rgba(0,0,0,.4);}
+.badge-demo .num{font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--white);line-height:1;}
+.badge-demo .num i{color:var(--accent);font-style:normal;}
+.badge-demo .lab{margin-top:3px;font-size:10.5px;letter-spacing:.06em;color:var(--muted);white-space:nowrap;}
+
+/* chapter list */
+.chapter-demo{display:grid;grid-template-columns:70px 1fr;gap:20px;padding:20px 0;border-top:1px solid var(--line);}
+.chapter-demo:first-child{border-top:none;padding-top:0;}
+.chapter-idx{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--accent);padding-top:4px;}
+.chapter-name{font-weight:800;font-size:17px;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:6px;}
+.chapter-text{color:var(--muted);font-size:14.5px;line-height:1.6;}
+
+/* learn cards */
+.learn-card{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--line);border-radius:var(--radius-md);padding:22px;}
+.learn-card.win{border-left-color:var(--win);}
+.learn-card.challenge{border-left-color:var(--challenge);}
+.learn-tag{font-family:var(--sans);font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;display:block;color:var(--dim);}
+.learn-card.win .learn-tag{color:var(--win);}
+.learn-card.challenge .learn-tag{color:var(--challenge);}
+.learn-title{font-weight:800;font-size:15px;margin-bottom:8px;}
+.learn-text{font-size:13.5px;color:var(--muted);line-height:1.6;}
+
+/* mini nav */
+.nav-demo{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;background:var(--bg-deep);border:1px solid var(--line);border-radius:14px;}
+.nav-demo-brand{display:flex;align-items:center;gap:12px;}
+.nav-demo-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#6b9c2f);}
+.nav-demo-name{font-weight:700;font-size:14px;}
+.nav-demo-role{font-size:11px;color:var(--muted);}
+.nav-demo-links{display:flex;gap:22px;list-style:none;}
+.nav-demo-links a{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+.nav-demo-links a:hover{color:var(--white);}
+
+footer.doc-foot{padding:28px var(--px) 40px;border-top:1px solid var(--line);font-size:13px;color:var(--dim);background:var(--bg-deep);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+</style>
+</head>
+<body>
+
+<div class="doc-shell">
+
+  <nav class="doc-nav">
+    <span class="doc-nav-logo">Arcoverdesign <em style="font-style:italic;color:var(--accent);">v5</em></span>
+    <span class="doc-nav-sub">Style guide</span>
+    <a href="#cores">01 · Cores</a>
+    <a href="#tipografia">02 · Tipografia</a>
+    <a href="#espacamento">03 · Espaçamento</a>
+    <a href="#raio">04 · Raio de borda</a>
+    <a href="#sombra">05 · Sombra &amp; glow</a>
+    <a href="#icones">06 · Ícones</a>
+    <a href="#componentes">07 · Componentes</a>
+  </nav>
+
+  <main class="doc-main">
+
+    <div class="doc-hero">
+      <h1>Design System <em>Arcoverdesign v5</em></h1>
+      <p>Style guide extraído diretamente do CSS do portfólio (index.html, about.html, cases/*.html). Cores, tipografia, espaçamento e componentes usados de fato — nada inventado. Documentação completa em <code>design.md</code>.</p>
+    </div>
+
+    <!-- ═══ 01 CORES ═══ -->
+    <section class="doc-section" id="cores">
+      <div class="doc-kicker">01</div>
+      <h2 class="doc-title">Cores</h2>
+      <p class="doc-lede">Dark-first, um único acento. As mesmas cores reaparecem em <code>index.html</code>/<code>about.html</code> como <code>--white/--muted/--dim</code> e nos case studies como <code>--ink/--ink-soft/--ink-dim</code> — mesmo valor, nomes diferentes.</p>
+
+      <div class="doc-grid cols-4" style="margin-bottom:32px;">
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#11161A;"></div>
+          <div class="swatch-meta"><div class="swatch-name">bg</div><div class="swatch-hex">#11161A</div><div class="swatch-use">Fundo padrão das seções</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#0C1013;"></div>
+          <div class="swatch-meta"><div class="swatch-name">bg-deep</div><div class="swatch-hex">#0C1013</div><div class="swatch-use">Nav, footer, seções "profundas"</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#1A2025;"></div>
+          <div class="swatch-meta"><div class="swatch-name">surface</div><div class="swatch-hex">#1A2025</div><div class="swatch-use">Cards</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#C2FC50;"></div>
+          <div class="swatch-meta"><div class="swatch-name">accent</div><div class="swatch-hex">#C2FC50</div><div class="swatch-use">Único acento — CTA, glow, destaque</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#F4F6F3;"></div>
+          <div class="swatch-meta"><div class="swatch-name">white</div><div class="swatch-hex">#F4F6F3</div><div class="swatch-use">Texto principal</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#9BA4AA;"></div>
+          <div class="swatch-meta"><div class="swatch-name">muted</div><div class="swatch-hex">#9BA4AA</div><div class="swatch-use">Texto secundário</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#5E676D;"></div>
+          <div class="swatch-meta"><div class="swatch-name">dim</div><div class="swatch-hex">#5E676D</div><div class="swatch-use">Texto terciário / footer</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#333B41;"></div>
+          <div class="swatch-meta"><div class="swatch-name">num-dim</div><div class="swatch-hex">#333B41</div><div class="swatch-use">Números decorativos grandes</div></div>
+        </div>
+      </div>
+
+      <div class="doc-label">Estado (só nos case studies)</div>
+      <div class="doc-grid cols-4">
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#6EE895;"></div>
+          <div class="swatch-meta"><div class="swatch-name">win</div><div class="swatch-hex">#6EE895</div><div class="swatch-use">Cards de "aprendizado positivo"</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#FBAE6C;"></div>
+          <div class="swatch-meta"><div class="swatch-name">challenge</div><div class="swatch-hex">#FBAE6C</div><div class="swatch-use">Cards de desafio</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#EA4C89;"></div>
+          <div class="swatch-meta"><div class="swatch-name">dribbble</div><div class="swatch-hex">#EA4C89</div><div class="swatch-use">Botão social (marca fixa)</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#1769FF;"></div>
+          <div class="swatch-meta"><div class="swatch-name">behance</div><div class="swatch-hex">#1769FF</div><div class="swatch-use">Botão social (marca fixa)</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 02 TIPOGRAFIA ═══ -->
+    <section class="doc-section" id="tipografia">
+      <div class="doc-kicker">02</div>
+      <h2 class="doc-title">Tipografia</h2>
+      <p class="doc-lede"><code>Urbanist</code> (sans, 300–800) é a voz estrutural — títulos uppercase, labels, corpo. <code>Lora</code> (serif) é usada só em <em style="font-style:italic;color:var(--accent);">itálico</em> — a "voz humana": subtítulos, aspas, ênfases, índices.</p>
+
+      <div class="type-row">
+        <div class="type-sample"><div class="t-display">Results that made a <em>difference</em></div></div>
+        <div class="type-meta">Urbanist 800<br>clamp(30,4.6vw,58px)<br>uppercase · -.03em<br>.sec-title</div>
+      </div>
+      <div class="type-row">
+        <div class="type-sample"><div class="t-h2">Senior Product Designer</div></div>
+        <div class="type-meta">Urbanist 800<br>clamp(24,3.6vw,40px)<br>uppercase<br>.sec-title (case study)</div>
+      </div>
+      <div class="type-row">
+        <div class="type-sample"><div class="t-serif-italic">Designer who builds and operates AI systems.</div></div>
+        <div class="type-meta">Lora 500 italic<br>clamp(19,2.8vw,30px)<br>.hero2-sub</div>
+      </div>
+      <div class="type-row">
+        <div class="type-sample"><div class="t-eyebrow">Selected work</div></div>
+        <div class="type-meta">Urbanist 700<br>12px · uppercase<br>letter-spacing .24em<br>.sec-label</div>
+      </div>
+      <div class="type-row">
+        <div class="type-sample"><div class="t-body">Designing the professional layer for private-market investors and high-growth companies — corpo de texto padrão, usado em descrições e parágrafos.</div></div>
+        <div class="type-meta">Urbanist 400<br>15–16.5px<br>line-height 1.6–1.75<br>.work-desc / .ov-text</div>
+      </div>
+      <div class="type-row">
+        <div class="type-sample"><span class="t-label">Enterprise · Design System</span></div>
+        <div class="type-meta">Urbanist 600<br>11px · uppercase<br>letter-spacing .12em<br>.work-tags span</div>
+      </div>
+    </section>
+
+    <!-- ═══ 03 ESPAÇAMENTO ═══ -->
+    <section class="doc-section" id="espacamento">
+      <div class="doc-kicker">03</div>
+      <h2 class="doc-title">Espaçamento</h2>
+      <p class="doc-lede">Sem grid fixo — praticamente tudo usa <code>clamp()</code>. Duas variáveis centrais fazem o trabalho de layout em todas as páginas:</p>
+      <pre class="doc-code" style="margin-bottom:32px;">--px: clamp(<span class="tok">20px</span>, <span class="tok">5vw</span>, <span class="tok">72px</span>);   <span style="color:var(--dim)">/* padding lateral fluido — nav, seções, container */</span>
+--ease: cubic-bezier(<span class="tok">.22,1,.36,1</span>);  <span style="color:var(--dim)">/* easing único de toda transição/animação */</span></pre>
+
+      <div class="doc-label">Escala de valores fixos que aparecem no CSS (gaps, padding de pills, ícones)</div>
+      <div style="margin-top:14px;">
+        <div class="space-row"><span class="space-tag">4px</span><div class="space-bar" style="width:4px;"></div></div>
+        <div class="space-row"><span class="space-tag">8px</span><div class="space-bar" style="width:8px;"></div></div>
+        <div class="space-row"><span class="space-tag">12px</span><div class="space-bar" style="width:12px;"></div></div>
+        <div class="space-row"><span class="space-tag">16px</span><div class="space-bar" style="width:16px;"></div></div>
+        <div class="space-row"><span class="space-tag">20px</span><div class="space-bar" style="width:20px;"></div></div>
+        <div class="space-row"><span class="space-tag">24px</span><div class="space-bar" style="width:24px;"></div></div>
+        <div class="space-row"><span class="space-tag">32px</span><div class="space-bar" style="width:32px;"></div></div>
+        <div class="space-row"><span class="space-tag">40px</span><div class="space-bar" style="width:40px;"></div></div>
+      </div>
+    </section>
+
+    <!-- ═══ 04 RAIO ═══ -->
+    <section class="doc-section" id="raio">
+      <div class="doc-kicker">04</div>
+      <h2 class="doc-title">Raio de borda</h2>
+      <div class="doc-grid cols-4">
+        <div><div class="radius-box" style="border-radius:4px;">4px</div><div class="doc-label" style="margin-top:8px;">work-media</div></div>
+        <div><div class="radius-box" style="border-radius:14px;">14px · --radius-md</div><div class="doc-label" style="margin-top:8px;">insight-card, learn-card</div></div>
+        <div><div class="radius-box" style="border-radius:16px;">16px · --radius-lg</div><div class="doc-label" style="margin-top:8px;">next-card, portrait-badge</div></div>
+        <div><div class="radius-box" style="border-radius:28px;">28px</div><div class="doc-label" style="margin-top:8px;">testi-card</div></div>
+        <div><div class="radius-box" style="border-radius:99px;">99px · pill</div><div class="doc-label" style="margin-top:8px;">btn-main, tags, status-pill</div></div>
+        <div><div class="radius-box" style="border-radius:50%;width:80px;">50%</div><div class="doc-label" style="margin-top:8px;">avatares, social-btn</div></div>
+      </div>
+    </section>
+
+    <!-- ═══ 05 SOMBRA / GLOW ═══ -->
+    <section class="doc-section" id="sombra">
+      <div class="doc-kicker">05</div>
+      <h2 class="doc-title">Sombra &amp; glow</h2>
+      <p class="doc-lede">Sombra neutra (<code>rgba(0,0,0,…)</code>) dá profundidade a cards; glow verde radial (<code>rgba(194,252,80,…)</code>) marca âncoras — hero, CTA, avatar, mockup.</p>
+      <div class="doc-grid cols-3">
+        <div>
+          <div class="shadow-box" style="box-shadow:0 10px 24px rgba(0,0,0,.35);">0 10 24 / .35</div>
+          <div class="doc-label">social-btn:hover</div>
+        </div>
+        <div>
+          <div class="shadow-box" style="box-shadow:0 18px 40px rgba(0,0,0,.4);">0 18 40 / .4</div>
+          <div class="doc-label">portrait-badge</div>
+        </div>
+        <div>
+          <div class="shadow-box" style="box-shadow:0 25px 70px rgba(0,0,0,.4);">0 25 70 / .4</div>
+          <div class="doc-label">testi-card</div>
+        </div>
+      </div>
+      <div class="doc-label" style="margin-top:28px;">Glow radial de acento</div>
+      <div class="glow-demo" style="margin-top:10px;"><span>radial-gradient(closest-side, rgba(194,252,80,.14–.24), transparent 72%)</span></div>
+    </section>
+
+    <!-- ═══ 06 ÍCONES ═══ -->
+    <section class="doc-section" id="icones">
+      <div class="doc-kicker">06</div>
+      <h2 class="doc-title">Ícones</h2>
+      <p class="doc-lede">Sem icon font / biblioteca — SVG inline, 24×24, desenhado à mão. Logos de rede social ficam brancos fixos sobre fundo de marca; setas de UI herdam <code>currentColor</code>.</p>
+      <div class="icon-row">
+        <div class="icon-chip dribbble" aria-label="Dribbble"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 100 20 10 10 0 000-20Zm6.6 4.6a8.4 8.4 0 011.9 5.1c-.3-.06-3-.6-5.7-.26-.06-.14-.1-.29-.17-.44-.17-.4-.35-.8-.54-1.18 3-1.24 4.4-3 4.48-3.2ZM12 3.6c1.9 0 3.6.68 4.96 1.8-.06.1-1.3 1.76-4.2 2.83A46.5 46.5 0 009.8 3.9 8.4 8.4 0 0112 3.6ZM8.1 4.5a44.3 44.3 0 012.94 4.24C7.9 9.5 5 9.5 4.7 9.5a8.44 8.44 0 013.4-5Zm-3.7 7.53v-.24c.3 0 3.75.05 7.03-1a17 17 0 01.4.83c-.1.03-.2.06-.28.09-3.4 1.1-5.2 4.1-5.35 4.36a8.36 8.36 0 01-1.8-4.04Zm7.6 6.87c-1.6 0-3.08-.5-4.3-1.36.12-.24 1.5-2.87 5.25-4.2.02 0 .03-.01.05-.02a35.7 35.7 0 011.87 6.9 8.4 8.4 0 01-2.87.68Zm4.28-1.34a37.4 37.4 0 00-1.7-6.28c2.5-.4 4.7.26 5 .35a8.44 8.44 0 01-3.3 5.93Z" fill="#fff"/></svg></div>
+        <div class="icon-chip behance" aria-label="Behance"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 6h5.6c1.4 0 2.5.34 3.3 1 .8.68 1.2 1.6 1.2 2.75 0 .68-.16 1.27-.48 1.77-.3.5-.76.9-1.36 1.2.82.24 1.44.65 1.86 1.24.42.6.63 1.32.63 2.16 0 .77-.14 1.44-.4 2-.28.56-.66 1-1.14 1.36-.48.35-1.04.6-1.68.76-.64.15-1.32.23-2.05.23H4V6Zm2.6 5.16h2.6c.6 0 1.08-.14 1.44-.42.36-.28.54-.7.54-1.24 0-.6-.18-1.03-.55-1.3-.36-.27-.86-.4-1.5-.4H6.6v3.36Zm0 5.5h2.9c.7 0 1.25-.16 1.65-.47.4-.32.6-.78.6-1.4 0-.62-.2-1.08-.6-1.4-.4-.3-.96-.46-1.68-.46H6.6v3.73ZM14.5 8.4h5.4v1.35h-5.4V8.4Zm2.7 3.1c1.5 0 2.65.42 3.46 1.26.8.83 1.2 2 1.2 3.5v.5h-6.65c.04.7.28 1.24.7 1.62.44.38 1 .57 1.7.57.5 0 .95-.1 1.32-.3.38-.2.66-.5.85-.87h2.03c-.3.9-.83 1.6-1.6 2.1-.77.5-1.66.76-2.68.76-1.4 0-2.55-.44-3.42-1.32-.87-.88-1.3-2.05-1.3-3.5 0-1.4.44-2.55 1.3-3.44.87-.9 2-1.34 3.34-1.34Zm-2.2 3.72h4.35c-.06-.63-.28-1.1-.66-1.44-.38-.34-.9-.5-1.5-.5-.6 0-1.1.17-1.5.5-.4.34-.63.82-.7 1.44Z" fill="#fff"/></svg></div>
+        <div class="icon-chip linkedin" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6.94 5a1.94 1.94 0 11-3.88 0 1.94 1.94 0 013.88 0ZM3.3 8.5h3.7V20H3.3V8.5Zm6.4 0h3.55v1.57h.05c.5-.9 1.7-1.86 3.5-1.86 3.75 0 4.44 2.4 4.44 5.5V20h-3.7v-5.5c0-1.3-.02-3-1.86-3-1.86 0-2.14 1.4-2.14 2.9V20H9.7V8.5Z" fill="#fff"/></svg></div>
+        <div class="icon-chip neutral" aria-label="Seta anterior"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div>
+        <div class="icon-chip neutral" aria-label="Seta seguinte"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></div>
+      </div>
+    </section>
+
+    <!-- ═══ 07 COMPONENTES ═══ -->
+    <section class="doc-section" id="componentes">
+      <div class="doc-kicker">07</div>
+      <h2 class="doc-title">Componentes</h2>
+      <p class="doc-lede">Amostras reais dos componentes usados no portfólio, montadas com as mesmas classes CSS do projeto.</p>
+
+      <div class="doc-grid cols-2" style="gap:28px;">
+
+        <div class="doc-card">
+          <div class="doc-label">Nav</div>
+          <div class="nav-demo">
+            <div class="nav-demo-brand">
+              <div class="nav-demo-avatar"></div>
+              <div><div class="nav-demo-name">João Abdalla</div><div class="nav-demo-role">Product designer UX UI</div></div>
+            </div>
+            <ul class="nav-demo-links"><li><a href="#">Works</a></li><li><a href="#">About</a></li><li><a href="#">Contact</a></li></ul>
+          </div>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-label">Botão primário &amp; secundário</div>
+          <div class="demo-stage">
+            <a class="btn-main" href="#"><span class="flair"></span><span>View Case Studies</span></a>
+            <a class="btn-ghost" href="#">Ver mais</a>
+          </div>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-label">Botões sociais</div>
+          <div class="demo-stage">
+            <a class="social-btn dribbble" href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 100 20 10 10 0 000-20Zm6.6 4.6a8.4 8.4 0 011.9 5.1c-.3-.06-3-.6-5.7-.26-.06-.14-.1-.29-.17-.44-.17-.4-.35-.8-.54-1.18 3-1.24 4.4-3 4.48-3.2ZM12 3.6c1.9 0 3.6.68 4.96 1.8-.06.1-1.3 1.76-4.2 2.83A46.5 46.5 0 009.8 3.9 8.4 8.4 0 0112 3.6ZM8.1 4.5a44.3 44.3 0 012.94 4.24C7.9 9.5 5 9.5 4.7 9.5a8.44 8.44 0 013.4-5Zm-3.7 7.53v-.24c.3 0 3.75.05 7.03-1a17 17 0 01.4.83c-.1.03-.2.06-.28.09-3.4 1.1-5.2 4.1-5.35 4.36a8.36 8.36 0 01-1.8-4.04Zm7.6 6.87c-1.6 0-3.08-.5-4.3-1.36.12-.24 1.5-2.87 5.25-4.2.02 0 .03-.01.05-.02a35.7 35.7 0 011.87 6.9 8.4 8.4 0 01-2.87.68Zm4.28-1.34a37.4 37.4 0 00-1.7-6.28c2.5-.4 4.7.26 5 .35a8.44 8.44 0 01-3.3 5.93Z" fill="#fff"/></svg></a>
+            <a class="social-btn behance" href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 6h5.6c1.4 0 2.5.34 3.3 1 .8.68 1.2 1.6 1.2 2.75 0 .68-.16 1.27-.48 1.77-.3.5-.76.9-1.36 1.2.82.24 1.44.65 1.86 1.24.42.6.63 1.32.63 2.16 0 .77-.14 1.44-.4 2-.28.56-.66 1-1.14 1.36-.48.35-1.04.6-1.68.76-.64.15-1.32.23-2.05.23H4V6Zm2.6 5.16h2.6c.6 0 1.08-.14 1.44-.42.36-.28.54-.7.54-1.24 0-.6-.18-1.03-.55-1.3-.36-.27-.86-.4-1.5-.4H6.6v3.36Zm0 5.5h2.9c.7 0 1.25-.16 1.65-.47.4-.32.6-.78.6-1.4 0-.62-.2-1.08-.6-1.4-.4-.3-.96-.46-1.68-.46H6.6v3.73ZM14.5 8.4h5.4v1.35h-5.4V8.4Zm2.7 3.1c1.5 0 2.65.42 3.46 1.26.8.83 1.2 2 1.2 3.5v.5h-6.65c.04.7.28 1.24.7 1.62.44.38 1 .57 1.7.57.5 0 .95-.1 1.32-.3.38-.2.66-.5.85-.87h2.03c-.3.9-.83 1.6-1.6 2.1-.77.5-1.66.76-2.68.76-1.4 0-2.55-.44-3.42-1.32-.87-.88-1.3-2.05-1.3-3.5 0-1.4.44-2.55 1.3-3.44.87-.9 2-1.34 3.34-1.34Zm-2.2 3.72h4.35c-.06-.63-.28-1.1-.66-1.44-.38-.34-.9-.5-1.5-.5-.6 0-1.1.17-1.5.5-.4.34-.63.82-.7 1.44Z" fill="#fff"/></svg></a>
+            <a class="social-btn linkedin" href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6.94 5a1.94 1.94 0 11-3.88 0 1.94 1.94 0 013.88 0ZM3.3 8.5h3.7V20H3.3V8.5Zm6.4 0h3.55v1.57h.05c.5-.9 1.7-1.86 3.5-1.86 3.75 0 4.44 2.4 4.44 5.5V20h-3.7v-5.5c0-1.3-.02-3-1.86-3-1.86 0-2.14 1.4-2.14 2.9V20H9.7V8.5Z" fill="#fff"/></svg></a>
+          </div>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-label">Status pill</div>
+          <div class="demo-stage">
+            <span class="status-pill"><span class="status-dot"></span> Available for remote collaboration</span>
+          </div>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-label">Cabeçalho de seção</div>
+          <div class="demo-stage" style="display:block;">
+            <span class="sec-label">Selected work</span>
+            <h3 class="sec-title">Results that made a <em>difference</em></h3>
+          </div>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-label">Tags</div>
+          <div class="demo-stage">
+            <div class="tag-set"><span>Enterprise</span><span>Design System</span><span>Brand &amp; Web</span></div>
+          </div>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-label">Bloco de estatística</div>
+          <div class="demo-stage">
+            <div class="m-stat"><div class="num">600K→<i>10M+</i></div><div class="lab">Users on the platform</div></div>
+            <div class="m-stat"><div class="num"><i>43%</i></div><div class="lab">Faster onboarding</div></div>
+          </div>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-label">Selo flutuante (portrait badge)</div>
+          <div class="demo-stage">
+            <div class="badge-demo"><div><div class="num">Since <i>2005</i></div><div class="lab">Marketing &amp; digital design</div></div></div>
+          </div>
+        </div>
+
+        <div class="doc-card" style="grid-column:1/-1;">
+          <div class="doc-label">Card de trabalho (work-item)</div>
+          <div class="work-item-demo">
+            <div class="work-media-demo">imagem 16:10</div>
+            <span class="work-idx">/ 01</span>
+            <h3 class="work-name">Jalasoft Design System</h3>
+            <p class="work-desc">Building a design system from a brand guideline, then scaling it across a company of over a thousand people.</p>
+            <div class="tag-set" style="margin-bottom:10px;"><span>Enterprise</span><span>Design System</span></div>
+            <p class="work-link">Scaled across 1,000+ people →</p>
+          </div>
+        </div>
+
+        <div class="doc-card" style="grid-column:1/-1;">
+          <div class="doc-label">Card de depoimento (testi-card)</div>
+          <div class="testi-card-demo">
+            <span class="testi-mark">&ldquo;</span>
+            <p class="testi-quote-demo">João doesn't just design, he raises the bar for everyone.</p>
+            <div class="testi-author-row">
+              <div class="testi-avatar-demo"></div>
+              <div><div class="testi-name">Orlando Campos</div><div class="testi-role">Academic Coordinator at Jala University</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="doc-card" style="grid-column:1/-1;">
+          <div class="doc-label">Lista de capítulos (chapter)</div>
+          <div class="chapter-demo">
+            <span class="chapter-idx">/ 01</span>
+            <div><h4 class="chapter-name">Foundation</h4><p class="chapter-text">Graduated in 2005 with a specialization in marketing and digital design.</p></div>
+          </div>
+          <div class="chapter-demo">
+            <span class="chapter-idx">/ 02</span>
+            <div><h4 class="chapter-name">Scale</h4><p class="chapter-text">Led design for Brazil's largest exam-prep platform, with 8M+ active users.</p></div>
+          </div>
+        </div>
+
+        <div class="doc-card" style="grid-column:1/-1;">
+          <div class="doc-label">Cards de aprendizado com estado (win / challenge)</div>
+          <div class="doc-grid cols-2">
+            <div class="learn-card win"><span class="learn-tag">O que funcionou</span><h4 class="learn-title">Progress bars por curso</h4><p class="learn-text">Reduziu a taxa de abandono ao dar visibilidade clara do progresso do usuário.</p></div>
+            <div class="learn-card challenge"><span class="learn-tag">Desafio</span><h4 class="learn-title">Migração de dados legados</h4><p class="learn-text">Estrutura antiga exigiu um mapeamento cuidadoso para não perder histórico de usuários.</p></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="doc-foot">
+  <span>Arcoverdesign v5 · Style guide gerado a partir de index.html, about.html e cases/*.html</span>
+  <span>Ver <code>design.md</code> para a documentação completa</span>
+</footer>
+
+</body>
+</html>
