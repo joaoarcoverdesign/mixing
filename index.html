@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-i18n-page="home">
 <head>
+<script src="i18n.js"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-R7PLZLRLYJ"></script>
 <script>
@@ -451,13 +452,13 @@ section{position:relative;}
       <img class="nav-avatar" src="Img/joao-avatar.jpg" alt="João Abdalla">
       <span class="nav-brand-text">
         <span class="nav-name">João Abdalla</span>
-        <span class="nav-role">Product designer UX UI</span>
+        <span class="nav-role" data-i18n="common.nav.role">Product designer UX UI</span>
       </span>
     </a>
     <ul class="nav-links">
-      <li><a href="#work">Works</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#work" data-i18n="common.nav.works">Works</a></li>
+      <li><a href="about.html" data-i18n="common.nav.about">About</a></li>
+      <li><a href="#contact" data-i18n="common.nav.contact">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -469,13 +470,13 @@ section{position:relative;}
   <canvas class="kinetic-canvas" id="kineticCanvas" aria-hidden="true"></canvas>
   <div class="hero2-glow" aria-hidden="true"></div>
   <div class="hero2-content">
-    <h1 class="hero2-title">Senior Product Designer <span class="sep">•</span> UX UI</h1>
-    <p class="hero2-sub">Designer who builds and operates AI systems for the design process.</p>
-    <p class="hero2-meta">Remote from <b>Brazil</b>, working with <b>US &amp; EU</b> teams</p>
+    <h1 class="hero2-title" data-i18n-html="home.hero.title">Senior Product Designer <span class="sep">•</span> UX UI</h1>
+    <p class="hero2-sub" data-i18n="home.hero.sub">Designer who builds and operates AI systems for the design process.</p>
+    <p class="hero2-meta" data-i18n-html="home.hero.meta">Remote from <b>Brazil</b>, working with <b>US &amp; EU</b> teams</p>
   </div>
 
   <div class="hero2-actions">
-    <a class="btn-main" href="#work"><span class="flair"></span><span>View Case Studies</span></a>
+    <a class="btn-main" href="#work"><span class="flair"></span><span data-i18n="home.hero.cta">View Case Studies</span></a>
     <div class="social-row">
       <a class="social-btn dribbble" href="https://dribbble.com/abdalladesign" target="_blank" rel="noopener" aria-label="Dribbble">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 100 20 10 10 0 000-20Zm6.6 4.6a8.4 8.4 0 011.9 5.1c-.3-.06-3-.6-5.7-.26-.06-.14-.1-.29-.17-.44-.17-.4-.35-.8-.54-1.18 3-1.24 4.4-3 4.48-3.2ZM12 3.6c1.9 0 3.6.68 4.96 1.8-.06.1-1.3 1.76-4.2 2.83A46.5 46.5 0 009.8 3.9 8.4 8.4 0 0112 3.6ZM8.1 4.5a44.3 44.3 0 012.94 4.24C7.9 9.5 5 9.5 4.7 9.5a8.44 8.44 0 013.4-5Zm-3.7 7.53v-.24c.3 0 3.75.05 7.03-1a17 17 0 01.4.83c-.1.03-.2.06-.28.09-3.4 1.1-5.2 4.1-5.35 4.36a8.36 8.36 0 01-1.8-4.04Zm7.6 6.87c-1.6 0-3.08-.5-4.3-1.36.12-.24 1.5-2.87 5.25-4.2.02 0 .03-.01.05-.02a35.7 35.7 0 011.87 6.9 8.4 8.4 0 01-2.87.68Zm4.28-1.34a37.4 37.4 0 00-1.7-6.28c2.5-.4 4.7.26 5 .35a8.44 8.44 0 01-3.3 5.93Z" fill="#fff"/></svg>
@@ -493,21 +494,21 @@ section{position:relative;}
   <div class="hero2-media">
     <div class="mock-glow" aria-hidden="true"></div>
     <div class="mock-frame rv" id="mockFrame">
-      <div class="mock-card" data-slot="back-left" data-href="cases/jalasoft.html" role="button" tabindex="0" aria-label="Bring Jalasoft to front">
-        <img src="Img/browser.png" alt="Jalasoft — brand and web redesign, shown in browser" loading="lazy">
+      <div class="mock-card" data-slot="back-left" data-href="cases/jalasoft.html" role="button" tabindex="0" aria-label="Bring Jalasoft to front" data-i18n-attr="aria-label:home.mock.jala.aria">
+        <img src="Img/browser.png" alt="Jalasoft — brand and web redesign, shown in browser" loading="lazy" data-i18n-attr="alt:home.mock.jala.alt">
       </div>
-      <div class="mock-card" data-slot="back-right" data-href="cases/quero-simulados.html" role="button" tabindex="0" aria-label="Bring Quero Simulados to front">
-        <img src="Img/browser-2.png" alt="Quero Simulados — exam practice platform, shown in browser" loading="lazy">
+      <div class="mock-card" data-slot="back-right" data-href="cases/quero-simulados.html" role="button" tabindex="0" aria-label="Bring Quero Simulados to front" data-i18n-attr="aria-label:home.mock.quero.aria">
+        <img src="Img/browser-2.png" alt="Quero Simulados — exam practice platform, shown in browser" loading="lazy" data-i18n-attr="alt:home.mock.quero.alt">
       </div>
-      <div class="mock-card" data-slot="front" data-href="cases/qconcursos.html" role="button" tabindex="0" aria-label="Open the Qconcursos case study">
-        <img src="Img/browser-1.png" alt="Qconcursos — platform homepage, shown in browser" loading="lazy">
+      <div class="mock-card" data-slot="front" data-href="cases/qconcursos.html" role="button" tabindex="0" aria-label="Open the Qconcursos case study" data-i18n-attr="aria-label:home.mock.qcon.aria">
+        <img src="Img/browser-1.png" alt="Qconcursos — platform homepage, shown in browser" loading="lazy" data-i18n-attr="alt:home.mock.qcon.alt">
       </div>
     </div>
     <div class="stat-row">
-      <div class="m-stat"><div class="num">600K→<i>10M+</i></div><div class="lab">Users on the platform</div></div>
-      <div class="m-stat"><div class="num">R$<i>208M</i></div><div class="lab">Acquisition by Yduqs Group</div></div>
-      <div class="m-stat"><div class="num"><i>43%</i></div><div class="lab">Faster onboarding, MBA</div></div>
-      <div class="m-stat"><div class="num">20<i>+</i></div><div class="lab">Years of experience</div></div>
+      <div class="m-stat"><div class="num">600K→<i>10M+</i></div><div class="lab" data-i18n="home.stat.users">Users on the platform</div></div>
+      <div class="m-stat"><div class="num">R$<i>208M</i></div><div class="lab" data-i18n="home.stat.acq">Acquisition by Yduqs Group</div></div>
+      <div class="m-stat"><div class="num"><i>43%</i></div><div class="lab" data-i18n="home.stat.onb">Faster onboarding, MBA</div></div>
+      <div class="m-stat"><div class="num">20<i>+</i></div><div class="lab" data-i18n="home.stat.exp">Years of experience</div></div>
     </div>
   </div>
 </section>
@@ -517,14 +518,14 @@ section{position:relative;}
   <div class="work-pin" id="workPin">
     <div class="sec-head work-head">
       <div>
-        <span class="sec-label" style="margin-bottom:18px;">Selected work</span>
-        <h2 class="sec-title">Results that made a <em>difference</em></h2>
+        <span class="sec-label" style="margin-bottom:18px;" data-i18n="home.work.label">Selected work</span>
+        <h2 class="sec-title" data-i18n-html="home.work.title">Results that made a <em>difference</em></h2>
       </div>
       <div class="work-controls">
-        <button class="work-arrow" id="workPrev" type="button" aria-label="Previous case">
+        <button class="work-arrow" id="workPrev" type="button" aria-label="Previous case" data-i18n-attr="aria-label:home.work.prev">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
         </button>
-        <button class="work-arrow" id="workNext" type="button" aria-label="Next case">
+        <button class="work-arrow" id="workNext" type="button" aria-label="Next case" data-i18n-attr="aria-label:home.work.next">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
         </button>
       </div>
@@ -535,57 +536,57 @@ section{position:relative;}
 
         <a class="work-item rv" href="cases/qconcursos-filter.html">
           <span class="work-media">
-            <img src="Img/cards%20home/card-filter.png" alt="QConcursos — cascading question filter, live product screenshot">
+            <img src="Img/cards%20home/card-filter.png" alt="QConcursos — cascading question filter, live product screenshot" data-i18n-attr="alt:home.card1.alt">
           </span>
           <span class="work-idx">/ 01</span>
-          <h3 class="work-name">The Filter Behind the Growth</h3>
-          <p class="work-desc">A 12-field cascading filter that turned a 605K-question database into a usable product — and a pricing call that quietly added R$27M a year.</p>
-          <div class="work-tags"><span>Edtech</span><span>Filtering UX</span><span>Pricing</span></div>
-          <span class="work-link">R$27M added, part of the R$208M acquisition <span class="work-link-arrow">→</span></span>
+          <h3 class="work-name" data-i18n="home.card1.name">The Filter Behind the Growth</h3>
+          <p class="work-desc" data-i18n="home.card1.desc">A 12-field cascading filter that turned a 605K-question database into a usable product — and a pricing call that quietly added R$27M a year.</p>
+          <div class="work-tags"><span data-i18n="home.card1.tag1">Edtech</span><span data-i18n="home.card1.tag2">Filtering UX</span><span data-i18n="home.card1.tag3">Pricing</span></div>
+          <span class="work-link"><span data-i18n="home.card1.link">R$27M added, part of the R$208M acquisition</span> <span class="work-link-arrow">→</span></span>
         </a>
 
         <a class="work-item rv" href="cases/jalasoft.html">
           <span class="work-media">
-            <img src="Img/cards%20home/card-jala.png" alt="Jalasoft — design system built from a brand guideline">
+            <img src="Img/cards%20home/card-jala.png" alt="Jalasoft — design system built from a brand guideline" data-i18n-attr="alt:home.card2.alt">
           </span>
           <span class="work-idx">/ 02</span>
-          <h3 class="work-name">Jalasoft Design System</h3>
-          <p class="work-desc">Building a design system from a brand guideline, then scaling it across a company of over a thousand people.</p>
-          <div class="work-tags"><span>Enterprise</span><span>Design System</span><span>Brand &amp; Web</span></div>
-          <span class="work-link">Scaled across 1,000+ people <span class="work-link-arrow">→</span></span>
+          <h3 class="work-name" data-i18n="home.card2.name">Jalasoft Design System</h3>
+          <p class="work-desc" data-i18n="home.card2.desc">Building a design system from a brand guideline, then scaling it across a company of over a thousand people.</p>
+          <div class="work-tags"><span data-i18n="home.card2.tag1">Enterprise</span><span data-i18n="home.card2.tag2">Design System</span><span data-i18n="home.card2.tag3">Brand &amp; Web</span></div>
+          <span class="work-link"><span data-i18n="home.card2.link">Scaled across 1,000+ people</span> <span class="work-link-arrow">→</span></span>
         </a>
 
         <a class="work-item rv" href="cases/valt.html">
           <span class="work-media">
-            <img src="Img/cards%20home/Valt.png" alt="Valt Network — product design">
+            <img src="Img/cards%20home/Valt.png" alt="Valt Network — product design" data-i18n-attr="alt:home.card3.alt">
           </span>
           <span class="work-idx">/ 03</span>
-          <h3 class="work-name">Valt Network</h3>
-          <p class="work-desc">Designing the professional layer for private-market investors and high-growth companies.</p>
-          <div class="work-tags"><span>Fintech</span><span>Social Product</span><span>0 → 1</span></div>
-          <span class="work-link">Live product · 12-month build <span class="work-link-arrow">→</span></span>
+          <h3 class="work-name" data-i18n="home.card3.name">Valt Network</h3>
+          <p class="work-desc" data-i18n="home.card3.desc">Designing the professional layer for private-market investors and high-growth companies.</p>
+          <div class="work-tags"><span data-i18n="home.card3.tag1">Fintech</span><span data-i18n="home.card3.tag2">Social Product</span><span data-i18n="home.card3.tag3">0 → 1</span></div>
+          <span class="work-link"><span data-i18n="home.card3.link">Live product · 12-month build</span> <span class="work-link-arrow">→</span></span>
         </a>
 
         <a class="work-item rv" href="cases/mba.html">
           <span class="work-media">
-            <img src="Img/cards%20home/card-mba.png" alt="My Benefits Advice — personalized plan-recommendation flow">
+            <img src="Img/cards%20home/card-mba.png" alt="My Benefits Advice — personalized plan-recommendation flow" data-i18n-attr="alt:home.card4.alt">
           </span>
           <span class="work-idx">/ 04</span>
-          <h3 class="work-name">My Benefits Advice</h3>
-          <p class="work-desc">Health benefits platform with a personalized plan-recommendation engine for employees.</p>
-          <div class="work-tags"><span>Enterprise</span><span>Onboarding</span><span>Fintech</span></div>
-          <span class="work-link">43% faster onboarding <span class="work-link-arrow">→</span></span>
+          <h3 class="work-name" data-i18n="home.card4.name">My Benefits Advice</h3>
+          <p class="work-desc" data-i18n="home.card4.desc">Health benefits platform with a personalized plan-recommendation engine for employees.</p>
+          <div class="work-tags"><span data-i18n="home.card4.tag1">Enterprise</span><span data-i18n="home.card4.tag2">Onboarding</span><span data-i18n="home.card4.tag3">Fintech</span></div>
+          <span class="work-link"><span data-i18n="home.card4.link">43% faster onboarding</span> <span class="work-link-arrow">→</span></span>
         </a>
 
         <a class="work-item rv" href="cases/qconcursos.html">
           <span class="work-media">
-            <img src="Img/cards%20home/card-Qcon.png" alt="Qconcursos — platform redesign">
+            <img src="Img/cards%20home/card-Qcon.png" alt="Qconcursos — platform redesign" data-i18n-attr="alt:home.card5.alt">
           </span>
           <span class="work-idx">/ 05</span>
-          <h3 class="work-name">Qconcursos</h3>
-          <p class="work-desc">From 600K to 10M — designing for scale at Brazil's largest exam-prep edtech.</p>
-          <div class="work-tags"><span>Edtech</span><span>8M+ Users</span><span>Team Lead</span></div>
-          <span class="work-link">600K → 10M+ users on the platform <span class="work-link-arrow">→</span></span>
+          <h3 class="work-name" data-i18n="home.card5.name">Qconcursos</h3>
+          <p class="work-desc" data-i18n="home.card5.desc">From 600K to 10M — designing for scale at Brazil's largest exam-prep edtech.</p>
+          <div class="work-tags"><span data-i18n="home.card5.tag1">Edtech</span><span data-i18n="home.card5.tag2">8M+ Users</span><span data-i18n="home.card5.tag3">Team Lead</span></div>
+          <span class="work-link"><span data-i18n="home.card5.link">600K → 10M+ users on the platform</span> <span class="work-link-arrow">→</span></span>
         </a>
 
       </div>
@@ -604,8 +605,8 @@ section{position:relative;}
   <section class="testi sec-pad" id="testimonials">
     <div class="sec-head">
       <div>
-        <span class="sec-label" style="margin-bottom:18px;">Testimonials</span>
-        <h2 class="sec-title">What people <em>are saying</em></h2>
+        <span class="sec-label" style="margin-bottom:18px;" data-i18n="home.testi.label">Testimonials</span>
+        <h2 class="sec-title" data-i18n-html="home.testi.title">What people <em>are saying</em></h2>
       </div>
     </div>
 
@@ -616,9 +617,9 @@ section{position:relative;}
 
       <div class="testi-author-row">
         <div class="testi-avatars" id="testiAvatars">
-          <button class="testi-avatar is-active" type="button" data-index="0" aria-pressed="true" aria-label="Show testimonial from Orlando Campos" style="background-image:url('Img/testimonials/orlando-campos.png');"></button>
-          <button class="testi-avatar" type="button" data-index="1" aria-pressed="false" aria-label="Show testimonial from Bernard de Luna" style="background-image:url('Img/testimonials/bernard-de-luna.png');"></button>
-          <button class="testi-avatar" type="button" data-index="2" aria-pressed="false" aria-label="Show testimonial from Mauricio Salazar" style="background-image:url('Img/testimonials/mauricio-salazar.png');"></button>
+          <button class="testi-avatar is-active" type="button" data-index="0" aria-pressed="true" aria-label="Show testimonial from Orlando Campos" data-i18n-attr="aria-label:home.testi.0.aria" style="background-image:url('Img/testimonials/orlando-campos.png');"></button>
+          <button class="testi-avatar" type="button" data-index="1" aria-pressed="false" aria-label="Show testimonial from Bernard de Luna" data-i18n-attr="aria-label:home.testi.1.aria" style="background-image:url('Img/testimonials/bernard-de-luna.png');"></button>
+          <button class="testi-avatar" type="button" data-index="2" aria-pressed="false" aria-label="Show testimonial from Mauricio Salazar" data-i18n-attr="aria-label:home.testi.2.aria" style="background-image:url('Img/testimonials/mauricio-salazar.png');"></button>
         </div>
         <span class="testi-divider" aria-hidden="true"></span>
         <div class="testi-meta" id="testiMeta">
@@ -631,10 +632,10 @@ section{position:relative;}
 
   <!-- ════════ CLOSING CTA ════════ -->
   <section class="closing sec-pad" id="contact">
-    <p class="closing-kicker rv">No contracts. No queues. Just great design.</p>
-    <h2 class="closing-title rv">Ready to have a designer <em>who truly gets it?</em></h2>
-    <a class="btn-main rv" href="https://wa.me/5561993734553?text=Hi%20Jo%C3%A3o%2C%20I%20want%20to%20talk%20about%20my%20product." target="_blank" rel="noopener">
-      <span class="flair"></span><span>Start a conversation →</span>
+    <p class="closing-kicker rv" data-i18n="home.closing.kicker">No contracts. No queues. Just great design.</p>
+    <h2 class="closing-title rv" data-i18n-html="home.closing.title">Ready to have a designer <em>who truly gets it?</em></h2>
+    <a class="btn-main rv" href="https://wa.me/5561993734553?text=Hi%20Jo%C3%A3o%2C%20I%20want%20to%20talk%20about%20my%20product." target="_blank" rel="noopener" data-i18n-attr="href:home.closing.waHref">
+      <span class="flair"></span><span data-i18n="home.closing.cta">Start a conversation →</span>
     </a>
   </section>
 </div>
@@ -643,7 +644,7 @@ section{position:relative;}
 
 <footer>
   <div class="foot-bottom">
-    <span>© 2026 João Abdalla. All rights reserved.</span>
+    <span data-i18n="common.footer.rights">© 2026 João Abdalla. All rights reserved.</span>
     <span>PT · EN · ES</span>
   </div>
 </footer>
@@ -1099,23 +1100,35 @@ section{position:relative;}
 
   /* testimonials — click an avatar to bring it forward and swap the quote */
   (function () {
+    /* names are the same in every language; quote + role come from i18n.js
+       (with an English fallback if the i18n script fails to load) */
     var data = [
       {
+        key: "home.testi.0",
         quote: "João doesn’t just design, he raises the bar for everyone. As our UX and Figma educator, he’s trained dozens of LATAM engineers who now think in product.",
         name: "Orlando Campos",
         role: "Academic Coordinator at Jala University"
       },
       {
+        key: "home.testi.1",
         quote: "João’s redesign of our course page raised the bar for the whole product. Rigorous work that scaled to millions of users without missing a beat.",
         name: "Bernard de Luna",
         role: "Product Director at Qconcursos"
       },
       {
+        key: "home.testi.2",
         quote: "João built our design system from a brand guideline into a component library over a thousand people now build with daily.",
         name: "Mauricio Salazar",
         role: "Development Engineer at Jalasoft"
       }
     ];
+
+    function quoteFor(i) {
+      return (window.I18N && window.I18N.t(data[i].key + ".quote")) || data[i].quote;
+    }
+    function roleFor(i) {
+      return (window.I18N && window.I18N.t(data[i].key + ".role")) || data[i].role;
+    }
 
     var avatars = document.getElementById("testiAvatars");
     var quoteEl = document.getElementById("testiQuote");
@@ -1137,10 +1150,9 @@ section{position:relative;}
     }
 
     function applyContent(index) {
-      var item = data[index];
-      quoteEl.textContent = item.quote;
-      nameEl.textContent = item.name;
-      roleEl.textContent = item.role;
+      quoteEl.textContent = quoteFor(index);
+      nameEl.textContent = data[index].name;
+      roleEl.textContent = roleFor(index);
     }
 
     function goTo(index) {
@@ -1163,6 +1175,12 @@ section{position:relative;}
         goTo(parseInt(btn.getAttribute("data-index"), 10));
       });
     });
+
+    /* render in the active language on load, and re-render when it changes */
+    applyContent(current);
+    if (window.I18N && window.I18N.onChange) {
+      window.I18N.onChange(function () { applyContent(current); });
+    }
   })();
 })();
 </script>
