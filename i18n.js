@@ -491,18 +491,33 @@
     (document.head || root).appendChild(cloak);
   }
 
-  /* CSS do switcher — injetado uma vez, usa os tokens do site com fallback. */
+  /* CSS do switcher — pill colapsado (só o idioma atual + seta); ao abrir,
+     os outros idiomas deslizam para a esquerda. Usa os tokens do site com
+     fallback para o tema escuro. */
   var sw = document.createElement("style");
   sw.textContent =
-    ".lang-switch{display:inline-flex;align-items:center;gap:8px;flex:0 0 auto}" +
-    ".lang-switch-btn{font-family:var(--sans,'Urbanist',sans-serif);font-size:12px;" +
+    ".lang-switch{position:relative;display:inline-flex;align-items:center;flex:0 0 auto;" +
+    "font-family:var(--sans,'Urbanist',sans-serif)}" +
+    ".lang-switch-current{display:inline-flex;align-items:center;gap:6px;font-size:12px;" +
     "font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:1;" +
-    "padding:4px 2px;color:var(--dim,#5E676D);transition:color .2s ease}" +
-    ".lang-switch-btn:hover{color:var(--white,#F4F6F3)}" +
-    ".lang-switch-btn.is-active{color:var(--white,#F4F6F3);text-decoration:underline;" +
-    "text-underline-offset:5px;text-decoration-thickness:1px}" +
-    ".lang-switch>span{color:var(--line,#5E676D);font-size:10px}" +
-    "@media (max-width:560px){.lang-switch{gap:6px}.lang-switch-btn{font-size:11px}}";
+    "color:var(--white,#F4F6F3);padding:6px 2px}" +
+    ".lang-switch-caret{display:block;width:9px;height:6px;opacity:.55;" +
+    "transition:transform .25s ease}" +
+    ".lang-switch.is-open .lang-switch-caret{transform:rotate(180deg)}" +
+    ".lang-switch-menu{position:absolute;right:calc(100% + 12px);top:50%;" +
+    "transform:translateY(-50%) translateX(8px);display:flex;align-items:center;gap:14px;" +
+    "opacity:0;pointer-events:none;transition:opacity .18s ease,transform .18s ease}" +
+    ".lang-switch.is-open .lang-switch-menu{opacity:1;pointer-events:auto;" +
+    "transform:translateY(-50%) translateX(0)}" +
+    ".lang-switch-menu button{font:inherit;font-size:12px;font-weight:700;letter-spacing:.12em;" +
+    "text-transform:uppercase;line-height:1;color:var(--dim,#5E676D);padding:6px 2px;" +
+    "white-space:nowrap;transition:color .18s ease}" +
+    ".lang-switch-menu button:hover{color:var(--white,#F4F6F3)}" +
+    "@media (max-width:560px){" +
+    ".lang-switch-menu{position:static;transform:none;opacity:1;pointer-events:auto;" +
+    "right:auto;margin-right:12px;gap:10px}" +
+    ".lang-switch.is-open .lang-switch-menu{transform:none}" +
+    ".lang-switch-caret{display:none}}";
   (document.head || root).appendChild(sw);
 
   function removeCloak() {
@@ -517,6 +532,7 @@
   }
 
   var changeCbs = [];
+  var switcherEls = null;
 
   function applySwaps() {
     root.lang = htmlLang(current);
@@ -549,7 +565,7 @@
       if (m && mv) m.setAttribute("content", mv);
     }
 
-    updateSwitcher();
+    renderSwitcher();
     changeCbs.forEach(function (cb) { try { cb(current); } catch (e) {} });
   }
 
@@ -568,35 +584,75 @@
   function buildSwitcher() {
     var host = document.querySelector(".nav-inner");
     if (!host || host.querySelector(".lang-switch")) return;
+
     var wrap = document.createElement("div");
     wrap.className = "lang-switch";
-    wrap.setAttribute("role", "group");
-    wrap.setAttribute("aria-label", "Language / Idioma");
-    LANGS.forEach(function (l, idx) {
-      if (idx) {
-        var sep = document.createElement("span");
-        sep.setAttribute("aria-hidden", "true");
-        sep.textContent = "·";
-        wrap.appendChild(sep);
-      }
-      var b = document.createElement("button");
-      b.type = "button";
-      b.className = "lang-switch-btn";
-      b.setAttribute("data-lang", l);
-      b.textContent = l.toUpperCase();
-      b.addEventListener("click", function () { setLang(l); });
-      wrap.appendChild(b);
-    });
+
+    var menu = document.createElement("div");
+    menu.className = "lang-switch-menu";
+
+    var currentBtn = document.createElement("button");
+    currentBtn.type = "button";
+    currentBtn.className = "lang-switch-current";
+    currentBtn.setAttribute("aria-haspopup", "true");
+    currentBtn.setAttribute("aria-expanded", "false");
+    currentBtn.setAttribute("aria-label", "Change language / Mudar idioma");
+    currentBtn.innerHTML =
+      '<span class="lang-switch-code"></span>' +
+      '<svg class="lang-switch-caret" viewBox="0 0 10 6" fill="none" aria-hidden="true">' +
+      '<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" ' +
+      'stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+    wrap.appendChild(menu);
+    wrap.appendChild(currentBtn);
     host.appendChild(wrap);
+
+    function close() {
+      wrap.classList.remove("is-open");
+      currentBtn.setAttribute("aria-expanded", "false");
+      document.removeEventListener("click", onDoc, true);
+      document.removeEventListener("keydown", onKey, true);
+    }
+    function open() {
+      wrap.classList.add("is-open");
+      currentBtn.setAttribute("aria-expanded", "true");
+      document.addEventListener("click", onDoc, true);
+      document.addEventListener("keydown", onKey, true);
+    }
+    function onDoc(e) { if (!wrap.contains(e.target)) close(); }
+    function onKey(e) { if (e.key === "Escape") { close(); currentBtn.focus(); } }
+
+    currentBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (wrap.classList.contains("is-open")) close(); else open();
+    });
+
+    switcherEls = {
+      menu: menu,
+      code: currentBtn.querySelector(".lang-switch-code"),
+      close: close
+    };
+    renderSwitcher();
   }
 
-  function updateSwitcher() {
-    var btns = document.querySelectorAll(".lang-switch-btn");
-    for (var i = 0; i < btns.length; i++) {
-      var on = btns[i].getAttribute("data-lang") === current;
-      btns[i].classList.toggle("is-active", on);
-      btns[i].setAttribute("aria-current", on ? "true" : "false");
-    }
+  /* mostra o idioma atual no pill; o menu lista só os outros dois */
+  function renderSwitcher() {
+    if (!switcherEls) return;
+    switcherEls.code.textContent = current.toUpperCase();
+    switcherEls.menu.innerHTML = "";
+    LANGS.forEach(function (l) {
+      if (l === current) return;
+      var b = document.createElement("button");
+      b.type = "button";
+      b.setAttribute("data-lang", l);
+      b.textContent = l.toUpperCase();
+      b.addEventListener("click", function (e) {
+        e.stopPropagation();
+        switcherEls.close();
+        setLang(l);
+      });
+      switcherEls.menu.appendChild(b);
+    });
   }
 
   /* API pública — páginas podem ler o idioma atual e reagir à troca. */
@@ -611,7 +667,7 @@
   function init() {
     buildSwitcher();
     if (current !== DEFAULT) applySwaps();
-    else { updateSwitcher(); changeCbs.forEach(function (cb) { try { cb(current); } catch (e) {} }); }
+    else { renderSwitcher(); changeCbs.forEach(function (cb) { try { cb(current); } catch (e) {} }); }
     removeCloak();
   }
 
