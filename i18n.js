@@ -61,10 +61,13 @@
       pt: "Designer que constrói e opera sistemas de IA para o processo de design. Remoto do Brasil, trabalhando com times dos EUA e da Europa.",
       es: "Diseñador que construye y opera sistemas de IA para el proceso de diseño. Remoto desde Brasil, trabajando con equipos de EE. UU. y Europa."
     },
+    /* Título do hero fica em inglês em todos os idiomas: a versão traduzida
+       quebra em 3 linhas e fica ruim. "Senior Product Designer" já funciona
+       como marca/cargo internacional. */
     "home.hero.title": {
       en: 'Senior Product Designer <span class="sep">•</span> UX UI',
-      pt: 'Designer de Produto Sênior <span class="sep">•</span> UX UI',
-      es: 'Diseñador de Producto Senior <span class="sep">•</span> UX UI'
+      pt: 'Senior Product Designer <span class="sep">•</span> UX UI',
+      es: 'Senior Product Designer <span class="sep">•</span> UX UI'
     },
     "home.hero.sub": {
       en: "Designer who builds and operates AI systems for the design process.",
