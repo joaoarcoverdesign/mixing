@@ -326,6 +326,136 @@
       en: "https://wa.me/5561993734553?text=Hi%20Jo%C3%A3o%2C%20I%20want%20to%20talk%20about%20my%20product.",
       pt: "https://wa.me/5561993734553?text=Oi%20Jo%C3%A3o%2C%20quero%20falar%20sobre%20o%20meu%20produto.",
       es: "https://wa.me/5561993734553?text=Hola%20Jo%C3%A3o%2C%20quiero%20hablar%20sobre%20mi%20producto."
+    },
+
+    /* ─────────── SOBRE (about.html) ─────────── */
+    "about.meta.title": {
+      en: "About — João Abdalla — Senior Product Designer · UX/UI",
+      pt: "Sobre — João Abdalla — Designer de Produto Sênior · UX/UI",
+      es: "Acerca — João Abdalla — Diseñador de Producto Senior · UX/UI"
+    },
+    "about.meta.description": {
+      en: "Senior Product Designer with 20+ years shipping digital products across edtech, fintech, and enterprise SaaS. Based in Brazil, working remotely with US and EU teams.",
+      pt: "Designer de Produto Sênior com mais de 20 anos entregando produtos digitais em edtech, fintech e SaaS corporativo. Baseado no Brasil, trabalhando remotamente com times dos EUA e da Europa.",
+      es: "Diseñador de Producto Senior con más de 20 años entregando productos digitales en edtech, fintech y SaaS corporativo. Radicado en Brasil, trabajando en remoto con equipos de EE. UU. y Europa."
+    },
+    "about.hero.label": { en: "About", pt: "Sobre", es: "Acerca" },
+    "about.hero.title": {
+      en: 'Senior Product Designer with <i>20+ years</i> shipping digital products across edtech, fintech, and enterprise SaaS.',
+      pt: 'Designer de Produto Sênior com <i>mais de 20 anos</i> entregando produtos digitais em edtech, fintech e SaaS corporativo.',
+      es: 'Diseñador de Producto Senior con <i>más de 20 años</i> entregando productos digitales en edtech, fintech y SaaS corporativo.'
+    },
+    "about.hero.lede": {
+      en: "I'm João Abdalla — based in Brazil, working remotely with international teams.",
+      pt: "Sou o João Abdalla — baseado no Brasil, trabalhando remotamente com times internacionais.",
+      es: "Soy João Abdalla — radicado en Brasil, trabajando en remoto con equipos internacionales."
+    },
+    "about.hero.status": {
+      en: "Available for remote collaboration",
+      pt: "Disponível para colaboração remota",
+      es: "Disponible para colaboración remota"
+    },
+    "about.hero.loc": {
+      en: 'Based in <b>Brasília, Brazil</b> · <b>US &amp; EU</b> teams',
+      pt: 'Baseado em <b>Brasília, Brasil</b> · times dos <b>EUA e da Europa</b>',
+      es: 'Radicado en <b>Brasilia, Brasil</b> · equipos de <b>EE. UU. y Europa</b>'
+    },
+    "about.badge.a.num": {
+      en: 'Since <i>2005</i>', pt: 'Desde <i>2005</i>', es: 'Desde <i>2005</i>'
+    },
+    "about.badge.a.lab": {
+      en: "Marketing & digital design",
+      pt: "Marketing e design digital",
+      es: "Marketing y diseño digital"
+    },
+    "about.badge.b.num": {
+      en: '<i>8M+</i> users', pt: '<i>8M+</i> usuários', es: '<i>8M+</i> usuarios'
+    },
+    "about.badge.b.lab": {
+      en: "Platform led at scale",
+      pt: "Plataforma liderada em escala",
+      es: "Plataforma liderada a escala"
+    },
+    "about.portrait.caption": {
+      en: '🎓 Teaching UX/UI &amp; Figma at <b>Jala University</b>',
+      pt: '🎓 Ensino UX/UI e Figma na <b>Jala University</b>',
+      es: '🎓 Enseño UX/UI y Figma en <b>Jala University</b>'
+    },
+    "about.stat.1": {
+      en: "Years across UX/UI, product strategy & front-end",
+      pt: "Anos entre UX/UI, estratégia de produto e front-end",
+      es: "Años entre UX/UI, estrategia de producto y front-end"
+    },
+    "about.stat.2": {
+      en: "Active users on Brazil's largest exam-prep platform",
+      pt: "Usuários ativos na maior plataforma de preparação para concursos do Brasil",
+      es: "Usuarios activos en la mayor plataforma de preparación para oposiciones de Brasil"
+    },
+    "about.stat.3": {
+      en: "Multi-role enterprise systems built from zero",
+      pt: "Sistemas corporativos multiperfil construídos do zero",
+      es: "Sistemas corporativos multiperfil construidos desde cero"
+    },
+    "about.stat.4": {
+      en: "Designers & engineers trained at Jala University",
+      pt: "Designers e engenheiros treinados na Jala University",
+      es: "Diseñadores e ingenieros formados en Jala University"
+    },
+    "about.story.label": {
+      en: "The long version", pt: "A versão longa", es: "La versión larga"
+    },
+    "about.story.title": {
+      en: 'How I got <em>here</em>',
+      pt: 'Como cheguei <em>até aqui</em>',
+      es: 'Cómo llegué <em>hasta aquí</em>'
+    },
+    "about.ch1.name": { en: "Foundation", pt: "Base", es: "Base" },
+    "about.ch1.text": {
+      en: "I graduated in <b>2005</b> with a specialization in marketing and digital design, and over the past 20+ years I've worked across <b>UX/UI, product strategy, and front-end development</b> — designing products where the stakes are real: compliance, payroll, healthcare decisions, financial data.",
+      pt: "Me formei em <b>2005</b> com especialização em marketing e design digital e, nos últimos 20+ anos, trabalhei entre <b>UX/UI, estratégia de produto e desenvolvimento front-end</b> — desenhando produtos em que o risco é real: compliance, folha de pagamento, decisões de saúde, dados financeiros.",
+      es: "Me gradué en <b>2005</b> con una especialización en marketing y diseño digital y, durante los últimos 20+ años, he trabajado entre <b>UX/UI, estrategia de producto y desarrollo front-end</b> — diseñando productos donde lo que está en juego es real: compliance, nóminas, decisiones de salud, datos financieros."
+    },
+    "about.ch2.name": { en: "Scale", pt: "Escala", es: "Escala" },
+    "about.ch2.text": {
+      en: "I've led design for Brazil's largest exam-prep platform, with <b>8M+ active users</b>, built multi-role enterprise systems from zero, and shipped products for US-based SaaS teams as a remote contractor. I also teach UX/UI and Figma at <b>Jala University</b>, training the next generation of LATAM designers and engineers.",
+      pt: "Liderei o design da maior plataforma de preparação para concursos do Brasil, com <b>mais de 8M de usuários ativos</b>, construí sistemas corporativos multiperfil do zero e entreguei produtos para times de SaaS nos EUA como contratado remoto. Também ensino UX/UI e Figma na <b>Jala University</b>, formando a próxima geração de designers e engenheiros da América Latina.",
+      es: "Lideré el diseño de la mayor plataforma de preparación para oposiciones de Brasil, con <b>más de 8M de usuarios activos</b>, construí sistemas corporativos multiperfil desde cero y entregué productos para equipos de SaaS en EE. UU. como contratista remoto. También enseño UX/UI y Figma en <b>Jala University</b>, formando a la próxima generación de diseñadores e ingenieros de Latinoamérica."
+    },
+    "about.quote": {
+      en: "I care about <em>the system underneath the screen</em> as much as the screen itself — because the best interface in the world doesn't help if the structure behind it is broken.",
+      pt: "Eu me importo com <em>o sistema por baixo da tela</em> tanto quanto com a tela em si — porque a melhor interface do mundo não adianta se a estrutura por trás dela está quebrada.",
+      es: "Me importa <em>el sistema que hay debajo de la pantalla</em> tanto como la pantalla en sí — porque la mejor interfaz del mundo no sirve si la estructura que hay detrás está rota."
+    },
+    "about.contact.label": { en: "Contact", pt: "Contato", es: "Contacto" },
+    "about.contact.title": {
+      en: "Let's build something <em>that matters</em>",
+      pt: 'Vamos construir algo <em>que importa</em>',
+      es: 'Construyamos algo <em>que importe</em>'
+    },
+    "about.contact.p1": {
+      en: "Got a product or feature to design? Need a Senior Product Designer to plug into your team?",
+      pt: "Tem um produto ou funcionalidade para desenhar? Precisa de um Designer de Produto Sênior para entrar no seu time?",
+      es: "¿Tienes un producto o una funcionalidad para diseñar? ¿Necesitas un Diseñador de Producto Senior que se sume a tu equipo?"
+    },
+    "about.contact.p2": {
+      en: "I'm available for remote collaboration as an independent contractor (UX/UI, Product Design).",
+      pt: "Estou disponível para colaboração remota como contratado independente (UX/UI, Design de Produto).",
+      es: "Estoy disponible para colaboración remota como contratista independiente (UX/UI, Diseño de Producto)."
+    },
+    "about.contact.fact1": {
+      en: '<b>Based in</b> Brasília, Brazil',
+      pt: '<b>Baseado em</b> Brasília, Brasil',
+      es: '<b>Radicado en</b> Brasilia, Brasil'
+    },
+    "about.contact.fact2": {
+      en: 'Working with <b>US &amp; EU</b> time zones, async and in real time — invoicing in <b>USD</b>.',
+      pt: 'Trabalhando nos fusos dos <b>EUA e da Europa</b>, de forma assíncrona e em tempo real — faturando em <b>USD</b>.',
+      es: 'Trabajando en las zonas horarias de <b>EE. UU. y Europa</b>, en asíncrono y en tiempo real — facturando en <b>USD</b>.'
+    },
+    "about.contact.cta": {
+      en: "Connect with me on LinkedIn →",
+      pt: "Conecte-se comigo no LinkedIn →",
+      es: "Conéctate conmigo en LinkedIn →"
     }
   };
 
