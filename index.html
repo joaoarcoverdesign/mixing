@@ -191,25 +191,6 @@ nav.is-hidden{transform:translateY(-110%);}
   .mock-card{transition:none;}
 }
 
-/* stat row — same component pattern as the v5 manifesto stats */
-.stat-row{
-  position:relative;z-index:5;
-  left:50%;right:50%;
-  width:100vw;margin-left:-50vw;margin-right:-50vw;
-  display:flex;justify-content:center;align-items:center;gap:clamp(32px,7vw,90px);flex-wrap:wrap;
-  background:var(--bg);
-  margin-top:clamp(-100px,-7vw,-40px);
-  padding:clamp(40px,6vh,70px) var(--px);
-}
-.m-stat .num{
-  font-weight:800;font-size:clamp(30px,3.6vw,44px);letter-spacing:-.03em;line-height:1;
-  color:var(--white);
-}
-.m-stat .num i{color:var(--accent);font-style:normal;}
-.m-stat .lab{margin-top:8px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
-@media (max-width:640px){
-  .stat-row{flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:26px;}
-}
 
 /* ════════ SECTIONS COMMON (v5 pattern) ════════ */
 section{position:relative;}
@@ -234,7 +215,11 @@ section{position:relative;}
 }
 
 /* ════════ WORK — pinned horizontal scroll (v5 pattern) ════════ */
-.work{background:var(--bg-deep);}
+.work{
+  background:var(--bg-deep);
+  position:relative;z-index:2;
+  margin-top:clamp(40px,7vh,90px);
+}
 .work-pin{
   position:sticky;top:0;height:100vh;
   display:flex;flex-direction:column;justify-content:center;
@@ -503,12 +488,6 @@ section{position:relative;}
       <div class="mock-card" data-slot="front" data-href="cases/qconcursos.html" role="button" tabindex="0" aria-label="Open the Qconcursos case study" data-i18n-attr="aria-label:home.mock.qcon.aria">
         <img src="Img/browser-1.png" alt="Qconcursos — platform homepage, shown in browser" loading="lazy" data-i18n-attr="alt:home.mock.qcon.alt">
       </div>
-    </div>
-    <div class="stat-row">
-      <div class="m-stat"><div class="num">600K→<i>10M+</i></div><div class="lab" data-i18n="home.stat.users">Users on the platform</div></div>
-      <div class="m-stat"><div class="num">R$<i>208M</i></div><div class="lab" data-i18n="home.stat.acq">Acquisition by Yduqs Group</div></div>
-      <div class="m-stat"><div class="num"><i>43%</i></div><div class="lab" data-i18n="home.stat.onb">Faster onboarding, MBA</div></div>
-      <div class="m-stat"><div class="num">20<i>+</i></div><div class="lab" data-i18n="home.stat.exp">Years of experience</div></div>
     </div>
   </div>
 </section>
