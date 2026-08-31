@@ -491,33 +491,28 @@
     (document.head || root).appendChild(cloak);
   }
 
-  /* CSS do switcher — pill colapsado (só o idioma atual + seta); ao abrir,
-     os outros idiomas deslizam para a esquerda. Usa os tokens do site com
-     fallback para o tema escuro. */
+  /* CSS do switcher — pill colapsado (só o idioma atual + seta) agrupado com os
+     links da nav; ao abrir, os outros idiomas expandem para a esquerda em fluxo
+     (empurram o conteúdo, sem sobrepor). Tokens do site com fallback escuro. */
   var sw = document.createElement("style");
   sw.textContent =
+    ".lang-switch-li{list-style:none}" +
     ".lang-switch{position:relative;display:inline-flex;align-items:center;flex:0 0 auto;" +
     "font-family:var(--sans,'Urbanist',sans-serif)}" +
     ".lang-switch-current{display:inline-flex;align-items:center;gap:6px;font-size:12px;" +
     "font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:1;" +
-    "color:var(--white,#F4F6F3);padding:6px 2px}" +
+    "color:var(--white,#F4F6F3);padding:6px 2px;flex:0 0 auto}" +
     ".lang-switch-caret{display:block;width:9px;height:6px;opacity:.55;" +
     "transition:transform .25s ease}" +
     ".lang-switch.is-open .lang-switch-caret{transform:rotate(180deg)}" +
-    ".lang-switch-menu{position:absolute;right:calc(100% + 12px);top:50%;" +
-    "transform:translateY(-50%) translateX(8px);display:flex;align-items:center;gap:14px;" +
-    "opacity:0;pointer-events:none;transition:opacity .18s ease,transform .18s ease}" +
-    ".lang-switch.is-open .lang-switch-menu{opacity:1;pointer-events:auto;" +
-    "transform:translateY(-50%) translateX(0)}" +
+    ".lang-switch-menu{display:flex;align-items:center;gap:14px;overflow:hidden;" +
+    "max-width:0;opacity:0;padding-right:0;" +
+    "transition:max-width .24s ease,opacity .18s ease,padding-right .24s ease}" +
+    ".lang-switch.is-open .lang-switch-menu{max-width:160px;opacity:1;padding-right:14px}" +
     ".lang-switch-menu button{font:inherit;font-size:12px;font-weight:700;letter-spacing:.12em;" +
     "text-transform:uppercase;line-height:1;color:var(--dim,#5E676D);padding:6px 2px;" +
     "white-space:nowrap;transition:color .18s ease}" +
-    ".lang-switch-menu button:hover{color:var(--white,#F4F6F3)}" +
-    "@media (max-width:560px){" +
-    ".lang-switch-menu{position:static;transform:none;opacity:1;pointer-events:auto;" +
-    "right:auto;margin-right:12px;gap:10px}" +
-    ".lang-switch.is-open .lang-switch-menu{transform:none}" +
-    ".lang-switch-caret{display:none}}";
+    ".lang-switch-menu button:hover{color:var(--white,#F4F6F3)}";
   (document.head || root).appendChild(sw);
 
   function removeCloak() {
@@ -582,7 +577,8 @@
   }
 
   function buildSwitcher() {
-    var host = document.querySelector(".nav-inner");
+    var navLinks = document.querySelector(".nav-links");
+    var host = navLinks || document.querySelector(".nav-inner");
     if (!host || host.querySelector(".lang-switch")) return;
 
     var wrap = document.createElement("div");
@@ -605,7 +601,14 @@
 
     wrap.appendChild(menu);
     wrap.appendChild(currentBtn);
-    host.appendChild(wrap);
+    if (navLinks) {
+      var li = document.createElement("li");
+      li.className = "lang-switch-li";
+      li.appendChild(wrap);
+      host.appendChild(li);
+    } else {
+      host.appendChild(wrap);
+    }
 
     function close() {
       wrap.classList.remove("is-open");
