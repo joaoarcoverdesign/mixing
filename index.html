@@ -257,13 +257,12 @@ section{position:relative;}
 .work-item > *{flex-shrink:0;}
 .work-media{
   position:relative;overflow:hidden;border-radius:4px;display:block;
-  aspect-ratio:1440/820;flex:0 0 auto;width:100%;max-height:clamp(170px,30vh,420px);
+  flex:0 0 auto;width:100%;
   background:var(--surface);margin-bottom:clamp(16px,2.4vh,28px);
 }
-.work-media img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s var(--ease);}
+.work-media img{width:100%;height:auto;display:block;}
 /* image stays flush to the card edges; the text content gets a left/right inset */
 .work-idx,.work-name,.work-desc,.work-tags,.work-link{padding-left:clamp(18px,2.4vw,34px);padding-right:clamp(18px,2.4vw,34px);}
-.work-item:hover .work-media img{transform:scale(1.06);}
 .work-idx{
   font-family:var(--serif);font-style:italic;font-size:15px;color:var(--accent);
   margin-bottom:4px;display:block;
@@ -625,7 +624,7 @@ section{position:relative;}
 <footer>
   <div class="foot-bottom">
     <span data-i18n="common.footer.rights">© 2026 João Abdalla. All rights reserved.</span>
-    <span>PT · EN · ES</span>
+    <span class="lang-switch-slot"></span>
   </div>
 </footer>
 

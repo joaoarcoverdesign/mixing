@@ -11,7 +11,9 @@
        data-i18n-attr="alt:chave|aria-label:outra"  → troca atributos
    • O <title> e a <meta name="description"> usam as chaves "<pagina>.meta.title"
      e "<pagina>.meta.description" — defina data-i18n-page no <html> ou <body>.
-   • O switcher EN · PT · ES é injetado automaticamente dentro de .nav-inner.
+   • O switcher EN · PT · ES é injetado automaticamente dentro de .nav-links
+     (ou .nav-inner) e em qualquer <span class="lang-switch-slot"></span>
+     (usado no rodapé).
 
    COMO EDITAR AS TRADUÇÕES
    • Tudo fica no objeto STRINGS abaixo. Cada chave tem { en, pt, es } lado a lado.
@@ -527,7 +529,7 @@
   }
 
   var changeCbs = [];
-  var switcherEls = null;
+  var switchers = [];
 
   function applySwaps() {
     root.lang = htmlLang(current);
@@ -576,11 +578,9 @@
     applySwaps();
   }
 
-  function buildSwitcher() {
-    var navLinks = document.querySelector(".nav-links");
-    var host = navLinks || document.querySelector(".nav-inner");
-    if (!host || host.querySelector(".lang-switch")) return;
-
+  /* cria uma instância do pill (usada na nav e no rodapé). mountFn recebe o
+     wrapper pronto e decide onde inseri-lo. */
+  function makeSwitcher(mountFn) {
     var wrap = document.createElement("div");
     wrap.className = "lang-switch";
 
@@ -601,14 +601,7 @@
 
     wrap.appendChild(menu);
     wrap.appendChild(currentBtn);
-    if (navLinks) {
-      var li = document.createElement("li");
-      li.className = "lang-switch-li";
-      li.appendChild(wrap);
-      host.appendChild(li);
-    } else {
-      host.appendChild(wrap);
-    }
+    mountFn(wrap);
 
     function close() {
       wrap.classList.remove("is-open");
@@ -630,31 +623,58 @@
       if (wrap.classList.contains("is-open")) close(); else open();
     });
 
-    switcherEls = {
+    switchers.push({
       menu: menu,
       code: currentBtn.querySelector(".lang-switch-code"),
       close: close
-    };
+    });
+  }
+
+  function buildSwitcher() {
+    /* nav — agrupado com os links */
+    var navLinks = document.querySelector(".nav-links");
+    var navHost = navLinks || document.querySelector(".nav-inner");
+    if (navHost && !navHost.querySelector(".lang-switch")) {
+      makeSwitcher(function (wrap) {
+        if (navLinks) {
+          var li = document.createElement("li");
+          li.className = "lang-switch-li";
+          li.appendChild(wrap);
+          navLinks.appendChild(li);
+        } else {
+          navHost.appendChild(wrap);
+        }
+      });
+    }
+
+    /* rodapé (e qualquer outro ponto marcado com .lang-switch-slot) */
+    document.querySelectorAll(".lang-switch-slot").forEach(function (slot) {
+      if (slot.querySelector(".lang-switch")) return;
+      makeSwitcher(function (wrap) { slot.appendChild(wrap); });
+    });
+
     renderSwitcher();
   }
 
   /* mostra o idioma atual no pill; o menu lista só os outros dois */
   function renderSwitcher() {
-    if (!switcherEls) return;
-    switcherEls.code.textContent = current.toUpperCase();
-    switcherEls.menu.innerHTML = "";
-    LANGS.forEach(function (l) {
-      if (l === current) return;
-      var b = document.createElement("button");
-      b.type = "button";
-      b.setAttribute("data-lang", l);
-      b.textContent = l.toUpperCase();
-      b.addEventListener("click", function (e) {
-        e.stopPropagation();
-        switcherEls.close();
-        setLang(l);
+    if (!switchers.length) return;
+    switchers.forEach(function (s) {
+      s.code.textContent = current.toUpperCase();
+      s.menu.innerHTML = "";
+      LANGS.forEach(function (l) {
+        if (l === current) return;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.setAttribute("data-lang", l);
+        b.textContent = l.toUpperCase();
+        b.addEventListener("click", function (e) {
+          e.stopPropagation();
+          s.close();
+          setLang(l);
+        });
+        s.menu.appendChild(b);
       });
-      switcherEls.menu.appendChild(b);
     });
   }
 
