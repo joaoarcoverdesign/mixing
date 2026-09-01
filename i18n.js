@@ -151,6 +151,7 @@
     },
     "home.work.prev": { en: "Previous case", pt: "Caso anterior", es: "Caso anterior" },
     "home.work.next": { en: "Next case", pt: "Próximo caso", es: "Caso siguiente" },
+    "home.work.viewCase": { en: "View case", pt: "Ver case", es: "Ver caso" },
 
     "home.card1.alt": {
       en: "QConcursos — cascading question filter, live product screenshot",
@@ -464,6 +465,18 @@
     }
   };
 
+  /* Strings específicas de uma página vêm em i18n/<pagina>.js, carregado ANTES
+     deste arquivo, que define window.I18N_PAGE_STRINGS. São mescladas aqui —
+     cada case study tem o seu, mantendo este arquivo enxuto. */
+  var PAGE_STRINGS = window.I18N_PAGE_STRINGS;
+  if (PAGE_STRINGS) {
+    for (var _k in PAGE_STRINGS) {
+      if (Object.prototype.hasOwnProperty.call(PAGE_STRINGS, _k)) {
+        STRINGS[_k] = PAGE_STRINGS[_k];
+      }
+    }
+  }
+
   /* ═════════════════════════ RUNTIME ═════════════════════════ */
 
   function safeLocalGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
@@ -499,6 +512,8 @@
   var sw = document.createElement("style");
   sw.textContent =
     ".lang-switch-li{list-style:none}" +
+    ".lang-switch button{-webkit-appearance:none;appearance:none;background:none;" +
+    "border:0;margin:0;cursor:pointer;font-family:inherit}" +
     ".lang-switch{position:relative;display:inline-flex;align-items:center;flex:0 0 auto;" +
     "font-family:var(--sans,'Urbanist',sans-serif)}" +
     ".lang-switch-current{display:inline-flex;align-items:center;gap:6px;font-size:12px;" +

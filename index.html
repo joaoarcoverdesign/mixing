@@ -261,6 +261,11 @@ section{position:relative;}
   background:var(--surface);margin-bottom:clamp(16px,2.4vh,28px);
 }
 .work-media img{width:100%;height:auto;display:block;}
+/* fine-pointer only: native cursor disappears over the thumbnail, replaced by
+   the trailing pill below — text/links under the image keep the normal pointer */
+@media (hover:hover) and (pointer:fine){
+  .work-media{cursor:none;}
+}
 /* image stays flush to the card edges; the text content gets a left/right inset */
 .work-idx,.work-name,.work-desc,.work-tags,.work-link{padding-left:clamp(18px,2.4vw,34px);padding-right:clamp(18px,2.4vw,34px);}
 .work-idx{
@@ -299,6 +304,26 @@ section{position:relative;}
 .work-progress-fill{
   position:absolute;top:0;left:0;height:100%;width:0%;
   background:var(--accent);border-radius:inherit;
+}
+
+/* case cursor — ported from the Cursor React component (motion-primitives'
+   attachToParent pattern): a pill that trails the pointer while it's over a case
+   thumbnail. Two layers, same as the source component — an outer wrapper the
+   script moves every frame (lerp-follow, no spring library needed) and an inner
+   bubble that only handles the show/hide scale+fade transition. */
+.case-cursor{position:fixed;top:0;left:0;z-index:60;pointer-events:none;will-change:transform;}
+.case-cursor-bubble{
+  display:flex;align-items:center;gap:6px;
+  background:var(--accent);color:var(--bg-deep);
+  font-family:var(--sans);font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;
+  padding:10px 18px;border-radius:99px;white-space:nowrap;
+  transform:translate(-50%,-50%) scale(.4);opacity:0;
+  transition:opacity .2s var(--ease), transform .2s var(--ease);
+}
+.case-cursor-bubble svg{width:14px;height:14px;flex:0 0 auto;}
+.case-cursor.is-visible .case-cursor-bubble{opacity:1;transform:translate(-50%,-50%) scale(1);}
+@media (hover:none), (pointer:coarse){
+  .case-cursor{display:none;}
 }
 
 /* mobile / coarse-pointer fallback — native horizontal scroll, no pin */
@@ -1075,6 +1100,60 @@ section{position:relative;}
     if (nextBtn) nextBtn.addEventListener("click", function () { step(1); });
 
     sync();
+  })();
+
+  /* case cursor — ported from the Cursor React component (motion-primitives),
+     scoped to just the case thumbnails: a pill that trails the pointer while
+     hovering a .work-media image, using the same lerp-follow technique as the
+     kinetic canvas above instead of framer-motion's spring. */
+  (function () {
+    if (reduceMotion) return;
+    var mq = window.matchMedia("(hover:hover) and (pointer:fine)");
+    if (!mq.matches) return;
+
+    var medias = Array.prototype.slice.call(document.querySelectorAll(".work-media"));
+    if (!medias.length) return;
+
+    var cursor = document.createElement("div");
+    cursor.className = "case-cursor";
+    cursor.setAttribute("aria-hidden", "true");
+    cursor.innerHTML =
+      '<div class="case-cursor-bubble">' +
+        '<span data-i18n="home.work.viewCase">View case</span>' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" ' +
+          'stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>' +
+      '</div>';
+    document.body.appendChild(cursor);
+
+    var label = cursor.querySelector("[data-i18n]");
+    function syncLabel() {
+      if (window.I18N && label) label.textContent = window.I18N.t("home.work.viewCase");
+    }
+    syncLabel();
+    if (window.I18N) window.I18N.onChange(syncLabel);
+
+    var pos = { x: -9999, y: -9999 };
+    var target = { x: -9999, y: -9999 };
+    var primed = false; // avoids a fly-in from center screen on the very first hover
+
+    function loop() {
+      pos.x += (target.x - pos.x) * 0.2;
+      pos.y += (target.y - pos.y) * 0.2;
+      cursor.style.transform = "translate3d(" + pos.x + "px," + pos.y + "px,0)";
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+
+    document.addEventListener("mousemove", function (e) {
+      target.x = e.clientX;
+      target.y = e.clientY;
+      if (!primed) { pos.x = e.clientX; pos.y = e.clientY; primed = true; }
+    });
+
+    medias.forEach(function (media) {
+      media.addEventListener("mouseenter", function () { cursor.classList.add("is-visible"); });
+      media.addEventListener("mouseleave", function () { cursor.classList.remove("is-visible"); });
+    });
   })();
 
   /* testimonials — click an avatar to bring it forward and swap the quote */

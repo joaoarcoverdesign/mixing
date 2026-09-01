@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-i18n-page="qs">
 <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-R7PLZLRLYJ"></script>
@@ -13,6 +13,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="../Img/favicon.png">
 <link rel="apple-touch-icon" href="../Img/favicon.png">
+<script src="../i18n/quero-simulados.js"></script>
+<script src="../i18n.js"></script>
 <title>Quero Simulados — Mock Exam Platform | Abdalla Design</title>
 <meta name="description" content="UX case study: designing a mock exam and performance comparison platform inside Brazil's largest exam-prep product, used by 8M+ active students.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -309,13 +311,13 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
       <img class="nav-avatar" src="../Img/joao-avatar.jpg" alt="João Abdalla">
       <span class="nav-brand-text">
         <span class="nav-name">João Abdalla</span>
-        <span class="nav-role">Product designer UX UI</span>
+        <span class="nav-role" data-i18n="common.nav.role">Product designer UX UI</span>
       </span>
     </a>
     <ul class="nav-links">
-      <li><a href="../index.html#work">Works</a></li>
-      <li><a href="../about.html">About</a></li>
-      <li><a href="../index.html#contact">Contact</a></li>
+      <li><a href="../index.html#work" data-i18n="common.nav.works">Works</a></li>
+      <li><a href="../about.html" data-i18n="common.nav.about">About</a></li>
+      <li><a href="../index.html#contact" data-i18n="common.nav.contact">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -325,50 +327,50 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- HERO -->
   <header class="hero container" role="banner">
     <h1 class="hero-title rv">Quero Simulados</h1>
-    <p class="hero-sub rv">Mock Exam Platform</p>
-    <p class="hero-text rv">Designing a performance comparison platform for Brazil's most competitive job market. From student research to shipped product.</p>
+    <p class="hero-sub rv" data-i18n="qs.hero.sub">Mock Exam Platform</p>
+    <p class="hero-text rv" data-i18n="qs.hero.text">Designing a performance comparison platform for Brazil's most competitive job market. From student research to shipped product.</p>
 
     <div class="hero-specs rv">
-      <div><div class="spec-label">Client</div><div class="spec-value">Qconcursos</div></div>
-      <div><div class="spec-label">My Role</div><div class="spec-value">Senior Product Designer UX/UI</div></div>
-      <div><div class="spec-label">Timeline</div><div class="spec-value">2019</div></div>
-      <div><div class="spec-label">Deliverables</div><div class="spec-value">UX Research · Product Design · Design System · Mobile First</div></div>
+      <div><div class="spec-label" data-i18n="qs.hero.spec1.label">Client</div><div class="spec-value">Qconcursos</div></div>
+      <div><div class="spec-label" data-i18n="qs.hero.spec2.label">My Role</div><div class="spec-value" data-i18n="qs.hero.spec2.value">Senior Product Designer UX/UI</div></div>
+      <div><div class="spec-label" data-i18n="qs.hero.spec3.label">Timeline</div><div class="spec-value">2019</div></div>
+      <div><div class="spec-label" data-i18n="qs.hero.spec4.label">Deliverables</div><div class="spec-value" data-i18n="qs.hero.spec4.value">UX Research · Product Design · Design System · Mobile First</div></div>
     </div>
 
     <div class="img-placeholder filled rv">
-      <img src="../Img/quero-simulados/hero-dashboard-exam.png" alt="Quero Simulados — study dashboard beside the distraction-free exam interface with a 2h30m timer">
+      <img src="../Img/quero-simulados/hero-dashboard-exam.png" alt="Quero Simulados — study dashboard beside the distraction-free exam interface with a 2h30m timer" data-i18n-attr="alt:qs.hero.img.alt">
     </div>
   </header>
 
   <!-- THE CHALLENGE -->
   <section id="overview">
     <div class="container">
-      <div class="eyebrow rv">Overview</div>
-      <h2 class="sec-title rv">The challenge</h2>
+      <div class="eyebrow rv" data-i18n="qs.overview.eyebrow">Overview</div>
+      <h2 class="sec-title rv" data-i18n="qs.overview.title">The challenge</h2>
 
       <div class="ov-2col rv">
         <div class="ov-block">
-          <div class="ov-label">Business Context</div>
-          <p class="ov-text">Qconcursos is Brazil's largest exam-prep platform, with over 8 million registered users. More than half of them already used a limited native simulation tool. That data revealed a clear product opportunity: build a dedicated mock exam experience born from real user demand.</p>
+          <div class="ov-label" data-i18n="qs.overview.biz.label">Business Context</div>
+          <p class="ov-text" data-i18n="qs.overview.biz.text">Qconcursos is Brazil's largest exam-prep platform, with over 8 million registered users. More than half of them already used a limited native simulation tool. That data revealed a clear product opportunity: build a dedicated mock exam experience born from real user demand.</p>
         </div>
         <div class="ov-block">
-          <div class="ov-label">The Gap</div>
-          <p class="ov-text">Students preparing for government exams had no structured way to measure their performance against real competition. They knew their score but not what it meant. Without comparison data, there was no way to know if a 71 was good enough to pass. The experience was stressful, isolated, and directionless.</p>
+          <div class="ov-label" data-i18n="qs.overview.gap.label">The Gap</div>
+          <p class="ov-text" data-i18n="qs.overview.gap.text">Students preparing for government exams had no structured way to measure their performance against real competition. They knew their score but not what it meant. Without comparison data, there was no way to know if a 71 was good enough to pass. The experience was stressful, isolated, and directionless.</p>
         </div>
       </div>
 
       <div class="img-placeholder filled rv" style="margin:12px 0 44px;background:#fff;border-color:transparent;">
-        <img src="../Img/quero-simulados/challenge-devices.png" alt="Quero Simulados concept mockups — student dashboard and results comparison across phone, desktop and mobile">
+        <img src="../Img/quero-simulados/challenge-devices.png" alt="Quero Simulados concept mockups — student dashboard and results comparison across phone, desktop and mobile" data-i18n-attr="alt:qs.overview.challenge.img.alt">
       </div>
 
       <div class="grid-2 rv">
         <div class="highlight-block">
-          <p><span class="lede-label">Core Question</span>How do we turn an individual exam score into a meaningful performance signal that tells students exactly where they stand against thousands of real competitors?</p>
+          <p data-i18n-html="qs.overview.coreQuestion"><span class="lede-label">Core Question</span>How do we turn an individual exam score into a meaningful performance signal that tells students exactly where they stand against thousands of real competitors?</p>
         </div>
         <div class="insight-card">
-          <div class="insight-label">Two Core Product Goals</div>
-          <p class="insight-text" style="margin-bottom:14px;"><strong style="color:var(--ink);font-family:var(--sans);">01 · Performance with context.</strong> Give students their score, the national average, and their ranking position broken down by subject and by Brazilian state.</p>
-          <p class="insight-text"><strong style="color:var(--ink);font-family:var(--sans);">02 · Calm under pressure.</strong> Design an exam experience that absorbs student anxiety through clarity, focus, and real-time feedback.</p>
+          <div class="insight-label" data-i18n="qs.overview.goals.label">Two Core Product Goals</div>
+          <p class="insight-text" style="margin-bottom:14px;" data-i18n-html="qs.overview.goals.p1"><strong style="color:var(--ink);font-family:var(--sans);">01 · Performance with context.</strong> Give students their score, the national average, and their ranking position broken down by subject and by Brazilian state.</p>
+          <p class="insight-text" data-i18n-html="qs.overview.goals.p2"><strong style="color:var(--ink);font-family:var(--sans);">02 · Calm under pressure.</strong> Design an exam experience that absorbs student anxiety through clarity, focus, and real-time feedback.</p>
         </div>
       </div>
     </div>
@@ -377,36 +379,36 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- USERS & PERSONAS -->
   <section id="personas">
     <div class="container">
-      <div class="eyebrow rv">Users &amp; Personas</div>
-      <h2 class="sec-title rv">Who we're designing for</h2>
-      <p class="sec-lede rv">After 40 student interviews, we identified 3 distinct user profiles. Each had different motivations, study habits, and levels of anxiety around exam performance.</p>
+      <div class="eyebrow rv" data-i18n="qs.personas.eyebrow">Users &amp; Personas</div>
+      <h2 class="sec-title rv" data-i18n="qs.personas.title">Who we're designing for</h2>
+      <p class="sec-lede rv" data-i18n="qs.personas.lede">After 40 student interviews, we identified 3 distinct user profiles. Each had different motivations, study habits, and levels of anxiety around exam performance.</p>
 
       <div class="grid-3 rv">
         <div class="insight-card">
-          <div class="persona-avatar has-img"><img src="../Img/quero-simulados/persona-1.avif" alt="Gabriel, 31 — beginner persona"></div>
-          <div class="persona-label">Beginner</div>
+          <div class="persona-avatar has-img"><img src="../Img/quero-simulados/persona-1.avif" alt="Gabriel, 31 — beginner persona" data-i18n-attr="alt:qs.personas.p1.img.alt"></div>
+          <div class="persona-label" data-i18n="qs.personas.p1.label">Beginner</div>
           <h3 class="insight-title">Gabriel, 31</h3>
-          <p class="insight-text">Determined and career-focused. Already has a degree but wants a government position for stability and salary.</p>
-          <div class="persona-goals"><strong>Key goals</strong>Understand where to start, track progress over time, build confidence before the real exam.</div>
+          <p class="insight-text" data-i18n="qs.personas.p1.text">Determined and career-focused. Already has a degree but wants a government position for stability and salary.</p>
+          <div class="persona-goals" data-i18n-html="qs.personas.p1.goals"><strong>Key goals</strong>Understand where to start, track progress over time, build confidence before the real exam.</div>
         </div>
         <div class="insight-card">
-          <div class="persona-avatar has-img"><img src="../Img/quero-simulados/persona-2.avif" alt="Diogo, 37 — intermediary persona"></div>
-          <div class="persona-label">Intermediary</div>
+          <div class="persona-avatar has-img"><img src="../Img/quero-simulados/persona-2.avif" alt="Diogo, 37 — intermediary persona" data-i18n-attr="alt:qs.personas.p2.img.alt"></div>
+          <div class="persona-label" data-i18n="qs.personas.p2.label">Intermediary</div>
           <h3 class="insight-title">Diogo, 37</h3>
-          <p class="insight-text">Effortless and dedicated. Sees studying as a way to change his life. Has been preparing for a while but lacks direction.</p>
-          <div class="persona-goals"><strong>Key goals</strong>Know which subjects need more attention, compare performance with others at the same level, stay motivated.</div>
+          <p class="insight-text" data-i18n="qs.personas.p2.text">Effortless and dedicated. Sees studying as a way to change his life. Has been preparing for a while but lacks direction.</p>
+          <div class="persona-goals" data-i18n-html="qs.personas.p2.goals"><strong>Key goals</strong>Know which subjects need more attention, compare performance with others at the same level, stay motivated.</div>
         </div>
         <div class="insight-card">
-          <div class="persona-avatar has-img"><img src="../Img/quero-simulados/persona-3.avif" alt="Advanced student — perfectionist persona"></div>
-          <div class="persona-label">Perfeccionista</div>
-          <h3 class="insight-title">Advanced Student</h3>
-          <p class="insight-text">High performer who wants to fine-tune results. Studies consistently and needs granular performance data.</p>
-          <div class="persona-goals"><strong>Key goals</strong>Detailed subject breakdown, state and national ranking, annotation tools during the exam.</div>
+          <div class="persona-avatar has-img"><img src="../Img/quero-simulados/persona-3.avif" alt="Advanced student — perfectionist persona" data-i18n-attr="alt:qs.personas.p3.img.alt"></div>
+          <div class="persona-label" data-i18n="qs.personas.p3.label">Perfeccionista</div>
+          <h3 class="insight-title" data-i18n="qs.personas.p3.name">Advanced Student</h3>
+          <p class="insight-text" data-i18n="qs.personas.p3.text">High performer who wants to fine-tune results. Studies consistently and needs granular performance data.</p>
+          <div class="persona-goals" data-i18n-html="qs.personas.p3.goals"><strong>Key goals</strong>Detailed subject breakdown, state and national ranking, annotation tools during the exam.</div>
         </div>
       </div>
 
       <div class="highlight-block rv" style="margin-top:32px;">
-        <p><span class="lede-label">Core Insight</span>Students didn't just want to practice. They wanted to know exactly where they stood against thousands of real competitors. That single insight shaped every major product decision.</p>
+        <p data-i18n-html="qs.personas.insight"><span class="lede-label">Core Insight</span>Students didn't just want to practice. They wanted to know exactly where they stood against thousands of real competitors. That single insight shaped every major product decision.</p>
       </div>
     </div>
   </section>
@@ -414,41 +416,41 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- DESIGN PROCESS -->
   <section id="process">
     <div class="container">
-      <div class="eyebrow rv">Design Process</div>
-      <h2 class="sec-title rv">From research to shipped product</h2>
-      <p class="sec-lede rv">The input came from 40 student interviews and a clear product gap inside Qconcursos. I mapped the insights into a structured design process and drove every decision from real user needs.</p>
+      <div class="eyebrow rv" data-i18n="qs.process.eyebrow">Design Process</div>
+      <h2 class="sec-title rv" data-i18n="qs.process.title">From research to shipped product</h2>
+      <p class="sec-lede rv" data-i18n="qs.process.lede">The input came from 40 student interviews and a clear product gap inside Qconcursos. I mapped the insights into a structured design process and drove every decision from real user needs.</p>
 
       <div class="rv">
         <div class="step">
           <div class="step-num">01</div>
           <div>
-            <div class="step-label">Discovery</div>
-            <h3 class="step-title">Discovery</h3>
-            <p class="step-text">Conducted 40 student interviews to map pain points, motivations, and mental models around exam preparation. Ran competitive benchmark and financial projection (Bass Model) to validate the business case.</p>
+            <div class="step-label" data-i18n="qs.process.step1.label">Discovery</div>
+            <h3 class="step-title" data-i18n="qs.process.step1.title">Discovery</h3>
+            <p class="step-text" data-i18n="qs.process.step1.text">Conducted 40 student interviews to map pain points, motivations, and mental models around exam preparation. Ran competitive benchmark and financial projection (Bass Model) to validate the business case.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">02</div>
           <div>
-            <div class="step-label">Define</div>
-            <h3 class="step-title">Define</h3>
-            <p class="step-text">Mapped 3 student profiles and 2 detailed personas. Defined 5 product goals and 6 core value propositions. Turned pain points directly into features.</p>
+            <div class="step-label" data-i18n="qs.process.step2.label">Define</div>
+            <h3 class="step-title" data-i18n="qs.process.step2.title">Define</h3>
+            <p class="step-text" data-i18n="qs.process.step2.text">Mapped 3 student profiles and 2 detailed personas. Defined 5 product goals and 6 core value propositions. Turned pain points directly into features.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">03</div>
           <div>
-            <div class="step-label">Design</div>
-            <h3 class="step-title">Design</h3>
-            <p class="step-text">Started with low-fidelity paper prototypes, then evolved to high-fidelity screens. Built the design system in parallel: spacing scale, atomic grid, typography, and color palette with WCAG contrast validation.</p>
+            <div class="step-label" data-i18n="qs.process.step3.label">Design</div>
+            <h3 class="step-title" data-i18n="qs.process.step3.title">Design</h3>
+            <p class="step-text" data-i18n="qs.process.step3.text">Started with low-fidelity paper prototypes, then evolved to high-fidelity screens. Built the design system in parallel: spacing scale, atomic grid, typography, and color palette with WCAG contrast validation.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">04</div>
           <div>
-            <div class="step-label">Deliver</div>
-            <h3 class="step-title">Deliver</h3>
-            <p class="step-text">Shipped the full product: onboarding flow, home, exam experience, results page, corrected answers view, modals, and user journey email sequence. Designed the media campaign for launch.</p>
+            <div class="step-label" data-i18n="qs.process.step4.label">Deliver</div>
+            <h3 class="step-title" data-i18n="qs.process.step4.title">Deliver</h3>
+            <p class="step-text" data-i18n="qs.process.step4.text">Shipped the full product: onboarding flow, home, exam experience, results page, corrected answers view, modals, and user journey email sequence. Designed the media campaign for launch.</p>
           </div>
         </div>
       </div>
@@ -459,7 +461,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <section class="context-photo">
     <div class="container">
       <div class="frame rv">
-        <img src="../Img/quero-simulados/workspace-photo.png" alt="Quero Simulados results page on a laptop on a study desk, with a phone showing the student panel">
+        <img src="../Img/quero-simulados/workspace-photo.png" alt="Quero Simulados results page on a laptop on a study desk, with a phone showing the student panel" data-i18n-attr="alt:qs.contextPhoto.img.alt">
       </div>
     </div>
   </section>
@@ -467,64 +469,64 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- FEATURE DEEP DIVES -->
   <section id="features">
     <div class="container">
-      <div class="eyebrow rv">Feature Deep Dives</div>
-      <h2 class="sec-title rv">Core features and design thinking</h2>
-      <p class="sec-lede rv">Four interconnected experiences, each solving a distinct student need while maintaining product coherence.</p>
+      <div class="eyebrow rv" data-i18n="qs.features.eyebrow">Feature Deep Dives</div>
+      <h2 class="sec-title rv" data-i18n="qs.features.title">Core features and design thinking</h2>
+      <p class="sec-lede rv" data-i18n="qs.features.lede">Four interconnected experiences, each solving a distinct student need while maintaining product coherence.</p>
 
       <div class="decision stacked rv">
         <div class="decision-split">
           <div class="decision-body">
-            <div class="decision-eyebrow">Feature 01 · The Comparative</div>
-            <h3 class="decision-title">Performance with context</h3>
-            <p class="decision-text">The feature most requested by students became the core of the product. After completing a simulation, students see their score, the national average, and their ranking position broken down by subject and by Brazilian state. One number became a full performance picture.</p>
+            <div class="decision-eyebrow" data-i18n="qs.f1.eyebrow">Feature 01 · The Comparative</div>
+            <h3 class="decision-title" data-i18n="qs.f1.title">Performance with context</h3>
+            <p class="decision-text" data-i18n="qs.f1.text">The feature most requested by students became the core of the product. After completing a simulation, students see their score, the national average, and their ranking position broken down by subject and by Brazilian state. One number became a full performance picture.</p>
           </div>
           <div class="decision-media img-placeholder filled">
-            <img src="../Img/quero-simulados/feature-1.webp" alt="Quero Simulados results — score, national average and ranking on desktop and mobile">
+            <img src="../Img/quero-simulados/feature-1.webp" alt="Quero Simulados results — score, national average and ranking on desktop and mobile" data-i18n-attr="alt:qs.f1.img.alt">
           </div>
         </div>
         <div>
-          <div class="kd-label">Key Design Decisions</div>
+          <div class="kd-label" data-i18n="qs.kd.label">Key Design Decisions</div>
           <div class="kd-grid">
-            <p><strong>Score with context:</strong> Students see their score, the national average, and their ranking position simultaneously. One screen tells the full story.</p>
-            <p><strong>State-level ranking:</strong> Added after launch based on direct user feedback. Students wanted to know if they would pass in their specific state, not just nationally.</p>
-            <p><strong>Subject breakdown:</strong> Performance by discipline highlights exact strengths and weaknesses, and suggests related simulations to improve weak areas.</p>
+            <p data-i18n-html="qs.f1.kd1"><strong>Score with context:</strong> Students see their score, the national average, and their ranking position simultaneously. One screen tells the full story.</p>
+            <p data-i18n-html="qs.f1.kd2"><strong>State-level ranking:</strong> Added after launch based on direct user feedback. Students wanted to know if they would pass in their specific state, not just nationally.</p>
+            <p data-i18n-html="qs.f1.kd3"><strong>Subject breakdown:</strong> Performance by discipline highlights exact strengths and weaknesses, and suggests related simulations to improve weak areas.</p>
           </div>
         </div>
       </div>
 
       <div class="decision top reverse rv">
         <div class="decision-body">
-          <div class="decision-eyebrow">Feature 02 · Exam Experience</div>
-          <h3 class="decision-title">Tranquility and reliability under pressure</h3>
-          <p class="decision-text">A government exam can take up to 4 hours. Concentration is the product. Every UI element that was not essential to answering questions was removed or hidden.</p>
-          <div class="kd-label">Key Design Decisions</div>
+          <div class="decision-eyebrow" data-i18n="qs.f2.eyebrow">Feature 02 · Exam Experience</div>
+          <h3 class="decision-title" data-i18n="qs.f2.title">Tranquility and reliability under pressure</h3>
+          <p class="decision-text" data-i18n="qs.f2.text">A government exam can take up to 4 hours. Concentration is the product. Every UI element that was not essential to answering questions was removed or hidden.</p>
+          <div class="kd-label" data-i18n="qs.kd.label">Key Design Decisions</div>
           <ul class="plain-list">
-            <li><strong>No distractions:</strong> No header, no navigation, no noise. The exam interface exists in its own focused environment, separate from the rest of the platform.</li>
-            <li><strong>Collapsible sidebar:</strong> Students can hide the question navigator to go full focus mode. Every pixel belongs to the question.</li>
-            <li><strong>Answer card system:</strong> Color-coded feedback at a glance. Green for correct, red for wrong, dark blue for canceled, white for unanswered. No interpretation needed.</li>
-            <li><strong>Annotation space:</strong> Students can add notes alongside each question during the exam, replicating real exam behavior.</li>
+            <li data-i18n-html="qs.f2.li1"><strong>No distractions:</strong> No header, no navigation, no noise. The exam interface exists in its own focused environment, separate from the rest of the platform.</li>
+            <li data-i18n-html="qs.f2.li2"><strong>Collapsible sidebar:</strong> Students can hide the question navigator to go full focus mode. Every pixel belongs to the question.</li>
+            <li data-i18n-html="qs.f2.li3"><strong>Answer card system:</strong> Color-coded feedback at a glance. Green for correct, red for wrong, dark blue for canceled, white for unanswered. No interpretation needed.</li>
+            <li data-i18n-html="qs.f2.li4"><strong>Annotation space:</strong> Students can add notes alongside each question during the exam, replicating real exam behavior.</li>
           </ul>
         </div>
         <div class="decision-media img-placeholder filled">
-          <img src="../Img/quero-simulados/exam-desktop-crop.png" alt="Exam interface — question on the left, collapsible dark navigator on the right with timer, colour-coded answer card and annotations panel">
+          <img src="../Img/quero-simulados/exam-desktop-crop.png" alt="Exam interface — question on the left, collapsible dark navigator on the right with timer, colour-coded answer card and annotations panel" data-i18n-attr="alt:qs.f2.img.alt">
         </div>
       </div>
 
       <div class="decision stacked rv">
         <div class="decision-body">
-          <div class="decision-eyebrow">Feature 03 · Onboarding &amp; Home</div>
-          <h3 class="decision-title">Friendly, familiar, communicative</h3>
-          <p class="decision-text">First-time engagement is fragile. The onboarding and home were designed to introduce the product value without overwhelming new users. Clear interactions, easy to adapt and learn, with no training required — and a home page that balances the rational and the emotional.</p>
-          <div class="kd-label">Key Design Decisions</div>
+          <div class="decision-eyebrow" data-i18n="qs.f3.eyebrow">Feature 03 · Onboarding &amp; Home</div>
+          <h3 class="decision-title" data-i18n="qs.f3.title">Friendly, familiar, communicative</h3>
+          <p class="decision-text" data-i18n="qs.f3.text">First-time engagement is fragile. The onboarding and home were designed to introduce the product value without overwhelming new users. Clear interactions, easy to adapt and learn, with no training required — and a home page that balances the rational and the emotional.</p>
+          <div class="kd-label" data-i18n="qs.kd.label">Key Design Decisions</div>
           <ul class="plain-list">
-            <li><strong>Mobile first:</strong> The entire onboarding flow was prototyped on mobile before scaling to desktop. The smallest screen defined the constraints for every other breakpoint.</li>
-            <li><strong>Progressive disclosure:</strong> One concept per screen. Students are not shown everything at once. Each step reveals only what is needed to move forward.</li>
-            <li><strong>Emotional balance:</strong> The home page balances rational and emotional — sometimes stimulating the student about how close they are to the job position, sometimes offering tools to measure that progress.</li>
+            <li data-i18n-html="qs.f3.li1"><strong>Mobile first:</strong> The entire onboarding flow was prototyped on mobile before scaling to desktop. The smallest screen defined the constraints for every other breakpoint.</li>
+            <li data-i18n-html="qs.f3.li2"><strong>Progressive disclosure:</strong> One concept per screen. Students are not shown everything at once. Each step reveals only what is needed to move forward.</li>
+            <li data-i18n-html="qs.f3.li3"><strong>Emotional balance:</strong> The home page balances rational and emotional — sometimes stimulating the student about how close they are to the job position, sometimes offering tools to measure that progress.</li>
           </ul>
         </div>
         <div>
-          <div class="shot-scroll"><img src="../Img/quero-simulados/home-landing-fill.png" alt="Quero Simulados home page — motivational hero, exclusive mock exams, performance-comparison section and free sign-up"></div>
-          <div class="img-caption">Home page — hover to scroll</div>
+          <div class="shot-scroll"><img src="../Img/quero-simulados/home-landing-fill.png" alt="Quero Simulados home page — motivational hero, exclusive mock exams, performance-comparison section and free sign-up" data-i18n-attr="alt:qs.f3.img.alt"></div>
+          <div class="img-caption" data-i18n="qs.f3.caption">Home page — hover to scroll</div>
         </div>
       </div>
     </div>
@@ -533,29 +535,29 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- USER JOURNEY EMAILS -->
   <section id="emails">
     <div class="container">
-      <div class="eyebrow rv">User Journey Emails</div>
-      <h2 class="sec-title rv">From purchase to exam completion</h2>
-      <p class="sec-lede rv">To monitor the journey from purchase until the simulation is executed, we designed a full email sequence. Each email had one clear action and one clear message. No noise, no distraction — just the next step the student needed to take.</p>
+      <div class="eyebrow rv" data-i18n="qs.emails.eyebrow">User Journey Emails</div>
+      <h2 class="sec-title rv" data-i18n="qs.emails.title">From purchase to exam completion</h2>
+      <p class="sec-lede rv" data-i18n="qs.emails.lede">To monitor the journey from purchase until the simulation is executed, we designed a full email sequence. Each email had one clear action and one clear message. No noise, no distraction — just the next step the student needed to take.</p>
 
       <div class="rv" style="margin-bottom:44px;">
-        <img src="../Img/quero-simulados/email-journeys.png" alt="Quero Simulados email sequence — welcome, purchase confirmation and performance-comparison emails, each with a single call to action" style="width:100%;height:auto;display:block;">
+        <img src="../Img/quero-simulados/email-journeys.png" alt="Quero Simulados email sequence — welcome, purchase confirmation and performance-comparison emails, each with a single call to action" data-i18n-attr="alt:qs.emails.img.alt" style="width:100%;height:auto;display:block;">
       </div>
 
       <div class="grid-3 rv">
         <div class="insight-card">
           <div class="insight-label">01</div>
-          <h3 class="insight-title">One action per email</h3>
-          <p class="insight-text">Each email in the sequence had a single CTA. Welcome, reminder, results, encouragement. Students always knew exactly what to do next.</p>
+          <h3 class="insight-title" data-i18n="qs.emails.c1.title">One action per email</h3>
+          <p class="insight-text" data-i18n="qs.emails.c1.text">Each email in the sequence had a single CTA. Welcome, reminder, results, encouragement. Students always knew exactly what to do next.</p>
         </div>
         <div class="insight-card">
           <div class="insight-label">02</div>
-          <h3 class="insight-title">Tone matches the moment</h3>
-          <p class="insight-text">Welcome is warm and celebratory. Reminder creates urgency without pressure. Results celebrates the achievement and suggests next steps.</p>
+          <h3 class="insight-title" data-i18n="qs.emails.c2.title">Tone matches the moment</h3>
+          <p class="insight-text" data-i18n="qs.emails.c2.text">Welcome is warm and celebratory. Reminder creates urgency without pressure. Results celebrates the achievement and suggests next steps.</p>
         </div>
         <div class="insight-card">
           <div class="insight-label">03</div>
-          <h3 class="insight-title">Journey continuity</h3>
-          <p class="insight-text">The sequence was designed as one connected experience, not isolated messages. Each email referenced the previous step and pointed to the next.</p>
+          <h3 class="insight-title" data-i18n="qs.emails.c3.title">Journey continuity</h3>
+          <p class="insight-text" data-i18n="qs.emails.c3.text">The sequence was designed as one connected experience, not isolated messages. Each email referenced the previous step and pointed to the next.</p>
         </div>
       </div>
     </div>
@@ -563,26 +565,26 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
 
   <!-- SCORE STRIP -->
   <section class="score-strip">
-    <img class="rv" src="../Img/quero-simulados/score-banner.png" alt="Quero Simulados comparison banner — three students scoring 93, 85 and 74 on the PRF 2019 mock exam">
+    <img class="rv" src="../Img/quero-simulados/score-banner.png" alt="Quero Simulados comparison banner — three students scoring 93, 85 and 74 on the PRF 2019 mock exam" data-i18n-attr="alt:qs.scoreStrip.img.alt">
   </section>
 
   <!-- DESIGN DECISIONS -->
   <section id="design-decisions">
     <div class="container">
-      <div class="eyebrow rv">Design Decisions</div>
-      <h2 class="sec-title rv">Key choices and why</h2>
-      <p class="sec-lede rv">The thinking behind the most important design decisions. Not just what was built, but the reasoning that got there.</p>
+      <div class="eyebrow rv" data-i18n="qs.decisions.eyebrow">Design Decisions</div>
+      <h2 class="sec-title rv" data-i18n="qs.decisions.title">Key choices and why</h2>
+      <p class="sec-lede rv" data-i18n="qs.decisions.lede">The thinking behind the most important design decisions. Not just what was built, but the reasoning that got there.</p>
 
       <div class="rv">
         <div class="step">
           <div class="step-num">01</div>
           <div>
-            <h3 class="step-title">The Comparative as the Core</h3>
-            <p class="step-text">Research showed students did not just want to practice. They wanted to know where they stood. Instead of building another score screen, we made the ranking the hero of the results page. Your score only makes sense in context. The comparative gave that context.</p>
+            <h3 class="step-title" data-i18n="qs.decisions.d1.title">The Comparative as the Core</h3>
+            <p class="step-text" data-i18n="qs.decisions.d1.text">Research showed students did not just want to practice. They wanted to know where they stood. Instead of building another score screen, we made the ranking the hero of the results page. Your score only makes sense in context. The comparative gave that context.</p>
             <div class="img-row-3" style="margin-top:24px">
-              <img src="../Img/quero-simulados/comparative01.png" alt="Score card — the student's mock exam score, questions answered, right, wrong and blank counts, and overall percentage">
-              <img src="../Img/quero-simulados/comparative-02.png" alt="National average card — the student's score next to the national average, above and below-average counts, and approval likelihood">
-              <img src="../Img/quero-simulados/comparative03.png" alt="Ranking card — the student's overall ranking position with per-subject and per-state breakdowns">
+              <img src="../Img/quero-simulados/comparative01.png" alt="Score card — the student's mock exam score, questions answered, right, wrong and blank counts, and overall percentage" data-i18n-attr="alt:qs.decisions.d1.img1.alt">
+              <img src="../Img/quero-simulados/comparative-02.png" alt="National average card — the student's score next to the national average, above and below-average counts, and approval likelihood" data-i18n-attr="alt:qs.decisions.d1.img2.alt">
+              <img src="../Img/quero-simulados/comparative03.png" alt="Ranking card — the student's overall ranking position with per-subject and per-state breakdowns" data-i18n-attr="alt:qs.decisions.d1.img3.alt">
             </div>
           </div>
         </div>
@@ -593,12 +595,12 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
           <div class="step-num">02</div>
           <div class="step-split">
             <div>
-              <h3 class="step-title">Distraction-Free Exam Interface</h3>
-              <p class="step-text">A government exam can take up to 4 hours. Concentration is the product. Every UI element that was not essential to answering questions was removed or hidden. The collapsible sidebar, minimal header, and focus mode were not nice-to-haves. They were the core UX principle.</p>
+              <h3 class="step-title" data-i18n="qs.decisions.d2.title">Distraction-Free Exam Interface</h3>
+              <p class="step-text" data-i18n="qs.decisions.d2.text">A government exam can take up to 4 hours. Concentration is the product. Every UI element that was not essential to answering questions was removed or hidden. The collapsible sidebar, minimal header, and focus mode were not nice-to-haves. They were the core UX principle.</p>
             </div>
             <div class="step-media-duo">
-              <img src="../Img/quero-simulados/exam-question-phone.png" alt="Exam question screen on mobile — just the question text, a minimal header and the collapsed timer">
-              <img src="../Img/quero-simulados/exam-timer-phone.png" alt="Focus-mode timer on mobile — 2h30m countdown, progress bar and the answered-questions grid">
+              <img src="../Img/quero-simulados/exam-question-phone.png" alt="Exam question screen on mobile — just the question text, a minimal header and the collapsed timer" data-i18n-attr="alt:qs.decisions.d2.img1.alt">
+              <img src="../Img/quero-simulados/exam-timer-phone.png" alt="Focus-mode timer on mobile — 2h30m countdown, progress bar and the answered-questions grid" data-i18n-attr="alt:qs.decisions.d2.img2.alt">
             </div>
           </div>
         </div>
@@ -608,13 +610,13 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
         <div class="step">
           <div class="step-num">03</div>
           <div>
-            <h3 class="step-title">Design System from Day One</h3>
-            <p class="step-text">Building the spacing scale, atomic grid, and component library in parallel with the first screens meant every decision made early stayed consistent through delivery. For a product with this many states and screen types, the system was the real deliverable.</p>
+            <h3 class="step-title" data-i18n="qs.decisions.d3.title">Design System from Day One</h3>
+            <p class="step-text" data-i18n="qs.decisions.d3.text">Building the spacing scale, atomic grid, and component library in parallel with the first screens meant every decision made early stayed consistent through delivery. For a product with this many states and screen types, the system was the real deliverable.</p>
             <div class="img-placeholder filled" style="margin-top:24px">
-              <img src="../Img/quero-simulados/style-guide-spacing.png" alt="Spacing patterns — base-10 and base-16 scales, atomic 4px grid and text-interpretation rules">
+              <img src="../Img/quero-simulados/style-guide-spacing.png" alt="Spacing patterns — base-10 and base-16 scales, atomic 4px grid and text-interpretation rules" data-i18n-attr="alt:qs.decisions.d3.img1.alt">
             </div>
             <div class="img-placeholder filled" style="margin-top:16px">
-              <img src="../Img/quero-simulados/style-guide-contrast.png" alt="Contrast test — colour pairs run through a WCAG contrast checker, before and after adjustment">
+              <img src="../Img/quero-simulados/style-guide-contrast.png" alt="Contrast test — colour pairs run through a WCAG contrast checker, before and after adjustment" data-i18n-attr="alt:qs.decisions.d3.img2.alt">
             </div>
           </div>
         </div>
@@ -625,12 +627,12 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- OUTCOME -->
   <section id="outcome">
     <div class="container">
-      <div class="eyebrow rv">Outcome</div>
-      <h2 class="sec-title rv">Shipped. Tested. Validated.</h2>
+      <div class="eyebrow rv" data-i18n="qs.outcome.eyebrow">Outcome</div>
+      <h2 class="sec-title rv" data-i18n="qs.outcome.title">Shipped. Tested. Validated.</h2>
 
       <div class="rv">
-        <p class="ov-text" style="max-width:760px;margin-bottom:20px;">Quero Simulados launched and was tested with real students before release. User feedback generated meaningful product iterations, including a ranking by Brazilian state, which became one of the most valued features after launch.</p>
-        <p class="ov-text" style="max-width:760px;">The product was discontinued due to internal company restructuring, not product-market fit. The design process, the research, and the shipped product remain as proof of what end-to-end product design looks like at scale.</p>
+        <p class="ov-text" style="max-width:760px;margin-bottom:20px;" data-i18n="qs.outcome.p1">Quero Simulados launched and was tested with real students before release. User feedback generated meaningful product iterations, including a ranking by Brazilian state, which became one of the most valued features after launch.</p>
+        <p class="ov-text" style="max-width:760px;" data-i18n="qs.outcome.p2">The product was discontinued due to internal company restructuring, not product-market fit. The design process, the research, and the shipped product remain as proof of what end-to-end product design looks like at scale.</p>
       </div>
     </div>
   </section>
@@ -638,12 +640,12 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- STATS -->
   <section class="stats-strip">
     <div class="container">
-      <div class="eyebrow rv">By the Numbers</div>
+      <div class="eyebrow rv" data-i18n="qs.stats.eyebrow">By the Numbers</div>
       <div class="stats-grid rv">
-        <div class="stat-item"><div class="stat-num">8M+</div><div class="stat-lab">Platform Scale</div><div class="stat-desc">Designed within Qconcursos, Brazil's largest exam-prep platform</div></div>
-        <div class="stat-item"><div class="stat-num">40</div><div class="stat-lab">Student Interviews</div><div class="stat-desc">Qualitative research that directly shaped every major product decision</div></div>
-        <div class="stat-item"><div class="stat-num">3</div><div class="stat-lab">User Profiles</div><div class="stat-desc">Beginner, Intermediary, Perfeccionista. Distinct journeys, one coherent product</div></div>
-        <div class="stat-item"><div class="stat-num">5yr</div><div class="stat-lab">At Qconcursos</div><div class="stat-desc">5 years leading design across multiple product launches on Brazil's largest exam platform</div></div>
+        <div class="stat-item"><div class="stat-num">8M+</div><div class="stat-lab" data-i18n="qs.stats.s1.lab">Platform Scale</div><div class="stat-desc" data-i18n="qs.stats.s1.desc">Designed within Qconcursos, Brazil's largest exam-prep platform</div></div>
+        <div class="stat-item"><div class="stat-num">40</div><div class="stat-lab" data-i18n="qs.stats.s2.lab">Student Interviews</div><div class="stat-desc" data-i18n="qs.stats.s2.desc">Qualitative research that directly shaped every major product decision</div></div>
+        <div class="stat-item"><div class="stat-num">3</div><div class="stat-lab" data-i18n="qs.stats.s3.lab">User Profiles</div><div class="stat-desc" data-i18n="qs.stats.s3.desc">Beginner, Intermediary, Perfeccionista. Distinct journeys, one coherent product</div></div>
+        <div class="stat-item"><div class="stat-num">5yr</div><div class="stat-lab" data-i18n="qs.stats.s4.lab">At Qconcursos</div><div class="stat-desc" data-i18n="qs.stats.s4.desc">5 years leading design across multiple product launches on Brazil's largest exam platform</div></div>
       </div>
     </div>
   </section>
@@ -652,7 +654,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <section id="closing">
     <div class="container">
       <div class="img-placeholder filled rv">
-        <img src="../Img/quero-simulados/showcase-iso.png" alt="Isometric collage of Quero Simulados screens — answer card, score comparison and student dashboard">
+        <img src="../Img/quero-simulados/showcase-iso.png" alt="Isometric collage of Quero Simulados screens — answer card, score comparison and student dashboard" data-i18n-attr="alt:qs.closing.img.alt">
       </div>
     </div>
   </section>
@@ -660,29 +662,29 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- LEARNINGS -->
   <section id="learnings">
     <div class="container">
-      <div class="eyebrow rv">Learnings</div>
-      <h2 class="sec-title rv">What I took away</h2>
+      <div class="eyebrow rv" data-i18n="qs.learn.eyebrow">Learnings</div>
+      <h2 class="sec-title rv" data-i18n="qs.learn.title">What I took away</h2>
 
       <div class="grid-2x2 rv">
         <div class="learn-card win">
-          <span class="learn-tag">What Worked Well</span>
-          <h3 class="learn-title">Research-Driven Product Direction</h3>
-          <p class="learn-text">The 40 student interviews were not a formality. They directly generated features. The state ranking, the focus mode, the comparative as the hero: all came from things students said out loud in interviews. Research was the product strategy.</p>
+          <span class="learn-tag" data-i18n="qs.learn.c1.tag">What Worked Well</span>
+          <h3 class="learn-title" data-i18n="qs.learn.c1.title">Research-Driven Product Direction</h3>
+          <p class="learn-text" data-i18n="qs.learn.c1.text">The 40 student interviews were not a formality. They directly generated features. The state ranking, the focus mode, the comparative as the hero: all came from things students said out loud in interviews. Research was the product strategy.</p>
         </div>
         <div class="learn-card challenge">
-          <span class="learn-tag">What I'd Do Differently</span>
-          <h3 class="learn-title">Earlier Quantitative Validation</h3>
-          <p class="learn-text">The qualitative research was strong. In retrospect, I would complement it earlier with quantitative data: conversion funnels, drop-off points in the existing native tool, to prioritize features with more precision before going into design.</p>
+          <span class="learn-tag" data-i18n="qs.learn.c2.tag">What I'd Do Differently</span>
+          <h3 class="learn-title" data-i18n="qs.learn.c2.title">Earlier Quantitative Validation</h3>
+          <p class="learn-text" data-i18n="qs.learn.c2.text">The qualitative research was strong. In retrospect, I would complement it earlier with quantitative data: conversion funnels, drop-off points in the existing native tool, to prioritize features with more precision before going into design.</p>
         </div>
         <div class="learn-card">
-          <span class="learn-tag">Key Insight</span>
-          <h3 class="learn-title">Anxiety is a Design Problem</h3>
-          <p class="learn-text">The product's core challenge was not technical. It was emotional. Students were anxious. The design had to absorb that anxiety through clarity, feedback, and context. Every calm interface is a product decision.</p>
+          <span class="learn-tag" data-i18n="qs.learn.c3.tag">Key Insight</span>
+          <h3 class="learn-title" data-i18n="qs.learn.c3.title">Anxiety is a Design Problem</h3>
+          <p class="learn-text" data-i18n="qs.learn.c3.text">The product's core challenge was not technical. It was emotional. Students were anxious. The design had to absorb that anxiety through clarity, feedback, and context. Every calm interface is a product decision.</p>
         </div>
         <div class="learn-card">
-          <span class="learn-tag">Room to Grow</span>
-          <h3 class="learn-title">Edtech Monetization Patterns</h3>
-          <p class="learn-text">This project introduced me to the intersection of education and commerce: students buying individual simulations, the role of pricing in perceived value, the email journey from purchase to usage. An area I would go deeper in with more time.</p>
+          <span class="learn-tag" data-i18n="qs.learn.c4.tag">Room to Grow</span>
+          <h3 class="learn-title" data-i18n="qs.learn.c4.title">Edtech Monetization Patterns</h3>
+          <p class="learn-text" data-i18n="qs.learn.c4.text">This project introduced me to the intersection of education and commerce: students buying individual simulations, the role of pricing in perceived value, the email journey from purchase to usage. An area I would go deeper in with more time.</p>
         </div>
       </div>
     </div>
@@ -691,19 +693,19 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- MORE WORK -->
   <section id="more-work">
     <div class="container">
-      <div class="eyebrow rv">More Work</div>
+      <div class="eyebrow rv" data-i18n="qs.more.eyebrow">More Work</div>
       <div class="next-grid rv">
         <a class="next-card" href="valt.html">
-          <div class="next-label">Next Case Study</div>
+          <div class="next-label" data-i18n="qs.more.n1.label">Next Case Study</div>
           <h3 class="next-title">Valt Network</h3>
-          <p class="next-text">Private market social network. Designed from zero to live product.</p>
-          <div class="img-placeholder has-img contain" style="aspect-ratio:4/3;"><img src="../Img/valt/capa.png" alt="Valt Network directory and profile dossier, desktop dashboard"></div>
+          <p class="next-text" data-i18n="qs.more.n1.text">Private market social network. Designed from zero to live product.</p>
+          <div class="img-placeholder has-img contain" style="aspect-ratio:4/3;"><img src="../Img/valt/capa.png" alt="Valt Network directory and profile dossier, desktop dashboard" data-i18n-attr="alt:qs.more.n1.img.alt"></div>
         </a>
         <a class="next-card" href="qconcursos-filter.html">
-          <div class="next-label">Also From Qconcursos</div>
-          <h3 class="next-title">The Filter Behind the Growth</h3>
-          <p class="next-text">How a 12-field cascading filter turned a 605K-question database from noise into signal.</p>
-          <div class="img-placeholder has-img contain" style="aspect-ratio:4/3;"><img src="../Img/qconcurso/filtro-questoes.png" alt="QConcursos question filter panel with 12 combinable fields, live product screenshot"></div>
+          <div class="next-label" data-i18n="qs.more.n2.label">Also From Qconcursos</div>
+          <h3 class="next-title" data-i18n="qs.more.n2.title">The Filter Behind the Growth</h3>
+          <p class="next-text" data-i18n="qs.more.n2.text">How a 12-field cascading filter turned a 605K-question database from noise into signal.</p>
+          <div class="img-placeholder has-img contain" style="aspect-ratio:4/3;"><img src="../Img/qconcurso/filtro-questoes.png" alt="QConcursos question filter panel with 12 combinable fields, live product screenshot" data-i18n-attr="alt:qs.more.n2.img.alt"></div>
         </a>
       </div>
     </div>
@@ -712,7 +714,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
 </main>
 
 <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
-  <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
+  <button class="lightbox-close" type="button" aria-label="Close" data-i18n-attr="aria-label:qs.lightbox.close">&times;</button>
   <img src="" alt="">
 </div>
 

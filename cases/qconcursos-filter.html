@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-i18n-page="qcf">
 <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-R7PLZLRLYJ"></script>
@@ -13,6 +13,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="../Img/favicon.png">
 <link rel="apple-touch-icon" href="../Img/favicon.png">
+<script src="../i18n/qconcursos-filter.js"></script>
+<script src="../i18n.js"></script>
 <title>QConcursos — The Filter Behind the Growth | Abdalla Design</title>
 <meta name="description" content="An alternative case from five years at QConcursos: how a 12-field cascading filter turned a 605K-question database into a usable product, and how a pricing decision quietly added R$27M a year — both part of the story behind the company's R$208M acquisition.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -269,13 +271,13 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
       <img class="nav-avatar" src="../Img/joao-avatar.jpg" alt="João Abdalla">
       <span class="nav-brand-text">
         <span class="nav-name">João Abdalla</span>
-        <span class="nav-role">Product designer UX UI</span>
+        <span class="nav-role" data-i18n="common.nav.role">Product designer UX UI</span>
       </span>
     </a>
     <ul class="nav-links">
-      <li><a href="../index.html#work">Works</a></li>
-      <li><a href="../about.html">About</a></li>
-      <li><a href="../index.html#contact">Contact</a></li>
+      <li><a href="../index.html#work" data-i18n="common.nav.works">Works</a></li>
+      <li><a href="../about.html" data-i18n="common.nav.about">About</a></li>
+      <li><a href="../index.html#contact" data-i18n="common.nav.contact">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -285,47 +287,47 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- HERO -->
   <header class="hero container" role="banner">
     <div class="tag-row rv" style="margin-bottom:28px;">
-      <span class="tag-pill">Product Design</span>
-      <span class="tag-pill solid">Edtech</span>
-      <span class="tag-pill">Search &amp; Filtering</span>
-      <span class="tag-pill">Pricing Strategy</span>
+      <span class="tag-pill" data-i18n="qcf.hero.tag1">Product Design</span>
+      <span class="tag-pill solid" data-i18n="qcf.hero.tag2">Edtech</span>
+      <span class="tag-pill" data-i18n="qcf.hero.tag3">Search &amp; Filtering</span>
+      <span class="tag-pill" data-i18n="qcf.hero.tag4">Pricing Strategy</span>
     </div>
-    <h1 class="hero-title rv">From 600K to 10M Users: The Filter Behind QConcursos' Growth</h1>
-    <p class="hero-text rv">An alternative cut of the same five years at Brazil's largest exam-prep platform — this time centered on the search filter that turned a 605K-question database from noise into signal, and a pricing decision that quietly moved the revenue needle, both part of the story behind the company's R$208M acquisition.</p>
+    <h1 class="hero-title rv" data-i18n="qcf.hero.title">From 600K to 10M Users: The Filter Behind QConcursos' Growth</h1>
+    <p class="hero-text rv" data-i18n="qcf.hero.text">An alternative cut of the same five years at Brazil's largest exam-prep platform — this time centered on the search filter that turned a 605K-question database from noise into signal, and a pricing decision that quietly moved the revenue needle, both part of the story behind the company's R$208M acquisition.</p>
 
     <div class="hero-specs rv">
-      <div><div class="spec-label">Client</div><div class="spec-value">QConcursos.com</div></div>
-      <div><div class="spec-label">Role</div><div class="spec-value">UX/UI Designer</div></div>
-      <div><div class="spec-label">Period</div><div class="spec-value">2014–2019</div></div>
-      <div><div class="spec-label">Scale</div><div class="spec-value">600K → 10M+ users</div></div>
+      <div><div class="spec-label" data-i18n="qcf.hero.spec1.label">Client</div><div class="spec-value">QConcursos.com</div></div>
+      <div><div class="spec-label" data-i18n="qcf.hero.spec2.label">Role</div><div class="spec-value" data-i18n="qcf.hero.spec2.value">UX/UI Designer</div></div>
+      <div><div class="spec-label" data-i18n="qcf.hero.spec3.label">Period</div><div class="spec-value">2014–2019</div></div>
+      <div><div class="spec-label" data-i18n="qcf.hero.spec4.label">Scale</div><div class="spec-value" data-i18n="qcf.hero.spec4.value">600K → 10M+ users</div></div>
     </div>
 
-    <img class="rv" src="../Img/qconcurso/filtro-questoes.png" alt="QConcursos question filter panel with 12 combinable fields, live product screenshot" style="width:100%;height:auto;display:block;border-radius:6px;">
+    <img class="rv" src="../Img/qconcurso/filtro-questoes.png" alt="QConcursos question filter panel with 12 combinable fields, live product screenshot" data-i18n-attr="alt:qcf.hero.img.alt" style="width:100%;height:auto;display:block;border-radius:6px;">
   </header>
 
   <!-- OVERVIEW -->
   <section id="overview">
     <div class="container">
-      <div class="alt-banner rv">This is a second, independent case study from my time at QConcursos — it tells a different part of the story than <a href="qconcursos.html">the course-page redesign case</a>. Read either on its own, or both for the fuller picture.</div>
+      <div class="alt-banner rv" data-i18n-html="qcf.overview.altBanner">This is a second, independent case study from my time at QConcursos — it tells a different part of the story than <a href="qconcursos.html">the course-page redesign case</a>. Read either on its own, or both for the fuller picture.</div>
 
-      <div class="eyebrow rv">01 · Context</div>
-      <h2 class="sec-title rv">The business.</h2>
+      <div class="eyebrow rv" data-i18n="qcf.overview.eyebrow">01 · Context</div>
+      <h2 class="sec-title rv" data-i18n="qcf.overview.title">The business.</h2>
 
       <div class="ov-grid rv">
         <div class="ov-sidebar">
           <div class="ov-block">
-            <div class="ov-label">Product Category</div>
-            <p class="ov-text">EdTech platform · Brazil's largest civil-service exam-prep platform</p>
+            <div class="ov-label" data-i18n="qcf.overview.cat.label">Product Category</div>
+            <p class="ov-text" data-i18n="qcf.overview.cat.text">EdTech platform · Brazil's largest civil-service exam-prep platform</p>
           </div>
           <div class="ov-block">
-            <div class="ov-label">Core Value Prop</div>
-            <p class="ov-text">Questions, mock exams, and courses organized by examining board, job role, and subject — for Brazil's most competitive civil-service exam market.</p>
+            <div class="ov-label" data-i18n="qcf.overview.value.label">Core Value Prop</div>
+            <p class="ov-text" data-i18n="qcf.overview.value.text">Questions, mock exams, and courses organized by examining board, job role, and subject — for Brazil's most competitive civil-service exam market.</p>
           </div>
         </div>
 
         <div class="ov-body">
-          <p>QConcursos is Brazil's largest platform for civil-service exam preparation. In Brazil, federal, state, and municipal government positions are fiercely competitive — they offer stability and strong salaries, and candidates often study for years before passing. The platform organizes questions, mock exams, and courses by examining board, job role, and subject.</p>
-          <p>I joined in 2014, working directly with the three founders. Over five years, as the company grew from hundreds of thousands to millions of users, my role evolved from generalist to the Product &amp; Innovation team, where I led the redesign that is the focus of this case. The platform's differentiator was always the sheer size of its question database — and it's exactly that volume that becomes the central challenge in what follows.</p>
+          <p data-i18n="qcf.overview.body.p1">QConcursos is Brazil's largest platform for civil-service exam preparation. In Brazil, federal, state, and municipal government positions are fiercely competitive — they offer stability and strong salaries, and candidates often study for years before passing. The platform organizes questions, mock exams, and courses by examining board, job role, and subject.</p>
+          <p data-i18n="qcf.overview.body.p2">I joined in 2014, working directly with the three founders. Over five years, as the company grew from hundreds of thousands to millions of users, my role evolved from generalist to the Product &amp; Innovation team, where I led the redesign that is the focus of this case. The platform's differentiator was always the sheer size of its question database — and it's exactly that volume that becomes the central challenge in what follows.</p>
         </div>
       </div>
     </div>
@@ -334,23 +336,23 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- STATS STRIP -->
   <section class="stats-strip">
     <div class="container">
-      <div class="eyebrow rv">Public Platform Numbers · 2017</div>
+      <div class="eyebrow rv" data-i18n="qcf.stats.eyebrow">Public Platform Numbers · 2017</div>
       <div class="stats-row rv">
-        <div class="stat-item"><div class="stat-num">3.75M</div><div class="stat-lab">Registered students</div></div>
-        <div class="stat-item"><div class="stat-num">605K</div><div class="stat-lab">Catalogued questions</div></div>
-        <div class="stat-item"><div class="stat-num">48.4K</div><div class="stat-lab">Exams mapped</div></div>
-        <div class="stat-item"><div class="stat-num">11.5K</div><div class="stat-lab">Contests covered</div></div>
+        <div class="stat-item"><div class="stat-num">3.75M</div><div class="stat-lab" data-i18n="qcf.stats.students">Registered students</div></div>
+        <div class="stat-item"><div class="stat-num">605K</div><div class="stat-lab" data-i18n="qcf.stats.questions">Catalogued questions</div></div>
+        <div class="stat-item"><div class="stat-num">48.4K</div><div class="stat-lab" data-i18n="qcf.stats.exams">Exams mapped</div></div>
+        <div class="stat-item"><div class="stat-num">11.5K</div><div class="stat-lab" data-i18n="qcf.stats.contests">Contests covered</div></div>
       </div>
-      <p class="stats-note rv">The platform's defining trait was always the size of its database — and that same size is what turns into the core challenge of this case.</p>
+      <p class="stats-note rv" data-i18n="qcf.stats.note">The platform's defining trait was always the size of its database — and that same size is what turns into the core challenge of this case.</p>
     </div>
   </section>
 
   <!-- GROWTH -->
   <section id="growth">
     <div class="container">
-      <div class="eyebrow rv">02 · Growth</div>
-      <h2 class="sec-title rv">The scale of the challenge.</h2>
-      <p class="sec-lede rv">An illustrative growth curve, anchored to the known milestones — every year in between is an interpolation, not a measured data point.</p>
+      <div class="eyebrow rv" data-i18n="qcf.growth.eyebrow">02 · Growth</div>
+      <h2 class="sec-title rv" data-i18n="qcf.growth.title">The scale of the challenge.</h2>
+      <p class="sec-lede rv" data-i18n="qcf.growth.lede">An illustrative growth curve, anchored to the known milestones — every year in between is an interpolation, not a measured data point.</p>
 
       <div class="chart-wrap rv">
         <svg class="chart-svg" viewBox="0 0 900 320" preserveAspectRatio="xMidYMid meet">
@@ -358,17 +360,17 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
           <path d="M 100 235 C 300 232, 400 150, 480 130 C 600 100, 700 40, 820 30" fill="none" stroke="rgba(194,252,80,.5)" stroke-width="2" stroke-dasharray="6 6"/>
           <circle cx="100" cy="235" r="6" fill="#C2FC50"/>
           <text x="100" y="285" text-anchor="middle" font-family="Urbanist, sans-serif" font-weight="700" font-size="14" fill="#F4F6F3">2014</text>
-          <text x="100" y="215" text-anchor="middle" font-family="Urbanist, sans-serif" font-weight="600" font-size="13" fill="#9BA4AA">~600K users</text>
+          <text x="100" y="215" text-anchor="middle" font-family="Urbanist, sans-serif" font-weight="600" font-size="13" fill="#9BA4AA" data-i18n="qcf.growth.pt1">~600K users</text>
 
           <circle cx="480" cy="130" r="6" fill="#C2FC50"/>
           <text x="480" y="285" text-anchor="middle" font-family="Urbanist, sans-serif" font-weight="700" font-size="14" fill="#F4F6F3">2017</text>
-          <text x="480" y="108" text-anchor="middle" font-family="Urbanist, sans-serif" font-weight="600" font-size="13" fill="#9BA4AA">3.75M students</text>
+          <text x="480" y="108" text-anchor="middle" font-family="Urbanist, sans-serif" font-weight="600" font-size="13" fill="#9BA4AA" data-i18n="qcf.growth.pt2">3.75M students</text>
 
           <circle cx="820" cy="30" r="6" fill="#C2FC50"/>
           <text x="820" y="285" text-anchor="middle" font-family="Urbanist, sans-serif" font-weight="700" font-size="14" fill="#F4F6F3">2019</text>
-          <text x="820" y="12" text-anchor="middle" font-family="Urbanist, sans-serif" font-weight="600" font-size="13" fill="#9BA4AA">10M+ users</text>
+          <text x="820" y="12" text-anchor="middle" font-family="Urbanist, sans-serif" font-weight="600" font-size="13" fill="#9BA4AA" data-i18n="qcf.growth.pt3">10M+ users</text>
         </svg>
-        <p class="chart-note">2014 — ~600K users at the start of my time there. 2017 — 3.75M registered students (public figure). 2019 — 10M+ active users, my exit. The curve between points is illustrative only.</p>
+        <p class="chart-note" data-i18n="qcf.growth.note">2014 — ~600K users at the start of my time there. 2017 — 3.75M registered students (public figure). 2019 — 10M+ active users, my exit. The curve between points is illustrative only.</p>
       </div>
     </div>
   </section>
@@ -376,15 +378,15 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- PROBLEM -->
   <section id="problem">
     <div class="container">
-      <div class="eyebrow rv">03 · The Challenge</div>
-      <h2 class="sec-title rv">The problem.</h2>
+      <div class="eyebrow rv" data-i18n="qcf.problem.eyebrow">03 · The Challenge</div>
+      <h2 class="sec-title rv" data-i18n="qcf.problem.title">The problem.</h2>
 
       <div class="ov-body rv">
-        <p>As the question catalog grew, finding the <em>right</em> question — for the right examining board, the right job role, the right subject — became progressively harder. A candidate studying for one specific contest needed surgical precision, not a generic keyword search.</p>
+        <p data-i18n-html="qcf.problem.body">As the question catalog grew, finding the <em>right</em> question — for the right examining board, the right job role, the right subject — became progressively harder. A candidate studying for one specific contest needed surgical precision, not a generic keyword search.</p>
       </div>
 
       <div class="highlight-block rv">
-        <p>605K+ questions catalogued on the platform (public data, 2017). Without a structured way to filter by examining board, institution, job role, and subject at the same time, that volume turned into noise instead of value.</p>
+        <p data-i18n="qcf.problem.highlight">605K+ questions catalogued on the platform (public data, 2017). Without a structured way to filter by examining board, institution, job role, and subject at the same time, that volume turned into noise instead of value.</p>
       </div>
     </div>
   </section>
@@ -392,16 +394,16 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- PROCESS -->
   <section id="process">
     <div class="container">
-      <div class="eyebrow rv">04 · Process</div>
-      <h2 class="sec-title rv">How I validated the problem.</h2>
+      <div class="eyebrow rv" data-i18n="qcf.process.eyebrow">04 · Process</div>
+      <h2 class="sec-title rv" data-i18n="qcf.process.title">How I validated the problem.</h2>
 
       <div class="ov-body rv">
-        <p>Before designing anything, the team talked to Customer Support to understand the recurring complaints about searching for questions. Tickets were categorized by topic and criticality level, and when a topic accumulated a high volume of repeated complaints, it moved up the redesign priority queue. A usage-metrics panel, visible to the team, helped confirm where the friction actually was.</p>
+        <p data-i18n="qcf.process.body">Before designing anything, the team talked to Customer Support to understand the recurring complaints about searching for questions. Tickets were categorized by topic and criticality level, and when a topic accumulated a high volume of repeated complaints, it moved up the redesign priority queue. A usage-metrics panel, visible to the team, helped confirm where the friction actually was.</p>
       </div>
 
       <ul class="plain-list rv">
-        <li><strong style="color:var(--ink);">3 criticality levels</strong> used to classify tickets — critical, medium, secondary</li>
-        <li>The <strong style="color:var(--ink);">question filter</strong> was one of the topics that emerged from that classification as a top priority</li>
+        <li data-i18n-html="qcf.process.li1"><strong style="color:var(--ink);">3 criticality levels</strong> used to classify tickets — critical, medium, secondary</li>
+        <li data-i18n-html="qcf.process.li2">The <strong style="color:var(--ink);">question filter</strong> was one of the topics that emerged from that classification as a top priority</li>
       </ul>
     </div>
   </section>
@@ -409,13 +411,13 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- DESIGN: SOLUTION -->
   <section id="solution">
     <div class="container">
-      <div class="eyebrow rv">05 · Design</div>
-      <h2 class="sec-title rv">The solution: question filter.</h2>
-      <p class="sec-lede rv">A panel with 12 filter fields — Subject, Topic, Examining Board, Institution, Year, Job Role, Level, Study Area, Specialization Area, Modality, Difficulty, and Keyword — where each selection automatically refines the available options in every other field.</p>
+      <div class="eyebrow rv" data-i18n="qcf.solution.eyebrow">05 · Design</div>
+      <h2 class="sec-title rv" data-i18n="qcf.solution.title">The solution: question filter.</h2>
+      <p class="sec-lede rv" data-i18n="qcf.solution.lede">A panel with 12 filter fields — Subject, Topic, Examining Board, Institution, Year, Job Role, Level, Study Area, Specialization Area, Modality, Difficulty, and Keyword — where each selection automatically refines the available options in every other field.</p>
 
       <div class="shot rv">
-        <img src="../Img/qconcurso/filtro-questoes.png" alt="QConcursos question filter panel with 12 combinable fields, live product screenshot">
-        <div class="shot-caption">Live product screenshot — Questions filter panel</div>
+        <img src="../Img/qconcurso/filtro-questoes.png" alt="QConcursos question filter panel with 12 combinable fields, live product screenshot" data-i18n-attr="alt:qcf.solution.img.alt">
+        <div class="shot-caption" data-i18n="qcf.solution.caption">Live product screenshot — Questions filter panel</div>
       </div>
     </div>
   </section>
@@ -423,33 +425,33 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- MECHANISM -->
   <section id="mechanism">
     <div class="container">
-      <div class="eyebrow rv">06 · Mechanism</div>
-      <h2 class="sec-title rv">How it works: cascading filter.</h2>
-      <p class="sec-lede rv">No field is independent. Choosing a value automatically narrows the available options in the fields that follow, guiding the user to the exact set of questions they need.</p>
+      <div class="eyebrow rv" data-i18n="qcf.mech.eyebrow">06 · Mechanism</div>
+      <h2 class="sec-title rv" data-i18n="qcf.mech.title">How it works: cascading filter.</h2>
+      <p class="sec-lede rv" data-i18n="qcf.mech.lede">No field is independent. Choosing a value automatically narrows the available options in the fields that follow, guiding the user to the exact set of questions they need.</p>
 
       <div class="cascade-row rv">
         <div class="cascade-step">
-          <div class="cascade-num">STEP 1</div>
-          <div class="cascade-title">Subject</div>
-          <div class="cascade-text">e.g. Administrative Law</div>
+          <div class="cascade-num" data-i18n="qcf.mech.s1.num">STEP 1</div>
+          <div class="cascade-title" data-i18n="qcf.mech.s1.title">Subject</div>
+          <div class="cascade-text" data-i18n="qcf.mech.s1.text">e.g. Administrative Law</div>
         </div>
         <div class="cascade-arrow">→</div>
         <div class="cascade-step">
-          <div class="cascade-num">STEP 2</div>
-          <div class="cascade-title">Examining board</div>
-          <div class="cascade-text">Options filtered to the boards that actually test that subject</div>
+          <div class="cascade-num" data-i18n="qcf.mech.s2.num">STEP 2</div>
+          <div class="cascade-title" data-i18n="qcf.mech.s2.title">Examining board</div>
+          <div class="cascade-text" data-i18n="qcf.mech.s2.text">Options filtered to the boards that actually test that subject</div>
         </div>
         <div class="cascade-arrow">→</div>
         <div class="cascade-step">
-          <div class="cascade-num">STEP 3</div>
-          <div class="cascade-title">Institution</div>
-          <div class="cascade-text">Options filtered to who hired that examining board</div>
+          <div class="cascade-num" data-i18n="qcf.mech.s3.num">STEP 3</div>
+          <div class="cascade-title" data-i18n="qcf.mech.s3.title">Institution</div>
+          <div class="cascade-text" data-i18n="qcf.mech.s3.text">Options filtered to who hired that examining board</div>
         </div>
         <div class="cascade-arrow">→</div>
         <div class="cascade-step">
-          <div class="cascade-num">RESULT</div>
-          <div class="cascade-title">Only what matters</div>
-          <div class="cascade-text">Just the questions that are actually relevant</div>
+          <div class="cascade-num" data-i18n="qcf.mech.r.num">RESULT</div>
+          <div class="cascade-title" data-i18n="qcf.mech.r.title">Only what matters</div>
+          <div class="cascade-text" data-i18n="qcf.mech.r.text">Just the questions that are actually relevant</div>
         </div>
       </div>
     </div>
@@ -458,16 +460,16 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- CONSISTENCY -->
   <section id="consistency">
     <div class="container">
-      <div class="eyebrow rv">07 · Consistency</div>
-      <h2 class="sec-title rv">The pattern repeats.</h2>
+      <div class="eyebrow rv" data-i18n="qcf.consistency.eyebrow">07 · Consistency</div>
+      <h2 class="sec-title rv" data-i18n="qcf.consistency.title">The pattern repeats.</h2>
 
       <div class="ov-body rv">
-        <p>The same cascading-filter logic — fields that refine each other — didn't stay confined to the Questions section. It was reapplied across other areas of the platform, including the Military Contests search. Contest status, region, state, year, examining board, and institution work as dependent filters — the same progressive-refinement principle applied with different facets. An interaction pattern designed once, reused across several sections of the platform.</p>
+        <p data-i18n="qcf.consistency.body">The same cascading-filter logic — fields that refine each other — didn't stay confined to the Questions section. It was reapplied across other areas of the platform, including the Military Contests search. Contest status, region, state, year, examining board, and institution work as dependent filters — the same progressive-refinement principle applied with different facets. An interaction pattern designed once, reused across several sections of the platform.</p>
       </div>
 
       <div class="shot rv">
-        <img src="../Img/qconcurso/filtro-militares.png" alt="QConcursos Military Contests filter, applying the same cascading-filter pattern, live product screenshot">
-        <div class="shot-caption">Live product screenshot — Military Contests filter, same pattern reapplied</div>
+        <img src="../Img/qconcurso/filtro-militares.png" alt="QConcursos Military Contests filter, applying the same cascading-filter pattern, live product screenshot" data-i18n-attr="alt:qcf.consistency.img.alt">
+        <div class="shot-caption" data-i18n="qcf.consistency.caption">Live product screenshot — Military Contests filter, same pattern reapplied</div>
       </div>
     </div>
   </section>
@@ -475,36 +477,36 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- RESULTS -->
   <section class="stats-strip" id="results">
     <div class="container">
-      <div class="eyebrow rv">09 · Results</div>
-      <h2 class="sec-title rv" style="color:var(--ink);">Impact on the user.</h2>
+      <div class="eyebrow rv" data-i18n="qcf.results.eyebrow">09 · Results</div>
+      <h2 class="sec-title rv" style="color:var(--ink);" data-i18n="qcf.results.title">Impact on the user.</h2>
       <div class="stats-row rv">
-        <div class="stat-item"><div class="stat-num">~60%</div><div class="stat-lab">Less time to find the right question</div></div>
-        <div class="stat-item"><div class="stat-num">12</div><div class="stat-lab">Combinable filter fields</div></div>
-        <div class="stat-item"><div class="stat-num">1</div><div class="stat-lab">Entry point for the section</div></div>
+        <div class="stat-item"><div class="stat-num">~60%</div><div class="stat-lab" data-i18n="qcf.results.stat1">Less time to find the right question</div></div>
+        <div class="stat-item"><div class="stat-num">12</div><div class="stat-lab" data-i18n="qcf.results.stat2">Combinable filter fields</div></div>
+        <div class="stat-item"><div class="stat-num">1</div><div class="stat-lab" data-i18n="qcf.results.stat3">Entry point for the section</div></div>
       </div>
-      <p class="stats-note rv">Estimated time saved from filtering by board, role and subject at once instead of separate searches. 12 combinable fields vs. 1 keyword-search field in the previous version. The new panel became the single entry point that came to concentrate most of the traffic to the Questions section. Illustrative estimates — the platform had no detailed analytics instrumentation at launch time, so these numbers represent a plausible reading of the gain, not a period-accurate measurement.</p>
+      <p class="stats-note rv" data-i18n="qcf.results.note">Estimated time saved from filtering by board, role and subject at once instead of separate searches. 12 combinable fields vs. 1 keyword-search field in the previous version. The new panel became the single entry point that came to concentrate most of the traffic to the Questions section. Illustrative estimates — the platform had no detailed analytics instrumentation at launch time, so these numbers represent a plausible reading of the gain, not a period-accurate measurement.</p>
     </div>
   </section>
 
   <!-- EVOLUTION -->
   <section id="evolution">
     <div class="container">
-      <div class="eyebrow rv">08 · Evolution</div>
-      <h2 class="sec-title rv">Evolution through usability testing.</h2>
-      <p class="sec-lede rv">Three of the improvements introduced after the initial launch, prioritized from usability testing with real platform users.</p>
+      <div class="eyebrow rv" data-i18n="qcf.evolution.eyebrow">08 · Evolution</div>
+      <h2 class="sec-title rv" data-i18n="qcf.evolution.title">Evolution through usability testing.</h2>
+      <p class="sec-lede rv" data-i18n="qcf.evolution.lede">Three of the improvements introduced after the initial launch, prioritized from usability testing with real platform users.</p>
 
       <div class="grid-3 rv">
         <div class="insight-card">
-          <h3 class="insight-title">Save filters</h3>
-          <p class="insight-text">Usability testing showed that redoing the same search every time was a friction point. Saving a filter became a feature, along with a visible trail of active filters — each individually removable — to keep it clear what was being applied.</p>
+          <h3 class="insight-title" data-i18n="qcf.evolution.c1.title">Save filters</h3>
+          <p class="insight-text" data-i18n="qcf.evolution.c1.text">Usability testing showed that redoing the same search every time was a friction point. Saving a filter became a feature, along with a visible trail of active filters — each individually removable — to keep it clear what was being applied.</p>
         </div>
         <div class="insight-card">
-          <h3 class="insight-title">Exclude questions</h3>
-          <p class="insight-text">Repeated, outdated, or already-mastered questions could be removed from the results, keeping the filter relevant throughout a student's studies.</p>
+          <h3 class="insight-title" data-i18n="qcf.evolution.c2.title">Exclude questions</h3>
+          <p class="insight-text" data-i18n="qcf.evolution.c2.text">Repeated, outdated, or already-mastered questions could be removed from the results, keeping the filter relevant throughout a student's studies.</p>
         </div>
         <div class="insight-card">
-          <h3 class="insight-title">Commented answer key</h3>
-          <p class="insight-text">A teacher's explanation per question, in both video and text, for whoever prefers to read or watch.</p>
+          <h3 class="insight-title" data-i18n="qcf.evolution.c3.title">Commented answer key</h3>
+          <p class="insight-text" data-i18n="qcf.evolution.c3.text">A teacher's explanation per question, in both video and text, for whoever prefers to read or watch.</p>
         </div>
       </div>
     </div>
@@ -513,24 +515,24 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- MARKET PATTERN -->
   <section id="market">
     <div class="container">
-      <div class="eyebrow rv">10 · Market Pattern</div>
-      <h2 class="sec-title rv">Impact on the market.</h2>
-      <p class="sec-lede rv">The cascading multi-criteria filter stopped being a one-off QConcursos differentiator and became a reference point among exam-prep platforms in the years that followed, with competitors adopting similar filter logic.</p>
+      <div class="eyebrow rv" data-i18n="qcf.market.eyebrow">10 · Market Pattern</div>
+      <h2 class="sec-title rv" data-i18n="qcf.market.title">Impact on the market.</h2>
+      <p class="sec-lede rv" data-i18n="qcf.market.lede">The cascading multi-criteria filter stopped being a one-off QConcursos differentiator and became a reference point among exam-prep platforms in the years that followed, with competitors adopting similar filter logic.</p>
 
       <div class="ba-row rv" style="margin-bottom:36px;">
         <div class="ba-col before">
-          <div class="ba-label">Before</div>
-          <p class="ov-text">Keyword search</p>
+          <div class="ba-label" data-i18n="qcf.market.before.label">Before</div>
+          <p class="ov-text" data-i18n="qcf.market.before.text">Keyword search</p>
         </div>
         <div class="ba-col after">
-          <div class="ba-label">After</div>
-          <p class="ov-text">12-field cascading filter</p>
+          <div class="ba-label" data-i18n="qcf.market.after.label">After</div>
+          <p class="ov-text" data-i18n="qcf.market.after.text">12-field cascading filter</p>
         </div>
       </div>
 
       <div class="shot rv">
-        <img src="../Img/qconcurso/mercado-concorrente.png" alt="Competitor exam-prep platform question filter, showing a similar multi-field cascading pattern, live product screenshot">
-        <div class="shot-caption">A competitor's later question filter — illustrative of the pattern's spread across the category</div>
+        <img src="../Img/qconcurso/mercado-concorrente.png" alt="Competitor exam-prep platform question filter, showing a similar multi-field cascading pattern, live product screenshot" data-i18n-attr="alt:qcf.market.img.alt">
+        <div class="shot-caption" data-i18n="qcf.market.caption">A competitor's later question filter — illustrative of the pattern's spread across the category</div>
       </div>
     </div>
   </section>
@@ -538,22 +540,22 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- BUSINESS OUTCOME -->
   <section id="outcome">
     <div class="container">
-      <div class="eyebrow rv">11 · Exit</div>
-      <h2 class="sec-title rv">The business outcome.</h2>
+      <div class="eyebrow rv" data-i18n="qcf.outcome.eyebrow">11 · Exit</div>
+      <h2 class="sec-title rv" data-i18n="qcf.outcome.title">The business outcome.</h2>
 
       <div class="highlight-block rv" style="margin-bottom:36px;">
-        <p>R$208 million — the value of QConcursos' acquisition by Grupo Yduqs (owner of Estácio, IBMEC and Damásio), announced in early 2020.</p>
+        <p data-i18n="qcf.outcome.highlight">R$208 million — the value of QConcursos' acquisition by Grupo Yduqs (owner of Estácio, IBMEC and Damásio), announced in early 2020.</p>
       </div>
 
       <div class="ov-body rv">
-        <p>The question-filter redesign, and the broader design work of that phase, were part of the product maturation that helped prepare the platform for that acquisition. It wasn't the isolated cause of the value paid — but it was a measurable part of the story of how the product evolved from a functional tool into a category-reference platform.</p>
+        <p data-i18n="qcf.outcome.body">The question-filter redesign, and the broader design work of that phase, were part of the product maturation that helped prepare the platform for that acquisition. It wasn't the isolated cause of the value paid — but it was a measurable part of the story of how the product evolved from a functional tool into a category-reference platform.</p>
       </div>
 
       <div class="grid-4 rv" style="margin-top:32px;">
-        <div class="insight-card"><div class="insight-title">2014</div><div class="insight-text">~600K users</div></div>
-        <div class="insight-card"><div class="insight-title">2017</div><div class="insight-text">3.75M students</div></div>
-        <div class="insight-card"><div class="insight-title">2019</div><div class="insight-text">10M+ users</div></div>
-        <div class="insight-card"><div class="insight-title">2020</div><div class="insight-text">R$208M · acquisition</div></div>
+        <div class="insight-card"><div class="insight-title">2014</div><div class="insight-text" data-i18n="qcf.outcome.g1">~600K users</div></div>
+        <div class="insight-card"><div class="insight-title">2017</div><div class="insight-text" data-i18n="qcf.outcome.g2">3.75M students</div></div>
+        <div class="insight-card"><div class="insight-title">2019</div><div class="insight-text" data-i18n="qcf.outcome.g3">10M+ users</div></div>
+        <div class="insight-card"><div class="insight-title">2020</div><div class="insight-text" data-i18n="qcf.outcome.g4">R$208M · acquisition</div></div>
       </div>
     </div>
   </section>
@@ -561,30 +563,30 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- BONUS: PRICING -->
   <section id="pricing">
     <div class="container">
-      <div class="eyebrow rv">Bonus · Pricing</div>
-      <h2 class="sec-title rv">The price no one notices.</h2>
+      <div class="eyebrow rv" data-i18n="qcf.pricing.eyebrow">Bonus · Pricing</div>
+      <h2 class="sec-title rv" data-i18n="qcf.pricing.title">The price no one notices.</h2>
 
       <div class="ov-body rv">
-        <p>With the subscriber base already in the millions, I questioned the founder responsible for finance about the logic behind the R$13.25 Premium monthly plan. His answer revealed the calculation behind the price — and opened space for a proposal: use the "charm pricing" concept to raise the value without creating a sense of loss for people already paying.</p>
+        <p data-i18n="qcf.pricing.body">With the subscriber base already in the millions, I questioned the founder responsible for finance about the logic behind the R$13.25 Premium monthly plan. His answer revealed the calculation behind the price — and opened space for a proposal: use the "charm pricing" concept to raise the value without creating a sense of loss for people already paying.</p>
       </div>
 
       <div class="highlight-block rv" style="margin-bottom:44px;">
-        <p>R$13.25 → R$13.90 — a R$0.65 increase, perceptible, but below the loss-perception threshold.</p>
+        <p data-i18n="qcf.pricing.highlight">R$13.25 → R$13.90 — a R$0.65 increase, perceptible, but below the loss-perception threshold.</p>
       </div>
 
-      <h3 class="phase-title rv" style="margin-bottom:20px;">The change in practice.</h3>
-      <p class="sec-lede rv" style="margin-bottom:28px;">The same plans page, desktop and mobile, before and after the adjustment. No other visual or flow change — only the price.</p>
+      <h3 class="phase-title rv" style="margin-bottom:20px;" data-i18n="qcf.pricing.subhead">The change in practice.</h3>
+      <p class="sec-lede rv" style="margin-bottom:28px;" data-i18n="qcf.pricing.lede">The same plans page, desktop and mobile, before and after the adjustment. No other visual or flow change — only the price.</p>
 
       <div class="ba-row rv">
         <div class="ba-col before">
-          <div class="ba-label">Before</div>
-          <div class="shot"><img src="../Img/qconcurso/Tabela antiga.png" alt="QConcursos plans page before the pricing adjustment, Premium at R$13.25 per month, live product screenshot"></div>
-          <div class="ba-price">R$13,25/mo</div>
+          <div class="ba-label" data-i18n="qcf.pricing.before.label">Before</div>
+          <div class="shot"><img src="../Img/qconcurso/Tabela antiga.png" alt="QConcursos plans page before the pricing adjustment, Premium at R$13.25 per month, live product screenshot" data-i18n-attr="alt:qcf.pricing.before.img.alt"></div>
+          <div class="ba-price" data-i18n="qcf.pricing.before.price">R$13,25/mo</div>
         </div>
         <div class="ba-col after">
-          <div class="ba-label">After</div>
-          <div class="shot"><img src="../Img/qconcurso/pricing-depois.png" alt="QConcursos plans page after the pricing adjustment, Premium at R$13.90 per month, live product screenshot"></div>
-          <div class="ba-price">R$13,90/mo</div>
+          <div class="ba-label" data-i18n="qcf.pricing.after.label">After</div>
+          <div class="shot"><img src="../Img/qconcurso/pricing-depois.png" alt="QConcursos plans page after the pricing adjustment, Premium at R$13.90 per month, live product screenshot" data-i18n-attr="alt:qcf.pricing.after.img.alt"></div>
+          <div class="ba-price" data-i18n="qcf.pricing.after.price">R$13,90/mo</div>
         </div>
       </div>
     </div>
@@ -593,43 +595,43 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- PRICING IMPACT -->
   <section class="stats-strip" id="pricing-impact">
     <div class="container">
-      <div class="eyebrow rv">Impact</div>
-      <h2 class="sec-title rv" style="color:var(--ink);">The result of the adjustment.</h2>
+      <div class="eyebrow rv" data-i18n="qcf.pimpact.eyebrow">Impact</div>
+      <h2 class="sec-title rv" style="color:var(--ink);" data-i18n="qcf.pimpact.title">The result of the adjustment.</h2>
       <div class="stats-row rv">
-        <div class="stat-item"><div class="stat-num">R$2.28M</div><div class="stat-lab">Additional revenue / month</div></div>
-        <div class="stat-item"><div class="stat-num">R$27.3M</div><div class="stat-lab">Additional revenue / year</div></div>
-        <div class="stat-item"><div class="stat-num">3</div><div class="stat-lab">Metrics used to validate safety</div></div>
+        <div class="stat-item"><div class="stat-num">R$2.28M</div><div class="stat-lab" data-i18n="qcf.pimpact.stat1">Additional revenue / month</div></div>
+        <div class="stat-item"><div class="stat-num">R$27.3M</div><div class="stat-lab" data-i18n="qcf.pimpact.stat2">Additional revenue / year</div></div>
+        <div class="stat-item"><div class="stat-num">3</div><div class="stat-lab" data-i18n="qcf.pimpact.stat3">Metrics used to validate safety</div></div>
       </div>
-      <p class="stats-note rv">Monthly and annual figures are estimated over a base of ~3.5M subscribers. Safety of the change was validated by tracking three metrics: cancellation rate, acquisition rate, and stated cancellation reason. Illustrative estimate based on the subscriber base reported by me and the prices shown in the platform screenshots — not real-time revenue instrumentation.</p>
+      <p class="stats-note rv" data-i18n="qcf.pimpact.note">Monthly and annual figures are estimated over a base of ~3.5M subscribers. Safety of the change was validated by tracking three metrics: cancellation rate, acquisition rate, and stated cancellation reason. Illustrative estimate based on the subscriber base reported by me and the prices shown in the platform screenshots — not real-time revenue instrumentation.</p>
     </div>
   </section>
 
   <!-- LEARNINGS -->
   <section id="retrospective">
     <div class="container">
-      <div class="eyebrow rv">12 · Close</div>
-      <h2 class="sec-title rv">Learnings.</h2>
+      <div class="eyebrow rv" data-i18n="qcf.retro.eyebrow">12 · Close</div>
+      <h2 class="sec-title rv" data-i18n="qcf.retro.title">Learnings.</h2>
 
       <div class="grid-2x2 rv">
         <div class="learn-card win">
-          <span class="learn-tag">Win</span>
-          <h3 class="learn-title">Validate before designing</h3>
-          <p class="learn-text">Validating the problem with real data — Customer Support, surveys, public usage data — before designing any solution avoided rework in the filter redesign.</p>
+          <span class="learn-tag" data-i18n="qcf.retro.c1.tag">Win</span>
+          <h3 class="learn-title" data-i18n="qcf.retro.c1.title">Validate before designing</h3>
+          <p class="learn-text" data-i18n="qcf.retro.c1.text">Validating the problem with real data — Customer Support, surveys, public usage data — before designing any solution avoided rework in the filter redesign.</p>
         </div>
         <div class="learn-card win">
-          <span class="learn-tag">Win</span>
-          <h3 class="learn-title">Refine &gt; reinvent</h3>
-          <p class="learn-text">Not every redesign needs to reinvent the structure. The biggest gain is sometimes in giving clarity and organization to a product users already rely on.</p>
+          <span class="learn-tag" data-i18n="qcf.retro.c2.tag">Win</span>
+          <h3 class="learn-title" data-i18n="qcf.retro.c2.title">Refine &gt; reinvent</h3>
+          <p class="learn-text" data-i18n="qcf.retro.c2.text">Not every redesign needs to reinvent the structure. The biggest gain is sometimes in giving clarity and organization to a product users already rely on.</p>
         </div>
         <div class="learn-card challenge">
-          <span class="learn-tag">Challenge</span>
-          <h3 class="learn-title">Missing post-launch metrics</h3>
-          <p class="learn-text">There wasn't instrumentation structured enough to quantitatively prove the filter's impact — only the platform's overall growth.</p>
+          <span class="learn-tag" data-i18n="qcf.retro.c3.tag">Challenge</span>
+          <h3 class="learn-title" data-i18n="qcf.retro.c3.title">Missing post-launch metrics</h3>
+          <p class="learn-text" data-i18n="qcf.retro.c3.text">There wasn't instrumentation structured enough to quantitatively prove the filter's impact — only the platform's overall growth.</p>
         </div>
         <div class="learn-card challenge">
-          <span class="learn-tag">Challenge</span>
-          <h3 class="learn-title">Business context reshuffles priorities</h3>
-          <p class="learn-text">Working five years on the same platform showed how design priorities shift when business context — like preparing for an acquisition — enters the picture.</p>
+          <span class="learn-tag" data-i18n="qcf.retro.c4.tag">Challenge</span>
+          <h3 class="learn-title" data-i18n="qcf.retro.c4.title">Business context reshuffles priorities</h3>
+          <p class="learn-text" data-i18n="qcf.retro.c4.text">Working five years on the same platform showed how design priorities shift when business context — like preparing for an acquisition — enters the picture.</p>
         </div>
       </div>
     </div>
@@ -638,27 +640,27 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- TODAY WITH AI -->
   <section id="today-ai">
     <div class="container">
-      <div class="eyebrow rv">13 · Today</div>
-      <h2 class="sec-title rv">How I'd do it today, with AI.</h2>
+      <div class="eyebrow rv" data-i18n="qcf.ai.eyebrow">13 · Today</div>
+      <h2 class="sec-title rv" data-i18n="qcf.ai.title">How I'd do it today, with AI.</h2>
 
       <div class="grid-3 rv" style="margin-bottom:20px;">
         <div class="insight-card">
-          <h3 class="insight-title">1 · AI ticket triage</h3>
-          <p class="insight-text">Today I'd use AI to auto-pre-classify Customer Support tickets by topic and criticality, speeding up the problem-validation stage that used to be manual.</p>
+          <h3 class="insight-title" data-i18n="qcf.ai.c1.title">1 · AI ticket triage</h3>
+          <p class="insight-text" data-i18n="qcf.ai.c1.text">Today I'd use AI to auto-pre-classify Customer Support tickets by topic and criticality, speeding up the problem-validation stage that used to be manual.</p>
         </div>
         <div class="insight-card">
-          <h3 class="insight-title">2 · Faster prototypes and variations</h3>
-          <p class="insight-text">AI-assisted generation tools would let us test multiple UI variations of the filter in hours, not days, before validating with real users.</p>
+          <h3 class="insight-title" data-i18n="qcf.ai.c2.title">2 · Faster prototypes and variations</h3>
+          <p class="insight-text" data-i18n="qcf.ai.c2.text">AI-assisted generation tools would let us test multiple UI variations of the filter in hours, not days, before validating with real users.</p>
         </div>
         <div class="insight-card">
-          <h3 class="insight-title">3 · Faster research synthesis</h3>
-          <p class="insight-text">AI would help synthesize interviews and usability tests faster, identifying friction patterns without relying solely on manual transcript reading.</p>
+          <h3 class="insight-title" data-i18n="qcf.ai.c3.title">3 · Faster research synthesis</h3>
+          <p class="insight-text" data-i18n="qcf.ai.c3.text">AI would help synthesize interviews and usability tests faster, identifying friction patterns without relying solely on manual transcript reading.</p>
         </div>
       </div>
       <div class="grid-3 rv">
         <div class="insight-card">
-          <h3 class="insight-title">4 · Metrics from day one</h3>
-          <p class="insight-text">With today's AI-supported analytics tools, I'd instrument the launch from the start — closing the measurement gap that remained a learning from this case.</p>
+          <h3 class="insight-title" data-i18n="qcf.ai.c4.title">4 · Metrics from day one</h3>
+          <p class="insight-text" data-i18n="qcf.ai.c4.text">With today's AI-supported analytics tools, I'd instrument the launch from the start — closing the measurement gap that remained a learning from this case.</p>
         </div>
       </div>
     </div>
@@ -667,19 +669,19 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- MORE WORK -->
   <section id="more-work">
     <div class="container">
-      <div class="eyebrow rv">More Work</div>
+      <div class="eyebrow rv" data-i18n="qcf.more.eyebrow">More Work</div>
       <div class="next-grid rv">
         <a class="next-card" href="qconcursos.html">
-          <div class="next-label">Also From QConcursos</div>
-          <h3 class="next-title">Course Page Redesign</h3>
-          <p class="next-text">The other half of the story — rebuilding the core course-consumption experience millions of users spent the most time in.</p>
-          <div class="shot" style="aspect-ratio:4/3;padding:0;"><img src="../Img/qconcurso/old%20new.avif" alt="QConcursos course page, before and after the redesign" style="height:100%;object-fit:cover;"></div>
+          <div class="next-label" data-i18n="qcf.more.n1.label">Also From QConcursos</div>
+          <h3 class="next-title" data-i18n="qcf.more.n1.title">Course Page Redesign</h3>
+          <p class="next-text" data-i18n="qcf.more.n1.text">The other half of the story — rebuilding the core course-consumption experience millions of users spent the most time in.</p>
+          <div class="shot" style="aspect-ratio:4/3;padding:0;"><img src="../Img/qconcurso/old%20new.avif" alt="QConcursos course page, before and after the redesign" data-i18n-attr="alt:qcf.more.n1.img.alt" style="height:100%;object-fit:cover;"></div>
         </a>
         <a class="next-card" href="jalasoft.html">
-          <div class="next-label">Next Case Study</div>
-          <h3 class="next-title">Jalasoft Design System</h3>
-          <p class="next-text">Building a design system from a brand guideline, then scaling it across a company of 1,000+ people.</p>
-          <div class="shot" style="aspect-ratio:4/3;padding:0;"><img src="../Img/jalasoft/elearn-app.webp" alt="Jalasoft design system component mockup" style="height:100%;object-fit:cover;"></div>
+          <div class="next-label" data-i18n="qcf.more.n2.label">Next Case Study</div>
+          <h3 class="next-title" data-i18n="qcf.more.n2.title">Jalasoft Design System</h3>
+          <p class="next-text" data-i18n="qcf.more.n2.text">Building a design system from a brand guideline, then scaling it across a company of 1,000+ people.</p>
+          <div class="shot" style="aspect-ratio:4/3;padding:0;"><img src="../Img/jalasoft/elearn-app.webp" alt="Jalasoft design system component mockup" data-i18n-attr="alt:qcf.more.n2.img.alt" style="height:100%;object-fit:cover;"></div>
         </a>
       </div>
     </div>

@@ -245,16 +245,18 @@ section{position:relative;}
 /* ════════ STORY / CHAPTERS ════════ */
 .chapters{max-width:900px;margin:0 auto;}
 .chapter{
-  display:grid;grid-template-columns:100px 1fr;gap:clamp(16px,3vw,36px);
+  display:grid;grid-template-columns:100px 1fr;column-gap:clamp(16px,3vw,36px);row-gap:10px;
+  align-items:center;
   padding:clamp(30px,4vh,44px) 0;border-top:1px solid var(--line);
 }
 .chapters .chapter:first-child{border-top:none;padding-top:0;}
-.chapter-idx{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--accent);padding-top:4px;}
+.chapter-idx{grid-column:1;grid-row:1;font-family:var(--serif);font-style:italic;font-size:15px;color:var(--accent);}
 .chapter-name{
+  grid-column:2;grid-row:1;
   font-weight:800;font-size:clamp(18px,1.8vw,22px);text-transform:uppercase;
-  letter-spacing:-.01em;margin-bottom:10px;
+  letter-spacing:-.01em;
 }
-.chapter-text{color:var(--muted);font-size:clamp(16px,1.5vw,18px);line-height:1.7;max-width:64ch;}
+.chapter-text{grid-column:2;grid-row:2;color:var(--muted);font-size:clamp(16px,1.5vw,18px);line-height:1.7;max-width:64ch;}
 .chapter-text b{color:var(--white);font-weight:600;}
 .chapter-text em{font-family:var(--serif);font-style:italic;color:var(--accent);font-weight:500;}
 
@@ -385,18 +387,14 @@ section{position:relative;}
   <div class="chapters">
     <div class="chapter rv">
       <span class="chapter-idx">/ 01</span>
-      <div>
-        <h3 class="chapter-name" data-i18n="about.ch1.name">Foundation</h3>
-        <p class="chapter-text" data-i18n-html="about.ch1.text">I graduated in <b>2005</b> with a specialization in marketing and digital design, and over the past 20+ years I've worked across <b>UX/UI, product strategy, and front-end development</b> — designing products where the stakes are real: compliance, payroll, healthcare decisions, financial data.</p>
-      </div>
+      <h3 class="chapter-name" data-i18n="about.ch1.name">Foundation</h3>
+      <p class="chapter-text" data-i18n-html="about.ch1.text">I graduated in <b>2005</b> with a specialization in marketing and digital design, and over the past 20+ years I've worked across <b>UX/UI, product strategy, and front-end development</b> — designing products where the stakes are real: compliance, payroll, healthcare decisions, financial data.</p>
     </div>
 
     <div class="chapter rv">
       <span class="chapter-idx">/ 02</span>
-      <div>
-        <h3 class="chapter-name" data-i18n="about.ch2.name">Scale</h3>
-        <p class="chapter-text" data-i18n-html="about.ch2.text">I've led design for Brazil's largest exam-prep platform, with <b>8M+ active users</b>, built multi-role enterprise systems from zero, and shipped products for US-based SaaS teams as a remote contractor. I also teach UX/UI and Figma at <b>Jala University</b>, training the next generation of LATAM designers and engineers.</p>
-      </div>
+      <h3 class="chapter-name" data-i18n="about.ch2.name">Scale</h3>
+      <p class="chapter-text" data-i18n-html="about.ch2.text">I've led design for Brazil's largest exam-prep platform, with <b>8M+ active users</b>, built multi-role enterprise systems from zero, and shipped products for US-based SaaS teams as a remote contractor. I also teach UX/UI and Figma at <b>Jala University</b>, training the next generation of LATAM designers and engineers.</p>
     </div>
   </div>
 </section>
