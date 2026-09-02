@@ -172,9 +172,9 @@
     "home.card1.tag2": { en: "Filtering UX", pt: "UX de filtros", es: "UX de filtrado" },
     "home.card1.tag3": { en: "Pricing", pt: "Precificação", es: "Precios" },
     "home.card1.link": {
-      en: "R$27M added, part of the R$208M acquisition",
-      pt: "R$27M somados, parte da aquisição de R$208M",
-      es: "R$27M sumados, parte de la adquisición de R$208M"
+      en: "Part of the R$208M acquisition",
+      pt: "Parte da aquisição de R$208M",
+      es: "Parte de la adquisición de R$208M"
     },
 
     "home.card2.alt": {
@@ -194,7 +194,6 @@
     },
     "home.card2.tag1": { en: "Enterprise", pt: "Corporativo", es: "Corporativo" },
     "home.card2.tag2": { en: "Design System", pt: "Design System", es: "Sistema de Diseño" },
-    "home.card2.tag3": { en: "Brand & Web", pt: "Marca e Web", es: "Marca y Web" },
     "home.card2.link": {
       en: "Scaled across 1,000+ people",
       pt: "Escalado por mais de 1.000 pessoas",
@@ -216,9 +215,9 @@
     "home.card3.tag2": { en: "Social Product", pt: "Produto social", es: "Producto social" },
     "home.card3.tag3": { en: "0 → 1", pt: "0 → 1", es: "0 → 1" },
     "home.card3.link": {
-      en: "Live product · 12-month build",
-      pt: "Produto no ar · 12 meses de construção",
-      es: "Producto en vivo · 12 meses de desarrollo"
+      en: "Live product",
+      pt: "Produto no ar",
+      es: "Producto en vivo"
     },
 
     "home.card4.alt": {
@@ -256,9 +255,9 @@
     "home.card5.tag2": { en: "8M+ Users", pt: "8M+ usuários", es: "8M+ usuarios" },
     "home.card5.tag3": { en: "Team Lead", pt: "Líder de time", es: "Líder de equipo" },
     "home.card5.link": {
-      en: "600K → 10M+ users on the platform",
-      pt: "600 mil → 10M+ usuários na plataforma",
-      es: "600 mil → 10M+ usuarios en la plataforma"
+      en: "600K → 10M+ users",
+      pt: "600 mil → 10M+ usuários",
+      es: "600 mil → 10M+ usuarios"
     },
 
     "home.testi.label": { en: "Testimonials", pt: "Depoimentos", es: "Testimonios" },

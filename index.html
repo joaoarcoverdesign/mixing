@@ -290,6 +290,9 @@ section{position:relative;}
 .work-link{
   display:inline-flex;align-items:center;gap:8px;
   color:var(--accent);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;
+  /* cards stretch to equal height in the row — pin the CTA to the bottom so the
+     green links line up across every card regardless of how many tag rows wrap */
+  margin-top:auto;
 }
 .work-link-arrow{display:inline-block;transition:transform .3s var(--ease);}
 .work-item:hover .work-link-arrow{transform:translateX(5px);}
@@ -324,6 +327,37 @@ section{position:relative;}
 .case-cursor.is-visible .case-cursor-bubble{opacity:1;transform:translate(-50%,-50%) scale(1);}
 @media (hover:none), (pointer:coarse){
   .case-cursor{display:none;}
+}
+
+/* laptop viewports — the work section pins to 100vh. On laptop-height screens
+   the pin can't fit the full card, so the vertical rhythm tightens progressively.
+   Above 900px tall (external 1080p+ monitors) NONE of this applies and the
+   section renders exactly as before, with full-size images. */
+
+/* tier 1 — mid/large laptops (~820–900px tall): keep the images at full size,
+   just pull the vertical spacing in so the card clears the pin */
+@media (min-width:861px) and (pointer:fine) and (max-height:900px){
+  .work-pin{padding-top:52px;padding-bottom:clamp(18px,2.4vh,36px);}
+  .work-head{margin-bottom:clamp(16px,2.8vh,36px);}
+  .work-media{margin-bottom:clamp(12px,1.8vh,20px);}
+  .work-name{margin-bottom:clamp(8px,1.2vh,14px);}
+  .work-desc{margin-bottom:clamp(10px,1.6vh,18px);}
+  .work-tags{margin-bottom:clamp(10px,1.8vh,22px);}
+  .work-footer{margin-top:clamp(12px,1.4vh,20px);}
+}
+
+/* tier 2 — short laptops (≤780px tall): also cap and crop the media and narrow
+   the cards so everything still fits. The header shrinks to buy the image back
+   more height. */
+@media (min-width:861px) and (pointer:fine) and (max-height:780px){
+  .work-pin{padding-top:40px;}
+  .work-head{margin-bottom:clamp(12px,2vh,26px);}
+  .work-head .sec-title{font-size:clamp(26px,3.4vw,42px);}
+  .work-track{gap:clamp(20px,2.6vw,40px);}
+  .work-item{width:clamp(280px,27vw,440px);}
+  .work-media{height:clamp(180px,32vh,320px);}
+  .work-media img{height:100%;object-fit:cover;object-position:top center;}
+  .work-name{font-size:clamp(20px,2vw,28px);}
 }
 
 /* mobile / coarse-pointer fallback — native horizontal scroll, no pin */
@@ -546,7 +580,7 @@ section{position:relative;}
           <h3 class="work-name" data-i18n="home.card1.name">The Filter Behind the Growth</h3>
           <p class="work-desc" data-i18n="home.card1.desc">A 12-field cascading filter that turned a 605K-question database into a usable product — and a pricing call that quietly added R$27M a year.</p>
           <div class="work-tags"><span data-i18n="home.card1.tag1">Edtech</span><span data-i18n="home.card1.tag2">Filtering UX</span><span data-i18n="home.card1.tag3">Pricing</span></div>
-          <span class="work-link"><span data-i18n="home.card1.link">R$27M added, part of the R$208M acquisition</span> <span class="work-link-arrow">→</span></span>
+          <span class="work-link"><span data-i18n="home.card1.link">Part of the R$208M acquisition</span> <span class="work-link-arrow">→</span></span>
         </a>
 
         <a class="work-item rv" href="cases/jalasoft.html">
@@ -556,7 +590,7 @@ section{position:relative;}
           <span class="work-idx">/ 02</span>
           <h3 class="work-name" data-i18n="home.card2.name">Jalasoft Design System</h3>
           <p class="work-desc" data-i18n="home.card2.desc">Building a design system from a brand guideline, then scaling it across a company of over a thousand people.</p>
-          <div class="work-tags"><span data-i18n="home.card2.tag1">Enterprise</span><span data-i18n="home.card2.tag2">Design System</span><span data-i18n="home.card2.tag3">Brand &amp; Web</span></div>
+          <div class="work-tags"><span data-i18n="home.card2.tag1">Enterprise</span><span data-i18n="home.card2.tag2">Design System</span></div>
           <span class="work-link"><span data-i18n="home.card2.link">Scaled across 1,000+ people</span> <span class="work-link-arrow">→</span></span>
         </a>
 
@@ -568,7 +602,7 @@ section{position:relative;}
           <h3 class="work-name" data-i18n="home.card3.name">Valt Network</h3>
           <p class="work-desc" data-i18n="home.card3.desc">Designing the professional layer for private-market investors and high-growth companies.</p>
           <div class="work-tags"><span data-i18n="home.card3.tag1">Fintech</span><span data-i18n="home.card3.tag2">Social Product</span><span data-i18n="home.card3.tag3">0 → 1</span></div>
-          <span class="work-link"><span data-i18n="home.card3.link">Live product · 12-month build</span> <span class="work-link-arrow">→</span></span>
+          <span class="work-link"><span data-i18n="home.card3.link">Live product</span> <span class="work-link-arrow">→</span></span>
         </a>
 
         <a class="work-item rv" href="cases/mba.html">
@@ -590,7 +624,7 @@ section{position:relative;}
           <h3 class="work-name" data-i18n="home.card5.name">Qconcursos</h3>
           <p class="work-desc" data-i18n="home.card5.desc">From 600K to 10M — designing for scale at Brazil's largest exam-prep edtech.</p>
           <div class="work-tags"><span data-i18n="home.card5.tag1">Edtech</span><span data-i18n="home.card5.tag2">8M+ Users</span><span data-i18n="home.card5.tag3">Team Lead</span></div>
-          <span class="work-link"><span data-i18n="home.card5.link">600K → 10M+ users on the platform</span> <span class="work-link-arrow">→</span></span>
+          <span class="work-link"><span data-i18n="home.card5.link">600K → 10M+ users</span> <span class="work-link-arrow">→</span></span>
         </a>
 
       </div>
