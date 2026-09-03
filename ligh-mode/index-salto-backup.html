@@ -1,51 +1,49 @@
 <!DOCTYPE html>
 <html lang="en" data-i18n-page="home">
 <head>
-<script src="i18n.js"></script>
-<script src="analytics.js"></script>
+<script src="../i18n.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R7PLZLRLYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-R7PLZLRLYJ');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" href="Img/favicon.png">
-<link rel="apple-touch-icon" href="Img/favicon.png">
+<link rel="icon" type="image/png" href="../Img/favicon.png">
+<link rel="apple-touch-icon" href="../Img/favicon.png">
 <title>João Abdalla — Senior Product Designer · UX/UI</title>
 <meta name="description" content="Designer who builds and operates AI systems for the design process. Remote from Brazil, working with US & EU teams.">
-<link rel="canonical" href="https://abdalladesign.vercel.app/">
-<!-- Open Graph / social preview -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Abdalla Design">
-<meta property="og:url" content="https://abdalladesign.vercel.app/">
-<meta property="og:title" content="João Abdalla — Senior Product Designer · UX/UI">
-<meta property="og:description" content="Designer who builds and operates AI systems for the design process. Remote from Brazil, working with US & EU teams.">
-<meta property="og:image" content="https://abdalladesign.vercel.app/Img/og-cover.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Selected work by João Abdalla — product and UX/UI design projects">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="João Abdalla — Senior Product Designer · UX/UI">
-<meta name="twitter:description" content="Designer who builds and operates AI systems for the design process. Remote from Brazil, working with US & EU teams.">
-<meta name="twitter:image" content="https://abdalladesign.vercel.app/Img/og-cover.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<!-- Salto Design System type pairing: Satoshi (geometric sans, UI) + Fraunces italic (one emphasis word per title).
+     Satoshi is a Fontshare font (not on Google Fonts); Urbanist is loaded as a metric-close fallback. -->
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* ════════ TOKENS — Arcoverdesign v5 style guide ════════ */
+/* ════════ TOKENS — Salto Design System · Light ════════ */
 :root{
-  --bg:        #11161A;
-  --bg-deep:   #0C1013;
-  --surface:   #1A2025;
-  --line:      rgba(255,255,255,.08);
-  --accent:    #C2FC50;
-  --white:     #F4F6F3;
-  --muted:     #9BA4AA;
-  --dim:       #5E676D;
-  --serif:     'Lora', Georgia, serif;
-  --sans:      'Urbanist', sans-serif;
+  --bg:          #f5f2ea;         /* warm off-white page ground (not pure white) */
+  --bg-deep:     #efeae0;         /* slightly deeper warm — work strip, footer */
+  --surface:     #ffffff;         /* cards, panels */
+  --line:        rgba(28,28,26,.12);
+  --accent:      #c2e84c;         /* signature lime — fills, borders, glows */
+  --accent-text: #5f8a3c;         /* accent as text/icon on a light background */
+  --accent-ink:  #15180f;         /* text/icon sitting on top of an accent fill */
+  --white:       #1c1c1a;         /* primary near-black text (token name kept) */
+  --muted:       #6e6e66;         /* secondary text */
+  --dim:         #a3a096;         /* faint text, counts */
+  --serif:       'Fraunces', Georgia, serif;
+  --sans:        'Satoshi', 'Urbanist', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --px: clamp(20px, 5vw, 72px);
   --ease: cubic-bezier(.22,1,.36,1);
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scrollbar-width:thin;scrollbar-color:#2c343a var(--bg-deep);}
+html{scrollbar-width:thin;scrollbar-color:#c9c3b5 var(--bg-deep);}
 body{
   background:var(--bg);
   color:var(--white);
@@ -54,7 +52,7 @@ body{
   overflow-x:hidden;
   line-height:1.5;
 }
-::selection{background:var(--accent);color:var(--bg-deep);}
+::selection{background:var(--accent);color:var(--accent-ink);}
 a{color:inherit;text-decoration:none;}
 img{display:block;max-width:100%;}
 button{font:inherit;background:none;border:none;cursor:pointer;color:inherit;}
@@ -68,9 +66,13 @@ nav.is-hidden{transform:translateY(-110%);}
 .nav-inner{
   display:flex;align-items:center;justify-content:space-between;
   padding:22px var(--px);
-  background:linear-gradient(rgba(12,16,19,.85),rgba(12,16,19,.4) 70%,transparent);
+  background:linear-gradient(rgba(245,242,234,.92),rgba(245,242,234,.55) 70%,transparent);
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
+  /* fade the blur out over the empty bottom padding so its clip edge doesn't
+     read as a hard seam against the light ground */
+  -webkit-mask-image:linear-gradient(#000 calc(100% - 14px), transparent);
+  mask-image:linear-gradient(#000 calc(100% - 14px), transparent);
 }
 .nav-logo{
   font-family:var(--serif);font-style:italic;font-weight:600;font-size:20px;color:var(--white);
@@ -102,18 +104,20 @@ nav.is-hidden{transform:translateY(-110%);}
 /* ════════ BUTTONS ════════ */
 .btn-main{
   position:relative;display:inline-flex;align-items:center;gap:12px;
-  background:var(--accent);color:var(--bg-deep);
+  background:var(--accent);color:var(--accent-ink);
   font-weight:700;font-size:15px;letter-spacing:.02em;
   padding:18px 34px;border-radius:99px;overflow:hidden;
   transition:transform .3s var(--ease);
 }
 .btn-main:hover{transform:translateY(-2px);}
+/* hover: a near-black panel slides up over the lime; label flips to the page ground */
 .btn-main .flair{
-  position:absolute;inset:0;background:var(--white);border-radius:inherit;
+  position:absolute;inset:0;background:var(--accent-ink);border-radius:inherit;
   transform:translateY(101%);transition:transform .45s var(--ease);
 }
 .btn-main:hover .flair{transform:translateY(0);}
-.btn-main span{position:relative;z-index:1;}
+.btn-main span{position:relative;z-index:1;transition:color .3s var(--ease);}
+.btn-main:hover span{color:var(--bg);}
 
 /* ════════ HERO ════════ */
 .hero2{
@@ -122,7 +126,7 @@ nav.is-hidden{transform:translateY(-110%);}
 }
 .hero2-glow{
   position:absolute;top:-15%;left:50%;transform:translateX(-50%);width:70%;height:65%;
-  background:radial-gradient(closest-side, rgba(194,252,80,.14), transparent 72%);
+  background:radial-gradient(closest-side, rgba(194,232,76,.28), transparent 72%);
   filter:blur(10px);pointer-events:none;z-index:0;
 }
 .kinetic-canvas{
@@ -136,7 +140,7 @@ nav.is-hidden{transform:translateY(-110%);}
   line-height:1.08;letter-spacing:-.02em;
   max-width:700px;margin:0 auto clamp(8px,1.2vh,14px);
 }
-.hero2-title .sep{color:var(--accent);margin:0 4px;}
+.hero2-title .sep{color:var(--accent-text);margin:0 4px;}
 .hero2-sub{
   font-family:var(--serif);font-style:italic;font-weight:500;
   font-size:clamp(19px,2.8vw,30px);line-height:1.4;
@@ -160,7 +164,7 @@ nav.is-hidden{transform:translateY(-110%);}
   display:flex;align-items:center;justify-content:center;
   color:#fff;transition:transform .3s var(--ease),box-shadow .3s var(--ease);
 }
-.social-btn:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(0,0,0,.35);}
+.social-btn:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(28,28,26,.16);}
 .social-btn.dribbble{background:#EA4C89;}
 .social-btn.behance{background:#1769FF;}
 .social-btn.linkedin{background:#0A66C2;}
@@ -171,7 +175,7 @@ nav.is-hidden{transform:translateY(-110%);}
 }
 .mock-glow{
   position:absolute;inset:10% -8% 14%;z-index:0;
-  background:radial-gradient(55% 55% at 50% 45%, rgba(194,252,80,.20), transparent 72%);
+  background:radial-gradient(55% 55% at 50% 45%, rgba(194,232,76,.34), transparent 72%);
   filter:blur(50px);
 }
 .mock-frame{
@@ -183,7 +187,7 @@ nav.is-hidden{transform:translateY(-110%);}
   transition:left .6s var(--ease),top .6s var(--ease),width .6s var(--ease),
              transform .6s var(--ease),transform-origin .6s var(--ease);
 }
-.mock-card img{width:100%;display:block;filter:drop-shadow(0 30px 55px rgba(0,0,0,.5));}
+.mock-card img{width:100%;display:block;filter:drop-shadow(0 24px 48px rgba(28,28,26,.20));}
 
 /* slot recipes — which card sits where is controlled by data-slot, swapped on click */
 .mock-card[data-slot="front"]{
@@ -211,7 +215,7 @@ section{position:relative;}
   display:flex;align-items:center;gap:12px;
   font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);
 }
-.sec-label::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);}
+.sec-label::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent-text);}
 .sec-count{font-family:var(--serif);font-style:italic;color:var(--dim);font-size:15px;}
 .sec-title{
   font-weight:800;font-size:clamp(30px,4.6vw,58px);
@@ -219,7 +223,7 @@ section{position:relative;}
 }
 .sec-title em{
   font-family:var(--serif);font-style:italic;font-weight:500;text-transform:lowercase;
-  color:var(--accent);
+  color:var(--accent-text);
 }
 
 /* ════════ WORK — pinned horizontal scroll (v5 pattern) ════════ */
@@ -242,7 +246,7 @@ section{position:relative;}
   display:flex;align-items:center;justify-content:center;
   color:var(--white);transition:background .25s,border-color .25s,transform .25s var(--ease);
 }
-.work-arrow:hover{background:var(--accent);border-color:var(--accent);color:var(--bg-deep);}
+.work-arrow:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);}
 .work-arrow:active{transform:scale(.92);}
 .work-arrow:disabled{opacity:.35;pointer-events:none;}
 .work-arrow svg{width:16px;height:16px;}
@@ -265,19 +269,15 @@ section{position:relative;}
 .work-item > *{flex-shrink:0;}
 .work-media{
   position:relative;overflow:hidden;border-radius:4px;display:block;
-  flex:0 0 auto;width:100%;
+  aspect-ratio:1440/820;flex:0 0 auto;width:100%;max-height:clamp(170px,30vh,420px);
   background:var(--surface);margin-bottom:clamp(16px,2.4vh,28px);
 }
-.work-media img{width:100%;height:auto;display:block;}
-/* fine-pointer only: native cursor disappears over the thumbnail, replaced by
-   the trailing pill below — text/links under the image keep the normal pointer */
-@media (hover:hover) and (pointer:fine){
-  .work-media{cursor:none;}
-}
+.work-media img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s var(--ease);}
 /* image stays flush to the card edges; the text content gets a left/right inset */
 .work-idx,.work-name,.work-desc,.work-tags,.work-link{padding-left:clamp(18px,2.4vw,34px);padding-right:clamp(18px,2.4vw,34px);}
+.work-item:hover .work-media img{transform:scale(1.06);}
 .work-idx{
-  font-family:var(--serif);font-style:italic;font-size:15px;color:var(--accent);
+  font-family:var(--serif);font-style:italic;font-size:15px;color:var(--accent-text);
   margin-bottom:4px;display:block;
 }
 .work-name{
@@ -285,7 +285,7 @@ section{position:relative;}
   text-transform:uppercase;line-height:1.05;margin-bottom:clamp(10px,1.6vh,18px);
   min-height:2.1em;transition:color .25s var(--ease);
 }
-.work-item:hover .work-name{color:var(--accent);}
+.work-item:hover .work-name{color:var(--accent-text);}
 .work-desc{
   color:var(--muted);font-size:16px;line-height:1.5;min-height:3em;margin-bottom:clamp(12px,2vh,26px);
   display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;
@@ -297,7 +297,7 @@ section{position:relative;}
 }
 .work-link{
   display:inline-flex;align-items:center;gap:8px;
-  color:var(--accent);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--accent-text);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;
   /* cards stretch to equal height in the row — pin the CTA to the bottom so the
      green links line up across every card regardless of how many tag rows wrap */
   margin-top:auto;
@@ -317,33 +317,13 @@ section{position:relative;}
   background:var(--accent);border-radius:inherit;
 }
 
-/* case cursor — ported from the Cursor React component (motion-primitives'
-   attachToParent pattern): a pill that trails the pointer while it's over a case
-   thumbnail. Two layers, same as the source component — an outer wrapper the
-   script moves every frame (lerp-follow, no spring library needed) and an inner
-   bubble that only handles the show/hide scale+fade transition. */
-.case-cursor{position:fixed;top:0;left:0;z-index:60;pointer-events:none;will-change:transform;}
-.case-cursor-bubble{
-  display:flex;align-items:center;gap:6px;
-  background:var(--accent);color:var(--bg-deep);
-  font-family:var(--sans);font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;
-  padding:10px 18px;border-radius:99px;white-space:nowrap;
-  transform:translate(-50%,-50%) scale(.4);opacity:0;
-  transition:opacity .2s var(--ease), transform .2s var(--ease);
-}
-.case-cursor-bubble svg{width:14px;height:14px;flex:0 0 auto;}
-.case-cursor.is-visible .case-cursor-bubble{opacity:1;transform:translate(-50%,-50%) scale(1);}
-@media (hover:none), (pointer:coarse){
-  .case-cursor{display:none;}
-}
-
 /* laptop viewports — the work section pins to 100vh. On laptop-height screens
    the pin can't fit the full card, so the vertical rhythm tightens progressively.
    Above 900px tall (external 1080p+ monitors) NONE of this applies and the
-   section renders exactly as before, with full-size images. */
+   section renders exactly as before. */
 
-/* tier 1 — mid/large laptops (~820–900px tall): keep the images at full size,
-   just pull the vertical spacing in so the card clears the pin */
+/* tier 1 — mid/large laptops (~820–900px tall): keep the image size, just pull
+   the vertical spacing in so the card clears the pin */
 @media (min-width:861px) and (pointer:fine) and (max-height:900px){
   .work-pin{padding-top:52px;padding-bottom:clamp(18px,2.4vh,36px);}
   .work-head{margin-bottom:clamp(16px,2.8vh,36px);}
@@ -354,17 +334,15 @@ section{position:relative;}
   .work-footer{margin-top:clamp(12px,1.4vh,20px);}
 }
 
-/* tier 2 — short laptops (≤780px tall): also cap and crop the media and narrow
-   the cards so everything still fits. The header shrinks to buy the image back
-   more height. */
+/* tier 2 — short laptops (≤780px tall): narrow the cards and shrink the header
+   to buy the image back more height, keeping everything inside the pin */
 @media (min-width:861px) and (pointer:fine) and (max-height:780px){
   .work-pin{padding-top:40px;}
   .work-head{margin-bottom:clamp(12px,2vh,26px);}
   .work-head .sec-title{font-size:clamp(26px,3.4vw,42px);}
   .work-track{gap:clamp(20px,2.6vw,40px);}
-  .work-item{width:clamp(280px,27vw,440px);}
-  .work-media{height:clamp(180px,32vh,320px);}
-  .work-media img{height:100%;object-fit:cover;object-position:top center;}
+  .work-item{width:clamp(280px,27vw,460px);}
+  .work-media{max-height:clamp(180px,32vh,320px);}
   .work-name{font-size:clamp(20px,2vw,28px);}
 }
 
@@ -397,14 +375,14 @@ section{position:relative;}
   to{--gradient-angle:360deg;}
 }
 .testi-card{
-  --gb-dim:#1c2410;
+  --gb-dim:#e4e0d5;
   --gb-mid:var(--accent);
-  --gb-bright:#f2ffd1;
+  --gb-bright:#eef8c9;
   position:relative;overflow:hidden;
   max-width:840px;margin:0 auto;
   border:1px solid transparent;border-radius:28px;
   padding:clamp(36px,6vw,64px);
-  box-shadow:0 25px 70px rgba(0,0,0,.4);
+  box-shadow:0 25px 70px rgba(28,28,26,.10);
   background-image:
     linear-gradient(var(--surface), var(--surface)),
     conic-gradient(from var(--gradient-angle,0deg),
@@ -420,13 +398,13 @@ section{position:relative;}
 }
 .testi-glow{
   position:absolute;top:-30%;right:-15%;width:60%;height:80%;z-index:0;
-  background:radial-gradient(closest-side, rgba(194,252,80,.12), transparent 72%);
+  background:radial-gradient(closest-side, rgba(194,232,76,.24), transparent 72%);
   filter:blur(20px);pointer-events:none;
 }
 .testi-mark{
   position:relative;z-index:1;
   font-family:var(--serif);font-style:italic;font-weight:600;
-  font-size:56px;line-height:1;color:var(--accent);margin-bottom:4px;
+  font-size:56px;line-height:1;color:var(--accent-text);margin-bottom:4px;
 }
 .testi-quote{
   position:relative;z-index:1;
@@ -450,7 +428,7 @@ section{position:relative;}
 .testi-avatar:hover{opacity:.8;}
 .testi-avatar.is-active{
   opacity:1;transform:scale(1.12);z-index:5;filter:none;
-  border-color:var(--accent);box-shadow:0 10px 24px rgba(0,0,0,.45);
+  border-color:var(--accent);box-shadow:0 10px 24px rgba(28,28,26,.18);
 }
 .testi-divider{width:1px;height:34px;background:var(--line);flex:0 0 auto;}
 .testi-meta{display:flex;flex-direction:column;gap:2px;transition:opacity .3s var(--ease);}
@@ -466,7 +444,7 @@ section{position:relative;}
 .closing{text-align:center;position:relative;overflow:hidden;}
 .closing::before{
   content:"";position:absolute;inset:auto 0 -20% 0;height:70%;
-  background:radial-gradient(50% 60% at 50% 100%, rgba(194,252,80,.16), transparent 70%);
+  background:radial-gradient(50% 60% at 50% 100%, rgba(194,232,76,.30), transparent 70%);
   pointer-events:none;
 }
 .closing-kicker{
@@ -479,90 +457,8 @@ section{position:relative;}
   letter-spacing:-.03em;line-height:1.02;text-transform:uppercase;
   margin-bottom:clamp(36px,6vh,54px);
 }
-.closing-title em{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:lowercase;color:var(--accent);}
+.closing-title em{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:lowercase;color:var(--accent-text);}
 .closing .btn-main{position:relative;z-index:1;}
-
-/* ════════ AI SYSTEM — teaser (leads to dedicated page) ════════ */
-.aisys{
-  position:relative;z-index:2;
-  background:var(--bg);
-  border-top:1px solid var(--line);
-  overflow:hidden;
-}
-.aisys-inner{
-  display:grid;grid-template-columns:1.05fr .95fr;
-  gap:clamp(44px,7vw,104px);align-items:center;
-  max-width:1240px;margin:0 auto;
-}
-.aisys-copy{max-width:560px;}
-.aisys-title{
-  font-weight:800;font-size:clamp(28px,4.3vw,52px);
-  line-height:1.06;letter-spacing:-.03em;text-transform:uppercase;
-  margin:clamp(16px,2.6vh,22px) 0 clamp(16px,2.4vh,22px);
-}
-.aisys-title em{
-  font-family:var(--serif);font-style:italic;font-weight:500;
-  text-transform:lowercase;color:var(--accent);
-}
-.aisys-sub{
-  font-family:var(--serif);font-style:italic;font-weight:400;
-  font-size:clamp(17px,1.9vw,21px);line-height:1.55;
-  color:var(--muted);margin-bottom:clamp(28px,4vh,38px);
-}
-.aisys-sub b{color:var(--white);font-weight:600;font-style:normal;}
-
-/* block-diagram preview — decorative, sits beside the copy without competing
-   with the title/subtitle hierarchy */
-.aisys-diagram{
-  position:relative;padding:20px 0 6px 8px;
-}
-.aisys-diagram::before{
-  content:"";position:absolute;inset:-16% -12%;z-index:0;
-  background:radial-gradient(58% 55% at 62% 42%, rgba(194,252,80,.10), transparent 72%);
-  filter:blur(34px);pointer-events:none;
-}
-.aisys-tag{
-  position:absolute;top:-4px;right:0;z-index:2;
-  font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--accent);background:var(--bg-deep);
-  border:1px solid rgba(194,252,80,.35);border-radius:99px;padding:6px 13px;
-}
-.aisys-block{
-  position:relative;z-index:1;
-  display:flex;align-items:center;gap:14px;
-  min-height:58px;padding:16px 22px;margin-left:26px;
-  border:1px solid var(--line);border-radius:12px;background:var(--surface);
-  transition:border-color .45s var(--ease),transform .45s var(--ease);
-}
-.aisys-block:not(:last-child){margin-bottom:20px;}
-/* rail node + connector to the next block */
-.aisys-block::before{
-  content:"";position:absolute;left:-26px;top:50%;
-  width:9px;height:9px;border-radius:50%;background:var(--accent);
-  transform:translate(-50%,-50%);
-}
-.aisys-block::after{
-  content:"";position:absolute;left:-26px;top:50%;
-  width:1px;height:78px;background:rgba(194,252,80,.22);transform:translateX(-50%);
-}
-.aisys-block:last-child::after{display:none;}
-.aisys:hover .aisys-block{border-color:rgba(194,252,80,.28);}
-.aisys-block-num{
-  font-family:var(--serif);font-style:italic;font-size:14px;color:var(--accent);
-  flex:0 0 auto;
-}
-.aisys-block-label{
-  font-size:13px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
-  color:var(--white);
-}
-@media (max-width:900px){
-  .aisys-inner{grid-template-columns:1fr;gap:clamp(40px,9vw,60px);}
-  .aisys-diagram{order:2;align-self:stretch;max-width:420px;}
-  .aisys-tag{right:auto;left:0;}
-}
-@media (prefers-reduced-motion:reduce){
-  .aisys-block{transition:none;}
-}
 
 /* ════════ FOOTER ════════ */
 .foot-bottom{
@@ -583,7 +479,7 @@ section{position:relative;}
 <nav id="nav">
   <div class="nav-inner">
     <a href="#top" class="nav-brand">
-      <img class="nav-avatar" src="Img/joao-avatar.jpg" alt="João Abdalla">
+      <img class="nav-avatar" src="../Img/joao-avatar.jpg" alt="João Abdalla">
       <span class="nav-brand-text">
         <span class="nav-name">João Abdalla</span>
         <span class="nav-role" data-i18n="common.nav.role">Product designer UX UI</span>
@@ -591,7 +487,7 @@ section{position:relative;}
     </a>
     <ul class="nav-links">
       <li><a href="#work" data-i18n="common.nav.works">Works</a></li>
-      <li><a href="about.html" data-i18n="common.nav.about">About</a></li>
+      <li><a href="../about.html" data-i18n="common.nav.about">About</a></li>
       <li><a href="#contact" data-i18n="common.nav.contact">Contact</a></li>
     </ul>
   </div>
@@ -628,14 +524,14 @@ section{position:relative;}
   <div class="hero2-media">
     <div class="mock-glow" aria-hidden="true"></div>
     <div class="mock-frame rv" id="mockFrame">
-      <div class="mock-card" data-slot="back-left" data-href="cases/jalasoft.html" role="button" tabindex="0" aria-label="Bring Jalasoft to front" data-i18n-attr="aria-label:home.mock.jala.aria">
-        <img src="Img/browser.png" alt="Jalasoft — brand and web redesign, shown in browser" loading="lazy" data-i18n-attr="alt:home.mock.jala.alt">
+      <div class="mock-card" data-slot="back-left" data-href="../cases/jalasoft.html" role="button" tabindex="0" aria-label="Bring Jalasoft to front" data-i18n-attr="aria-label:home.mock.jala.aria">
+        <img src="../Img/browser.png" alt="Jalasoft — brand and web redesign, shown in browser" loading="lazy" data-i18n-attr="alt:home.mock.jala.alt">
       </div>
-      <div class="mock-card" data-slot="back-right" data-href="cases/quero-simulados.html" role="button" tabindex="0" aria-label="Bring Quero Simulados to front" data-i18n-attr="aria-label:home.mock.quero.aria">
-        <img src="Img/browser-2.png" alt="Quero Simulados — exam practice platform, shown in browser" loading="lazy" data-i18n-attr="alt:home.mock.quero.alt">
+      <div class="mock-card" data-slot="back-right" data-href="../cases/quero-simulados.html" role="button" tabindex="0" aria-label="Bring Quero Simulados to front" data-i18n-attr="aria-label:home.mock.quero.aria">
+        <img src="../Img/browser-2.png" alt="Quero Simulados — exam practice platform, shown in browser" loading="lazy" data-i18n-attr="alt:home.mock.quero.alt">
       </div>
-      <div class="mock-card" data-slot="front" data-href="cases/qconcursos.html" role="button" tabindex="0" aria-label="Open the Qconcursos case study" data-i18n-attr="aria-label:home.mock.qcon.aria">
-        <img src="Img/browser-1.png" alt="Qconcursos — platform homepage, shown in browser" loading="lazy" data-i18n-attr="alt:home.mock.qcon.alt">
+      <div class="mock-card" data-slot="front" data-href="../cases/qconcursos.html" role="button" tabindex="0" aria-label="Open the Qconcursos case study" data-i18n-attr="aria-label:home.mock.qcon.aria">
+        <img src="../Img/browser-1.png" alt="Qconcursos — platform homepage, shown in browser" loading="lazy" data-i18n-attr="alt:home.mock.qcon.alt">
       </div>
     </div>
   </div>
@@ -662,9 +558,9 @@ section{position:relative;}
     <div class="work-viewport" id="workViewport">
       <div class="work-track" id="workTrack">
 
-        <a class="work-item rv" href="cases/qconcursos-filter.html">
+        <a class="work-item rv" href="../cases/qconcursos-filter.html">
           <span class="work-media">
-            <img src="Img/cards%20home/card-filter.png" alt="QConcursos — cascading question filter, live product screenshot" data-i18n-attr="alt:home.card1.alt">
+            <img src="../Img/cards%20home/card-filter.png" alt="QConcursos — cascading question filter, live product screenshot" data-i18n-attr="alt:home.card1.alt">
           </span>
           <span class="work-idx">/ 01</span>
           <h3 class="work-name" data-i18n="home.card1.name">The Filter Behind the Growth</h3>
@@ -673,9 +569,9 @@ section{position:relative;}
           <span class="work-link"><span data-i18n="home.card1.link">Part of the R$208M acquisition</span> <span class="work-link-arrow">→</span></span>
         </a>
 
-        <a class="work-item rv" href="cases/jalasoft.html">
+        <a class="work-item rv" href="../cases/jalasoft.html">
           <span class="work-media">
-            <img src="Img/cards%20home/card-jala.png" alt="Jalasoft — design system built from a brand guideline" data-i18n-attr="alt:home.card2.alt">
+            <img src="../Img/cards%20home/card-jala.png" alt="Jalasoft — design system built from a brand guideline" data-i18n-attr="alt:home.card2.alt">
           </span>
           <span class="work-idx">/ 02</span>
           <h3 class="work-name" data-i18n="home.card2.name">Jalasoft Design System</h3>
@@ -684,9 +580,9 @@ section{position:relative;}
           <span class="work-link"><span data-i18n="home.card2.link">Scaled across 1,000+ people</span> <span class="work-link-arrow">→</span></span>
         </a>
 
-        <a class="work-item rv" href="cases/valt.html">
+        <a class="work-item rv" href="../cases/valt.html">
           <span class="work-media">
-            <img src="Img/cards%20home/Valt.png" alt="Valt Network — product design" data-i18n-attr="alt:home.card3.alt">
+            <img src="../Img/cards%20home/Valt.png" alt="Valt Network — product design" data-i18n-attr="alt:home.card3.alt">
           </span>
           <span class="work-idx">/ 03</span>
           <h3 class="work-name" data-i18n="home.card3.name">Valt Network</h3>
@@ -695,9 +591,9 @@ section{position:relative;}
           <span class="work-link"><span data-i18n="home.card3.link">Live product</span> <span class="work-link-arrow">→</span></span>
         </a>
 
-        <a class="work-item rv" href="cases/mba.html">
+        <a class="work-item rv" href="../cases/mba.html">
           <span class="work-media">
-            <img src="Img/cards%20home/card-mba.png" alt="My Benefits Advice — personalized plan-recommendation flow" data-i18n-attr="alt:home.card4.alt">
+            <img src="../Img/cards%20home/card-mba.png" alt="My Benefits Advice — personalized plan-recommendation flow" data-i18n-attr="alt:home.card4.alt">
           </span>
           <span class="work-idx">/ 04</span>
           <h3 class="work-name" data-i18n="home.card4.name">My Benefits Advice</h3>
@@ -706,9 +602,9 @@ section{position:relative;}
           <span class="work-link"><span data-i18n="home.card4.link">43% faster onboarding</span> <span class="work-link-arrow">→</span></span>
         </a>
 
-        <a class="work-item rv" href="cases/qconcursos.html">
+        <a class="work-item rv" href="../cases/qconcursos.html">
           <span class="work-media">
-            <img src="Img/cards%20home/card-Qcon.png" alt="Qconcursos — platform redesign" data-i18n-attr="alt:home.card5.alt">
+            <img src="../Img/cards%20home/card-Qcon.png" alt="Qconcursos — platform redesign" data-i18n-attr="alt:home.card5.alt">
           </span>
           <span class="work-idx">/ 05</span>
           <h3 class="work-name" data-i18n="home.card5.name">Qconcursos</h3>
@@ -722,36 +618,6 @@ section{position:relative;}
 
     <div class="work-footer">
       <div class="work-progress" aria-hidden="true"><span class="work-progress-fill" id="workProgressFill"></span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════ AI SYSTEM — teaser to the dedicated page ════════ -->
-<section class="aisys sec-pad" id="system">
-  <div class="aisys-inner">
-    <div class="aisys-copy">
-      <span class="sec-label rv" data-i18n="home.aisys.label">The system</span>
-      <h2 class="sec-title aisys-title rv" data-i18n-html="home.aisys.title">How I design with AI <em>today</em></h2>
-      <p class="aisys-sub rv" data-i18n-html="home.aisys.sub">I don't use AI to replace creative direction. I built a system of specialised agents — and I work as the orchestrator, <b>curating every decision</b> in the process.</p>
-      <a class="btn-main rv" href="pipeline.html">
-        <span class="flair"></span><span data-i18n="home.aisys.cta">See the full system →</span>
-      </a>
-    </div>
-
-    <div class="aisys-diagram rv" aria-hidden="true">
-      <span class="aisys-tag" data-i18n="home.aisys.tag">Orchestrator</span>
-      <div class="aisys-block">
-        <span class="aisys-block-num">01</span>
-        <span class="aisys-block-label" data-i18n="home.aisys.b1">Context &amp; direction</span>
-      </div>
-      <div class="aisys-block">
-        <span class="aisys-block-num">02</span>
-        <span class="aisys-block-label" data-i18n="home.aisys.b2">Specialised agents</span>
-      </div>
-      <div class="aisys-block">
-        <span class="aisys-block-num">03</span>
-        <span class="aisys-block-label" data-i18n="home.aisys.b3">Curation &amp; delivery</span>
-      </div>
     </div>
   </div>
 </section>
@@ -775,9 +641,9 @@ section{position:relative;}
 
       <div class="testi-author-row">
         <div class="testi-avatars" id="testiAvatars">
-          <button class="testi-avatar is-active" type="button" data-index="0" aria-pressed="true" aria-label="Show testimonial from Orlando Campos" data-i18n-attr="aria-label:home.testi.0.aria" style="background-image:url('Img/testimonials/orlando-campos.png');"></button>
-          <button class="testi-avatar" type="button" data-index="1" aria-pressed="false" aria-label="Show testimonial from Bernard de Luna" data-i18n-attr="aria-label:home.testi.1.aria" style="background-image:url('Img/testimonials/bernard-de-luna.png');"></button>
-          <button class="testi-avatar" type="button" data-index="2" aria-pressed="false" aria-label="Show testimonial from Mauricio Salazar" data-i18n-attr="aria-label:home.testi.2.aria" style="background-image:url('Img/testimonials/mauricio-salazar.png');"></button>
+          <button class="testi-avatar is-active" type="button" data-index="0" aria-pressed="true" aria-label="Show testimonial from Orlando Campos" data-i18n-attr="aria-label:home.testi.0.aria" style="background-image:url('../Img/testimonials/orlando-campos.png');"></button>
+          <button class="testi-avatar" type="button" data-index="1" aria-pressed="false" aria-label="Show testimonial from Bernard de Luna" data-i18n-attr="aria-label:home.testi.1.aria" style="background-image:url('../Img/testimonials/bernard-de-luna.png');"></button>
+          <button class="testi-avatar" type="button" data-index="2" aria-pressed="false" aria-label="Show testimonial from Mauricio Salazar" data-i18n-attr="aria-label:home.testi.2.aria" style="background-image:url('../Img/testimonials/mauricio-salazar.png');"></button>
         </div>
         <span class="testi-divider" aria-hidden="true"></span>
         <div class="testi-meta" id="testiMeta">
@@ -803,7 +669,7 @@ section{position:relative;}
 <footer>
   <div class="foot-bottom">
     <span data-i18n="common.footer.rights">© 2026 João Abdalla. All rights reserved.</span>
-    <span class="lang-switch-slot"></span>
+    <span>PT · EN · ES</span>
   </div>
 </footer>
 
@@ -827,13 +693,13 @@ section{position:relative;}
     var DOT_SPACING = 28;
     var LERP_SPEED = 0.08;
 
-    var LINE_BASE = { r: 255, g: 255, b: 255, a: 0.1 };
+    var LINE_BASE = { r: 28, g: 28, b: 26, a: 0.10 };
     var NODE_BASE_RADIUS = 1.6;
     var NODE_ACTIVE_RADIUS = 3;
-    var LINE_ACTIVE = { r: 194, g: 252, b: 80, a: 0.85 };  // var(--accent)
-    var NODE_ACTIVE = { r: 194, g: 252, b: 80, a: 1 };
-    var GLOW_RGB = "194,252,80";
-    var RIPPLE_RGB = "194,252,80";
+    var LINE_ACTIVE = { r: 194, g: 232, b: 76, a: 0.9 };  // var(--accent)
+    var NODE_ACTIVE = { r: 194, g: 232, b: 76, a: 1 };
+    var GLOW_RGB = "194,232,76";
+    var RIPPLE_RGB = "194,232,76";
 
     var mouse = { x: -9999, y: -9999 };
     var targetMouse = { x: -9999, y: -9999 };
@@ -894,7 +760,7 @@ section{position:relative;}
       if (!W || !H) return;
       ctx.clearRect(0, 0, W, H);
 
-      ctx.fillStyle = "rgba(255,255,255,0.05)";
+      ctx.fillStyle = "rgba(28,28,26,0.05)";
       for (var x = DOT_SPACING / 2; x < W; x += DOT_SPACING) {
         for (var y = DOT_SPACING / 2; y < H; y += DOT_SPACING) {
           ctx.beginPath();
@@ -964,7 +830,7 @@ section{position:relative;}
 
           ctx.beginPath();
           ctx.arc(p.x, p.y, rad, 0, Math.PI * 2);
-          ctx.fillStyle = lerpColor({ r: 255, g: 255, b: 255, a: 0.18 }, NODE_ACTIVE, t2);
+          ctx.fillStyle = lerpColor({ r: 28, g: 28, b: 26, a: 0.16 }, NODE_ACTIVE, t2);
           ctx.fill();
         }
       }
@@ -1254,60 +1120,6 @@ section{position:relative;}
     if (nextBtn) nextBtn.addEventListener("click", function () { step(1); });
 
     sync();
-  })();
-
-  /* case cursor — ported from the Cursor React component (motion-primitives),
-     scoped to just the case thumbnails: a pill that trails the pointer while
-     hovering a .work-media image, using the same lerp-follow technique as the
-     kinetic canvas above instead of framer-motion's spring. */
-  (function () {
-    if (reduceMotion) return;
-    var mq = window.matchMedia("(hover:hover) and (pointer:fine)");
-    if (!mq.matches) return;
-
-    var medias = Array.prototype.slice.call(document.querySelectorAll(".work-media"));
-    if (!medias.length) return;
-
-    var cursor = document.createElement("div");
-    cursor.className = "case-cursor";
-    cursor.setAttribute("aria-hidden", "true");
-    cursor.innerHTML =
-      '<div class="case-cursor-bubble">' +
-        '<span data-i18n="home.work.viewCase">View case</span>' +
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" ' +
-          'stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>' +
-      '</div>';
-    document.body.appendChild(cursor);
-
-    var label = cursor.querySelector("[data-i18n]");
-    function syncLabel() {
-      if (window.I18N && label) label.textContent = window.I18N.t("home.work.viewCase");
-    }
-    syncLabel();
-    if (window.I18N) window.I18N.onChange(syncLabel);
-
-    var pos = { x: -9999, y: -9999 };
-    var target = { x: -9999, y: -9999 };
-    var primed = false; // avoids a fly-in from center screen on the very first hover
-
-    function loop() {
-      pos.x += (target.x - pos.x) * 0.2;
-      pos.y += (target.y - pos.y) * 0.2;
-      cursor.style.transform = "translate3d(" + pos.x + "px," + pos.y + "px,0)";
-      requestAnimationFrame(loop);
-    }
-    requestAnimationFrame(loop);
-
-    document.addEventListener("mousemove", function (e) {
-      target.x = e.clientX;
-      target.y = e.clientY;
-      if (!primed) { pos.x = e.clientX; pos.y = e.clientY; primed = true; }
-    });
-
-    medias.forEach(function (media) {
-      media.addEventListener("mouseenter", function () { cursor.classList.add("is-visible"); });
-      media.addEventListener("mouseleave", function () { cursor.classList.remove("is-visible"); });
-    });
   })();
 
   /* testimonials — click an avatar to bring it forward and swap the quote */

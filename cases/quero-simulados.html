@@ -121,11 +121,39 @@ nav.is-hidden{transform:translateY(-110%);}
 /* real screenshot, natural height (no crop) */
 .img-placeholder.filled{background:var(--bg-deep);border:1px solid var(--line);padding:0;overflow:hidden;aspect-ratio:auto !important;height:auto !important;}
 .img-placeholder.filled img{width:100%;height:auto;display:block;border-radius:inherit;}
-/* long full-page screenshot in a scrollable frame — hidden scrollbar, scrolls on hover */
-.shot-scroll{max-height:560px;overflow:hidden;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg-deep);scrollbar-width:none;-ms-overflow-style:none;}
-.shot-scroll::-webkit-scrollbar{display:none;}
-.shot-scroll:hover{overflow-y:auto;}
+/* long full-page screenshot in a scrollable frame — custom overlay scrollbar, scrolls on hover */
+.shot-scroll{
+  position:relative;max-height:560px;overflow:hidden;
+  border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg-deep);
+}
+.shot-scroll__vp{
+  max-height:558px;overflow:hidden;
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.shot-scroll__vp::-webkit-scrollbar{display:none;}
+.shot-scroll:hover .shot-scroll__vp{overflow-y:auto;}
 .shot-scroll img{width:100%;height:auto;display:block;}
+/* overlaid track + thumb — absolutely positioned, never affects image width */
+.shot-scroll__bar{
+  position:absolute;top:8px;right:8px;bottom:8px;width:10px;
+  border-radius:99px;background:rgba(11,17,20,.28);
+  opacity:0;transition:opacity .25s var(--ease),width .15s var(--ease);
+  pointer-events:none;
+}
+.shot-scroll.is-scrollable .shot-scroll__bar{opacity:.85;}
+.shot-scroll.is-scrollable:hover .shot-scroll__bar{opacity:1;width:13px;pointer-events:auto;}
+.shot-scroll__bar.is-dragging{width:13px;opacity:1;}
+.shot-scroll__thumb{
+  position:absolute;left:0;right:0;border-radius:99px;
+  background:var(--accent);box-shadow:0 1px 6px rgba(0,0,0,.35);
+  transition:background .2s var(--ease),filter .2s var(--ease);
+  min-height:36px;cursor:grab;
+}
+.shot-scroll__bar:hover .shot-scroll__thumb{filter:brightness(1.08);}
+.shot-scroll__bar.is-dragging .shot-scroll__thumb{cursor:grabbing;filter:brightness(1.12);}
+@media (prefers-reduced-motion:reduce){
+  .shot-scroll__bar{transition:none;}
+}
 .ph-hero{aspect-ratio:16/8;}
 .ph-wide{aspect-ratio:16/9;}
 .ph-tall{aspect-ratio:4/5;}
@@ -158,10 +186,41 @@ section+section{border-top:1px solid var(--line);}
 .tag-pill{font-family:var(--sans);font-weight:600;font-size:12.5px;color:var(--ink-soft);border:1px solid var(--line);border-radius:99px;padding:8px 16px;background:transparent;}
 
 /* HIGHLIGHT BLOCK */
-.highlight-block{background:var(--surface);border-left:3px solid var(--accent);border-radius:var(--radius-md);padding:clamp(26px,4vw,44px);}
+.highlight-block{background:var(--surface);border-radius:var(--radius-md);padding:clamp(26px,4vw,44px);}
 .grid-2 .highlight-block{padding:28px;}
 .highlight-block p{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(17px,2vw,21px);line-height:1.6;color:var(--ink);}
 .highlight-block p .lede-label{font-style:normal;font-family:var(--sans);font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:12px;}
+
+/* ── Glowing shadow · CORE QUESTION card ─────────────────────────────
+   Ported from the "glowing-shadow" React/styled-jsx component to plain
+   CSS and retuned to the design system: one accent hue, slow orbit,
+   soft bloom in place of the removed left border. Uses a registered
+   @property so the conic angle can animate; degrades to a static
+   accent ring where @property isn't supported, and stills on
+   prefers-reduced-motion. */
+@property --hb-angle{ syntax:"<angle>"; inherits:false; initial-value:0deg; }
+.highlight-block{ position:relative; --hb-angle:0deg; }
+.highlight-block::before,
+.highlight-block::after{
+  content:""; position:absolute; inset:-1px; z-index:-1;
+  border-radius:inherit;
+  background:conic-gradient(from var(--hb-angle),
+    transparent 0deg, var(--accent) 58deg, transparent 165deg, transparent 360deg);
+  animation:hb-orbit 7s linear infinite;
+}
+.highlight-block::before{           /* crisp travelling ring */
+  opacity:.7; padding:1px;
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor; mask-composite:exclude;
+}
+.highlight-block::after{            /* soft outer bloom */
+  inset:-4px; filter:blur(17px); opacity:.3;
+}
+@keyframes hb-orbit{ to{ --hb-angle:360deg; } }
+@media (prefers-reduced-motion:reduce){
+  .highlight-block::before,
+  .highlight-block::after{ animation:none; }
+}
 
 /* INSIGHT CARD (goals / personas / decisions text) */
 .insight-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:28px;}
@@ -195,6 +254,8 @@ section+section{border-top:1px solid var(--line);}
 .step-split{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:44px;align-items:start;}
 .step-media-duo{display:flex;gap:20px;align-items:flex-start;justify-content:flex-end;}
 .step-media-duo img{width:calc(50% - 10px);max-width:230px;height:auto;}
+#design-decisions .step{padding:64px 0;}
+#design-decisions .step:first-child{padding-top:0;}
 
 /* CONTEXT PHOTO (framed inside the container, natural height) */
 .context-photo .frame{border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-deep);}
@@ -212,7 +273,7 @@ section+section{border-top:1px solid var(--line);}
 
 /* KEY-DECISION LIST inside a feature */
 .kd-label{font-family:var(--sans);font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-dim);margin-top:26px;}
-.decision-split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.decision-split{display:grid;grid-template-columns:1fr;gap:28px;}
 .kd-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;border-top:1px solid var(--line);padding-top:24px;margin-top:14px;}
 .kd-grid p{font-family:var(--body);font-size:14px;color:var(--ink-soft);line-height:1.7;}
 .kd-grid p strong{color:var(--ink);}
@@ -533,7 +594,10 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
           </ul>
         </div>
         <div>
-          <div class="shot-scroll"><img src="../Img/quero-simulados/home-landing-fill.png" alt="Quero Simulados home page — motivational hero, exclusive mock exams, performance-comparison section and free sign-up" data-i18n-attr="alt:qs.f3.img.alt"></div>
+          <div class="shot-scroll">
+            <div class="shot-scroll__vp"><img src="../Img/quero-simulados/home-landing-fill.png" alt="Quero Simulados home page — motivational hero, exclusive mock exams, performance-comparison section and free sign-up" data-i18n-attr="alt:qs.f3.img.alt"></div>
+            <div class="shot-scroll__bar"><div class="shot-scroll__thumb"></div></div>
+          </div>
           <div class="img-caption" data-i18n="qs.f3.caption">Home page — hover to scroll</div>
         </div>
       </div>
@@ -583,17 +647,18 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
       <h2 class="sec-title rv" data-i18n="qs.decisions.title">Key choices and why</h2>
       <p class="sec-lede rv" data-i18n="qs.decisions.lede">The thinking behind the most important design decisions. Not just what was built, but the reasoning that got there.</p>
 
+      <div class="img-row-3 rv" style="margin:0 0 44px">
+        <img src="../Img/quero-simulados/comparative01.png" alt="Score card — the student's mock exam score, questions answered, right, wrong and blank counts, and overall percentage" data-i18n-attr="alt:qs.decisions.d1.img1.alt">
+        <img src="../Img/quero-simulados/comparative-02.png" alt="National average card — the student's score next to the national average, above and below-average counts, and approval likelihood" data-i18n-attr="alt:qs.decisions.d1.img2.alt">
+        <img src="../Img/quero-simulados/comparative03.png" alt="Ranking card — the student's overall ranking position with per-subject and per-state breakdowns" data-i18n-attr="alt:qs.decisions.d1.img3.alt">
+      </div>
+
       <div class="rv">
         <div class="step">
           <div class="step-num">01</div>
           <div>
             <h3 class="step-title" data-i18n="qs.decisions.d1.title">The Comparative as the Core</h3>
             <p class="step-text" data-i18n="qs.decisions.d1.text">Research showed students did not just want to practice. They wanted to know where they stood. Instead of building another score screen, we made the ranking the hero of the results page. Your score only makes sense in context. The comparative gave that context.</p>
-            <div class="img-row-3" style="margin-top:24px">
-              <img src="../Img/quero-simulados/comparative01.png" alt="Score card — the student's mock exam score, questions answered, right, wrong and blank counts, and overall percentage" data-i18n-attr="alt:qs.decisions.d1.img1.alt">
-              <img src="../Img/quero-simulados/comparative-02.png" alt="National average card — the student's score next to the national average, above and below-average counts, and approval likelihood" data-i18n-attr="alt:qs.decisions.d1.img2.alt">
-              <img src="../Img/quero-simulados/comparative03.png" alt="Ranking card — the student's overall ranking position with per-subject and per-state breakdowns" data-i18n-attr="alt:qs.decisions.d1.img3.alt">
-            </div>
           </div>
         </div>
       </div>
@@ -620,11 +685,11 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
           <div>
             <h3 class="step-title" data-i18n="qs.decisions.d3.title">Design System from Day One</h3>
             <p class="step-text" data-i18n="qs.decisions.d3.text">Building the spacing scale, atomic grid, and component library in parallel with the first screens meant every decision made early stayed consistent through delivery. For a product with this many states and screen types, the system was the real deliverable.</p>
-            <div class="img-placeholder filled" style="margin-top:24px">
-              <img src="../Img/quero-simulados/style-guide-spacing.png" alt="Spacing patterns — base-10 and base-16 scales, atomic 4px grid and text-interpretation rules" data-i18n-attr="alt:qs.decisions.d3.img1.alt">
+            <div class="img-placeholder filled" style="margin-top:24px;display:flex;justify-content:center;background:#fff;">
+              <img src="../Img/quero-simulados/style-guide-spacing.png" alt="Spacing patterns — base-10 and base-16 scales, atomic 4px grid and text-interpretation rules" data-i18n-attr="alt:qs.decisions.d3.img1.alt" style="width:auto;max-width:100%;max-height:520px;object-fit:contain;">
             </div>
-            <div class="img-placeholder filled" style="margin-top:16px">
-              <img src="../Img/quero-simulados/style-guide-contrast.png" alt="Contrast test — colour pairs run through a WCAG contrast checker, before and after adjustment" data-i18n-attr="alt:qs.decisions.d3.img2.alt">
+            <div class="img-placeholder filled" style="margin-top:16px;display:flex;justify-content:center;background:#fff;">
+              <img src="../Img/quero-simulados/style-guide-contrast.png" alt="Contrast test — colour pairs run through a WCAG contrast checker, before and after adjustment" data-i18n-attr="alt:qs.decisions.d3.img2.alt" style="width:auto;max-width:100%;max-height:520px;object-fit:contain;">
             </div>
           </div>
         </div>
@@ -786,6 +851,60 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
       else nav.classList.remove("is-hidden");
       lastY = y;
     }, { passive: true });
+  })();
+</script>
+<script>
+  // Custom overlay scrollbar for .shot-scroll frames — never reflows the image
+  (function(){
+    document.querySelectorAll('.shot-scroll').forEach(function(frame){
+      var vp = frame.querySelector('.shot-scroll__vp');
+      var bar = frame.querySelector('.shot-scroll__bar');
+      var thumb = frame.querySelector('.shot-scroll__thumb');
+      if (!vp || !bar || !thumb) return;
+
+      function sync(){
+        var scrollable = vp.scrollHeight - vp.clientHeight;
+        frame.classList.toggle('is-scrollable', scrollable > 4);
+        if (scrollable <= 4) return;
+        var track = bar.clientHeight;
+        var h = Math.max(28, track * vp.clientHeight / vp.scrollHeight);
+        var top = (track - h) * (vp.scrollTop / scrollable);
+        thumb.style.height = h + 'px';
+        thumb.style.top = top + 'px';
+      }
+
+      vp.addEventListener('scroll', sync, { passive: true });
+      window.addEventListener('resize', sync);
+      var img = vp.querySelector('img');
+      if (img && !img.complete) img.addEventListener('load', sync);
+      sync();
+
+      // drag the thumb
+      var dragging = false, startY = 0, startScroll = 0;
+      thumb.addEventListener('pointerdown', function(e){
+        dragging = true; startY = e.clientY; startScroll = vp.scrollTop;
+        bar.classList.add('is-dragging');
+        thumb.setPointerCapture(e.pointerId);
+        e.preventDefault();
+      });
+      thumb.addEventListener('pointermove', function(e){
+        if (!dragging) return;
+        var track = bar.clientHeight - thumb.clientHeight;
+        var scrollable = vp.scrollHeight - vp.clientHeight;
+        vp.scrollTop = startScroll + (e.clientY - startY) * (scrollable / track);
+      });
+      thumb.addEventListener('pointerup', function(e){
+        dragging = false; bar.classList.remove('is-dragging');
+        thumb.releasePointerCapture(e.pointerId);
+      });
+      // click on track to page toward that spot
+      bar.addEventListener('pointerdown', function(e){
+        if (e.target === thumb) return;
+        var rect = bar.getBoundingClientRect();
+        var ratio = (e.clientY - rect.top) / rect.height;
+        vp.scrollTo({ top: ratio * (vp.scrollHeight - vp.clientHeight), behavior: 'smooth' });
+      });
+    });
   })();
 </script>
 

@@ -1,0 +1,362 @@
+<title>Salto Design System</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..600&display=swap">
+<style>
+:root{
+  --bg:#faf9f6;
+  --surface:#ffffff;
+  --surface-2:#f2f0ea;
+  --border:#e4e0d5;
+  --text:#1c1c1a;
+  --text-muted:#6e6e66;
+  --text-faint:#a3a096;
+  --accent:#8fae2f;
+  --code-bg:#f2f0ea;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#17160f;
+    --surface:#1f1e16;
+    --surface-2:#242318;
+    --border:#332f1f;
+    --text:#f3f1e8;
+    --text-muted:#b3af9e;
+    --text-faint:#7a7768;
+    --accent:#c2e84c;
+    --code-bg:#242318;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#17160f;
+  --surface:#1f1e16;
+  --surface-2:#242318;
+  --border:#332f1f;
+  --text:#f3f1e8;
+  --text-muted:#b3af9e;
+  --text-faint:#7a7768;
+  --accent:#c2e84c;
+  --code-bg:#242318;
+}
+
+*{box-sizing:border-box;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Satoshi","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{ background:#c2e84c; color:#15180f; }
+
+.wrap{ max-width:960px; margin:0 auto; padding:64px 32px 120px; }
+
+header.doc-head{
+  display:flex; flex-direction:column; gap:14px;
+  padding-bottom:40px; margin-bottom:56px;
+  border-bottom:1px solid var(--border);
+}
+.eyebrow{
+  font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--text-muted); font-weight:700;
+}
+h1.doc-title{
+  font-size:40px; font-weight:800; letter-spacing:-.02em; margin:0;
+  text-wrap:balance;
+}
+.doc-sub{
+  font-size:17px; color:var(--text-muted); max-width:60ch; margin:0;
+}
+.meta-row{
+  display:flex; gap:24px; flex-wrap:wrap; margin-top:8px;
+  font-size:13px; color:var(--text-faint);
+}
+.meta-row strong{ color:var(--text-muted); font-weight:600; }
+
+section{ margin-bottom:64px; }
+h2.section-title{
+  font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--text-muted); margin:0 0 24px;
+  display:flex; align-items:center; gap:12px;
+}
+h2.section-title::after{
+  content:""; flex:1; height:1px; background:var(--border);
+}
+h3.sub-title{ font-size:20px; font-weight:700; margin:0 0 4px; letter-spacing:-.01em; }
+p.sub-desc{ font-size:14.5px; color:var(--text-muted); margin:0 0 20px; max-width:65ch; }
+
+/* color swatches */
+.swatch-grid{
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+  gap:16px; margin-bottom:32px;
+}
+.swatch{
+  border:1px solid var(--border); border-radius:12px; overflow:hidden;
+  background:var(--surface);
+}
+.swatch-color{ height:88px; }
+.swatch-info{ padding:10px 12px; }
+.swatch-name{ font-size:13px; font-weight:700; margin:0 0 2px; }
+.swatch-hex{
+  font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+  font-size:12px; color:var(--text-muted); margin:0;
+  font-variant-numeric:tabular-nums;
+}
+.swatch-use{ font-size:11.5px; color:var(--text-faint); margin:4px 0 0; }
+
+/* type specimens */
+.specimen{
+  border:1px solid var(--border); border-radius:12px; background:var(--surface);
+  padding:24px 28px; margin-bottom:14px;
+  display:flex; justify-content:space-between; align-items:baseline; gap:24px; flex-wrap:wrap;
+}
+.specimen-sample{ color:var(--text); }
+.specimen-meta{
+  font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+  font-size:12px; color:var(--text-faint); white-space:nowrap;
+  font-variant-numeric:tabular-nums;
+}
+.font-note{
+  font-size:13.5px; color:var(--text-muted); background:var(--surface-2);
+  border-radius:10px; padding:14px 16px; margin-top:8px;
+}
+.font-note code{ font-family:ui-monospace,monospace; font-size:12.5px; }
+
+/* buttons */
+.btn-row{ display:flex; gap:16px; flex-wrap:wrap; align-items:center; margin-bottom:24px; }
+.btn{
+  display:inline-flex; align-items:center; gap:6px;
+  font-family:inherit; font-weight:700; border:none; cursor:default;
+  font-size:15px; padding:15px 26px; border-radius:9999px;
+}
+.btn-primary{ background:#c2e84c; color:#1c1c1a; }
+.btn-dark{ background:#15180f; color:#ffffff; border-radius:16px; }
+.btn-outline{ background:transparent; color:var(--text); border:1.5px solid var(--border); }
+.btn-caption{ font-size:12px; color:var(--text-faint); margin-top:-8px; }
+
+.spec-table{ width:100%; border-collapse:collapse; font-size:13.5px; }
+.spec-table th{
+  text-align:left; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--text-faint); font-weight:700; padding:0 14px 10px; border-bottom:1px solid var(--border);
+}
+.spec-table td{ padding:12px 14px; border-bottom:1px solid var(--border); color:var(--text-muted); }
+.spec-table td:first-child{ color:var(--text); font-weight:600; }
+.spec-table code{
+  font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace; font-size:12.5px;
+  background:var(--code-bg); padding:2px 6px; border-radius:5px;
+}
+.table-wrap{ overflow-x:auto; border:1px solid var(--border); border-radius:12px; background:var(--surface); }
+.table-wrap .spec-table{ min-width:520px; }
+.table-wrap .spec-table th:first-child, .table-wrap .spec-table td:first-child{ padding-left:18px; }
+
+/* radius/shadow demo */
+.token-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:16px; }
+.token-demo{
+  aspect-ratio:1.4; background:var(--surface-2); border:1px solid var(--border);
+  display:flex; align-items:flex-end; padding:12px; font-size:12px; color:var(--text-muted);
+  font-family:ui-monospace,monospace;
+}
+
+/* card colors */
+.card-strip{ display:flex; gap:12px; flex-wrap:wrap; }
+.card-chip{
+  flex:1; min-width:130px; border-radius:14px; padding:16px;
+  font-size:12px; font-weight:700; color:#1c1c1a;
+}
+
+footer.doc-foot{
+  border-top:1px solid var(--border); margin-top:80px; padding-top:24px;
+  font-size:12.5px; color:var(--text-faint);
+}
+</style>
+
+<div class="wrap">
+
+  <header class="doc-head">
+    <span class="eyebrow">Design System · Versão Light</span>
+    <h1 class="doc-title">Salto para o Dólar</h1>
+    <p class="doc-sub">Sistema de design extraído da landing page saltoparaodolar.com — paleta, tipografia, componentes e tokens de forma, documentados para reuso em novas peças da marca.</p>
+    <div class="meta-row">
+      <span><strong>Fonte</strong> saltoparaodolar.com</span>
+      <span><strong>Extraído em</strong> 29 ago 2026</span>
+      <span><strong>Modo</strong> Light</span>
+    </div>
+  </header>
+
+  <section>
+    <h2 class="section-title">Paleta de cores</h2>
+
+    <h3 class="sub-title">Base</h3>
+    <p class="sub-desc">Fundo quente em vez de branco puro, com texto quase preto — a base neutra do site.</p>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#f5f2ea"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Background</p>
+          <p class="swatch-hex">#F5F2EA</p>
+          <p class="swatch-use">Fundo da página</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#ffffff;border-bottom:1px solid var(--border)"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Surface</p>
+          <p class="swatch-hex">#FFFFFF</p>
+          <p class="swatch-use">Cards, painéis</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1c1c1a"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Texto principal</p>
+          <p class="swatch-hex">#1C1C1A</p>
+          <p class="swatch-use">Títulos e corpo</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#6e6e66"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Texto secundário</p>
+          <p class="swatch-hex">#6E6E66</p>
+          <p class="swatch-use">Legendas, texto de apoio</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#15180f"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Quase-preto (CTA)</p>
+          <p class="swatch-hex">#15180F</p>
+          <p class="swatch-use">Botão escuro, rodapé</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub-title">Acento</h3>
+    <p class="sub-desc">O verde-limão é a cor de assinatura da marca — usado quase exclusivamente em CTAs e destaques.</p>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#c2e84c"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Acento primário</p>
+          <p class="swatch-hex">#C2E84C</p>
+          <p class="swatch-use">Botões, badges, links</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#a9d63a"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Acento — hover/escuro</p>
+          <p class="swatch-hex">#A9D63A</p>
+          <p class="swatch-use">Estado hover, ícones</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#5f8a3c"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Verde texto</p>
+          <p class="swatch-hex">#5F8A3C</p>
+          <p class="swatch-use">Texto sobre fundo claro</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#e9f2ce"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Acento — fundo suave</p>
+          <p class="swatch-hex">#E9F2CE</p>
+          <p class="swatch-use">Fundo de badge/tag</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub-title">Suporte (fundos de cartão)</h3>
+    <p class="sub-desc">Um pequeno conjunto de cores pastel usado para diferenciar cartões de depoimento e ícones — sempre em pares tom-sobre-tom.</p>
+    <div class="card-strip">
+      <div class="card-chip" style="background:#fbe3d7">Pêssego<br>#FBE3D7</div>
+      <div class="card-chip" style="background:#eae4f6">Lilás<br>#EAE4F6</div>
+      <div class="card-chip" style="background:#e3e9f8">Azul claro<br>#E3E9F8</div>
+      <div class="card-chip" style="background:#d9805c;color:#fff">Terracota<br>#D9805C</div>
+      <div class="card-chip" style="background:#5c79c9;color:#fff">Azul<br>#5C79C9</div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Tipografia</h2>
+    <p class="sub-desc" style="margin-top:-12px">Duas famílias: uma sans-serif geométrica para toda a interface, e uma serif itálica reservada para uma única palavra de ênfase por título.</p>
+
+    <div class="specimen">
+      <div class="specimen-sample" style="font-family:'Satoshi',sans-serif;font-size:44px;font-weight:800;letter-spacing:-.02em;">Ganhe em dólar</div>
+      <div class="specimen-meta">H1 · Satoshi 800 · 48px / 60px</div>
+    </div>
+    <div class="specimen">
+      <div class="specimen-sample" style="font-family:'Satoshi',sans-serif;font-size:28px;font-weight:800;letter-spacing:-.01em;">Você constrói, do zero</div>
+      <div class="specimen-meta">H2 · Satoshi 800 · 30px / 32px</div>
+    </div>
+    <div class="specimen">
+      <div class="specimen-sample" style="font-family:'Fraunces','Fraunces Fallback',Georgia,serif;font-style:italic;font-size:26px;">Mesmo travado no inglês.</div>
+      <div class="specimen-meta">Ênfase · Fraunces Italic · 26–48px</div>
+    </div>
+    <div class="specimen">
+      <div class="specimen-sample" style="font-family:'Satoshi',sans-serif;font-size:16px;font-weight:400;max-width:56ch;">Um sábado, ao vivo, com a Clarisse Teresa e o Thiago Medeiros. Você sai com perfil montado, portfólio no padrão gringo e a primeira candidatura enviada.</div>
+      <div class="specimen-meta">Corpo · Satoshi 400 · 16px / 24px</div>
+    </div>
+    <div class="specimen">
+      <div class="specimen-sample" style="font-family:'Satoshi',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)">Workshop ao vivo · 18 de julho</div>
+      <div class="specimen-meta">Rótulo · Satoshi 700 · 12px · uppercase</div>
+    </div>
+
+    <div class="font-note">
+      <strong>Satoshi</strong> é uma fonte proprietária (Fontshare) — não está disponível via Google Fonts. Ao reimplementar, use <code>Satoshi</code> com fallback <code>ui-sans-serif, system-ui, sans-serif</code>, ou substitua por uma geométrica próxima como <em>General Sans</em> ou <em>Inter</em>.<br><br>
+      <strong>Fraunces</strong> está disponível no Google Fonts: <code>&lt;link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,400&display=swap" rel="stylesheet"&gt;</code>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Botões</h2>
+    <p class="sub-desc" style="margin-top:-12px">Formato pílula como padrão; o botão de conversão principal usa cantos menos arredondados para se destacar do resto.</p>
+
+    <div class="btn-row">
+      <button class="btn btn-primary">Garantir vaga →</button>
+      <button class="btn btn-dark">Quero meu ingresso</button>
+      <button class="btn btn-outline">Acesso imediato</button>
+    </div>
+
+    <div class="table-wrap">
+      <table class="spec-table">
+        <tr><th>Variante</th><th>Fundo</th><th>Texto</th><th>Radius</th><th>Padding</th><th>Peso / tamanho</th></tr>
+        <tr><td>Primário (pill)</td><td><code>#C2E84C</code></td><td><code>#1C1C1A</code></td><td><code>9999px</code></td><td><code>12–20px 24–28px</code></td><td>700 · 14–16px</td></tr>
+        <tr><td>Escuro (hero CTA)</td><td><code>#15180F</code></td><td><code>#FFFFFF</code></td><td><code>16px</code></td><td><code>16px 28px</code></td><td>700 · 16px</td></tr>
+        <tr><td>Outline</td><td>transparente</td><td><code>#1C1C1A</code></td><td><code>9999px</code></td><td><code>10px 20px</code></td><td>600 · 14px</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Forma &amp; elevação</h2>
+
+    <h3 class="sub-title">Raios de borda</h3>
+    <p class="sub-desc">Do cartão ao botão, a curva aumenta com o quão "clicável" o elemento é — pílula reservada para ações.</p>
+    <div class="token-grid">
+      <div class="token-demo" style="border-radius:12px">12px · cards</div>
+      <div class="token-demo" style="border-radius:16px">16px · CTA escuro</div>
+      <div class="token-demo" style="border-radius:24px">24px · painéis</div>
+      <div class="token-demo" style="border-radius:32px">32px · seções</div>
+      <div class="token-demo" style="border-radius:9999px">9999px · pills/badges</div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Espaçamento &amp; layout</h2>
+    <div class="table-wrap">
+      <table class="spec-table">
+        <tr><th>Token</th><th>Valor</th><th>Uso observado</th></tr>
+        <tr><td>Largura de conteúdo</td><td><code>~960–1100px</code></td><td>Container central da página</td></tr>
+        <tr><td>Gap entre cards</td><td><code>24px</code></td><td>Grade de 3 colunas (depoimentos)</td></tr>
+        <tr><td>Padding de seção</td><td><code>64–96px</code></td><td>Espaço vertical entre blocos</td></tr>
+        <tr><td>Padding de card</td><td><code>28–32px</code></td><td>Interior de painéis e cartões</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <footer class="doc-foot">
+    Documento gerado automaticamente a partir da inspeção computada de saltoparaodolar.com. Valores de cor, tipografia e espaçamento foram lidos diretamente dos estilos renderizados da página.
+  </footer>
+
+</div>

@@ -186,8 +186,39 @@ section+section{border-top:1px solid var(--line);}
 .plain-list li{padding:16px 0;border-bottom:1px solid var(--line);font-family:var(--body);color:var(--ink-soft);font-size:15.5px;}
 
 /* HIGHLIGHT BLOCK */
-.highlight-block{background:var(--surface);border-left:3px solid var(--accent);border-radius:var(--radius-md);padding:clamp(28px,4vw,48px);}
+.highlight-block{background:var(--surface);border-radius:var(--radius-md);padding:clamp(28px,4vw,48px);}
 .highlight-block p{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(18px,2vw,22px);line-height:1.6;color:var(--ink);}
+
+/* ── Glowing shadow · CORE QUESTION card ─────────────────────────────
+   Ported from the "glowing-shadow" React/styled-jsx component to plain
+   CSS and retuned to the design system: one accent hue, slow orbit,
+   soft bloom in place of the removed left border. Uses a registered
+   @property so the conic angle can animate; degrades to a static
+   accent ring where @property isn't supported, and stills on
+   prefers-reduced-motion. */
+@property --hb-angle{ syntax:"<angle>"; inherits:false; initial-value:0deg; }
+.highlight-block{ position:relative; --hb-angle:0deg; }
+.highlight-block::before,
+.highlight-block::after{
+  content:""; position:absolute; inset:-1px; z-index:-1;
+  border-radius:inherit;
+  background:conic-gradient(from var(--hb-angle),
+    transparent 0deg, var(--accent) 58deg, transparent 165deg, transparent 360deg);
+  animation:hb-orbit 7s linear infinite;
+}
+.highlight-block::before{           /* crisp travelling ring */
+  opacity:.7; padding:1px;
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor; mask-composite:exclude;
+}
+.highlight-block::after{            /* soft outer bloom */
+  inset:-4px; filter:blur(17px); opacity:.3;
+}
+@keyframes hb-orbit{ to{ --hb-angle:360deg; } }
+@media (prefers-reduced-motion:reduce){
+  .highlight-block::before,
+  .highlight-block::after{ animation:none; }
+}
 
 /* INSIGHT CARD (design decisions, text only) */
 .insight-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:28px;}

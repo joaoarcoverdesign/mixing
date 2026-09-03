@@ -1,4 +1,7 @@
 {
+  "rewrites": [
+    { "source": "/pipeline", "destination": "/pipeline.html" }
+  ],
   "redirects": [
     {
       "source": "/",

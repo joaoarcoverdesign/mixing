@@ -153,6 +153,48 @@
     "home.work.next": { en: "Next case", pt: "Próximo caso", es: "Caso siguiente" },
     "home.work.viewCase": { en: "View case", pt: "Ver case", es: "Ver caso" },
 
+    /* ─────────── TEASER: SISTEMA DE IA ─────────── */
+    "home.aisys.label": {
+      en: "The system",
+      pt: "O sistema",
+      es: "El sistema"
+    },
+    "home.aisys.title": {
+      en: 'How I design with AI <em>today</em>',
+      pt: 'Como eu projeto com IA <em>hoje</em>',
+      es: 'Cómo diseño con IA <em>hoy</em>'
+    },
+    "home.aisys.sub": {
+      en: "I don't use AI to replace creative direction. I built a system of specialised agents — and I work as the orchestrator, <b>curating every decision</b> in the process.",
+      pt: "Não uso IA pra substituir direção criativa. Construí um sistema de agentes especializados — e atuo como orquestrador, <b>curando cada decisão</b> do processo.",
+      es: "No uso IA para reemplazar la dirección creativa. Construí un sistema de agentes especializados — y actúo como orquestador, <b>curando cada decisión</b> del proceso."
+    },
+    "home.aisys.cta": {
+      en: "See the full system →",
+      pt: "Ver o sistema completo →",
+      es: "Ver el sistema completo →"
+    },
+    "home.aisys.tag": {
+      en: "Orchestrator",
+      pt: "Orquestrador",
+      es: "Orquestador"
+    },
+    "home.aisys.b1": {
+      en: "Context & direction",
+      pt: "Contexto e direção",
+      es: "Contexto y dirección"
+    },
+    "home.aisys.b2": {
+      en: "Specialised agents",
+      pt: "Agentes especializados",
+      es: "Agentes especializados"
+    },
+    "home.aisys.b3": {
+      en: "Curation & delivery",
+      pt: "Curadoria e entrega",
+      es: "Curaduría y entrega"
+    },
+
     "home.card1.alt": {
       en: "QConcursos — cascading question filter, live product screenshot",
       pt: "QConcursos — filtro de questões em cascata, captura do produto real",

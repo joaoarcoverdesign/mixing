@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en" data-i18n-page="home">
+<head>
+<script src="../i18n.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R7PLZLRLYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-R7PLZLRLYJ');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../Img/favicon.png">
+<link rel="apple-touch-icon" href="../Img/favicon.png">
+<title>João Abdalla — Senior Product Designer · UX/UI</title>
+<meta name="description" content="Designer who builds and operates AI systems for the design process. Remote from Brazil, working with US & EU teams.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Lattice design system: single geometric sans (Matter). Inter is the metric-close substitute. -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ════════ TOKENS — Lattice · Light (botanical field journal on warm parchment) ════════ */
+:root{
+  /* Colors */
+  --color-parchment:        #f7f6f2;
+  --color-paper-white:      #ffffff;
+  --color-forest-ink:       #001f1f;
+  --color-lichen-gray:      #5c7070;
+  --color-stone:            #6a7878;
+  --color-slate:            #455252;
+  --color-mist:             #889494;
+  --color-meadow:           #cdface;
+  --color-deep-forest:      #2a4e1c;
+  --color-deep-teal:        #003d3d;
+  --color-mint-surface:     #e4f7f9;
+  --color-lime-surface:     #f8fbe7;
+  --color-lavender-surface: #e1e1fa;
+  --color-blush-surface:    #fcf2fe;
+  --color-buttercream:      #fff3c2;
+  --color-sage-glow:        #eff5ce;
+  --gradient-halo:          radial-gradient(circle, rgb(191,241,245) 32%, rgb(169,235,169) 64%, rgb(103,226,235));
+  --gradient-integration:   linear-gradient(110deg, #652ea3, #003d3d);
+
+  /* Type — Matter (Inter substitute) */
+  --font-matter: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --text-caption:    11px;
+  --text-body-sm:    14px;
+  --text-body:       16px;
+  --text-subheading: 19px;
+  --text-heading-sm: 22px;
+  --text-heading:    47px;
+  --text-display:    72px;
+
+  --weight-regular: 400;
+  --weight-medium:  500;
+
+  /* Spacing */
+  --spacing-8:   8px;
+  --spacing-12:  12px;
+  --spacing-20:  20px;
+  --spacing-36:  36px;
+  --spacing-48:  48px;
+  --spacing-72:  72px;
+
+  /* Radius */
+  --radius-cards:   14px;
+  --radius-badges:  22px;
+  --radius-inputs:  12px;
+  --radius-buttons: 29px;
+  --radius-feature: 24px;
+  --radius-small:   7px;
+
+  /* Elevation — soft forest-tinted shadow stack, the 1px ring replaces borders */
+  --shadow-md:
+    rgba(0,31,31,.04) 0px 12px 12px -6px,
+    rgba(0,31,31,.04) 0px 6px 6px -3px,
+    rgba(0,31,31,.04) 0px 3px 3px -1.5px,
+    rgba(0,31,31,.08) 0px 1px 1px -0.5px,
+    rgba(0,31,31,.04) 0px 0px 0px 1px;
+
+  --page-max: 1200px;
+  --px: clamp(20px, 5vw, 48px);
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scrollbar-width:thin;scrollbar-color:#c9c3b5 var(--color-parchment);scroll-behavior:smooth;}
+body{
+  background:var(--color-parchment);
+  color:var(--color-forest-ink);
+  font-family:var(--font-matter);
+  font-size:var(--text-body);
+  line-height:1.3;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--color-meadow);color:var(--color-forest-ink);}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+button{font:inherit;background:none;border:none;cursor:pointer;color:inherit;}
+
+.wrap{max-width:var(--page-max);margin:0 auto;padding-left:var(--px);padding-right:var(--px);}
+
+/* ════════ NAV ════════ */
+nav{
+  position:sticky;top:0;z-index:900;
+  background:rgba(247,246,242,.85);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:transform .5s var(--ease);
+}
+nav.is-hidden{transform:translateY(-110%);}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:14px var(--px);
+  max-width:var(--page-max);margin:0 auto;
+}
+.nav-brand{display:flex;align-items:center;gap:12px;}
+.nav-avatar{
+  width:40px;height:40px;border-radius:50%;flex:0 0 auto;object-fit:cover;
+  box-shadow:var(--shadow-md);
+}
+.nav-brand-text{display:flex;flex-direction:column;line-height:1.15;}
+.nav-name{font-weight:var(--weight-medium);font-size:16px;letter-spacing:-.01em;color:var(--color-forest-ink);}
+.nav-role{font-weight:var(--weight-regular);font-size:12px;color:var(--color-stone);margin-top:1px;}
+@media (max-width:480px){.nav-role{display:none;}}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center;}
+.nav-links a{
+  font-size:14px;font-weight:var(--weight-medium);color:var(--color-slate);
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--color-forest-ink);}
+@media (max-width:600px){.nav-links a:not(.nav-cta){display:none;}}
+
+/* ════════ BUTTONS ════════ */
+.btn-filled{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--color-forest-ink);color:#fff;
+  font-weight:var(--weight-medium);font-size:15px;
+  padding:13px 22px;border-radius:var(--radius-buttons);
+  transition:transform .25s var(--ease),opacity .25s var(--ease);
+}
+.btn-filled:hover{transform:translateY(-2px);opacity:.92;}
+.nav-cta{padding:9px 16px;border-radius:12px;font-size:14px;}
+
+.btn-outline{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;color:var(--color-forest-ink);
+  font-weight:var(--weight-medium);font-size:15px;
+  padding:13px 22px;border-radius:var(--radius-buttons);
+  box-shadow:inset 0 0 0 1.5px var(--color-forest-ink);
+  transition:transform .25s var(--ease),background .25s var(--ease);
+}
+.btn-outline:hover{transform:translateY(-2px);background:rgba(0,31,31,.04);}
+
+/* ════════ PILL BADGE (badge → heading → description rhythm) ════════ */
+.badge{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--color-meadow);color:var(--color-forest-ink);
+  box-shadow:inset 0 0 0 1px var(--color-forest-ink);
+  border-radius:var(--radius-badges);
+  padding:8px 10px 8px 14px;
+  font-size:var(--text-caption);font-weight:var(--weight-medium);
+  letter-spacing:.08em;text-transform:uppercase;
+}
+.badge i{
+  width:18px;height:18px;border-radius:50%;flex:0 0 auto;
+  background:var(--color-forest-ink);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-style:normal;
+}
+
+.sec-head{margin-bottom:var(--spacing-48);max-width:720px;}
+.sec-head .badge{margin-bottom:var(--spacing-20);}
+.sec-title{
+  font-weight:var(--weight-medium);font-size:clamp(32px,5vw,var(--text-heading));
+  line-height:1;letter-spacing:-1.13px;color:var(--color-forest-ink);
+}
+.sec-title em{font-style:normal;color:var(--color-deep-forest);}
+.sec-desc{
+  margin-top:var(--spacing-20);font-size:var(--text-subheading);line-height:1.4;
+  color:var(--color-lichen-gray);
+}
+
+section{padding:var(--spacing-72) 0;}
+
+/* ════════ HERO ════════ */
+.hero{padding-top:clamp(48px,8vh,88px);}
+.hero-grid{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,5vw,64px);
+  align-items:end;
+}
+@media (max-width:820px){.hero-grid{grid-template-columns:1fr;align-items:start;gap:24px;}}
+.hero-title{
+  font-weight:var(--weight-medium);
+  font-size:clamp(40px,8vw,var(--text-display));
+  line-height:.9;letter-spacing:-1.73px;color:var(--color-forest-ink);
+}
+.hero-title .sep{color:var(--color-deep-forest);}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:var(--spacing-36);}
+.hero-side{padding-bottom:6px;}
+.hero-sub{
+  font-size:var(--text-subheading);line-height:1.4;color:var(--color-lichen-gray);
+}
+.hero-meta{
+  margin-top:var(--spacing-20);font-size:var(--text-body);color:var(--color-stone);
+}
+.hero-meta b{color:var(--color-forest-ink);font-weight:var(--weight-medium);}
+.social-row{display:flex;gap:10px;margin-top:var(--spacing-20);}
+.social-btn{
+  width:40px;height:40px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:#fff;
+  transition:transform .25s var(--ease);
+}
+.social-btn:hover{transform:translateY(-3px);}
+.social-btn.dribbble{background:#EA4C89;}
+.social-btn.behance{background:#1769FF;}
+.social-btn.linkedin{background:#0A66C2;}
+
+/* ════════ HERO DEVICE FRAME — the one place the radial halo appears ════════ */
+.hero-media{position:relative;margin-top:clamp(48px,9vh,96px);}
+.hero-halo{
+  position:absolute;inset:-14% -6% -20%;z-index:0;
+  background:var(--gradient-halo);opacity:.5;filter:blur(40px);
+  border-radius:50%;pointer-events:none;
+}
+.mock-frame{
+  position:relative;z-index:1;
+  height:clamp(320px,42vw,560px);max-width:1080px;margin:0 auto;
+}
+.mock-card{
+  position:absolute;cursor:pointer;
+  border-radius:var(--radius-cards);overflow:hidden;
+  background:var(--color-paper-white);box-shadow:var(--shadow-md);
+  transition:left .6s var(--ease),top .6s var(--ease),width .6s var(--ease),transform .6s var(--ease);
+}
+.mock-card img{width:100%;display:block;}
+.mock-card[data-slot="front"]{left:21%;top:2%;width:58%;z-index:3;transform:rotate(0deg);}
+.mock-card[data-slot="back-left"]{left:1%;top:12%;width:47%;z-index:1;transform:rotate(-7deg);}
+.mock-card[data-slot="back-right"]{left:52%;top:10%;width:47%;z-index:2;transform:rotate(7deg);}
+@media (prefers-reduced-motion:reduce){.mock-card{transition:none;}}
+
+/* ════════ SELECTED WORK — 2-col pastel feature-card grid ════════ */
+.work-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:var(--spacing-36);
+}
+@media (max-width:760px){.work-grid{grid-template-columns:1fr;gap:var(--spacing-20);}}
+.work-card{
+  display:flex;flex-direction:column;
+  border-radius:var(--radius-feature);
+  padding:clamp(20px,3vw,28px);
+  box-shadow:var(--shadow-md);
+  transition:transform .3s var(--ease);
+}
+.work-card:hover{transform:translateY(-4px);}
+.work-card:nth-child(1){background:var(--color-mint-surface);}
+.work-card:nth-child(2){background:var(--color-lime-surface);}
+.work-card:nth-child(3){background:var(--color-lavender-surface);}
+.work-card:nth-child(4){background:var(--color-blush-surface);}
+.work-card:nth-child(5){background:var(--color-buttercream);}
+.work-media{
+  border-radius:var(--radius-cards);overflow:hidden;
+  background:var(--color-paper-white);box-shadow:var(--shadow-md);
+  aspect-ratio:1440/820;margin-bottom:var(--spacing-20);
+}
+.work-media img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease);}
+.work-card:hover .work-media img{transform:scale(1.04);}
+.work-idx{
+  font-size:var(--text-caption);font-weight:var(--weight-medium);
+  letter-spacing:.08em;text-transform:uppercase;color:var(--color-mist);
+  margin-bottom:6px;
+}
+.work-name{
+  font-weight:var(--weight-medium);font-size:var(--text-heading-sm);line-height:1.2;
+  color:var(--color-forest-ink);margin-bottom:var(--spacing-8);
+}
+.work-desc{
+  font-size:var(--text-body-sm);line-height:1.45;color:var(--color-lichen-gray);
+  margin-bottom:var(--spacing-12);
+}
+.work-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:var(--spacing-20);}
+.work-tags span{
+  font-size:var(--text-caption);font-weight:var(--weight-medium);
+  letter-spacing:.06em;text-transform:uppercase;color:var(--color-forest-ink);
+  background:rgba(255,255,255,.55);
+  box-shadow:inset 0 0 0 1px rgba(0,31,31,.14);
+  border-radius:var(--radius-small);padding:5px 10px;
+}
+.work-link{
+  display:inline-flex;align-items:center;gap:8px;margin-top:auto;
+  font-size:var(--text-body-sm);font-weight:var(--weight-medium);color:var(--color-forest-ink);
+}
+.work-link .arrow{transition:transform .3s var(--ease);}
+.work-card:hover .work-link .arrow{transform:translateX(5px);}
+
+/* ════════ TESTIMONIALS ════════ */
+.testi .sec-head{margin-left:auto;margin-right:auto;text-align:center;}
+.testi .badge{margin-left:auto;margin-right:auto;}
+.testi-card{
+  max-width:840px;margin:0 auto;
+  background:var(--color-lavender-surface);
+  border-radius:var(--radius-feature);
+  padding:clamp(28px,5vw,56px);
+  box-shadow:var(--shadow-md);
+}
+.testi-mark{
+  font-size:56px;line-height:.6;color:var(--color-deep-forest);
+  font-weight:var(--weight-medium);
+}
+.testi-quote{
+  font-size:clamp(18px,2.4vw,26px);line-height:1.4;color:var(--color-forest-ink);
+  min-height:clamp(90px,13vw,120px);
+  margin:var(--spacing-12) 0 var(--spacing-36);
+  transition:opacity .3s var(--ease),transform .3s var(--ease);
+}
+.testi-quote.is-swap{opacity:0;transform:translateY(6px);}
+.testi-author-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.testi-avatars{display:flex;align-items:center;}
+.testi-avatar{
+  width:48px;height:48px;border-radius:50%;flex:0 0 auto;
+  background-size:cover;background-position:center;background-color:var(--color-mist);
+  border:2px solid var(--color-paper-white);margin-left:-12px;
+  opacity:.5;transform:scale(.85);filter:grayscale(.5);
+  transition:transform .35s var(--ease),opacity .35s var(--ease),filter .35s var(--ease),box-shadow .35s var(--ease);
+}
+.testi-avatar:first-child{margin-left:0;}
+.testi-avatar.is-active{
+  opacity:1;transform:scale(1.1);filter:none;
+  border-color:var(--color-meadow);box-shadow:var(--shadow-md);
+}
+.testi-divider{width:1px;height:32px;background:rgba(0,31,31,.16);flex:0 0 auto;}
+.testi-meta{display:flex;flex-direction:column;gap:2px;transition:opacity .3s var(--ease);}
+.testi-meta.is-swap{opacity:0;}
+.testi-name{font-weight:var(--weight-medium);font-size:16px;color:var(--color-forest-ink);}
+.testi-role{font-size:var(--text-body-sm);color:var(--color-lichen-gray);}
+@media (prefers-reduced-motion:reduce){
+  .testi-quote,.testi-meta,.testi-avatar{transition:none;}
+}
+
+/* ════════ CLOSING — integration-banner gradient closer (used once) ════════ */
+.closing-band{
+  background:var(--gradient-integration);
+  border-radius:var(--radius-feature);
+  padding:clamp(48px,8vw,88px) clamp(24px,5vw,64px);
+  text-align:center;color:#fff;
+  box-shadow:var(--shadow-md);
+}
+.closing-kicker{
+  font-size:var(--text-body-sm);letter-spacing:.06em;text-transform:uppercase;
+  opacity:.8;margin-bottom:var(--spacing-12);
+}
+.closing-title{
+  font-weight:var(--weight-medium);font-size:clamp(30px,5vw,var(--text-heading));
+  line-height:1;letter-spacing:-1.13px;margin-bottom:var(--spacing-36);
+}
+.closing-title em{font-style:normal;color:var(--color-meadow);}
+.closing-band .btn-filled{background:var(--color-forest-ink);}
+
+/* ════════ FOOTER ════════ */
+footer{background:var(--color-parchment);}
+.foot-bottom{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  padding:24px var(--px) 40px;
+  max-width:var(--page-max);margin:0 auto;
+  border-top:1px solid rgba(0,31,31,.12);
+  font-size:var(--text-body-sm);color:var(--color-mist);
+}
+
+/* ════════ REVEAL ════════ */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
+.rv.is-in{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}}
+</style>
+</head>
+<body>
+
+<!-- ════════ NAV ════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-brand">
+      <img class="nav-avatar" src="../Img/joao-avatar.jpg" alt="João Abdalla">
+      <span class="nav-brand-text">
+        <span class="nav-name">João Abdalla</span>
+        <span class="nav-role" data-i18n="common.nav.role">Product designer UX UI</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#work" data-i18n="common.nav.works">Works</a></li>
+      <li><a href="../about.html" data-i18n="common.nav.about">About</a></li>
+      <li><a class="btn-filled nav-cta" href="#contact" data-i18n="common.nav.contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- ════════ HERO ════════ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title" data-i18n-html="home.hero.title">Senior Product Designer <span class="sep">•</span> UX UI</h1>
+        <div class="hero-actions">
+          <a class="btn-filled" href="#work"><span data-i18n="home.hero.cta">View Case Studies</span> <span>→</span></a>
+          <a class="btn-outline" href="../about.html"><span data-i18n="common.nav.about">About</span></a>
+        </div>
+      </div>
+      <div class="hero-side">
+        <p class="hero-sub" data-i18n="home.hero.sub">Designer who builds and operates AI systems for the design process.</p>
+        <p class="hero-meta" data-i18n-html="home.hero.meta">Remote from <b>Brazil</b>, working with <b>US &amp; EU</b> teams</p>
+        <div class="social-row">
+          <a class="social-btn dribbble" href="https://dribbble.com/abdalladesign" target="_blank" rel="noopener" aria-label="Dribbble">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 100 20 10 10 0 000-20Zm6.6 4.6a8.4 8.4 0 011.9 5.1c-.3-.06-3-.6-5.7-.26-.06-.14-.1-.29-.17-.44-.17-.4-.35-.8-.54-1.18 3-1.24 4.4-3 4.48-3.2ZM12 3.6c1.9 0 3.6.68 4.96 1.8-.06.1-1.3 1.76-4.2 2.83A46.5 46.5 0 009.8 3.9 8.4 8.4 0 0112 3.6ZM8.1 4.5a44.3 44.3 0 012.94 4.24C7.9 9.5 5 9.5 4.7 9.5a8.44 8.44 0 013.4-5Zm-3.7 7.53v-.24c.3 0 3.75.05 7.03-1a17 17 0 01.4.83c-.1.03-.2.06-.28.09-3.4 1.1-5.2 4.1-5.35 4.36a8.36 8.36 0 01-1.8-4.04Zm7.6 6.87c-1.6 0-3.08-.5-4.3-1.36.12-.24 1.5-2.87 5.25-4.2.02 0 .03-.01.05-.02a35.7 35.7 0 011.87 6.9 8.4 8.4 0 01-2.87.68Zm4.28-1.34a37.4 37.4 0 00-1.7-6.28c2.5-.4 4.7.26 5 .35a8.44 8.44 0 01-3.3 5.93Z" fill="#fff"/></svg>
+          </a>
+          <a class="social-btn behance" href="https://www.behance.net/joaoabdalla" target="_blank" rel="noopener" aria-label="Behance">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 6h5.6c1.4 0 2.5.34 3.3 1 .8.68 1.2 1.6 1.2 2.75 0 .68-.16 1.27-.48 1.77-.3.5-.76.9-1.36 1.2.82.24 1.44.65 1.86 1.24.42.6.63 1.32.63 2.16 0 .77-.14 1.44-.4 2-.28.56-.66 1-1.14 1.36-.48.35-1.04.6-1.68.76-.64.15-1.32.23-2.05.23H4V6Zm2.6 5.16h2.6c.6 0 1.08-.14 1.44-.42.36-.28.54-.7.54-1.24 0-.6-.18-1.03-.55-1.3-.36-.27-.86-.4-1.5-.4H6.6v3.36Zm0 5.5h2.9c.7 0 1.25-.16 1.65-.47.4-.32.6-.78.6-1.4 0-.62-.2-1.08-.6-1.4-.4-.3-.96-.46-1.68-.46H6.6v3.73ZM14.5 8.4h5.4v1.35h-5.4V8.4Zm2.7 3.1c1.5 0 2.65.42 3.46 1.26.8.83 1.2 2 1.2 3.5v.5h-6.65c.04.7.28 1.24.7 1.62.44.38 1 .57 1.7.57.5 0 .95-.1 1.32-.3.38-.2.66-.5.85-.87h2.03c-.3.9-.83 1.6-1.6 2.1-.77.5-1.66.76-2.68.76-1.4 0-2.55-.44-3.42-1.32-.87-.88-1.3-2.05-1.3-3.5 0-1.4.44-2.55 1.3-3.44.87-.9 2-1.34 3.34-1.34Zm-2.2 3.72h4.35c-.06-.63-.28-1.1-.66-1.44-.38-.34-.9-.5-1.5-.5-.6 0-1.1.17-1.5.5-.4.34-.63.82-.7 1.44Z" fill="#fff"/></svg>
+          </a>
+          <a class="social-btn linkedin" href="https://www.linkedin.com/in/abdalladesign/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6.94 5a1.94 1.94 0 11-3.88 0 1.94 1.94 0 013.88 0ZM3.3 8.5h3.7V20H3.3V8.5Zm6.4 0h3.55v1.57h.05c.5-.9 1.7-1.86 3.5-1.86 3.75 0 4.44 2.4 4.44 5.5V20h-3.7v-5.5c0-1.3-.02-3-1.86-3-1.86 0-2.14 1.4-2.14 2.9V20H9.7V8.5Z" fill="#fff"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- product device frame on the halo gradient -->
+    <div class="hero-media">
+      <div class="hero-halo" aria-hidden="true"></div>
+      <div class="mock-frame rv" id="mockFrame">
+        <div class="mock-card" data-slot="back-left" data-href="../cases/jalasoft.html" role="button" tabindex="0" aria-label="Bring Jalasoft to front" data-i18n-attr="aria-label:home.mock.jala.aria">
+          <img src="../Img/browser.png" alt="Jalasoft — brand and web redesign, shown in browser" loading="lazy" data-i18n-attr="alt:home.mock.jala.alt">
+        </div>
+        <div class="mock-card" data-slot="back-right" data-href="../cases/quero-simulados.html" role="button" tabindex="0" aria-label="Bring Quero Simulados to front" data-i18n-attr="aria-label:home.mock.quero.aria">
+          <img src="../Img/browser-2.png" alt="Quero Simulados — exam practice platform, shown in browser" loading="lazy" data-i18n-attr="alt:home.mock.quero.alt">
+        </div>
+        <div class="mock-card" data-slot="front" data-href="../cases/qconcursos.html" role="button" tabindex="0" aria-label="Open the Qconcursos case study" data-i18n-attr="aria-label:home.mock.qcon.aria">
+          <img src="../Img/browser-1.png" alt="Qconcursos — platform homepage, shown in browser" loading="lazy" data-i18n-attr="alt:home.mock.qcon.alt">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ SELECTED WORK ════════ -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="badge"><span data-i18n="home.work.label">Selected work</span> <i>→</i></span>
+      <h2 class="sec-title" data-i18n-html="home.work.title">Results that made a <em>difference</em></h2>
+    </div>
+
+    <div class="work-grid">
+
+      <a class="work-card rv" href="../cases/qconcursos-filter.html">
+        <span class="work-media">
+          <img src="../Img/cards%20home/card-filter.png" alt="QConcursos — cascading question filter, live product screenshot" data-i18n-attr="alt:home.card1.alt">
+        </span>
+        <span class="work-idx">/ 01</span>
+        <h3 class="work-name" data-i18n="home.card1.name">The Filter Behind the Growth</h3>
+        <p class="work-desc" data-i18n="home.card1.desc">A 12-field cascading filter that turned a 605K-question database into a usable product — and a pricing call that quietly added R$27M a year.</p>
+        <div class="work-tags"><span data-i18n="home.card1.tag1">Edtech</span><span data-i18n="home.card1.tag2">Filtering UX</span><span data-i18n="home.card1.tag3">Pricing</span></div>
+        <span class="work-link"><span data-i18n="home.card1.link">Part of the R$208M acquisition</span> <span class="arrow">→</span></span>
+      </a>
+
+      <a class="work-card rv" href="../cases/jalasoft.html">
+        <span class="work-media">
+          <img src="../Img/cards%20home/card-jala.png" alt="Jalasoft — design system built from a brand guideline" data-i18n-attr="alt:home.card2.alt">
+        </span>
+        <span class="work-idx">/ 02</span>
+        <h3 class="work-name" data-i18n="home.card2.name">Jalasoft Design System</h3>
+        <p class="work-desc" data-i18n="home.card2.desc">Building a design system from a brand guideline, then scaling it across a company of over a thousand people.</p>
+        <div class="work-tags"><span data-i18n="home.card2.tag1">Enterprise</span><span data-i18n="home.card2.tag2">Design System</span></div>
+        <span class="work-link"><span data-i18n="home.card2.link">Scaled across 1,000+ people</span> <span class="arrow">→</span></span>
+      </a>
+
+      <a class="work-card rv" href="../cases/valt.html">
+        <span class="work-media">
+          <img src="../Img/cards%20home/Valt.png" alt="Valt Network — product design" data-i18n-attr="alt:home.card3.alt">
+        </span>
+        <span class="work-idx">/ 03</span>
+        <h3 class="work-name" data-i18n="home.card3.name">Valt Network</h3>
+        <p class="work-desc" data-i18n="home.card3.desc">Designing the professional layer for private-market investors and high-growth companies.</p>
+        <div class="work-tags"><span data-i18n="home.card3.tag1">Fintech</span><span data-i18n="home.card3.tag2">Social Product</span><span data-i18n="home.card3.tag3">0 → 1</span></div>
+        <span class="work-link"><span data-i18n="home.card3.link">Live product</span> <span class="arrow">→</span></span>
+      </a>
+
+      <a class="work-card rv" href="../cases/mba.html">
+        <span class="work-media">
+          <img src="../Img/cards%20home/card-mba.png" alt="My Benefits Advice — personalized plan-recommendation flow" data-i18n-attr="alt:home.card4.alt">
+        </span>
+        <span class="work-idx">/ 04</span>
+        <h3 class="work-name" data-i18n="home.card4.name">My Benefits Advice</h3>
+        <p class="work-desc" data-i18n="home.card4.desc">Health benefits platform with a personalized plan-recommendation engine for employees.</p>
+        <div class="work-tags"><span data-i18n="home.card4.tag1">Enterprise</span><span data-i18n="home.card4.tag2">Onboarding</span><span data-i18n="home.card4.tag3">Fintech</span></div>
+        <span class="work-link"><span data-i18n="home.card4.link">43% faster onboarding</span> <span class="arrow">→</span></span>
+      </a>
+
+      <a class="work-card rv" href="../cases/qconcursos.html">
+        <span class="work-media">
+          <img src="../Img/cards%20home/card-Qcon.png" alt="Qconcursos — platform redesign" data-i18n-attr="alt:home.card5.alt">
+        </span>
+        <span class="work-idx">/ 05</span>
+        <h3 class="work-name" data-i18n="home.card5.name">Qconcursos</h3>
+        <p class="work-desc" data-i18n="home.card5.desc">From 600K to 10M — designing for scale at Brazil's largest exam-prep edtech.</p>
+        <div class="work-tags"><span data-i18n="home.card5.tag1">Edtech</span><span data-i18n="home.card5.tag2">8M+ Users</span><span data-i18n="home.card5.tag3">Team Lead</span></div>
+        <span class="work-link"><span data-i18n="home.card5.link">600K → 10M+ users</span> <span class="arrow">→</span></span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════ TESTIMONIALS ════════ -->
+<section class="testi" id="testimonials">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="badge"><span data-i18n="home.testi.label">Testimonials</span> <i>→</i></span>
+      <h2 class="sec-title" data-i18n-html="home.testi.title">What people <em>are saying</em></h2>
+    </div>
+
+    <div class="testi-card rv">
+      <span class="testi-mark" aria-hidden="true">&ldquo;</span>
+      <p class="testi-quote" id="testiQuote">João doesn&rsquo;t just design, he raises the bar for everyone. As our UX and Figma educator, he&rsquo;s trained dozens of LATAM engineers who now think in product.</p>
+
+      <div class="testi-author-row">
+        <div class="testi-avatars" id="testiAvatars">
+          <button class="testi-avatar is-active" type="button" data-index="0" aria-pressed="true" aria-label="Show testimonial from Orlando Campos" data-i18n-attr="aria-label:home.testi.0.aria" style="background-image:url('../Img/testimonials/orlando-campos.png');"></button>
+          <button class="testi-avatar" type="button" data-index="1" aria-pressed="false" aria-label="Show testimonial from Bernard de Luna" data-i18n-attr="aria-label:home.testi.1.aria" style="background-image:url('../Img/testimonials/bernard-de-luna.png');"></button>
+          <button class="testi-avatar" type="button" data-index="2" aria-pressed="false" aria-label="Show testimonial from Mauricio Salazar" data-i18n-attr="aria-label:home.testi.2.aria" style="background-image:url('../Img/testimonials/mauricio-salazar.png');"></button>
+        </div>
+        <span class="testi-divider" aria-hidden="true"></span>
+        <div class="testi-meta" id="testiMeta">
+          <p class="testi-name" id="testiName">Orlando Campos</p>
+          <p class="testi-role" id="testiRole">Academic Coordinator at Jala University</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CLOSING CTA ════════ -->
+<section id="contact">
+  <div class="wrap">
+    <div class="closing-band rv">
+      <p class="closing-kicker" data-i18n="home.closing.kicker">No contracts. No queues. Just great design.</p>
+      <h2 class="closing-title" data-i18n-html="home.closing.title">Ready to have a designer <em>who truly gets it?</em></h2>
+      <a class="btn-filled" href="https://wa.me/5561993734553?text=Hi%20Jo%C3%A3o%2C%20I%20want%20to%20talk%20about%20my%20product." target="_blank" rel="noopener" data-i18n-attr="href:home.closing.waHref">
+        <span data-i18n="home.closing.cta">Start a conversation →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="foot-bottom">
+    <span data-i18n="common.footer.rights">© 2026 João Abdalla. All rights reserved.</span>
+    <span>PT · EN · ES</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* nav hide/show on scroll */
+  var lastY = 0, nav = document.getElementById("nav");
+  window.addEventListener("scroll", function(){
+    var y = window.scrollY;
+    if (y > 140 && y > lastY) nav.classList.add("is-hidden");
+    else nav.classList.remove("is-hidden");
+    lastY = y;
+  }, { passive: true });
+
+  /* hero mockup — click a background project to bring it to front */
+  (function () {
+    var frame = document.getElementById("mockFrame");
+    if (!frame) return;
+    var cards = Array.prototype.slice.call(frame.querySelectorAll(".mock-card"));
+    if (!cards.length) return;
+    var userInteracted = false;
+
+    function bringToFront(card) {
+      var clickedSlot = card.dataset.slot;
+      if (clickedSlot === "front") return;
+      var frontCard = cards.filter(function (c) { return c.dataset.slot === "front"; })[0];
+      if (!frontCard) return;
+      frontCard.dataset.slot = clickedSlot;
+      card.dataset.slot = "front";
+    }
+
+    function activate(card) {
+      userInteracted = true;
+      if (card.dataset.slot === "front") {
+        if (card.dataset.href) window.location.href = card.dataset.href;
+        return;
+      }
+      bringToFront(card);
+    }
+
+    cards.forEach(function (card) {
+      card.addEventListener("click", function () { activate(card); });
+      card.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); activate(card); }
+      });
+    });
+
+    if (!reduceMotion) {
+      setTimeout(function () {
+        if (userInteracted) return;
+        var h1 = cards.filter(function (c) { return c.dataset.slot === "back-left"; })[0];
+        if (h1) bringToFront(h1);
+        setTimeout(function () {
+          if (userInteracted) return;
+          var h2 = cards.filter(function (c) { return c.dataset.slot === "back-right"; })[0];
+          if (h2) bringToFront(h2);
+        }, 3000);
+      }, 3000);
+    }
+  })();
+
+  /* scroll reveal */
+  var items = document.querySelectorAll(".rv");
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    items.forEach(function(el){ el.classList.add("is-in"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) { entry.target.classList.add("is-in"); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.15 });
+    items.forEach(function(el){ io.observe(el); });
+  }
+
+  /* testimonials — click an avatar to bring it forward and swap the quote */
+  (function () {
+    var data = [
+      { key: "home.testi.0", quote: "João doesn’t just design, he raises the bar for everyone. As our UX and Figma educator, he’s trained dozens of LATAM engineers who now think in product.", name: "Orlando Campos", role: "Academic Coordinator at Jala University" },
+      { key: "home.testi.1", quote: "João’s redesign of our course page raised the bar for the whole product. Rigorous work that scaled to millions of users without missing a beat.", name: "Bernard de Luna", role: "Product Director at Qconcursos" },
+      { key: "home.testi.2", quote: "João built our design system from a brand guideline into a component library over a thousand people now build with daily.", name: "Mauricio Salazar", role: "Development Engineer at Jalasoft" }
+    ];
+
+    function quoteFor(i){ return (window.I18N && window.I18N.t(data[i].key + ".quote")) || data[i].quote; }
+    function roleFor(i){ return (window.I18N && window.I18N.t(data[i].key + ".role")) || data[i].role; }
+
+    var avatars = document.getElementById("testiAvatars");
+    var quoteEl = document.getElementById("testiQuote");
+    var metaEl = document.getElementById("testiMeta");
+    var nameEl = document.getElementById("testiName");
+    var roleEl = document.getElementById("testiRole");
+    if (!avatars || !quoteEl) return;
+
+    var buttons = Array.prototype.slice.call(avatars.querySelectorAll(".testi-avatar"));
+    var current = 0;
+    var swapDelay = reduceMotion ? 0 : 220;
+
+    function setActive(index) {
+      buttons.forEach(function (btn, i) {
+        var isActive = i === index;
+        btn.classList.toggle("is-active", isActive);
+        btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+    }
+    function applyContent(index) {
+      quoteEl.textContent = quoteFor(index);
+      nameEl.textContent = data[index].name;
+      roleEl.textContent = roleFor(index);
+    }
+    function goTo(index) {
+      if (index === current) return;
+      current = index;
+      setActive(index);
+      quoteEl.classList.add("is-swap");
+      metaEl.classList.add("is-swap");
+      window.setTimeout(function () {
+        applyContent(index);
+        quoteEl.classList.remove("is-swap");
+        metaEl.classList.remove("is-swap");
+      }, swapDelay);
+    }
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        goTo(parseInt(btn.getAttribute("data-index"), 10));
+      });
+    });
+
+    applyContent(current);
+    if (window.I18N && window.I18N.onChange) {
+      window.I18N.onChange(function () { applyContent(current); });
+    }
+  })();
+})();
+</script>
+</body>
+</html>

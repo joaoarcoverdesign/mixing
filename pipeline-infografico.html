@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pipeline de Agentes de Design</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root{
+    --paper:#EFE9DD;
+    --ink:#20241F;
+    --ink-soft:#565B52;
+    --line:#C9C1AC;
+    --block1:#3E5C4E;
+    --block1-soft:#DCE6DE;
+    --block2:#8A5A3C;
+    --block2-soft:#EEE1D5;
+    --block3:#3E4C6E;
+    --block3-soft:#DEE2ED;
+    --opt:#A6432F;
+    --gate:#B99327;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    padding:56px 0 90px;
+  }
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 40px;}
+
+  /* HEADER */
+  header{margin-bottom:64px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    display:flex;align-items:center;gap:10px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{content:'';width:24px;height:1px;background:var(--ink-soft);}
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(38px,5vw,58px);
+    line-height:1.02;
+    letter-spacing:-.01em;
+    margin:0 0 20px;
+    max-width:820px;
+  }
+  h1 em{font-style:italic;font-weight:500;color:var(--block1);}
+  .sub{
+    font-size:16px;
+    color:var(--ink-soft);
+    max-width:640px;
+    line-height:1.55;
+    margin:0;
+  }
+
+  .legend{
+    display:flex;flex-wrap:wrap;gap:22px;
+    margin-top:34px;
+    padding-top:22px;
+    border-top:1px solid var(--line);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    color:var(--ink-soft);
+  }
+  .legend span{display:inline-flex;align-items:center;gap:7px;}
+  .dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  .dot.b1{background:var(--block1);}
+  .dot.b2{background:var(--block2);}
+  .dot.b3{background:var(--block3);}
+  .dot.opt{background:var(--opt);}
+  .dot.gate{background:var(--gate);}
+
+  /* BLOCKS */
+  .block{margin-bottom:8px;}
+  .block-head{
+    display:flex;align-items:baseline;gap:16px;
+    padding:22px 0 14px;
+    border-top:1px solid var(--ink);
+  }
+  .block-num{
+    font-family:'Fraunces',serif;
+    font-size:15px;
+    font-weight:600;
+    color:var(--ink-soft);
+  }
+  .block-title{
+    font-family:'Fraunces',serif;
+    font-size:26px;
+    font-weight:600;
+  }
+  .block-title .accent{
+    font-style:italic;font-weight:500;
+  }
+  .block-meta{
+    margin-left:auto;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+    text-align:right;
+    letter-spacing:.03em;
+  }
+
+  .lane-nav{
+    display:flex;
+    align-self:center;
+    gap:6px;
+    margin-left:16px;
+  }
+  .lane-nav button{
+    width:26px;height:26px;
+    padding:0;
+    border:1px solid var(--ink);
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    line-height:1;
+    border-radius:50%;
+    cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .15s,color .15s,opacity .15s;
+  }
+  .lane-nav button:hover:not(:disabled){background:var(--ink);color:var(--paper);}
+  .lane-nav button:disabled{opacity:.28;cursor:default;}
+
+  .b1 .block-title .accent{color:var(--block1);}
+  .b2 .block-title .accent{color:var(--block2);}
+  .b3 .block-title .accent{color:var(--block3);}
+  .b1 .lane-nav button{border-color:var(--block1);}
+  .b2 .lane-nav button{border-color:var(--block2);}
+  .b3 .lane-nav button{border-color:var(--block3);}
+
+  .lane{
+    display:flex;
+    align-items:stretch;
+    gap:0;
+    padding:20px 0 36px;
+    overflow-x:auto;
+    scrollbar-width:none;
+    cursor:grab;
+    user-select:none;
+  }
+  .lane::-webkit-scrollbar{display:none;}
+  .lane.dragging{cursor:grabbing;}
+  .lane.dragging .card{pointer-events:none;}
+
+  .step{
+    flex:0 0 auto;
+    width:172px;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    padding-right:26px;
+  }
+  .step:last-child{padding-right:0;}
+  .step:not(:last-child)::after{
+    content:'→';
+    position:absolute;
+    right:-2px;top:38px;
+    color:var(--ink-soft);
+    font-size:15px;
+  }
+
+  .card{
+    border:1px solid var(--ink);
+    background:var(--paper);
+    padding:14px 13px 15px;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+  }
+  .b1 .card{border-color:var(--block1);}
+  .b2 .card{border-color:var(--block2);}
+  .b3 .card{border-color:var(--block3);}
+
+  .card.optional{
+    border-style:dashed;
+    border-color:var(--opt);
+    background:transparent;
+  }
+  .card.gate{
+    border-color:var(--gate);
+    background:#F6ECC9;
+  }
+  .card.manual{
+    background:repeating-linear-gradient(135deg, rgba(0,0,0,0.035) 0px, rgba(0,0,0,0.035) 6px, transparent 6px, transparent 12px);
+  }
+
+  .step-idx{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    color:var(--ink-soft);
+    letter-spacing:.05em;
+  }
+  .step-name{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:15px;
+    line-height:1.18;
+  }
+  .step-desc{
+    font-size:11.5px;
+    color:var(--ink-soft);
+    line-height:1.4;
+    flex:1;
+  }
+  .step-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:9.5px;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    padding:3px 7px;
+    border-radius:20px;
+    display:inline-block;
+    width:fit-content;
+  }
+  .tag-sonnet{background:var(--block1-soft);color:var(--block1);}
+  .b2 .tag-sonnet{background:var(--block2-soft);color:var(--block2);}
+  .b3 .tag-sonnet{background:var(--block3-soft);color:var(--block3);}
+  .tag-opus{background:var(--ink);color:var(--paper);}
+  .tag-opt{color:var(--opt);}
+  .tag-gate{color:var(--gate);}
+  .tag-manual{color:var(--ink-soft);font-style:italic;}
+
+  /* QUALITY SECTION */
+  .quality{
+    margin-top:60px;
+    padding-top:36px;
+    border-top:1px solid var(--ink);
+  }
+  .quality-head{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    margin-bottom:8px;
+  }
+  .quality-title{
+    font-family:'Fraunces',serif;
+    font-size:26px;
+    font-weight:600;
+  }
+  .quality-title .accent{font-style:italic;color:var(--gate);}
+  .quality-sub{
+    color:var(--ink-soft);
+    font-size:14px;
+    max-width:640px;
+    margin:6px 0 28px;
+    line-height:1.5;
+  }
+
+  .qgrid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--ink);
+    border:1px solid var(--ink);
+  }
+  .qcell{
+    background:var(--paper);
+    padding:22px 22px 24px;
+  }
+  .qcell .qnum{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+    display:block;
+  }
+  .qcell h3{
+    font-family:'Fraunces',serif;
+    font-size:17px;
+    font-weight:600;
+    margin:0 0 8px;
+  }
+  .qcell p{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    line-height:1.55;
+    margin:0;
+  }
+
+  /* FOOTER NOTE */
+  .footnote{
+    margin-top:50px;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+    display:flex;
+    gap:40px;
+    flex-wrap:wrap;
+  }
+  .footnote .fitem{flex:1;min-width:220px;}
+  .footnote h4{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin:0 0 8px;
+  }
+  .footnote p{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    line-height:1.55;
+    margin:0;
+  }
+  .footnote strong{color:var(--ink);font-weight:600;}
+
+  @media (max-width:720px){
+    .wrap{padding:0 20px;}
+    .lane{padding-bottom:24px;}
+    .step{width:150px;}
+    .qgrid{grid-template-columns:1fr;}
+    .block-meta{display:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Pipeline de agentes · design de produto</div>
+    <h1>De uma nota solta<br>até o <em>código pronto</em>.</h1>
+    <p class="sub">19 subagentes, três blocos sequenciais, cada etapa entregando a entrada exata da próxima. O mapa abaixo mostra por onde o projeto passa, quem decide em cada ponto, e onde a qualidade é checada.</p>
+
+    <div class="legend">
+      <span><i class="dot b1"></i> Bloco 1 — UX</span>
+      <span><i class="dot b2"></i> Bloco 2 — UI</span>
+      <span><i class="dot b3"></i> Bloco 3 — Dev</span>
+      <span><i class="dot opt"></i> Opcional</span>
+      <span><i class="dot gate"></i> Ponto de checagem / decisão sua</span>
+    </div>
+  </header>
+
+  <!-- BLOCO 1 -->
+  <section class="block b1">
+    <div class="block-head">
+      <span class="block-num">01</span>
+      <span class="block-title">Bloco <span class="accent">UX</span></span>
+      <span class="block-meta">MVP · 6 etapas fixas<br>+2 opcionais</span>
+      <div class="lane-nav">
+        <button type="button" class="lane-prev" aria-label="Etapas anteriores">←</button>
+        <button type="button" class="lane-next" aria-label="Próximas etapas">→</button>
+      </div>
+    </div>
+    <div class="lane">
+      <div class="step">
+        <div class="card">
+          <span class="step-idx">01</span>
+          <span class="step-name">Briefing</span>
+          <p class="step-desc">Lê o pré-briefing solto e estrutura contexto, objetivo e restrições.</p>
+          <span class="step-tag tag-sonnet">sonnet</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="card">
+          <span class="step-idx">02</span>
+          <span class="step-name">Proposta UX</span>
+          <p class="step-desc">Define o Why e os riscos prioritários do projeto.</p>
+          <span class="step-tag tag-sonnet">sonnet</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="card optional">
+          <span class="step-idx">—</span>
+          <span class="step-name">Benchmark de Mercado</span>
+          <p class="step-desc">4 a 8 referências de concorrência. Só roda se pedido.</p>
+          <span class="step-tag tag-opt">opcional</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="card">
+          <span class="step-idx">03</span>
+          <span class="step-name">Persona + Jornada + JTBD</span>
+          <p class="step-desc">Documento único, fusão dos três agentes originais.</p>
+          <span class="step-tag tag-sonnet">sonnet</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="card">
+          <span class="step-idx">04</span>
+          <span class="step-name">Sitemap + Task Flow</span>
+          <p class="step-desc">Estrutura de telas e o fluxo da tarefa prioritária.</p>
+          <span class="step-tag tag-sonnet">sonnet</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="card">
+          <span class="step-idx">05</span>
+          <span class="step-name">Wireframe</span>
+          <p class="step-desc">Baixa fidelidade por fluxo do Task Flow.</p>
+          <span class="step-tag tag-sonnet">sonnet</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="card gate">
+          <span class="step-idx">◆</span>
+          <span class="step-name">Crítico UX</span>
+          <p class="step-desc">1 passada só. Parecer descritivo, não reprova — a decisão de ajustar é sua.</p>
+          <span class="step-tag tag-gate">1x · parecer</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="card">
+          <span class="step-idx">06</span>
+          <span class="step-name">Documento Final UX</span>
+          <p class="step-desc">Handoff consolidado — markdown + versão HTML com identidade de marca.</p>
+          <span class="step-tag tag-sonnet">sonnet</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCO 2 -->
+  <section class="block b2">
+    <div class="block-head">
+      <span class="block-num">02</span>
+      <span class="block-title">Bloco <span class="accent">UI</span></span>
+      <span class="block-meta">8 etapas<br>1 escolha manual sua</span>
+      <div class="lane-nav">
+        <button type="button" class="lane-prev" aria-label="Etapas anteriores">←</button>
+        <button type="button" class="lane-next" aria-label="Próximas etapas">→</button>
+      </div>
+    </div>
+    <div class="lane">
+      <div class="step">
+        <div class="card">
+          <span class="step-idx">07</span>
+          <span class="step-name">Benchmark Visual</span>
+          <p class="step-desc">Referências visuais de estilo e composição.</p>
+          <span class="step-tag tag-sonnet">sonnet</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="card">
+          <span class="step-idx">08</span>
+          <span class="step-name">Resumo de Insumos</span>
+          <p class="step-desc">Consolida tudo que o Bloco 1 já definiu.</p>
+          <span class="step-tag tag-sonnet">sonnet</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="card gate">
+          <span class="step-idx">◆</span>
+          <span class="step-name">Propostas Visuais</span>
+          <p class="step-desc">Gera 3 direções. Você escolhe uma manualmente, ou traz referência nova.</p>
+          <span class="step-tag tag-gate">sua escolha</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="card">
+          <span class="step-idx">09</span>
+          <span class="step-name">Paleta + Tipografia</span>
+          <p class="step-desc">Aplica a direção escolhida em sistema de cor e tipo.</p>
+          <span class="step-tag tag-sonnet">sonnet</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="card">
+          <span class="step-idx">10</span>
+          <span class="step-name">Grade de 8px</span>
+          <p class="step-desc">Refina espaçamento e alinhamento no grid.</p>
+          <span class="step-tag tag-sonnet">sonnet</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="card gate">
+          <span class="step-idx">◆</span>
+          <span class="step-name">Crítico UI</span>
+          <p class="step-desc">Checagem de consistência visual antes do handoff.</p>
+          <span class="step-tag tag-gate">checagem</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="card">
+          <span class="step-idx">11</span>
+          <span class="step-name">Documento Final UI</span>
+          <p class="step-desc">HTML/CSS das telas reais + página de style guide.</p>
+          <span class="step-tag tag-sonnet">sonnet</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="card">
+          <span class="step-idx">12</span>
+          <span class="step-name">design.md</span>
+          <p class="step-desc">Tokens literais — a ponte técnica para o Bloco 3.</p>
+          <span class="step-tag tag-sonnet">sonnet</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCO 3 -->
+  <section class="block b3">
+    <div class="block-head">
+      <span class="block-num">03</span>
+      <span class="block-title">Bloco <span class="accent">Dev</span></span>
+      <span class="block-meta">7 etapas<br>2 manuais no Claude Design</span>
+      <div class="lane-nav">
+        <button type="button" class="lane-prev" aria-label="Etapas anteriores">←</button>
+        <button type="button" class="lane-next" aria-label="Próximas etapas">→</button>
+      </div>
+    </div>
+    <div class="lane">
+      <div class="step">
+        <div class="card manual">
+          <span class="step-idx">—</span>
+          <span class="step-name">Layout inicial</span>
+          <p class="step-desc">Manual, no Claude Design. Usa os 2 Documentos Finais + design.md.</p>
+          <span class="step-tag tag-manual">manual</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="card gate">
+          <span class="step-idx">◆</span>
+          <span class="step-name">Crítico Bloco 3 <span style="opacity:.6">· 1ª</span></span>
+          <p class="step-desc">Checa fidelidade ao UX/UI aprovado. Não reabre estrutura já validada.</p>
+          <span class="step-tag tag-gate">checagem</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="card manual">
+          <span class="step-idx">—</span>
+          <span class="step-name">Refinamento visual fino</span>
+          <p class="step-desc">Manual, no Claude Design. Polimento de detalhe.</p>
+          <span class="step-tag tag-manual">manual</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="card">
+          <span class="step-idx">13</span>
+          <span class="step-name">Analista Técnico</span>
+          <p class="step-desc">Pergunta escopo, integrações e hospedagem antes de gerar requisitos.</p>
+          <span class="step-tag tag-opus">opus</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="card">
+          <span class="step-idx">14</span>
+          <span class="step-name">Agentes executores</span>
+          <p class="step-desc">Um por requisito técnico, criados sob demanda.</p>
+          <span class="step-tag tag-sonnet">sonnet</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="card gate">
+          <span class="step-idx">◆</span>
+          <span class="step-name">Crítico Bloco 3 <span style="opacity:.6">· 2ª</span></span>
+          <p class="step-desc">Sobre o código consolidado, antes de fechar.</p>
+          <span class="step-tag tag-gate">checagem</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="card">
+          <span class="step-idx">15</span>
+          <span class="step-name">Integrador</span>
+          <p class="step-desc">Fecha o Bloco 3 e consolida a entrega final.</p>
+          <span class="step-tag tag-sonnet">sonnet</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUALIDADE -->
+  <section class="quality">
+    <div class="quality-head">
+      <span class="quality-title">Onde a <span class="accent">qualidade</span> é checada</span>
+    </div>
+    <p class="quality-sub">Cada bloco tem seu próprio mecanismo de controle — nenhum deles decide por você, todos devolvem a decisão para a sua mesa.</p>
+
+    <div class="qgrid">
+      <div class="qcell">
+        <span class="qnum">Bloco 1</span>
+        <h3>Parecer, não veredito</h3>
+        <p>O Crítico UX roda uma única vez, no fim do bloco. Ele não aprova nem reprova — aponta furos de rastreabilidade, consistência e suposição não sinalizada, e devolve a decisão de ajustar para você.</p>
+      </div>
+      <div class="qcell">
+        <span class="qnum">Bloco 2</span>
+        <h3>Escolha humana no meio</h3>
+        <p>O único ponto do pipeline inteiro onde você escolhe manualmente entre opções geradas é aqui — as 3 Propostas Visuais. O Crítico UI depois disso é checagem de consistência, não substitui esse julgamento.</p>
+      </div>
+      <div class="qcell">
+        <span class="qnum">Bloco 3</span>
+        <h3>Duas passadas, um limite</h3>
+        <p>O Crítico Bloco 3 roda duas vezes — sobre o layout e sobre o código final — mas nunca reabre decisões estruturais já validadas nos Blocos 1 e 2. Problema estrutural aqui vira observação fora de escopo, não retrabalho.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="footnote">
+    <div class="fitem">
+      <h4>Por que o MVP</h4>
+      <p>O teste real mostrou <strong>mais de 60% do limite de uso</strong> consumido só no Bloco 1, com etapas repetindo por causa do crítico em ciclo de reprovação. O corte para 6 etapas fixas + crítico único resolve isso sem perder o insumo estrutural que o Bloco 2 depende.</p>
+    </div>
+    <div class="fitem">
+      <h4>O que fica de fora por padrão</h4>
+      <p><strong>Benchmark de Mercado</strong> (Bloco 1) só roda se pedido explicitamente — é a etapa mais cara em relação ao ganho que trazia ao fluxo padrão.</p>
+    </div>
+    <div class="fitem">
+      <h4>Onde você decide</h4>
+      <p>Toda etapa para e espera confirmação explícita antes de seguir para a próxima — mesmo quando um crítico já deu parecer favorável, a aprovação final é sempre sua.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  document.querySelectorAll('.lane').forEach(function(lane){
+    // Hover + scroll da roda do mouse move a fileira para os lados.
+    // Ao chegar no início/fim da fileira, solta o evento (sem preventDefault)
+    // para que o scroll continue normalmente na página e leve à próxima seção.
+    lane.addEventListener('wheel', function(e){
+      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return; // já é scroll horizontal nativo (trackpad)
+      var maxScroll = lane.scrollWidth - lane.clientWidth;
+      var atStart = lane.scrollLeft <= 0;
+      var atEnd = lane.scrollLeft >= maxScroll - 1;
+      if ((e.deltaY < 0 && atStart) || (e.deltaY > 0 && atEnd)) return;
+      e.preventDefault();
+      lane.scrollLeft += e.deltaY;
+    }, { passive:false });
+
+    // Clicar e arrastar (drag) também move a fileira
+    var isDown = false, startX = 0, startScroll = 0, moved = false;
+
+    lane.addEventListener('mousedown', function(e){
+      isDown = true;
+      moved = false;
+      lane.classList.add('dragging');
+      startX = e.pageX;
+      startScroll = lane.scrollLeft;
+    });
+
+    window.addEventListener('mouseup', function(){
+      isDown = false;
+      lane.classList.remove('dragging');
+    });
+
+    lane.addEventListener('mouseleave', function(){
+      isDown = false;
+      lane.classList.remove('dragging');
+    });
+
+    lane.addEventListener('mousemove', function(e){
+      if (!isDown) return;
+      e.preventDefault();
+      var delta = e.pageX - startX;
+      if (Math.abs(delta) > 3) moved = true;
+      lane.scrollLeft = startScroll - delta;
+    });
+
+    // Evita clicar em algo dentro do card sendo interpretado como clique depois de arrastar
+    lane.addEventListener('click', function(e){
+      if (moved) { e.preventDefault(); e.stopPropagation(); }
+    }, true);
+  });
+
+  // Navegação por setinhas: um par de botões por bloco, ao lado do título.
+  document.querySelectorAll('.block').forEach(function(block){
+    var lane = block.querySelector('.lane');
+    var prevBtn = block.querySelector('.lane-prev');
+    var nextBtn = block.querySelector('.lane-next');
+    if (!lane || !prevBtn || !nextBtn) return;
+
+    function stepAmount(){
+      var step = lane.querySelector('.step');
+      var w = step ? step.getBoundingClientRect().width : 200;
+      return w * 2; // avança ~2 cards por clique
+    }
+
+    function refresh(){
+      var maxScroll = lane.scrollWidth - lane.clientWidth;
+      prevBtn.disabled = lane.scrollLeft <= 1;
+      nextBtn.disabled = lane.scrollLeft >= maxScroll - 1;
+    }
+
+    prevBtn.addEventListener('click', function(){
+      lane.scrollBy({ left: -stepAmount(), behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', function(){
+      lane.scrollBy({ left: stepAmount(), behavior: 'smooth' });
+    });
+
+    lane.addEventListener('scroll', refresh);
+    window.addEventListener('resize', refresh);
+    refresh();
+  });
+</script>
+</body>
+</html>
