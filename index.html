@@ -59,6 +59,10 @@ a{color:inherit;text-decoration:none;}
 img{display:block;max-width:100%;}
 button{font:inherit;background:none;border:none;cursor:pointer;color:inherit;}
 
+/* single global focus token — keyboard users get a visible ring on every
+   interactive element; mouse clicks stay clean via :focus-visible */
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+
 /* ════════ NAV ════════ */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:900;
@@ -97,7 +101,41 @@ nav.is-hidden{transform:translateY(-110%);}
 .nav-links a:hover{color:var(--white);}
 .nav-links a:hover::after{transform:scaleX(1);transform-origin:left;}
 @media (max-width:720px){.nav-links{gap:20px;}}
-@media (max-width:560px){.nav-links a:not(:last-child){display:none;}}
+
+/* mobile: real hamburger + dropdown panel — About lives on its own page and
+   must stay reachable on phones */
+.nav-toggle{display:none;}
+.nav-toggle svg{width:22px;height:22px;}
+.nav-toggle .icon-close{display:none;}
+/* desktop keeps the language pill grouped with the nav links; the standalone
+   slot next to the hamburger is mobile-only */
+.nav-lang-slot{display:none;}
+@media (max-width:560px){
+  .nav-toggle{
+    display:flex;align-items:center;justify-content:center;
+    width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
+    color:var(--white);flex:0 0 auto;
+  }
+  .nav-lang-slot{display:inline-flex;margin-left:auto;margin-right:14px;}
+  .nav-links .lang-switch-li{display:none;}
+  nav.is-open .nav-toggle .icon-open{display:none;}
+  nav.is-open .nav-toggle .icon-close{display:block;}
+  .nav-links{
+    position:absolute;top:calc(100% - 6px);left:var(--px);right:var(--px);
+    flex-direction:column;align-items:stretch;gap:0;
+    background:var(--bg-deep);border:1px solid var(--line);border-radius:14px;
+    padding:6px;
+    opacity:0;transform:translateY(-8px);pointer-events:none;
+    transition:opacity .3s var(--ease),transform .3s var(--ease);
+  }
+  nav.is-open .nav-links{opacity:1;transform:none;pointer-events:auto;}
+  nav.is-open.is-hidden{transform:none;}
+  .nav-links li{border-bottom:1px solid var(--line);}
+  .nav-links li:last-child,
+  .nav-links li:nth-last-child(2){border-bottom:0;} /* hidden lang pill is the real last child */
+  .nav-links a{display:block;padding:15px 14px;font-size:13px;letter-spacing:.12em;color:var(--white);}
+  .nav-links a::after{display:none;}
+}
 
 /* ════════ BUTTONS ════════ */
 .btn-main{
@@ -183,7 +221,7 @@ nav.is-hidden{transform:translateY(-110%);}
   transition:left .6s var(--ease),top .6s var(--ease),width .6s var(--ease),
              transform .6s var(--ease),transform-origin .6s var(--ease);
 }
-.mock-card img{width:100%;display:block;filter:drop-shadow(0 30px 55px rgba(0,0,0,.5));}
+.mock-card img{width:100%;height:auto;display:block;filter:drop-shadow(0 30px 55px rgba(0,0,0,.5));}
 
 /* slot recipes — which card sits where is controlled by data-slot, swapped on click */
 .mock-card[data-slot="front"]{
@@ -197,6 +235,15 @@ nav.is-hidden{transform:translateY(-110%);}
 
 @media (prefers-reduced-motion:reduce){
   .mock-card{transition:none;}
+}
+
+/* mobile — on desktop the mock cards overflow the frame and the Work section
+   slides up over their bottom edges. On small screens the cards scale down with
+   the viewport but the frame keeps its 360px floor, so the whole card (bottom
+   edge included) sits inside it with dead space below. Track the frame height to
+   the card size and clip, so the bottoms crop the same way they do on desktop. */
+@media (max-width:860px){
+  .mock-frame{height:clamp(120px,40vw,320px);overflow:hidden;}
 }
 
 
@@ -238,7 +285,7 @@ section{position:relative;}
 .work-head{padding:0 var(--px);margin-bottom:clamp(32px,6vh,88px);flex:0 0 auto;align-items:flex-end;}
 .work-controls{display:flex;align-items:center;gap:14px;flex:0 0 auto;}
 .work-arrow{
-  width:40px;height:40px;border-radius:50%;border:1px solid var(--line);
+  width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
   display:flex;align-items:center;justify-content:center;
   color:var(--white);transition:background .25s,border-color .25s,transform .25s var(--ease);
 }
@@ -443,15 +490,20 @@ section{position:relative;}
   width:52px;height:52px;border-radius:50%;flex:0 0 auto;
   background-size:cover;background-position:center;background-color:var(--dim);
   border:2px solid var(--surface);margin-left:-14px;position:relative;
-  opacity:.5;transform:scale(.82);filter:grayscale(.6);
+  opacity:.7;transform:scale(.86);filter:grayscale(.5);
   transition:transform .4s var(--ease),opacity .4s var(--ease),filter .4s var(--ease),box-shadow .4s var(--ease);
 }
 .testi-avatar:first-child{margin-left:0;}
-.testi-avatar:hover{opacity:.8;}
+.testi-avatar:hover{opacity:1;filter:grayscale(0);transform:scale(.94);}
 .testi-avatar.is-active{
   opacity:1;transform:scale(1.12);z-index:5;filter:none;
   border-color:var(--accent);box-shadow:0 10px 24px rgba(0,0,0,.45);
 }
+.testi-count{
+  font-family:var(--serif);font-style:italic;font-size:14px;color:var(--dim);
+  flex:0 0 auto;letter-spacing:.04em;
+}
+.testi-count b{color:var(--accent);font-weight:600;}
 .testi-divider{width:1px;height:34px;background:var(--line);flex:0 0 auto;}
 .testi-meta{display:flex;flex-direction:column;gap:2px;transition:opacity .3s var(--ease);}
 .testi-meta.is-swap{opacity:0;}
@@ -481,6 +533,48 @@ section{position:relative;}
 }
 .closing-title em{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:lowercase;color:var(--accent);}
 .closing .btn-main{position:relative;z-index:1;}
+
+.closing-actions{
+  position:relative;z-index:1;
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px;
+}
+.email-copy{
+  position:relative;display:inline-flex;align-items:center;gap:12px;
+  padding:16px 22px;border-radius:99px;border:1px solid var(--line);
+  background:rgba(255,255,255,.03);color:var(--muted);
+  font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:.01em;
+  transition:border-color .25s var(--ease),color .25s var(--ease),background .25s var(--ease),transform .3s var(--ease);
+}
+.email-copy:hover{color:var(--white);border-color:rgba(255,255,255,.22);transform:translateY(-2px);}
+.email-copy:active{transform:translateY(0);}
+.email-copy-icon{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:18px;height:18px;flex:0 0 auto;color:var(--muted);
+  transition:color .25s var(--ease);
+}
+.email-copy:hover .email-copy-icon{color:var(--accent);}
+.email-copy-icon svg{position:absolute;width:18px;height:18px;transition:opacity .2s var(--ease),transform .2s var(--ease);}
+.email-copy-icon .ic-check{opacity:0;transform:scale(.5);}
+.email-copy-icon .ic-copy{opacity:1;transform:scale(1);}
+.email-copy.is-copied{border-color:var(--accent);color:var(--accent);}
+.email-copy.is-copied .email-copy-icon{color:var(--accent);}
+.email-copy.is-copied .email-copy-icon .ic-copy{opacity:0;transform:scale(.5);}
+.email-copy.is-copied .email-copy-icon .ic-check{opacity:1;transform:scale(1);}
+.email-copy-toast{
+  position:absolute;left:50%;bottom:100%;transform:translate(-50%,6px);
+  margin-bottom:10px;padding:7px 14px;border-radius:99px;
+  background:var(--accent);color:var(--bg-deep);
+  font-size:12px;font-weight:700;letter-spacing:.02em;white-space:nowrap;
+  opacity:0;pointer-events:none;
+  transition:opacity .25s var(--ease),transform .25s var(--ease);
+}
+.email-copy-toast.is-visible{opacity:1;transform:translate(-50%,0);}
+@media (max-width:480px){
+  .email-copy-text{max-width:44vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+}
+@media (prefers-reduced-motion:reduce){
+  .email-copy,.email-copy-icon,.email-copy-icon svg,.email-copy-toast{transition:none;}
+}
 
 /* ════════ AI SYSTEM — teaser (leads to dedicated page) ════════ */
 .aisys{
@@ -583,13 +677,18 @@ section{position:relative;}
 <nav id="nav">
   <div class="nav-inner">
     <a href="#top" class="nav-brand">
-      <img class="nav-avatar" src="Img/joao-avatar.jpg" alt="João Abdalla">
+      <img class="nav-avatar" src="Img/joao-avatar.jpg" alt="João Abdalla" width="144" height="144">
       <span class="nav-brand-text">
         <span class="nav-name">João Abdalla</span>
         <span class="nav-role" data-i18n="common.nav.role">Product designer UX UI</span>
       </span>
     </a>
-    <ul class="nav-links">
+    <span class="lang-switch-slot nav-lang-slot"></span>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks" data-i18n-attr="aria-label:common.nav.menu">
+      <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
       <li><a href="#work" data-i18n="common.nav.works">Works</a></li>
       <li><a href="about.html" data-i18n="common.nav.about">About</a></li>
       <li><a href="#contact" data-i18n="common.nav.contact">Contact</a></li>
@@ -629,13 +728,13 @@ section{position:relative;}
     <div class="mock-glow" aria-hidden="true"></div>
     <div class="mock-frame rv" id="mockFrame">
       <div class="mock-card" data-slot="back-left" data-href="cases/jalasoft.html" role="button" tabindex="0" aria-label="Bring Jalasoft to front" data-i18n-attr="aria-label:home.mock.jala.aria">
-        <img src="Img/browser.png" alt="Jalasoft — brand and web redesign, shown in browser" loading="lazy" data-i18n-attr="alt:home.mock.jala.alt">
+        <img src="Img/browser.png" alt="Jalasoft — brand and web redesign, shown in browser" width="953" height="778" loading="lazy" data-i18n-attr="alt:home.mock.jala.alt">
       </div>
       <div class="mock-card" data-slot="back-right" data-href="cases/quero-simulados.html" role="button" tabindex="0" aria-label="Bring Quero Simulados to front" data-i18n-attr="aria-label:home.mock.quero.aria">
-        <img src="Img/browser-2.png" alt="Quero Simulados — exam practice platform, shown in browser" loading="lazy" data-i18n-attr="alt:home.mock.quero.alt">
+        <img src="Img/browser-2.png" alt="Quero Simulados — exam practice platform, shown in browser" width="970" height="798" loading="lazy" data-i18n-attr="alt:home.mock.quero.alt">
       </div>
       <div class="mock-card" data-slot="front" data-href="cases/qconcursos.html" role="button" tabindex="0" aria-label="Open the Qconcursos case study" data-i18n-attr="aria-label:home.mock.qcon.aria">
-        <img src="Img/browser-1.png" alt="Qconcursos — platform homepage, shown in browser" loading="lazy" data-i18n-attr="alt:home.mock.qcon.alt">
+        <img src="Img/browser-1.png" alt="Qconcursos — platform homepage, shown in browser" width="1977" height="1637" loading="lazy" data-i18n-attr="alt:home.mock.qcon.alt">
       </div>
     </div>
   </div>
@@ -664,7 +763,7 @@ section{position:relative;}
 
         <a class="work-item rv" href="cases/qconcursos-filter.html">
           <span class="work-media">
-            <img src="Img/cards%20home/card-filter.png" alt="QConcursos — cascading question filter, live product screenshot" data-i18n-attr="alt:home.card1.alt">
+            <img src="Img/cards%20home/card-filter.png" alt="QConcursos — cascading question filter, live product screenshot" width="1440" height="820" data-i18n-attr="alt:home.card1.alt">
           </span>
           <span class="work-idx">/ 01</span>
           <h3 class="work-name" data-i18n="home.card1.name">The Filter Behind the Growth</h3>
@@ -675,7 +774,7 @@ section{position:relative;}
 
         <a class="work-item rv" href="cases/jalasoft.html">
           <span class="work-media">
-            <img src="Img/cards%20home/card-jala.png" alt="Jalasoft — design system built from a brand guideline" data-i18n-attr="alt:home.card2.alt">
+            <img src="Img/cards%20home/card-jala.png" alt="Jalasoft — design system built from a brand guideline" width="1440" height="820" data-i18n-attr="alt:home.card2.alt">
           </span>
           <span class="work-idx">/ 02</span>
           <h3 class="work-name" data-i18n="home.card2.name">Jalasoft Design System</h3>
@@ -686,7 +785,7 @@ section{position:relative;}
 
         <a class="work-item rv" href="cases/valt.html">
           <span class="work-media">
-            <img src="Img/cards%20home/Valt.png" alt="Valt Network — product design" data-i18n-attr="alt:home.card3.alt">
+            <img src="Img/cards%20home/Valt.png" alt="Valt Network — product design" width="2880" height="1640" data-i18n-attr="alt:home.card3.alt">
           </span>
           <span class="work-idx">/ 03</span>
           <h3 class="work-name" data-i18n="home.card3.name">Valt Network</h3>
@@ -697,7 +796,7 @@ section{position:relative;}
 
         <a class="work-item rv" href="cases/mba.html">
           <span class="work-media">
-            <img src="Img/cards%20home/card-mba.png" alt="My Benefits Advice — personalized plan-recommendation flow" data-i18n-attr="alt:home.card4.alt">
+            <img src="Img/cards%20home/card-mba.png" alt="My Benefits Advice — personalized plan-recommendation flow" width="1440" height="820" data-i18n-attr="alt:home.card4.alt">
           </span>
           <span class="work-idx">/ 04</span>
           <h3 class="work-name" data-i18n="home.card4.name">My Benefits Advice</h3>
@@ -708,7 +807,7 @@ section{position:relative;}
 
         <a class="work-item rv" href="cases/qconcursos.html">
           <span class="work-media">
-            <img src="Img/cards%20home/card-Qcon.png" alt="Qconcursos — platform redesign" data-i18n-attr="alt:home.card5.alt">
+            <img src="Img/cards%20home/card-Qcon.png" alt="Qconcursos — platform redesign" width="1440" height="820" data-i18n-attr="alt:home.card5.alt">
           </span>
           <span class="work-idx">/ 05</span>
           <h3 class="work-name" data-i18n="home.card5.name">Qconcursos</h3>
@@ -779,6 +878,7 @@ section{position:relative;}
           <button class="testi-avatar" type="button" data-index="1" aria-pressed="false" aria-label="Show testimonial from Bernard de Luna" data-i18n-attr="aria-label:home.testi.1.aria" style="background-image:url('Img/testimonials/bernard-de-luna.png');"></button>
           <button class="testi-avatar" type="button" data-index="2" aria-pressed="false" aria-label="Show testimonial from Mauricio Salazar" data-i18n-attr="aria-label:home.testi.2.aria" style="background-image:url('Img/testimonials/mauricio-salazar.png');"></button>
         </div>
+        <span class="testi-count" id="testiCount" aria-hidden="true"><b>01</b> / 03</span>
         <span class="testi-divider" aria-hidden="true"></span>
         <div class="testi-meta" id="testiMeta">
           <p class="testi-name" id="testiName">Orlando Campos</p>
@@ -792,9 +892,19 @@ section{position:relative;}
   <section class="closing sec-pad" id="contact">
     <p class="closing-kicker rv" data-i18n="home.closing.kicker">No contracts. No queues. Just great design.</p>
     <h2 class="closing-title rv" data-i18n-html="home.closing.title">Ready to have a designer <em>who truly gets it?</em></h2>
-    <a class="btn-main rv" href="https://wa.me/5561993734553?text=Hi%20Jo%C3%A3o%2C%20I%20want%20to%20talk%20about%20my%20product." target="_blank" rel="noopener" data-i18n-attr="href:home.closing.waHref">
-      <span class="flair"></span><span data-i18n="home.closing.cta">Start a conversation →</span>
-    </a>
+    <div class="closing-actions rv">
+      <a class="btn-main" href="https://wa.me/5561993734553?text=Hi%20Jo%C3%A3o%2C%20I%20want%20to%20talk%20about%20my%20product." target="_blank" rel="noopener" data-i18n-attr="href:home.closing.waHref">
+        <span class="flair"></span><span data-i18n="home.closing.cta">Start a conversation →</span>
+      </a>
+      <button type="button" class="email-copy" id="emailCopyBtn" data-email="abdalladesign@yahoo.com.br" data-i18n-attr="aria-label:home.closing.emailCopyAria" aria-label="Copy email address">
+        <span class="email-copy-text">abdalladesign@yahoo.com.br</span>
+        <span class="email-copy-icon" aria-hidden="true">
+          <svg class="ic-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>
+          <svg class="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        </span>
+        <span class="email-copy-toast" id="emailCopyToast" role="status" aria-live="polite" data-i18n="home.closing.emailCopied">Copied!</span>
+      </button>
+    </div>
   </section>
 </div>
 
@@ -1098,6 +1208,36 @@ section{position:relative;}
     lastY = y;
   }, { passive: true });
 
+  /* mobile nav — hamburger toggles the dropdown panel */
+  (function () {
+    var toggle = document.getElementById("navToggle");
+    var panel = document.getElementById("navLinks");
+    if (!nav || !toggle || !panel) return;
+
+    function close() {
+      nav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+    function open() {
+      nav.classList.add("is-open");
+      toggle.setAttribute("aria-expanded", "true");
+    }
+
+    toggle.addEventListener("click", function () {
+      nav.classList.contains("is-open") ? close() : open();
+    });
+    panel.addEventListener("click", function (e) {
+      if (e.target.closest("a")) close();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") close();
+    });
+    document.addEventListener("click", function (e) {
+      if (nav.classList.contains("is-open") && !e.target.closest(".nav-inner")) close();
+    });
+    window.addEventListener("scroll", close, { passive: true });
+  })();
+
   /* hero mockup — click a background project to bring it to front */
   (function () {
     var frame = document.getElementById("mockFrame");
@@ -1253,6 +1393,34 @@ section{position:relative;}
     if (prevBtn) prevBtn.addEventListener("click", function () { step(-1); });
     if (nextBtn) nextBtn.addEventListener("click", function () { step(1); });
 
+    // keyboard: tabbing to a card that's scrolled out of view brings it in —
+    // the ◀▶ arrows stay as the pointer affordance
+    function ensureVisible(item) {
+      var start = item.offsetLeft;
+      var end = start + item.offsetWidth;
+      if (active) {
+        var viewW = viewport.clientWidth;
+        var cur = Math.max(0, Math.min(maxX, -section.getBoundingClientRect().top));
+        var off = cur;
+        if (start < cur) off = start;
+        else if (end > cur + viewW) off = Math.min(start, end - viewW);
+        off = Math.max(0, Math.min(maxX, off));
+        if (Math.abs(off - cur) < 1) return;
+        var absTop = section.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({ top: absTop + off, behavior: reduceMotion ? "auto" : "smooth" });
+      } else {
+        var itemRect = item.getBoundingClientRect();
+        var vpRect = viewport.getBoundingClientRect();
+        if (itemRect.left < vpRect.left || itemRect.right > vpRect.right) {
+          viewport.scrollBy({ left: itemRect.left - vpRect.left, behavior: reduceMotion ? "auto" : "smooth" });
+        }
+      }
+    }
+    track.addEventListener("focusin", function (e) {
+      var item = e.target.closest(".work-item");
+      if (item) ensureVisible(item);
+    });
+
     sync();
   })();
 
@@ -1310,6 +1478,52 @@ section{position:relative;}
     });
   })();
 
+  /* copy-email — one click, no mail app handoff. Uses the async clipboard API
+     with an execCommand fallback for older / non-secure contexts. */
+  (function () {
+    var btn = document.getElementById("emailCopyBtn");
+    var toast = document.getElementById("emailCopyToast");
+    if (!btn || !toast) return;
+
+    var email = btn.getAttribute("data-email") || btn.querySelector(".email-copy-text").textContent.trim();
+    var resetTimer = null;
+
+    function fallbackCopy(text) {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, text.length);
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+      document.body.removeChild(ta);
+      return ok;
+    }
+
+    function showCopied() {
+      btn.classList.add("is-copied");
+      toast.classList.add("is-visible");
+      window.clearTimeout(resetTimer);
+      resetTimer = window.setTimeout(function () {
+        btn.classList.remove("is-copied");
+        toast.classList.remove("is-visible");
+      }, 2000);
+    }
+
+    btn.addEventListener("click", function () {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(showCopied, function () {
+          if (fallbackCopy(email)) showCopied();
+        });
+      } else if (fallbackCopy(email)) {
+        showCopied();
+      }
+    });
+  })();
+
   /* testimonials — click an avatar to bring it forward and swap the quote */
   (function () {
     /* names are the same in every language; quote + role come from i18n.js
@@ -1347,7 +1561,10 @@ section{position:relative;}
     var metaEl = document.getElementById("testiMeta");
     var nameEl = document.getElementById("testiName");
     var roleEl = document.getElementById("testiRole");
+    var countEl = document.getElementById("testiCount");
     if (!avatars || !quoteEl) return;
+
+    var pad = function (n) { return n < 10 ? "0" + n : "" + n; };
 
     var buttons = Array.prototype.slice.call(avatars.querySelectorAll(".testi-avatar"));
     var current = 0;
@@ -1365,6 +1582,7 @@ section{position:relative;}
       quoteEl.textContent = quoteFor(index);
       nameEl.textContent = data[index].name;
       roleEl.textContent = roleFor(index);
+      if (countEl) countEl.innerHTML = "<b>" + pad(index + 1) + "</b> / " + pad(data.length);
     }
 
     function goTo(index) {
