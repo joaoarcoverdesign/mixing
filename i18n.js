@@ -46,6 +46,7 @@
     "common.nav.works": { en: "Works", pt: "Trabalhos", es: "Trabajos" },
     "common.nav.about": { en: "About", pt: "Sobre", es: "Acerca" },
     "common.nav.contact": { en: "Contact", pt: "Contato", es: "Contacto" },
+    "common.nav.menu": { en: "Menu", pt: "Menu", es: "Menú" },
     "common.footer.rights": {
       en: "© 2026 João Abdalla. All rights reserved.",
       pt: "© 2026 João Abdalla. Todos os direitos reservados.",
@@ -373,6 +374,16 @@
       en: "https://wa.me/5561993734553?text=Hi%20Jo%C3%A3o%2C%20I%20want%20to%20talk%20about%20my%20product.",
       pt: "https://wa.me/5561993734553?text=Oi%20Jo%C3%A3o%2C%20quero%20falar%20sobre%20o%20meu%20produto.",
       es: "https://wa.me/5561993734553?text=Hola%20Jo%C3%A3o%2C%20quiero%20hablar%20sobre%20mi%20producto."
+    },
+    "home.closing.emailCopyAria": {
+      en: "Copy email address",
+      pt: "Copiar endereço de e-mail",
+      es: "Copiar dirección de correo"
+    },
+    "home.closing.emailCopied": {
+      en: "Copied!",
+      pt: "Copiado!",
+      es: "¡Copiado!"
     },
 
     /* ─────────── SOBRE (about.html) ─────────── */
