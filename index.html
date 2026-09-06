@@ -415,15 +415,22 @@ section{position:relative;}
   .work-name{font-size:clamp(20px,2vw,28px);}
 }
 
-/* mobile / coarse-pointer fallback — native horizontal scroll, no pin */
+/* mobile / coarse-pointer fallback — single vertical column, no pin, no scroll */
 @media (max-width:860px), (pointer:coarse){
   .work-pin{position:static;height:auto;overflow:visible;}
   .work-viewport{
-    overflow-x:auto;-webkit-overflow-scrolling:touch;
-    scroll-snap-type:x proximity;scrollbar-width:thin;
+    overflow:visible;
+    -webkit-mask-image:none;mask-image:none;
   }
-  .work-track{transform:none !important;}
-  .work-item{width:min(412px,74vw);scroll-snap-align:start;}
+  .work-track{
+    flex-direction:column;
+    gap:clamp(40px,8vw,64px);
+    transform:none !important;
+  }
+  .work-item{width:100%;}
+  .work-name{min-height:0;}
+  .work-desc{min-height:0;}
+  .work-controls{display:none;}
   .work-footer{display:none;}
 }
 
