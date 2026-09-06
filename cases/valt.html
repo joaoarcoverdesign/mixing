@@ -97,10 +97,42 @@ nav.is-hidden{transform:translateY(-110%);}
 .nav-links a:hover{color:var(--ink);}
 .nav-links a:hover::after{transform:scaleX(1);transform-origin:left;}
 @media (max-width:720px){.nav-links{gap:20px;}}
-@media (max-width:560px){.nav-links a:not(:last-child){display:none;}}
+
+/* mobile: real hamburger + dropdown panel — collapses the links instead of
+   letting the brand/links crowd and wrap on narrow screens */
+.nav-toggle{display:none;}
+.nav-toggle svg{width:22px;height:22px;}
+.nav-toggle .icon-close{display:none;}
+.nav-lang-slot{display:none;}
+@media (max-width:560px){
+  .nav-toggle{
+    display:flex;align-items:center;justify-content:center;
+    width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
+    color:var(--ink);flex:0 0 auto;
+  }
+  .nav-lang-slot{display:inline-flex;margin-left:auto;margin-right:14px;}
+  .nav-links .lang-switch-li{display:none;}
+  nav.is-open .nav-toggle .icon-open{display:none;}
+  nav.is-open .nav-toggle .icon-close{display:block;}
+  .nav-links{
+    position:absolute;top:calc(100% - 6px);left:var(--px);right:var(--px);
+    flex-direction:column;align-items:stretch;gap:0;
+    background:var(--bg-deep);border:1px solid var(--line);border-radius:14px;
+    padding:6px;
+    opacity:0;transform:translateY(-8px);pointer-events:none;
+    transition:opacity .3s var(--ease),transform .3s var(--ease);
+  }
+  nav.is-open .nav-links{opacity:1;transform:none;pointer-events:auto;}
+  nav.is-open.is-hidden{transform:none;}
+  .nav-links li{border-bottom:1px solid var(--line);}
+  .nav-links li:last-child,
+  .nav-links li:nth-last-child(2){border-bottom:0;}
+  .nav-links a{display:block;padding:15px 14px;font-size:13px;letter-spacing:.12em;color:var(--ink);}
+  .nav-links a::after{display:none;}
+}
 
 /* HERO */
-.hero{padding:140px 0 56px;}
+.hero{padding:140px var(--px) 56px;}
 .hero-title{font-family:var(--sans);font-weight:800;font-size:clamp(32px,5.2vw,56px);line-height:1.06;letter-spacing:-.02em;margin-bottom:14px;color:var(--ink);}
 .hero-sub{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(18px,2.2vw,22px);color:var(--ink);opacity:.85;margin-bottom:24px;}
 .hero-text{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:640px;margin-bottom:40px;}
