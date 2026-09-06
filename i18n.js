@@ -61,7 +61,7 @@
     },
     "home.meta.description": {
       en: "Designer who builds and operates AI systems for the design process. Remote from Brazil, working with US & EU teams.",
-      pt: "Designer que constrói e opera sistemas de IA para o processo de design. Remoto do Brasil, trabalhando com times dos EUA e da Europa.",
+      pt: "Designer que constrói e opera sistemas de IA para o processo de design. Remoto do Brasil, trabalhando com times dos EUA, LATAM e da Europa.",
       es: "Diseñador que construye y opera sistemas de IA para el proceso de diseño. Remoto desde Brasil, trabajando con equipos de EE. UU. y Europa."
     },
     /* Título do hero fica em inglês em todos os idiomas: a versão traduzida
@@ -394,7 +394,7 @@
     },
     "about.meta.description": {
       en: "Senior Product Designer with 20+ years shipping digital products across edtech, fintech, and enterprise SaaS. Based in Brazil, working remotely with US and EU teams.",
-      pt: "Designer de Produto Sênior com mais de 20 anos entregando produtos digitais em edtech, fintech e SaaS corporativo. Baseado no Brasil, trabalhando remotamente com times dos EUA e da Europa.",
+      pt: "Designer de Produto Sênior com mais de 20 anos entregando produtos digitais em edtech, fintech e SaaS corporativo. Baseado no Brasil, trabalhando remotamente com times dos EUA, LATAM e da Europa.",
       es: "Diseñador de Producto Senior con más de 20 años entregando productos digitales en edtech, fintech y SaaS corporativo. Radicado en Brasil, trabajando en remoto con equipos de EE. UU. y Europa."
     },
     "about.hero.label": { en: "About", pt: "Sobre", es: "Acerca" },
@@ -415,7 +415,7 @@
     },
     "about.hero.loc": {
       en: 'Based in <b>Brasília, Brazil</b> · <b>US &amp; EU</b> teams',
-      pt: 'Baseado em <b>Brasília, Brasil</b> · times dos <b>EUA e da Europa</b>',
+      pt: 'Baseado em <b>Brasília, Brasil</b> · times dos <b>EUA, LATAM e da Europa</b>',
       es: 'Radicado en <b>Brasilia, Brasil</b> · equipos de <b>EE. UU. y Europa</b>'
     },
     "about.badge.a.num": {
