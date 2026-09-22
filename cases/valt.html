@@ -181,6 +181,10 @@ a.img-caption:hover{color:var(--accent);}
 /* BLEED IMAGE — image carries its own background; devices overflow into its transparent zone */
 .bleed-img{display:block;width:100%;height:auto;}
 
+/* HERO BANNER — full-width image within the container, no framing background */
+.hero-banner{border-radius:var(--radius-lg);overflow:hidden;}
+.hero-banner img{display:block;width:100%;height:auto;}
+
 /* MOCKUP SLAB — device/screenshot rising out of a coloured panel, cropped at the bottom */
 .mockup{
   position:relative;width:100%;
@@ -364,7 +368,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
       <a class="spec-circle" href="https://www.valtnetwork.com/" target="_blank" rel="noopener" aria-label="Visit valtnetwork.com" data-i18n-attr="aria-label:valt.hero.spec.aria">↗</a>
     </div>
 
-    <div class="mockup bleed rv" style="--ar:40%;--w:88%;--t:7%;--ar-m:60%;--w-m:96%;margin-bottom:88px;">
+    <div class="hero-banner rv" style="margin-bottom:88px;">
       <img src="../Img/valt/bento-blue.png" alt="Valt Network directory and profile dossier, desktop dashboard" data-i18n-attr="alt:valt.hero.img.alt">
     </div>
     <a class="img-caption rv" href="https://www.valtnetwork.com/" target="_blank" rel="noopener" style="margin-top:0;">valtnetwork.com ↗</a>
