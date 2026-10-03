@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en" data-i18n-page="planningpoker">
+<head>
+<script src="../analytics.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../Img/favicon.png">
+<link rel="apple-touch-icon" href="../Img/favicon.png">
+<script src="../i18n/planning-poker.js"></script>
+<script src="../i18n.js"></script>
+<title>Planning Poker — Agile Estimation Redesign | Abdalla Design</title>
+<meta name="description" content="Redesign of a Planning Poker app to make Agile estimation more intuitive, efficient and easier to use.">
+<link rel="canonical" href="https://abdalladesign.vercel.app/cases/planning-poker.html">
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Abdalla Design">
+<meta property="og:url" content="https://abdalladesign.vercel.app/cases/planning-poker.html">
+<meta property="og:title" content="Planning Poker — Agile Estimation Redesign | Abdalla Design">
+<meta property="og:description" content="Redesign of a Planning Poker app to make Agile estimation more intuitive, efficient and easier to use.">
+<meta property="og:image" content="https://abdalladesign.vercel.app/Img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Selected work by João Abdalla — product and UX/UI design projects">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Planning Poker — Agile Estimation Redesign | Abdalla Design">
+<meta name="twitter:description" content="Redesign of a Planning Poker app to make Agile estimation more intuitive, efficient and easier to use.">
+<meta name="twitter:image" content="https://abdalladesign.vercel.app/Img/og-cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* abdalladesign visual identity — matches index.html (Arcoverdesign v5) */
+  --bg:#11161A;
+  --bg-deep:#0C1013;
+  --surface:#1A2025;
+  --ink:#F4F6F3;
+  --ink-soft:#9BA4AA;
+  --ink-dim:#5E676D;
+  --num-dim:#333B41;
+  --line:rgba(255,255,255,.08);
+  --line-soft:rgba(255,255,255,.05);
+  --accent:#C2FC50;
+  --accent-soft:rgba(194,252,80,.12);
+  --radius-lg:16px;
+  --radius-md:14px;
+  --sans:'Urbanist', sans-serif;
+  --body:'Urbanist', sans-serif;
+  --serif:'Lora', Georgia, serif;
+  --px: clamp(20px, 5vw, 72px);
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6;
+}
+::selection{background:var(--accent);color:var(--bg-deep);}
+a{color:inherit;text-decoration:none;}
+button{font:inherit;background:none;border:none;cursor:pointer;color:inherit;}
+img{max-width:100%;display:block;}
+ul,ol{list-style:none;}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
+.container{max-width:1160px;margin:0 auto;padding:0 var(--px);}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;transition:transform .5s var(--ease);}
+nav.is-hidden{transform:translateY(-110%);}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px var(--px);
+  background:linear-gradient(rgba(12,16,19,.85),rgba(12,16,19,.4) 70%,transparent);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+}
+.nav-brand{display:flex;align-items:center;gap:13px;}
+.nav-avatar{width:44px;height:44px;border-radius:50%;flex:0 0 auto;object-fit:cover;border:2px solid var(--ink);}
+.nav-brand-text{display:flex;flex-direction:column;line-height:1.2;}
+.nav-name{font-family:var(--sans);font-weight:700;font-size:17px;letter-spacing:-.01em;color:var(--ink);}
+.nav-role{font-family:var(--sans);font-weight:400;font-size:12px;color:var(--ink-soft);margin-top:1px;}
+@media (max-width:480px){.nav-role{display:none;}}
+.nav-links{display:flex;gap:34px;list-style:none;align-items:center;}
+.nav-links a{
+  font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-soft);position:relative;padding:4px 0;transition:color .25s;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;
+  background:var(--accent);transform:scaleX(0);transform-origin:right;
+  transition:transform .4s var(--ease);
+}
+.nav-links a:hover{color:var(--ink);}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left;}
+@media (max-width:720px){.nav-links{gap:20px;}}
+
+/* mobile: hamburger + dropdown panel */
+.nav-toggle{display:none;}
+.nav-toggle svg{width:22px;height:22px;}
+.nav-toggle .icon-close{display:none;}
+.nav-lang-slot{display:none;}
+@media (max-width:760px){
+  .nav-toggle{
+    display:flex;align-items:center;justify-content:center;
+    width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
+    color:var(--ink);flex:0 0 auto;
+  }
+  .nav-lang-slot{display:inline-flex;margin-left:auto;margin-right:14px;}
+  .nav-links .lang-switch-li{display:none;}
+  nav.is-open .nav-toggle .icon-open{display:none;}
+  nav.is-open .nav-toggle .icon-close{display:block;}
+  .nav-links{
+    position:absolute;top:calc(100% - 6px);left:var(--px);right:var(--px);
+    flex-direction:column;align-items:stretch;gap:0;
+    background:var(--bg-deep);border:1px solid var(--line);border-radius:14px;
+    padding:6px;
+    opacity:0;transform:translateY(-8px);pointer-events:none;
+    transition:opacity .3s var(--ease),transform .3s var(--ease);
+  }
+  nav.is-open .nav-links{opacity:1;transform:none;pointer-events:auto;}
+  nav.is-open.is-hidden{transform:none;}
+  .nav-links li{border-bottom:1px solid var(--line);}
+  .nav-links li:last-child,
+  .nav-links li:nth-last-child(2){border-bottom:0;}
+  .nav-links a{display:block;padding:15px 14px;font-size:13px;letter-spacing:.12em;color:var(--ink);}
+  .nav-links a::after{display:none;}
+}
+
+/* HERO */
+.hero{padding:140px var(--px) 56px;}
+.hero-title{font-family:var(--sans);font-weight:800;font-size:clamp(32px,5.2vw,56px);line-height:1.06;letter-spacing:-.02em;margin-bottom:14px;color:var(--ink);}
+.hero-sub{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(18px,2.2vw,22px);color:var(--ink);opacity:.85;margin-bottom:24px;}
+.hero-text{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:640px;margin-bottom:40px;}
+.hero-specs{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid var(--line);padding-top:28px;margin-bottom:48px;}
+.spec-label{font-family:var(--sans);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-dim);margin-bottom:8px;}
+.spec-value{font-size:15px;font-weight:700;line-height:1.4;color:var(--ink);}
+
+/* IMAGES */
+.hero-banner{border-radius:var(--radius-lg);overflow:hidden;}
+.hero-banner img{display:block;width:100%;height:auto;}
+.img-placeholder.filled{background:var(--bg-deep);border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;}
+.img-placeholder.filled img{width:100%;height:auto;display:block;}
+.img-caption{display:block;margin-top:14px;font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);text-align:center;}
+.img-duo{display:flex;gap:16px;}
+.img-duo>div{flex:1;}
+
+/* SECTIONS */
+section{padding:88px 0;}
+section+section{border-top:1px solid var(--line);}
+.eyebrow{font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);flex:0 0 auto;}
+.sec-title{font-family:var(--sans);font-weight:800;font-size:clamp(26px,3.6vw,40px);line-height:1.18;letter-spacing:-.01em;max-width:760px;margin-bottom:22px;color:var(--ink);}
+.sec-lede{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:620px;margin-bottom:44px;}
+.sec-lede:last-child{margin-bottom:0;}
+
+/* two independent blocks side by side (brief) */
+.split-2{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
+
+/* three parallel cards */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:44px;}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:44px;}
+.insight-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:28px;}
+.insight-label{font-family:var(--sans);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:12px;}
+.insight-title{font-family:var(--sans);font-weight:800;font-size:17px;margin-bottom:10px;letter-spacing:-.01em;color:var(--ink);}
+.insight-text{font-family:var(--body);font-size:14.5px;color:var(--ink-soft);line-height:1.7;}
+
+/* sequential steps (no image) */
+.step{padding:32px 0;border-top:1px solid var(--line);}
+.step:first-child{border-top:none;padding-top:0;}
+.step-num{font-family:var(--serif);font-style:italic;font-weight:500;font-size:36px;color:var(--num-dim);line-height:1;margin-bottom:14px;}
+.step-title{font-family:var(--sans);font-weight:800;font-size:20px;margin-bottom:12px;letter-spacing:-.01em;max-width:640px;color:var(--ink);}
+.step-text{font-family:var(--body);color:var(--ink-soft);font-size:15px;line-height:1.75;max-width:720px;}
+
+/* RESULT — surface card */
+.result-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(28px,4vw,48px);}
+.result-card .eyebrow{margin-bottom:20px;}
+.result-card p{font-family:var(--body);font-size:clamp(18px,2.2vw,22px);line-height:1.5;color:var(--ink);max-width:44ch;}
+
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+.rv.is-in{opacity:1;transform:none;}
+
+footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep);}
+.footer-inner{text-align:center;font-family:var(--sans);font-weight:600;font-size:13px;color:var(--ink-dim);}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  .rv{opacity:1;transform:none;transition:none;}
+}
+
+@media (max-width:860px){
+  .hero-specs{grid-template-columns:repeat(2,1fr);gap:20px;}
+  .split-2{grid-template-columns:1fr;gap:32px;}
+  .grid-3,.grid-2{grid-template-columns:1fr;}
+  .nav-links{gap:18px;}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../index.html#top" class="nav-brand">
+      <img class="nav-avatar" src="../Img/joao-avatar.jpg" alt="João Abdalla">
+      <span class="nav-brand-text">
+        <span class="nav-name">João Abdalla</span>
+        <span class="nav-role" data-i18n="common.nav.role">Product designer UX UI</span>
+      </span>
+    </a>
+    <span class="lang-switch-slot nav-lang-slot"></span>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks" data-i18n-attr="aria-label:common.nav.menu">
+      <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#work" data-i18n="common.nav.works">Works</a></li>
+      <li><a href="../about.html" data-i18n="common.nav.about">About</a></li>
+      <li><a href="../index.html#contact" data-i18n="common.nav.contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <header class="hero container" role="banner">
+    <h1 class="hero-title rv">Planning Poker</h1>
+    <p class="hero-sub rv" data-i18n="planningpoker.hero.sub">Enhancing Agile Estimation</p>
+    <p class="hero-text rv" data-i18n="planningpoker.hero.text">A redesign of a Planning Poker application, with the goal of improving the experience and interface for Agile estimating: more intuitive, more efficient and easier to use.</p>
+
+    <div class="hero-specs rv">
+      <div><div class="spec-label" data-i18n="planningpoker.hero.spec1.label">Area</div><div class="spec-value" data-i18n="planningpoker.hero.spec1.value">Product design</div></div>
+      <div><div class="spec-label" data-i18n="planningpoker.hero.spec2.label">My Role</div><div class="spec-value" data-i18n="planningpoker.hero.spec2.value">Research, UX and UI redesign</div></div>
+      <div><div class="spec-label" data-i18n="planningpoker.hero.spec3.label">Platforms</div><div class="spec-value" data-i18n="planningpoker.hero.spec3.value">Web and mobile</div></div>
+      <div><div class="spec-label" data-i18n="planningpoker.hero.spec4.label">Focus</div><div class="spec-value" data-i18n="planningpoker.hero.spec4.value">Agile estimation</div></div>
+    </div>
+
+    <div class="hero-banner rv">
+      <img src="../Img/planning-poker/pp-cover.webp" alt="Planning Poker on a laptop, showing the redesigned voting screen" data-i18n-attr="alt:planningpoker.cover.alt">
+    </div>
+  </header>
+
+  <!-- PROBLEM -->
+  <section id="brief">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="planningpoker.brief.eyebrow">Problem Statement</div>
+      <h2 class="sec-title rv" data-i18n="planningpoker.brief.title">Hard to estimate work during Sprint Planning</h2>
+      <p class="sec-lede rv" data-i18n="planningpoker.brief.body">The existing Planning Poker app had several usability issues, making it cumbersome for Agile teams to efficiently estimate their work during Sprint Planning meetings.</p>
+      <div class="grid-3 rv">
+        <div class="insight-card">
+          <div class="insight-label" data-i18n="planningpoker.issues.1.label">Issue 01</div>
+          <h3 class="insight-title" data-i18n="planningpoker.issues.1.title">Complex user flow</h3>
+          <p class="insight-text" data-i18n="planningpoker.issues.1.body">The app had a convoluted user flow, causing confusion among users, especially new team members.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-label" data-i18n="planningpoker.issues.2.label">Issue 02</div>
+          <h3 class="insight-title" data-i18n="planningpoker.issues.2.title">Inconsistent design</h3>
+          <p class="insight-text" data-i18n="planningpoker.issues.2.body">The app's design lacked consistency, leading to a disjointed and unprofessional appearance.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-label" data-i18n="planningpoker.issues.3.label">Issue 03</div>
+          <h3 class="insight-title" data-i18n="planningpoker.issues.3.title">Lack of collaboration</h3>
+          <p class="insight-text" data-i18n="planningpoker.issues.3.body">The app did not facilitate efficient collaboration among team members during estimation sessions.</p>
+        </div>
+      </div>
+      <div class="img-placeholder filled rv">
+        <img src="../Img/planning-poker/pp-old-app.webp" alt="The original Planning Poker app, with the issues list and the card deck" loading="lazy" data-i18n-attr="alt:planningpoker.oldapp.alt">
+      </div>
+      <span class="img-caption rv" data-i18n="planningpoker.oldapp.caption">The original app.</span>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="planningpoker.research.eyebrow">Research & Discovery</div>
+      <h2 class="sec-title rv" data-i18n="planningpoker.research.title">Understanding how teams estimate</h2>
+      <div class="rv">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3 class="step-title" data-i18n="planningpoker.research.1.title">User interviews</h3>
+          <p class="step-text" data-i18n="planningpoker.research.1.body">We conducted interviews with Agile team members to understand their pain points and expectations from a Planning Poker app. Key insights included the need for a more intuitive interface, smoother collaboration features, and cross-platform availability.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3 class="step-title" data-i18n="planningpoker.research.2.title">Competitive analysis</h3>
+          <p class="step-text" data-i18n="planningpoker.research.2.body">We analyzed several Planning Poker apps available in the market to identify best practices and areas for improvement. This analysis helped in defining benchmarks for the redesign.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3 class="step-title" data-i18n="planningpoker.research.3.title">Usability testing</h3>
+          <p class="step-text" data-i18n="planningpoker.research.3.body">We performed usability testing with the existing app, identifying specific pain points and usability issues faced by users. This data was crucial in informing our redesign decisions.</p>
+        </div>
+      </div>
+      <div class="img-placeholder filled rv" style="margin-top:44px;">
+        <img src="../Img/planning-poker/pp-research.webp" alt="Planning Poker mobile screens used in the research and redesign" loading="lazy" data-i18n-attr="alt:planningpoker.research.alt">
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN GOALS -->
+  <section id="goals">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="planningpoker.goals.eyebrow">Design Goals</div>
+      <h2 class="sec-title rv" data-i18n="planningpoker.goals.title">Four goals for the redesign</h2>
+      <div class="grid-2 rv">
+        <div class="insight-card">
+          <div class="insight-label" data-i18n="planningpoker.goals.1.label">Goal 01</div>
+          <h3 class="insight-title" data-i18n="planningpoker.goals.1.title">Streamlined user flow</h3>
+          <p class="insight-text" data-i18n="planningpoker.goals.1.body">Simplify the user journey within the app, making it easier for team members to create and participate in estimation sessions.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-label" data-i18n="planningpoker.goals.2.label">Goal 02</div>
+          <h3 class="insight-title" data-i18n="planningpoker.goals.2.title">Consistent UI</h3>
+          <p class="insight-text" data-i18n="planningpoker.goals.2.body">Establish a cohesive and visually appealing design system to enhance the app's professionalism.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-label" data-i18n="planningpoker.goals.3.label">Goal 03</div>
+          <h3 class="insight-title" data-i18n="planningpoker.goals.3.title">Enhanced collaboration</h3>
+          <p class="insight-text" data-i18n="planningpoker.goals.3.body">Introduce real-time collaboration features to facilitate efficient estimation discussions among team members.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-label" data-i18n="planningpoker.goals.4.label">Goal 04</div>
+          <h3 class="insight-title" data-i18n="planningpoker.goals.4.title">Cross-platform compatibility</h3>
+          <p class="insight-text" data-i18n="planningpoker.goals.4.body">Develop versions of the app for multiple platforms (iOS, Android and web) to maximize accessibility.</p>
+        </div>
+      </div>
+      <div class="img-placeholder filled rv">
+        <img src="../Img/planning-poker/pp-design-goals.webp" alt="Redesigned screens: design goals, voting, the My games list and the game settings" loading="lazy" data-i18n-attr="alt:planningpoker.goals.alt">
+      </div>
+      <div class="img-placeholder filled rv" style="margin-top:24px;">
+        <img src="../Img/planning-poker/pp-mobile-overview.webp" alt="Planning Poker voting screens on mobile" loading="lazy" data-i18n-attr="alt:planningpoker.mobile.alt">
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTING -->
+  <section id="testing">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="planningpoker.testing.eyebrow">Testing & Iteration</div>
+      <h2 class="sec-title rv" data-i18n="planningpoker.testing.title">Feedback in every stage</h2>
+      <p class="sec-lede rv" data-i18n="planningpoker.testing.body">We conducted usability tests with team members at various stages of development, incorporating their feedback into the design and functionality. This iterative approach allowed us to address issues promptly and refine the user experience.</p>
+      <div class="img-placeholder filled rv">
+        <img src="../Img/planning-poker/pp-testing.webp" alt="Mobile screens used in usability testing: issues list, voting and results chart" loading="lazy" data-i18n-attr="alt:planningpoker.testing.alt">
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="planningpoker.results.eyebrow">Results</div>
+      <h2 class="sec-title rv" data-i18n="planningpoker.results.title">Overwhelmingly positive feedback from Agile teams</h2>
+      <div class="grid-2 rv">
+        <div class="insight-card">
+          <h3 class="insight-title" data-i18n="planningpoker.results.1.title">Improved usability</h3>
+          <p class="insight-text" data-i18n="planningpoker.results.1.body">Users reported that the app's simplified user flow made estimation sessions more efficient and less confusing.</p>
+        </div>
+        <div class="insight-card">
+          <h3 class="insight-title" data-i18n="planningpoker.results.2.title">Enhanced collaboration</h3>
+          <p class="insight-text" data-i18n="planningpoker.results.2.body">The addition of real-time chat and discussion boards improved communication and fostered better consensus during estimation.</p>
+        </div>
+        <div class="insight-card">
+          <h3 class="insight-title" data-i18n="planningpoker.results.3.title">Professional appearance</h3>
+          <p class="insight-text" data-i18n="planningpoker.results.3.body">The cohesive UI design contributed to a more polished and trustworthy app, boosting user confidence.</p>
+        </div>
+        <div class="insight-card">
+          <h3 class="insight-title" data-i18n="planningpoker.results.4.title">Cross-platform availability</h3>
+          <p class="insight-text" data-i18n="planningpoker.results.4.body">The availability of the app on multiple platforms increased its accessibility and usability for remote teams.</p>
+        </div>
+      </div>
+      <div class="img-placeholder filled rv">
+        <img src="../Img/planning-poker/pp-result-desktop.webp" alt="The redesigned Planning Poker voting screen on a laptop" loading="lazy" data-i18n-attr="alt:planningpoker.results.alt">
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section id="conclusion">
+    <div class="container">
+      <div class="result-card rv">
+        <div class="eyebrow" data-i18n="planningpoker.conclusion.title">Conclusion</div>
+        <p data-i18n="planningpoker.conclusion.body1" style="margin-bottom:18px;">The redesign of the Planning Poker app successfully addressed usability issues and improved the user experience for Agile teams. By focusing on streamlining the user flow, ensuring consistency in design, enhancing collaboration features, and expanding platform compatibility, we created a valuable tool that facilitates more efficient Agile estimation.</p>
+        <p data-i18n="planningpoker.conclusion.body2">The lessons learned underscore the importance of user-centered design in creating software tools that truly meet the needs of their users. The redesigned app now stands as a testament to the positive impact of thoughtful UX/UI design in the Agile development process.</p>
+      </div>
+      <div class="img-placeholder filled rv" style="margin-top:44px;">
+        <img src="../Img/planning-poker/pp-games-table.webp" alt="The My games screen as a table" loading="lazy" data-i18n-attr="alt:planningpoker.table.alt">
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXT STEPS -->
+  <section id="next">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="planningpoker.next.eyebrow">Next Steps</div>
+      <p class="sec-lede rv" data-i18n="planningpoker.next.body">We plan to continue monitoring user feedback and making iterative improvements to further enhance the app's functionality and user experience. Additionally, we will explore opportunities for integrating the app with popular Agile project management tools to provide a seamless experience for Agile teams.</p>
+      <div class="img-placeholder filled rv">
+        <img src="../Img/planning-poker/pp-games-cards.webp" alt="The My games screen as cards, with the total estimation of each game" loading="lazy" data-i18n-attr="alt:planningpoker.cards.alt">
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">Copyright © abdalladesign 2026</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+</script>
+<script>
+  (function(){
+    var lastY = 0, nav = document.getElementById("nav");
+    if (!nav) return;
+    window.addEventListener("scroll", function(){
+      var y = window.scrollY;
+      if (y > 140 && y > lastY) nav.classList.add("is-hidden");
+      else nav.classList.remove("is-hidden");
+      lastY = y;
+    }, { passive: true });
+  })();
+</script>
+<script>
+  /* mobile nav — hamburger toggles the dropdown panel */
+  (function () {
+    var nav = document.getElementById("nav");
+    var toggle = document.getElementById("navToggle");
+    var panel = document.getElementById("navLinks");
+    if (!nav || !toggle || !panel) return;
+
+    function close() {
+      nav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+    function open() {
+      nav.classList.add("is-open");
+      toggle.setAttribute("aria-expanded", "true");
+    }
+
+    toggle.addEventListener("click", function () {
+      nav.classList.contains("is-open") ? close() : open();
+    });
+    panel.addEventListener("click", function (e) {
+      if (e.target.closest("a")) close();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") close();
+    });
+    document.addEventListener("click", function (e) {
+      if (nav.classList.contains("is-open") && !e.target.closest(".nav-inner")) close();
+    });
+    window.addEventListener("scroll", close, { passive: true });
+  })();
+</script>
+
+</body>
+</html>

@@ -303,6 +303,46 @@
       es: "600 mil → 10M+ usuarios"
     },
 
+    "home.card6.alt": {
+      en: "signFlow — proprietary document-signing tool built to replace DocuSign",
+      pt: "signFlow — ferramenta própria de assinatura de documentos, criada para substituir o DocuSign",
+      es: "signFlow — herramienta propia de firma de documentos, creada para sustituir a DocuSign"
+    },
+    "home.card6.name": { en: "signFlow", pt: "signFlow", es: "signFlow" },
+    "home.card6.desc": {
+      en: "A proprietary document-signing tool, built to replace DocuSign.",
+      pt: "Ferramenta própria de assinatura de documentos, criada para substituir o DocuSign.",
+      es: "Una herramienta propia de firma de documentos, creada para sustituir a DocuSign."
+    },
+    "home.card6.tag1": { en: "Enterprise", pt: "Corporativo", es: "Corporativo" },
+    "home.card6.tag2": { en: "Document Signing", pt: "Assinatura de Documentos", es: "Firma de Documentos" },
+    "home.card6.tag3": { en: "0 → 1", pt: "0 → 1", es: "0 → 1" },
+    "home.card6.link": {
+      en: "In use at the company",
+      pt: "Em uso na empresa",
+      es: "En uso en la empresa"
+    },
+
+    "home.card7.alt": {
+      en: "Planning Poker — redesign of an Agile estimation app",
+      pt: "Planning Poker — redesign de um app de estimativa Agile",
+      es: "Planning Poker — rediseño de una app de estimación Agile"
+    },
+    "home.card7.name": { en: "Planning Poker", pt: "Planning Poker", es: "Planning Poker" },
+    "home.card7.desc": {
+      en: "Redesigning an Agile estimation app to make it more intuitive, efficient and easy to use.",
+      pt: "Redesign de um app de estimativa Agile para torná-lo mais intuitivo, eficiente e fácil de usar.",
+      es: "Rediseño de una app de estimación Agile para hacerla más intuitiva, eficiente y fácil de usar."
+    },
+    "home.card7.tag1": { en: "Redesign", pt: "Redesign", es: "Rediseño" },
+    "home.card7.tag2": { en: "Agile Tools", pt: "Ferramentas Agile", es: "Herramientas Agile" },
+    "home.card7.tag3": { en: "Web + Mobile", pt: "Web + Mobile", es: "Web + Móvil" },
+    "home.card7.link": {
+      en: "Positive feedback from Agile teams",
+      pt: "Feedback positivo dos times Agile",
+      es: "Feedback positivo de los equipos Agile"
+    },
+
     "home.testi.label": { en: "Testimonials", pt: "Depoimentos", es: "Testimonios" },
     "home.testi.title": {
       en: 'What people <em>are saying</em>',

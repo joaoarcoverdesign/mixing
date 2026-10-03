@@ -227,6 +227,7 @@ window.I18N_PAGE_STRINGS = {
   },
   "jala.cta.caseStudy": { en: "Case Study", pt: "Estudo de caso", es: "Caso de estudio" },
   "jala.cta.see": { en: "See case study →", pt: "Ver estudo de caso →", es: "Ver caso de estudio →" },
+  "jala.cta.soon": { en: "Case study coming soon", pt: "Estudo de caso em breve", es: "Caso de estudio próximamente" },
 
   /* ─────────── LEARNINGS ─────────── */
   "jala.learn.eyebrow": { en: "Learnings", pt: "Aprendizados", es: "Aprendizajes" },

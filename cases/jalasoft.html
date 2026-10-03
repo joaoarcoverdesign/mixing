@@ -197,6 +197,9 @@
   }
   .architecture-card .ac-title{font-family:'Urbanist', sans-serif; font-size:19px; font-weight:800; margin-bottom:10px;}
   .architecture-card .ac-text{font-size:14.5px; color:var(--ink-soft); margin-bottom:0;}
+  .ac-cta{display:inline-flex; align-items:center; gap:6px; margin-top:20px; padding:10px 18px; border:1px solid var(--accent); border-radius:999px; font-family:'Urbanist', sans-serif; font-weight:700; font-size:13px; color:var(--accent); transition:background .25s, color .25s;}
+  a.ac-cta:hover{background:var(--accent); color:var(--bg-deep);}
+  .ac-cta.is-disabled{border-color:var(--line); color:var(--ink-dim); cursor:default; pointer-events:none;}
   .ac-images{display:flex; gap:10px;}
   .ac-images .img-placeholder{aspect-ratio:1/1;}
 
@@ -394,6 +397,7 @@
           <div>
             <div class="ac-title">Jalasoft Website</div>
             <p class="ac-text" data-i18n="jala.ext.c1.text">The institutional website needed a redesign: a new hero, the metrics that mattered (1,000+ employees, years in the market), a working blog, and a page dedicated to the bootcamp program. Every typography and color decision came straight from the existing system, which meant visual identity was already settled before the project even started.</p>
+            <span class="ac-cta is-disabled" aria-disabled="true" data-i18n="jala.cta.soon">Case study coming soon</span>
           </div>
           <div class="ac-images">
             <div class="img-placeholder small filled"><img src="../Img/jalasoft/jalasoft-home-mobile-version.avif" alt="Jalasoft website hero, mobile color variants" data-i18n-attr="alt:jala.ext.c1.img.alt"></div>
@@ -404,6 +408,7 @@
           <div>
             <div class="ac-title">Planning Poker</div>
             <p class="ac-text" data-i18n="jala.ext.c2.text">A lightweight agile estimation tool for teams, built end to end with the same components: problem, research and discovery, testing and iteration, and a documented conclusion. While the BPM redesign took months, this one took a fraction of that time, because there was nothing left to decide about how it should look.</p>
+            <a class="ac-cta" href="planning-poker.html"><span data-i18n="jala.cta.see">See case study →</span></a>
           </div>
           <div class="ac-images">
             <div class="img-placeholder small filled"><img src="../Img/jalasoft/pokerplanning.avif" alt="Planning Poker app, issue and voting screens" data-i18n-attr="alt:jala.ext.c2.img.alt"></div>
@@ -414,6 +419,7 @@
           <div>
             <div class="ac-title">Elearn App</div>
             <p class="ac-text" data-i18n="jala.ext.c3.text">The system's longest reach was a full learning platform for Jalasoft and Jala University's bootcamps, serving students, teachers, and admins in a single connected product. I ran the project solo, end to end, from stakeholder interviews to final UI, building every screen on the same Manrope, Nunito, and color tokens defined at the start of this case.</p>
+            <span class="ac-cta is-disabled" aria-disabled="true" data-i18n="jala.cta.soon">Case study coming soon</span>
           </div>
           <div class="ac-images">
             <div class="img-placeholder small filled"><img src="../Img/jalasoft/elearn-app.webp" alt="Elearn App, student, teacher, and admin screens" data-i18n-attr="alt:jala.ext.c3.img.alt"></div>
