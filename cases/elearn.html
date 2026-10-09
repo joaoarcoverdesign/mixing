@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en" data-i18n-page="elearn">
+<head>
+<script src="../analytics.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../Img/favicon.png">
+<link rel="apple-touch-icon" href="../Img/favicon.png">
+<script src="../i18n/elearn.js"></script>
+<script src="../i18n.js"></script>
+<title>Elearn App — Jalasoft &amp; Jala University | Abdalla Design</title>
+<meta name="description" content="A bootcamp learning platform for Jalasoft and Jala University, serving students, teachers and admins through one connected product. Solo, end-to-end product design.">
+<link rel="canonical" href="https://abdalladesign.vercel.app/cases/elearn.html">
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Abdalla Design">
+<meta property="og:url" content="https://abdalladesign.vercel.app/cases/elearn.html">
+<meta property="og:title" content="Elearn App — Jalasoft &amp; Jala University | Abdalla Design">
+<meta property="og:description" content="A bootcamp learning platform for Jalasoft and Jala University, serving students, teachers and admins through one connected product. Solo, end-to-end product design.">
+<meta property="og:image" content="https://abdalladesign.vercel.app/Img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Selected work by João Abdalla — product and UX/UI design projects">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Elearn App — Jalasoft &amp; Jala University | Abdalla Design">
+<meta name="twitter:description" content="A bootcamp learning platform for Jalasoft and Jala University, serving students, teachers and admins through one connected product. Solo, end-to-end product design.">
+<meta name="twitter:image" content="https://abdalladesign.vercel.app/Img/og-cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* abdalladesign visual identity — matches index.html (Arcoverdesign v5) */
+  --bg:#11161A;
+  --bg-deep:#0C1013;
+  --surface:#1A2025;
+  --ink:#F4F6F3;
+  --ink-soft:#9BA4AA;
+  --ink-dim:#5E676D;
+  --num-dim:#333B41;
+  --line:rgba(255,255,255,.08);
+  --line-soft:rgba(255,255,255,.05);
+  --accent:#C2FC50;
+  --accent-soft:rgba(194,252,80,.12);
+  --win:#6EE895;
+  --challenge:#FBAE6C;
+  --radius-lg:16px;
+  --radius-md:14px;
+  --img-grad:linear-gradient(22deg, #FEDFD4 0%, #FDE2DF 18%, #FAE5E6 32%, #F6E8EB 46%, #F1EDF2 62%, #EDF0F8 80%, #EBF2FB 100%);
+  --img-grad-cool:linear-gradient(22deg, #FEDFD4 0%, #FDE2DF 18%, #FAE5E6 32%, #F6E8EB 46%, #F1EDF2 62%, #EDF0F8 80%, #EBF2FB 100%);
+  --sans:'Urbanist', sans-serif;
+  --body:'Urbanist', sans-serif;
+  --serif:'Lora', Georgia, serif;
+  --px: clamp(20px, 5vw, 72px);
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:var(--body);
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--accent);color:var(--bg-deep);}
+a{color:inherit;text-decoration:none;}
+button{font:inherit;background:none;border:none;cursor:pointer;color:inherit;}
+img{max-width:100%;display:block;}
+ul{list-style:none;}
+.container{max-width:1160px;margin:0 auto;padding:0 var(--px);}
+.mono{font-family:var(--sans);font-weight:600;letter-spacing:.06em;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;transition:transform .5s var(--ease);}
+nav.is-hidden{transform:translateY(-110%);}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px var(--px);
+  background:linear-gradient(rgba(12,16,19,.85),rgba(12,16,19,.4) 70%,transparent);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+}
+.nav-brand{display:flex;align-items:center;gap:13px;}
+.nav-avatar{width:44px;height:44px;border-radius:50%;flex:0 0 auto;object-fit:cover;border:2px solid var(--ink);}
+.nav-brand-text{display:flex;flex-direction:column;line-height:1.2;}
+.nav-name{font-family:var(--sans);font-weight:700;font-size:17px;letter-spacing:-.01em;color:var(--ink);}
+.nav-role{font-family:var(--sans);font-weight:400;font-size:12px;color:var(--ink-soft);margin-top:1px;}
+@media (max-width:480px){.nav-role{display:none;}}
+.nav-links{display:flex;gap:34px;list-style:none;align-items:center;}
+.nav-links a{
+  font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-soft);position:relative;padding:4px 0;transition:color .25s;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;
+  background:var(--accent);transform:scaleX(0);transform-origin:right;
+  transition:transform .4s var(--ease);
+}
+.nav-links a:hover{color:var(--ink);}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left;}
+@media (max-width:720px){.nav-links{gap:20px;}}
+
+/* mobile: real hamburger + dropdown panel */
+.nav-toggle{display:none;}
+.nav-toggle svg{width:22px;height:22px;}
+.nav-toggle .icon-close{display:none;}
+.nav-lang-slot{display:none;}
+@media (max-width:760px){
+  .nav-toggle{
+    display:flex;align-items:center;justify-content:center;
+    width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
+    color:var(--ink);flex:0 0 auto;
+  }
+  .nav-lang-slot{display:inline-flex;margin-left:auto;margin-right:14px;}
+  .nav-links .lang-switch-li{display:none;}
+  nav.is-open .nav-toggle .icon-open{display:none;}
+  nav.is-open .nav-toggle .icon-close{display:block;}
+  .nav-links{
+    position:absolute;top:calc(100% - 6px);left:var(--px);right:var(--px);
+    flex-direction:column;align-items:stretch;gap:0;
+    background:var(--bg-deep);border:1px solid var(--line);border-radius:14px;
+    padding:6px;
+    opacity:0;transform:translateY(-8px);pointer-events:none;
+    transition:opacity .3s var(--ease),transform .3s var(--ease);
+  }
+  nav.is-open .nav-links{opacity:1;transform:none;pointer-events:auto;}
+  nav.is-open.is-hidden{transform:none;}
+  .nav-links li{border-bottom:1px solid var(--line);}
+  .nav-links li:last-child,
+  .nav-links li:nth-last-child(2){border-bottom:0;}
+  .nav-links a{display:block;padding:15px 14px;font-size:13px;letter-spacing:.12em;color:var(--ink);}
+  .nav-links a::after{display:none;}
+}
+
+/* HERO */
+.hero{padding:140px var(--px) 56px;}
+.hero-title{font-family:var(--sans);font-weight:800;font-size:clamp(32px,5.2vw,56px);line-height:1.06;letter-spacing:-.02em;margin-bottom:14px;color:var(--ink);}
+.hero-sub{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(18px,2.2vw,22px);color:var(--ink);opacity:.85;margin-bottom:24px;}
+.hero-text{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:640px;margin-bottom:40px;}
+
+/* HERO SPEC BOX */
+.hero-specs{
+  position:relative;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+  border:1px solid var(--line);border-radius:var(--radius-md);
+  padding:22px 28px;margin-bottom:48px;
+}
+.spec-label{font-family:var(--sans);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-dim);margin-bottom:8px;}
+.spec-value{font-size:14px;font-weight:600;line-height:1.45;color:var(--ink);}
+
+/* IMG PLACEHOLDER */
+.img-placeholder{
+  width:100%;
+  background:repeating-linear-gradient(135deg, var(--surface), var(--surface) 10px, #171D22 10px, #171D22 20px);
+  border:1px dashed rgba(255,255,255,.16);border-radius:var(--radius-md);
+  display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;position:relative;
+}
+.img-placeholder .ph-label{font-family:var(--body);font-style:italic;font-size:13px;color:var(--ink-soft);max-width:320px;line-height:1.55;}
+.img-placeholder.has-img{border:none;background:var(--img-grad);padding:0;overflow:hidden;}
+.img-placeholder.has-img img{width:100%;height:100%;object-fit:cover;}
+.img-placeholder.has-img.contain img{object-fit:contain;background:transparent;}
+.img-placeholder.has-img.pad{padding:clamp(22px,5vw,64px);}
+.img-placeholder.has-img.cool{background:var(--img-grad-cool);}
+.ph-hero{aspect-ratio:16/8;}
+.ph-wide{aspect-ratio:16/9;}
+.ph-tall{aspect-ratio:4/5;}
+.ph-square{aspect-ratio:1/1;}
+.img-caption{display:block;margin-top:14px;font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);text-align:center;}
+a.img-caption{transition:color .2s;}
+a.img-caption:hover{color:var(--accent);}
+
+/* BLEED IMAGE */
+.bleed-img{display:block;width:100%;height:auto;border-radius:var(--radius-md);}
+
+/* MOCKUP SLAB */
+.mockup{
+  position:relative;width:100%;
+  border-radius:var(--radius-lg);
+  background:var(--img-grad);
+  overflow:hidden;
+}
+.mockup.cool{background:var(--img-grad-cool);}
+.mockup.bleed{overflow:visible;}
+.mockup::before{content:"";display:block;padding-top:var(--ar,52%);}
+.mockup > img{
+  position:absolute;left:50%;top:var(--t,8%);
+  transform:translateX(-50%);
+  width:var(--w,82%);max-width:none;height:auto;
+}
+.mockup.shot > img{border-radius:10px;box-shadow:0 24px 60px -20px rgba(20,24,32,.35);}
+@media (max-width:640px){
+  .mockup::before{padding-top:var(--ar-m,var(--ar,60%));}
+  .mockup > img{width:var(--w-m,calc(var(--w,82%) + 6%));top:var(--t-m,var(--t,7%));}
+}
+
+/* SECTIONS */
+section{padding:88px 0;}
+section+section{border-top:1px solid var(--line);}
+.eyebrow{font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);flex:0 0 auto;}
+.sec-title{font-family:var(--sans);font-weight:800;font-size:clamp(26px,3.6vw,40px);line-height:1.18;letter-spacing:-.01em;text-transform:uppercase;max-width:760px;margin-bottom:22px;color:var(--ink);}
+.sec-title .it{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:lowercase;color:var(--accent);display:block;}
+.sec-title .it.solo{text-transform:none;color:var(--ink);}
+.sec-title .hl{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:lowercase;color:var(--accent);}
+.sec-lede{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:600px;margin-bottom:44px;}
+
+/* centered section head */
+.head-center{text-align:center;}
+.head-center .eyebrow{justify-content:center;}
+.head-center .sec-title{margin-left:auto;margin-right:auto;}
+
+/* OVERVIEW */
+.ov-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start;margin-bottom:52px;}
+.ov-block{margin-bottom:26px;}
+.ov-block:last-child{margin-bottom:0;}
+.ov-label{font-family:var(--sans);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-dim);margin-bottom:10px;}
+.ov-text{font-family:var(--body);font-size:15.5px;line-height:1.75;color:var(--ink-soft);}
+
+/* capabilities list box */
+.cap-list{border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;}
+.cap-list li{
+  padding:15px 20px;text-align:center;border-top:1px solid var(--line);
+  font-family:var(--sans);font-weight:700;font-size:11.5px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-soft);
+}
+.cap-list li:first-child{border-top:none;}
+.cap-list li.is-accent{padding:0;background:var(--accent);color:var(--bg-deep);border-top-color:transparent;}
+.cap-list li.is-accent a{display:flex;align-items:center;justify-content:center;gap:8px;padding:15px 20px;color:var(--bg-deep);transition:opacity .2s;}
+.cap-list li.is-accent a:hover{opacity:.7;}
+
+/* RESEARCH pills */
+.tag-row{display:flex;flex-wrap:wrap;gap:10px;}
+.tag-pill{font-family:var(--sans);font-weight:600;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--line);border-radius:99px;padding:7px 14px;background:transparent;}
+.tag-pill.is-hot{border-color:var(--challenge);color:var(--challenge);}
+
+/* sub-head (no eyebrow) */
+.subhead{font-family:var(--sans);font-weight:800;font-size:clamp(20px,2.4vw,26px);line-height:1.25;letter-spacing:-.01em;text-transform:uppercase;color:var(--ink);margin-bottom:16px;}
+.subhead .it{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:lowercase;color:var(--accent);}
+.subhead .hl{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:lowercase;color:var(--accent);}
+
+/* KEY CHOICES — tinted full-bleed band */
+#design-decisions{background:var(--bg-deep);}
+.decision{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:stretch;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(28px,4vw,48px);margin-bottom:28px;overflow:hidden;}
+.decision:last-child{margin-bottom:0;}
+.decision.reverse .decision-media{order:-1;}
+.decision.stacked{grid-template-columns:1fr;}
+.decision-body{align-self:center;}
+.decision-eyebrow{font-family:var(--sans);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:12px;}
+.decision-title{font-family:var(--sans);font-weight:800;font-size:22px;margin-bottom:16px;letter-spacing:-.01em;color:var(--ink);}
+.decision-text{font-family:var(--body);font-size:15px;color:var(--ink-soft);line-height:1.75;}
+.decision:not(.stacked) .decision-media{
+  align-self:stretch;
+  border-radius:var(--radius-md);
+}
+.decision.stacked .decision-media{border-radius:var(--radius-md);}
+
+/* LEARNINGS — borderless grid */
+.grid-2x2{display:grid;grid-template-columns:1fr 1fr;gap:44px 56px;}
+.learn-card{padding:24px 0 0;border-top:1px solid var(--line);}
+.learn-tag{font-family:var(--sans);font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px;display:block;color:var(--ink-dim);}
+.learn-title{font-family:var(--sans);font-weight:800;font-size:17px;margin-bottom:10px;letter-spacing:-.005em;color:var(--ink);}
+.learn-text{font-family:var(--body);font-size:14px;color:var(--ink-soft);line-height:1.7;}
+
+/* OUTCOME — full-bleed warm band */
+#outcome{background:var(--img-grad);color:var(--bg-deep);border-top:none;}
+#outcome .eyebrow{color:rgba(12,16,19,.5);}
+#outcome .eyebrow::before{background:var(--bg-deep);}
+#outcome .sec-title,#outcome .sec-title .it.solo{color:var(--bg-deep);}
+#outcome .ov-text{color:rgba(12,16,19,.72);}
+.outcome-split{display:grid;grid-template-columns:1fr .9fr;gap:56px;align-items:center;}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;background:#1B7F74;color:#fff;font-family:var(--sans);font-weight:700;font-size:13.5px;padding:15px 28px;border-radius:99px;margin-top:20px;transition:transform .25s var(--ease),background .25s var(--ease);}
+.btn:hover{transform:translateY(-2px);background:#15675E;}
+.img-placeholder.has-img.outcome-orbit{background:transparent;padding:0;}
+
+/* MORE WORK — borderless */
+.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+.next-card{display:block;}
+.next-label{font-family:var(--sans);font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-dim);margin-bottom:10px;}
+.next-title{font-family:var(--sans);font-weight:800;font-size:20px;margin-bottom:10px;letter-spacing:-.01em;color:var(--ink);transition:color .2s;}
+.next-card:hover .next-title{color:var(--accent);}
+.next-text{font-family:var(--body);font-size:14px;color:var(--ink-soft);margin-bottom:22px;max-width:420px;}
+
+/* FOOTER */
+footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep);}
+.footer-inner{text-align:center;font-family:var(--sans);font-weight:600;font-size:13px;color:var(--ink-dim);}
+
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+.rv.is-in{opacity:1;transform:none;}
+
+@media (max-width:860px){
+  .hero-specs{grid-template-columns:repeat(2,1fr);gap:20px;}
+  .ov-grid{grid-template-columns:1fr;gap:36px;}
+  .decision{grid-template-columns:1fr;gap:28px;}
+  .decision.reverse .decision-media{order:0;}
+  .decision-body{align-self:auto;}
+  .grid-2x2{grid-template-columns:1fr;gap:0;}
+  .learn-card{margin-top:32px;}
+  .outcome-split{grid-template-columns:1fr;gap:36px;}
+  .next-grid{grid-template-columns:1fr;gap:44px;}
+  .nav-links{gap:18px;}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../index.html#top" class="nav-brand">
+      <img class="nav-avatar" src="../Img/joao-avatar.jpg" alt="João Abdalla">
+      <span class="nav-brand-text">
+        <span class="nav-name">João Abdalla</span>
+        <span class="nav-role" data-i18n="common.nav.role">Product designer UX UI</span>
+      </span>
+    </a>
+    <span class="lang-switch-slot nav-lang-slot"></span>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks" data-i18n-attr="aria-label:common.nav.menu">
+      <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#work" data-i18n="common.nav.works">Works</a></li>
+      <li><a href="../about.html" data-i18n="common.nav.about">About</a></li>
+      <li><a href="../index.html#contact" data-i18n="common.nav.contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <header class="hero container" role="banner">
+    <h1 class="hero-title rv">Elearn App</h1>
+    <p class="hero-sub rv" data-i18n="elearn.hero.sub">One learning platform for students, teachers and admins</p>
+    <p class="hero-text rv" data-i18n="elearn.hero.lede">Elearn App is the platform designed for Jalasoft and Jala University's tech bootcamps. Students follow their courses, teachers own and publish the curriculum, and bootcamp coordinators set up cohorts and watch progress — all inside a single connected system.</p>
+
+    <div class="hero-specs rv">
+      <div><div class="spec-label" data-i18n="elearn.spec.1.label">Client</div><div class="spec-value" data-i18n="elearn.spec.1.value">Jalasoft / Jala University</div></div>
+      <div><div class="spec-label" data-i18n="elearn.spec.2.label">My Role</div><div class="spec-value" data-i18n="elearn.spec.2.value">Lead Product Designer · Solo, end to end</div></div>
+      <div><div class="spec-label" data-i18n="elearn.spec.3.label">Timeline</div><div class="spec-value" data-i18n="elearn.spec.3.value">2023</div></div>
+      <div><div class="spec-label" data-i18n="elearn.spec.4.label">Deliverables</div><div class="spec-value" data-i18n="elearn.spec.4.value">UX research · Information architecture · UI · Design system</div></div>
+    </div>
+
+    <div class="rv">
+      <img class="bleed-img" src="../Img/elearn/elearn-cover.webp" alt="Elearn App cover — the Jalasoft e-learn logo next to phones showing the login and course screens" data-i18n-attr="alt:elearn.hero.img.alt">
+    </div>
+  </header>
+
+  <!-- OVERVIEW -->
+  <section id="overview">
+    <div class="container">
+      <div class="head-center rv">
+        <div class="eyebrow" data-i18n="elearn.overview.eyebrow">Overview</div>
+        <h2 class="sec-title" data-i18n-html="elearn.overview.title">Three audiences, <span class="hl">one product</span>, built from scratch</h2>
+      </div>
+
+      <div class="ov-grid rv">
+        <div>
+          <div class="ov-block">
+            <div class="ov-label" data-i18n="elearn.overview.ctx.label">Context</div>
+            <p class="ov-text" data-i18n="elearn.overview.ctx.text">Jalasoft and Jala University run tech bootcamps across Brazil and LATAM. Students, teachers and administrators each had their own way of getting things done, and none of it lived in a shared tool.</p>
+          </div>
+          <div class="ov-block">
+            <div class="ov-label" data-i18n="elearn.overview.owned.label">Owned end to end</div>
+            <p class="ov-text" data-i18n="elearn.overview.owned.text">I ran the project solo: stakeholder interviews, synthesis, journeys, wireframes and every high-fidelity screen, built on the Jalasoft design system.</p>
+          </div>
+        </div>
+
+        <ul class="cap-list">
+          <li data-i18n="elearn.cap.1">Stakeholder Interviews</li>
+          <li data-i18n="elearn.cap.2">Affinity Mapping</li>
+          <li data-i18n="elearn.cap.3">Value Proposition Canvas</li>
+          <li data-i18n="elearn.cap.4">Journey Mapping</li>
+          <li data-i18n="elearn.cap.5">Wireframing</li>
+          <li data-i18n="elearn.cap.6">UI Design</li>
+          <li class="is-accent"><a href="jalasoft.html" data-i18n="elearn.cap.7">See the design system ↗</a></li>
+        </ul>
+      </div>
+
+      <div class="rv">
+        <img class="bleed-img" src="../Img/elearn/elearn-overview.webp" alt="Elearn App on two phones and a laptop — login, course page and the bootcamp catalogue" data-i18n-attr="alt:elearn.overview.img.alt">
+        <p class="img-caption" data-i18n="elearn.overview.img.cap">Responsive from the start — phone and desktop</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHALLENGE -->
+  <section id="challenge">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="elearn.challenge.eyebrow">The challenge</div>
+      <h2 class="sec-title rv" data-i18n-html="elearn.challenge.title">Three problems that <span class="hl">fed each other</span></h2>
+      <p class="sec-lede rv" data-i18n="elearn.challenge.lede">The brief sounded simple. The research showed it was really three gaps, each one making the others worse.</p>
+
+      <div class="grid-2x2 rv">
+        <div class="learn-card">
+          <span class="learn-tag" data-i18n="elearn.challenge.1.tag">Problem 01</span>
+          <h3 class="learn-title" data-i18n="elearn.challenge.1.title">Onboarding gaps</h3>
+          <p class="learn-text" data-i18n="elearn.challenge.1.text">There was no standard way in for any of the three user groups. Everyone started differently.</p>
+        </div>
+        <div class="learn-card">
+          <span class="learn-tag" data-i18n="elearn.challenge.2.tag">Problem 02</span>
+          <h3 class="learn-title" data-i18n="elearn.challenge.2.title">Fragmented communication</h3>
+          <p class="learn-text" data-i18n="elearn.challenge.2.text">Messages between students, teachers and admins travelled over ad hoc channels, so context was lost along the way.</p>
+        </div>
+        <div class="learn-card">
+          <span class="learn-tag" data-i18n="elearn.challenge.3.tag">Problem 03</span>
+          <h3 class="learn-title" data-i18n="elearn.challenge.3.title">Progress invisibility</h3>
+          <p class="learn-text" data-i18n="elearn.challenge.3.text">Admins had no early signal for students falling behind, so help arrived after the problem had grown.</p>
+        </div>
+        <div class="learn-card">
+          <span class="learn-tag" style="color:var(--accent);" data-i18n="elearn.challenge.q.tag">The core question</span>
+          <h3 class="learn-title" data-i18n="elearn.challenge.q.title">One tool, three needs</h3>
+          <p class="learn-text" data-i18n="elearn.challenge.q.text">How do we give students, teachers and bootcamp coordinators each what they actually need, without building three disconnected tools?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="elearn.process.eyebrow">Process</div>
+      <h2 class="sec-title rv" data-i18n-html="elearn.process.title">From interviews to <span class="hl">high fidelity</span></h2>
+      <p class="sec-lede rv" data-i18n="elearn.process.lede">Four phases, run in parallel across the three groups so that no single perspective shaped the product on its own.</p>
+
+      <div class="tag-row rv" style="margin-bottom:44px;">
+        <span class="tag-pill" data-i18n="elearn.process.1">Stakeholder interviews</span>
+        <span class="tag-pill" data-i18n="elearn.process.2">Affinity mapping &amp; Value Proposition Canvas</span>
+        <span class="tag-pill" data-i18n="elearn.process.3">Journey mapping &amp; wireframes</span>
+        <span class="tag-pill is-hot" data-i18n="elearn.process.4">High-fidelity UI on the Jalasoft design system</span>
+      </div>
+
+      <div class="rv">
+        <div class="img-placeholder has-img contain pad ph-wide" style="aspect-ratio:2160/580;">
+          <img src="../Img/elearn/elearn-wireframes-low.webp" alt="Low-fidelity wireframes of the login, admin welcome and bootcamp setup screens" data-i18n-attr="alt:elearn.process.low.alt">
+        </div>
+        <p class="img-caption" data-i18n="elearn.process.low.cap">Low-fidelity wireframes — priority flows laid out in grey</p>
+      </div>
+
+      <div class="rv" style="margin-top:44px;">
+        <div class="img-placeholder has-img contain pad ph-wide" style="aspect-ratio:2160/580;">
+          <img src="../Img/elearn/elearn-wireframes-mid.webp" alt="Mid-fidelity wireframes with the Jalasoft logo, buttons and cards applied" data-i18n-attr="alt:elearn.process.mid.alt">
+        </div>
+        <p class="img-caption" data-i18n="elearn.process.mid.cap">Mid-fidelity — the same flows with real structure and brand</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN DECISIONS -->
+  <section id="design-decisions">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="elearn.dec.eyebrow">Design Decisions</div>
+      <h2 class="sec-title rv" data-i18n-html="elearn.dec.title">Key choices<span class="it">and why</span></h2>
+      <p class="sec-lede rv" data-i18n="elearn.dec.lede">Three decisions came straight out of the interviews and shaped the product more than any single screen.</p>
+
+      <div class="decision rv">
+        <div class="decision-body">
+          <div class="decision-eyebrow">Decision 01</div>
+          <h3 class="decision-title" data-i18n="elearn.dec.1.k">Rebalancing practice and theory</h3>
+          <p class="decision-text" data-i18n="elearn.dec.1.t">Students and teachers both asked for more hands-on work. The UI coursework moved toward heavier practice, while UX kept its theoretical rigor, and the course pages make that balance visible.</p>
+        </div>
+        <img class="decision-media bleed-img" src="../Img/elearn/elearn-student-home.webp" alt="Student app on two phones, showing the course tracks Full Stack Developer, Quality Assurance, DevOps, Automation Testing and Mobile Development" data-i18n-attr="alt:elearn.dec.1.alt" style="object-fit:cover;">
+      </div>
+
+      <div class="decision reverse rv">
+        <div class="decision-body">
+          <div class="decision-eyebrow">Decision 02</div>
+          <h3 class="decision-title" data-i18n="elearn.dec.2.k">Teachers own the content</h3>
+          <p class="decision-text" data-i18n="elearn.dec.2.t">Instead of central authorship, teachers upload their own curriculum. The people who know the subject control it, and students get a class view with progress per person.</p>
+        </div>
+        <img class="decision-media bleed-img" src="../Img/elearn/elearn-teacher.webp" alt="Teacher screens on three phones: class calendar, a lesson with a voting poll and a ranked student list" data-i18n-attr="alt:elearn.dec.2.alt" style="object-fit:cover;">
+      </div>
+
+      <div class="decision rv">
+        <div class="decision-body">
+          <div class="decision-eyebrow">Decision 03</div>
+          <h3 class="decision-title" data-i18n="elearn.dec.3.k">A staged setup flow</h3>
+          <p class="decision-text" data-i18n="elearn.dec.3.t">Creating a bootcamp runs in steps: course, then stacks, then assignments. Each step keeps the context of the one before, so admins never lose track of what they are configuring.</p>
+        </div>
+        <img class="decision-media bleed-img" src="../Img/elearn/elearn-admin-setup.webp" alt="Admin bootcamp setup on three phones, from the empty form to students and teachers added per stack" data-i18n-attr="alt:elearn.dec.3.alt" style="object-fit:cover;">
+      </div>
+    </div>
+  </section>
+
+  <!-- THE DESIGN -->
+  <section id="redesign">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="elearn.ui.eyebrow">The design</div>
+      <h2 class="sec-title rv" data-i18n-html="elearn.ui.title">Built on the <span class="hl">Jalasoft design system</span></h2>
+      <p class="sec-lede rv" data-i18n="elearn.ui.lede">Typography, color and components came from the system, so the product feels like part of the same company from the first screen.</p>
+
+      <div class="rv">
+        <img class="bleed-img" src="../Img/elearn/elearn-design-system.webp" alt="Jalasoft design system board with Manrope typography and the red, grey and blue color palettes" data-i18n-attr="alt:elearn.ui.ds.alt">
+        <p class="img-caption" data-i18n="elearn.ui.ds.cap">Foundations — Manrope and the Jalasoft color system</p>
+      </div>
+
+      <div class="rv" style="margin-top:44px;">
+        <img class="bleed-img" src="../Img/elearn/elearn-screens-pattern.webp" alt="A field of tilted Elearn App screens: logins, course lists, lessons and the Jalasoft logo" data-i18n-attr="alt:elearn.ui.pattern.alt">
+        <p class="img-caption" data-i18n="elearn.ui.pattern.cap">Dozens of screens across the three roles</p>
+      </div>
+
+      <div class="rv" style="margin-top:44px;">
+        <img class="bleed-img" src="../Img/elearn/elearn-leaderboard.webp" alt="Student profile with points and the leaderboard on two phones" data-i18n-attr="alt:elearn.ui.board.alt">
+        <p class="img-caption" data-i18n="elearn.ui.board.cap">Student profile and leaderboard</p>
+      </div>
+
+      <div class="rv" style="margin-top:44px;">
+        <img class="bleed-img" src="../Img/elearn/elearn-landing.webp" alt="Elearn App landing page on a laptop, with a UX/UI Design Training hero and an About the course section" data-i18n-attr="alt:elearn.ui.landing.alt">
+        <p class="img-caption" data-i18n="elearn.ui.landing.cap">Course landing page — schedule, what you will learn, certificate</p>
+      </div>
+
+      <div class="rv" style="margin-top:44px;">
+        <img class="bleed-img" src="../Img/elearn/elearn-admin-tablet.webp" alt="Admin views on two tablets, with lists of students and templates" data-i18n-attr="alt:elearn.ui.tablet.alt">
+        <p class="img-caption" data-i18n="elearn.ui.tablet.cap">Admin on tablet — lists built for scanning</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEARNINGS -->
+  <section id="learnings">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="elearn.learn.eyebrow">Learnings</div>
+      <h2 class="sec-title rv" data-i18n-html="elearn.learn.title">What I<span class="it">took away</span></h2>
+
+      <div class="grid-2x2 rv">
+        <div class="learn-card">
+          <span class="learn-tag" data-i18n="elearn.learn.1.tag">What Worked Well</span>
+          <h3 class="learn-title" data-i18n="elearn.learn.1.title">Parallel research</h3>
+          <p class="learn-text" data-i18n="elearn.learn.1.text">Interviewing all three groups at the same time exposed structural gaps that no single perspective would have caught.</p>
+        </div>
+        <div class="learn-card">
+          <span class="learn-tag" data-i18n="elearn.learn.2.tag">What I'd Push Further</span>
+          <h3 class="learn-title" data-i18n="elearn.learn.2.title">Keep refining after discovery</h3>
+          <p class="learn-text" data-i18n="elearn.learn.2.text">Multi-stakeholder products benefit from iteration well beyond the first round of research. I'd plan more review cycles with each group.</p>
+        </div>
+        <div class="learn-card">
+          <span class="learn-tag" data-i18n="elearn.learn.3.tag">Key Insight</span>
+          <h3 class="learn-title" data-i18n="elearn.learn.3.title">Learning is its own design problem</h3>
+          <p class="learn-text" data-i18n="elearn.learn.3.text">Curriculum design asks for pedagogical thinking that goes beyond standard UX and UI patterns. Teaching the bootcamp myself made that concrete.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTCOME -->
+  <section id="outcome">
+    <div class="container">
+      <div class="outcome-split rv">
+        <div>
+          <div class="eyebrow" data-i18n="elearn.outcome.eyebrow">Outcome</div>
+          <h2 class="sec-title" data-i18n-html="elearn.outcome.title">Taught to <span class="hl">100+ students</span> across LATAM</h2>
+          <p class="ov-text" style="font-size:16px;max-width:460px;margin-bottom:14px;" data-i18n="elearn.outcome.p1">The curriculum behind the app was taught across 9 bootcamp cohorts, reaching more than 100 students in Brazil and LATAM. The app itself was approved for the product roadmap and was in pre-development when I left the company.</p>
+          <p class="ov-text" style="font-size:16px;max-width:460px;" data-i18n="elearn.outcome.p2">The work led to two follow-up projects, the Blueprint design system and an internal employee training program, and I was recognized as a top-rated instructor.</p>
+          <a href="jalasoft.html" class="btn"><span data-i18n="elearn.outcome.cta">See the design system →</span></a>
+        </div>
+        <div class="img-placeholder has-img contain pad" style="aspect-ratio:1/1;">
+          <img src="../Img/elearn/elearn-linkedin.webp" alt="LinkedIn post celebrating the end of the semester, with recognition badges for best bootcamp teacher" data-i18n-attr="alt:elearn.outcome.img.alt">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MORE WORK -->
+  <section id="more-work">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="elearn.more.eyebrow">More Work</div>
+      <div class="next-grid rv">
+        <a class="next-card" href="jalasoft.html">
+          <div class="next-label" data-i18n="elearn.more.also.label">Part of a bigger story</div>
+          <h3 class="next-title" data-i18n="elearn.more.also.title">Jalasoft Design System</h3>
+          <p class="next-text" data-i18n="elearn.more.also.text">Building a design system from a brand guideline, then scaling it across a company of 1,000+ people. Elearn App was the system's longest reach.</p>
+          <div class="img-placeholder has-img contain" style="aspect-ratio:4/3;"><img src="../Img/cards%20home/card-jala.png" alt="Jalasoft design system" data-i18n-attr="alt:elearn.more.also.img.alt"></div>
+        </a>
+        <a class="next-card" href="planning-poker.html">
+          <div class="next-label" data-i18n="elearn.more.next.label">Next Case Study</div>
+          <h3 class="next-title" data-i18n="elearn.more.next.title">Planning Poker</h3>
+          <p class="next-text" data-i18n="elearn.more.next.text">Redesigning an Agile estimation app to make it more intuitive, efficient and easy to use.</p>
+          <div class="img-placeholder has-img" style="aspect-ratio:4/3;"><img src="../Img/planning-poker/pp-cover.webp" alt="Planning Poker app" data-i18n-attr="alt:elearn.more.next.img.alt"></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">Copyright © abdalladesign 2026</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+</script>
+<script>
+  (function(){
+    var lastY = 0, nav = document.getElementById("nav");
+    if (!nav) return;
+    window.addEventListener("scroll", function(){
+      var y = window.scrollY;
+      if (y > 140 && y > lastY) nav.classList.add("is-hidden");
+      else nav.classList.remove("is-hidden");
+      lastY = y;
+    }, { passive: true });
+  })();
+</script>
+<script>
+  /* mobile nav — hamburger toggles the dropdown panel */
+  (function () {
+    var nav = document.getElementById("nav");
+    var toggle = document.getElementById("navToggle");
+    var panel = document.getElementById("navLinks");
+    if (!nav || !toggle || !panel) return;
+
+    function close() {
+      nav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+    function open() {
+      nav.classList.add("is-open");
+      toggle.setAttribute("aria-expanded", "true");
+    }
+
+    toggle.addEventListener("click", function () {
+      nav.classList.contains("is-open") ? close() : open();
+    });
+    panel.addEventListener("click", function (e) {
+      if (e.target.closest("a")) close();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") close();
+    });
+    document.addEventListener("click", function (e) {
+      if (nav.classList.contains("is-open") && !e.target.closest(".nav-inner")) close();
+    });
+    window.addEventListener("scroll", close, { passive: true });
+  })();
+</script>
+
+</body>
+</html>

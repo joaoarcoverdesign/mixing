@@ -221,26 +221,26 @@
     },
 
     "home.card2.alt": {
-      en: "Jalasoft — design system built from a brand guideline",
-      pt: "Jalasoft — design system construído a partir de um guia de marca",
-      es: "Jalasoft — sistema de diseño construido a partir de una guía de marca"
+      en: "BPM Platform Redesign — admin task view",
+      pt: "Plataforma BPM — visão de tarefas do administrador",
+      es: "Plataforma BPM — vista de tareas del administrador"
     },
     "home.card2.name": {
-      en: "Jalasoft Design System",
-      pt: "Design System da Jalasoft",
-      es: "Sistema de Diseño de Jalasoft"
+      en: "BPM Platform Redesign",
+      pt: "Redesign da Plataforma BPM",
+      es: "Rediseño de la Plataforma BPM"
     },
     "home.card2.desc": {
-      en: "Building a design system from a brand guideline, then scaling it across a company of over a thousand people.",
-      pt: "Construir um design system a partir de um guia de marca e escalá-lo por uma empresa de mais de mil pessoas.",
-      es: "Construir un sistema de diseño a partir de una guía de marca y escalarlo en una empresa de más de mil personas."
+      en: "Turning a raw Bonita portal into a process-first tool for hiring, transfers and disassociation across units.",
+      pt: "Transformar um portal Bonita bruto em uma ferramenta orientada a processos para contratação, transferências e desligamentos entre unidades.",
+      es: "Convertir un portal Bonita en bruto en una herramienta orientada a procesos para contratación, traslados y desvinculación entre unidades."
     },
     "home.card2.tag1": { en: "Enterprise", pt: "Corporativo", es: "Corporativo" },
-    "home.card2.tag2": { en: "Design System", pt: "Design System", es: "Sistema de Diseño" },
+    "home.card2.tag2": { en: "Process Platform", pt: "Plataforma de Processos", es: "Plataforma de Procesos" },
     "home.card2.link": {
-      en: "Scaled across 1,000+ people",
-      pt: "Escalado por mais de 1.000 pessoas",
-      es: "Escalado en más de 1.000 personas"
+      en: "Redesigned end to end",
+      pt: "Redesenhado de ponta a ponta",
+      es: "Rediseñado de punta a punta"
     },
 
     "home.card3.alt": {
