@@ -574,6 +574,11 @@
         height: clamp(120px, 40vw, 320px);
         overflow: hidden;
       }
+
+      /* the frame clips, so the front card can't start above it or its browser bar is cut off */
+      .mock-card[data-slot="front"] {
+        top: 0;
+      }
     }
 
 

@@ -288,11 +288,11 @@ section+section{border-top:1px solid var(--line);}
 
 /* MORE WORK — borderless */
 .next-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
-.next-card{display:block;}
+.next-card{display:flex;flex-direction:column;}
 .next-label{font-family:var(--sans);font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-dim);margin-bottom:10px;}
 .next-title{font-family:var(--sans);font-weight:800;font-size:20px;margin-bottom:10px;letter-spacing:-.01em;color:var(--ink);transition:color .2s;}
 .next-card:hover .next-title{color:var(--accent);}
-.next-text{font-family:var(--body);font-size:14px;color:var(--ink-soft);margin-bottom:22px;max-width:420px;}
+.next-text{font-family:var(--body);font-size:14px;color:var(--ink-soft);margin-bottom:22px;max-width:420px;flex:1;}
 
 /* FOOTER */
 footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep);}
@@ -599,11 +599,11 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
     <div class="container">
       <div class="eyebrow rv" data-i18n="elearn.more.eyebrow">More Work</div>
       <div class="next-grid rv">
-        <a class="next-card" href="jalasoft.html">
-          <div class="next-label" data-i18n="elearn.more.also.label">Part of a bigger story</div>
-          <h3 class="next-title" data-i18n="elearn.more.also.title">Jalasoft Design System</h3>
-          <p class="next-text" data-i18n="elearn.more.also.text">Building a design system from a brand guideline, then scaling it across a company of 1,000+ people. Elearn App was the system's longest reach.</p>
-          <div class="img-placeholder has-img contain" style="aspect-ratio:4/3;"><img src="../Img/cards%20home/card-jala.png" alt="Jalasoft design system" data-i18n-attr="alt:elearn.more.also.img.alt"></div>
+        <a class="next-card" href="bpm.html">
+          <div class="next-label" data-i18n="elearn.more.also.label">Also at Jalasoft</div>
+          <h3 class="next-title" data-i18n="elearn.more.also.title">BPM Platform Redesign</h3>
+          <p class="next-text" data-i18n="elearn.more.also.text">Turning a raw Bonita portal into a process-first tool for hiring, transfers and disassociation across units.</p>
+          <div class="img-placeholder has-img" style="aspect-ratio:4/3;"><img src="../Img/cards%20home/card-bpm.png" alt="BPM Platform Redesign — admin task view" data-i18n-attr="alt:elearn.more.also.img.alt"></div>
         </a>
         <a class="next-card" href="planning-poker.html">
           <div class="next-label" data-i18n="elearn.more.next.label">Next Case Study</div>

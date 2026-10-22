@@ -343,17 +343,17 @@ window.I18N_PAGE_STRINGS = {
 
   /* ─────────── MORE WORK ─────────── */
   "elearn.more.eyebrow": { en: "More Work", pt: "Mais trabalhos", es: "Más trabajos" },
-  "elearn.more.also.label": { en: "Part of a bigger story", pt: "Parte de uma história maior", es: "Parte de una historia mayor" },
-  "elearn.more.also.title": { en: "Jalasoft Design System", pt: "Design System da Jalasoft", es: "Design System de Jalasoft" },
+  "elearn.more.also.label": { en: "Also at Jalasoft", pt: "Também na Jalasoft", es: "También en Jalasoft" },
+  "elearn.more.also.title": { en: "BPM Platform Redesign", pt: "Redesign da Plataforma BPM", es: "Rediseño de la Plataforma BPM" },
   "elearn.more.also.text": {
-    en: "Building a design system from a brand guideline, then scaling it across a company of 1,000+ people. Elearn App was the system's longest reach.",
-    pt: "Construir um design system a partir de um guia de marca e depois escalá-lo para uma empresa de mais de 1.000 pessoas. O Elearn App foi o maior alcance do sistema.",
-    es: "Construir un design system a partir de una guía de marca y luego escalarlo a una empresa de más de 1.000 personas. Elearn App fue el mayor alcance del sistema."
+    en: "Turning a raw Bonita portal into a process-first tool for hiring, transfers and disassociation across units.",
+    pt: "Transformar um portal Bonita bruto em uma ferramenta orientada a processos para contratação, transferências e desligamentos entre unidades.",
+    es: "Convertir un portal Bonita en bruto en una herramienta orientada a procesos para contratación, traslados y desvinculación entre unidades."
   },
   "elearn.more.also.img.alt": {
-    en: "Jalasoft design system",
-    pt: "Design system da Jalasoft",
-    es: "Design system de Jalasoft"
+    en: "BPM Platform Redesign — admin task view",
+    pt: "Plataforma BPM — visão de tarefas do administrador",
+    es: "Plataforma BPM — vista de tareas del administrador"
   },
   "elearn.more.next.label": { en: "Next Case Study", pt: "Próximo case", es: "Próximo caso" },
   "elearn.more.next.title": { en: "Planning Poker", pt: "Planning Poker", es: "Planning Poker" },
