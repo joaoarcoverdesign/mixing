@@ -164,6 +164,20 @@ nav.is-hidden{transform:translateY(-110%);}
 .ph-wide{aspect-ratio:16/9;}
 .ph-tall{aspect-ratio:4/5;}
 .ph-square{aspect-ratio:1/1;}
+.wf-full{display:flex;flex-direction:column;gap:44px;}
+.ticker{overflow:hidden;}
+.ticker-track{display:flex;width:max-content;animation:ticker 70s linear infinite;}
+.ticker.is-rev .ticker-track{animation-direction:reverse;}
+.ticker:hover .ticker-track{animation-play-state:paused;}
+.wf-item{position:relative;flex:none;height:clamp(320px,34vw,460px);margin:0 32px 0 0;}
+.wf-item img{display:block;height:100%;width:auto;max-width:none;}
+.wf-item .wf-ui{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .5s var(--ease);}
+.wf-item.is-ui .wf-ui{opacity:1;}
+.wf-item{cursor:pointer;}
+.wf-hint{position:absolute;left:50%;bottom:18px;transform:translate(-50%,8px);padding:8px 16px;border-radius:99px;background:rgba(20,22,26,.88);color:#fff;font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.06em;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .3s var(--ease),transform .3s var(--ease);}
+.wf-item.is-ui:hover .wf-hint{opacity:1;transform:translate(-50%,0);}
+@keyframes ticker{to{transform:translateX(-25%);}}
+@media (prefers-reduced-motion:reduce){.ticker{overflow-x:auto;}.ticker-track{animation:none;}}
 .img-caption{display:block;margin-top:14px;font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);text-align:center;}
 a.img-caption{transition:color .2s;}
 a.img-caption:hover{color:var(--accent);}
@@ -265,6 +279,7 @@ section+section{border-top:1px solid var(--line);}
 #outcome .eyebrow{color:rgba(12,16,19,.5);}
 #outcome .eyebrow::before{background:var(--bg-deep);}
 #outcome .sec-title,#outcome .sec-title .it.solo{color:var(--bg-deep);}
+#outcome .sec-title .hl{color:#15675E;}
 #outcome .ov-text{color:rgba(12,16,19,.72);}
 .outcome-split{display:grid;grid-template-columns:1fr .9fr;gap:56px;align-items:center;}
 .btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;background:#1B7F74;color:#fff;font-family:var(--sans);font-weight:700;font-size:13.5px;padding:15px 28px;border-radius:99px;margin-top:20px;transition:transform .25s var(--ease),background .25s var(--ease);}
@@ -298,6 +313,11 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   .next-grid{grid-template-columns:1fr;gap:44px;}
   .nav-links{gap:18px;}
 }
+
+/* LENS — magnifier on hover (fine pointers only) */
+.lens{position:fixed;left:0;top:0;width:170px;height:170px;margin:-85px 0 0 -85px;border-radius:50%;pointer-events:none;z-index:90;background-repeat:no-repeat;box-shadow:0 0 0 2px rgba(255,255,255,.85),0 12px 36px rgba(0,0,0,.45);opacity:0;transform:scale(.6);transition:opacity .18s,transform .18s var(--ease);}
+.lens.is-on{opacity:1;transform:scale(1);}
+@media (hover:hover) and (pointer:fine){.lens-target{cursor:none;}}
 </style>
 </head>
 <body>
@@ -340,7 +360,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
     </div>
 
     <div class="rv">
-      <img class="bleed-img" src="../Img/elearn/elearn-cover.webp" alt="Elearn App cover — the Jalasoft e-learn logo next to phones showing the login and course screens" data-i18n-attr="alt:elearn.hero.img.alt">
+      <img class="bleed-img" src="../Img/elearn/Background%20Overlay.png" alt="Elearn App cover — the Jalasoft e-learn logo next to phones showing the login and course screens" data-i18n-attr="alt:elearn.hero.img.alt">
     </div>
   </header>
 
@@ -424,22 +444,43 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
       <div class="tag-row rv" style="margin-bottom:44px;">
         <span class="tag-pill" data-i18n="elearn.process.1">Stakeholder interviews</span>
         <span class="tag-pill" data-i18n="elearn.process.2">Affinity mapping &amp; Value Proposition Canvas</span>
-        <span class="tag-pill" data-i18n="elearn.process.3">Journey mapping &amp; wireframes</span>
-        <span class="tag-pill is-hot" data-i18n="elearn.process.4">High-fidelity UI on the Jalasoft design system</span>
+        <span class="tag-pill" data-i18n="elearn.process.3">Journey mapping</span>
+        <span class="tag-pill is-hot" data-i18n="elearn.process.4">Wireframes &amp; high-fidelity UI</span>
       </div>
+    </div>
 
-      <div class="rv">
-        <div class="img-placeholder has-img contain pad ph-wide" style="aspect-ratio:2160/580;">
-          <img src="../Img/elearn/elearn-wireframes-low.webp" alt="Low-fidelity wireframes of the login, admin welcome and bootcamp setup screens" data-i18n-attr="alt:elearn.process.low.alt">
+    <div class="wf-full">
+      <div class="ticker">
+        <div class="ticker-track">
+          <figure class="wf-item"><img class="wf-base" src="../Img/elearn/wf/wire-1.png" alt="Wireframe: Login" data-i18n-attr="alt:elearn.wf.1.alt"><img class="wf-ui" src="../Img/elearn/wf/ui-1.png" alt="" aria-hidden="true"><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item"><img class="wf-base" src="../Img/elearn/wf/wire-2.png" alt="Wireframe: Admin welcome" data-i18n-attr="alt:elearn.wf.2.alt"><img class="wf-ui" src="../Img/elearn/wf/ui-2.png" alt="" aria-hidden="true"><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item"><img class="wf-base" src="../Img/elearn/wf/wire-3.png" alt="Wireframe: New bootcamp form" data-i18n-attr="alt:elearn.wf.3.alt"><img class="wf-ui" src="../Img/elearn/wf/ui-3.png" alt="" aria-hidden="true"><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item"><img class="wf-base" src="../Img/elearn/wf/wire-4.png" alt="Wireframe: Bootcamp list" data-i18n-attr="alt:elearn.wf.4.alt"><img class="wf-ui" src="../Img/elearn/wf/ui-4.png" alt="" aria-hidden="true"><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item"><img class="wf-base" src="../Img/elearn/wf/wire-5.png" alt="Wireframe: Bootcamp set up, empty" data-i18n-attr="alt:elearn.wf.5.alt"><img class="wf-ui" src="../Img/elearn/wf/ui-5.png" alt="" aria-hidden="true"><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item"><img class="wf-base" src="../Img/elearn/wf/wire-6.png" alt="Wireframe: Bootcamp set up, with students and teachers" data-i18n-attr="alt:elearn.wf.6.alt"><img class="wf-ui" src="../Img/elearn/wf/ui-6.png" alt="" aria-hidden="true"><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item"><img class="wf-base" src="../Img/elearn/wf/wire-7.png" alt="Wireframe: Add teacher to module" data-i18n-attr="alt:elearn.wf.7.alt"><img class="wf-ui" src="../Img/elearn/wf/ui-7.png" alt="" aria-hidden="true"><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item" aria-hidden="true"><img class="wf-base" src="../Img/elearn/wf/wire-1.png" alt=""><img class="wf-ui" src="../Img/elearn/wf/ui-1.png" alt=""><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item" aria-hidden="true"><img class="wf-base" src="../Img/elearn/wf/wire-2.png" alt=""><img class="wf-ui" src="../Img/elearn/wf/ui-2.png" alt=""><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item" aria-hidden="true"><img class="wf-base" src="../Img/elearn/wf/wire-3.png" alt=""><img class="wf-ui" src="../Img/elearn/wf/ui-3.png" alt=""><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item" aria-hidden="true"><img class="wf-base" src="../Img/elearn/wf/wire-4.png" alt=""><img class="wf-ui" src="../Img/elearn/wf/ui-4.png" alt=""><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item" aria-hidden="true"><img class="wf-base" src="../Img/elearn/wf/wire-5.png" alt=""><img class="wf-ui" src="../Img/elearn/wf/ui-5.png" alt=""><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item" aria-hidden="true"><img class="wf-base" src="../Img/elearn/wf/wire-6.png" alt=""><img class="wf-ui" src="../Img/elearn/wf/ui-6.png" alt=""><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item" aria-hidden="true"><img class="wf-base" src="../Img/elearn/wf/wire-7.png" alt=""><img class="wf-ui" src="../Img/elearn/wf/ui-7.png" alt=""><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item" aria-hidden="true"><img class="wf-base" src="../Img/elearn/wf/wire-1.png" alt=""><img class="wf-ui" src="../Img/elearn/wf/ui-1.png" alt=""><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item" aria-hidden="true"><img class="wf-base" src="../Img/elearn/wf/wire-2.png" alt=""><img class="wf-ui" src="../Img/elearn/wf/ui-2.png" alt=""><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item" aria-hidden="true"><img class="wf-base" src="../Img/elearn/wf/wire-3.png" alt=""><img class="wf-ui" src="../Img/elearn/wf/ui-3.png" alt=""><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item" aria-hidden="true"><img class="wf-base" src="../Img/elearn/wf/wire-4.png" alt=""><img class="wf-ui" src="../Img/elearn/wf/ui-4.png" alt=""><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item" aria-hidden="true"><img class="wf-base" src="../Img/elearn/wf/wire-5.png" alt=""><img class="wf-ui" src="../Img/elearn/wf/ui-5.png" alt=""><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item" aria-hidden="true"><img class="wf-base" src="../Img/elearn/wf/wire-6.png" alt=""><img class="wf-ui" src="../Img/elearn/wf/ui-6.png" alt=""><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item" aria-hidden="true"><img class="wf-base" src="../Img/elearn/wf/wire-7.png" alt=""><img class="wf-ui" src="../Img/elearn/wf/ui-7.png" alt=""><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item" aria-hidden="true"><img class="wf-base" src="../Img/elearn/wf/wire-1.png" alt=""><img class="wf-ui" src="../Img/elearn/wf/ui-1.png" alt=""><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item" aria-hidden="true"><img class="wf-base" src="../Img/elearn/wf/wire-2.png" alt=""><img class="wf-ui" src="../Img/elearn/wf/ui-2.png" alt=""><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item" aria-hidden="true"><img class="wf-base" src="../Img/elearn/wf/wire-3.png" alt=""><img class="wf-ui" src="../Img/elearn/wf/ui-3.png" alt=""><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item" aria-hidden="true"><img class="wf-base" src="../Img/elearn/wf/wire-4.png" alt=""><img class="wf-ui" src="../Img/elearn/wf/ui-4.png" alt=""><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item" aria-hidden="true"><img class="wf-base" src="../Img/elearn/wf/wire-5.png" alt=""><img class="wf-ui" src="../Img/elearn/wf/ui-5.png" alt=""><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item" aria-hidden="true"><img class="wf-base" src="../Img/elearn/wf/wire-6.png" alt=""><img class="wf-ui" src="../Img/elearn/wf/ui-6.png" alt=""><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
+          <figure class="wf-item" aria-hidden="true"><img class="wf-base" src="../Img/elearn/wf/wire-7.png" alt=""><img class="wf-ui" src="../Img/elearn/wf/ui-7.png" alt=""><span class="wf-hint" data-i18n="elearn.wf.back">View wireframe</span></figure>
         </div>
-        <p class="img-caption" data-i18n="elearn.process.low.cap">Low-fidelity wireframes — priority flows laid out in grey</p>
-      </div>
-
-      <div class="rv" style="margin-top:44px;">
-        <div class="img-placeholder has-img contain pad ph-wide" style="aspect-ratio:2160/580;">
-          <img src="../Img/elearn/elearn-wireframes-mid.webp" alt="Mid-fidelity wireframes with the Jalasoft logo, buttons and cards applied" data-i18n-attr="alt:elearn.process.mid.alt">
-        </div>
-        <p class="img-caption" data-i18n="elearn.process.mid.cap">Mid-fidelity — the same flows with real structure and brand</p>
       </div>
     </div>
   </section>
@@ -457,7 +498,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
           <h3 class="decision-title" data-i18n="elearn.dec.1.k">Rebalancing practice and theory</h3>
           <p class="decision-text" data-i18n="elearn.dec.1.t">Students and teachers both asked for more hands-on work. The UI coursework moved toward heavier practice, while UX kept its theoretical rigor, and the course pages make that balance visible.</p>
         </div>
-        <img class="decision-media bleed-img" src="../Img/elearn/elearn-student-home.webp" alt="Student app on two phones, showing the course tracks Full Stack Developer, Quality Assurance, DevOps, Automation Testing and Mobile Development" data-i18n-attr="alt:elearn.dec.1.alt" style="object-fit:cover;">
+        <img class="decision-media bleed-img" src="../Img/elearn/elearn-dec-1.png" alt="Student app on two phones, showing the course tracks Full Stack Developer, Quality Assurance, DevOps, Automation Testing and Mobile Development" data-i18n-attr="alt:elearn.dec.1.alt" style="object-fit:cover;">
       </div>
 
       <div class="decision reverse rv">
@@ -466,7 +507,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
           <h3 class="decision-title" data-i18n="elearn.dec.2.k">Teachers own the content</h3>
           <p class="decision-text" data-i18n="elearn.dec.2.t">Instead of central authorship, teachers upload their own curriculum. The people who know the subject control it, and students get a class view with progress per person.</p>
         </div>
-        <img class="decision-media bleed-img" src="../Img/elearn/elearn-teacher.webp" alt="Teacher screens on three phones: class calendar, a lesson with a voting poll and a ranked student list" data-i18n-attr="alt:elearn.dec.2.alt" style="object-fit:cover;">
+        <img class="decision-media bleed-img" src="../Img/elearn/elearn-dec-2.png" alt="Teacher screens on three phones: class calendar, a lesson with a voting poll and a ranked student list" data-i18n-attr="alt:elearn.dec.2.alt" style="object-fit:cover;">
       </div>
 
       <div class="decision rv">
@@ -475,7 +516,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
           <h3 class="decision-title" data-i18n="elearn.dec.3.k">A staged setup flow</h3>
           <p class="decision-text" data-i18n="elearn.dec.3.t">Creating a bootcamp runs in steps: course, then stacks, then assignments. Each step keeps the context of the one before, so admins never lose track of what they are configuring.</p>
         </div>
-        <img class="decision-media bleed-img" src="../Img/elearn/elearn-admin-setup.webp" alt="Admin bootcamp setup on three phones, from the empty form to students and teachers added per stack" data-i18n-attr="alt:elearn.dec.3.alt" style="object-fit:cover;">
+        <img class="decision-media bleed-img" src="../Img/elearn/elearn-dec-3.png" alt="Admin bootcamp setup on three phones, from the empty form to students and teachers added per stack" data-i18n-attr="alt:elearn.dec.3.alt" style="object-fit:cover;">
       </div>
     </div>
   </section>
@@ -488,7 +529,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
       <p class="sec-lede rv" data-i18n="elearn.ui.lede">Typography, color and components came from the system, so the product feels like part of the same company from the first screen.</p>
 
       <div class="rv">
-        <img class="bleed-img" src="../Img/elearn/elearn-design-system.webp" alt="Jalasoft design system board with Manrope typography and the red, grey and blue color palettes" data-i18n-attr="alt:elearn.ui.ds.alt">
+        <img class="bleed-img" src="../Img/elearn/elearn-design-system.png" alt="Jalasoft design system board with Manrope typography and the red, grey and blue color palettes" data-i18n-attr="alt:elearn.ui.ds.alt">
         <p class="img-caption" data-i18n="elearn.ui.ds.cap">Foundations — Manrope and the Jalasoft color system</p>
       </div>
 
@@ -498,18 +539,13 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
       </div>
 
       <div class="rv" style="margin-top:44px;">
-        <img class="bleed-img" src="../Img/elearn/elearn-leaderboard.webp" alt="Student profile with points and the leaderboard on two phones" data-i18n-attr="alt:elearn.ui.board.alt">
+        <img class="bleed-img" src="../Img/elearn/elearn-leaderboard.png" alt="Student profile with points and the leaderboard on two phones" data-i18n-attr="alt:elearn.ui.board.alt">
         <p class="img-caption" data-i18n="elearn.ui.board.cap">Student profile and leaderboard</p>
       </div>
 
       <div class="rv" style="margin-top:44px;">
-        <img class="bleed-img" src="../Img/elearn/elearn-landing.webp" alt="Elearn App landing page on a laptop, with a UX/UI Design Training hero and an About the course section" data-i18n-attr="alt:elearn.ui.landing.alt">
+        <img class="bleed-img" src="../Img/elearn/elearn-landing.png" alt="Elearn App landing page on a laptop, with a UX/UI Design Training hero and an About the course section" data-i18n-attr="alt:elearn.ui.landing.alt">
         <p class="img-caption" data-i18n="elearn.ui.landing.cap">Course landing page — schedule, what you will learn, certificate</p>
-      </div>
-
-      <div class="rv" style="margin-top:44px;">
-        <img class="bleed-img" src="../Img/elearn/elearn-admin-tablet.webp" alt="Admin views on two tablets, with lists of students and templates" data-i18n-attr="alt:elearn.ui.tablet.alt">
-        <p class="img-caption" data-i18n="elearn.ui.tablet.cap">Admin on tablet — lists built for scanning</p>
       </div>
     </div>
   </section>
@@ -547,11 +583,11 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
         <div>
           <div class="eyebrow" data-i18n="elearn.outcome.eyebrow">Outcome</div>
           <h2 class="sec-title" data-i18n-html="elearn.outcome.title">Taught to <span class="hl">100+ students</span> across LATAM</h2>
-          <p class="ov-text" style="font-size:16px;max-width:460px;margin-bottom:14px;" data-i18n="elearn.outcome.p1">The curriculum behind the app was taught across 9 bootcamp cohorts, reaching more than 100 students in Brazil and LATAM. The app itself was approved for the product roadmap and was in pre-development when I left the company.</p>
-          <p class="ov-text" style="font-size:16px;max-width:460px;" data-i18n="elearn.outcome.p2">The work led to two follow-up projects, the Blueprint design system and an internal employee training program, and I was recognized as a top-rated instructor.</p>
-          <a href="jalasoft.html" class="btn"><span data-i18n="elearn.outcome.cta">See the design system →</span></a>
+          <p class="ov-text" style="font-size:16px;max-width:460px;margin-bottom:14px;" data-i18n="elearn.outcome.p1">The curriculum behind the app was taught across 9 bootcamp cohorts, reaching more than 100 students in Brazil and LATAM.</p>
+          <p class="ov-text" style="font-size:16px;max-width:460px;" data-i18n="elearn.outcome.p2">The work led to two follow-up projects. Blueprint was the final project of the Jala University development degree, built by a large class of students, and I led and mentored more than 60 of them on its design. The other was an internal employee training program. That year, I was recognized as the best bootcamp teacher.</p>
+          <a href="https://lnkd.in/p/d49-p83h" class="btn" target="_blank" rel="noopener noreferrer"><span data-i18n="elearn.outcome.cta">See the LinkedIn post →</span></a>
         </div>
-        <div class="img-placeholder has-img contain pad" style="aspect-ratio:1/1;">
+        <div class="img-placeholder has-img" style="aspect-ratio:819/801;">
           <img src="../Img/elearn/elearn-linkedin.webp" alt="LinkedIn post celebrating the end of the semester, with recognition badges for best bootcamp teacher" data-i18n-attr="alt:elearn.outcome.img.alt">
         </div>
       </div>
@@ -641,5 +677,42 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   })();
 </script>
 
+<script>
+/* Lens: circular zoom that follows the cursor over the Key choices images */
+(function(){
+  if(!window.matchMedia("(hover:hover) and (pointer:fine)").matches) return;
+  var ZOOM=2.2, R=85;
+  var imgs=document.querySelectorAll("img.decision-media");
+  if(!imgs.length) return;
+  var lens=document.createElement("div");
+  lens.className="lens"; lens.setAttribute("aria-hidden","true");
+  document.body.appendChild(lens);
+  imgs.forEach(function(img){
+    img.classList.add("lens-target");
+    img.addEventListener("mouseenter",function(){
+      lens.style.backgroundImage='url("'+(img.currentSrc||img.src)+'")';
+      lens.classList.add("is-on");
+    });
+    img.addEventListener("mouseleave",function(){lens.classList.remove("is-on");});
+    img.addEventListener("mousemove",function(e){
+      var r=img.getBoundingClientRect(), nw=img.naturalWidth, nh=img.naturalHeight;
+      if(!nw||!nh) return;
+      var cover=getComputedStyle(img).objectFit==="cover";
+      var sc=(cover?Math.max:Math.min)(r.width/nw,r.height/nh);
+      var dw=nw*sc, dh=nh*sc, ox=(r.width-dw)/2, oy=(r.height-dh)/2;
+      var x=e.clientX-r.left-ox, y=e.clientY-r.top-oy;
+      lens.style.left=e.clientX+"px"; lens.style.top=e.clientY+"px";
+      lens.style.backgroundSize=(dw*ZOOM)+"px "+(dh*ZOOM)+"px";
+      lens.style.backgroundPosition=(R-x*ZOOM)+"px "+(R-y*ZOOM)+"px";
+    });
+  });
+})();
+</script>
+<script>
+document.querySelectorAll('.wf-item').forEach(function(f){
+  f.addEventListener('mouseenter',function(){f.classList.add('is-ui');});
+  f.addEventListener('click',function(){f.classList.remove('is-ui');});
+});
+</script>
 </body>
 </html>

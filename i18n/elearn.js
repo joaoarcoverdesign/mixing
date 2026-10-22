@@ -157,29 +157,16 @@ window.I18N_PAGE_STRINGS = {
   },
   "elearn.process.1": { en: "Stakeholder interviews", pt: "Entrevistas com stakeholders", es: "Entrevistas con stakeholders" },
   "elearn.process.2": { en: "Affinity mapping & Value Proposition Canvas", pt: "Mapa de afinidade e Value Proposition Canvas", es: "Mapa de afinidad y Value Proposition Canvas" },
-  "elearn.process.3": { en: "Journey mapping & wireframes", pt: "Jornadas e wireframes", es: "Journeys y wireframes" },
-  "elearn.process.4": { en: "High-fidelity UI on the Jalasoft design system", pt: "UI de alta fidelidade no design system da Jalasoft", es: "UI de alta fidelidad sobre el design system de Jalasoft" },
-  "elearn.process.low.alt": {
-    en: "Low-fidelity wireframes of the login, admin welcome and bootcamp setup screens",
-    pt: "Wireframes de baixa fidelidade das telas de login, boas-vindas do admin e criação de bootcamp",
-    es: "Wireframes de baja fidelidad de las pantallas de login, bienvenida del admin y creación de bootcamp"
-  },
-  "elearn.process.low.cap": {
-    en: "Low-fidelity wireframes — priority flows laid out in grey",
-    pt: "Wireframes de baixa fidelidade — fluxos prioritários desenhados em cinza",
-    es: "Wireframes de baja fidelidad — flujos prioritarios dibujados en gris"
-  },
-  "elearn.process.mid.alt": {
-    en: "Mid-fidelity wireframes with the Jalasoft logo, buttons and cards applied",
-    pt: "Wireframes de média fidelidade com logo, botões e cards da Jalasoft aplicados",
-    es: "Wireframes de media fidelidad con el logo, botones y cards de Jalasoft aplicados"
-  },
-  "elearn.process.mid.cap": {
-    en: "Mid-fidelity — the same flows with real structure and brand",
-    pt: "Média fidelidade — os mesmos fluxos com estrutura real e marca",
-    es: "Media fidelidad — los mismos flujos con estructura real y marca"
-  },
-
+  "elearn.process.3": { en: "Journey mapping", pt: "Jornadas", es: "Journeys" },
+  "elearn.process.4": { en: "Wireframes & high-fidelity UI", pt: "Wireframes e UI de alta fidelidade", es: "Wireframes y UI de alta fidelidad" },
+  "elearn.wf.back": { en: "View wireframe", pt: "Ver wireframe", es: "Ver wireframe" },
+  "elearn.wf.1.alt": { en: "Wireframe: Login", pt: "Wireframe: Login", es: "Wireframe: Login" },
+  "elearn.wf.2.alt": { en: "Wireframe: Admin welcome", pt: "Wireframe: Boas-vindas do admin", es: "Wireframe: Bienvenida del admin" },
+  "elearn.wf.3.alt": { en: "Wireframe: New bootcamp form", pt: "Wireframe: Formulário de novo bootcamp", es: "Wireframe: Formulario de nuevo bootcamp" },
+  "elearn.wf.4.alt": { en: "Wireframe: Bootcamp list", pt: "Wireframe: Lista de bootcamps", es: "Wireframe: Lista de bootcamps" },
+  "elearn.wf.5.alt": { en: "Wireframe: Bootcamp set up, empty", pt: "Wireframe: Configuração do bootcamp, vazia", es: "Wireframe: Configuración del bootcamp, vacía" },
+  "elearn.wf.6.alt": { en: "Wireframe: Bootcamp set up, with students and teachers", pt: "Wireframe: Configuração do bootcamp, com alunos e professores", es: "Wireframe: Configuración del bootcamp, con alumnos y profesores" },
+  "elearn.wf.7.alt": { en: "Wireframe: Add teacher to module", pt: "Wireframe: Adicionar professor ao módulo", es: "Wireframe: Añadir profesor al módulo" },
   /* ─────────── DESIGN DECISIONS ─────────── */
   "elearn.dec.eyebrow": { en: "Design Decisions", pt: "Decisões de design", es: "Decisiones de diseño" },
   "elearn.dec.title": {
@@ -338,16 +325,16 @@ window.I18N_PAGE_STRINGS = {
     es: "Enseñado a <span class=\"hl\">más de 100 estudiantes</span> en LATAM"
   },
   "elearn.outcome.p1": {
-    en: "The curriculum behind the app was taught across 9 bootcamp cohorts, reaching more than 100 students in Brazil and LATAM. The app itself was approved for the product roadmap and was in pre-development when I left the company.",
-    pt: "O currículo por trás do app foi ensinado em 9 turmas de bootcamp, alcançando mais de 100 alunos no Brasil e na América Latina. O app em si foi aprovado para o roadmap de produto e estava em pré-desenvolvimento quando saí da empresa.",
-    es: "El currículo detrás de la app se enseñó en 9 cohortes de bootcamp, alcanzando a más de 100 estudiantes en Brasil y LATAM. La app en sí fue aprobada para el roadmap de producto y estaba en pre-desarrollo cuando dejé la empresa."
+    en: "The curriculum behind the app was taught across 9 bootcamp cohorts, reaching more than 100 students in Brazil and LATAM.",
+    pt: "O currículo por trás do app foi ensinado em 9 turmas de bootcamp, alcançando mais de 100 alunos no Brasil e na América Latina.",
+    es: "El currículo detrás de la app se enseñó en 9 cohortes de bootcamp, alcanzando a más de 100 estudiantes en Brasil y LATAM."
   },
   "elearn.outcome.p2": {
-    en: "The work led to two follow-up projects, the Blueprint design system and an internal employee training program, and I was recognized as a top-rated instructor.",
-    pt: "O trabalho levou a dois projetos seguintes, o design system Blueprint e um programa interno de treinamento de colaboradores, e fui reconhecido como instrutor muito bem avaliado.",
-    es: "El trabajo llevó a dos proyectos posteriores, el design system Blueprint y un programa interno de capacitación de empleados, y fui reconocido como instructor muy bien valorado."
+    en: "The work led to two follow-up projects. Blueprint was the final project of the Jala University development degree, built by a large class of students, and I led and mentored more than 60 of them on its design. The other was an internal employee training program. That year, I was recognized as the best bootcamp teacher.",
+    pt: "O trabalho levou a dois projetos seguintes. O Blueprint foi o projeto final da graduação de desenvolvimento da Jala University, feito por uma turma grande de alunos, da qual liderei e mentorei mais de 60 no design. O outro foi um programa interno de treinamento de colaboradores. Nesse ano, fui reconhecido como melhor professor do bootcamp.",
+    es: "El trabajo llevó a dos proyectos posteriores. Blueprint fue el proyecto final de la graduación de desarrollo de Jala University, hecho por una clase grande de alumnos, de la cual lideré y mentoreé a más de 60 en el diseño. El otro fue un programa interno de capacitación de empleados. Ese año, fui reconocido como el mejor profesor del bootcamp."
   },
-  "elearn.outcome.cta": { en: "See the design system →", pt: "Ver o design system →", es: "Ver el design system →" },
+  "elearn.outcome.cta": { en: "See the LinkedIn post →", pt: "Ver o post no LinkedIn →", es: "Ver el post en LinkedIn →" },
   "elearn.outcome.img.alt": {
     en: "LinkedIn post celebrating the end of the semester, with recognition badges for best bootcamp teacher",
     pt: "Post no LinkedIn celebrando o fim do semestre, com selos de reconhecimento como melhor professor do bootcamp",

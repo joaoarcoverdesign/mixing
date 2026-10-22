@@ -343,6 +343,26 @@
       es: "Feedback positivo de los equipos Agile"
     },
 
+    "home.card8.alt": {
+      en: "Elearn App — learning platform for bootcamp students, teachers and admins",
+      pt: "Elearn App — plataforma de aprendizado para alunos, professores e administradores de bootcamps",
+      es: "Elearn App — plataforma de aprendizaje para estudiantes, profesores y administradores de bootcamps"
+    },
+    "home.card8.name": { en: "Elearn App", pt: "Elearn App", es: "Elearn App" },
+    "home.card8.desc": {
+      en: "One learning platform for students, teachers and admins at Jalasoft and Jala University bootcamps.",
+      pt: "Uma plataforma de aprendizado para alunos, professores e administradores dos bootcamps da Jalasoft e da Jala University.",
+      es: "Una plataforma de aprendizaje para estudiantes, profesores y administradores de los bootcamps de Jalasoft y Jala University."
+    },
+    "home.card8.tag1": { en: "Edtech", pt: "Edtech", es: "Edtech" },
+    "home.card8.tag2": { en: "Product Design", pt: "Design de Produto", es: "Diseño de Producto" },
+    "home.card8.tag3": { en: "0 → 1", pt: "0 → 1", es: "0 → 1" },
+    "home.card8.link": {
+      en: "Taught to 100+ students",
+      pt: "Ensinado a mais de 100 alunos",
+      es: "Enseñado a más de 100 estudiantes"
+    },
+
     "home.testi.label": { en: "Testimonials", pt: "Depoimentos", es: "Testimonios" },
     "home.testi.title": {
       en: 'What people <em>are saying</em>',
