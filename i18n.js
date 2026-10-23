@@ -453,20 +453,20 @@
       es: "Acerca — João Abdalla — Diseñador de Producto Senior · UX/UI"
     },
     "about.meta.description": {
-      en: "Senior Product Designer with 20+ years shipping digital products across edtech, fintech, and enterprise SaaS. Based in Brazil, working remotely with US and EU teams.",
-      pt: "Designer de Produto Sênior com mais de 20 anos entregando produtos digitais em edtech, fintech e SaaS corporativo. Baseado no Brasil, trabalhando remotamente com times dos EUA, LATAM e da Europa.",
-      es: "Diseñador de Producto Senior con más de 20 años entregando productos digitales en edtech, fintech y SaaS corporativo. Radicado en Brasil, trabajando en remoto con equipos de EE. UU. y Europa."
+      en: "Senior Product Designer shipping digital products across edtech, fintech, and enterprise SaaS. Based in Brazil, working remotely with US and EU teams.",
+      pt: "Designer de Produto Sênior entregando produtos digitais em edtech, fintech e SaaS corporativo. Baseado no Brasil, trabalhando remotamente com times dos EUA, LATAM e da Europa.",
+      es: "Diseñador de Producto Senior entregando productos digitales en edtech, fintech y SaaS corporativo. Radicado en Brasil, trabajando en remoto con equipos de EE. UU. y Europa."
     },
     "about.hero.label": { en: "About", pt: "Sobre", es: "Acerca" },
     "about.hero.title": {
-      en: 'Senior Product Designer with <i>20+ years</i> shipping digital products across edtech, fintech, and enterprise SaaS.',
-      pt: 'Designer de Produto Sênior com <i>mais de 20 anos</i> entregando produtos digitais em edtech, fintech e SaaS corporativo.',
-      es: 'Diseñador de Producto Senior con <i>más de 20 años</i> entregando productos digitales en edtech, fintech y SaaS corporativo.'
+      en: 'I design the screens <i>nobody wants to&nbsp;design.</i>',
+      pt: 'Eu desenho as telas que <i>ninguém quer&nbsp;desenhar.</i>',
+      es: 'Diseño las pantallas que <i>nadie quiere&nbsp;diseñar.</i>'
     },
     "about.hero.lede": {
-      en: "I'm João Abdalla — based in Brazil, working remotely with international teams.",
-      pt: "Sou o João Abdalla — baseado no Brasil, trabalhando remotamente com times internacionais.",
-      es: "Soy João Abdalla — radicado en Brasil, trabajando en remoto con equipos internacionales."
+      en: "Permissions, verification, admin portals, messy workflows. I turn them into products people actually trust.",
+      pt: "Permissões, verificação, portais de admin, fluxos bagunçados. Eu transformo isso em produtos em que as pessoas realmente confiam.",
+      es: "Permisos, verificación, portales de admin, flujos desordenados. Los convierto en productos en los que la gente realmente confía."
     },
     "about.hero.status": {
       en: "Available for remote collaboration",
@@ -478,14 +478,8 @@
       pt: 'Baseado em <b>Brasília, Brasil</b> · times dos <b>EUA, LATAM e da Europa</b>',
       es: 'Radicado en <b>Brasilia, Brasil</b> · equipos de <b>EE. UU. y Europa</b>'
     },
-    "about.badge.a.num": {
-      en: 'Since <i>2005</i>', pt: 'Desde <i>2005</i>', es: 'Desde <i>2005</i>'
-    },
-    "about.badge.a.lab": {
-      en: "Marketing & digital design",
-      pt: "Marketing e design digital",
-      es: "Marketing y diseño digital"
-    },
+    "about.hobby.chess.t": { en: "Challenge me at chess", pt: "Me desafie no xadrez", es: "Desafíame al ajedrez" },
+    "about.hobby.chess.d": { en: "Let’s play on Chess.com", pt: "Vamos jogar no Chess.com", es: "Juguemos en Chess.com" },
     "about.badge.b.num": {
       en: '<i>8M+</i> users', pt: '<i>8M+</i> usuários', es: '<i>8M+</i> usuarios'
     },
@@ -500,9 +494,9 @@
       es: '🎓 Enseño UX/UI y Figma en <b>Jala University</b>'
     },
     "about.stat.1": {
-      en: "Years across UX/UI, product strategy & front-end",
-      pt: "Anos entre UX/UI, estratégia de produto e front-end",
-      es: "Años entre UX/UI, estrategia de producto y front-end"
+      en: "UX/UI, product strategy & front-end in one designer",
+      pt: "UX/UI, estratégia de produto e front-end em um só designer",
+      es: "UX/UI, estrategia de producto y front-end en un solo diseñador"
     },
     "about.stat.2": {
       en: "Active users on Brazil's largest exam-prep platform",
@@ -529,9 +523,9 @@
     },
     "about.ch1.name": { en: "Foundation", pt: "Base", es: "Base" },
     "about.ch1.text": {
-      en: "I graduated in <b>2005</b> with a specialization in marketing and digital design, and over the past 20+ years I've worked across <b>UX/UI, product strategy, and front-end development</b> — designing products where the stakes are real: compliance, payroll, healthcare decisions, financial data.",
-      pt: "Me formei em <b>2005</b> com especialização em marketing e design digital e, nos últimos 20+ anos, trabalhei entre <b>UX/UI, estratégia de produto e desenvolvimento front-end</b> — desenhando produtos em que o risco é real: compliance, folha de pagamento, decisões de saúde, dados financeiros.",
-      es: "Me gradué en <b>2005</b> con una especialización en marketing y diseño digital y, durante los últimos 20+ años, he trabajado entre <b>UX/UI, estrategia de producto y desarrollo front-end</b> — diseñando productos donde lo que está en juego es real: compliance, nóminas, decisiones de salud, datos financieros."
+      en: "I graduated in <b>2005</b> with a specialization in marketing and digital design, and since then I've worked across <b>UX/UI, product strategy, and front-end development</b>, designing products where the stakes are real: compliance, payroll, healthcare decisions, financial data.",
+      pt: "Me formei em <b>2005</b> com especialização em marketing e design digital e, desde então, trabalhei entre <b>UX/UI, estratégia de produto e desenvolvimento front-end</b>, desenhando produtos em que o risco é real: compliance, folha de pagamento, decisões de saúde, dados financeiros.",
+      es: "Me gradué en <b>2005</b> con una especialización en marketing y diseño digital y, desde entonces, he trabajado entre <b>UX/UI, estrategia de producto y desarrollo front-end</b>, diseñando productos donde lo que está en juego es real: compliance, nóminas, decisiones de salud, datos financieros."
     },
     "about.ch2.name": { en: "Scale", pt: "Escala", es: "Escala" },
     "about.ch2.text": {

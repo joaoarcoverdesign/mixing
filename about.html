@@ -2,27 +2,28 @@
 <html lang="en" data-i18n-page="about">
 <head>
 <script src="i18n.js"></script>
+<script src="koi.js"></script>
 <script src="analytics.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="Img/favicon.png">
 <link rel="apple-touch-icon" href="Img/favicon.png">
 <title>About — João Abdalla — Senior Product Designer · UX/UI</title>
-<meta name="description" content="Senior Product Designer with 20+ years shipping digital products across edtech, fintech, and enterprise SaaS. Based in Brazil, working remotely with US and EU teams.">
+<meta name="description" content="Senior Product Designer shipping digital products across edtech, fintech, and enterprise SaaS. Based in Brazil, working remotely with US and EU teams.">
 <link rel="canonical" href="https://abdalladesign.vercel.app/about.html">
 <!-- Open Graph / social preview -->
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="Abdalla Design">
 <meta property="og:url" content="https://abdalladesign.vercel.app/about.html">
 <meta property="og:title" content="About — João Abdalla — Senior Product Designer · UX/UI">
-<meta property="og:description" content="Senior Product Designer with 20+ years shipping digital products across edtech, fintech, and enterprise SaaS. Based in Brazil, working remotely with US and EU teams.">
+<meta property="og:description" content="Senior Product Designer shipping digital products across edtech, fintech, and enterprise SaaS. Based in Brazil, working remotely with US and EU teams.">
 <meta property="og:image" content="https://abdalladesign.vercel.app/Img/og-cover.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Selected work by João Abdalla — product and UX/UI design projects">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="About — João Abdalla — Senior Product Designer · UX/UI">
-<meta name="twitter:description" content="Senior Product Designer with 20+ years shipping digital products across edtech, fintech, and enterprise SaaS. Based in Brazil, working remotely with US and EU teams.">
+<meta name="twitter:description" content="Senior Product Designer shipping digital products across edtech, fintech, and enterprise SaaS. Based in Brazil, working remotely with US and EU teams.">
 <meta name="twitter:image" content="https://abdalladesign.vercel.app/Img/og-cover.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -176,6 +177,7 @@ section{position:relative;}
   color:var(--accent);
 }
 .kinetic-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+.koi-canvas{z-index:0;}
 @media (prefers-reduced-motion:reduce){.kinetic-canvas{display:none;}}
 
 /* ════════ ABOUT HERO ════════ */
@@ -196,6 +198,8 @@ section{position:relative;}
   line-height:1.14;letter-spacing:-.025em;
 }
 .about-hero-title i{color:var(--accent);font-style:normal;}
+.about-hero-title{text-wrap:balance;}
+.about-hero .sec-label{color:var(--white);width:fit-content;padding:6px 12px 6px 10px;margin-left:-10px;border-radius:99px;background:rgba(17,22,26,.82);}
 .about-hero-lede{
   margin-top:clamp(22px,3vh,30px);
   font-family:var(--serif);font-style:italic;font-weight:500;
@@ -252,13 +256,22 @@ section{position:relative;}
 .portrait-badge .num{font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--white);line-height:1;}
 .portrait-badge .num i{color:var(--accent);font-style:normal;}
 .portrait-badge .lab{margin-top:3px;font-size:10.5px;letter-spacing:.06em;color:var(--muted);white-space:nowrap;}
-.badge-a{top:-4%;left:-16%;animation-delay:0s;}
-.badge-b{bottom:2%;right:-18%;animation-delay:-3s;}
+.badge-a{top:6%;left:-6%;animation-delay:0s;}
+.hobby-badge{display:flex;align-items:center;gap:0;color:inherit;text-decoration:none;padding:8px;border-radius:16px;transition:gap .3s var(--ease),padding .3s var(--ease),border-color .25s var(--ease);}
+.hobby-badge:hover,.hobby-badge:focus-visible,.hobby-badge:focus-within{border-color:var(--accent);gap:12px;padding:8px 16px 8px 8px;}
+.hobby-ico{flex:0 0 auto;width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(194,252,80,.12);color:var(--accent);}
+.hobby-ico svg{width:22px;height:22px;}
+.hobby-txt{display:flex;flex-direction:column;max-width:0;opacity:0;overflow:hidden;white-space:nowrap;transition:max-width .35s var(--ease),opacity .25s var(--ease);}
+.hobby-badge:hover .hobby-txt,.hobby-badge:focus-visible .hobby-txt,.hobby-badge:focus-within .hobby-txt{max-width:260px;opacity:1;}
+.hobby-badge .num{font-size:16px;}
+.hobby-badge .lab{transition:color .25s var(--ease);}
+.hobby-badge .lab:hover{color:var(--accent);text-decoration:underline;text-underline-offset:3px;}
+.badge-b{bottom:6%;right:-16%;animation-delay:-3s;}
 @keyframes float-badge{
   0%,100%{transform:translateY(0);}
   50%{transform:translateY(-8px);}
 }
-@media (max-width:900px){.badge-a{left:-6%;}.badge-b{right:-6%;}}
+@media (max-width:900px){.badge-a{left:0;}.badge-b{right:-6%;}}
 @media (max-width:560px){.portrait-badge{display:none;}}
 @media (prefers-reduced-motion:reduce){.portrait-badge{animation:none;}}
 
@@ -377,13 +390,14 @@ section{position:relative;}
 <!-- ════════ ABOUT HERO ════════ -->
 <section class="about-hero" id="about">
   <canvas class="kinetic-canvas" id="kineticCanvas" aria-hidden="true"></canvas>
+  <canvas class="kinetic-canvas koi-canvas" id="koiCanvas" aria-hidden="true"></canvas>
   <div class="about-hero-glow" aria-hidden="true"></div>
 
   <div class="about-hero-grid">
     <div class="about-hero-copy rv">
       <span class="sec-label" data-i18n="about.hero.label">About</span>
-      <h1 class="about-hero-title" data-i18n-html="about.hero.title">Senior Product Designer with <i>20+ years</i> shipping digital products across edtech, fintech, and enterprise SaaS.</h1>
-      <p class="about-hero-lede" data-i18n="about.hero.lede">I'm João Abdalla — based in Brazil, working remotely with international teams.</p>
+      <h1 class="about-hero-title" data-i18n-html="about.hero.title">I design the screens <i>nobody wants to&nbsp;design.</i></h1>
+      <p class="about-hero-lede" data-i18n="about.hero.lede">Permissions, verification, admin portals, messy workflows. I turn them into products people actually trust.</p>
       <div class="about-hero-meta">
         <span class="status-pill"><span class="status-dot" aria-hidden="true"></span> <span data-i18n="about.hero.status">Available for remote collaboration</span></span>
         <span class="meta-loc" data-i18n-html="about.hero.loc">Based in <b>Brasília, Brazil</b> · <b>US &amp; EU</b> teams</span>
@@ -396,10 +410,10 @@ section{position:relative;}
         <div class="portrait-frame">
           <img src="Img/joao%20avatar%20grtande.jpg" alt="João Abdalla, Senior Product Designer" loading="eager">
         </div>
-        <div class="portrait-badge badge-a">
-          <div class="num" data-i18n-html="about.badge.a.num">Since <i>2005</i></div>
-          <div class="lab" data-i18n="about.badge.a.lab">Marketing &amp; digital design</div>
-        </div>
+        <a class="portrait-badge hobby-badge badge-a" href="https://www.chess.com/member/abdallajow" target="_blank" rel="noopener">
+          <span class="hobby-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 22H5v-2h14zM13 2c-1.25 0-2.42.62-3.11 1.66L7 8l2 2l2.06-1.37c.44-.31 1.08-.19 1.39.27c.02.03.05.06.05.1c.3.59.19 1.3-.28 1.77l-4.8 4.8c-.55.56-.55 1.46.01 2.01c.26.26.62.42.99.42H17V6a4 4 0 0 0-4-4"/></svg></span>
+          <span class="hobby-txt"><span class="num" data-i18n="about.hobby.chess.t">Challenge me at chess</span><span class="lab" data-i18n="about.hobby.chess.d">Let’s play on Chess.com</span></span>
+        </a>
         <div class="portrait-badge badge-b">
           <div class="num" data-i18n-html="about.badge.b.num"><i>8M+</i> users</div>
           <div class="lab" data-i18n="about.badge.b.lab">Platform led at scale</div>
@@ -413,7 +427,7 @@ section{position:relative;}
 <!-- ════════ STATS STRIP ════════ -->
 <section class="sec-pad about-stats" style="padding-top:clamp(50px,7vh,80px);padding-bottom:clamp(50px,7vh,80px);">
   <div class="about-stats-row">
-    <div class="a-stat rv"><div class="num">20<i>+</i></div><div class="lab" data-i18n="about.stat.1">Years across UX/UI, product strategy &amp; front-end</div></div>
+    <div class="a-stat rv"><div class="num">3<i>in</i>1</div><div class="lab" data-i18n="about.stat.1">UX/UI, product strategy &amp; front-end in one designer</div></div>
     <div class="a-stat rv"><div class="num"><i>8M+</i></div><div class="lab" data-i18n="about.stat.2">Active users on Brazil's largest exam-prep platform</div></div>
     <div class="a-stat rv"><div class="num">0<i>→</i>1</div><div class="lab" data-i18n="about.stat.3">Multi-role enterprise systems built from zero</div></div>
     <div class="a-stat rv"><div class="num"><i>LATAM</i></div><div class="lab" data-i18n="about.stat.4">Designers &amp; engineers trained at Jala University</div></div>
@@ -433,7 +447,7 @@ section{position:relative;}
     <div class="chapter rv">
       <span class="chapter-idx">/ 01</span>
       <h3 class="chapter-name" data-i18n="about.ch1.name">Foundation</h3>
-      <p class="chapter-text" data-i18n-html="about.ch1.text">I graduated in <b>2005</b> with a specialization in marketing and digital design, and over the past 20+ years I've worked across <b>UX/UI, product strategy, and front-end development</b> — designing products where the stakes are real: compliance, payroll, healthcare decisions, financial data.</p>
+      <p class="chapter-text" data-i18n-html="about.ch1.text">I graduated in <b>2005</b> with a specialization in marketing and digital design, and since then I've worked across <b>UX/UI, product strategy, and front-end development</b>, designing products where the stakes are real: compliance, payroll, healthcare decisions, financial data.</p>
     </div>
 
     <div class="chapter rv">
@@ -727,6 +741,7 @@ section{position:relative;}
     }
   }
 
+  initKoi(document.getElementById("koiCanvas"), document.querySelector(".about-hero"));
   initKineticCanvas(document.getElementById("kineticCanvas"), document.querySelector(".about-hero"));
   initKineticCanvas(document.getElementById("kineticCanvas2"), document.getElementById("contactWrap"));
 

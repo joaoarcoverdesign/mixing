@@ -3,6 +3,7 @@
 
 <head>
   <script src="i18n.js"></script>
+<script src="koi.js"></script>
   <script src="analytics.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1701,6 +1702,7 @@
     <!-- ════════ HERO ════════ -->
     <section class="hero2">
       <canvas class="kinetic-canvas" id="kineticCanvas" aria-hidden="true"></canvas>
+      <canvas class="kinetic-canvas" id="koiCanvas" aria-hidden="true"></canvas>
       <div class="hero2-glow" aria-hidden="true"></div>
       <div class="hero2-content">
         <h1 class="hero2-title" data-i18n-html="home.hero.title">Senior Product Designer <span class="sep">•</span> UX
@@ -2260,6 +2262,7 @@
       }
 
       initKineticCanvas(document.getElementById("kineticCanvas"), document.querySelector(".hero2"));
+      initKoi(document.getElementById("koiCanvas"), document.querySelector(".hero2"));
       initKineticCanvas(document.getElementById("kineticCanvas2"), document.getElementById("testiClosingWrap"));
 
       /* smooth in-page anchor scroll — eased scroll animation instead of an instant jump,
