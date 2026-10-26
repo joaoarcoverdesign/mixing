@@ -383,6 +383,26 @@
       es: "Del concepto al prototipo navegable"
     },
 
+    "home.card10.alt": {
+      en: "Car Air Comfort — app to set the car temperature before the trip",
+      pt: "Car Air Comfort — app para ajustar a temperatura do carro antes da viagem",
+      es: "Car Air Comfort — app para ajustar la temperatura del auto antes del viaje"
+    },
+    "home.card10.name": { en: "Car Air Comfort", pt: "Car Air Comfort", es: "Car Air Comfort" },
+    "home.card10.desc": {
+      en: "An app that cools the car before you get in.",
+      pt: "Um app que resfria o carro antes de você entrar.",
+      es: "Una app que enfría el auto antes de que subas."
+    },
+    "home.card10.tag1": { en: "Mobile App", pt: "App mobile", es: "App móvil" },
+    "home.card10.tag2": { en: "UX Research", pt: "Pesquisa UX", es: "Investigación UX" },
+    "home.card10.tag3": { en: "Concept", pt: "Conceito", es: "Concepto" },
+    "home.card10.link": {
+      en: "From mind map to prototype",
+      pt: "Do mapa mental ao protótipo",
+      es: "Del mapa mental al prototipo"
+    },
+
     "home.testi.label": { en: "Testimonials", pt: "Depoimentos", es: "Testimonios" },
     "home.testi.title": {
       en: 'What people <em>are saying</em>',

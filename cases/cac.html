@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en" data-i18n-page="cac">
+<head>
+<script src="../analytics.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../Img/favicon.png">
+<link rel="apple-touch-icon" href="../Img/favicon.png">
+<script src="../i18n/cac.js"></script>
+<script src="../i18n.js"></script>
+<title>Car Air Comfort — Car Temperature App | Abdalla Design</title>
+<meta name="description" content="A mobile app that cools the car before you get in, so it is already at the right temperature when the trip starts.">
+<link rel="canonical" href="https://abdalladesign.vercel.app/cases/cac.html">
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Abdalla Design">
+<meta property="og:url" content="https://abdalladesign.vercel.app/cases/cac.html">
+<meta property="og:title" content="Car Air Comfort — Car Temperature App | Abdalla Design">
+<meta property="og:description" content="A mobile app that cools the car before you get in, so it is already at the right temperature when the trip starts.">
+<meta property="og:image" content="https://abdalladesign.vercel.app/Img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Selected work by João Abdalla — product and UX/UI design projects">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Car Air Comfort — Car Temperature App | Abdalla Design">
+<meta name="twitter:description" content="A mobile app that cools the car before you get in, so it is already at the right temperature when the trip starts.">
+<meta name="twitter:image" content="https://abdalladesign.vercel.app/Img/og-cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* abdalladesign visual identity — matches index.html (Arcoverdesign v5) */
+  --bg:#11161A;
+  --bg-deep:#0C1013;
+  --surface:#1A2025;
+  --ink:#F4F6F3;
+  --ink-soft:#9BA4AA;
+  --ink-dim:#5E676D;
+  --num-dim:#333B41;
+  --line:rgba(255,255,255,.08);
+  --line-soft:rgba(255,255,255,.05);
+  --accent:#C2FC50;
+  --accent-soft:rgba(194,252,80,.12);
+  --radius-lg:16px;
+  --radius-md:14px;
+  --sans:'Urbanist', sans-serif;
+  --body:'Urbanist', sans-serif;
+  --serif:'Lora', Georgia, serif;
+  --px: clamp(20px, 5vw, 72px);
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6;
+}
+::selection{background:var(--accent);color:var(--bg-deep);}
+a{color:inherit;text-decoration:none;}
+button{font:inherit;background:none;border:none;cursor:pointer;color:inherit;}
+img{max-width:100%;display:block;}
+ul,ol{list-style:none;}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
+.container{max-width:1160px;margin:0 auto;padding:0 var(--px);}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;transition:transform .5s var(--ease);}
+nav.is-hidden{transform:translateY(-110%);}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px var(--px);
+  background:linear-gradient(rgba(12,16,19,.85),rgba(12,16,19,.4) 70%,transparent);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+}
+.nav-brand{display:flex;align-items:center;gap:13px;}
+.nav-avatar{width:44px;height:44px;border-radius:50%;flex:0 0 auto;object-fit:cover;border:2px solid var(--ink);}
+.nav-brand-text{display:flex;flex-direction:column;line-height:1.2;}
+.nav-name{font-family:var(--sans);font-weight:700;font-size:17px;letter-spacing:-.01em;color:var(--ink);}
+.nav-role{font-family:var(--sans);font-weight:400;font-size:12px;color:var(--ink-soft);margin-top:1px;}
+@media (max-width:480px){.nav-role{display:none;}}
+.nav-links{display:flex;gap:34px;list-style:none;align-items:center;}
+.nav-links a{
+  font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-soft);position:relative;padding:4px 0;transition:color .25s;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;
+  background:var(--accent);transform:scaleX(0);transform-origin:right;
+  transition:transform .4s var(--ease);
+}
+.nav-links a:hover{color:var(--ink);}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left;}
+@media (max-width:720px){.nav-links{gap:20px;}}
+
+/* mobile: hamburger + dropdown panel */
+.nav-toggle{display:none;}
+.nav-toggle svg{width:22px;height:22px;}
+.nav-toggle .icon-close{display:none;}
+.nav-lang-slot{display:none;}
+@media (max-width:760px){
+  .nav-toggle{
+    display:flex;align-items:center;justify-content:center;
+    width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
+    color:var(--ink);flex:0 0 auto;
+  }
+  .nav-lang-slot{display:inline-flex;margin-left:auto;margin-right:14px;}
+  .nav-links .lang-switch-li{display:none;}
+  nav.is-open .nav-toggle .icon-open{display:none;}
+  nav.is-open .nav-toggle .icon-close{display:block;}
+  .nav-links{
+    position:absolute;top:calc(100% - 6px);left:var(--px);right:var(--px);
+    flex-direction:column;align-items:stretch;gap:0;
+    background:var(--bg-deep);border:1px solid var(--line);border-radius:14px;
+    padding:6px;
+    opacity:0;transform:translateY(-8px);pointer-events:none;
+    transition:opacity .3s var(--ease),transform .3s var(--ease);
+  }
+  nav.is-open .nav-links{opacity:1;transform:none;pointer-events:auto;}
+  nav.is-open.is-hidden{transform:none;}
+  .nav-links li{border-bottom:1px solid var(--line);}
+  .nav-links li:last-child,
+  .nav-links li:nth-last-child(2){border-bottom:0;}
+  .nav-links a{display:block;padding:15px 14px;font-size:13px;letter-spacing:.12em;color:var(--ink);}
+  .nav-links a::after{display:none;}
+}
+
+/* HERO */
+.hero{padding:140px var(--px) 56px;}
+.hero-title{font-family:var(--sans);font-weight:800;font-size:clamp(32px,5.2vw,56px);line-height:1.06;letter-spacing:-.02em;margin-bottom:14px;color:var(--ink);}
+.hero-sub{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(18px,2.2vw,22px);color:var(--ink);opacity:.85;margin-bottom:24px;}
+.hero-text{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:640px;margin-bottom:40px;}
+.hero-specs{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid var(--line);padding-top:28px;margin-bottom:48px;}
+.spec-label{font-family:var(--sans);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-dim);margin-bottom:8px;}
+.spec-value{font-size:15px;font-weight:700;line-height:1.4;color:var(--ink);}
+
+/* IMAGES */
+.hero-banner{border-radius:var(--radius-lg);overflow:hidden;}
+.hero-banner img{display:block;width:100%;height:auto;}
+.img-placeholder.filled{background:var(--bg-deep);border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;}
+.img-placeholder.filled img{width:100%;height:auto;display:block;}
+.img-caption{display:block;margin-top:14px;font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);text-align:center;}
+
+/* stage for transparent phone mockups */
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(24px,4vw,56px);}
+.phones{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2.4vw,32px);align-items:end;}
+.phones img{width:100%;height:auto;}
+.phones.duo{grid-template-columns:repeat(2,minmax(0,240px));justify-content:center;gap:clamp(20px,5vw,72px);}
+
+/* SECTIONS */
+section{padding:88px 0;}
+section+section{border-top:1px solid var(--line);}
+.eyebrow{font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);flex:0 0 auto;}
+.sec-title{font-family:var(--sans);font-weight:800;font-size:clamp(26px,3.6vw,40px);line-height:1.18;letter-spacing:-.01em;max-width:760px;margin-bottom:22px;color:var(--ink);}
+.sec-title .it{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--accent);display:block;}
+.sec-lede{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:620px;margin-bottom:44px;}
+.sec-lede:last-child{margin-bottom:0;}
+.sub-title{font-family:var(--sans);font-weight:800;font-size:clamp(20px,2.4vw,24px);letter-spacing:-.01em;margin-bottom:14px;color:var(--ink);}
+
+/* two independent blocks side by side */
+.split-2{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-bottom:56px;}
+.split-2:last-child{margin-bottom:0;}
+.split-2 .sec-lede{margin-bottom:0;}
+
+/* pull quote */
+.pull{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(20px,2.6vw,26px);line-height:1.45;color:var(--ink);max-width:760px;margin-top:56px;}
+.pull strong{font-weight:600;color:var(--accent);}
+
+/* cards */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.insight-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:28px;}
+.insight-label{font-family:var(--sans);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:12px;}
+.insight-title{font-family:var(--sans);font-weight:800;font-size:17px;margin-bottom:10px;letter-spacing:-.01em;color:var(--ink);}
+.insight-text{font-family:var(--body);font-size:14.5px;color:var(--ink-soft);line-height:1.7;}
+
+/* sequential steps */
+.step{padding:32px 0;border-top:1px solid var(--line);}
+.step:first-child{border-top:none;padding-top:0;}
+.step-num{font-family:var(--serif);font-style:italic;font-weight:500;font-size:36px;color:var(--num-dim);line-height:1;margin-bottom:14px;}
+.step-title{font-family:var(--sans);font-weight:800;font-size:20px;margin-bottom:12px;letter-spacing:-.01em;max-width:640px;color:var(--ink);}
+.step-text{font-family:var(--body);color:var(--ink-soft);font-size:15px;line-height:1.75;max-width:720px;}
+
+/* DECISIONS */
+.decision{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(28px,4vw,48px);margin-bottom:28px;overflow:hidden;}
+.decision:last-child{margin-bottom:0;}
+.decision.reverse .decision-media{order:-1;}
+.decision-eyebrow{font-family:var(--sans);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:12px;}
+.decision-title{font-family:var(--sans);font-weight:800;font-size:22px;margin-bottom:16px;letter-spacing:-.01em;color:var(--ink);}
+.decision-text{font-family:var(--body);font-size:15px;color:var(--ink-soft);line-height:1.75;}
+.decision-media{border-radius:var(--radius-md);overflow:hidden;}
+.decision-media img{width:100%;height:auto;max-height:460px;object-fit:contain;}
+
+/* RESULT — surface card */
+.result-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(28px,4vw,48px);}
+.result-card .eyebrow{margin-bottom:20px;}
+.result-card p{font-family:var(--body);font-size:clamp(18px,2.2vw,22px);line-height:1.5;color:var(--ink);max-width:44ch;}
+.result-card .sec-title{margin-bottom:18px;}
+.outcome-grid p{font-size:clamp(16px,1.6vw,18px);line-height:1.65;color:var(--ink-soft);}
+.outcome-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;}
+.outcome-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.outcome-cards img{width:100%;height:auto;}
+
+/* LEARNINGS */
+.grid-2x2{display:grid;grid-template-columns:1fr 1fr;gap:44px 56px;}
+.learn-card{padding:24px 0 0;border-top:1px solid var(--line);}
+.learn-tag{font-family:var(--sans);font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px;display:block;color:var(--ink-dim);}
+.learn-title{font-family:var(--sans);font-weight:800;font-size:17px;margin-bottom:10px;letter-spacing:-.005em;color:var(--ink);}
+.learn-text{font-family:var(--body);font-size:14px;color:var(--ink-soft);line-height:1.7;}
+
+/* MORE WORK */
+.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+.next-card{display:flex;flex-direction:column;}
+.next-label{font-family:var(--sans);font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-dim);margin-bottom:10px;}
+.next-title{font-family:var(--sans);font-weight:800;font-size:20px;margin-bottom:10px;letter-spacing:-.01em;color:var(--ink);transition:color .2s;}
+.next-card:hover .next-title{color:var(--accent);}
+.next-text{font-family:var(--body);font-size:14px;color:var(--ink-soft);margin-bottom:22px;max-width:420px;}
+.next-media{margin-top:auto;aspect-ratio:16/10;border-radius:var(--radius-md);overflow:hidden;background:var(--bg-deep);border:1px solid var(--line);}
+.next-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+.next-card:hover .next-media img{transform:scale(1.03);}
+
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+.rv.is-in{opacity:1;transform:none;}
+
+footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep);}
+.footer-inner{text-align:center;font-family:var(--sans);font-weight:600;font-size:13px;color:var(--ink-dim);}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  .rv{opacity:1;transform:none;transition:none;}
+  .next-media img{transition:none;}
+}
+
+@media (max-width:860px){
+  .hero-specs{grid-template-columns:repeat(2,1fr);gap:20px;}
+  .split-2{grid-template-columns:1fr;gap:32px;}
+  .grid-3,.grid-2{grid-template-columns:1fr;}
+  .decision{grid-template-columns:1fr;gap:28px;}
+  .decision.reverse .decision-media{order:0;}
+  .outcome-grid{grid-template-columns:1fr;gap:32px;}
+  .grid-2x2{grid-template-columns:1fr;gap:0;}
+  .learn-card{margin-top:32px;}
+  .next-grid{grid-template-columns:1fr;gap:44px;}
+  .nav-links{gap:18px;}
+}
+@media (max-width:600px){
+  .phones{grid-template-columns:repeat(2,1fr);row-gap:24px;}
+}
+/* process chips */
+.chips{display:flex;flex-wrap:wrap;gap:10px;}
+.chips li{display:flex;align-items:center;gap:10px;padding:10px 16px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-weight:700;font-size:14px;color:var(--ink);}
+.chips li span:first-child{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--accent);}
+
+/* persona */
+.persona{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:clamp(28px,5vw,64px);align-items:start;}
+.persona-photo{width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--radius-lg);}
+.persona-role{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink-soft);margin-bottom:28px;}
+.persona-facts{display:grid;grid-template-columns:1fr 1fr;gap:24px 40px;}
+.persona-facts>div{border-top:1px solid var(--line);padding-top:16px;}
+.persona-facts dt{font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:8px;}
+.persona-facts dd{font-size:15px;color:var(--ink-soft);line-height:1.65;}
+@media (max-width:860px){
+  .persona{grid-template-columns:1fr;}
+  .persona-photo{max-width:240px;}
+}
+@media (max-width:600px){
+  .persona-facts{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../index.html#top" class="nav-brand">
+      <img class="nav-avatar" src="../Img/joao-avatar.jpg" alt="João Abdalla">
+      <span class="nav-brand-text">
+        <span class="nav-name">João Abdalla</span>
+        <span class="nav-role" data-i18n="common.nav.role">Product designer UX UI</span>
+      </span>
+    </a>
+    <span class="lang-switch-slot nav-lang-slot"></span>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks" data-i18n-attr="aria-label:common.nav.menu">
+      <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#work" data-i18n="common.nav.works">Works</a></li>
+      <li><a href="../about.html" data-i18n="common.nav.about">About</a></li>
+      <li><a href="../index.html#contact" data-i18n="common.nav.contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <header class="hero container" role="banner">
+    <h1 class="hero-title rv">Car Air Comfort</h1>
+    <p class="hero-sub rv" data-i18n="cac.hero.sub">Setting the car temperature</p>
+    <p class="hero-text rv" data-i18n="cac.hero.text">A mobile app that cools the car before you get in, so it's already at the right temperature when the trip starts.</p>
+
+    <div class="hero-specs rv">
+      <div><div class="spec-label" data-i18n="cac.hero.spec1.label">Area</div><div class="spec-value" data-i18n="cac.hero.spec1.value">Product UX/UI proposal</div></div>
+      <div><div class="spec-label" data-i18n="cac.hero.spec2.label">My Role</div><div class="spec-value" data-i18n="cac.hero.spec2.value">UX/UI design, from mind map to prototype</div></div>
+      <div><div class="spec-label" data-i18n="cac.hero.spec3.label">Platform</div><div class="spec-value" data-i18n="cac.hero.spec3.value">Mobile app</div></div>
+      <div><div class="spec-label" data-i18n="cac.hero.spec4.label">Deliverables</div><div class="spec-value" data-i18n="cac.hero.spec4.value">Mind map, persona, user journey, wireframes and prototype</div></div>
+    </div>
+
+    <div class="hero-banner rv">
+      <img src="../Img/cac/cac-cover.webp"
+        alt="A car parked at dusk under a starry sky"
+        data-i18n-attr="alt:cac.cover.alt">
+    </div>
+  </header>
+
+  <!-- BRIEF -->
+  <section id="brief">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="cac.brief.eyebrow">The Brief</div>
+      <h2 class="sec-title rv" data-i18n-html="cac.brief.title">A hot car,<span class="it">a slow fix</span></h2>
+      <div class="grid-3 rv">
+        <div class="insight-card">
+          <div class="insight-label" data-i18n="cac.brief.why.label">Why</div>
+          <p class="insight-text" data-i18n="cac.brief.why.body">In hot countries, getting into a car that has been sitting in the sun is a real pain: the air conditioning takes too long to bring the temperature down.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-label" data-i18n="cac.brief.what.label">What</div>
+          <p class="insight-text" data-i18n="cac.brief.what.body">An app that lets the user control the temperature inside the car.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-label" data-i18n="cac.brief.how.label">How</div>
+          <p class="insight-text" data-i18n="cac.brief.how.body">A convenient, quick way to set the car temperature from the phone, before the trip begins.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="cac.process.eyebrow">Process</div>
+      <h2 class="sec-title rv" data-i18n-html="cac.process.title">From the idea<span class="it">to the prototype</span></h2>
+      <ol class="chips rv">
+        <li><span>01</span> <span data-i18n="cac.process.1">Mind map</span></li>
+        <li><span>02</span> <span data-i18n="cac.process.2">Persona</span></li>
+        <li><span>03</span> <span data-i18n="cac.process.3">User journey</span></li>
+        <li><span>04</span> <span data-i18n="cac.process.4">Sketches</span></li>
+        <li><span>05</span> <span data-i18n="cac.process.5">Wireframes</span></li>
+        <li><span>06</span> <span data-i18n="cac.process.6">High fidelity</span></li>
+        <li><span>07</span> <span data-i18n="cac.process.7">Prototype</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- MIND MAP -->
+  <section id="mind-map">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="cac.mindmap.eyebrow">Mind Map</div>
+      <h2 class="sec-title rv" data-i18n="cac.mindmap.title">Everything the app had to do</h2>
+      <p class="sec-lede rv" data-i18n="cac.mindmap.body">I started by mapping the product around one core: the car's current temperature, the desired temperature, the progress between them and a forecast of when the car would be ready. Around it came connecting to the car, an hourly weather forecast, schedules for recurring trips and alerts.</p>
+      <div class="img-placeholder filled rv">
+        <img src="../Img/cac/cac-mind-map.webp"
+          alt="Mind map: connect with your car, hourly weather forecast, core temperature controls, schedule list, add schedule and alerts"
+          loading="lazy" data-i18n-attr="alt:cac.mindmap.alt">
+      </div>
+    </div>
+  </section>
+
+  <!-- PERSONA -->
+  <section id="persona">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="cac.persona.eyebrow">Persona</div>
+      <div class="persona rv">
+        <img class="persona-photo" src="../Img/cac/cac-persona.webp" alt="Portrait of Monica Bezerra, the persona" loading="lazy" data-i18n-attr="alt:cac.persona.alt">
+        <div>
+          <h2 class="sec-title" style="margin-bottom:6px;">Monica Bezerra</h2>
+          <p class="persona-role" data-i18n="cac.persona.role">Lawyer at a telecommunications company, 38</p>
+          <dl class="persona-facts">
+            <div><dt data-i18n="cac.persona.goal.label">Goal</dt><dd data-i18n="cac.persona.goal.value">Reach the position of executive director at the company.</dd></div>
+            <div><dt data-i18n="cac.persona.challenge.label">Challenge</dt><dd data-i18n="cac.persona.challenge.value">Balancing work with two small children, the house, and her own body and health.</dd></div>
+            <div><dt data-i18n="cac.persona.media.label">Media</dt><dd data-i18n="cac.persona.media.value">Instagram, Twitter, Facebook, news sites, and mother-and-baby blogs.</dd></div>
+            <div><dt data-i18n="cac.persona.help.label">How we can help</dt><dd data-i18n="cac.persona.help.value">Bringing the right temperature and comfort to her car journeys.</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USER JOURNEY -->
+  <section id="journey">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="cac.journey.eyebrow">User Journey</div>
+      <h2 class="sec-title rv" data-i18n="cac.journey.title">Where the heat hurts</h2>
+      <p class="sec-lede rv" data-i18n="cac.journey.body">Following Monica through a full day showed when the app matters: every time she gets back into the car. Taking the kids to school, driving home for lunch ("Melting! There has to be a way not to go through this") and the drive back in the evening became the three moments for the app.</p>
+      <div class="img-placeholder filled rv">
+        <img src="../Img/cac/cac-user-journey.webp"
+          alt="Monica's user journey across morning, afternoon and evening: activities, location, thoughts, feelings and opportunities for the app"
+          loading="lazy" data-i18n-attr="alt:cac.journey.alt">
+      </div>
+    </div>
+  </section>
+
+  <!-- WIREFRAMES -->
+  <section id="wireframes">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="cac.wireframes.eyebrow">Wireframes</div>
+      <h2 class="sec-title rv" data-i18n="cac.wireframes.title">The flow before the visuals</h2>
+      <p class="sec-lede rv" data-i18n="cac.wireframes.body">The wireframes laid out the first connection with the car, the schedule list and the main control screen, with the alerts that tell the user when the car is ready.</p>
+      <div class="img-placeholder filled rv">
+        <img src="../Img/cac/cac-wireframes.webp"
+          alt="Wireframe flow: first-time connection, schedule list, temperature control and the car-ready state"
+          loading="lazy" data-i18n-attr="alt:cac.wireframes.alt">
+      </div>
+    </div>
+  </section>
+
+  <!-- HIGH FIDELITY -->
+  <section id="ui">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="cac.ui.eyebrow">High Fidelity</div>
+      <h2 class="sec-title rv" data-i18n-html="cac.ui.title">Two numbers,<span class="it">one action</span></h2>
+      <p class="sec-lede rv" data-i18n="cac.ui.body">The main screen puts the car's temperature next to the desired one, shows how far the transition has gone and how many minutes are left until the car is ready, with a single button to activate or turn it off. The schedules screen highlights the next trip and lets each one be switched on or off.</p>
+
+      <div class="stage rv">
+        <div class="phones">
+          <img src="../Img/cac/cac-screen-activate.webp" alt="Control screen: car at 37°, desired 19°, 7 minutes to be ready, Activate button" loading="lazy" data-i18n-attr="alt:cac.ui.activate.alt">
+          <img src="../Img/cac/cac-screen-running.webp" alt="Control screen while cooling: 24° to 19°, 5 minutes left, Turn off button" loading="lazy" data-i18n-attr="alt:cac.ui.running.alt">
+          <img src="../Img/cac/cac-screen-ready.webp" alt="Control screen with the message: your car is ready" loading="lazy" data-i18n-attr="alt:cac.ui.ready.alt">
+          <img src="../Img/cac/cac-screen-schedules.webp" alt="Schedules screen: next schedule in 5h 12min and a list of trips with toggles" loading="lazy" data-i18n-attr="alt:cac.ui.schedules.alt">
+        </div>
+      </div>
+      <span class="img-caption rv" data-i18n="cac.ui.caption">Activate, cooling, ready, and schedules.</span>
+
+      <div class="img-placeholder filled rv" style="margin-top:44px;">
+        <img src="../Img/cac/cac-setup-flow.webp" alt="Setup flow: connect your car, add a schedule and the schedule list" loading="lazy" data-i18n-attr="alt:cac.ui.setup.alt">
+      </div>
+      <span class="img-caption rv" data-i18n="cac.ui.setup.caption">Connecting the car and adding a schedule.</span>
+
+      <div class="img-placeholder filled rv" style="margin-top:44px;">
+        <img src="../Img/cac/cac-themes.webp" alt="Control and schedule screens with sky and city backgrounds" loading="lazy" data-i18n-attr="alt:cac.ui.themes.alt">
+      </div>
+      <span class="img-caption rv" data-i18n="cac.ui.themes.caption">Visual explorations for the final screens.</span>
+    </div>
+  </section>
+
+  <!-- MORE WORK -->
+  <section id="more-work">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="cac.more.eyebrow">More Work</div>
+      <div class="next-grid rv">
+        <a class="next-card" href="aquaryu.html">
+          <div class="next-label" data-i18n="cac.more.next.label">Next Case Study</div>
+          <h3 class="next-title">AquaryU</h3>
+          <p class="next-text" data-i18n="home.card9.desc">A dating app where compatibility comes from synastry, not swipes.</p>
+          <div class="next-media"><img src="../Img/aquaryu/aquaryu-cover.webp" alt="AquaryU — astrology-based dating app where compatibility comes from synastry" loading="lazy" data-i18n-attr="alt:home.card9.alt"></div>
+        </a>
+        <a class="next-card" href="valt.html">
+          <div class="next-label" data-i18n="cac.more.also.label">Also Worth Seeing</div>
+          <h3 class="next-title">Valt Network</h3>
+          <p class="next-text" data-i18n="cac.more.also.text">Private market social network. Designed from zero to live product.</p>
+          <div class="next-media"><img src="../Img/cards%20home/Valt.png" alt="Valt Network product design" loading="lazy" data-i18n-attr="alt:cac.more.also.img.alt"></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">Copyright © abdalladesign 2026</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+</script>
+<script>
+  (function(){
+    var lastY = 0, nav = document.getElementById("nav");
+    if (!nav) return;
+    window.addEventListener("scroll", function(){
+      var y = window.scrollY;
+      if (y > 140 && y > lastY) nav.classList.add("is-hidden");
+      else nav.classList.remove("is-hidden");
+      lastY = y;
+    }, { passive: true });
+  })();
+</script>
+<script>
+  /* mobile nav — hamburger toggles the dropdown panel */
+  (function () {
+    var nav = document.getElementById("nav");
+    var toggle = document.getElementById("navToggle");
+    var panel = document.getElementById("navLinks");
+    if (!nav || !toggle || !panel) return;
+
+    function close() {
+      nav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+    function open() {
+      nav.classList.add("is-open");
+      toggle.setAttribute("aria-expanded", "true");
+    }
+
+    toggle.addEventListener("click", function () {
+      nav.classList.contains("is-open") ? close() : open();
+    });
+    panel.addEventListener("click", function (e) {
+      if (e.target.closest("a")) close();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") close();
+    });
+    document.addEventListener("click", function (e) {
+      if (nav.classList.contains("is-open") && !e.target.closest(".nav-inner")) close();
+    });
+    window.addEventListener("scroll", close, { passive: true });
+  })();
+</script>
+
+</body>
+</html>
