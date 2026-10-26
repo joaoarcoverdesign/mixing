@@ -363,6 +363,26 @@
       es: "Enseñado a más de 100 estudiantes"
     },
 
+    "home.card9.alt": {
+      en: "AquaryU — astrology-based dating app where compatibility comes from synastry",
+      pt: "AquaryU — app de namoro baseado em astrologia, em que a compatibilidade vem da sinastria",
+      es: "AquaryU — app de citas basada en astrología, donde la compatibilidad viene de la sinastría"
+    },
+    "home.card9.name": { en: "AquaryU", pt: "AquaryU", es: "AquaryU" },
+    "home.card9.desc": {
+      en: "A dating app where compatibility comes from synastry, not swipes.",
+      pt: "Um app de namoro em que a compatibilidade vem da sinastria, não do swipe.",
+      es: "Una app de citas donde la compatibilidad viene de la sinastría, no del swipe."
+    },
+    "home.card9.tag1": { en: "Dating", pt: "Namoro", es: "Citas" },
+    "home.card9.tag2": { en: "Mobile App", pt: "App mobile", es: "App móvil" },
+    "home.card9.tag3": { en: "0 → 1", pt: "0 → 1", es: "0 → 1" },
+    "home.card9.link": {
+      en: "Concept to clickable prototype",
+      pt: "Do conceito ao protótipo navegável",
+      es: "Del concepto al prototipo navegable"
+    },
+
     "home.testi.label": { en: "Testimonials", pt: "Depoimentos", es: "Testimonios" },
     "home.testi.title": {
       en: 'What people <em>are saying</em>',

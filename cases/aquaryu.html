@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en" data-i18n-page="aquaryu">
+<head>
+<script src="../analytics.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../Img/favicon.png">
+<link rel="apple-touch-icon" href="../Img/favicon.png">
+<script src="../i18n/aquaryu.js"></script>
+<script src="../i18n.js"></script>
+<title>AquaryU — Astrology-Based Dating App | Abdalla Design</title>
+<meta name="description" content="A dating app where compatibility comes from synastry, not swipes, designed end-to-end from concept to clickable prototype.">
+<link rel="canonical" href="https://abdalladesign.vercel.app/cases/aquaryu.html">
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Abdalla Design">
+<meta property="og:url" content="https://abdalladesign.vercel.app/cases/aquaryu.html">
+<meta property="og:title" content="AquaryU — Astrology-Based Dating App | Abdalla Design">
+<meta property="og:description" content="A dating app where compatibility comes from synastry, not swipes, designed end-to-end from concept to clickable prototype.">
+<meta property="og:image" content="https://abdalladesign.vercel.app/Img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Selected work by João Abdalla — product and UX/UI design projects">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AquaryU — Astrology-Based Dating App | Abdalla Design">
+<meta name="twitter:description" content="A dating app where compatibility comes from synastry, not swipes, designed end-to-end from concept to clickable prototype.">
+<meta name="twitter:image" content="https://abdalladesign.vercel.app/Img/og-cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* abdalladesign visual identity — matches index.html (Arcoverdesign v5) */
+  --bg:#11161A;
+  --bg-deep:#0C1013;
+  --surface:#1A2025;
+  --ink:#F4F6F3;
+  --ink-soft:#9BA4AA;
+  --ink-dim:#5E676D;
+  --num-dim:#333B41;
+  --line:rgba(255,255,255,.08);
+  --line-soft:rgba(255,255,255,.05);
+  --accent:#C2FC50;
+  --accent-soft:rgba(194,252,80,.12);
+  --radius-lg:16px;
+  --radius-md:14px;
+  --sans:'Urbanist', sans-serif;
+  --body:'Urbanist', sans-serif;
+  --serif:'Lora', Georgia, serif;
+  --px: clamp(20px, 5vw, 72px);
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6;
+}
+::selection{background:var(--accent);color:var(--bg-deep);}
+a{color:inherit;text-decoration:none;}
+button{font:inherit;background:none;border:none;cursor:pointer;color:inherit;}
+img{max-width:100%;display:block;}
+ul,ol{list-style:none;}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
+.container{max-width:1160px;margin:0 auto;padding:0 var(--px);}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;transition:transform .5s var(--ease);}
+nav.is-hidden{transform:translateY(-110%);}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px var(--px);
+  background:linear-gradient(rgba(12,16,19,.85),rgba(12,16,19,.4) 70%,transparent);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+}
+.nav-brand{display:flex;align-items:center;gap:13px;}
+.nav-avatar{width:44px;height:44px;border-radius:50%;flex:0 0 auto;object-fit:cover;border:2px solid var(--ink);}
+.nav-brand-text{display:flex;flex-direction:column;line-height:1.2;}
+.nav-name{font-family:var(--sans);font-weight:700;font-size:17px;letter-spacing:-.01em;color:var(--ink);}
+.nav-role{font-family:var(--sans);font-weight:400;font-size:12px;color:var(--ink-soft);margin-top:1px;}
+@media (max-width:480px){.nav-role{display:none;}}
+.nav-links{display:flex;gap:34px;list-style:none;align-items:center;}
+.nav-links a{
+  font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-soft);position:relative;padding:4px 0;transition:color .25s;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;
+  background:var(--accent);transform:scaleX(0);transform-origin:right;
+  transition:transform .4s var(--ease);
+}
+.nav-links a:hover{color:var(--ink);}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left;}
+@media (max-width:720px){.nav-links{gap:20px;}}
+
+/* mobile: hamburger + dropdown panel */
+.nav-toggle{display:none;}
+.nav-toggle svg{width:22px;height:22px;}
+.nav-toggle .icon-close{display:none;}
+.nav-lang-slot{display:none;}
+@media (max-width:760px){
+  .nav-toggle{
+    display:flex;align-items:center;justify-content:center;
+    width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
+    color:var(--ink);flex:0 0 auto;
+  }
+  .nav-lang-slot{display:inline-flex;margin-left:auto;margin-right:14px;}
+  .nav-links .lang-switch-li{display:none;}
+  nav.is-open .nav-toggle .icon-open{display:none;}
+  nav.is-open .nav-toggle .icon-close{display:block;}
+  .nav-links{
+    position:absolute;top:calc(100% - 6px);left:var(--px);right:var(--px);
+    flex-direction:column;align-items:stretch;gap:0;
+    background:var(--bg-deep);border:1px solid var(--line);border-radius:14px;
+    padding:6px;
+    opacity:0;transform:translateY(-8px);pointer-events:none;
+    transition:opacity .3s var(--ease),transform .3s var(--ease);
+  }
+  nav.is-open .nav-links{opacity:1;transform:none;pointer-events:auto;}
+  nav.is-open.is-hidden{transform:none;}
+  .nav-links li{border-bottom:1px solid var(--line);}
+  .nav-links li:last-child,
+  .nav-links li:nth-last-child(2){border-bottom:0;}
+  .nav-links a{display:block;padding:15px 14px;font-size:13px;letter-spacing:.12em;color:var(--ink);}
+  .nav-links a::after{display:none;}
+}
+
+/* HERO */
+.hero{padding:140px var(--px) 56px;}
+.hero-title{font-family:var(--sans);font-weight:800;font-size:clamp(32px,5.2vw,56px);line-height:1.06;letter-spacing:-.02em;margin-bottom:14px;color:var(--ink);}
+.hero-sub{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(18px,2.2vw,22px);color:var(--ink);opacity:.85;margin-bottom:24px;}
+.hero-text{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:640px;margin-bottom:40px;}
+.hero-specs{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid var(--line);padding-top:28px;margin-bottom:48px;}
+.spec-label{font-family:var(--sans);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-dim);margin-bottom:8px;}
+.spec-value{font-size:15px;font-weight:700;line-height:1.4;color:var(--ink);}
+
+/* IMAGES */
+.hero-banner{border-radius:var(--radius-lg);overflow:hidden;}
+.hero-banner img{display:block;width:100%;height:auto;}
+.img-placeholder.filled{background:var(--bg-deep);border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;}
+.img-placeholder.filled img{width:100%;height:auto;display:block;}
+.img-caption{display:block;margin-top:14px;font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);text-align:center;}
+
+/* stage for transparent phone mockups */
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(24px,4vw,56px);}
+.phones{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2.4vw,32px);align-items:end;}
+.phones img{width:100%;height:auto;}
+.phones.duo{grid-template-columns:repeat(2,minmax(0,240px));justify-content:center;gap:clamp(20px,5vw,72px);}
+
+/* SECTIONS */
+section{padding:88px 0;}
+section+section{border-top:1px solid var(--line);}
+.eyebrow{font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);flex:0 0 auto;}
+.sec-title{font-family:var(--sans);font-weight:800;font-size:clamp(26px,3.6vw,40px);line-height:1.18;letter-spacing:-.01em;max-width:760px;margin-bottom:22px;color:var(--ink);}
+.sec-title .it{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--accent);display:block;}
+.sec-lede{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:620px;margin-bottom:44px;}
+.sec-lede:last-child{margin-bottom:0;}
+.sub-title{font-family:var(--sans);font-weight:800;font-size:clamp(20px,2.4vw,24px);letter-spacing:-.01em;margin-bottom:14px;color:var(--ink);}
+
+/* two independent blocks side by side */
+.split-2{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-bottom:56px;}
+.split-2:last-child{margin-bottom:0;}
+.split-2 .sec-lede{margin-bottom:0;}
+
+/* pull quote */
+.pull{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(20px,2.6vw,26px);line-height:1.45;color:var(--ink);max-width:760px;margin-top:56px;}
+.pull strong{font-weight:600;color:var(--accent);}
+
+/* cards */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.insight-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:28px;}
+.insight-label{font-family:var(--sans);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:12px;}
+.insight-title{font-family:var(--sans);font-weight:800;font-size:17px;margin-bottom:10px;letter-spacing:-.01em;color:var(--ink);}
+.insight-text{font-family:var(--body);font-size:14.5px;color:var(--ink-soft);line-height:1.7;}
+
+/* sequential steps */
+.step{padding:32px 0;border-top:1px solid var(--line);}
+.step:first-child{border-top:none;padding-top:0;}
+.step-num{font-family:var(--serif);font-style:italic;font-weight:500;font-size:36px;color:var(--num-dim);line-height:1;margin-bottom:14px;}
+.step-title{font-family:var(--sans);font-weight:800;font-size:20px;margin-bottom:12px;letter-spacing:-.01em;max-width:640px;color:var(--ink);}
+.step-text{font-family:var(--body);color:var(--ink-soft);font-size:15px;line-height:1.75;max-width:720px;}
+
+/* DECISIONS */
+.decision{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(28px,4vw,48px);margin-bottom:28px;overflow:hidden;}
+.decision:last-child{margin-bottom:0;}
+.decision.reverse .decision-media{order:-1;}
+.decision-eyebrow{font-family:var(--sans);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:12px;}
+.decision-title{font-family:var(--sans);font-weight:800;font-size:22px;margin-bottom:16px;letter-spacing:-.01em;color:var(--ink);}
+.decision-text{font-family:var(--body);font-size:15px;color:var(--ink-soft);line-height:1.75;}
+.decision-media{border-radius:var(--radius-md);overflow:hidden;}
+.decision-media img{width:100%;height:auto;max-height:460px;object-fit:contain;}
+
+/* RESULT — surface card */
+.result-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(28px,4vw,48px);}
+.result-card .eyebrow{margin-bottom:20px;}
+.result-card p{font-family:var(--body);font-size:clamp(18px,2.2vw,22px);line-height:1.5;color:var(--ink);max-width:44ch;}
+.result-card .sec-title{margin-bottom:18px;}
+.outcome-grid p{font-size:clamp(16px,1.6vw,18px);line-height:1.65;color:var(--ink-soft);}
+.outcome-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;}
+.outcome-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.outcome-cards img{width:100%;height:auto;}
+
+/* LEARNINGS */
+.grid-2x2{display:grid;grid-template-columns:1fr 1fr;gap:44px 56px;}
+.learn-card{padding:24px 0 0;border-top:1px solid var(--line);}
+.learn-tag{font-family:var(--sans);font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px;display:block;color:var(--ink-dim);}
+.learn-title{font-family:var(--sans);font-weight:800;font-size:17px;margin-bottom:10px;letter-spacing:-.005em;color:var(--ink);}
+.learn-text{font-family:var(--body);font-size:14px;color:var(--ink-soft);line-height:1.7;}
+
+/* MORE WORK */
+.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+.next-card{display:block;}
+.next-label{font-family:var(--sans);font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-dim);margin-bottom:10px;}
+.next-title{font-family:var(--sans);font-weight:800;font-size:20px;margin-bottom:10px;letter-spacing:-.01em;color:var(--ink);transition:color .2s;}
+.next-card:hover .next-title{color:var(--accent);}
+.next-text{font-family:var(--body);font-size:14px;color:var(--ink-soft);margin-bottom:22px;max-width:420px;}
+.next-media{aspect-ratio:16/10;border-radius:var(--radius-md);overflow:hidden;background:var(--bg-deep);border:1px solid var(--line);}
+.next-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+.next-card:hover .next-media img{transform:scale(1.03);}
+
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+.rv.is-in{opacity:1;transform:none;}
+
+footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep);}
+.footer-inner{text-align:center;font-family:var(--sans);font-weight:600;font-size:13px;color:var(--ink-dim);}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  .rv{opacity:1;transform:none;transition:none;}
+  .next-media img{transition:none;}
+}
+
+@media (max-width:860px){
+  .hero-specs{grid-template-columns:repeat(2,1fr);gap:20px;}
+  .split-2{grid-template-columns:1fr;gap:32px;}
+  .grid-3,.grid-2{grid-template-columns:1fr;}
+  .decision{grid-template-columns:1fr;gap:28px;}
+  .decision.reverse .decision-media{order:0;}
+  .outcome-grid{grid-template-columns:1fr;gap:32px;}
+  .grid-2x2{grid-template-columns:1fr;gap:0;}
+  .learn-card{margin-top:32px;}
+  .next-grid{grid-template-columns:1fr;gap:44px;}
+  .nav-links{gap:18px;}
+}
+@media (max-width:600px){
+  .phones{grid-template-columns:repeat(2,1fr);row-gap:24px;}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../index.html#top" class="nav-brand">
+      <img class="nav-avatar" src="../Img/joao-avatar.jpg" alt="João Abdalla">
+      <span class="nav-brand-text">
+        <span class="nav-name">João Abdalla</span>
+        <span class="nav-role" data-i18n="common.nav.role">Product designer UX UI</span>
+      </span>
+    </a>
+    <span class="lang-switch-slot nav-lang-slot"></span>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks" data-i18n-attr="aria-label:common.nav.menu">
+      <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#work" data-i18n="common.nav.works">Works</a></li>
+      <li><a href="../about.html" data-i18n="common.nav.about">About</a></li>
+      <li><a href="../index.html#contact" data-i18n="common.nav.contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <header class="hero container" role="banner">
+    <h1 class="hero-title rv">AquaryU</h1>
+    <p class="hero-sub rv" data-i18n="aquaryu.hero.sub">Astrology-Based Dating</p>
+    <p class="hero-text rv" data-i18n="aquaryu.hero.text">Designing a dating app where compatibility comes from synastry, not swipes, built end-to-end from concept to clickable prototype.</p>
+
+    <div class="hero-specs rv">
+      <div><div class="spec-label" data-i18n="aquaryu.hero.spec1.label">Client</div><div class="spec-value" data-i18n="aquaryu.hero.spec1.value">Independent founder</div></div>
+      <div><div class="spec-label" data-i18n="aquaryu.hero.spec2.label">My Role</div><div class="spec-value" data-i18n="aquaryu.hero.spec2.value">Lead UX/UI Designer</div></div>
+      <div><div class="spec-label" data-i18n="aquaryu.hero.spec3.label">Timeline</div><div class="spec-value">2018</div></div>
+      <div><div class="spec-label" data-i18n="aquaryu.hero.spec4.label">Deliverables</div><div class="spec-value" data-i18n="aquaryu.hero.spec4.value">User flows, information architecture, UI design and interactive prototype</div></div>
+    </div>
+
+    <div class="hero-banner rv">
+      <img src="../Img/aquaryu/aquaryu-cover.webp"
+        alt="AquaryU &quot;It's a connection!&quot; screen between two phone mockups on a purple background"
+        data-i18n-attr="alt:aquaryu.cover.alt">
+    </div>
+  </header>
+
+  <!-- OVERVIEW -->
+  <section id="overview">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="aquaryu.overview.eyebrow">Overview</div>
+      <h2 class="sec-title rv" data-i18n-html="aquaryu.overview.title">The project<span class="it">at a glance</span></h2>
+      <div class="split-2">
+        <div class="rv">
+          <h3 class="sub-title" data-i18n="aquaryu.context.title">Context</h3>
+          <p class="sec-lede" data-i18n="aquaryu.context.body">Dating apps reduce compatibility to a photo and a bio. AquaryU's founder wanted to test a different premise: that synastry, the astrological comparison of two birth charts, could surface more meaningful matches than a swipe ever could. My job was to turn that abstract concept into something a user could understand and trust in under 30 seconds.</p>
+        </div>
+        <div class="rv">
+          <h3 class="sub-title" data-i18n="aquaryu.contribution.title">My contribution</h3>
+          <p class="sec-lede" data-i18n="aquaryu.contribution.body">I owned the end-to-end UX and UI design: user flows, information architecture, high-fidelity screens, and an interactive prototype covering discovery, compatibility scoring, profile setup, matching, and in-app chat. I worked solo, with no dedicated PM, collaborating directly with the founder on both product direction and design decisions.</p>
+        </div>
+      </div>
+
+      <div class="stage rv">
+        <div class="phones">
+          <img src="../Img/aquaryu/aquaryu-discover.webp" alt="Discovery feed with profile cards and compatibility scores" loading="lazy" data-i18n-attr="alt:aquaryu.phones.discover.alt">
+          <img src="../Img/aquaryu/aquaryu-profile-card.webp" alt="Profile card with an 84% compatibility badge" loading="lazy" data-i18n-attr="alt:aquaryu.phones.card.alt">
+          <img src="../Img/aquaryu/aquaryu-synastry-profile.webp" alt="Profile with birth data and planetary placements" loading="lazy" data-i18n-attr="alt:aquaryu.phones.synastry.alt">
+          <img src="../Img/aquaryu/aquaryu-connection.webp" alt="&quot;It's a connection!&quot; screen with the compatibility breakdown" loading="lazy" data-i18n-attr="alt:aquaryu.phones.connection.alt">
+        </div>
+      </div>
+
+      <p class="pull rv" data-i18n-html="aquaryu.overview.pull">The product's core differentiator is the <strong>compatibility engine</strong>: users get a synastry-based match score instead of a swipe deck, making a subjective decision feel more grounded and intentional.</p>
+    </div>
+  </section>
+
+  <!-- CHALLENGE -->
+  <section id="challenge">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="aquaryu.challenge.eyebrow">The Challenge</div>
+      <h2 class="sec-title rv" data-i18n-html="aquaryu.challenge.title">Surface-level apps,<span class="it">surface-level matches</span></h2>
+      <p class="sec-lede rv" data-i18n="aquaryu.challenge.body">Most mainstream dating apps optimize for the first five seconds: a photo, a one-line bio, a swipe. That format rewards surface-level attraction and gives almost no signal about whether two people would actually be compatible once the swiping stops.</p>
+      <div class="grid-3 rv">
+        <div class="insight-card">
+          <div class="insight-label" data-i18n="aquaryu.problems.1.label">Problem 01</div>
+          <h3 class="insight-title" data-i18n="aquaryu.problems.1.title">Surface-level matching</h3>
+          <p class="insight-text" data-i18n="aquaryu.problems.1.body">Most dating apps optimize for first impressions (photos, bios, proximity) with no signal for deeper compatibility.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-label" data-i18n="aquaryu.problems.2.label">Problem 02</div>
+          <h3 class="insight-title" data-i18n="aquaryu.problems.2.title">No depth for an audience that wants depth</h3>
+          <p class="insight-text" data-i18n="aquaryu.problems.2.body">Young people already engaged with astrology and self-discovery had no dating product that took that interest seriously instead of treating it as a gimmick.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-label" data-i18n="aquaryu.problems.3.label">Problem 03</div>
+          <h3 class="insight-title" data-i18n="aquaryu.problems.3.title">Compatibility discovered too late</h3>
+          <p class="insight-text" data-i18n="aquaryu.problems.3.body">On typical apps, real compatibility is something people stumble into after several conversations, not something the product helps surface up front.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOALS -->
+  <section id="goals">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="aquaryu.goals.eyebrow">Goals</div>
+      <h2 class="sec-title rv" data-i18n-html="aquaryu.goals.title">What success<span class="it">looked like</span></h2>
+      <div class="grid-2 rv">
+        <div class="insight-card">
+          <div class="insight-label" data-i18n="aquaryu.goals.1.label">Goal 01</div>
+          <h3 class="insight-title" data-i18n="aquaryu.goals.1.title">Make synastry legible, fast</h3>
+          <p class="insight-text" data-i18n="aquaryu.goals.1.body">Turn a traditionally dense, narrative astrological comparison into something a person could understand and act on in seconds, not minutes of reading.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-label" data-i18n="aquaryu.goals.2.label">Goal 02</div>
+          <h3 class="insight-title" data-i18n="aquaryu.goals.2.title">Make astrology the mechanism, not decoration</h3>
+          <p class="insight-text" data-i18n="aquaryu.goals.2.body">Compatibility needed to genuinely drive who people saw and matched with, not sit next to a conventional swipe feed as a side feature.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="aquaryu.process.eyebrow">Design Process</div>
+      <h2 class="sec-title rv" data-i18n-html="aquaryu.process.title">From birth charts to<span class="it">a clickable product</span></h2>
+
+      <div class="rv">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3 class="step-title" data-i18n="aquaryu.process.1.title">Researching apps and astrology</h3>
+          <p class="step-text" data-i18n="aquaryu.process.1.body">I researched existing dating apps to understand where the format breaks down, and studied synastry in depth: how birth charts are compared, what makes a reading feel credible versus generic, and how that logic could translate into a digital compatibility signal.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3 class="step-title" data-i18n="aquaryu.process.2.title">Mapping flows around the score</h3>
+          <p class="step-text" data-i18n="aquaryu.process.2.body">I mapped the core flows: onboarding (collecting birth data), discovery, compatibility scoring, match and chat. The information architecture was built around a single idea: the compatibility score sits at the center of the experience, not as an add-on to a swipe feed.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3 class="step-title" data-i18n="aquaryu.process.3.title">Iterating directly with the founder</h3>
+          <p class="step-text" data-i18n="aquaryu.process.3.body">I designed the experience from wireframes to high-fidelity UI in fast iterative rounds with the founder, reviewing and refining each flow before moving to the next.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <h3 class="step-title" data-i18n="aquaryu.process.4.title">A fully clickable prototype</h3>
+          <p class="step-text" data-i18n="aquaryu.process.4.body">I delivered a clickable prototype covering onboarding, discovery, compatibility scoring, matching and chat. The founder navigated and approved it; the project didn't reach testing with real end users before development was meant to begin.</p>
+        </div>
+      </div>
+
+      <div class="img-placeholder filled rv" style="margin-top:44px;">
+        <img src="../Img/aquaryu/aquaryu-app-features.webp"
+          alt="Annotated discovery screen: profile, compatibility score, sign info, dislike, chat, search and filters"
+          loading="lazy" data-i18n-attr="alt:aquaryu.features.alt">
+      </div>
+      <span class="img-caption rv" data-i18n="aquaryu.features.caption">App features mapped on the discovery screen.</span>
+
+      <div class="stage rv" style="margin-top:24px;">
+        <div class="phones duo">
+          <img src="../Img/aquaryu/aquaryu-splash.webp" alt="Splash screen with sign-in options" loading="lazy" data-i18n-attr="alt:aquaryu.splash.alt">
+          <img src="../Img/aquaryu/aquaryu-edit-profile.webp" alt="Edit profile screen for adding photos" loading="lazy" data-i18n-attr="alt:aquaryu.editprofile.alt">
+        </div>
+      </div>
+      <span class="img-caption rv" data-i18n="aquaryu.duo.caption">Sign-in and profile setup.</span>
+    </div>
+  </section>
+
+  <!-- DECISIONS -->
+  <section id="decisions">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="aquaryu.decisions.eyebrow">Design Decisions</div>
+      <h2 class="sec-title rv" data-i18n-html="aquaryu.decisions.title">Key choices<span class="it">and why</span></h2>
+      <p class="sec-lede rv" data-i18n="aquaryu.decisions.lede">The reasoning behind the most important decisions: not just what was designed, but the thinking that got there.</p>
+
+      <div class="decision rv">
+        <div class="decision-body">
+          <div class="decision-eyebrow" data-i18n="aquaryu.decisions.d1.label">Decision 01</div>
+          <h3 class="decision-title" data-i18n="aquaryu.decisions.d1.title">A compatibility score, not just a reading</h3>
+          <p class="decision-text" data-i18n="aquaryu.decisions.d1.text">Synastry is naturally narrative. But a dating app needed something a person could scan in under a second. I designed the core signal as a number (e.g. 87% compatible), with the fuller astrological narrative underneath for people who wanted to go deeper. The score did the job swiping does on other apps, a fast first filter, while the narrative gave it substance a swipe never has.</p>
+        </div>
+        <div class="decision-media">
+          <img src="../Img/aquaryu/aquaryu-score-phones.webp" alt="Two phones showing the compatibility breakdown and discovery settings" loading="lazy" data-i18n-attr="alt:aquaryu.decisions.d1.alt">
+        </div>
+      </div>
+
+      <div class="decision reverse rv">
+        <div class="decision-body">
+          <div class="decision-eyebrow" data-i18n="aquaryu.decisions.d2.label">Decision 02</div>
+          <h3 class="decision-title" data-i18n="aquaryu.decisions.d2.title">Score shown before the match, not after</h3>
+          <p class="decision-text" data-i18n="aquaryu.decisions.d2.text">The score appears before a match is confirmed, not as a reward unlocked afterward. On a normal dating app, attraction comes first and compatibility is discovered later, often too late. Here, people chose who to engage with already knowing the compatibility read. Synastry stopped being a nice extra and became the basis for the decision to connect.</p>
+        </div>
+        <div class="decision-media">
+          <img src="../Img/aquaryu/aquaryu-score-cards.webp" alt="Discovery cards with compatibility scores on each profile" loading="lazy" data-i18n-attr="alt:aquaryu.decisions.d2.alt">
+        </div>
+      </div>
+
+      <div class="decision rv">
+        <div class="decision-body">
+          <div class="decision-eyebrow" data-i18n="aquaryu.decisions.d3.label">Decision 03</div>
+          <h3 class="decision-title" data-i18n="aquaryu.decisions.d3.title">Short, sequential onboarding for sensitive birth data</h3>
+          <p class="decision-text" data-i18n="aquaryu.decisions.d3.text">Synastry requires birth date, time and location: data most apps never ask for, and that can feel invasive if requested all at once. I broke onboarding into one question per screen instead of a dense form, so the process felt like a guided conversation rather than paperwork.</p>
+        </div>
+        <div class="decision-media">
+          <img src="../Img/aquaryu/aquaryu-onboarding.webp" alt="Onboarding steps: name, birth date, birth time and birth place" loading="lazy" data-i18n-attr="alt:aquaryu.decisions.d3.alt">
+        </div>
+      </div>
+
+      <div class="decision reverse rv">
+        <div class="decision-body">
+          <div class="decision-eyebrow" data-i18n="aquaryu.decisions.d4.label">Decision 04</div>
+          <h3 class="decision-title" data-i18n="aquaryu.decisions.d4.title">Leaning into the astrological tone, not softening it</h3>
+          <p class="decision-text" data-i18n="aquaryu.decisions.d4.text">The founder's direction was clear: the product should feel astrological and mystical, not like a generic dating app with a horoscope bolted on. Rather than tone it down to look more "serious", I designed into it. Language, iconography and visual style all leaned into the astrological framing, trusting that people choosing an astrology-based app already wanted that experience.</p>
+        </div>
+        <div class="decision-media">
+          <img src="../Img/aquaryu/aquaryu-discovery-settings.webp" alt="Discovery settings flow with zodiac sign filters" loading="lazy" data-i18n-attr="alt:aquaryu.decisions.d4.alt">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTCOME -->
+  <section id="outcome">
+    <div class="container">
+      <div class="result-card rv">
+        <div class="outcome-grid">
+          <div>
+            <div class="eyebrow" data-i18n="aquaryu.outcome.eyebrow">Outcome</div>
+            <h2 class="sec-title" data-i18n="aquaryu.outcome.title">A complete prototype</h2>
+            <p data-i18n="aquaryu.outcome.body">The project reached a fully navigable prototype. It didn't move into development: the founder took a full-time job and stepped away before the build phase. The design was never the blocker; it was a side project that lost out to a stable opportunity, which happens often with early-stage, founder-led products.</p>
+          </div>
+          <div class="outcome-cards">
+            <img src="../Img/aquaryu/aquaryu-card-jessica.webp" alt="Profile card for Jessica with an 84% compatibility badge" loading="lazy" data-i18n-attr="alt:aquaryu.outcome.jessica.alt">
+            <img src="../Img/aquaryu/aquaryu-card-jorge.webp" alt="Profile card for Jorge with an 84% compatibility badge" loading="lazy" data-i18n-attr="alt:aquaryu.outcome.jorge.alt">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEARNINGS -->
+  <section id="learnings">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="aquaryu.learn.eyebrow">Learnings</div>
+      <h2 class="sec-title rv" data-i18n-html="aquaryu.learn.title">What I<span class="it">took away</span></h2>
+
+      <div class="grid-2x2 rv">
+        <div class="learn-card">
+          <span class="learn-tag" data-i18n="aquaryu.learn.c1.tag">What worked well</span>
+          <h3 class="learn-title" data-i18n="aquaryu.learn.c1.title">A fast, scannable signal</h3>
+          <p class="learn-text" data-i18n="aquaryu.learn.c1.text">Designing the score as a fast, scannable signal, instead of burying compatibility inside a long reading, made the core value visible in the first few seconds. Speed-to-value matters even in a product built around something as unhurried as astrology.</p>
+        </div>
+        <div class="learn-card">
+          <span class="learn-tag" data-i18n="aquaryu.learn.c2.tag">What I'd do differently</span>
+          <h3 class="learn-title" data-i18n="aquaryu.learn.c2.title">Validate beyond the founder</h3>
+          <p class="learn-text" data-i18n="aquaryu.learn.c2.text">The prototype was approved by the founder but never tested with real end users. A founder's reaction isn't the same as a target user's. With more time, I'd have tested it with a handful of people from the actual audience.</p>
+        </div>
+        <div class="learn-card">
+          <span class="learn-tag" data-i18n="aquaryu.learn.c3.tag">Key insight</span>
+          <h3 class="learn-title" data-i18n="aquaryu.learn.c3.title">Matching logic is a trust mechanism</h3>
+          <p class="learn-text" data-i18n="aquaryu.learn.c3.text">Whether it's photos, a swipe or a synastry score, the real design question in a dating app is always the same: what convinces someone it's safe and worthwhile to engage with a stranger?</p>
+        </div>
+        <div class="learn-card">
+          <span class="learn-tag" data-i18n="aquaryu.learn.c4.tag">Room to grow</span>
+          <h3 class="learn-title" data-i18n="aquaryu.learn.c4.title">Designing for belief, not just behavior</h3>
+          <p class="learn-text" data-i18n="aquaryu.learn.c4.text">This was my first product whose value depended on a belief system rather than a measurable behavior. I'd like to design more products where value is emotional or experiential first, and learn research methods built for that, not just usability testing for utilitarian products.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MORE WORK -->
+  <section id="more-work">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="aquaryu.more.eyebrow">More Work</div>
+      <div class="next-grid rv">
+        <a class="next-card" href="elearn.html">
+          <div class="next-label" data-i18n="aquaryu.more.next.label">Next Case Study</div>
+          <h3 class="next-title">Elearn App</h3>
+          <p class="next-text" data-i18n="home.card8.desc">One learning platform for students, teachers and admins at Jalasoft and Jala University bootcamps.</p>
+          <div class="next-media"><img src="../Img/elearn/Background%20Overlay.png" alt="Elearn App — learning platform for bootcamp students, teachers and admins" loading="lazy" data-i18n-attr="alt:home.card8.alt"></div>
+        </a>
+        <a class="next-card" href="valt.html">
+          <div class="next-label" data-i18n="aquaryu.more.also.label">Also Worth Seeing</div>
+          <h3 class="next-title">Valt Network</h3>
+          <p class="next-text" data-i18n="aquaryu.more.also.text">Private market social network. Designed from zero to live product.</p>
+          <div class="next-media"><img src="../Img/cards%20home/Valt.png" alt="Valt Network product design" loading="lazy" data-i18n-attr="alt:aquaryu.more.also.img.alt"></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">Copyright © abdalladesign 2026</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+</script>
+<script>
+  (function(){
+    var lastY = 0, nav = document.getElementById("nav");
+    if (!nav) return;
+    window.addEventListener("scroll", function(){
+      var y = window.scrollY;
+      if (y > 140 && y > lastY) nav.classList.add("is-hidden");
+      else nav.classList.remove("is-hidden");
+      lastY = y;
+    }, { passive: true });
+  })();
+</script>
+<script>
+  /* mobile nav — hamburger toggles the dropdown panel */
+  (function () {
+    var nav = document.getElementById("nav");
+    var toggle = document.getElementById("navToggle");
+    var panel = document.getElementById("navLinks");
+    if (!nav || !toggle || !panel) return;
+
+    function close() {
+      nav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+    function open() {
+      nav.classList.add("is-open");
+      toggle.setAttribute("aria-expanded", "true");
+    }
+
+    toggle.addEventListener("click", function () {
+      nav.classList.contains("is-open") ? close() : open();
+    });
+    panel.addEventListener("click", function (e) {
+      if (e.target.closest("a")) close();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") close();
+    });
+    document.addEventListener("click", function (e) {
+      if (nav.classList.contains("is-open") && !e.target.closest(".nav-inner")) close();
+    });
+    window.addEventListener("scroll", close, { passive: true });
+  })();
+</script>
+
+</body>
+</html>
