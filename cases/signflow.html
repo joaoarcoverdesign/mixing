@@ -169,6 +169,17 @@ section+section{border-top:1px solid var(--line);}
 .step-title{font-family:var(--sans);font-weight:800;font-size:20px;margin-bottom:12px;letter-spacing:-.01em;max-width:640px;color:var(--ink);}
 .step-text{font-family:var(--body);color:var(--ink-soft);font-size:15px;line-height:1.75;max-width:720px;}
 
+/* horizontal steps row */
+.steps-row{display:grid;grid-template-columns:repeat(5,1fr);}
+.steps-row .step{padding:0 24px;border-top:none;border-left:1px solid var(--line);}
+.steps-row .step:first-child{border-left:none;padding-left:0;}
+.steps-row .step:last-child{padding-right:0;}
+@media (max-width:860px){
+  .steps-row{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(220px,62%);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;}
+  .steps-row::-webkit-scrollbar{display:none;}
+  .steps-row .step{scroll-snap-align:start;}
+}
+
 /* RESULT — surface card */
 .result-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(28px,4vw,48px);}
 .result-card .eyebrow{margin-bottom:20px;}
@@ -233,7 +244,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
     </div>
 
     <div class="hero-banner rv">
-      <img src="../Img/signflow/signflow-cover.webp"
+      <img src="../Img/signflow/signflow-cover2.webp"
         alt="signFlow home screen with the document list in dark mode"
         data-i18n-attr="alt:signflow.cover.alt">
     </div>
@@ -309,7 +320,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
       <h2 class="sec-title rv" data-i18n="signflow.sidebar.title">A sidebar that changes with the step</h2>
       <p class="sec-lede rv" data-i18n="signflow.sidebar.body">The document stays visible at all times. New information comes from the sidebar, which adapts to the moment and surfaces the main action.</p>
 
-      <div class="rv">
+      <div class="steps-row rv">
         <div class="step">
           <div class="step-num">01</div>
           <h3 class="step-title" data-i18n="signflow.states.1.title">Details</h3>
