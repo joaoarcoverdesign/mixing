@@ -153,6 +153,9 @@
     "home.work.prev": { en: "Previous case", pt: "Caso anterior", es: "Caso anterior" },
     "home.work.next": { en: "Next case", pt: "Próximo caso", es: "Caso siguiente" },
     "home.work.viewCase": { en: "View case", pt: "Ver case", es: "Ver caso" },
+    "home.work.more.hint": { en: "More projects", pt: "Mais projetos", es: "Más proyectos" },
+    "home.work.more.name": { en: "See more projects", pt: "Ver mais projetos", es: "Ver más proyectos" },
+    "home.work.more.link": { en: "Show all cases", pt: "Mostrar todos os cases", es: "Mostrar todos los casos" },
 
     /* ─────────── TEASER: SISTEMA DE IA ─────────── */
     "home.aisys.label": {
