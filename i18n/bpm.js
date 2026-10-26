@@ -15,9 +15,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Rediseño de la Plataforma BPM — Jalasoft | Abdalla Design"
   },
   "bpm.meta.description": {
-    en: "Redesigning Jalasoft's internal BPM platform: turning a raw Bonita portal into a process-first tool for hiring, transfers and disassociation across units.",
-    pt: "Redesign da plataforma BPM interna da Jalasoft: transformar um portal Bonita cru em uma ferramenta orientada ao processo para contratação, transferências e desligamento entre unidades.",
-    es: "Rediseño de la plataforma BPM interna de Jalasoft: convertir un portal Bonita crudo en una herramienta orientada al proceso para contratación, transferencias y desvinculación entre unidades."
+    en: "Redesigning Jalasoft's internal BPM platform: turning the raw Jalasoft portal into a process-first tool for hiring, transfers and disassociation across units.",
+    pt: "Redesign da plataforma BPM interna da Jalasoft: transformar o portal Jalasoft cru em uma ferramenta orientada ao processo para contratação, transferências e desligamento entre unidades.",
+    es: "Rediseño de la plataforma BPM interna de Jalasoft: convertir el portal Jalasoft crudo en una herramienta orientada al proceso para contratación, transferencias y desvinculación entre unidades."
   },
 
   /* ─────────── HERO ─────────── */
@@ -56,7 +56,7 @@ window.I18N_PAGE_STRINGS = {
     es: "Product Designer · Investigación UX & UI"
   },
   "bpm.spec.3.label": { en: "Built on", pt: "Construído sobre", es: "Construido sobre" },
-  "bpm.spec.3.value": { en: "Bonita BPM portal", pt: "Portal Bonita BPM", es: "Portal Bonita BPM" },
+  "bpm.spec.3.value": { en: "Jalasoft portal (Bonita BPM)", pt: "Portal da Jalasoft (Bonita BPM)", es: "Portal de Jalasoft (Bonita BPM)" },
   "bpm.spec.4.label": { en: "Deliverables", pt: "Entregas", es: "Entregables" },
   "bpm.spec.4.value": {
     en: "UX interviews · Affinity map · IA · Redesigned UI",
@@ -77,9 +77,9 @@ window.I18N_PAGE_STRINGS = {
     es: "El objetivo principal del rediseño era mejorar la experiencia del usuario, simplificar los flujos de trabajo y aumentar la eficiencia general de la plataforma. Este caso de estudio muestra los desafíos enfrentados, el proceso de diseño seguido y los resultados alcanzados."
   },
   "bpm.overview.p2": {
-    en: "Jalasoft ran its people operations — hiring, transfers between units, client assignments, internship starts and disassociation — on a BPM platform built on the Bonita portal. Every request moved through the tool as a case with tasks handed from person to person. It worked, but the interface it shipped with was in the way.",
-    pt: "A Jalasoft conduzia suas operações de pessoas — contratação, transferências entre unidades, alocações em clientes, início de estágio e desligamento — em uma plataforma BPM construída sobre o portal Bonita. Cada solicitação percorria a ferramenta como um caso, com tarefas passadas de pessoa para pessoa. Funcionava, mas a interface original atrapalhava.",
-    es: "Jalasoft gestionaba sus operaciones de personas — contratación, transferencias entre unidades, asignaciones a clientes, inicios de pasantía y desvinculación — en una plataforma BPM construida sobre el portal Bonita. Cada solicitud recorría la herramienta como un caso, con tareas pasadas de persona a persona. Funcionaba, pero la interfaz original estorbaba."
+    en: "Jalasoft ran its people operations — hiring, transfers between units, client assignments, internship starts and disassociation — on a BPM platform built on the Jalasoft portal. Every request moved through the tool as a case with tasks handed from person to person. It worked, but the interface it shipped with was in the way.",
+    pt: "A Jalasoft conduzia suas operações de pessoas — contratação, transferências entre unidades, alocações em clientes, início de estágio e desligamento — em uma plataforma BPM construída sobre o portal da Jalasoft. Cada solicitação percorria a ferramenta como um caso, com tarefas passadas de pessoa para pessoa. Funcionava, mas a interface original atrapalhava.",
+    es: "Jalasoft gestionaba sus operaciones de personas — contratación, transferencias entre unidades, asignaciones a clientes, inicios de pasantía y desvinculación — en una plataforma BPM construida sobre el portal de Jalasoft. Cada solicitud recorría la herramienta como un caso, con tareas pasadas de persona a persona. Funcionaba, pero la interfaz original estorbaba."
   },
   "bpm.overview.img.alt": {
     en: "The redesigned case list — processes, collaborator, country, department and current task owner in one table",
@@ -100,14 +100,14 @@ window.I18N_PAGE_STRINGS = {
     es: "Un portal crudo con <span class=\"hl\">funcionalidades sin terminar</span>"
   },
   "bpm.start.lede": {
-    en: "The platform ran on Bonita's default portal. Screens were dense, inconsistent between processes, and several flows were only half-built — people learned the gaps and worked around them.",
-    pt: "A plataforma rodava no portal padrão do Bonita. As telas eram densas, inconsistentes entre processos e vários fluxos estavam pela metade — as pessoas aprendiam as falhas e as contornavam.",
-    es: "La plataforma funcionaba con el portal por defecto de Bonita. Las pantallas eran densas, inconsistentes entre procesos y varios flujos estaban a medio construir — la gente aprendía las carencias y las sorteaba."
+    en: "The platform ran on Jalasoft's default portal. Screens were dense, inconsistent between processes, and several flows were only half-built — people learned the gaps and worked around them.",
+    pt: "A plataforma rodava no portal padrão da Jalasoft. As telas eram densas, inconsistentes entre processos e vários fluxos estavam pela metade — as pessoas aprendiam as falhas e as contornavam.",
+    es: "La plataforma funcionaba con el portal por defecto de Jalasoft. Las pantallas eran densas, inconsistentes entre procesos y varios flujos estaban a medio construir — la gente aprendía las carencias y las sorteaba."
   },
   "bpm.start.img.alt": {
-    en: "The old Bonita portal — dense red-and-grey tables and forms",
-    pt: "O antigo portal Bonita — tabelas e formulários densos em vermelho e cinza",
-    es: "El antiguo portal Bonita — tablas y formularios densos en rojo y gris"
+    en: "The old Jalasoft portal — dense red-and-grey tables and forms",
+    pt: "O antigo portal da Jalasoft — tabelas e formulários densos em vermelho e cinza",
+    es: "El antiguo portal de Jalasoft — tablas y formularios densos en rojo y gris"
   },
   "bpm.before.cases-open": { en: "Case list", pt: "Lista de casos", es: "Lista de casos" },
   "bpm.before.cases-list": { en: "Case list, scrolled", pt: "Lista de casos, rolada", es: "Lista de casos, con scroll" },
@@ -299,11 +299,11 @@ window.I18N_PAGE_STRINGS = {
   },
   "bpm.redesign.processes.cap": { en: "Processes — list, my cases and cases I worked on", pt: "Processos — lista, meus casos e casos em que trabalhei", es: "Procesos — lista, mis casos y casos en los que trabajé" },
   "bpm.redesign.login.alt": {
-    en: "Redesigned Bonita BPM portal login on a laptop",
-    pt: "Login do portal Bonita BPM redesenhado em um laptop",
-    es: "Inicio de sesión del portal Bonita BPM rediseñado en un portátil"
+    en: "Redesigned Jalasoft portal login on a laptop",
+    pt: "Login do portal da Jalasoft redesenhado em um laptop",
+    es: "Inicio de sesión del portal de Jalasoft rediseñado en un portátil"
   },
-  "bpm.redesign.login.cap": { en: "Sign-in — Bonita BPM portal, restyled", pt: "Acesso — portal Bonita BPM, reestilizado", es: "Acceso — portal Bonita BPM, reestilizado" },
+  "bpm.redesign.login.cap": { en: "Sign-in — Jalasoft portal, restyled", pt: "Acesso — portal da Jalasoft, reestilizado", es: "Acceso — portal de Jalasoft, reestilizado" },
 
   /* ─────────── OUTCOME ─────────── */
   "bpm.outcome.eyebrow": { en: "Outcome", pt: "Resultado", es: "Resultado" },
@@ -460,9 +460,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Diseñar sobre las restricciones de una plataforma"
   },
   "bpm.learn.4.text": {
-    en: "Bonita sets what a portal can and can't do. Learning those limits early — and designing within them — kept the handoff realistic.",
-    pt: "O Bonita define o que um portal pode ou não fazer. Conhecer esses limites cedo — e desenhar dentro deles — manteve o handoff realista.",
-    es: "Bonita define lo que un portal puede y no puede hacer. Conocer esos límites pronto — y diseñar dentro de ellos — mantuvo el handoff realista."
+    en: "The Jalasoft portal sets what the interface can and can't do. Learning those limits early — and designing within them — kept the handoff realistic.",
+    pt: "O portal da Jalasoft define o que a interface pode ou não fazer. Conhecer esses limites cedo — e desenhar dentro deles — manteve o handoff realista.",
+    es: "El portal de Jalasoft define lo que la interfaz puede y no puede hacer. Conocer esos límites pronto — y diseñar dentro de ellos — mantuvo el handoff realista."
   },
 
   "bpm.outcome.cta": { en: "See the design system →", pt: "Ver o design system →", es: "Ver el sistema de diseño →" }

@@ -234,9 +234,9 @@
       es: "Rediseño de la Plataforma BPM"
     },
     "home.card2.desc": {
-      en: "Turning a raw Bonita portal into a process-first tool for hiring, transfers and disassociation across units.",
-      pt: "Transformar um portal Bonita bruto em uma ferramenta orientada a processos para contratação, transferências e desligamentos entre unidades.",
-      es: "Convertir un portal Bonita en bruto en una herramienta orientada a procesos para contratación, traslados y desvinculación entre unidades."
+      en: "Turning the raw Jalasoft portal into a process-first tool for hiring, transfers and disassociation across units.",
+      pt: "Transformar o portal Jalasoft bruto em uma ferramenta orientada a processos para contratação, transferências e desligamentos entre unidades.",
+      es: "Convertir el portal Jalasoft en bruto en una herramienta orientada a procesos para contratación, traslados y desvinculación entre unidades."
     },
     "home.card2.tag1": { en: "Enterprise", pt: "Corporativo", es: "Corporativo" },
     "home.card2.tag2": { en: "Process Platform", pt: "Plataforma de Processos", es: "Plataforma de Procesos" },

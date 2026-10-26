@@ -346,9 +346,9 @@ window.I18N_PAGE_STRINGS = {
   "elearn.more.also.label": { en: "Also at Jalasoft", pt: "Também na Jalasoft", es: "También en Jalasoft" },
   "elearn.more.also.title": { en: "BPM Platform Redesign", pt: "Redesign da Plataforma BPM", es: "Rediseño de la Plataforma BPM" },
   "elearn.more.also.text": {
-    en: "Turning a raw Bonita portal into a process-first tool for hiring, transfers and disassociation across units.",
-    pt: "Transformar um portal Bonita bruto em uma ferramenta orientada a processos para contratação, transferências e desligamentos entre unidades.",
-    es: "Convertir un portal Bonita en bruto en una herramienta orientada a procesos para contratación, traslados y desvinculación entre unidades."
+    en: "Turning the raw Jalasoft portal into a process-first tool for hiring, transfers and disassociation across units.",
+    pt: "Transformar o portal Jalasoft bruto em uma ferramenta orientada a processos para contratação, transferências e desligamentos entre unidades.",
+    es: "Convertir el portal Jalasoft en bruto en una herramienta orientada a procesos para contratación, traslados y desvinculación entre unidades."
   },
   "elearn.more.also.img.alt": {
     en: "BPM Platform Redesign — admin task view",
