@@ -247,10 +247,6 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
 @media (max-width:600px){
   .phones{grid-template-columns:repeat(2,1fr);row-gap:24px;}
 }
-/* process chips */
-.chips{display:flex;flex-wrap:wrap;gap:10px;}
-.chips li{display:flex;align-items:center;gap:10px;padding:10px 16px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-weight:700;font-size:14px;color:var(--ink);}
-.chips li span:first-child{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--accent);}
 
 /* persona */
 .persona{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:clamp(28px,5vw,64px);align-items:start;}
@@ -309,8 +305,8 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
     </div>
 
     <div class="hero-banner rv">
-      <img src="../Img/cac/cac-cover.webp"
-        alt="A car parked at dusk under a starry sky"
+      <img src="../Img/cac/cac-cover2.webp"
+        alt="Car parked under a starry sky next to the temperature control and schedules screens"
         data-i18n-attr="alt:cac.cover.alt">
     </div>
   </header>
@@ -342,15 +338,11 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
     <div class="container">
       <div class="eyebrow rv" data-i18n="cac.process.eyebrow">Process</div>
       <h2 class="sec-title rv" data-i18n-html="cac.process.title">From the idea<span class="it">to the prototype</span></h2>
-      <ol class="chips rv">
-        <li><span>01</span> <span data-i18n="cac.process.1">Mind map</span></li>
-        <li><span>02</span> <span data-i18n="cac.process.2">Persona</span></li>
-        <li><span>03</span> <span data-i18n="cac.process.3">User journey</span></li>
-        <li><span>04</span> <span data-i18n="cac.process.4">Sketches</span></li>
-        <li><span>05</span> <span data-i18n="cac.process.5">Wireframes</span></li>
-        <li><span>06</span> <span data-i18n="cac.process.6">High fidelity</span></li>
-        <li><span>07</span> <span data-i18n="cac.process.7">Prototype</span></li>
-      </ol>
+      <div class="img-placeholder filled rv">
+        <img src="../Img/cac/cac-process.webp"
+          alt="Product UX UI proposal: mind map, persona, user journey, sketch frame, wireframes and high fidelity prototype"
+          loading="lazy" data-i18n-attr="alt:cac.process.alt">
+      </div>
     </div>
   </section>
 

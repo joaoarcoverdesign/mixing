@@ -48,9 +48,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Mapa mental, persona, recorrido del usuario, wireframes y prototipo"
   },
   "cac.cover.alt": {
-    en: "A car parked at dusk under a starry sky",
-    pt: "Um carro estacionado ao anoitecer sob um céu estrelado",
-    es: "Un auto estacionado al anochecer bajo un cielo estrellado"
+    en: "Car parked under a starry sky next to the temperature control and schedules screens",
+    pt: "Carro estacionado sob um céu estrelado ao lado das telas de controle de temperatura e de programações",
+    es: "Auto estacionado bajo un cielo estrellado junto a las pantallas de control de temperatura y de programaciones"
   },
 
   /* ─────────── BRIEF ─────────── */
@@ -86,13 +86,11 @@ window.I18N_PAGE_STRINGS = {
     pt: "Da ideia<span class=\"it\">ao protótipo</span>",
     es: "De la idea<span class=\"it\">al prototipo</span>"
   },
-  "cac.process.1": { en: "Mind map", pt: "Mapa mental", es: "Mapa mental" },
-  "cac.process.2": { en: "Persona", pt: "Persona", es: "Persona" },
-  "cac.process.3": { en: "User journey", pt: "Jornada do usuário", es: "Recorrido del usuario" },
-  "cac.process.4": { en: "Sketches", pt: "Esboços", es: "Bocetos" },
-  "cac.process.5": { en: "Wireframes", pt: "Wireframes", es: "Wireframes" },
-  "cac.process.6": { en: "High fidelity", pt: "Alta fidelidade", es: "Alta fidelidad" },
-  "cac.process.7": { en: "Prototype", pt: "Protótipo", es: "Prototipo" },
+  "cac.process.alt": {
+    en: "Product UX UI proposal: mind map, persona, user journey, sketch frame, wireframes and high fidelity prototype",
+    pt: "Proposta de produto UX UI: mapa mental, persona, jornada do usuário, esboços, wireframes e protótipo em alta fidelidade",
+    es: "Propuesta de producto UX UI: mapa mental, persona, recorrido del usuario, bocetos, wireframes y prototipo en alta fidelidad"
+  },
 
   /* ─────────── MIND MAP ─────────── */
   "cac.mindmap.eyebrow": { en: "Mind Map", pt: "Mapa mental", es: "Mapa mental" },
