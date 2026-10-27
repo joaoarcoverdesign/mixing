@@ -12,4 +12,16 @@
   window.gtag = function () { dataLayer.push(arguments); };
   gtag('js', new Date());
   gtag('config', ID);
+
+  /* cases vistos: guardados no navegador (a koi da home ganha uma companheira
+     depois de 2) e enviados ao GA como evento case_view */
+  var m = location.pathname.match(/\/cases\/([^\/]+?)(?:\.html)?$/);
+  if (m) {
+    var slug = decodeURIComponent(m[1]).replace(/-pt$/, '');
+    try {
+      var seen = JSON.parse(localStorage.getItem('koi.cases') || '[]');
+      if (seen.indexOf(slug) < 0) { seen.push(slug); localStorage.setItem('koi.cases', JSON.stringify(seen)); }
+    } catch (e) {}
+    gtag('event', 'case_view', { case_slug: slug });
+  }
 })();

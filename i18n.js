@@ -47,6 +47,21 @@
     "common.nav.about": { en: "About", pt: "Sobre", es: "Acerca" },
     "common.nav.contact": { en: "Contact", pt: "Contato", es: "Contacto" },
     "common.nav.menu": { en: "Menu", pt: "Menu", es: "Menú" },
+    "koi.tip.need": {
+      en: "I need a companion. Visit 2 case studies.",
+      pt: "Preciso de uma companheira. Visite 2 cases.",
+      es: "Necesito una compañera. Visita 2 casos."
+    },
+    "koi.tip.one": {
+      en: "Just one more case study until she arrives.",
+      pt: "Falta só um case para ela chegar.",
+      es: "Falta solo un caso para que llegue."
+    },
+    "koi.tip.done": {
+      en: "Thank you! Now I swim with company.",
+      pt: "Obrigado! Agora nado acompanhado.",
+      es: "¡Gracias! Ahora nado acompañado."
+    },
     "common.footer.rights": {
       en: "© 2026 João Abdalla. All rights reserved.",
       pt: "© 2026 João Abdalla. Todos os direitos reservados.",
