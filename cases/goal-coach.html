@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en" data-i18n-page="gc">
+<head>
+<script src="../analytics.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../Img/favicon.png">
+<link rel="apple-touch-icon" href="../Img/favicon.png">
+<script src="../i18n/goal-coach.js"></script>
+<script src="../i18n.js"></script>
+<title>Goal Coach — A Daily Plan by Email | Abdalla Design</title>
+<meta name="description" content="A product I conceived, designed, built and launched: one plan a day with concrete actions, delivered by email every morning at 8 a.m.">
+<link rel="canonical" href="https://abdalladesign.vercel.app/cases/goal-coach.html">
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Abdalla Design">
+<meta property="og:url" content="https://abdalladesign.vercel.app/cases/goal-coach.html">
+<meta property="og:title" content="Goal Coach — A Daily Plan by Email | Abdalla Design">
+<meta property="og:description" content="A product I conceived, designed, built and launched: one plan a day with concrete actions, delivered by email every morning at 8 a.m.">
+<meta property="og:image" content="https://abdalladesign.vercel.app/Img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Selected work by João Abdalla — product and UX/UI design projects">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Goal Coach — A Daily Plan by Email | Abdalla Design">
+<meta name="twitter:description" content="A product I conceived, designed, built and launched: one plan a day with concrete actions, delivered by email every morning at 8 a.m.">
+<meta name="twitter:image" content="https://abdalladesign.vercel.app/Img/og-cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* abdalladesign visual identity — matches index.html (Arcoverdesign v5) */
+  --bg:#11161A;
+  --bg-deep:#0C1013;
+  --surface:#1A2025;
+  --ink:#F4F6F3;
+  --ink-soft:#9BA4AA;
+  --ink-dim:#5E676D;
+  --num-dim:#333B41;
+  --line:rgba(255,255,255,.08);
+  --line-soft:rgba(255,255,255,.05);
+  --accent:#C2FC50;
+  --accent-soft:rgba(194,252,80,.12);
+  --radius-lg:16px;
+  --radius-md:14px;
+  --sans:'Urbanist', sans-serif;
+  --body:'Urbanist', sans-serif;
+  --serif:'Lora', Georgia, serif;
+  --px: clamp(20px, 5vw, 72px);
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6;
+}
+::selection{background:var(--accent);color:var(--bg-deep);}
+a{color:inherit;text-decoration:none;}
+button{font:inherit;background:none;border:none;cursor:pointer;color:inherit;}
+img{max-width:100%;display:block;}
+ul,ol{list-style:none;}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
+.container{max-width:1160px;margin:0 auto;padding:0 var(--px);}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;transition:transform .5s var(--ease);}
+nav.is-hidden{transform:translateY(-110%);}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px var(--px);
+  background:linear-gradient(rgba(12,16,19,.85),rgba(12,16,19,.4) 70%,transparent);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+}
+.nav-brand{display:flex;align-items:center;gap:13px;}
+.nav-avatar{width:44px;height:44px;border-radius:50%;flex:0 0 auto;object-fit:cover;border:2px solid var(--ink);}
+.nav-brand-text{display:flex;flex-direction:column;line-height:1.2;}
+.nav-name{font-family:var(--sans);font-weight:700;font-size:17px;letter-spacing:-.01em;color:var(--ink);}
+.nav-role{font-family:var(--sans);font-weight:400;font-size:12px;color:var(--ink-soft);margin-top:1px;}
+@media (max-width:480px){.nav-role{display:none;}}
+.nav-links{display:flex;gap:34px;list-style:none;align-items:center;}
+.nav-links a{
+  font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-soft);position:relative;padding:4px 0;transition:color .25s;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;
+  background:var(--accent);transform:scaleX(0);transform-origin:right;
+  transition:transform .4s var(--ease);
+}
+.nav-links a:hover{color:var(--ink);}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left;}
+@media (max-width:720px){.nav-links{gap:20px;}}
+
+/* mobile: hamburger + dropdown panel */
+.nav-toggle{display:none;}
+.nav-toggle svg{width:22px;height:22px;}
+.nav-toggle .icon-close{display:none;}
+.nav-lang-slot{display:none;}
+@media (max-width:760px){
+  .nav-toggle{
+    display:flex;align-items:center;justify-content:center;
+    width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
+    color:var(--ink);flex:0 0 auto;
+  }
+  .nav-lang-slot{display:inline-flex;margin-left:auto;margin-right:14px;}
+  .nav-links .lang-switch-li{display:none;}
+  nav.is-open .nav-toggle .icon-open{display:none;}
+  nav.is-open .nav-toggle .icon-close{display:block;}
+  .nav-links{
+    position:absolute;top:calc(100% - 6px);left:var(--px);right:var(--px);
+    flex-direction:column;align-items:stretch;gap:0;
+    background:var(--bg-deep);border:1px solid var(--line);border-radius:14px;
+    padding:6px;
+    opacity:0;transform:translateY(-8px);pointer-events:none;
+    transition:opacity .3s var(--ease),transform .3s var(--ease);
+  }
+  nav.is-open .nav-links{opacity:1;transform:none;pointer-events:auto;}
+  nav.is-open.is-hidden{transform:none;}
+  .nav-links li{border-bottom:1px solid var(--line);}
+  .nav-links li:last-child,
+  .nav-links li:nth-last-child(2){border-bottom:0;}
+  .nav-links a{display:block;padding:15px 14px;font-size:13px;letter-spacing:.12em;color:var(--ink);}
+  .nav-links a::after{display:none;}
+}
+
+/* HERO */
+.hero{padding:140px var(--px) 56px;}
+.hero-title{font-family:var(--sans);font-weight:800;font-size:clamp(32px,5.2vw,56px);line-height:1.06;letter-spacing:-.02em;margin-bottom:14px;color:var(--ink);}
+.hero-sub{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(18px,2.2vw,22px);color:var(--ink);opacity:.85;margin-bottom:24px;}
+.hero-text{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:640px;margin-bottom:40px;}
+.hero-specs{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid var(--line);padding-top:28px;margin-bottom:48px;}
+.spec-label{font-family:var(--sans);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-dim);margin-bottom:8px;}
+.spec-value{font-size:15px;font-weight:700;line-height:1.4;color:var(--ink);}
+
+/* IMAGES */
+.hero-banner{border-radius:var(--radius-lg);overflow:hidden;}
+.hero-banner img{display:block;width:100%;height:auto;}
+.img-placeholder.filled{background:var(--bg-deep);border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;}
+.img-placeholder.filled img{width:100%;height:auto;display:block;}
+.img-caption{display:block;margin-top:14px;font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);text-align:center;}
+
+/* stage for transparent phone mockups */
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(24px,4vw,56px);}
+.phones{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2.4vw,32px);align-items:end;}
+.phones img{width:100%;height:auto;}
+.phones.duo{grid-template-columns:repeat(2,minmax(0,240px));justify-content:center;gap:clamp(20px,5vw,72px);}
+
+/* SECTIONS */
+section{padding:88px 0;}
+section+section{border-top:1px solid var(--line);}
+.eyebrow{font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);flex:0 0 auto;}
+.sec-title{font-family:var(--sans);font-weight:800;font-size:clamp(26px,3.6vw,40px);line-height:1.18;letter-spacing:-.01em;max-width:760px;margin-bottom:22px;color:var(--ink);}
+.sec-title .it{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--accent);display:block;}
+.sec-lede{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:620px;margin-bottom:44px;}
+.sec-lede:last-child{margin-bottom:0;}
+.sub-title{font-family:var(--sans);font-weight:800;font-size:clamp(20px,2.4vw,24px);letter-spacing:-.01em;margin-bottom:14px;color:var(--ink);}
+
+/* two independent blocks side by side */
+.split-2{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-bottom:56px;}
+.split-2:last-child{margin-bottom:0;}
+.split-2 .sec-lede{margin-bottom:0;}
+
+/* pull quote */
+.pull{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(20px,2.6vw,26px);line-height:1.45;color:var(--ink);max-width:760px;margin-top:56px;}
+.pull strong{font-weight:600;color:var(--accent);}
+
+/* cards */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.insight-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:28px;}
+.insight-label{font-family:var(--sans);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:12px;}
+.insight-title{font-family:var(--sans);font-weight:800;font-size:17px;margin-bottom:10px;letter-spacing:-.01em;color:var(--ink);}
+.insight-text{font-family:var(--body);font-size:14.5px;color:var(--ink-soft);line-height:1.7;}
+
+/* sequential steps */
+.step{padding:32px 0;border-top:1px solid var(--line);}
+.step:first-child{border-top:none;padding-top:0;}
+.step-num{font-family:var(--serif);font-style:italic;font-weight:500;font-size:36px;color:var(--num-dim);line-height:1;margin-bottom:14px;}
+.step-title{font-family:var(--sans);font-weight:800;font-size:20px;margin-bottom:12px;letter-spacing:-.01em;max-width:640px;color:var(--ink);}
+.step-text{font-family:var(--body);color:var(--ink-soft);font-size:15px;line-height:1.75;max-width:720px;}
+
+/* DECISIONS */
+.decision{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(28px,4vw,48px);margin-bottom:28px;overflow:hidden;}
+.decision:last-child{margin-bottom:0;}
+.decision.reverse .decision-media{order:-1;}
+.decision-eyebrow{font-family:var(--sans);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:12px;}
+.decision-title{font-family:var(--sans);font-weight:800;font-size:22px;margin-bottom:16px;letter-spacing:-.01em;color:var(--ink);}
+.decision-text{font-family:var(--body);font-size:15px;color:var(--ink-soft);line-height:1.75;}
+.decision-media{border-radius:var(--radius-md);overflow:hidden;}
+.decision-media img{width:100%;height:auto;max-height:460px;object-fit:contain;}
+
+/* RESULT — surface card */
+.result-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(28px,4vw,48px);}
+.result-card .eyebrow{margin-bottom:20px;}
+.result-card p{font-family:var(--body);font-size:clamp(18px,2.2vw,22px);line-height:1.5;color:var(--ink);max-width:44ch;}
+.result-card .sec-title{margin-bottom:18px;}
+.outcome-grid p{font-size:clamp(16px,1.6vw,18px);line-height:1.65;color:var(--ink-soft);}
+.outcome-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;}
+.outcome-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.outcome-cards img{width:100%;height:auto;}
+
+/* LEARNINGS */
+.grid-2x2{display:grid;grid-template-columns:1fr 1fr;gap:44px 56px;}
+.learn-card{padding:24px 0 0;border-top:1px solid var(--line);}
+.learn-tag{font-family:var(--sans);font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px;display:block;color:var(--ink-dim);}
+.learn-title{font-family:var(--sans);font-weight:800;font-size:17px;margin-bottom:10px;letter-spacing:-.005em;color:var(--ink);}
+.learn-text{font-family:var(--body);font-size:14px;color:var(--ink-soft);line-height:1.7;}
+
+/* MORE WORK */
+.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+.next-card{display:flex;flex-direction:column;}
+.next-label{font-family:var(--sans);font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-dim);margin-bottom:10px;}
+.next-title{font-family:var(--sans);font-weight:800;font-size:20px;margin-bottom:10px;letter-spacing:-.01em;color:var(--ink);transition:color .2s;}
+.next-card:hover .next-title{color:var(--accent);}
+.next-text{font-family:var(--body);font-size:14px;color:var(--ink-soft);margin-bottom:22px;max-width:420px;}
+.next-media{margin-top:auto;aspect-ratio:16/10;border-radius:var(--radius-md);overflow:hidden;background:var(--bg-deep);border:1px solid var(--line);}
+.next-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+.next-card:hover .next-media img{transform:scale(1.03);}
+
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+.rv.is-in{opacity:1;transform:none;}
+
+footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep);}
+.footer-inner{text-align:center;font-family:var(--sans);font-weight:600;font-size:13px;color:var(--ink-dim);}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  .rv{opacity:1;transform:none;transition:none;}
+  .next-media img{transition:none;}
+}
+
+@media (max-width:860px){
+  .hero-specs{grid-template-columns:repeat(2,1fr);gap:20px;}
+  .split-2{grid-template-columns:1fr;gap:32px;}
+  .grid-3,.grid-2{grid-template-columns:1fr;}
+  .decision{grid-template-columns:1fr;gap:28px;}
+  .decision.reverse .decision-media{order:0;}
+  .outcome-grid{grid-template-columns:1fr;gap:32px;}
+  .grid-2x2{grid-template-columns:1fr;gap:0;}
+  .learn-card{margin-top:32px;}
+  .next-grid{grid-template-columns:1fr;gap:44px;}
+  .nav-links{gap:18px;}
+}
+@media (max-width:600px){
+  .phones{grid-template-columns:repeat(2,1fr);row-gap:24px;}
+}
+
+/* image slots waiting for final screenshots */
+.img-slot{display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;border:1px dashed rgba(255,255,255,.16);border-radius:var(--radius-md);background:var(--bg-deep);color:var(--ink-dim);font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;}
+.img-slot.hero-slot{aspect-ratio:16/9;border-radius:var(--radius-lg);}
+.img-slot.step-slot{aspect-ratio:4/5;margin-bottom:20px;}
+.img-slot.wide-slot{aspect-ratio:4/3;}
+
+/* stats */
+.stat-num{font-family:var(--serif);font-style:italic;font-weight:500;font-size:48px;line-height:1;color:var(--accent);margin-bottom:14px;}
+
+/* solution steps */
+.flow-step .step-num{margin-bottom:10px;}
+.flow-step .insight-title{margin-bottom:8px;}
+
+/* pricing */
+.price-card{border:1px solid var(--line);border-radius:var(--radius-md);padding:28px;}
+.price-card.is-pro{border-color:var(--accent);background:var(--accent-soft);}
+.price-name{font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-dim);margin-bottom:10px;}
+.price-card.is-pro .price-name{color:var(--accent);}
+.price-value{font-weight:800;font-size:26px;letter-spacing:-.01em;color:var(--ink);margin-bottom:8px;}
+.price-text{font-size:14.5px;color:var(--ink-soft);line-height:1.65;}
+
+/* user feedback quote */
+.quote-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(28px,4vw,40px);max-width:760px;margin-top:20px;}
+.quote-text{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(19px,2.2vw,22px);line-height:1.5;color:var(--ink);margin-bottom:12px;}
+
+/* closing */
+.closing{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px;}
+.closing-text{font-family:var(--sans);font-weight:800;font-size:clamp(22px,3vw,32px);line-height:1.25;letter-spacing:-.01em;color:var(--ink);max-width:680px;}
+.closing-text .it{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--accent);}
+.btn-accent{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 28px;border-radius:999px;background:var(--accent);color:var(--bg-deep);font-weight:700;font-size:15px;transition:transform .3s var(--ease);}
+.btn-accent:hover{transform:translateY(-2px);}
+.spec-value a{color:var(--accent);}
+.spec-value a:hover{text-decoration:underline;}
+@media (prefers-reduced-motion: reduce){.btn-accent{transition:none;}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../index.html#top" class="nav-brand">
+      <img class="nav-avatar" src="../Img/joao-avatar.jpg" alt="João Abdalla">
+      <span class="nav-brand-text">
+        <span class="nav-name">João Abdalla</span>
+        <span class="nav-role" data-i18n="common.nav.role">Product designer UX UI</span>
+      </span>
+    </a>
+    <span class="lang-switch-slot nav-lang-slot"></span>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks" data-i18n-attr="aria-label:common.nav.menu">
+      <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#work" data-i18n="common.nav.works">Works</a></li>
+      <li><a href="../about.html" data-i18n="common.nav.about">About</a></li>
+      <li><a href="../index.html#contact" data-i18n="common.nav.contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <header class="hero container" role="banner">
+    <h1 class="hero-title rv">Goal Coach</h1>
+    <p class="hero-sub rv" data-i18n="gc.hero.sub">One plan a day, in your inbox</p>
+    <p class="hero-text rv" data-i18n="gc.hero.text">I built Goal Coach for myself, at a time when I needed focus, and it helped me start each day knowing what to do first. Now I want it to help other people the same way: one plan a day, with concrete actions and a message that speaks to you, every morning at 8 a.m. by email. I conceived, designed, built and launched the product, from the problem to the checkout.</p>
+
+    <div class="hero-specs rv">
+      <div><div class="spec-label" data-i18n="gc.hero.spec1.label">My Role</div><div class="spec-value" data-i18n="gc.hero.spec1.value">Founder · Product Designer</div></div>
+      <div><div class="spec-label" data-i18n="gc.hero.spec2.label">Scope</div><div class="spec-value" data-i18n="gc.hero.spec2.value">Research, UX/UI, email, business, launch</div></div>
+      <div><div class="spec-label" data-i18n="gc.hero.spec3.label">Stack</div><div class="spec-value">Vercel · Supabase · Resend · Stripe · Claude API</div></div>
+      <div><div class="spec-label" data-i18n="gc.hero.spec4.label">Live</div><div class="spec-value"><a href="https://www.goalcoach.com.br" target="_blank" rel="noopener">goalcoach.com.br</a></div></div>
+    </div>
+
+    <div class="img-slot hero-slot rv" data-i18n="gc.slot.hero">[Cover: site home + daily email on a phone]</div>
+  </header>
+
+  <!-- PROBLEM -->
+  <section id="problem">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="gc.problem.eyebrow">The Problem</div>
+      <h2 class="sec-title rv" data-i18n-html="gc.problem.title">It wasn't a lack of options.<span class="it">It was a lack of focus.</span></h2>
+      <div class="split-2 rv">
+        <p class="sec-lede" data-i18n="gc.problem.body1">During a career transition, I had too many fronts at once: looking for a job, opening an agency, building a product, using AI. When everything is a priority, nothing moves. And underneath it came the doubt: after 20 years in the industry, was I still good enough?</p>
+        <p class="sec-lede" data-i18n-html="gc.problem.body2">To-do lists and productivity apps organize what to do, but they don't remind you <em>why</em> you're doing it or tell you where to start today. I know I'm not the only one in that place. That's what turned a personal tool into a product.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIMENT -->
+  <section id="experiment">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="gc.exp.eyebrow">The Experiment</div>
+      <h2 class="sec-title rv" data-i18n-html="gc.exp.title">Validate the need<span class="it">before writing code</span></h2>
+      <p class="sec-lede rv" data-i18n="gc.exp.body">I asked an AI to write messages based on my real goals and scheduled them by hand in Gmail, one each morning, for a week. The test cost nothing and answered the question that mattered.</p>
+      <div class="grid-3 rv">
+        <div class="insight-card">
+          <div class="stat-num">7</div>
+          <div class="insight-title" data-i18n="gc.exp.s1.title">test mornings</div>
+          <p class="insight-text" data-i18n="gc.exp.s1.body">Handwritten messages, scheduled in Gmail, with no product at all.</p>
+        </div>
+        <div class="insight-card">
+          <div class="stat-num">1</div>
+          <div class="insight-title" data-i18n="gc.exp.s2.title">deciding signal</div>
+          <p class="insight-text" data-i18n="gc.exp.s2.body">On the first morning without the message, I missed it. That was the criterion to build.</p>
+        </div>
+        <div class="insight-card">
+          <div class="stat-num">0</div>
+          <div class="insight-title" data-i18n="gc.exp.s3.title">apps installed</div>
+          <p class="insight-text" data-i18n="gc.exp.s3.body">The channel already existed: the email people open every day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section id="solution">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="gc.sol.eyebrow">The Solution</div>
+      <h2 class="sec-title rv" data-i18n-html="gc.sol.title">Three steps,<span class="it">and the plan arrives on its own</span></h2>
+      <div class="grid-3 rv">
+        <div class="flow-step">
+          <div class="img-slot step-slot" data-i18n="gc.slot.step1">[Screenshot: context and goals]</div>
+          <div class="step-num">01</div>
+          <div class="insight-title" data-i18n="gc.sol.s1.title">Share your situation</div>
+          <p class="insight-text" data-i18n="gc.sol.s1.body">Current context, a few goals and the kind of help you want: motivational, practical or complete.</p>
+        </div>
+        <div class="flow-step">
+          <div class="img-slot step-slot" data-i18n="gc.slot.step2">[Screenshot: plan generated on the site]</div>
+          <div class="step-num">02</div>
+          <div class="insight-title" data-i18n="gc.sol.s2.title">Get the plan right away</div>
+          <p class="insight-text" data-i18n="gc.sol.s2.body">A personal message and actions with deadlines, which can be checked off as done.</p>
+        </div>
+        <div class="flow-step">
+          <div class="img-slot step-slot" data-i18n="gc.slot.step3">[Screenshot: 8 a.m. email on a phone]</div>
+          <div class="step-num">03</div>
+          <div class="insight-title" data-i18n="gc.sol.s3.title">Every day at 8 a.m.</div>
+          <p class="insight-text" data-i18n="gc.sol.s3.body">A new plan in your inbox, generated for that day, with no need to open the site.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN DECISIONS -->
+  <section id="decisions">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="gc.dec.eyebrow">Design Decisions</div>
+      <h2 class="sec-title rv" data-i18n-html="gc.dec.title">Every detail<span class="it">serving a daily habit</span></h2>
+      <div class="grid-2 rv">
+        <div class="insight-card">
+          <div class="insight-title" data-i18n="gc.dec.d1.title">Email instead of an app</div>
+          <p class="insight-text" data-i18n="gc.dec.d1.body">No install, no notifications to enable. The product lives where people already are every morning, and the first experience happens in under a minute.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-title" data-i18n="gc.dec.d2.title">A dark email that reads in any client</div>
+          <p class="insight-text" data-i18n="gc.dec.d2.body">A real test on an iPhone showed the text almost invisible in dark mode. I rebuilt the template with tables, explicit backgrounds and colors and AA contrast, so no client inverts the colors.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-title" data-i18n="gc.dec.d3.title">A subscribe call that grows with the trial</div>
+          <p class="insight-text" data-i18n="gc.dec.d3.body">On days 1 to 4 of the free trial, a discreet line with the days left. On days 5 to 7, a gold button. Value first, the sale after.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-title" data-i18n="gc.dec.d4.title">A trial ending that shows what you lose</div>
+          <p class="insight-text" data-i18n="gc.dec.d4.body">The day after the trial ends, the daily plan arrives with the first action readable and the rest fading away. Since gradients don't work in email, the effect uses solid colors line by line.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-title" data-i18n="gc.dec.d5.title">One click to payment</div>
+          <p class="insight-text" data-i18n="gc.dec.d5.body">In the first test, the subscribe button led to the form on the home page. Now it opens checkout with the chosen plan and the email already filled in, without exposing data in the URL.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-title" data-i18n="gc.dec.d6.title">Bilingual from the ground up</div>
+          <p class="insight-text" data-i18n="gc.dec.d6.body">A PT/EN switcher on the site and the language saved at sign-up, used in the generated plan, the email and the checkout.</p>
+        </div>
+      </div>
+      <div class="grid-2 rv" style="margin-top:28px;">
+        <div class="img-slot wide-slot" data-i18n="gc.slot.dark">[Before and after: email in iPhone dark mode]</div>
+        <div class="img-slot wide-slot" data-i18n="gc.slot.fade">[Screenshot: trial-end email with the fade and both plans]</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUSINESS MODEL -->
+  <section id="business">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="gc.biz.eyebrow">Business Model</div>
+      <h2 class="sec-title rv" data-i18n-html="gc.biz.title">A cheap trial,<span class="it">a simple subscription</span></h2>
+      <p class="sec-lede rv" data-i18n="gc.biz.body">Each generated plan costs a few cents of AI, and a full 7-day trial costs less than R$ 0.30 per person.</p>
+      <div class="grid-3 rv">
+        <div class="price-card">
+          <div class="price-name" data-i18n="gc.biz.free.name">Free</div>
+          <div class="price-value">R$ 0</div>
+          <p class="price-text" data-i18n="gc.biz.free.body">Manual plan on the site, 3 generations per day.</p>
+        </div>
+        <div class="price-card">
+          <div class="price-name" data-i18n="gc.biz.trial.name">Trial</div>
+          <div class="price-value" data-i18n="gc.biz.trial.value">7 days</div>
+          <p class="price-text" data-i18n="gc.biz.trial.body">The plan arrives by email every day.</p>
+        </div>
+        <div class="price-card is-pro">
+          <div class="price-name">Pro</div>
+          <div class="price-value" data-i18n="gc.biz.pro.value">R$ 29.90/mo</div>
+          <p class="price-text" data-i18n="gc.biz.pro.body">Or R$ 249/year, the equivalent of R$ 20.75 a month.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section id="trust">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="gc.trust.eyebrow">Trust Before Launch</div>
+      <h2 class="sec-title rv" data-i18n-html="gc.trust.title">Product design is also<span class="it">what you don't see</span></h2>
+      <p class="sec-lede rv" data-i18n="gc.trust.body">Before going public, I reviewed the product end to end with AI as a technical partner. We found and fixed flaws a user would never see, but that would break their trust.</p>
+      <div class="grid-3 rv">
+        <div class="learn-card">
+          <div class="learn-title" data-i18n="gc.trust.t1.title">Protected data</div>
+          <p class="learn-text" data-i18n="gc.trust.t1.body">I closed open database rules that allowed users' emails to be read with a public key.</p>
+        </div>
+        <div class="learn-card">
+          <div class="learn-title" data-i18n="gc.trust.t2.title">Honest measurement</div>
+          <p class="learn-text" data-i18n="gc.trust.t2.body">In-house click and open tracking, with signed events, to know what works.</p>
+        </div>
+        <div class="learn-card">
+          <div class="learn-title" data-i18n="gc.trust.t3.title">Predictable sends</div>
+          <p class="learn-text" data-i18n="gc.trust.t3.body">Each special email goes out only once, and is only marked as sent after confirmation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAUNCH -->
+  <section id="launch">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="gc.launch.eyebrow">Launch and First Signals</div>
+      <h2 class="sec-title rv" data-i18n-html="gc.launch.title">If it helped me,<span class="it">can it help others?</span></h2>
+      <p class="sec-lede rv" data-i18n="gc.launch.body">That was the launch question. I started with family and friends, collected feedback and then told the story on LinkedIn on 10/20/2026, inviting anyone with ten things to do and no idea where to start. First-week numbers.</p>
+      <div class="grid-3 rv">
+        <div class="insight-card">
+          <div class="stat-num">[N]</div>
+          <p class="insight-text" data-i18n="gc.launch.m1">people on the trial</p>
+        </div>
+        <div class="insight-card">
+          <div class="stat-num">[N]%</div>
+          <p class="insight-text" data-i18n="gc.launch.m2">opened the email on consecutive days</p>
+        </div>
+        <div class="insight-card">
+          <div class="stat-num">[N]</div>
+          <p class="insight-text" data-i18n="gc.launch.m3">Pro subscribers</p>
+        </div>
+      </div>
+      <div class="quote-card rv">
+        <div class="insight-label" data-i18n="gc.launch.quote.label">User Feedback</div>
+        <p class="quote-text" data-i18n="gc.launch.quote.text">"Nobody opens email anymore. It would be nice to get it on WhatsApp."</p>
+        <p class="insight-text" data-i18n="gc.launch.quote.note">It became a hypothesis to validate: WhatsApp as a Pro plan feature, since each message has a cost.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEARNINGS -->
+  <section id="learnings">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="gc.learn.eyebrow">Learnings</div>
+      <h2 class="sec-title rv" data-i18n-html="gc.learn.title">What I'd take<span class="it">to the next product</span></h2>
+      <div class="grid-2x2 rv">
+        <div class="learn-card">
+          <div class="learn-title" data-i18n="gc.learn.l1.title">Test the absence, not the interest.</div>
+          <p class="learn-text" data-i18n="gc.learn.l1.body">"I liked it" is weak. "I missed it when it stopped" is the signal that justifies building.</p>
+        </div>
+        <div class="learn-card">
+          <div class="learn-title" data-i18n="gc.learn.l2.title">The end of the trial is a product screen.</div>
+          <p class="learn-text" data-i18n="gc.learn.l2.body">Without a clear moment to subscribe, the product simply stops arriving, and the person doesn't even notice.</p>
+        </div>
+        <div class="learn-card">
+          <div class="learn-title" data-i18n="gc.learn.l3.title">Test on someone else's device.</div>
+          <p class="learn-text" data-i18n="gc.learn.l3.body">The email that was perfect on my computer was unreadable on a user's iPhone.</p>
+        </div>
+        <div class="learn-card">
+          <div class="learn-title" data-i18n="gc.learn.l4.title">Measure before you promote.</div>
+          <p class="learn-text" data-i18n="gc.learn.l4.body">Without analytics on the site, you can't tell a lack of visits from a lack of conversion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section id="closing">
+    <div class="container closing rv">
+      <p class="closing-text" data-i18n-html="gc.closing.text">It helped me stay focused. <span class="it">I want it to help you too.</span></p>
+      <a class="btn-accent" href="https://www.goalcoach.com.br" target="_blank" rel="noopener"><span data-i18n="gc.closing.cta">Try Goal Coach</span> <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- MORE WORK -->
+  <section id="more-work">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="gc.more.eyebrow">More Work</div>
+      <div class="next-grid rv">
+        <a class="next-card" href="cac.html">
+          <div class="next-label" data-i18n="gc.more.next.label">Next Case Study</div>
+          <h3 class="next-title">Car Air Comfort</h3>
+          <p class="next-text" data-i18n="home.card10.desc">An app that cools the car before you get in.</p>
+          <div class="next-media"><img src="../Img/cac/cac-cover2.webp" alt="Car Air Comfort — app to set the car temperature before the trip" loading="lazy" data-i18n-attr="alt:home.card10.alt"></div>
+        </a>
+        <a class="next-card" href="valt.html">
+          <div class="next-label" data-i18n="gc.more.also.label">Also Worth Seeing</div>
+          <h3 class="next-title">Valt Network</h3>
+          <p class="next-text" data-i18n="gc.more.also.text">Private market social network. Designed from zero to live product.</p>
+          <div class="next-media"><img src="../Img/cards%20home/Valt.png" alt="Valt Network product design" loading="lazy"></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">Copyright © abdalladesign 2026</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+</script>
+<script>
+  (function(){
+    var lastY = 0, nav = document.getElementById("nav");
+    if (!nav) return;
+    window.addEventListener("scroll", function(){
+      var y = window.scrollY;
+      if (y > 140 && y > lastY) nav.classList.add("is-hidden");
+      else nav.classList.remove("is-hidden");
+      lastY = y;
+    }, { passive: true });
+  })();
+</script>
+<script>
+  /* mobile nav — hamburger toggles the dropdown panel */
+  (function () {
+    var nav = document.getElementById("nav");
+    var toggle = document.getElementById("navToggle");
+    var panel = document.getElementById("navLinks");
+    if (!nav || !toggle || !panel) return;
+
+    function close() {
+      nav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+    function open() {
+      nav.classList.add("is-open");
+      toggle.setAttribute("aria-expanded", "true");
+    }
+
+    toggle.addEventListener("click", function () {
+      nav.classList.contains("is-open") ? close() : open();
+    });
+    panel.addEventListener("click", function (e) {
+      if (e.target.closest("a")) close();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") close();
+    });
+    document.addEventListener("click", function (e) {
+      if (nav.classList.contains("is-open") && !e.target.closest(".nav-inner")) close();
+    });
+    window.addEventListener("scroll", close, { passive: true });
+  })();
+</script>
+
+</body>
+</html>
