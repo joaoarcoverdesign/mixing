@@ -1126,6 +1126,12 @@
       background: var(--bg);
     }
 
+    /* content sits above the kinetic grid + koi canvases */
+    .kinetic-wrap > section {
+      position: relative;
+      z-index: 1;
+    }
+
     .testi .sec-head {
       justify-content: center;
       text-align: center;
@@ -2046,6 +2052,7 @@
     <!-- ════════ TESTIMONIALS + CLOSING — shared kinetic-grid wrap, reads as one section ════════ -->
     <div class="kinetic-wrap" id="testiClosingWrap">
       <canvas class="kinetic-canvas" id="kineticCanvas2" aria-hidden="true"></canvas>
+      <canvas class="kinetic-canvas" id="koiCanvas2" aria-hidden="true"></canvas>
 
       <section class="testi sec-pad" id="testimonials">
         <div class="sec-head">
@@ -2360,6 +2367,7 @@
       initKineticCanvas(document.getElementById("kineticCanvas"), document.querySelector(".hero2"));
       initKoi(document.getElementById("koiCanvas"), document.querySelector(".hero2"));
       initKineticCanvas(document.getElementById("kineticCanvas2"), document.getElementById("testiClosingWrap"));
+      initKoi(document.getElementById("koiCanvas2"), document.getElementById("testiClosingWrap"));
 
       /* smooth in-page anchor scroll — eased scroll animation instead of an instant jump,
          offset so the fixed nav never covers the target section's top */

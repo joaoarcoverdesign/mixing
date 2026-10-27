@@ -1,7 +1,11 @@
 /* Shared koi animation: call initKoi(canvas, section) */
 /* koi: top-down, follows the pointer with a slow, fluid swim */
 function initKoi(canvas, section) {
-  if (!canvas || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (!canvas) return;
+  /* no cursor to follow on touch devices / phones: hide the koi entirely */
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      !window.matchMedia("(hover: hover) and (pointer: fine)").matches ||
+      window.innerWidth < 768) { canvas.style.display = "none"; return; }
   var ctx = canvas.getContext("2d"), dpr = 1, W = 0, H = 0, visible = true;
   var off = document.createElement("canvas"), octx = off.getContext("2d");
   var N = 28, SEG = 7, spine = [], mouse = null, last = 0, t = 0;
@@ -17,6 +21,7 @@ function initKoi(canvas, section) {
   head.x = W * 0.55; head.y = H * 0.5;
   for (var i = 0; i < N; i++) spine.push({ x: head.x - i * SEG, y: head.y });
   window.addEventListener("resize", resize);
+  if ("ResizeObserver" in window) new ResizeObserver(resize).observe(section);
   window.addEventListener("mousemove", function (e) {
     var r = section.getBoundingClientRect();
     mouse = { x: e.clientX - r.left, y: e.clientY - r.top, at: performance.now() };
