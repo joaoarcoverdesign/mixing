@@ -10,9 +10,9 @@ window.I18N_PAGE_STRINGS = {
 
   /* ─────────── META ─────────── */
   "signflow.meta.title": {
-    en: "signFlow — Document Signing Tool | Abdalla Design",
-    pt: "signFlow — Case de Product Design | Abdalla Design",
-    es: "signFlow — Caso de Product Design | Abdalla Design"
+    en: "signFlow: Document Signing Tool | Abdalla Design",
+    pt: "signFlow: Case de Product Design | Abdalla Design",
+    es: "signFlow: Caso de Product Design | Abdalla Design"
   },
   "signflow.meta.description": {
     en: "A proprietary document-signing tool, designed to replace DocuSign inside the company.",

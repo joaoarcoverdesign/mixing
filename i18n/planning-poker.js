@@ -9,9 +9,9 @@
 window.I18N_PAGE_STRINGS = {
 
   "planningpoker.meta.title": {
-    en: "Planning Poker — Agile Estimation Redesign | Abdalla Design",
-    pt: "Planning Poker — Case de Product Design | Abdalla Design",
-    es: "Planning Poker — Caso de Product Design | Abdalla Design"
+    en: "Planning Poker: Agile Estimation Redesign | Abdalla Design",
+    pt: "Planning Poker: Case de Product Design | Abdalla Design",
+    es: "Planning Poker: Caso de Product Design | Abdalla Design"
   },
   "planningpoker.meta.description": {
     en: "Redesign of a Planning Poker app to make Agile estimation more intuitive, efficient and easier to use.",

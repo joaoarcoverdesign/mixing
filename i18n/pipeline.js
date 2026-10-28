@@ -10,14 +10,14 @@ window.I18N_PAGE_STRINGS = {
 
   /* ─────────── META ─────────── */
   "pipeline.meta.title": {
-    en: "The Pipeline — designing with a team of AI agents | Abdalla Design",
-    pt: "O Pipeline — projetar com um time de agentes de IA | Abdalla Design",
-    es: "El Pipeline — diseñar con un equipo de agentes de IA | Abdalla Design"
+    en: "The Pipeline: designing with a team of AI agents | Abdalla Design",
+    pt: "O Pipeline: projetar com um time de agentes de IA | Abdalla Design",
+    es: "El Pipeline: diseñar con un equipo de agentes de IA | Abdalla Design"
   },
   "pipeline.meta.description": {
-    en: "A designer directing a team of specialised AI agents across UX, UI and development. The value is in the creative direction and the curation — not the tool.",
-    pt: "Um designer orquestrando um time de agentes de IA especializados em UX, UI e desenvolvimento. O valor está na direção criativa e na curadoria — não na ferramenta.",
-    es: "Un diseñador orquestando un equipo de agentes de IA especializados en UX, UI y desarrollo. El valor está en la dirección creativa y en la curaduría — no en la herramienta."
+    en: "A designer directing a team of specialised AI agents across UX, UI and development. The value is in the creative direction and the curation, not the tool.",
+    pt: "Um designer orquestrando um time de agentes de IA especializados em UX, UI e desenvolvimento. O valor está na direção criativa e na curadoria, não na ferramenta.",
+    es: "Un diseñador orquestando un equipo de agentes de IA especializados en UX, UI y desarrollo. El valor está en la dirección creativa y en la curaduría, no en la herramienta."
   },
 
   /* ─────────── 1 · ABERTURA CONCEITUAL ─────────── */
@@ -30,9 +30,9 @@ window.I18N_PAGE_STRINGS = {
     es: "El diseño ya no lo hace una persona con una herramienta."
   },
   "pipeline.hero.body": {
-    en: "It's one person directing a team of specialised AI agents. Each agent has one specific superpower — typography, colour, UX, art direction, motion. The orchestrator's value is in the <b>creative direction</b>, in <b>curating the output</b>, and in the <b>narrative stitching</b> between the pieces.",
-    pt: "É um humano orquestrando um time de agentes de IA especializados. Cada agente tem um superpoder específico — tipografia, cor, UX, direção de arte, motion. O valor do orquestrador está na <b>direção criativa</b>, na <b>curadoria do output</b> e na <b>costura narrativa</b> entre as peças.",
-    es: "Es un humano orquestando un equipo de agentes de IA especializados. Cada agente tiene un superpoder específico — tipografía, color, UX, dirección de arte, motion. El valor del orquestador está en la <b>dirección creativa</b>, en la <b>curaduría del resultado</b> y en la <b>costura narrativa</b> entre las piezas."
+    en: "It's one person directing a team of specialised AI agents. Each agent has one specific superpower: typography, colour, UX, art direction, motion. The orchestrator's value is in the <b>creative direction</b>, in <b>curating the output</b>, and in the <b>narrative stitching</b> between the pieces.",
+    pt: "É um humano orquestrando um time de agentes de IA especializados. Cada agente tem um superpoder específico: tipografia, cor, UX, direção de arte, motion. O valor do orquestrador está na <b>direção criativa</b>, na <b>curadoria do output</b> e na <b>costura narrativa</b> entre as peças.",
+    es: "Es un humano orquestando un equipo de agentes de IA especializados. Cada agente tiene un superpoder específico: tipografía, color, UX, dirección de arte, motion. El valor del orquestador está en la <b>dirección creativa</b>, en la <b>curaduría del resultado</b> y en la <b>costura narrativa</b> entre las piezas."
   },
 
   /* ─────────── 2 · O SISTEMA ─────────── */
@@ -45,9 +45,9 @@ window.I18N_PAGE_STRINGS = {
     es: 'Cómo funciona <em>el sistema</em>'
   },
   "pipeline.sys.intro": {
-    en: "A pipeline of three sequential blocks — UX, UI and development. Each block runs a fixed sequence of specialised agents, and each step hands the next one its exact input. Open a block to see every agent inside it.",
-    pt: "Um pipeline de três blocos sequenciais — UX, UI e desenvolvimento. Cada bloco roda uma sequência fixa de agentes especializados, e cada etapa entrega à próxima a sua entrada exata. Abra um bloco para ver cada agente dentro dele.",
-    es: "Un pipeline de tres bloques secuenciales — UX, UI y desarrollo. Cada bloque ejecuta una secuencia fija de agentes especializados, y cada etapa entrega a la siguiente su insumo exacto. Abre un bloque para ver cada agente dentro."
+    en: "A pipeline of three sequential blocks: UX, UI and development. Each block runs a fixed sequence of specialised agents, and each step hands the next one its exact input. Open a block to see every agent inside it.",
+    pt: "Um pipeline de três blocos sequenciais: UX, UI e desenvolvimento. Cada bloco roda uma sequência fixa de agentes especializados, e cada etapa entrega à próxima a sua entrada exata. Abra um bloco para ver cada agente dentro dele.",
+    es: "Un pipeline de tres bloques secuenciales: UX, UI y desarrollo. Cada bloque ejecuta una secuencia fija de agentes especializados, y cada etapa entrega a la siguiente su insumo exacto. Abre un bloque para ver cada agente dentro."
   },
   "pipeline.sys.tag": {
     en: "Orchestrator", pt: "Orquestrador", es: "Orquestador"
@@ -62,9 +62,9 @@ window.I18N_PAGE_STRINGS = {
   /* ── BLOCO 1 · UX ── */
   "pipeline.sys.b1.name": { en: "UX", pt: "UX", es: "UX" },
   "pipeline.sys.b1.desc": {
-    en: "Framing the problem, the audience and the shape of the solution — before a single screen exists.",
-    pt: "Enquadrar o problema, o público e o formato da solução — antes de existir uma única tela.",
-    es: "Enmarcar el problema, el público y la forma de la solución — antes de que exista una sola pantalla."
+    en: "Framing the problem, the audience and the shape of the solution, before a single screen exists.",
+    pt: "Enquadrar o problema, o público e o formato da solução, antes de existir uma única tela.",
+    es: "Enmarcar el problema, el público y la forma de la solución, antes de que exista una sola pantalla."
   },
   "pipeline.sys.b1.meta": {
     en: "MVP · 6 fixed steps + 2 optional",
@@ -109,23 +109,23 @@ window.I18N_PAGE_STRINGS = {
   },
   "pipeline.sys.b1.s7.name": { en: "UX critic", pt: "Crítico UX", es: "Crítico UX" },
   "pipeline.sys.b1.s7.desc": {
-    en: "One pass only. A descriptive review, not a veto — the call to adjust is yours.",
-    pt: "1 passada só. Parecer descritivo, não reprova — a decisão de ajustar é sua.",
-    es: "Una sola pasada. Un parecer descriptivo, no un veto — la decisión de ajustar es tuya."
+    en: "One pass only. A descriptive review, not a veto. The call to adjust is yours.",
+    pt: "1 passada só. Parecer descritivo, não reprova. A decisão de ajustar é sua.",
+    es: "Una sola pasada. Un parecer descriptivo, no un veto. La decisión de ajustar es tuya."
   },
   "pipeline.sys.b1.s8.name": { en: "Final UX document", pt: "Documento final UX", es: "Documento final UX" },
   "pipeline.sys.b1.s8.desc": {
-    en: "Consolidated handoff — markdown plus an HTML version with brand identity.",
-    pt: "Handoff consolidado — markdown + versão HTML com identidade de marca.",
-    es: "Handoff consolidado — markdown más una versión HTML con identidad de marca."
+    en: "Consolidated handoff: markdown plus an HTML version with brand identity.",
+    pt: "Handoff consolidado: markdown + versão HTML com identidade de marca.",
+    es: "Handoff consolidado: markdown más una versión HTML con identidad de marca."
   },
 
   /* ── BLOCO 2 · UI ── */
   "pipeline.sys.b2.name": { en: "UI", pt: "UI", es: "UI" },
   "pipeline.sys.b2.desc": {
-    en: "Turning the structure into a visual language — type, colour, art direction, and the details that carry the brand.",
-    pt: "Transformar a estrutura em uma linguagem visual — tipografia, cor, direção de arte e os detalhes que carregam a marca.",
-    es: "Convertir la estructura en un lenguaje visual — tipografía, color, dirección de arte y los detalles que cargan la marca."
+    en: "Turning the structure into a visual language: type, colour, art direction, and the details that carry the brand.",
+    pt: "Transformar a estrutura em uma linguagem visual: tipografia, cor, direção de arte e os detalhes que carregam a marca.",
+    es: "Convertir la estructura en un lenguaje visual: tipografía, color, dirección de arte y los detalles que cargan la marca."
   },
   "pipeline.sys.b2.meta": {
     en: "8 steps · 1 manual choice",
@@ -176,17 +176,17 @@ window.I18N_PAGE_STRINGS = {
   },
   "pipeline.sys.b2.s8.name": { en: "design.md", pt: "design.md", es: "design.md" },
   "pipeline.sys.b2.s8.desc": {
-    en: "Literal tokens — the technical bridge to Block 3.",
-    pt: "Tokens literais — a ponte técnica para o Bloco 3.",
-    es: "Tokens literales — el puente técnico hacia el Bloque 3."
+    en: "Literal tokens: the technical bridge to Block 3.",
+    pt: "Tokens literais: a ponte técnica para o Bloco 3.",
+    es: "Tokens literales: el puente técnico hacia el Bloque 3."
   },
 
   /* ── BLOCO 3 · DESENVOLVIMENTO ── */
   "pipeline.sys.b3.name": { en: "Development", pt: "Desenvolvimento", es: "Desarrollo" },
   "pipeline.sys.b3.desc": {
-    en: "Making it move and making it real — motion, 3D, and a final production pass before handoff.",
-    pt: "Colocar em movimento e tornar real — motion, 3D e um passe final de produção antes da entrega.",
-    es: "Ponerlo en movimiento y hacerlo real — motion, 3D y un pase final de producción antes de la entrega."
+    en: "Making it move and making it real: motion, 3D, and a final production pass before handoff.",
+    pt: "Colocar em movimento e tornar real: motion, 3D e um passe final de produção antes da entrega.",
+    es: "Ponerlo en movimiento y hacerlo real: motion, 3D y un pase final de producción antes de la entrega."
   },
   "pipeline.sys.b3.meta": {
     en: "7 steps · 2 manual in Claude Design",
@@ -246,14 +246,14 @@ window.I18N_PAGE_STRINGS = {
     es: 'Lo que <em>hago</em>, en realidad'
   },
   "pipeline.role.lead": {
-    en: "I don't generate — I direct.",
-    pt: "Eu não gero — eu dirijo.",
-    es: "No genero — dirijo."
+    en: "I don't generate. I direct.",
+    pt: "Eu não gero. Eu dirijo.",
+    es: "No genero. Dirijo."
   },
   "pipeline.role.body": {
-    en: "I set the right sequence of agents, decide the inputs each one gets from the last, and — above all — review and approve every step with a designer's eye before it moves forward. When an output isn't good enough, I step in, adjust it and redo that specific link — without restarting the process from scratch.",
-    pt: "Defino a sequência certa de agentes, decido os insumos que cada um recebe do anterior e, principalmente, reviso e aprovo cada etapa com meu olho de designer antes dela avançar. Quando uma saída não está boa, eu intervenho, ajusto e refaço aquele elo específico — sem recomeçar o processo do zero.",
-    es: "Defino la secuencia correcta de agentes, decido los insumos que cada uno recibe del anterior y, sobre todo, reviso y apruebo cada etapa con mi ojo de diseñador antes de que avance. Cuando una salida no está bien, intervengo, la ajusto y rehago ese eslabón específico — sin empezar el proceso de cero."
+    en: "I set the right sequence of agents, decide the inputs each one gets from the last, and, above all, review and approve every step with a designer's eye before it moves forward. When an output isn't good enough, I step in, adjust it and redo that specific link, without restarting the process from scratch.",
+    pt: "Defino a sequência certa de agentes, decido os insumos que cada um recebe do anterior e, principalmente, reviso e aprovo cada etapa com meu olho de designer antes dela avançar. Quando uma saída não está boa, eu intervenho, ajusto e refaço aquele elo específico, sem recomeçar o processo do zero.",
+    es: "Defino la secuencia correcta de agentes, decido los insumos que cada uno recibe del anterior y, sobre todo, reviso y apruebo cada etapa con mi ojo de diseñador antes de que avance. Cuando una salida no está bien, intervengo, la ajusto y rehago ese eslabón específico, sin empezar el proceso de cero."
   },
   "pipeline.role.why": {
     en: "So why not do this alone, straight into an AI generator? Because the good result isn't in the tool. <b>It's in the curation.</b>",
@@ -284,9 +284,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Caso · Ricky's Farms"
   },
   "pipeline.proof.intro": {
-    en: "Ricky's Farms — a local produce farm taking its shop online — used as evidence, not as the headline. Two concrete moments where a human decision changed the direction inside the flow.",
-    pt: "Ricky's Farms — uma fazenda de produtos locais levando a loja para o online — usada como evidência, não como protagonista. Dois momentos concretos em que uma decisão humana mudou a direção dentro do fluxo.",
-    es: "Ricky's Farms — una granja de productos locales que lleva su tienda al online — usada como evidencia, no como protagonista. Dos momentos concretos en los que una decisión humana cambió la dirección dentro del flujo."
+    en: "Ricky's Farms, a local produce farm taking its shop online, used as evidence, not as the headline. Two concrete moments where a human decision changed the direction inside the flow.",
+    pt: "Ricky's Farms, uma fazenda de produtos locais levando a loja para o online, usada como evidência, não como protagonista. Dois momentos concretos em que uma decisão humana mudou a direção dentro do fluxo.",
+    es: "Ricky's Farms, una granja de productos locales que lleva su tienda al online, usada como evidencia, no como protagonista. Dos momentos concretos en los que una decisión humana cambió la dirección dentro del flujo."
   },
   "pipeline.proof.col1": { en: "The stage", pt: "A etapa", es: "La etapa" },
   "pipeline.proof.col2": { en: "What the agent returned", pt: "O que o agente devolveu", es: "Lo que el agente devolvió" },
@@ -298,14 +298,14 @@ window.I18N_PAGE_STRINGS = {
     es: "UI · Color y dirección de arte"
   },
   "pipeline.proof.s1.output": {
-    en: "A first palette built from the brief alone: clean greens, a lot of white, a safe gradient. The design critic flagged it — it read like a corporate SaaS dashboard, not a family farm.",
-    pt: "Uma primeira paleta construída só a partir do brief: verdes limpos, muito branco, um gradiente seguro. O crítico de design apontou — parecia dashboard de SaaS corporativo, não uma fazenda de família.",
-    es: "Una primera paleta construida solo a partir del brief: verdes limpios, mucho blanco, un degradado seguro. El crítico de diseño lo señaló — parecía un panel de SaaS corporativo, no una granja familiar."
+    en: "A first palette built from the brief alone: clean greens, a lot of white, a safe gradient. The design critic flagged it. It read like a corporate SaaS dashboard, not a family farm.",
+    pt: "Uma primeira paleta construída só a partir do brief: verdes limpos, muito branco, um gradiente seguro. O crítico de design apontou: parecia dashboard de SaaS corporativo, não uma fazenda de família.",
+    es: "Una primera paleta construida solo a partir del brief: verdes limpios, mucho blanco, un degradado seguro. El crítico de diseño lo señaló: parecía un panel de SaaS corporativo, no una granja familiar."
   },
   "pipeline.proof.s1.call": {
-    en: "I gave the colourist a set of reference photos — real produce, kraft paper, hand-painted stall signage — and had it rebuild the palette around those warm earth tones. Same step, re-run with better inputs.",
-    pt: "Dei ao colorista um conjunto de imagens de referência — produtos reais, papel kraft, placas de banca pintadas à mão — e pedi que reconstruísse a paleta em torno desses tons terrosos e quentes. Mesma etapa, refeita com insumos melhores.",
-    es: "Le di al colorista un conjunto de imágenes de referencia — productos reales, papel kraft, carteles de puesto pintados a mano — y le pedí que reconstruyera la paleta en torno a esos tonos tierra cálidos. Misma etapa, rehecha con mejores insumos."
+    en: "I gave the colourist a set of reference photos (real produce, kraft paper, hand-painted stall signage) and had it rebuild the palette around those warm earth tones. Same step, re-run with better inputs.",
+    pt: "Dei ao colorista um conjunto de imagens de referência (produtos reais, papel kraft, placas de banca pintadas à mão) e pedi que reconstruísse a paleta em torno desses tons terrosos e quentes. Mesma etapa, refeita com insumos melhores.",
+    es: "Le di al colorista un conjunto de imágenes de referencia (productos reales, papel kraft, carteles de puesto pintados a mano) y le pedí que reconstruyera la paleta en torno a esos tonos tierra cálidos. Misma etapa, rehecha con mejores insumos."
   },
   "pipeline.proof.s1.before": { en: "First pass", pt: "Primeira versão", es: "Primera versión" },
   "pipeline.proof.s1.after": { en: "After curation", pt: "Depois da curadoria", es: "Después de la curaduría" },
@@ -316,9 +316,9 @@ window.I18N_PAGE_STRINGS = {
     es: "UX · Wireframe"
   },
   "pipeline.proof.s2.output": {
-    en: "A standard e-commerce homepage: hero banner, then a product grid straight away — the layout the agent had seen a thousand times.",
-    pt: "Uma homepage de e-commerce padrão: banner de destaque e, logo abaixo, uma grade de produtos — o layout que o agente já tinha visto mil vezes.",
-    es: "Una homepage de e-commerce estándar: banner destacado y, justo debajo, una cuadrícula de productos — el layout que el agente había visto mil veces."
+    en: "A standard e-commerce homepage: hero banner, then a product grid straight away, the layout the agent had seen a thousand times.",
+    pt: "Uma homepage de e-commerce padrão: banner de destaque e, logo abaixo, uma grade de produtos, o layout que o agente já tinha visto mil vezes.",
+    es: "Una homepage de e-commerce estándar: banner destacado y, justo debajo, una cuadrícula de productos, el layout que el agente había visto mil veces."
   },
   "pipeline.proof.s2.call": {
     en: "For a local farm, the customer's first question is “do you even deliver to me?”. I moved a delivery-radius check to the top of the wireframe, above the grid, so the answer comes before the browsing.",

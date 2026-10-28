@@ -10,9 +10,9 @@ window.I18N_PAGE_STRINGS = {
 
   /* ─────────── META ─────────── */
   "valt.meta.title": {
-    en: "Valt Network — Private Market Social | Abdalla Design",
-    pt: "Valt Network — Rede Social do Mercado Privado | Abdalla Design",
-    es: "Valt Network — Red Social del Mercado Privado | Abdalla Design"
+    en: "Valt Network: Private Market Social | Abdalla Design",
+    pt: "Valt Network: Rede Social do Mercado Privado | Abdalla Design",
+    es: "Valt Network: Red Social del Mercado Privado | Abdalla Design"
   },
   "valt.meta.description": {
     en: "Designing the professional layer for private market investors and high-growth companies, from zero to a full-featured social product.",
@@ -65,9 +65,9 @@ window.I18N_PAGE_STRINGS = {
   },
   "valt.overview.context.label": { en: "Context", pt: "Contexto", es: "Contexto" },
   "valt.overview.context.text": {
-    en: "Valt Network is a private market social network connecting investors — LPs, GPs, Angels, Family Offices — with high-growth private companies actively seeking capital. The platform was designed to replace fragmented, informal relationship-building in the private market with a structured, verified, and intelligence-driven environment.",
-    pt: "A Valt Network é uma rede social do mercado privado que conecta investidores — LPs, GPs, Angels, Family Offices — a empresas privadas de alto crescimento em busca ativa de capital. A plataforma foi desenhada para substituir a construção de relacionamento fragmentada e informal do mercado privado por um ambiente estruturado, verificado e orientado a inteligência.",
-    es: "Valt Network es una red social del mercado privado que conecta a inversores — LPs, GPs, Angels, Family Offices — con empresas privadas de alto crecimiento que buscan capital activamente. La plataforma se diseñó para reemplazar la construcción de relaciones fragmentada e informal del mercado privado por un entorno estructurado, verificado y orientado a la inteligencia."
+    en: "Valt Network is a private market social network connecting investors (LPs, GPs, Angels, Family Offices) with high-growth private companies actively seeking capital. The platform was designed to replace fragmented, informal relationship-building in the private market with a structured, verified, and intelligence-driven environment.",
+    pt: "A Valt Network é uma rede social do mercado privado que conecta investidores (LPs, GPs, Angels, Family Offices) a empresas privadas de alto crescimento em busca ativa de capital. A plataforma foi desenhada para substituir a construção de relacionamento fragmentada e informal do mercado privado por um ambiente estruturado, verificado e orientado a inteligência.",
+    es: "Valt Network es una red social del mercado privado que conecta a inversores (LPs, GPs, Angels, Family Offices) con empresas privadas de alto crecimiento que buscan capital activamente. La plataforma se diseñó para reemplazar la construcción de relaciones fragmentada e informal del mercado privado por un entorno estructurado, verificado y orientado a la inteligencia."
   },
   "valt.overview.owned.label": {
     en: "Owned the end-to-end UX and UI",
@@ -87,9 +87,9 @@ window.I18N_PAGE_STRINGS = {
   "valt.overview.cap6": { en: "Prototyping", pt: "Prototipagem", es: "Prototipado" },
   "valt.overview.cap7": { en: "Landing Page ↗", pt: "Landing page ↗", es: "Landing page ↗" },
   "valt.overview.landing.img.alt": {
-    en: "Valt Network landing page — connecting the private markets",
-    pt: "Landing page da Valt Network — conectando os mercados privados",
-    es: "Landing page de Valt Network — conectando los mercados privados"
+    en: "Valt Network landing page: connecting the private markets",
+    pt: "Landing page da Valt Network: conectando os mercados privados",
+    es: "Landing page de Valt Network: conectando los mercados privados"
   },
   "valt.overview.landing.caption": {
     en: "Landing page · Valt Network",
@@ -104,21 +104,21 @@ window.I18N_PAGE_STRINGS = {
     es: 'Los mercados privados se construyeron <span class="it">sobre brechas de información</span>'
   },
   "valt.gaps.lede": {
-    en: "Before Valt, serious investors and growth-stage companies had no structured, verified place to find each other. The status quo was broken — and that was the opportunity.",
-    pt: "Antes da Valt, investidores sérios e empresas em estágio de crescimento não tinham um lugar estruturado e verificado para se encontrar. O status quo estava quebrado — e essa era a oportunidade.",
-    es: "Antes de Valt, los inversores serios y las empresas en etapa de crecimiento no tenían un lugar estructurado y verificado para encontrarse. El statu quo estaba roto — y esa era la oportunidad."
+    en: "Before Valt, serious investors and growth-stage companies had no structured, verified place to find each other. The status quo was broken, and that was the opportunity.",
+    pt: "Antes da Valt, investidores sérios e empresas em estágio de crescimento não tinham um lugar estruturado e verificado para se encontrar. O status quo estava quebrado, e essa era a oportunidade.",
+    es: "Antes de Valt, los inversores serios y las empresas en etapa de crecimiento no tenían un lugar estructurado y verificado para encontrarse. El statu quo estaba roto, y esa era la oportunidad."
   },
   "valt.gaps.p1.label": { en: "Problem 01", pt: "Problema 01", es: "Problema 01" },
   "valt.gaps.p1.text": {
-    en: "<strong>No verified identity layer.</strong> Existing platforms mixed professionals with noise — unverified profiles, anonymous actors, and irrelevant connections diluted signal for serious investors.",
-    pt: "<strong>Sem camada de identidade verificada.</strong> As plataformas existentes misturavam profissionais com ruído — perfis não verificados, atores anônimos e conexões irrelevantes diluíam o sinal para investidores sérios.",
-    es: "<strong>Sin capa de identidad verificada.</strong> Las plataformas existentes mezclaban profesionales con ruido — perfiles no verificados, actores anónimos y conexiones irrelevantes diluían la señal para los inversores serios."
+    en: "<strong>No verified identity layer.</strong> Existing platforms mixed professionals with noise: unverified profiles, anonymous actors, and irrelevant connections diluted signal for serious investors.",
+    pt: "<strong>Sem camada de identidade verificada.</strong> As plataformas existentes misturavam profissionais com ruído: perfis não verificados, atores anônimos e conexões irrelevantes diluíam o sinal para investidores sérios.",
+    es: "<strong>Sin capa de identidad verificada.</strong> Las plataformas existentes mezclaban profesionales con ruido: perfiles no verificados, actores anónimos y conexiones irrelevantes diluían la señal para los inversores serios."
   },
   "valt.gaps.p2.label": { en: "Problem 02", pt: "Problema 02", es: "Problema 02" },
   "valt.gaps.p2.text": {
-    en: "<strong>Founders cold-emailing into the void.</strong> Private companies had no structured channel to surface to thesis-aligned investors — and no way to control what information was shared or with whom.",
-    pt: "<strong>Fundadores mandando cold e-mail para o vazio.</strong> As empresas privadas não tinham um canal estruturado para aparecer para investidores alinhados à tese — e nenhuma forma de controlar quais informações eram compartilhadas ou com quem.",
-    es: "<strong>Fundadores enviando cold emails al vacío.</strong> Las empresas privadas no tenían un canal estructurado para mostrarse ante inversores alineados con su tesis — ni forma de controlar qué información se compartía ni con quién."
+    en: "<strong>Founders cold-emailing into the void.</strong> Private companies had no structured channel to surface to thesis-aligned investors, and no way to control what information was shared or with whom.",
+    pt: "<strong>Fundadores mandando cold e-mail para o vazio.</strong> As empresas privadas não tinham um canal estruturado para aparecer para investidores alinhados à tese, e nenhuma forma de controlar quais informações eram compartilhadas ou com quem.",
+    es: "<strong>Fundadores enviando cold emails al vacío.</strong> Las empresas privadas no tenían un canal estructurado para mostrarse ante inversores alineados con su tesis, ni forma de controlar qué información se compartía ni con quién."
   },
   "valt.gaps.p3.label": { en: "Problem 03", pt: "Problema 03", es: "Problema 03" },
   "valt.gaps.p3.text": {
@@ -127,9 +127,9 @@ window.I18N_PAGE_STRINGS = {
     es: "<strong>Cero inteligencia de deal flow.</strong> Los inversores dependían de sus redes personales y de la suerte para descubrir oportunidades a tiempo. No había ninguna plataforma que ofreciera señales estructuradas para el deal flow del mercado privado."
   },
   "valt.gaps.img.alt": {
-    en: "Valt Network mobile app — directory, verified profile, and connections",
-    pt: "App mobile da Valt Network — diretório, perfil verificado e conexões",
-    es: "App móvil de Valt Network — directorio, perfil verificado y conexiones"
+    en: "Valt Network mobile app: directory, verified profile, and connections",
+    pt: "App mobile da Valt Network: diretório, perfil verificado e conexões",
+    es: "App móvil de Valt Network: directorio, perfil verificado y conexiones"
   },
 
   /* ─────────── PROCESS ─────────── */
@@ -140,9 +140,9 @@ window.I18N_PAGE_STRINGS = {
     es: 'Cómo lo <span class="it solo">abordé</span>'
   },
   "valt.process.lede": {
-    en: "A structured design process from discovery to delivery — anchored in user needs and business constraints.",
-    pt: "Um processo de design estruturado da descoberta à entrega — ancorado nas necessidades do usuário e nas restrições de negócio.",
-    es: "Un proceso de diseño estructurado desde el descubrimiento hasta la entrega — anclado en las necesidades del usuario y las restricciones de negocio."
+    en: "A structured design process from discovery to delivery, anchored in user needs and business constraints.",
+    pt: "Um processo de design estruturado da descoberta à entrega, ancorado nas necessidades do usuário e nas restrições de negócio.",
+    es: "Un proceso de diseño estructurado desde el descubrimiento hasta la entrega, anclado en las necesidades del usuario y las restricciones de negocio."
   },
   "valt.process.step1.label": { en: "Discovery", pt: "Descoberta", es: "Descubrimiento" },
   "valt.process.step1.title": {
@@ -152,8 +152,8 @@ window.I18N_PAGE_STRINGS = {
   },
   "valt.process.step1.text": {
     en: "Stakeholder interviews with investors and founders to map existing workflows, pain points, and mental models around deal flow. Competitive analysis of existing platforms (LinkedIn, AngelList, Carta) to identify the whitespace.",
-    pt: "Entrevistas com stakeholders — investidores e fundadores — para mapear fluxos de trabalho existentes, dores e modelos mentais em torno do deal flow. Análise competitiva das plataformas existentes (LinkedIn, AngelList, Carta) para identificar o espaço em branco.",
-    es: "Entrevistas con stakeholders — inversores y fundadores — para mapear flujos de trabajo existentes, puntos de dolor y modelos mentales en torno al deal flow. Análisis competitivo de las plataformas existentes (LinkedIn, AngelList, Carta) para identificar el espacio en blanco."
+    pt: "Entrevistas com stakeholders, investidores e fundadores, para mapear fluxos de trabalho existentes, dores e modelos mentais em torno do deal flow. Análise competitiva das plataformas existentes (LinkedIn, AngelList, Carta) para identificar o espaço em branco.",
+    es: "Entrevistas con stakeholders, inversores y fundadores, para mapear flujos de trabajo existentes, puntos de dolor y modelos mentales en torno al deal flow. Análisis competitivo de las plataformas existentes (LinkedIn, AngelList, Carta) para identificar el espacio en blanco."
   },
   "valt.process.step1.tag1": { en: "Research Synthesis", pt: "Síntese de pesquisa", es: "Síntesis de investigación" },
   "valt.process.step1.tag2": { en: "User Personas", pt: "Personas de usuário", es: "Personas de usuario" },
@@ -165,9 +165,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Arquitectura de información y flujos de usuario"
   },
   "valt.process.step2.text": {
-    en: "Mapped the core journeys for both user types — investor and company — across discovery, verification, connection, and deal flow. Defined the IA for the social product and the landing page conversion funnel.",
-    pt: "Mapeei as jornadas principais dos dois tipos de usuário — investidor e empresa — nas etapas de descoberta, verificação, conexão e deal flow. Defini a AI do produto social e o funil de conversão da landing page.",
-    es: "Mapeé los recorridos principales de ambos tipos de usuario — inversor y empresa — a lo largo del descubrimiento, la verificación, la conexión y el deal flow. Definí la AI del producto social y el embudo de conversión de la landing page."
+    en: "Mapped the core journeys for both user types, investor and company, across discovery, verification, connection, and deal flow. Defined the IA for the social product and the landing page conversion funnel.",
+    pt: "Mapeei as jornadas principais dos dois tipos de usuário, investidor e empresa, nas etapas de descoberta, verificação, conexão e deal flow. Defini a AI do produto social e o funil de conversão da landing page.",
+    es: "Mapeé los recorridos principales de ambos tipos de usuario, inversor y empresa, a lo largo del descubrimiento, la verificación, la conexión y el deal flow. Definí la AI del producto social y el embudo de conversión de la landing page."
   },
   "valt.process.step2.tag1": { en: "User Flows", pt: "Fluxos de usuário", es: "Flujos de usuario" },
   "valt.process.step2.tag2": { en: "Information Architecture", pt: "Arquitetura de informação", es: "Arquitectura de información" },
@@ -179,9 +179,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Wireframes y UI de alta fidelidad"
   },
   "valt.process.step3.text": {
-    en: "From low-fidelity wireframes to high-fidelity screens — iterated rapidly based on internal reviews. Built the design system (components, tokens, patterns) in parallel to ensure consistency across the product and landing page.",
-    pt: "De wireframes de baixa fidelidade a telas de alta fidelidade — iteração rápida com base em revisões internas. Construí o design system (componentes, tokens, padrões) em paralelo para garantir consistência entre o produto e a landing page.",
-    es: "De wireframes de baja fidelidad a pantallas de alta fidelidad — iteración rápida a partir de revisiones internas. Construí el design system (componentes, tokens, patrones) en paralelo para garantizar consistencia entre el producto y la landing page."
+    en: "From low-fidelity wireframes to high-fidelity screens, iterated rapidly based on internal reviews. Built the design system (components, tokens, patterns) in parallel to ensure consistency across the product and landing page.",
+    pt: "De wireframes de baixa fidelidade a telas de alta fidelidade, iteração rápida com base em revisões internas. Construí o design system (componentes, tokens, padrões) em paralelo para garantir consistência entre o produto e a landing page.",
+    es: "De wireframes de baja fidelidad a pantallas de alta fidelidad, iteración rápida a partir de revisiones internas. Construí el design system (componentes, tokens, patrones) en paralelo para garantizar consistencia entre el producto y la landing page."
   },
   "valt.process.step3.tag1": { en: "Wireframes", pt: "Wireframes", es: "Wireframes" },
   "valt.process.step3.tag2": { en: "Design System", pt: "Design System", es: "Design System" },
@@ -194,17 +194,17 @@ window.I18N_PAGE_STRINGS = {
     es: "Prototipado y handoff"
   },
   "valt.process.step4.text": {
-    en: "Interactive prototype for key user flows — verification, profile setup, deal discovery, and connection. Structured handoff documentation for the development team including specs, tokens, and interaction notes.",
-    pt: "Protótipo interativo para os fluxos principais — verificação, configuração de perfil, descoberta de oportunidades e conexão. Documentação de handoff estruturada para o time de desenvolvimento, incluindo specs, tokens e notas de interação.",
-    es: "Prototipo interactivo para los flujos clave — verificación, configuración de perfil, descubrimiento de oportunidades y conexión. Documentación de handoff estructurada para el equipo de desarrollo, con specs, tokens y notas de interacción."
+    en: "Interactive prototype for key user flows: verification, profile setup, deal discovery, and connection. Structured handoff documentation for the development team including specs, tokens, and interaction notes.",
+    pt: "Protótipo interativo para os fluxos principais: verificação, configuração de perfil, descoberta de oportunidades e conexão. Documentação de handoff estruturada para o time de desenvolvimento, incluindo specs, tokens e notas de interação.",
+    es: "Prototipo interactivo para los flujos clave: verificación, configuración de perfil, descubrimiento de oportunidades y conexión. Documentación de handoff estructurada para el equipo de desarrollo, con specs, tokens y notas de interacción."
   },
   "valt.process.step4.tag1": { en: "Interactive Prototype", pt: "Protótipo interativo", es: "Prototipo interactivo" },
   "valt.process.step4.tag2": { en: "Dev Handoff", pt: "Handoff para devs", es: "Handoff a desarrollo" },
   "valt.process.step4.tag3": { en: "Documentation", pt: "Documentação", es: "Documentación" },
   "valt.process.feed.img.alt": {
-    en: "Valt Network web app — social feed",
-    pt: "App web da Valt Network — feed social",
-    es: "App web de Valt Network — feed social"
+    en: "Valt Network web app: social feed",
+    pt: "App web da Valt Network: feed social",
+    es: "App web de Valt Network: feed social"
   },
   "valt.process.feed.caption": {
     en: "Social feed · Valt Network web app",
@@ -220,9 +220,9 @@ window.I18N_PAGE_STRINGS = {
     es: 'Decisiones clave <span class="it">y por qué</span>'
   },
   "valt.decisions.lede": {
-    en: "The reasoning behind the most important decisions — not just what was built, but the thinking that got there.",
-    pt: "O raciocínio por trás das decisões mais importantes — não só o que foi construído, mas o pensamento que levou até lá.",
-    es: "El razonamiento detrás de las decisiones más importantes — no solo lo que se construyó, sino el pensamiento que llevó hasta ahí."
+    en: "The reasoning behind the most important decisions, not just what was built, but the thinking that got there.",
+    pt: "O raciocínio por trás das decisões mais importantes, não só o que foi construído, mas o pensamento que levou até lá.",
+    es: "El razonamiento detrás de las decisiones más importantes, no solo lo que se construyó, sino el pensamiento que llevó hasta ahí."
   },
   "valt.decisions.d1.label": { en: "Decision 01", pt: "Decisão 01", es: "Decisión 01" },
   "valt.decisions.d1.title": {
@@ -252,9 +252,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Los inversores y las empresas tienen objetivos fundamentalmente distintos. En lugar de forzar a ambos a un feed genérico, diseñé arquitecturas de perfil separadas: los inversores tienen un perfil orientado a mandato, que muestra tesis y áreas de enfoque; las empresas tienen un perfil estilo dosier, que controla qué información se comparte y con quién."
   },
   "valt.decisions.d2.img.alt": {
-    en: "Company dossier profile — mandate-driven, desktop",
-    pt: "Perfil de empresa no estilo dossiê — orientado a mandato, desktop",
-    es: "Perfil de empresa estilo dosier — orientado a mandato, escritorio"
+    en: "Company dossier profile: mandate-driven, desktop",
+    pt: "Perfil de empresa no estilo dossiê: orientado a mandato, desktop",
+    es: "Perfil de empresa estilo dosier: orientado a mandato, escritorio"
   },
 
   /* ─────────── LEARNINGS ─────────── */
@@ -327,9 +327,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Verlo en vivo →"
   },
   "valt.outcome.img.alt": {
-    en: "Orbital network diagram — verified connections around a central profile",
-    pt: "Diagrama de rede orbital — conexões verificadas ao redor de um perfil central",
-    es: "Diagrama de red orbital — conexiones verificadas alrededor de un perfil central"
+    en: "Orbital network diagram: verified connections around a central profile",
+    pt: "Diagrama de rede orbital: conexões verificadas ao redor de um perfil central",
+    es: "Diagrama de red orbital: conexiones verificadas alrededor de un perfil central"
   },
 
   /* ─────────── MORE WORK ─────────── */

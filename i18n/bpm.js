@@ -10,9 +10,9 @@ window.I18N_PAGE_STRINGS = {
 
   /* ─────────── META ─────────── */
   "bpm.meta.title": {
-    en: "BPM Platform Redesign — Jalasoft | Abdalla Design",
-    pt: "Redesign da Plataforma BPM — Jalasoft | Abdalla Design",
-    es: "Rediseño de la Plataforma BPM — Jalasoft | Abdalla Design"
+    en: "BPM Platform Redesign: Jalasoft | Abdalla Design",
+    pt: "Redesign da Plataforma BPM: Jalasoft | Abdalla Design",
+    es: "Rediseño de la Plataforma BPM: Jalasoft | Abdalla Design"
   },
   "bpm.meta.description": {
     en: "Redesigning Jalasoft's internal BPM platform: turning the raw Jalasoft portal into a process-first tool for hiring, transfers and disassociation across units.",
@@ -45,9 +45,9 @@ window.I18N_PAGE_STRINGS = {
   /* ─────────── SPEC ROW ─────────── */
   "bpm.spec.1.label": { en: "Client", pt: "Cliente", es: "Cliente" },
   "bpm.spec.1.value": {
-    en: "Jalasoft — internal platform",
-    pt: "Jalasoft — plataforma interna",
-    es: "Jalasoft — plataforma interna"
+    en: "Jalasoft: internal platform",
+    pt: "Jalasoft: plataforma interna",
+    es: "Jalasoft: plataforma interna"
   },
   "bpm.spec.2.label": { en: "My Role", pt: "Meu papel", es: "Mi rol" },
   "bpm.spec.2.value": {
@@ -77,19 +77,19 @@ window.I18N_PAGE_STRINGS = {
     es: "El objetivo principal del rediseño era mejorar la experiencia del usuario, simplificar los flujos de trabajo y aumentar la eficiencia general de la plataforma. Este caso de estudio muestra los desafíos enfrentados, el proceso de diseño seguido y los resultados alcanzados."
   },
   "bpm.overview.p2": {
-    en: "Jalasoft ran its people operations — hiring, transfers between units, client assignments, internship starts and disassociation — on a BPM platform built on the Jalasoft portal. Every request moved through the tool as a case with tasks handed from person to person. It worked, but the interface it shipped with was in the way.",
-    pt: "A Jalasoft conduzia suas operações de pessoas — contratação, transferências entre unidades, alocações em clientes, início de estágio e desligamento — em uma plataforma BPM construída sobre o portal da Jalasoft. Cada solicitação percorria a ferramenta como um caso, com tarefas passadas de pessoa para pessoa. Funcionava, mas a interface original atrapalhava.",
-    es: "Jalasoft gestionaba sus operaciones de personas — contratación, transferencias entre unidades, asignaciones a clientes, inicios de pasantía y desvinculación — en una plataforma BPM construida sobre el portal de Jalasoft. Cada solicitud recorría la herramienta como un caso, con tareas pasadas de persona a persona. Funcionaba, pero la interfaz original estorbaba."
+    en: "Jalasoft ran its people operations (hiring, transfers between units, client assignments, internship starts and disassociation) on a BPM platform built on the Jalasoft portal. Every request moved through the tool as a case with tasks handed from person to person. It worked, but the interface it shipped with was in the way.",
+    pt: "A Jalasoft conduzia suas operações de pessoas (contratação, transferências entre unidades, alocações em clientes, início de estágio e desligamento) em uma plataforma BPM construída sobre o portal da Jalasoft. Cada solicitação percorria a ferramenta como um caso, com tarefas passadas de pessoa para pessoa. Funcionava, mas a interface original atrapalhava.",
+    es: "Jalasoft gestionaba sus operaciones de personas (contratación, transferencias entre unidades, asignaciones a clientes, inicios de pasantía y desvinculación) en una plataforma BPM construida sobre el portal de Jalasoft. Cada solicitud recorría la herramienta como un caso, con tareas pasadas de persona a persona. Funcionaba, pero la interfaz original estorbaba."
   },
   "bpm.overview.img.alt": {
-    en: "The redesigned case list — processes, collaborator, country, department and current task owner in one table",
-    pt: "A lista de casos redesenhada — processos, colaborador, país, departamento e responsável atual pela tarefa em uma só tabela",
-    es: "La lista de casos rediseñada — procesos, colaborador, país, departamento y responsable actual de la tarea en una sola tabla"
+    en: "The redesigned case list: processes, collaborator, country, department and current task owner in one table",
+    pt: "A lista de casos redesenhada: processos, colaborador, país, departamento e responsável atual pela tarefa em uma só tabela",
+    es: "La lista de casos rediseñada: procesos, colaborador, país, departamento y responsable actual de la tarea en una sola tabla"
   },
   "bpm.overview.img.cap": {
-    en: "Case list — the home screen for anyone tracking a process",
-    pt: "Lista de casos — a tela inicial de quem acompanha um processo",
-    es: "Lista de casos — la pantalla de inicio de quien sigue un proceso"
+    en: "Case list: the home screen for anyone tracking a process",
+    pt: "Lista de casos: a tela inicial de quem acompanha um processo",
+    es: "Lista de casos: la pantalla de inicio de quien sigue un proceso"
   },
 
   /* ─────────── STARTING POINT ─────────── */
@@ -100,14 +100,14 @@ window.I18N_PAGE_STRINGS = {
     es: "Un portal crudo con <span class=\"hl\">funcionalidades sin terminar</span>"
   },
   "bpm.start.lede": {
-    en: "The platform ran on Jalasoft's default portal. Screens were dense, inconsistent between processes, and several flows were only half-built — people learned the gaps and worked around them.",
-    pt: "A plataforma rodava no portal padrão da Jalasoft. As telas eram densas, inconsistentes entre processos e vários fluxos estavam pela metade — as pessoas aprendiam as falhas e as contornavam.",
-    es: "La plataforma funcionaba con el portal por defecto de Jalasoft. Las pantallas eran densas, inconsistentes entre procesos y varios flujos estaban a medio construir — la gente aprendía las carencias y las sorteaba."
+    en: "The platform ran on Jalasoft's default portal. Screens were dense, inconsistent between processes, and several flows were only half-built, so people learned the gaps and worked around them.",
+    pt: "A plataforma rodava no portal padrão da Jalasoft. As telas eram densas, inconsistentes entre processos e vários fluxos estavam pela metade, e as pessoas aprendiam as falhas e as contornavam.",
+    es: "La plataforma funcionaba con el portal por defecto de Jalasoft. Las pantallas eran densas, inconsistentes entre procesos y varios flujos estaban a medio construir, y la gente aprendía las carencias y las sorteaba."
   },
   "bpm.start.img.alt": {
-    en: "The old Jalasoft portal — dense red-and-grey tables and forms",
-    pt: "O antigo portal da Jalasoft — tabelas e formulários densos em vermelho e cinza",
-    es: "El antiguo portal de Jalasoft — tablas y formularios densos en rojo y gris"
+    en: "The old Jalasoft portal: dense red-and-grey tables and forms",
+    pt: "O antigo portal da Jalasoft: tabelas e formulários densos em vermelho e cinza",
+    es: "El antiguo portal de Jalasoft: tablas y formularios densos en rojo y gris"
   },
   "bpm.before.cases-open": { en: "Case list", pt: "Lista de casos", es: "Lista de casos" },
   "bpm.before.cases-list": { en: "Case list, scrolled", pt: "Lista de casos, rolada", es: "Lista de casos, con scroll" },
@@ -116,9 +116,9 @@ window.I18N_PAGE_STRINGS = {
   "bpm.before.cases-filter": { en: "Process filter", pt: "Filtro de processo", es: "Filtro de proceso" },
   "bpm.before.cases-archived": { en: "Archived cases", pt: "Casos arquivados", es: "Casos archivados" },
   "bpm.start.img.cap": {
-    en: "Old design — old-fashioned UI with non-finalized functionality",
-    pt: "Design antigo — UI ultrapassada com funcionalidades não finalizadas",
-    es: "Diseño antiguo — UI anticuada con funcionalidades no finalizadas"
+    en: "Old design: old-fashioned UI with non-finalized functionality",
+    pt: "Design antigo: UI ultrapassada com funcionalidades não finalizadas",
+    es: "Diseño antiguo: UI anticuada con funcionalidades no finalizadas"
   },
 
   /* ─────────── RESEARCH ─────────── */
@@ -129,19 +129,19 @@ window.I18N_PAGE_STRINGS = {
     es: "A partir de entrevistas de UX, sacamos a la luz las <span class=\"hl\">necesidades, dolores y problemas</span>"
   },
   "bpm.research.p1": {
-    en: "I ran interviews with the people who live in the tool every week — IT, management and process owners. Each need, frustration and blocker was written on a note and grouped, so the redesign started from evidence rather than opinion.",
-    pt: "Conduzi entrevistas com quem usa a ferramenta toda semana — TI, gestão e donos de processo. Cada necessidade, frustração e bloqueio foi escrito em uma nota e agrupado, para que o redesign partisse de evidência, e não de opinião.",
-    es: "Realicé entrevistas con quienes viven en la herramienta cada semana — TI, gestión y dueños de proceso. Cada necesidad, frustración y bloqueo se anotó en una nota y se agrupó, para que el rediseño partiera de evidencia y no de opinión."
+    en: "I ran interviews with the people who live in the tool every week: IT, management and process owners. Each need, frustration and blocker was written on a note and grouped, so the redesign started from evidence rather than opinion.",
+    pt: "Conduzi entrevistas com quem usa a ferramenta toda semana: TI, gestão e donos de processo. Cada necessidade, frustração e bloqueio foi escrito em uma nota e agrupado, para que o redesign partisse de evidência, e não de opinião.",
+    es: "Realicé entrevistas con quienes viven en la herramienta cada semana: TI, gestión y dueños de proceso. Cada necesidad, frustración y bloqueo se anotó en una nota y se agrupó, para que el rediseño partiera de evidencia y no de opinión."
   },
   "bpm.research.img.alt": {
-    en: "Affinity map — coloured sticky notes clustered under themes like search, permissions, notifications and reporting",
-    pt: "Mapa de afinidade — notas adesivas coloridas agrupadas em temas como busca, permissões, notificações e relatórios",
-    es: "Mapa de afinidad — notas adhesivas de colores agrupadas en temas como búsqueda, permisos, notificaciones e informes"
+    en: "Affinity map: coloured sticky notes clustered under themes like search, permissions, notifications and reporting",
+    pt: "Mapa de afinidade: notas adesivas coloridas agrupadas em temas como busca, permissões, notificações e relatórios",
+    es: "Mapa de afinidad: notas adhesivas de colores agrupadas en temas como búsqueda, permisos, notificaciones e informes"
   },
   "bpm.research.img.cap": {
-    en: "Affinity map — interview notes clustered into themes",
-    pt: "Mapa de afinidade — notas das entrevistas agrupadas em temas",
-    es: "Mapa de afinidad — notas de las entrevistas agrupadas en temas"
+    en: "Affinity map: interview notes clustered into themes",
+    pt: "Mapa de afinidade: notas das entrevistas agrupadas em temas",
+    es: "Mapa de afinidad: notas de las entrevistas agrupadas en temas"
   },
 
   /* ─────────── PAIN POINTS ─────────── */
@@ -159,7 +159,7 @@ window.I18N_PAGE_STRINGS = {
   "bpm.pain.10": { en: "Include other areas", pt: "Incluir outras áreas", es: "Incluir otras áreas" },
   "bpm.pain.11": { en: "Case code visible on screen", pt: "Código do caso visível na tela", es: "Código del caso visible en pantalla" },
   "bpm.pain.12": { en: "New columns based on the process", pt: "Novas colunas conforme o processo", es: "Nuevas columnas según el proceso" },
-  "bpm.pain.13": { en: "A better search — search by name", pt: "Uma busca melhor — buscar por nome", es: "Una búsqueda mejor — buscar por nombre" },
+  "bpm.pain.13": { en: "A better search: search by name", pt: "Uma busca melhor: buscar por nome", es: "Una búsqueda mejor: buscar por nombre" },
   "bpm.pain.14": { en: "Review, edit and fix a task", pt: "Revisar, editar e corrigir uma tarefa", es: "Revisar, editar y corregir una tarea" },
   "bpm.pain.15": { en: "Redirect or return a task", pt: "Redirecionar ou devolver uma tarefa", es: "Redirigir o devolver una tarea" },
   "bpm.pain.16": { en: "Simplify the process", pt: "Simplificar o processo", es: "Simplificar el proceso" },
@@ -198,9 +198,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Con la lista completa sobre la mesa, cada ítem se ubicó en un mapa MoSCoW. Una <strong>lista de casos orientada al proceso</strong>, <strong>búsqueda por nombre</strong> y <strong>la posibilidad de revisar, redirigir y devolver tareas</strong> quedaron en el centro, como imprescindibles. Los informes y la limpieza pasaron a los anillos exteriores."
   },
   "bpm.prio.img.alt": {
-    en: "Task prioritization — every pain point plotted on a MoSCoW target of must / should / could have",
-    pt: "Priorização de tarefas — cada dor plotada em um alvo MoSCoW de deve / deveria / poderia ter",
-    es: "Priorización de tareas — cada dolor situado en una diana MoSCoW de debe / debería / podría tener"
+    en: "Task prioritization: every pain point plotted on a MoSCoW target of must / should / could have",
+    pt: "Priorização de tarefas: cada dor plotada em um alvo MoSCoW de deve / deveria / poderia ter",
+    es: "Priorización de tareas: cada dolor situado en una diana MoSCoW de debe / debería / podría tener"
   },
   "bpm.prio.hint": { en: "Click a ring or a group to drop its requests onto the target", pt: "Clique em um anel ou grupo para levar os pedidos até o alvo", es: "Haz clic en un anillo o grupo para llevar sus peticiones al objetivo" },
   "bpm.prio.must": { en: "Must have", pt: "Deve ter", es: "Debe tener" },
@@ -211,7 +211,7 @@ window.I18N_PAGE_STRINGS = {
   "bpm.prio.i.columns": { en: "New columns based on the process", pt: "Novas colunas baseadas no processo", es: "Nuevas columnas según el proceso" },
   "bpm.prio.i.review": { en: "Review / edit / fix a task", pt: "Revisar / editar / corrigir tarefa", es: "Revisar / editar / corregir tarea" },
   "bpm.prio.i.group": { en: "Group by country / department", pt: "Agrupar por país / departamento", es: "Agrupar por país / departamento" },
-  "bpm.prio.i.search": { en: "A better search — search by name", pt: "Busca melhor — busca por nome", es: "Mejor búsqueda — búsqueda por nombre" },
+  "bpm.prio.i.search": { en: "A better search: search by name", pt: "Busca melhor: busca por nome", es: "Mejor búsqueda: búsqueda por nombre" },
   "bpm.prio.i.redirect": { en: "Redirect / return the task", pt: "Redirecionar / devolver a tarefa", es: "Redirigir / devolver la tarea" },
   "bpm.prio.i.naming": { en: "Process naming conventions", pt: "Convenções de nome de processos", es: "Convenciones de nombres de procesos" },
   "bpm.prio.i.comm": { en: "Communication", pt: "Comunicação", es: "Comunicación" },
@@ -226,9 +226,9 @@ window.I18N_PAGE_STRINGS = {
   "bpm.prio.i.responsive": { en: "Responsiveness", pt: "Responsividade", es: "Responsividad" },
   "bpm.prio.i.areas": { en: "Include other areas", pt: "Incluir outras áreas", es: "Incluir otras áreas" },
   "bpm.prio.img.cap": {
-    en: "Task prioritization — MoSCoW map of every request",
-    pt: "Priorização de tarefas — mapa MoSCoW de cada pedido",
-    es: "Priorización de tareas — mapa MoSCoW de cada petición"
+    en: "Task prioritization: MoSCoW map of every request",
+    pt: "Priorização de tarefas: mapa MoSCoW de cada pedido",
+    es: "Priorización de tareas: mapa MoSCoW de cada petición"
   },
 
   /* ─────────── THE REDESIGN ─────────── */
@@ -239,9 +239,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Una herramienta <span class=\"hl\">orientada al proceso</span> sobre el sistema de diseño de Jalasoft"
   },
   "bpm.redesign.lede": {
-    en: "Every screen was rebuilt on Manrope, Nunito and the four-level colour system from the Jalasoft design system — the same foundation used across the company's internal tools.",
-    pt: "Cada tela foi reconstruída sobre Manrope, Nunito e o sistema de cores de quatro níveis do design system da Jalasoft — a mesma base usada em todas as ferramentas internas da empresa.",
-    es: "Cada pantalla se reconstruyó sobre Manrope, Nunito y el sistema de color de cuatro niveles del sistema de diseño de Jalasoft — la misma base usada en todas las herramientas internas de la empresa."
+    en: "Every screen was rebuilt on Manrope, Nunito and the four-level colour system from the Jalasoft design system, the same foundation used across the company's internal tools.",
+    pt: "Cada tela foi reconstruída sobre Manrope, Nunito e o sistema de cores de quatro níveis do design system da Jalasoft, a mesma base usada em todas as ferramentas internas da empresa.",
+    es: "Cada pantalla se reconstruyó sobre Manrope, Nunito y el sistema de color de cuatro niveles del sistema de diseño de Jalasoft, la misma base usada en todas las herramientas internas de la empresa."
   },
   "bpm.move.1.k": { en: "The case list leads with the process", pt: "A lista de casos começa pelo processo", es: "La lista de casos empieza por el proceso" },
   "bpm.move.1.t": {
@@ -263,9 +263,9 @@ window.I18N_PAGE_STRINGS = {
   },
   "bpm.move.4.k": { en: "One consistent navigation", pt: "Uma navegação consistente", es: "Una navegación consistente" },
   "bpm.move.4.t": {
-    en: "Tasks, Cases, Processes and Applications in a fixed top bar — collapsed for focus, expanded with account, language and settings.",
-    pt: "Tarefas, Casos, Processos e Aplicações em uma barra superior fixa — recolhida para foco, expandida com conta, idioma e configurações.",
-    es: "Tareas, Casos, Procesos y Aplicaciones en una barra superior fija — contraída para foco, expandida con cuenta, idioma y ajustes."
+    en: "Tasks, Cases, Processes and Applications in a fixed top bar, collapsed for focus, expanded with account, language and settings.",
+    pt: "Tarefas, Casos, Processos e Aplicações em uma barra superior fixa, recolhida para foco, expandida com conta, idioma e configurações.",
+    es: "Tareas, Casos, Procesos y Aplicaciones en una barra superior fija, contraída para foco, expandida con cuenta, idioma y ajustes."
   },
   "bpm.nav.s1": { en: "Expand the account area", pt: "Expandir a área da conta", es: "Expandir el área de la cuenta" },
   "bpm.nav.s2": { en: "Switch language", pt: "Trocar idioma", es: "Cambiar idioma" },
@@ -275,35 +275,35 @@ window.I18N_PAGE_STRINGS = {
     pt: "A barra de navegação redesenhada: expandindo a área da conta, trocando o idioma e abrindo os menus de admin",
     es: "La barra de navegación rediseñada: expandiendo el área de la cuenta, cambiando el idioma y abriendo los menús de admin"
   },
-  "bpm.redesign.nav.cap": { en: "Navigation — closed and open states", pt: "Navegação — estados fechado e aberto", es: "Navegación — estados cerrado y abierto" },
+  "bpm.redesign.nav.cap": { en: "Navigation: closed and open states", pt: "Navegação: estados fechado e aberto", es: "Navegación: estados cerrado y abierto" },
   "bpm.redesign.tasks.alt": {
     en: "Task list for a regular user and the admin task detail with comments, side by side",
     pt: "Lista de tarefas para um usuário comum e o detalhe de tarefa do admin com comentários, lado a lado",
     es: "Lista de tareas para un usuario normal y el detalle de tarea del admin con comentarios, lado a lado"
   },
-  "bpm.redesign.tasks.cap": { en: "Tasks — user list view and admin task detail", pt: "Tarefas — visão de lista do usuário e detalhe de tarefa do admin", es: "Tareas — vista de lista del usuario y detalle de tarea del admin" },
+  "bpm.redesign.tasks.cap": { en: "Tasks: user list view and admin task detail", pt: "Tarefas: visão de lista do usuário e detalhe de tarefa do admin", es: "Tareas: vista de lista del usuario y detalle de tarea del admin" },
   "bpm.redesign.hiring.alt": {
-    en: "Hiring process — the collaborator data form at the start and the review screen at the end",
-    pt: "Processo de contratação — o formulário de dados do colaborador no início e a tela de revisão no fim",
-    es: "Proceso de contratación — el formulario de datos del colaborador al inicio y la pantalla de revisión al final"
+    en: "Hiring process: the collaborator data form at the start and the review screen at the end",
+    pt: "Processo de contratação: o formulário de dados do colaborador no início e a tela de revisão no fim",
+    es: "Proceso de contratación: el formulario de datos del colaborador al inicio y la pantalla de revisión al final"
   },
   "bpm.redesign.hiring.start": { en: "Start", pt: "Início", es: "Inicio" },
   "bpm.redesign.hiring.end": { en: "End", pt: "Fim", es: "Fin" },
-  "bpm.redesign.hiring.start.alt": { en: "Hiring process start — the collaborator data form", pt: "Início do processo de contratação — formulário de dados do colaborador", es: "Inicio del proceso de contratación — formulario de datos del colaborador" },
-  "bpm.redesign.hiring.end.alt": { en: "Hiring process end — the review information screen", pt: "Fim do processo de contratação — tela de revisão das informações", es: "Fin del proceso de contratación — pantalla de revisión de la información" },
-  "bpm.redesign.hiring.cap": { en: "Hiring process — start and end of the flow", pt: "Processo de contratação — início e fim do fluxo", es: "Proceso de contratación — inicio y fin del flujo" },
+  "bpm.redesign.hiring.start.alt": { en: "Hiring process start: the collaborator data form", pt: "Início do processo de contratação: formulário de dados do colaborador", es: "Inicio del proceso de contratación: formulario de datos del colaborador" },
+  "bpm.redesign.hiring.end.alt": { en: "Hiring process end: the review information screen", pt: "Fim do processo de contratação: tela de revisão das informações", es: "Fin del proceso de contratación: pantalla de revisión de la información" },
+  "bpm.redesign.hiring.cap": { en: "Hiring process: start and end of the flow", pt: "Processo de contratação: início e fim do fluxo", es: "Proceso de contratación: inicio y fin del flujo" },
   "bpm.redesign.processes.alt": {
-    en: "Processes screen — searchable process list with my cases and cases I worked on",
-    pt: "Tela de processos — lista de processos pesquisável com meus casos e casos em que trabalhei",
-    es: "Pantalla de procesos — lista de procesos con búsqueda, mis casos y casos en los que trabajé"
+    en: "Processes screen: searchable process list with my cases and cases I worked on",
+    pt: "Tela de processos: lista de processos pesquisável com meus casos e casos em que trabalhei",
+    es: "Pantalla de procesos: lista de procesos con búsqueda, mis casos y casos en los que trabajé"
   },
-  "bpm.redesign.processes.cap": { en: "Processes — list, my cases and cases I worked on", pt: "Processos — lista, meus casos e casos em que trabalhei", es: "Procesos — lista, mis casos y casos en los que trabajé" },
+  "bpm.redesign.processes.cap": { en: "Processes: list, my cases and cases I worked on", pt: "Processos: lista, meus casos e casos em que trabalhei", es: "Procesos: lista, mis casos y casos en los que trabajé" },
   "bpm.redesign.login.alt": {
     en: "Redesigned Jalasoft portal login on a laptop",
     pt: "Login do portal da Jalasoft redesenhado em um laptop",
     es: "Inicio de sesión del portal de Jalasoft rediseñado en un portátil"
   },
-  "bpm.redesign.login.cap": { en: "Sign-in — Jalasoft portal, restyled", pt: "Acesso — portal da Jalasoft, reestilizado", es: "Acceso — portal de Jalasoft, reestilizado" },
+  "bpm.redesign.login.cap": { en: "Sign-in: Jalasoft portal, restyled", pt: "Acesso: portal da Jalasoft, reestilizado", es: "Acceso: portal de Jalasoft, reestilizado" },
 
   /* ─────────── OUTCOME ─────────── */
   "bpm.outcome.eyebrow": { en: "Outcome", pt: "Resultado", es: "Resultado" },
@@ -332,9 +332,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Sistema de Diseño de Jalasoft"
   },
   "bpm.more.also.text": {
-    en: "Building a design system from a brand guideline, then scaling it across a company of 1,000+ people — the BPM platform was one of the tools it rebuilt.",
-    pt: "Construir um design system a partir de um guia de marca e escalá-lo por uma empresa de mais de 1.000 pessoas — a plataforma BPM foi uma das ferramentas que ele reconstruiu.",
-    es: "Construir un sistema de diseño a partir de una guía de marca y escalarlo en una empresa de más de 1.000 personas — la plataforma BPM fue una de las herramientas que reconstruyó."
+    en: "Building a design system from a brand guideline, then scaling it across a company of 1,000+ people: the BPM platform was one of the tools it rebuilt.",
+    pt: "Construir um design system a partir de um guia de marca e escalá-lo por uma empresa de mais de 1.000 pessoas: a plataforma BPM foi uma das ferramentas que ele reconstruiu.",
+    es: "Construir un sistema de diseño a partir de una guía de marca y escalarlo en una empresa de más de 1.000 personas: la plataforma BPM fue una de las herramientas que reconstruyó."
   },
   "bpm.more.also.img.alt": {
     en: "Jalasoft design system applied to the BPM platform",
@@ -342,9 +342,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Sistema de diseño de Jalasoft aplicado a la plataforma BPM"
   },
   "bpm.outcome.img.alt": {
-    en: "Admin task view — task list on the left, task detail with comments on the right",
-    pt: "Visão de tarefas do admin — lista de tarefas à esquerda, detalhe da tarefa com comentários à direita",
-    es: "Vista de tareas del admin — lista de tareas a la izquierda, detalle de la tarea con comentarios a la derecha"
+    en: "Admin task view: task list on the left, task detail with comments on the right",
+    pt: "Visão de tarefas do admin: lista de tarefas à esquerda, detalhe da tarefa com comentários à direita",
+    es: "Vista de tareas del admin: lista de tareas a la izquierda, detalle de la tarea con comentarios a la derecha"
   },
   "bpm.redesign.tasks.left": { en: "User", pt: "Usuário", es: "Usuario" },
   "bpm.redesign.tasks.left.alt": {
@@ -355,14 +355,14 @@ window.I18N_PAGE_STRINGS = {
   "bpm.redesign.tasks.right": { en: "Admin", pt: "Admin", es: "Admin" },
   "bpm.more.qs.label": { en: "Another Case Study", pt: "Outro estudo de caso", es: "Otro caso de estudio" },
   "bpm.more.qs.text": {
-    en: "Five years building, refining, and scaling Brazil's leading civil-service exam-prep platform — ending with a strategic redesign that helped position the company for acquisition.",
-    pt: "Cinco anos construindo, refinando e escalando a principal plataforma de preparação para concursos públicos do Brasil — terminando com um redesenho estratégico que ajudou a posicionar a empresa para a aquisição.",
-    es: "Cinco años construyendo, refinando y escalando la principal plataforma de preparación para oposiciones públicas de Brasil — terminando con un rediseño estratégico que ayudó a posicionar la empresa para la adquisición."
+    en: "Five years building, refining, and scaling Brazil's leading civil-service exam-prep platform, ending with a strategic redesign that helped position the company for acquisition.",
+    pt: "Cinco anos construindo, refinando e escalando a principal plataforma de preparação para concursos públicos do Brasil, terminando com um redesenho estratégico que ajudou a posicionar a empresa para a aquisição.",
+    es: "Cinco años construyendo, refinando y escalando la principal plataforma de preparación para oposiciones públicas de Brasil, terminando con un rediseño estratégico que ayudó a posicionar la empresa para la adquisición."
   },
   "bpm.more.qs.img.alt": {
-    en: "Qconcursos — platform homepage, shown in browser",
-    pt: "Qconcursos — página inicial da plataforma, exibida no navegador",
-    es: "Qconcursos — página de inicio de la plataforma, mostrada en el navegador"
+    en: "Qconcursos: platform homepage, shown in browser",
+    pt: "Qconcursos: página inicial da plataforma, exibida no navegador",
+    es: "Qconcursos: página de inicio de la plataforma, mostrada en el navegador"
   },
   "bpm.more.next.label": { en: "Next Case Study", pt: "Próximo estudo de caso", es: "Siguiente caso de estudio" },
   "bpm.more.next.text": {
@@ -390,9 +390,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Lideré el rediseño de principio a fin"
   },
   "bpm.overview.owned.text": {
-    en: "From the UX interviews and affinity map through journey mapping, prioritization, information architecture and every high-fidelity screen — rebuilt on the Jalasoft design system.",
-    pt: "Das entrevistas de UX e do mapa de afinidade ao mapeamento de jornadas, priorização, arquitetura de informação e cada tela em alta fidelidade — reconstruído sobre o design system da Jalasoft.",
-    es: "Desde las entrevistas de UX y el mapa de afinidad hasta el mapeo de recorridos, la priorización, la arquitectura de información y cada pantalla en alta fidelidad — reconstruido sobre el sistema de diseño de Jalasoft."
+    en: "From the UX interviews and affinity map through journey mapping, prioritization, information architecture and every high-fidelity screen, rebuilt on the Jalasoft design system.",
+    pt: "Das entrevistas de UX e do mapa de afinidade ao mapeamento de jornadas, priorização, arquitetura de informação e cada tela em alta fidelidade, reconstruído sobre o design system da Jalasoft.",
+    es: "Desde las entrevistas de UX y el mapa de afinidad hasta el mapeo de recorridos, la priorización, la arquitectura de información y cada pantalla en alta fidelidad, reconstruido sobre el sistema de diseño de Jalasoft."
   },
   "bpm.cap.1": { en: "UX Interviews", pt: "Entrevistas de UX", es: "Entrevistas UX" },
   "bpm.cap.2": { en: "Affinity Mapping", pt: "Mapa de Afinidade", es: "Mapa de Afinidad" },
@@ -409,9 +409,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Decisiones clave<span class=\"it\">y por qué</span>"
   },
   "bpm.dec.lede": {
-    en: "The reasoning behind the moves that shaped the redesign — not just what was built, but why.",
-    pt: "O raciocínio por trás das decisões que moldaram o redesign — não só o que foi construído, mas por quê.",
-    es: "El razonamiento detrás de las decisiones que dieron forma al rediseño — no solo qué se construyó, sino por qué."
+    en: "The reasoning behind the moves that shaped the redesign, not just what was built, but why.",
+    pt: "O raciocínio por trás das decisões que moldaram o redesign, não só o que foi construído, mas por quê.",
+    es: "El razonamiento detrás de las decisiones que dieron forma al rediseño, no solo qué se construyó, sino por qué."
   },
 
   "bpm.learn.eyebrow": { en: "Learnings", pt: "Aprendizados", es: "Aprendizajes" },
@@ -449,9 +449,9 @@ window.I18N_PAGE_STRINGS = {
     es: "El proceso es el producto"
   },
   "bpm.learn.3.text": {
-    en: "People didn't want features — they wanted to see where a case was and move it forward. Leading every screen with the process, not the form, was the whole redesign.",
-    pt: "As pessoas não queriam funcionalidades — queriam ver onde um caso estava e fazê-lo avançar. Começar cada tela pelo processo, e não pelo formulário, foi o redesign inteiro.",
-    es: "La gente no quería funciones — quería ver dónde estaba un caso y hacerlo avanzar. Empezar cada pantalla por el proceso, y no por el formulario, fue todo el rediseño."
+    en: "People didn't want features. They wanted to see where a case was and move it forward. Leading every screen with the process, not the form, was the whole redesign.",
+    pt: "As pessoas não queriam funcionalidades: queriam ver onde um caso estava e fazê-lo avançar. Começar cada tela pelo processo, e não pelo formulário, foi o redesign inteiro.",
+    es: "La gente no quería funciones: quería ver dónde estaba un caso y hacerlo avanzar. Empezar cada pantalla por el proceso, y no por el formulario, fue todo el rediseño."
   },
   "bpm.learn.4.tag": { en: "Room to Grow", pt: "Espaço para crescer", es: "Espacio para crecer" },
   "bpm.learn.4.title": {
@@ -460,9 +460,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Diseñar sobre las restricciones de una plataforma"
   },
   "bpm.learn.4.text": {
-    en: "The Jalasoft portal sets what the interface can and can't do. Learning those limits early — and designing within them — kept the handoff realistic.",
-    pt: "O portal da Jalasoft define o que a interface pode ou não fazer. Conhecer esses limites cedo — e desenhar dentro deles — manteve o handoff realista.",
-    es: "El portal de Jalasoft define lo que la interfaz puede y no puede hacer. Conocer esos límites pronto — y diseñar dentro de ellos — mantuvo el handoff realista."
+    en: "The Jalasoft portal sets what the interface can and can't do. Learning those limits early, and designing within them, kept the handoff realistic.",
+    pt: "O portal da Jalasoft define o que a interface pode ou não fazer. Conhecer esses limites cedo, e desenhar dentro deles, manteve o handoff realista.",
+    es: "El portal de Jalasoft define lo que la interfaz puede y no puede hacer. Conocer esos límites pronto, y diseñar dentro de ellos, mantuvo el handoff realista."
   },
 
   "bpm.outcome.cta": { en: "See the design system →", pt: "Ver o design system →", es: "Ver el sistema de diseño →" }

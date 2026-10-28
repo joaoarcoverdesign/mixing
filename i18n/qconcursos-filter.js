@@ -10,14 +10,14 @@ window.I18N_PAGE_STRINGS = {
 
   /* ─────────── META ─────────── */
   "qcf.meta.title": {
-    en: "QConcursos — The Filter Behind the Growth | Abdalla Design",
-    pt: "QConcursos — O filtro por trás do crescimento | Abdalla Design",
-    es: "QConcursos — El filtro detrás del crecimiento | Abdalla Design"
+    en: "QConcursos: The Filter Behind the Growth | Abdalla Design",
+    pt: "QConcursos: O filtro por trás do crescimento | Abdalla Design",
+    es: "QConcursos: El filtro detrás del crecimiento | Abdalla Design"
   },
   "qcf.meta.description": {
-    en: "An alternative case from five years at QConcursos: how a 12-field cascading filter turned a 605K-question database into a usable product, and how a pricing decision quietly added R$27M a year — both part of the story behind the company's R$208M acquisition.",
-    pt: "Um caso alternativo de cinco anos na QConcursos: como um filtro em cascata de 12 campos transformou um banco de 605 mil questões em um produto usável, e como uma decisão de precificação somou R$27M por ano de forma discreta — ambos parte da história por trás da aquisição de R$208M da empresa.",
-    es: "Un caso alternativo de cinco años en QConcursos: cómo un filtro en cascada de 12 campos convirtió una base de 605 mil preguntas en un producto usable, y cómo una decisión de precios sumó R$27M al año de forma discreta — ambos parte de la historia detrás de la adquisición de R$208M de la empresa."
+    en: "An alternative case from five years at QConcursos: how a 12-field cascading filter turned a 605K-question database into a usable product, and how a pricing decision quietly added R$27M a year, both part of the story behind the company's R$208M acquisition.",
+    pt: "Um caso alternativo de cinco anos na QConcursos: como um filtro em cascata de 12 campos transformou um banco de 605 mil questões em um produto usável, e como uma decisão de precificação somou R$27M por ano de forma discreta, ambos parte da história por trás da aquisição de R$208M da empresa.",
+    es: "Un caso alternativo de cinco años en QConcursos: cómo un filtro en cascada de 12 campos convirtió una base de 605 mil preguntas en un producto usable, y cómo una decisión de precios sumó R$27M al año de forma discreta, ambos parte de la historia detrás de la adquisición de R$208M de la empresa."
   },
 
   /* ─────────── HERO ─────────── */
@@ -31,9 +31,9 @@ window.I18N_PAGE_STRINGS = {
     es: "De 600 mil a 10M de usuarios: el filtro detrás del crecimiento de QConcursos"
   },
   "qcf.hero.text": {
-    en: "An alternative cut of the same five years at Brazil's largest exam-prep platform — this time centered on the search filter that turned a 605K-question database from noise into signal, and a pricing decision that quietly moved the revenue needle, both part of the story behind the company's R$208M acquisition.",
-    pt: "Um recorte alternativo dos mesmos cinco anos na maior plataforma de concursos do Brasil — desta vez centrado no filtro de busca que transformou um banco de 605 mil questões de ruído em sinal, e em uma decisão de precificação que mexeu no faturamento de forma discreta, ambos parte da história por trás da aquisição de R$208M da empresa.",
-    es: "Un recorte alternativo de los mismos cinco años en la mayor plataforma de oposiciones de Brasil — esta vez centrado en el filtro de búsqueda que convirtió una base de 605 mil preguntas de ruido en señal, y en una decisión de precios que movió la facturación de forma discreta, ambos parte de la historia detrás de la adquisición de R$208M de la empresa."
+    en: "An alternative cut of the same five years at Brazil's largest exam-prep platform, this time centered on the search filter that turned a 605K-question database from noise into signal, and a pricing decision that quietly moved the revenue needle, both part of the story behind the company's R$208M acquisition.",
+    pt: "Um recorte alternativo dos mesmos cinco anos na maior plataforma de concursos do Brasil, desta vez centrado no filtro de busca que transformou um banco de 605 mil questões de ruído em sinal, e em uma decisão de precificação que mexeu no faturamento de forma discreta, ambos parte da história por trás da aquisição de R$208M da empresa.",
+    es: "Un recorte alternativo de los mismos cinco años en la mayor plataforma de oposiciones de Brasil, esta vez centrado en el filtro de búsqueda que convirtió una base de 605 mil preguntas de ruido en señal, y en una decisión de precios que movió la facturación de forma discreta, ambos parte de la historia detrás de la adquisición de R$208M de la empresa."
   },
   "qcf.hero.spec1.label": { en: "Client", pt: "Cliente", es: "Cliente" },
   "qcf.hero.spec2.label": { en: "Role", pt: "Papel", es: "Rol" },
@@ -49,9 +49,9 @@ window.I18N_PAGE_STRINGS = {
 
   /* ─────────── OVERVIEW ─────────── */
   "qcf.overview.altBanner": {
-    en: 'This is a second, independent case study from my time at QConcursos — it tells a different part of the story than <a href="qconcursos.html">the course-page redesign case</a>. Read either on its own, or both for the fuller picture.',
-    pt: 'Este é um segundo estudo de caso, independente, do meu tempo na QConcursos — ele conta uma parte diferente da história em relação ao <a href="qconcursos.html">caso do redesenho da página de curso</a>. Leia qualquer um deles por si só, ou os dois para ter o quadro completo.',
-    es: 'Este es un segundo caso de estudio, independiente, de mi época en QConcursos — cuenta una parte distinta de la historia respecto al <a href="qconcursos.html">caso del rediseño de la página de curso</a>. Lee cualquiera por su cuenta, o ambos para tener el panorama completo.'
+    en: 'This is a second, independent case study from my time at QConcursos. It tells a different part of the story than <a href="qconcursos.html">the course-page redesign case</a>. Read either on its own, or both for the fuller picture.',
+    pt: 'Este é um segundo estudo de caso, independente, do meu tempo na QConcursos. Ele conta uma parte diferente da história em relação ao <a href="qconcursos.html">caso do redesenho da página de curso</a>. Leia qualquer um deles por si só, ou os dois para ter o quadro completo.',
+    es: 'Este es un segundo caso de estudio, independiente, de mi época en QConcursos. Cuenta una parte distinta de la historia respecto al <a href="qconcursos.html">caso del rediseño de la página de curso</a>. Lee cualquiera por su cuenta, o ambos para tener el panorama completo.'
   },
   "qcf.overview.eyebrow": { en: "01 · Context", pt: "01 · Contexto", es: "01 · Contexto" },
   "qcf.overview.title": { en: "The business.", pt: "O negócio.", es: "El negocio." },
@@ -63,57 +63,57 @@ window.I18N_PAGE_STRINGS = {
   },
   "qcf.overview.value.label": { en: "Core Value Prop", pt: "Proposta de valor central", es: "Propuesta de valor central" },
   "qcf.overview.value.text": {
-    en: "Questions, mock exams, and courses organized by examining board, job role, and subject — for Brazil's most competitive civil-service exam market.",
-    pt: "Questões, simulados e cursos organizados por banca, cargo e disciplina — para o mercado de concursos públicos mais competitivo do Brasil.",
-    es: "Preguntas, simulacros y cursos organizados por banca, cargo y materia — para el mercado de oposiciones públicas más competitivo de Brasil."
+    en: "Questions, mock exams, and courses organized by examining board, job role, and subject, for Brazil's most competitive civil-service exam market.",
+    pt: "Questões, simulados e cursos organizados por banca, cargo e disciplina, para o mercado de concursos públicos mais competitivo do Brasil.",
+    es: "Preguntas, simulacros y cursos organizados por banca, cargo y materia, para el mercado de oposiciones públicas más competitivo de Brasil."
   },
   "qcf.overview.body.p1": {
-    en: "QConcursos is Brazil's largest platform for civil-service exam preparation. In Brazil, federal, state, and municipal government positions are fiercely competitive — they offer stability and strong salaries, and candidates often study for years before passing. The platform organizes questions, mock exams, and courses by examining board, job role, and subject.",
-    pt: "A QConcursos é a maior plataforma do Brasil para preparação para concursos públicos. No Brasil, as vagas em órgãos federais, estaduais e municipais são muito disputadas — oferecem estabilidade e bons salários, e os candidatos muitas vezes estudam por anos antes de passar. A plataforma organiza questões, simulados e cursos por banca, cargo e disciplina.",
-    es: "QConcursos es la mayor plataforma de Brasil para la preparación de oposiciones públicas. En Brasil, los puestos en organismos federales, estatales y municipales son muy competidos — ofrecen estabilidad y buenos salarios, y los candidatos suelen estudiar durante años antes de aprobar. La plataforma organiza preguntas, simulacros y cursos por banca, cargo y materia."
+    en: "QConcursos is Brazil's largest platform for civil-service exam preparation. In Brazil, federal, state, and municipal government positions are fiercely competitive. They offer stability and strong salaries, and candidates often study for years before passing. The platform organizes questions, mock exams, and courses by examining board, job role, and subject.",
+    pt: "A QConcursos é a maior plataforma do Brasil para preparação para concursos públicos. No Brasil, as vagas em órgãos federais, estaduais e municipais são muito disputadas: oferecem estabilidade e bons salários, e os candidatos muitas vezes estudam por anos antes de passar. A plataforma organiza questões, simulados e cursos por banca, cargo e disciplina.",
+    es: "QConcursos es la mayor plataforma de Brasil para la preparación de oposiciones públicas. En Brasil, los puestos en organismos federales, estatales y municipales son muy competidos: ofrecen estabilidad y buenos salarios, y los candidatos suelen estudiar durante años antes de aprobar. La plataforma organiza preguntas, simulacros y cursos por banca, cargo y materia."
   },
   "qcf.overview.body.p2": {
-    en: "I joined in 2014, working directly with the three founders. Over five years, as the company grew from hundreds of thousands to millions of users, my role evolved from generalist to the Product & Innovation team, where I led the redesign that is the focus of this case. The platform's differentiator was always the sheer size of its question database — and it's exactly that volume that becomes the central challenge in what follows.",
-    pt: "Entrei em 2014, trabalhando diretamente com os três fundadores. Ao longo de cinco anos, conforme a empresa crescia de centenas de milhares para milhões de usuários, meu papel evoluiu de generalista para o time de Produto e Inovação, onde liderei o redesenho que é o foco deste caso. O diferencial da plataforma sempre foi o tamanho do seu banco de questões — e é exatamente esse volume que se torna o desafio central do que vem a seguir.",
-    es: "Entré en 2014, trabajando directamente con los tres fundadores. A lo largo de cinco años, mientras la empresa crecía de cientos de miles a millones de usuarios, mi rol evolucionó de generalista al equipo de Producto e Innovación, donde lideré el rediseño que es el foco de este caso. El diferenciador de la plataforma siempre fue el tamaño de su base de preguntas — y es exactamente ese volumen el que se convierte en el reto central de lo que sigue."
+    en: "I joined in 2014, working directly with the three founders. Over five years, as the company grew from hundreds of thousands to millions of users, my role evolved from generalist to the Product & Innovation team, where I led the redesign that is the focus of this case. The platform's differentiator was always the sheer size of its question database, and it's exactly that volume that becomes the central challenge in what follows.",
+    pt: "Entrei em 2014, trabalhando diretamente com os três fundadores. Ao longo de cinco anos, conforme a empresa crescia de centenas de milhares para milhões de usuários, meu papel evoluiu de generalista para o time de Produto e Inovação, onde liderei o redesenho que é o foco deste caso. O diferencial da plataforma sempre foi o tamanho do seu banco de questões, e é exatamente esse volume que se torna o desafio central do que vem a seguir.",
+    es: "Entré en 2014, trabajando directamente con los tres fundadores. A lo largo de cinco años, mientras la empresa crecía de cientos de miles a millones de usuarios, mi rol evolucionó de generalista al equipo de Producto e Innovación, donde lideré el rediseño que es el foco de este caso. El diferenciador de la plataforma siempre fue el tamaño de su base de preguntas, y es exactamente ese volumen el que se convierte en el reto central de lo que sigue."
   },
 
   /* ─────────── STATS STRIP ─────────── */
   "qcf.stats.eyebrow": { en: "Public Platform Numbers · 2017", pt: "Números públicos da plataforma · 2017", es: "Números públicos de la plataforma · 2017" },
-  "qcf.stats.students": { en: "Registered students", pt: "Estudantes cadastrados", es: "Estudiantes registrados" },
+  "qcf.stats.students": { en: "Registered students in 2017", pt: "Estudantes cadastrados em 2017", es: "Estudiantes registrados en 2017" },
   "qcf.stats.questions": { en: "Catalogued questions", pt: "Questões catalogadas", es: "Preguntas catalogadas" },
   "qcf.stats.exams": { en: "Exams mapped", pt: "Provas mapeadas", es: "Exámenes mapeados" },
   "qcf.stats.contests": { en: "Contests covered", pt: "Concursos cobertos", es: "Oposiciones cubiertas" },
   "qcf.stats.note": {
-    en: "The platform's defining trait was always the size of its database — and that same size is what turns into the core challenge of this case.",
-    pt: "A marca registrada da plataforma sempre foi o tamanho do seu banco de dados — e é esse mesmo tamanho que se transforma no desafio central deste caso.",
-    es: "El rasgo distintivo de la plataforma siempre fue el tamaño de su base de datos — y es ese mismo tamaño el que se convierte en el reto central de este caso."
+    en: "The platform's defining trait was always the size of its database, and that same size is what turns into the core challenge of this case.",
+    pt: "A marca registrada da plataforma sempre foi o tamanho do seu banco de dados, e é esse mesmo tamanho que se transforma no desafio central deste caso.",
+    es: "El rasgo distintivo de la plataforma siempre fue el tamaño de su base de datos, y es ese mismo tamaño el que se convierte en el reto central de este caso."
   },
 
   /* ─────────── GROWTH ─────────── */
   "qcf.growth.eyebrow": { en: "02 · Growth", pt: "02 · Crescimento", es: "02 · Crecimiento" },
   "qcf.growth.title": { en: "The scale of the challenge.", pt: "A escala do desafio.", es: "La escala del reto." },
   "qcf.growth.lede": {
-    en: "An illustrative growth curve, anchored to the known milestones — every year in between is an interpolation, not a measured data point.",
-    pt: "Uma curva de crescimento ilustrativa, ancorada nos marcos conhecidos — cada ano intermediário é uma interpolação, não um dado medido.",
-    es: "Una curva de crecimiento ilustrativa, anclada a los hitos conocidos — cada año intermedio es una interpolación, no un dato medido."
+    en: "An illustrative growth curve, anchored to the known milestones. Every year in between is an interpolation, not a measured data point.",
+    pt: "Uma curva de crescimento ilustrativa, ancorada nos marcos conhecidos. Cada ano intermediário é uma interpolação, não um dado medido.",
+    es: "Una curva de crecimiento ilustrativa, anclada a los hitos conocidos. Cada año intermedio es una interpolación, no un dato medido."
   },
   "qcf.growth.pt1": { en: "~600K users", pt: "~600 mil usuários", es: "~600 mil usuarios" },
   "qcf.growth.pt2": { en: "3.75M students", pt: "3,75M estudantes", es: "3,75M estudiantes" },
   "qcf.growth.pt3": { en: "10M+ users", pt: "10M+ usuários", es: "10M+ usuarios" },
   "qcf.growth.note": {
-    en: "2014 — ~600K users at the start of my time there. 2017 — 3.75M registered students (public figure). 2019 — 10M+ active users, my exit. The curve between points is illustrative only.",
-    pt: "2014 — ~600 mil usuários no início do meu tempo lá. 2017 — 3,75M de estudantes cadastrados (dado público). 2019 — 10M+ de usuários ativos, minha saída. A curva entre os pontos é apenas ilustrativa.",
-    es: "2014 — ~600 mil usuarios al inicio de mi época allí. 2017 — 3,75M de estudiantes registrados (dato público). 2019 — 10M+ de usuarios activos, mi salida. La curva entre los puntos es solo ilustrativa."
+    en: "2014: ~600K users at the start of my time there. 2017: 3.75M registered students (public figure). 2019: 10M+ registered users, my exit. The curve between points is illustrative only.",
+    pt: "2014: ~600 mil usuários no início do meu tempo lá. 2017: 3,75M de estudantes cadastrados (dado público). 2019: 10M+ de usuários cadastrados, minha saída. A curva entre os pontos é apenas ilustrativa.",
+    es: "2014: ~600 mil usuarios al inicio de mi época allí. 2017: 3,75M de estudiantes registrados (dato público). 2019: 10M+ de usuarios registrados, mi salida. La curva entre los puntos es solo ilustrativa."
   },
 
   /* ─────────── PROBLEM ─────────── */
   "qcf.problem.eyebrow": { en: "03 · The Challenge", pt: "03 · O desafio", es: "03 · El reto" },
   "qcf.problem.title": { en: "The problem.", pt: "O problema.", es: "El problema." },
   "qcf.problem.body": {
-    en: "As the question catalog grew, finding the <em>right</em> question — for the right examining board, the right job role, the right subject — became progressively harder. A candidate studying for one specific contest needed surgical precision, not a generic keyword search.",
-    pt: "Conforme o catálogo de questões crescia, encontrar a questão <em>certa</em> — para a banca certa, o cargo certo, a disciplina certa — ficava progressivamente mais difícil. Um candidato estudando para um concurso específico precisava de precisão cirúrgica, não de uma busca genérica por palavra-chave.",
-    es: "A medida que el catálogo de preguntas crecía, encontrar la pregunta <em>correcta</em> — para la banca correcta, el cargo correcto, la materia correcta — se volvía progresivamente más difícil. Un candidato que estudiaba para una oposición específica necesitaba precisión quirúrgica, no una búsqueda genérica por palabra clave."
+    en: "As the question catalog grew, finding the <em>right</em> question (for the right examining board, the right job role, the right subject) became progressively harder. A candidate studying for one specific contest needed surgical precision, not a generic keyword search.",
+    pt: "Conforme o catálogo de questões crescia, encontrar a questão <em>certa</em> (para a banca certa, o cargo certo, a disciplina certa) ficava progressivamente mais difícil. Um candidato estudando para um concurso específico precisava de precisão cirúrgica, não de uma busca genérica por palavra-chave.",
+    es: "A medida que el catálogo de preguntas crecía, encontrar la pregunta <em>correcta</em> (para la banca correcta, el cargo correcto, la materia correcta) se volvía progresivamente más difícil. Un candidato que estudiaba para una oposición específica necesitaba precisión quirúrgica, no una búsqueda genérica por palabra clave."
   },
   "qcf.problem.highlight": {
     en: "605K+ questions catalogued on the platform (public data, 2017). Without a structured way to filter by examining board, institution, job role, and subject at the same time, that volume turned into noise instead of value.",
@@ -130,9 +130,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Antes de diseñar nada, el equipo habló con Soporte para entender las quejas recurrentes sobre la búsqueda de preguntas. Los tickets se categorizaban por tema y nivel de criticidad, y cuando un tema acumulaba un alto volumen de quejas repetidas, subía en la cola de prioridad del rediseño. Un panel de métricas de uso, visible para el equipo, ayudaba a confirmar dónde estaba realmente la fricción."
   },
   "qcf.process.li1": {
-    en: '<strong style="color:var(--ink);">3 criticality levels</strong> used to classify tickets — critical, medium, secondary',
-    pt: '<strong style="color:var(--ink);">3 níveis de criticidade</strong> usados para classificar os chamados — crítico, médio, secundário',
-    es: '<strong style="color:var(--ink);">3 niveles de criticidad</strong> usados para clasificar los tickets — crítico, medio, secundario'
+    en: '<strong style="color:var(--ink);">3 criticality levels</strong> used to classify tickets: critical, medium, secondary',
+    pt: '<strong style="color:var(--ink);">3 níveis de criticidade</strong> usados para classificar os chamados: crítico, médio, secundário',
+    es: '<strong style="color:var(--ink);">3 niveles de criticidad</strong> usados para clasificar los tickets: crítico, medio, secundario'
   },
   "qcf.process.li2": {
     en: 'The <strong style="color:var(--ink);">question filter</strong> was one of the topics that emerged from that classification as a top priority',
@@ -144,9 +144,9 @@ window.I18N_PAGE_STRINGS = {
   "qcf.solution.eyebrow": { en: "05 · Design", pt: "05 · Design", es: "05 · Diseño" },
   "qcf.solution.title": { en: "The solution: question filter.", pt: "A solução: filtro de questões.", es: "La solución: filtro de preguntas." },
   "qcf.solution.lede": {
-    en: "A panel with 12 filter fields — Subject, Topic, Examining Board, Institution, Year, Job Role, Level, Study Area, Specialization Area, Modality, Difficulty, and Keyword — where each selection automatically refines the available options in every other field.",
-    pt: "Um painel com 12 campos de filtro — Disciplina, Assunto, Banca, Instituição, Ano, Cargo, Nível, Área de Formação, Área de Especialização, Modalidade, Dificuldade e Palavra-chave — em que cada seleção refina automaticamente as opções disponíveis em todos os outros campos.",
-    es: "Un panel con 12 campos de filtro — Materia, Tema, Banca, Institución, Año, Cargo, Nivel, Área de Formación, Área de Especialización, Modalidad, Dificultad y Palabra clave — donde cada selección refina automáticamente las opciones disponibles en todos los demás campos."
+    en: "A panel with 12 filter fields (Subject, Topic, Examining Board, Institution, Year, Job Role, Level, Study Area, Specialization Area, Modality, Difficulty, and Keyword) where each selection automatically refines the available options in every other field.",
+    pt: "Um painel com 12 campos de filtro (Disciplina, Assunto, Banca, Instituição, Ano, Cargo, Nível, Área de Formação, Área de Especialização, Modalidade, Dificuldade e Palavra-chave) em que cada seleção refina automaticamente as opções disponíveis em todos os outros campos.",
+    es: "Un panel con 12 campos de filtro (Materia, Tema, Banca, Institución, Año, Cargo, Nivel, Área de Formación, Área de Especialización, Modalidad, Dificultad y Palabra clave) donde cada selección refina automáticamente las opciones disponibles en todos los demás campos."
   },
   "qcf.solution.img.alt": {
     en: "QConcursos question filter panel with 12 combinable fields, live product screenshot",
@@ -154,9 +154,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Panel de filtro de preguntas de QConcursos con 12 campos combinables, captura del producto real"
   },
   "qcf.solution.caption": {
-    en: "Live product screenshot — Questions filter panel",
-    pt: "Captura do produto real — painel de filtro de Questões",
-    es: "Captura del producto real — panel de filtro de Preguntas"
+    en: "Live product screenshot: Questions filter panel",
+    pt: "Captura do produto real: painel de filtro de Questões",
+    es: "Captura del producto real: panel de filtro de Preguntas"
   },
 
   /* ─────────── MECHANISM ─────────── */
@@ -196,9 +196,9 @@ window.I18N_PAGE_STRINGS = {
   "qcf.consistency.eyebrow": { en: "07 · Consistency", pt: "07 · Consistência", es: "07 · Consistencia" },
   "qcf.consistency.title": { en: "The pattern repeats.", pt: "O padrão se repete.", es: "El patrón se repite." },
   "qcf.consistency.body": {
-    en: "The same cascading-filter logic — fields that refine each other — didn't stay confined to the Questions section. It was reapplied across other areas of the platform, including the Military Contests search. Contest status, region, state, year, examining board, and institution work as dependent filters — the same progressive-refinement principle applied with different facets. An interaction pattern designed once, reused across several sections of the platform.",
-    pt: "A mesma lógica de filtro em cascata — campos que refinam uns aos outros — não ficou restrita à seção de Questões. Ela foi reaplicada em outras áreas da plataforma, incluindo a busca de Concursos Militares. Situação do concurso, região, estado, ano, banca e instituição funcionam como filtros dependentes — o mesmo princípio de refinamento progressivo aplicado com facetas diferentes. Um padrão de interação desenhado uma vez, reutilizado em várias seções da plataforma.",
-    es: "La misma lógica de filtro en cascada — campos que se refinan entre sí — no se quedó confinada a la sección de Preguntas. Se reaplicó en otras áreas de la plataforma, incluida la búsqueda de Oposiciones Militares. Situación de la oposición, región, estado, año, banca e institución funcionan como filtros dependientes — el mismo principio de refinamiento progresivo aplicado con facetas distintas. Un patrón de interacción diseñado una vez, reutilizado en varias secciones de la plataforma."
+    en: "The same cascading-filter logic, fields that refine each other, didn't stay confined to the Questions section. It was reapplied across other areas of the platform, including the Military Contests search. Contest status, region, state, year, examining board, and institution work as dependent filters, the same progressive-refinement principle applied with different facets. An interaction pattern designed once, reused across several sections of the platform.",
+    pt: "A mesma lógica de filtro em cascata, campos que refinam uns aos outros, não ficou restrita à seção de Questões. Ela foi reaplicada em outras áreas da plataforma, incluindo a busca de Concursos Militares. Situação do concurso, região, estado, ano, banca e instituição funcionam como filtros dependentes, o mesmo princípio de refinamento progressivo aplicado com facetas diferentes. Um padrão de interação desenhado uma vez, reutilizado em várias seções da plataforma.",
+    es: "La misma lógica de filtro en cascada, campos que se refinan entre sí, no se quedó confinada a la sección de Preguntas. Se reaplicó en otras áreas de la plataforma, incluida la búsqueda de Oposiciones Militares. Situación de la oposición, región, estado, año, banca e institución funcionan como filtros dependientes, el mismo principio de refinamiento progresivo aplicado con facetas distintas. Un patrón de interacción diseñado una vez, reutilizado en varias secciones de la plataforma."
   },
   "qcf.consistency.img.alt": {
     en: "QConcursos Military Contests filter, applying the same cascading-filter pattern, live product screenshot",
@@ -206,9 +206,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Filtro de Oposiciones Militares de QConcursos, aplicando el mismo patrón de filtro en cascada, captura del producto real"
   },
   "qcf.consistency.caption": {
-    en: "Live product screenshot — Military Contests filter, same pattern reapplied",
-    pt: "Captura do produto real — filtro de Concursos Militares, mesmo padrão reaplicado",
-    es: "Captura del producto real — filtro de Oposiciones Militares, mismo patrón reaplicado"
+    en: "Live product screenshot: Military Contests filter, same pattern reapplied",
+    pt: "Captura do produto real: filtro de Concursos Militares, mesmo padrão reaplicado",
+    es: "Captura del producto real: filtro de Oposiciones Militares, mismo patrón reaplicado"
   },
 
   /* ─────────── RESULTS ─────────── */
@@ -218,9 +218,9 @@ window.I18N_PAGE_STRINGS = {
   "qcf.results.stat2": { en: "Combinable filter fields", pt: "Campos de filtro combináveis", es: "Campos de filtro combinables" },
   "qcf.results.stat3": { en: "Entry point for the section", pt: "Ponto de entrada para a seção", es: "Punto de entrada para la sección" },
   "qcf.results.note": {
-    en: "Estimated time saved from filtering by board, role and subject at once instead of separate searches. 12 combinable fields vs. 1 keyword-search field in the previous version. The new panel became the single entry point that came to concentrate most of the traffic to the Questions section. Illustrative estimates — the platform had no detailed analytics instrumentation at launch time, so these numbers represent a plausible reading of the gain, not a period-accurate measurement.",
-    pt: "Tempo economizado estimado por filtrar por banca, cargo e disciplina de uma vez em vez de buscas separadas. 12 campos combináveis vs. 1 campo de busca por palavra-chave na versão anterior. O novo painel virou o ponto de entrada único que passou a concentrar a maior parte do tráfego para a seção de Questões. Estimativas ilustrativas — a plataforma não tinha instrumentação de analytics detalhada na época do lançamento, então esses números representam uma leitura plausível do ganho, não uma medição precisa do período.",
-    es: "Tiempo ahorrado estimado por filtrar por banca, cargo y materia a la vez en lugar de búsquedas separadas. 12 campos combinables vs. 1 campo de búsqueda por palabra clave en la versión anterior. El nuevo panel se convirtió en el punto de entrada único que pasó a concentrar la mayor parte del tráfico a la sección de Preguntas. Estimaciones ilustrativas — la plataforma no tenía instrumentación de analytics detallada en el momento del lanzamiento, así que estos números representan una lectura plausible de la ganancia, no una medición precisa del periodo."
+    en: "Estimated time saved from filtering by board, role and subject at once instead of separate searches. 12 combinable fields vs. 1 keyword-search field in the previous version. The new panel became the single entry point that came to concentrate most of the traffic to the Questions section. Illustrative estimates: the platform had no detailed analytics instrumentation at launch time, so these numbers represent a plausible reading of the gain, not a period-accurate measurement.",
+    pt: "Tempo economizado estimado por filtrar por banca, cargo e disciplina de uma vez em vez de buscas separadas. 12 campos combináveis vs. 1 campo de busca por palavra-chave na versão anterior. O novo painel virou o ponto de entrada único que passou a concentrar a maior parte do tráfego para a seção de Questões. Estimativas ilustrativas: a plataforma não tinha instrumentação de analytics detalhada na época do lançamento, então esses números representam uma leitura plausível do ganho, não uma medição precisa do período.",
+    es: "Tiempo ahorrado estimado por filtrar por banca, cargo y materia a la vez en lugar de búsquedas separadas. 12 campos combinables vs. 1 campo de búsqueda por palabra clave en la versión anterior. El nuevo panel se convirtió en el punto de entrada único que pasó a concentrar la mayor parte del tráfico a la sección de Preguntas. Estimaciones ilustrativas: la plataforma no tenía instrumentación de analytics detallada en el momento del lanzamiento, así que estos números representan una lectura plausible de la ganancia, no una medición precisa del periodo."
   },
 
   /* ─────────── EVOLUTION ─────────── */
@@ -233,9 +233,9 @@ window.I18N_PAGE_STRINGS = {
   },
   "qcf.evolution.c1.title": { en: "Save filters", pt: "Salvar filtros", es: "Guardar filtros" },
   "qcf.evolution.c1.text": {
-    en: "Usability testing showed that redoing the same search every time was a friction point. Saving a filter became a feature, along with a visible trail of active filters — each individually removable — to keep it clear what was being applied.",
-    pt: "Os testes de usabilidade mostraram que refazer a mesma busca toda vez era um ponto de atrito. Salvar um filtro virou funcionalidade, junto com uma trilha visível de filtros ativos — cada um removível individualmente — para deixar claro o que estava sendo aplicado.",
-    es: "Las pruebas de usabilidad mostraron que rehacer la misma búsqueda cada vez era un punto de fricción. Guardar un filtro se convirtió en función, junto con un rastro visible de filtros activos — cada uno eliminable individualmente — para dejar claro qué se estaba aplicando."
+    en: "Usability testing showed that redoing the same search every time was a friction point. Saving a filter became a feature, along with a visible trail of active filters, each individually removable, to keep it clear what was being applied.",
+    pt: "Os testes de usabilidade mostraram que refazer a mesma busca toda vez era um ponto de atrito. Salvar um filtro virou funcionalidade, junto com uma trilha visível de filtros ativos, cada um removível individualmente, para deixar claro o que estava sendo aplicado.",
+    es: "Las pruebas de usabilidad mostraron que rehacer la misma búsqueda cada vez era un punto de fricción. Guardar un filtro se convirtió en función, junto con un rastro visible de filtros activos, cada uno eliminable individualmente, para dejar claro qué se estaba aplicando."
   },
   "qcf.evolution.c2.title": { en: "Exclude questions", pt: "Excluir questões", es: "Excluir preguntas" },
   "qcf.evolution.c2.text": {
@@ -268,23 +268,23 @@ window.I18N_PAGE_STRINGS = {
     es: "Filtro de preguntas de una plataforma competidora de oposiciones, mostrando un patrón de cascada multicampo similar, captura del producto real"
   },
   "qcf.market.caption": {
-    en: "A competitor's later question filter — illustrative of the pattern's spread across the category",
-    pt: "O filtro de questões posterior de um concorrente — ilustra a disseminação do padrão pela categoria",
-    es: "El filtro de preguntas posterior de un competidor — ilustra la difusión del patrón por la categoría"
+    en: "A competitor's later question filter: illustrative of the pattern's spread across the category",
+    pt: "O filtro de questões posterior de um concorrente, que ilustra a disseminação do padrão pela categoria",
+    es: "El filtro de preguntas posterior de un competidor, que ilustra la difusión del patrón por la categoría"
   },
 
   /* ─────────── BUSINESS OUTCOME ─────────── */
   "qcf.outcome.eyebrow": { en: "11 · Exit", pt: "11 · Saída", es: "11 · Salida" },
   "qcf.outcome.title": { en: "The business outcome.", pt: "O resultado de negócio.", es: "El resultado de negocio." },
   "qcf.outcome.highlight": {
-    en: "R$208 million — the value of QConcursos' acquisition by Grupo Yduqs (owner of Estácio, IBMEC and Damásio), announced in early 2020.",
-    pt: "R$208 milhões — o valor da aquisição da QConcursos pelo Grupo Yduqs (dono da Estácio, do IBMEC e do Damásio), anunciada no início de 2020.",
-    es: "R$208 millones — el valor de la adquisición de QConcursos por el Grupo Yduqs (dueño de Estácio, IBMEC y Damásio), anunciada a principios de 2020."
+    en: "R$208 million: the value of QConcursos' acquisition by Grupo Yduqs (owner of Estácio, IBMEC and Damásio), announced in early 2020.",
+    pt: "R$208 milhões: o valor da aquisição da QConcursos pelo Grupo Yduqs (dono da Estácio, do IBMEC e do Damásio), anunciada no início de 2020.",
+    es: "R$208 millones: el valor de la adquisición de QConcursos por el Grupo Yduqs (dueño de Estácio, IBMEC y Damásio), anunciada a principios de 2020."
   },
   "qcf.outcome.body": {
-    en: "The question-filter redesign, and the broader design work of that phase, were part of the product maturation that helped prepare the platform for that acquisition. It wasn't the isolated cause of the value paid — but it was a measurable part of the story of how the product evolved from a functional tool into a category-reference platform.",
-    pt: "O redesenho do filtro de questões, e o trabalho de design mais amplo daquela fase, fizeram parte da maturação do produto que ajudou a preparar a plataforma para essa aquisição. Não foi a causa isolada do valor pago — mas foi uma parte mensurável da história de como o produto evoluiu de uma ferramenta funcional para uma plataforma de referência na categoria.",
-    es: "El rediseño del filtro de preguntas, y el trabajo de diseño más amplio de esa fase, formaron parte de la maduración del producto que ayudó a preparar la plataforma para esa adquisición. No fue la causa aislada del valor pagado — pero fue una parte medible de la historia de cómo el producto evolucionó de una herramienta funcional a una plataforma de referencia en la categoría."
+    en: "The question-filter redesign, and the broader design work of that phase, were part of the product maturation that helped prepare the platform for that acquisition. It wasn't the isolated cause of the value paid, but it was a measurable part of the story of how the product evolved from a functional tool into a category-reference platform.",
+    pt: "O redesenho do filtro de questões, e o trabalho de design mais amplo daquela fase, fizeram parte da maturação do produto que ajudou a preparar a plataforma para essa aquisição. Não foi a causa isolada do valor pago, mas foi uma parte mensurável da história de como o produto evoluiu de uma ferramenta funcional para uma plataforma de referência na categoria.",
+    es: "El rediseño del filtro de preguntas, y el trabajo de diseño más amplio de esa fase, formaron parte de la maduración del producto que ayudó a preparar la plataforma para esa adquisición. No fue la causa aislada del valor pagado, pero fue una parte medible de la historia de cómo el producto evolucionó de una herramienta funcional a una plataforma de referencia en la categoría."
   },
   "qcf.outcome.g1": { en: "~600K users", pt: "~600 mil usuários", es: "~600 mil usuarios" },
   "qcf.outcome.g2": { en: "3.75M students", pt: "3,75M estudantes", es: "3,75M estudiantes" },
@@ -295,20 +295,20 @@ window.I18N_PAGE_STRINGS = {
   "qcf.pricing.eyebrow": { en: "Bonus · Pricing", pt: "Bônus · Precificação", es: "Extra · Precios" },
   "qcf.pricing.title": { en: "The price no one notices.", pt: "O preço que ninguém nota.", es: "El precio que nadie nota." },
   "qcf.pricing.body": {
-    en: "With the subscriber base already in the millions, I questioned the founder responsible for finance about the logic behind the R$13.25 Premium monthly plan. His answer revealed the calculation behind the price — and opened space for a proposal: use the \"charm pricing\" concept to raise the value without creating a sense of loss for people already paying.",
-    pt: "Com a base de assinantes já na casa dos milhões, questionei o fundador responsável pelas finanças sobre a lógica por trás do plano Premium mensal de R$13,25. A resposta dele revelou o cálculo por trás do preço — e abriu espaço para uma proposta: usar o conceito de \"charm pricing\" para aumentar o valor sem criar uma sensação de perda para quem já pagava.",
-    es: "Con la base de suscriptores ya en los millones, le pregunté al fundador responsable de finanzas por la lógica detrás del plan Premium mensual de R$13,25. Su respuesta reveló el cálculo detrás del precio — y abrió espacio para una propuesta: usar el concepto de \"charm pricing\" para subir el valor sin crear una sensación de pérdida para quienes ya pagaban."
+    en: "With the subscriber base already in the millions, I questioned the founder responsible for finance about the logic behind the R$13.25 Premium monthly plan. His answer revealed the calculation behind the price, and opened space for a proposal: use the \"charm pricing\" concept to raise the value without creating a sense of loss for people already paying.",
+    pt: "Com a base de assinantes já na casa dos milhões, questionei o fundador responsável pelas finanças sobre a lógica por trás do plano Premium mensal de R$13,25. A resposta dele revelou o cálculo por trás do preço, e abriu espaço para uma proposta: usar o conceito de \"charm pricing\" para aumentar o valor sem criar uma sensação de perda para quem já pagava.",
+    es: "Con la base de suscriptores ya en los millones, le pregunté al fundador responsable de finanzas por la lógica detrás del plan Premium mensual de R$13,25. Su respuesta reveló el cálculo detrás del precio, y abrió espacio para una propuesta: usar el concepto de \"charm pricing\" para subir el valor sin crear una sensación de pérdida para quienes ya pagaban."
   },
   "qcf.pricing.highlight": {
-    en: "R$13.25 → R$13.90 — a R$0.65 increase, perceptible, but below the loss-perception threshold.",
-    pt: "R$13,25 → R$13,90 — um aumento de R$0,65, perceptível, mas abaixo do limiar de percepção de perda.",
-    es: "R$13,25 → R$13,90 — un aumento de R$0,65, perceptible, pero por debajo del umbral de percepción de pérdida."
+    en: "R$13.25 → R$13.90: a R$0.65 increase, perceptible, but below the loss-perception threshold.",
+    pt: "R$13,25 → R$13,90: um aumento de R$0,65, perceptível, mas abaixo do limiar de percepção de perda.",
+    es: "R$13,25 → R$13,90: un aumento de R$0,65, perceptible, pero por debajo del umbral de percepción de pérdida."
   },
   "qcf.pricing.subhead": { en: "The change in practice.", pt: "A mudança na prática.", es: "El cambio en la práctica." },
   "qcf.pricing.lede": {
-    en: "The same plans page, desktop and mobile, before and after the adjustment. No other visual or flow change — only the price.",
-    pt: "A mesma página de planos, desktop e mobile, antes e depois do ajuste. Nenhuma outra mudança visual ou de fluxo — apenas o preço.",
-    es: "La misma página de planes, escritorio y móvil, antes y después del ajuste. Ningún otro cambio visual o de flujo — solo el precio."
+    en: "The same plans page, desktop and mobile, before and after the adjustment. No other visual or flow change: only the price.",
+    pt: "A mesma página de planos, desktop e mobile, antes e depois do ajuste. Nenhuma outra mudança visual ou de fluxo: apenas o preço.",
+    es: "La misma página de planes, escritorio y móvil, antes y después del ajuste. Ningún otro cambio visual o de flujo: solo el precio."
   },
   "qcf.pricing.before.label": { en: "Before", pt: "Antes", es: "Antes" },
   "qcf.pricing.before.img.alt": {
@@ -332,9 +332,9 @@ window.I18N_PAGE_STRINGS = {
   "qcf.pimpact.stat2": { en: "Additional revenue / year", pt: "Receita adicional / ano", es: "Ingresos adicionales / año" },
   "qcf.pimpact.stat3": { en: "Metrics used to validate safety", pt: "Métricas usadas para validar a segurança", es: "Métricas usadas para validar la seguridad" },
   "qcf.pimpact.note": {
-    en: "Monthly and annual figures are estimated over a base of ~3.5M subscribers. Safety of the change was validated by tracking three metrics: cancellation rate, acquisition rate, and stated cancellation reason. Illustrative estimate based on the subscriber base reported by me and the prices shown in the platform screenshots — not real-time revenue instrumentation.",
-    pt: "Os números mensais e anuais são estimados sobre uma base de ~3,5M de assinantes. A segurança da mudança foi validada acompanhando três métricas: taxa de cancelamento, taxa de aquisição e motivo declarado de cancelamento. Estimativa ilustrativa baseada na base de assinantes relatada por mim e nos preços mostrados nas capturas da plataforma — não em instrumentação de receita em tempo real.",
-    es: "Las cifras mensuales y anuales están estimadas sobre una base de ~3,5M de suscriptores. La seguridad del cambio se validó siguiendo tres métricas: tasa de cancelación, tasa de adquisición y motivo declarado de cancelación. Estimación ilustrativa basada en la base de suscriptores reportada por mí y en los precios mostrados en las capturas de la plataforma — no en instrumentación de ingresos en tiempo real."
+    en: "Monthly and annual figures are estimated over a base of ~3.5M subscribers. Safety of the change was validated by tracking three metrics: cancellation rate, acquisition rate, and stated cancellation reason. Illustrative estimate based on the subscriber base reported by me and the prices shown in the platform screenshots, not real-time revenue instrumentation.",
+    pt: "Os números mensais e anuais são estimados sobre uma base de ~3,5M de assinantes. A segurança da mudança foi validada acompanhando três métricas: taxa de cancelamento, taxa de aquisição e motivo declarado de cancelamento. Estimativa ilustrativa baseada na base de assinantes relatada por mim e nos preços mostrados nas capturas da plataforma, não em instrumentação de receita em tempo real.",
+    es: "Las cifras mensuales y anuales están estimadas sobre una base de ~3,5M de suscriptores. La seguridad del cambio se validó siguiendo tres métricas: tasa de cancelación, tasa de adquisición y motivo declarado de cancelación. Estimación ilustrativa basada en la base de suscriptores reportada por mí y en los precios mostrados en las capturas de la plataforma, no en instrumentación de ingresos en tiempo real."
   },
 
   /* ─────────── LEARNINGS ─────────── */
@@ -343,9 +343,9 @@ window.I18N_PAGE_STRINGS = {
   "qcf.retro.c1.tag": { en: "Win", pt: "Acerto", es: "Acierto" },
   "qcf.retro.c1.title": { en: "Validate before designing", pt: "Validar antes de desenhar", es: "Validar antes de diseñar" },
   "qcf.retro.c1.text": {
-    en: "Validating the problem with real data — Customer Support, surveys, public usage data — before designing any solution avoided rework in the filter redesign.",
-    pt: "Validar o problema com dados reais — Suporte, pesquisas, dados públicos de uso — antes de desenhar qualquer solução evitou retrabalho no redesenho do filtro.",
-    es: "Validar el problema con datos reales — Soporte, encuestas, datos públicos de uso — antes de diseñar cualquier solución evitó retrabajo en el rediseño del filtro."
+    en: "Validating the problem with real data (Customer Support, surveys, public usage data) before designing any solution avoided rework in the filter redesign.",
+    pt: "Validar o problema com dados reais (Suporte, pesquisas, dados públicos de uso) antes de desenhar qualquer solução evitou retrabalho no redesenho do filtro.",
+    es: "Validar el problema con datos reales (Soporte, encuestas, datos públicos de uso) antes de diseñar cualquier solución evitó retrabajo en el rediseño del filtro."
   },
   "qcf.retro.c2.tag": { en: "Win", pt: "Acerto", es: "Acierto" },
   "qcf.retro.c2.title": { en: "Refine > reinvent", pt: "Refinar > reinventar", es: "Refinar > reinventar" },
@@ -357,16 +357,16 @@ window.I18N_PAGE_STRINGS = {
   "qcf.retro.c3.tag": { en: "Challenge", pt: "Desafio", es: "Reto" },
   "qcf.retro.c3.title": { en: "Missing post-launch metrics", pt: "Falta de métricas pós-lançamento", es: "Falta de métricas tras el lanzamiento" },
   "qcf.retro.c3.text": {
-    en: "There wasn't instrumentation structured enough to quantitatively prove the filter's impact — only the platform's overall growth.",
-    pt: "Não havia instrumentação estruturada o suficiente para provar quantitativamente o impacto do filtro — apenas o crescimento geral da plataforma.",
-    es: "No había instrumentación lo bastante estructurada para probar cuantitativamente el impacto del filtro — solo el crecimiento general de la plataforma."
+    en: "There wasn't instrumentation structured enough to quantitatively prove the filter's impact, only the platform's overall growth.",
+    pt: "Não havia instrumentação estruturada o suficiente para provar quantitativamente o impacto do filtro, apenas o crescimento geral da plataforma.",
+    es: "No había instrumentación lo bastante estructurada para probar cuantitativamente el impacto del filtro, solo el crecimiento general de la plataforma."
   },
   "qcf.retro.c4.tag": { en: "Challenge", pt: "Desafio", es: "Reto" },
   "qcf.retro.c4.title": { en: "Business context reshuffles priorities", pt: "O contexto de negócio reordena as prioridades", es: "El contexto de negocio reordena las prioridades" },
   "qcf.retro.c4.text": {
-    en: "Working five years on the same platform showed how design priorities shift when business context — like preparing for an acquisition — enters the picture.",
-    pt: "Trabalhar cinco anos na mesma plataforma mostrou como as prioridades de design mudam quando o contexto de negócio — como se preparar para uma aquisição — entra em cena.",
-    es: "Trabajar cinco años en la misma plataforma mostró cómo las prioridades de diseño cambian cuando el contexto de negocio — como prepararse para una adquisición — entra en escena."
+    en: "Working five years on the same platform showed how design priorities shift when business context, like preparing for an acquisition, enters the picture.",
+    pt: "Trabalhar cinco anos na mesma plataforma mostrou como as prioridades de design mudam quando o contexto de negócio, como se preparar para uma aquisição, entra em cena.",
+    es: "Trabajar cinco años en la misma plataforma mostró cómo las prioridades de diseño cambian cuando el contexto de negocio, como prepararse para una adquisición, entra en escena."
   },
 
   /* ─────────── TODAY WITH AI ─────────── */
@@ -392,9 +392,9 @@ window.I18N_PAGE_STRINGS = {
   },
   "qcf.ai.c4.title": { en: "4 · Metrics from day one", pt: "4 · Métricas desde o primeiro dia", es: "4 · Métricas desde el primer día" },
   "qcf.ai.c4.text": {
-    en: "With today's AI-supported analytics tools, I'd instrument the launch from the start — closing the measurement gap that remained a learning from this case.",
-    pt: "Com as ferramentas de analytics apoiadas por IA de hoje, eu instrumentaria o lançamento desde o começo — fechando a lacuna de medição que ficou como aprendizado deste caso.",
-    es: "Con las herramientas de analytics apoyadas por IA de hoy, instrumentaría el lanzamiento desde el principio — cerrando la laguna de medición que quedó como aprendizaje de este caso."
+    en: "With today's AI-supported analytics tools, I'd instrument the launch from the start, closing the measurement gap that remained a learning from this case.",
+    pt: "Com as ferramentas de analytics apoiadas por IA de hoje, eu instrumentaria o lançamento desde o começo, fechando a lacuna de medição que ficou como aprendizado deste caso.",
+    es: "Con las herramientas de analytics apoyadas por IA de hoy, instrumentaría el lanzamiento desde el principio, cerrando la laguna de medición que quedó como aprendizaje de este caso."
   },
 
   /* ─────────── MORE WORK ─────────── */
@@ -402,9 +402,9 @@ window.I18N_PAGE_STRINGS = {
   "qcf.more.n1.label": { en: "Also From QConcursos", pt: "Também da QConcursos", es: "También de QConcursos" },
   "qcf.more.n1.title": { en: "Course Page Redesign", pt: "Redesenho da página de curso", es: "Rediseño de la página de curso" },
   "qcf.more.n1.text": {
-    en: "The other half of the story — rebuilding the core course-consumption experience millions of users spent the most time in.",
-    pt: "A outra metade da história — reconstruir a experiência central de consumo de cursos em que milhões de usuários passavam mais tempo.",
-    es: "La otra mitad de la historia — reconstruir la experiencia central de consumo de cursos en la que millones de usuarios pasaban más tiempo."
+    en: "The other half of the story: rebuilding the core course-consumption experience millions of users spent the most time in.",
+    pt: "A outra metade da história: reconstruir a experiência central de consumo de cursos em que milhões de usuários passavam mais tempo.",
+    es: "La otra mitad de la historia: reconstruir la experiencia central de consumo de cursos en la que millones de usuarios pasaban más tiempo."
   },
   "qcf.more.n1.img.alt": {
     en: "QConcursos course page, before and after the redesign",

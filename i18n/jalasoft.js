@@ -83,7 +83,7 @@ window.I18N_PAGE_STRINGS = {
     es: "Un design system en papel es solo una apuesta. Solo se prueba de verdad la primera vez que un proyecto real depende de él. Esa prueba llegó casi de inmediato, con el rediseño de la plataforma interna de BPM de la empresa, la herramienta que todos los empleados usaban para tareas y contratación. Era el lugar menos tolerante al error para descubrir si el sistema realmente funcionaba, y funcionó. Ese resultado fue lo que justificó reutilizarlo dos veces más: en el sitio de la empresa y en una nueva herramienta de estimación de equipo llamada Planning Poker."
   },
   "jala.overview.p3": {
-    en: "This case follows that sequence. These aren't three unrelated projects that happen to share a color palette — it's one system, proven once under real conditions, then extended. Alongside this, I designed and taught a UX/UI curriculum across Latin America, and later moved into working directly on client projects, both covered briefly below.",
+    en: "This case follows that sequence. These aren't three unrelated projects that happen to share a color palette. It's one system, proven once under real conditions, then extended. Alongside this, I designed and taught a UX/UI curriculum across Latin America, and later moved into working directly on client projects, both covered briefly below.",
     pt: "Este case segue essa sequência. Não são três projetos soltos que por acaso compartilham uma paleta de cores, e sim um sistema, provado uma vez sob condições reais, e depois estendido. Junto com isso, desenhei e lecionei um currículo de UX/UI pela América Latina, e depois passei a atuar diretamente em projetos de clientes, ambos cobertos brevemente abaixo.",
     es: "Este caso sigue esa secuencia. No son tres proyectos sueltos que por casualidad comparten una paleta de color, sino un sistema, probado una vez en condiciones reales, y luego extendido. Junto a esto, diseñé e impartí un currículo de UX/UI por Latinoamérica, y después pasé a trabajar directamente en proyectos de clientes, ambos cubiertos brevemente más abajo."
   },
@@ -254,9 +254,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Un sistema construido para una herramienta interna densa no encaja automáticamente en un sitio institucional o en una app ligera. Cada reutilización aún exigió decisiones sobre qué partes del sistema mantener y cuáles adaptar."
   },
   "jala.learn.c4": {
-    en: "Teaching forced me to explain design decisions as principles, not just as Figma files — a different kind of rigor than simply shipping alone.",
+    en: "Teaching forced me to explain design decisions as principles, not just as Figma files, a different kind of rigor than simply shipping alone.",
     pt: "Ensinar me forçou a explicar decisões de design em princípios, não só em arquivos do Figma, um tipo de rigor diferente de simplesmente entregar sozinho.",
-    es: "Enseñar me obligó a explicar decisiones de diseño como principios, no solo como archivos de Figma — un tipo de rigor distinto al de simplemente entregar en solitario."
+    es: "Enseñar me obligó a explicar decisiones de diseño como principios, no solo como archivos de Figma, un tipo de rigor distinto al de simplemente entregar en solitario."
   },
 
   /* ─────────── MORE WORK ─────────── */

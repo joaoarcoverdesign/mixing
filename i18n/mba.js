@@ -13,9 +13,9 @@ window.I18N_PAGE_STRINGS = {
 
   /* ─────────── META ─────────── */
   "mba.meta.title": {
-    en: "My Benefits Advice — Healthcare Enrollment, Simplified | Abdalla Design",
-    pt: "My Benefits Advice — Adesão a Benefícios de Saúde, Simplificada | Abdalla Design",
-    es: "My Benefits Advice — Inscripción a Beneficios de Salud, Simplificada | Abdalla Design"
+    en: "My Benefits Advice: Healthcare Enrollment, Simplified | Abdalla Design",
+    pt: "My Benefits Advice: Adesão a Benefícios de Saúde, Simplificada | Abdalla Design",
+    es: "My Benefits Advice: Inscripción a Beneficios de Salud, Simplificada | Abdalla Design"
   },
   "mba.meta.description": {
     en: "Designing a multi-role healthcare benefits administration platform for the US market, connecting employers, brokers, and employees through a personalized recommendation engine built from zero.",
@@ -49,9 +49,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Arquitectura de UX · Diseño UI · Design System · Flujos multiperfil"
   },
   "mba.hero.img.alt": {
-    en: "Three iPhone mockups side by side — login, plan selection with slider, and personal profile screens",
-    pt: "Três mockups de iPhone lado a lado — telas de login, seleção de plano com slider e perfil pessoal",
-    es: "Tres mockups de iPhone uno al lado del otro — pantallas de inicio de sesión, selección de plan con slider y perfil personal"
+    en: "Three iPhone mockups side by side: login, plan selection with slider, and personal profile screens",
+    pt: "Três mockups de iPhone lado a lado: telas de login, seleção de plano com slider e perfil pessoal",
+    es: "Tres mockups de iPhone uno al lado del otro: pantallas de inicio de sesión, selección de plan con slider y perfil personal"
   },
 
   /* ─────────── OVERVIEW ─────────── */
@@ -78,9 +78,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Fui responsable del UX y la UI de extremo a extremo en cuatro superficies de usuario distintas: Portal Admin, Configuración del Empleador, Panel del Corredor y el Recorrido del Empleado. Trabajando como contratista independiente, llevé el producto desde la definición del concepto hasta su lanzamiento."
   },
   "mba.overview.glance.img.alt": {
-    en: "My Benefits Advice project overview — the platform's four user-facing surfaces at a glance",
-    pt: "Visão geral do projeto My Benefits Advice — as quatro superfícies de usuário da plataforma em resumo",
-    es: "Visión general del proyecto My Benefits Advice — las cuatro superficies de usuario de la plataforma de un vistazo"
+    en: "My Benefits Advice project overview: the platform's four user-facing surfaces at a glance",
+    pt: "Visão geral do projeto My Benefits Advice: as quatro superfícies de usuário da plataforma em resumo",
+    es: "Visión general del proyecto My Benefits Advice: las cuatro superficies de usuario de la plataforma de un vistazo"
   },
   "mba.overview.platform.label": {
     en: "One platform, four user types",
@@ -88,9 +88,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Una plataforma, cuatro tipos de usuario"
   },
   "mba.overview.platform.text1": {
-    en: "The platform connects four user types — MBA Admin, Broker, Employer, and Employee. Each has distinct permissions, data access, and workflows. The system orchestrates a complete enrollment lifecycle: from employer setup and census import to employee recommendation and plan election.",
-    pt: "A plataforma conecta quatro tipos de usuário — Admin MBA, Corretor, Empregador e Funcionário. Cada um tem permissões, acesso a dados e fluxos de trabalho distintos. O sistema orquestra um ciclo completo de adesão: da configuração do empregador e importação do censo até a recomendação ao funcionário e a escolha do plano.",
-    es: "La plataforma conecta cuatro tipos de usuario — Admin MBA, Corredor, Empleador y Empleado. Cada uno tiene permisos, acceso a datos y flujos de trabajo distintos. El sistema orquesta un ciclo completo de inscripción: desde la configuración del empleador y la importación del censo hasta la recomendación al empleado y la elección del plan."
+    en: "The platform connects four user types: MBA Admin, Broker, Employer, and Employee. Each has distinct permissions, data access, and workflows. The system orchestrates a complete enrollment lifecycle: from employer setup and census import to employee recommendation and plan election.",
+    pt: "A plataforma conecta quatro tipos de usuário: Admin MBA, Corretor, Empregador e Funcionário. Cada um tem permissões, acesso a dados e fluxos de trabalho distintos. O sistema orquestra um ciclo completo de adesão: da configuração do empregador e importação do censo até a recomendação ao funcionário e a escolha do plano.",
+    es: "La plataforma conecta cuatro tipos de usuario: Admin MBA, Corredor, Empleador y Empleado. Cada uno tiene permisos, acceso a datos y flujos de trabajo distintos. El sistema orquesta un ciclo completo de inscripción: desde la configuración del empleador y la importación del censo hasta la recomendación al empleado y la elección del plan."
   },
   "mba.overview.platform.text2": {
     en: "The product's core differentiator is the recommendation engine: employees complete a weighted survey and receive a personalized health plan recommendation, making a complex, high-stakes decision feel guided and human.",
@@ -177,9 +177,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Wireframes del recorrido del empleado"
   },
   "mba.process.step2.text": {
-    en: "The Employee Journey — login, profile, survey, recommendation, election, confirmation — was the most complex flow in the product. I wireframed both mobile and desktop in parallel, mapping every state including edge cases: out-of-enrollment-period, SSN verification failed, and dependent management.",
-    pt: "A Jornada do Funcionário — login, perfil, questionário, recomendação, escolha, confirmação — era o fluxo mais complexo do produto. Fiz wireframes de mobile e desktop em paralelo, mapeando todos os estados, incluindo casos extremos: fora do período de adesão, falha na verificação de SSN e gestão de dependentes.",
-    es: "El Recorrido del Empleado — inicio de sesión, perfil, encuesta, recomendación, elección, confirmación — era el flujo más complejo del producto. Hice wireframes de móvil y escritorio en paralelo, mapeando cada estado, incluidos los casos límite: fuera del periodo de inscripción, fallo en la verificación de SSN y gestión de dependientes."
+    en: "The Employee Journey (login, profile, survey, recommendation, election, confirmation) was the most complex flow in the product. I wireframed both mobile and desktop in parallel, mapping every state including edge cases: out-of-enrollment-period, SSN verification failed, and dependent management.",
+    pt: "A Jornada do Funcionário (login, perfil, questionário, recomendação, escolha, confirmação) era o fluxo mais complexo do produto. Fiz wireframes de mobile e desktop em paralelo, mapeando todos os estados, incluindo casos extremos: fora do período de adesão, falha na verificação de SSN e gestão de dependentes.",
+    es: "El Recorrido del Empleado (inicio de sesión, perfil, encuesta, recomendación, elección, confirmación) era el flujo más complejo del producto. Hice wireframes de móvil y escritorio en paralelo, mapeando cada estado, incluidos los casos límite: fuera del periodo de inscripción, fallo en la verificación de SSN y gestión de dependientes."
   },
   "mba.process.step2.img.alt": {
     en: "Employee journey wireframes covering login, survey, recommendation, and election flows",
@@ -197,14 +197,14 @@ window.I18N_PAGE_STRINGS = {
     es: "Diseñé un asistente de onboarding del empleador en 5 pasos que cubría datos de la empresa, configuración de comunicaciones, fechas de inscripción, contactos y configuración de producto/pago. El reto: lograr que un flujo complejo y cargado de compliance se sintiera manejable para equipos de RR. HH. sin formación técnica."
   },
   "mba.process.step4.title": {
-    en: "High-Fidelity UI — All Four Surfaces",
-    pt: "UI de alta fidelidade — as quatro superfícies",
-    es: "UI de alta fidelidad — las cuatro superficies"
+    en: "High-Fidelity UI: All Four Surfaces",
+    pt: "UI de alta fidelidade: as quatro superfícies",
+    es: "UI de alta fidelidad: las cuatro superficies"
   },
   "mba.process.step4.text": {
-    en: "Built high-fidelity screens across Admin Portal, Employer Dashboard, Broker Dashboard, and Employee Journey — maintaining visual consistency while keeping each surface contextually appropriate for its user. The design system ensured components could be shared across surfaces without context bleed.",
-    pt: "Construí telas de alta fidelidade no Portal Admin, Painel do Empregador, Painel do Corretor e Jornada do Funcionário — mantendo a consistência visual e, ao mesmo tempo, deixando cada superfície contextualmente adequada ao seu usuário. O design system garantiu que os componentes pudessem ser compartilhados entre superfícies sem vazamento de contexto.",
-    es: "Construí pantallas de alta fidelidad en el Portal Admin, el Panel del Empleador, el Panel del Corredor y el Recorrido del Empleado — manteniendo la consistencia visual y, a la vez, dejando cada superficie contextualmente apropiada para su usuario. El design system aseguró que los componentes pudieran compartirse entre superficies sin fuga de contexto."
+    en: "Built high-fidelity screens across Admin Portal, Employer Dashboard, Broker Dashboard, and Employee Journey, maintaining visual consistency while keeping each surface contextually appropriate for its user. The design system ensured components could be shared across surfaces without context bleed.",
+    pt: "Construí telas de alta fidelidade no Portal Admin, Painel do Empregador, Painel do Corretor e Jornada do Funcionário, mantendo a consistência visual e, ao mesmo tempo, deixando cada superfície contextualmente adequada ao seu usuário. O design system garantiu que os componentes pudessem ser compartilhados entre superfícies sem vazamento de contexto.",
+    es: "Construí pantallas de alta fidelidad en el Portal Admin, el Panel del Empleador, el Panel del Corredor y el Recorrido del Empleado, manteniendo la consistencia visual y, a la vez, dejando cada superficie contextualmente apropiada para su usuario. El design system aseguró que los componentes pudieran compartirse entre superficies sin fuga de contexto."
   },
   "mba.process.step4.img.alt": {
     en: "Isometric grid of high-fidelity screens across the four surfaces",
@@ -220,9 +220,9 @@ window.I18N_PAGE_STRINGS = {
     es: 'Decisiones clave <span class="it">y por qué</span>'
   },
   "mba.decisions.lede": {
-    en: "The reasoning behind the most important decisions — not just what was built, but the thinking that got there.",
-    pt: "O raciocínio por trás das decisões mais importantes — não só o que foi construído, mas o pensamento que levou até lá.",
-    es: "El razonamiento detrás de las decisiones más importantes — no solo lo que se construyó, sino el pensamiento que llevó hasta ahí."
+    en: "The reasoning behind the most important decisions, not just what was built, but the thinking that got there.",
+    pt: "O raciocínio por trás das decisões mais importantes, não só o que foi construído, mas o pensamento que levou até lá.",
+    es: "El razonamiento detrás de las decisiones más importantes, no solo lo que se construyó, sino el pensamiento que llevó hasta ahí."
   },
   "mba.decisions.d1.label": { en: "Decision 01", pt: "Decisão 01", es: "Decisión 01" },
   "mba.decisions.d1.title": {
@@ -231,9 +231,9 @@ window.I18N_PAGE_STRINGS = {
     es: "La barrera de confianza como onboarding guiado"
   },
   "mba.decisions.d1.text": {
-    en: "SSN verification is a compliance requirement — but it's also the moment employees are most likely to abandon. Instead of hiding the friction, I made it a visible progression: Register → Verify SSN → Unlock full access. Each step communicated security proactively, reducing abandonment by reframing verification as protection, not obstacle.",
-    pt: "A verificação de SSN é uma exigência de compliance — mas também é o momento em que os funcionários mais tendem a desistir. Em vez de esconder o atrito, transformei-o em uma progressão visível: Cadastrar → Verificar SSN → Liberar acesso completo. Cada etapa comunicava segurança de forma proativa, reduzindo o abandono ao reposicionar a verificação como proteção, não obstáculo.",
-    es: "La verificación de SSN es un requisito de compliance — pero también es el momento en que los empleados tienen más probabilidad de abandonar. En lugar de ocultar la fricción, la convertí en una progresión visible: Registrarse → Verificar SSN → Desbloquear acceso completo. Cada paso comunicaba seguridad de forma proactiva, reduciendo el abandono al replantear la verificación como protección, no como obstáculo."
+    en: "SSN verification is a compliance requirement, but it's also the moment employees are most likely to abandon. Instead of hiding the friction, I made it a visible progression: Register → Verify SSN → Unlock full access. Each step communicated security proactively, reducing abandonment by reframing verification as protection, not obstacle.",
+    pt: "A verificação de SSN é uma exigência de compliance, mas também é o momento em que os funcionários mais tendem a desistir. Em vez de esconder o atrito, transformei-o em uma progressão visível: Cadastrar → Verificar SSN → Liberar acesso completo. Cada etapa comunicava segurança de forma proativa, reduzindo o abandono ao reposicionar a verificação como proteção, não obstáculo.",
+    es: "La verificación de SSN es un requisito de compliance, pero también es el momento en que los empleados tienen más probabilidad de abandonar. En lugar de ocultar la fricción, la convertí en una progresión visible: Registrarse → Verificar SSN → Desbloquear acceso completo. Cada paso comunicaba seguridad de forma proactiva, reduciendo el abandono al replantear la verificación como protección, no como obstáculo."
   },
   "mba.decisions.d1.img.alt": {
     en: "SSN verification flow, shown as a guided step within onboarding",
@@ -247,9 +247,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Filtrado de datos con el permiso primero"
   },
   "mba.decisions.d2.text": {
-    en: "Rather than showing all data and disabling what users can't touch, I pre-filtered every list, dropdown, and table to the user's permission scope. An Employer user never sees other employers' data. A Broker sees only their group. This prevents errors before they happen — no error messages needed in the happy path.",
-    pt: "Em vez de mostrar todos os dados e desabilitar o que o usuário não pode tocar, pré-filtrei cada lista, dropdown e tabela para o escopo de permissão do usuário. Um usuário Empregador nunca vê os dados de outros empregadores. Um Corretor vê apenas o seu grupo. Isso evita erros antes que aconteçam — sem necessidade de mensagens de erro no caminho feliz.",
-    es: "En lugar de mostrar todos los datos y deshabilitar lo que el usuario no puede tocar, prefiltré cada lista, desplegable y tabla al alcance de permisos del usuario. Un usuario Empleador nunca ve los datos de otros empleadores. Un Corredor ve solo su grupo. Esto evita errores antes de que ocurran — sin necesidad de mensajes de error en el camino feliz."
+    en: "Rather than showing all data and disabling what users can't touch, I pre-filtered every list, dropdown, and table to the user's permission scope. An Employer user never sees other employers' data. A Broker sees only their group. This prevents errors before they happen: no error messages needed in the happy path.",
+    pt: "Em vez de mostrar todos os dados e desabilitar o que o usuário não pode tocar, pré-filtrei cada lista, dropdown e tabela para o escopo de permissão do usuário. Um usuário Empregador nunca vê os dados de outros empregadores. Um Corretor vê apenas o seu grupo. Isso evita erros antes que aconteçam, sem necessidade de mensagens de erro no caminho feliz.",
+    es: "En lugar de mostrar todos los datos y deshabilitar lo que el usuario no puede tocar, prefiltré cada lista, desplegable y tabla al alcance de permisos del usuario. Un usuario Empleador nunca ve los datos de otros empleadores. Un Corredor ve solo su grupo. Esto evita errores antes de que ocurran, sin necesidad de mensajes de error en el camino feliz."
   },
   "mba.decisions.d2.img.alt": {
     en: "Employer list, pre-filtered to each user's permission scope",
@@ -263,9 +263,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Hacer visible la recomendación"
   },
   "mba.decisions.d3.text": {
-    en: "The recommendation engine is the product's core differentiator — but only if employees trust it. I designed the output to show a \"Recommended\" badge on the best-fit plan, a custom slider for coverage adjustment, and benefit breakdowns in plain English. The goal: make a complex actuarial output feel like personalized advice, not a black box.",
-    pt: "O motor de recomendação é o principal diferencial do produto — mas só se os funcionários confiarem nele. Desenhei o resultado para mostrar um selo \"Recomendado\" no plano mais adequado, um slider personalizado para ajuste de cobertura e detalhamentos de benefícios em linguagem simples. O objetivo: fazer um resultado atuarial complexo parecer um conselho personalizado, não uma caixa-preta.",
-    es: "El motor de recomendación es el principal diferenciador del producto — pero solo si los empleados confían en él. Diseñé el resultado para mostrar una insignia \"Recomendado\" en el plan más adecuado, un slider personalizado para ajustar la cobertura y desgloses de beneficios en lenguaje sencillo. El objetivo: que un resultado actuarial complejo se sienta como un consejo personalizado, no como una caja negra."
+    en: "The recommendation engine is the product's core differentiator, but only if employees trust it. I designed the output to show a \"Recommended\" badge on the best-fit plan, a custom slider for coverage adjustment, and benefit breakdowns in plain English. The goal: make a complex actuarial output feel like personalized advice, not a black box.",
+    pt: "O motor de recomendação é o principal diferencial do produto, mas só se os funcionários confiarem nele. Desenhei o resultado para mostrar um selo \"Recomendado\" no plano mais adequado, um slider personalizado para ajuste de cobertura e detalhamentos de benefícios em linguagem simples. O objetivo: fazer um resultado atuarial complexo parecer um conselho personalizado, não uma caixa-preta.",
+    es: "El motor de recomendación es el principal diferenciador del producto, pero solo si los empleados confían en él. Diseñé el resultado para mostrar una insignia \"Recomendado\" en el plan más adecuado, un slider personalizado para ajustar la cobertura y desgloses de beneficios en lenguaje sencillo. El objetivo: que un resultado actuarial complejo se sienta como un consejo personalizado, no como una caja negra."
   },
   "mba.decisions.d3.img.alt": {
     en: "Plan recommendation screen with a Recommended badge and coverage slider",
@@ -279,9 +279,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Importación CSV con validación en línea"
   },
   "mba.decisions.d4.text": {
-    en: "Employers import hundreds of employee records via CSV — and errors in that data have real compliance consequences. I designed a three-state validation flow: upload → field mapping confirmation → success or field-level error report. HR teams see exactly which rows failed and why, before committing the import. No silent failures.",
-    pt: "Os empregadores importam centenas de registros de funcionários via CSV — e erros nesses dados têm consequências reais de compliance. Desenhei um fluxo de validação em três estados: upload → confirmação do mapeamento de campos → sucesso ou relatório de erro por campo. As equipes de RH veem exatamente quais linhas falharam e por quê, antes de confirmar a importação. Sem falhas silenciosas.",
-    es: "Los empleadores importan cientos de registros de empleados vía CSV — y los errores en esos datos tienen consecuencias reales de compliance. Diseñé un flujo de validación en tres estados: carga → confirmación del mapeo de campos → éxito o informe de error por campo. Los equipos de RR. HH. ven exactamente qué filas fallaron y por qué, antes de confirmar la importación. Sin fallos silenciosos."
+    en: "Employers import hundreds of employee records via CSV, and errors in that data have real compliance consequences. I designed a three-state validation flow: upload → field mapping confirmation → success or field-level error report. HR teams see exactly which rows failed and why, before committing the import. No silent failures.",
+    pt: "Os empregadores importam centenas de registros de funcionários via CSV, e erros nesses dados têm consequências reais de compliance. Desenhei um fluxo de validação em três estados: upload → confirmação do mapeamento de campos → sucesso ou relatório de erro por campo. As equipes de RH veem exatamente quais linhas falharam e por quê, antes de confirmar a importação. Sem falhas silenciosas.",
+    es: "Los empleadores importan cientos de registros de empleados vía CSV, y los errores en esos datos tienen consecuencias reales de compliance. Diseñé un flujo de validación en tres estados: carga → confirmación del mapeo de campos → éxito o informe de error por campo. Los equipos de RR. HH. ven exactamente qué filas fallaron y por qué, antes de confirmar la importación. Sin fallos silenciosos."
   },
   "mba.decisions.d4.img.alt": {
     en: "CSV census import flow with field-level validation and error reporting",
@@ -295,9 +295,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Asistente para el onboarding del empleador"
   },
   "mba.decisions.d5.text": {
-    en: "Employer setup involves compliance-heavy decisions: enrollment windows, payroll contacts, product elections, and employee census import. A single long form would feel overwhelming. I broke it into a 5-step wizard with a persistent progress sidebar — each step scoped to one domain, with clear completion states. Complexity without overwhelm.",
-    pt: "A configuração do empregador envolve decisões cheias de compliance: janelas de adesão, contatos de folha de pagamento, escolhas de produto e importação do censo de funcionários. Um único formulário longo seria avassalador. Dividi tudo em um assistente de 5 etapas com uma barra lateral de progresso persistente — cada etapa restrita a um domínio, com estados de conclusão claros. Complexidade sem sobrecarga.",
-    es: "La configuración del empleador implica decisiones cargadas de compliance: ventanas de inscripción, contactos de nómina, elecciones de producto e importación del censo de empleados. Un único formulario largo resultaría abrumador. Lo dividí en un asistente de 5 pasos con una barra lateral de progreso persistente — cada paso acotado a un dominio, con estados de finalización claros. Complejidad sin agobio."
+    en: "Employer setup involves compliance-heavy decisions: enrollment windows, payroll contacts, product elections, and employee census import. A single long form would feel overwhelming. I broke it into a 5-step wizard with a persistent progress sidebar, each step scoped to one domain, with clear completion states. Complexity without overwhelm.",
+    pt: "A configuração do empregador envolve decisões cheias de compliance: janelas de adesão, contatos de folha de pagamento, escolhas de produto e importação do censo de funcionários. Um único formulário longo seria avassalador. Dividi tudo em um assistente de 5 etapas com uma barra lateral de progresso persistente, cada etapa restrita a um domínio, com estados de conclusão claros. Complexidade sem sobrecarga.",
+    es: "La configuración del empleador implica decisiones cargadas de compliance: ventanas de inscripción, contactos de nómina, elecciones de producto e importación del censo de empleados. Un único formulario largo resultaría abrumador. Lo dividí en un asistente de 5 pasos con una barra lateral de progreso persistente, cada paso acotado a un dominio, con estados de finalización claros. Complejidad sin agobio."
   },
   "mba.decisions.d5.img.alt": {
     en: "Employer onboarding wizard with a persistent progress sidebar",
@@ -311,9 +311,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Experiencia del empleado mobile-first"
   },
   "mba.decisions.d6.text": {
-    en: "While employers and admins work on desktop, employees complete enrollment on their phones — often during onboarding sessions or open enrollment events. I designed the employee journey mobile-first: large tap targets, step-by-step progression, and a UI that works in both personal and employer-provided device contexts.",
-    pt: "Enquanto empregadores e admins trabalham no desktop, os funcionários concluem a adesão pelo celular — muitas vezes durante sessões de onboarding ou eventos de adesão aberta. Desenhei a jornada do funcionário mobile-first: alvos de toque grandes, progressão passo a passo e uma UI que funciona tanto no dispositivo pessoal quanto no fornecido pelo empregador.",
-    es: "Mientras los empleadores y admins trabajan en escritorio, los empleados completan la inscripción desde el móvil — a menudo durante sesiones de onboarding o eventos de inscripción abierta. Diseñé el recorrido del empleado mobile-first: objetivos táctiles grandes, progresión paso a paso y una UI que funciona tanto en el dispositivo personal como en el proporcionado por el empleador."
+    en: "While employers and admins work on desktop, employees complete enrollment on their phones, often during onboarding sessions or open enrollment events. I designed the employee journey mobile-first: large tap targets, step-by-step progression, and a UI that works in both personal and employer-provided device contexts.",
+    pt: "Enquanto empregadores e admins trabalham no desktop, os funcionários concluem a adesão pelo celular, muitas vezes durante sessões de onboarding ou eventos de adesão aberta. Desenhei a jornada do funcionário mobile-first: alvos de toque grandes, progressão passo a passo e uma UI que funciona tanto no dispositivo pessoal quanto no fornecido pelo empregador.",
+    es: "Mientras los empleadores y admins trabajan en escritorio, los empleados completan la inscripción desde el móvil, a menudo durante sesiones de onboarding o eventos de inscripción abierta. Diseñé el recorrido del empleado mobile-first: objetivos táctiles grandes, progresión paso a paso y una UI que funciona tanto en el dispositivo personal como en el proporcionado por el empleador."
   },
   "mba.decisions.d6.img.alt": {
     en: "Mobile employee journey screens, stacked",
@@ -329,9 +329,9 @@ window.I18N_PAGE_STRINGS = {
     es: 'El <span class="it">impacto</span>'
   },
   "mba.outcome.text": {
-    en: "The platform shipped to the US healthcare benefits market. As an independent contractor, post-launch analytics are outside my engagement scope — but the design system and UX architecture I delivered became the foundation the product is built on.",
-    pt: "A plataforma foi lançada no mercado de benefícios de saúde dos EUA. Como contratado independente, as métricas pós-lançamento estão fora do escopo do meu contrato — mas o design system e a arquitetura de UX que entreguei se tornaram a base sobre a qual o produto é construído.",
-    es: "La plataforma se lanzó al mercado de beneficios de salud de EE. UU. Como contratista independiente, las métricas posteriores al lanzamiento quedan fuera del alcance de mi contrato — pero el design system y la arquitectura de UX que entregué se convirtieron en la base sobre la que se construye el producto."
+    en: "The platform shipped to the US healthcare benefits market. As an independent contractor, post-launch analytics are outside my engagement scope, but the design system and UX architecture I delivered became the foundation the product is built on.",
+    pt: "A plataforma foi lançada no mercado de benefícios de saúde dos EUA. Como contratado independente, as métricas pós-lançamento estão fora do escopo do meu contrato, mas o design system e a arquitetura de UX que entreguei se tornaram a base sobre a qual o produto é construído.",
+    es: "La plataforma se lanzó al mercado de beneficios de salud de EE. UU. Como contratista independiente, las métricas posteriores al lanzamiento quedan fuera del alcance de mi contrato, pero el design system y la arquitectura de UX que entregué se convirtieron en la base sobre la que se construye el producto."
   },
   "mba.outcome.quote": {
     en: "\"Designed and delivered a custom software solution from scratch, from market research through implementation. Created user-centric designs ensuring seamless navigation and accessibility for a diverse user base.\"",

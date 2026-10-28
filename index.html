@@ -9,11 +9,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="Img/favicon.png">
   <link rel="apple-touch-icon" href="Img/favicon.png">
-  <title>João Abdalla — Senior Product Designer · UX/UI</title>
+  <title>João Abdalla, Senior Product Designer · UX/UI</title>
   <meta name="description" content="Designing clear, user-centered digital products. See my work.">
   <link rel="canonical" href="https://abdalladesign.vercel.app/">
   <!-- Open Graph / social preview -->
-  <meta property="og:title" content="João Abdalla — Senior Product Designer">
+  <meta property="og:title" content="João Abdalla, Senior Product Designer">
   <meta property="og:description" content="Designing clear, user-centered digital products. See my work.">
   <meta property="og:image" content="https://abdalladesign.vercel.app/Img/og-cover.png">
   <meta property="og:image:width" content="1200">
@@ -22,7 +22,7 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="João Abdalla — Senior Product Designer">
+  <meta name="twitter:title" content="João Abdalla, Senior Product Designer">
   <meta name="twitter:description" content="Designing clear, user-centered digital products. See my work.">
   <meta name="twitter:image" content="https://abdalladesign.vercel.app/Img/og-cover.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -768,6 +768,11 @@
     @media (hover:hover) and (pointer:fine) {
       .work-media {
         cursor: none;
+      }
+
+      /* docked pill doesn't follow the pointer, so keep the native one */
+      .work-media[data-cursor-dock] {
+        cursor: pointer;
       }
     }
 
@@ -1812,17 +1817,17 @@
         <div class="mock-frame rv" id="mockFrame">
           <div class="mock-card" data-slot="back-left" data-href="cases/jalasoft.html" role="button" tabindex="0"
             aria-label="Bring Jalasoft to front" data-i18n-attr="aria-label:home.mock.jala.aria">
-            <img src="Img/browser-3.png" alt="Jalasoft — brand and web redesign, shown in browser" width="953"
+            <img src="Img/browser-3.png" alt="Jalasoft: brand and web redesign, shown in browser" width="953"
               height="778" loading="lazy" data-i18n-attr="alt:home.mock.jala.alt">
           </div>
           <div class="mock-card" data-slot="back-right" data-href="cases/quero-simulados.html" role="button"
             tabindex="0" aria-label="Bring Quero Simulados to front" data-i18n-attr="aria-label:home.mock.quero.aria">
-            <img src="Img/browser-2.png" alt="Quero Simulados — exam practice platform, shown in browser" width="970"
+            <img src="Img/browser-2.png" alt="Quero Simulados: exam practice platform, shown in browser" width="970"
               height="798" loading="lazy" data-i18n-attr="alt:home.mock.quero.alt">
           </div>
           <div class="mock-card" data-slot="front" data-href="cases/qconcursos.html" role="button" tabindex="0"
             aria-label="Open the Qconcursos case study" data-i18n-attr="aria-label:home.mock.qcon.aria">
-            <img src="Img/browser-1.png" alt="Qconcursos — platform homepage, shown in browser" width="1977"
+            <img src="Img/browser-1.png" alt="Qconcursos: platform homepage, shown in browser" width="1977"
               height="1637" loading="lazy" data-i18n-attr="alt:home.mock.qcon.alt">
           </div>
         </div>
@@ -1858,27 +1863,12 @@
         <div class="work-viewport" id="workViewport">
           <div class="work-track" id="workTrack">
 
-            <a class="work-item rv" href="cases/bpm.html">
-              <span class="work-media">
-                <img src="Img/cards%20home/card-bpm.png" alt="BPM Platform Redesign — admin task view"
-                  width="1440" height="820" data-i18n-attr="alt:home.card2.alt">
-              </span>
-              <span class="work-idx">/ 01</span>
-              <h3 class="work-name" data-i18n="home.card2.name">BPM Platform Redesign</h3>
-              <p class="work-desc" data-i18n="home.card2.desc">Turning the raw Jalasoft portal into a process-first tool for
-                hiring, transfers and disassociation across units.</p>
-              <div class="work-tags"><span data-i18n="home.card2.tag1">Enterprise</span><span
-                  data-i18n="home.card2.tag2">Process Platform</span></div>
-              <span class="work-link"><span data-i18n="home.card2.link">Redesigned end to end</span> <span
-                  class="work-link-arrow">→</span></span>
-            </a>
-
             <a class="work-item rv" href="cases/valt.html">
               <span class="work-media">
-                <img src="Img/cards%20home/Valt.png" alt="Valt Network — product design" width="2880" height="1640"
+                <img src="Img/cards%20home/Valt.png" alt="Valt Network: product design" width="2880" height="1640"
                   data-i18n-attr="alt:home.card3.alt">
               </span>
-              <span class="work-idx">/ 02</span>
+              <span class="work-idx">/ 01</span>
               <h3 class="work-name" data-i18n="home.card3.name">Valt Network</h3>
               <p class="work-desc" data-i18n="home.card3.desc">Designing the professional layer for private-market
                 investors and high-growth companies.</p>
@@ -1888,10 +1878,25 @@
                   class="work-link-arrow">→</span></span>
             </a>
 
+            <a class="work-item rv" href="cases/bpm.html">
+              <span class="work-media">
+                <img src="Img/cards%20home/card-bpm.png" alt="BPM Platform Redesign: admin task view"
+                  width="1440" height="820" data-i18n-attr="alt:home.card2.alt">
+              </span>
+              <span class="work-idx">/ 02</span>
+              <h3 class="work-name" data-i18n="home.card2.name">BPM Platform Redesign</h3>
+              <p class="work-desc" data-i18n="home.card2.desc">Turning the raw Jalasoft portal into a process-first tool for
+                hiring, transfers and disassociation across units.</p>
+              <div class="work-tags"><span data-i18n="home.card2.tag1">Enterprise</span><span
+                  data-i18n="home.card2.tag2">Process Platform</span></div>
+              <span class="work-link"><span data-i18n="home.card2.link">Redesigned end to end</span> <span
+                  class="work-link-arrow">→</span></span>
+            </a>
+
             <a class="work-item rv" href="cases/mba.html">
               <span class="work-media">
                 <img src="Img/cards%20home/card-mba.png"
-                  alt="My Benefits Advice — personalized plan-recommendation flow" width="1440" height="820"
+                  alt="My Benefits Advice: personalized plan-recommendation flow" width="1440" height="820"
                   data-i18n-attr="alt:home.card4.alt">
               </span>
               <span class="work-idx">/ 03</span>
@@ -1904,9 +1909,24 @@
                   class="work-link-arrow">→</span></span>
             </a>
 
+            <a class="work-item rv" href="cases/qconcursos.html">
+              <span class="work-media" data-cursor-dock="33 25">
+                <img src="Img/cards%20home/card-Qcon.png" alt="Qconcursos: platform redesign" width="1440" height="820"
+                  data-i18n-attr="alt:home.card5.alt">
+              </span>
+              <span class="work-idx">/ 04</span>
+              <h3 class="work-name" data-i18n="home.card5.name">Qconcursos</h3>
+              <p class="work-desc" data-i18n="home.card5.desc">From 600K to 10M: designing for scale at Brazil's
+                largest exam-prep edtech.</p>
+              <div class="work-tags"><span data-i18n="home.card5.tag1">Edtech</span><span
+                  data-i18n="home.card5.tag2">10M+ Users</span><span data-i18n="home.card5.tag3">Team Lead</span></div>
+              <span class="work-link"><span data-i18n="home.card5.link">600K → 10M+ users</span> <span
+                  class="work-link-arrow">→</span></span>
+            </a>
+
             <button class="work-item work-more rv" id="workMore" type="button" aria-expanded="false" hidden>
               <span class="work-more-media">
-                <span class="work-more-count" aria-hidden="true">+4</span>
+                <span class="work-more-count" aria-hidden="true">+3</span>
                 <span class="work-more-hint" data-i18n="home.work.more.hint">More projects</span>
               </span>
               <span class="work-idx">/ +</span>
@@ -1915,24 +1935,9 @@
                   class="work-link-arrow">→</span></span>
             </button>
 
-            <a class="work-item work-extra rv" href="cases/qconcursos.html">
-              <span class="work-media">
-                <img src="Img/cards%20home/card-Qcon.png" alt="Qconcursos — platform redesign" width="1440" height="820"
-                  data-i18n-attr="alt:home.card5.alt">
-              </span>
-              <span class="work-idx">/ 04</span>
-              <h3 class="work-name" data-i18n="home.card5.name">Qconcursos</h3>
-              <p class="work-desc" data-i18n="home.card5.desc">From 600K to 10M — designing for scale at Brazil's
-                largest exam-prep edtech.</p>
-              <div class="work-tags"><span data-i18n="home.card5.tag1">Edtech</span><span
-                  data-i18n="home.card5.tag2">8M+ Users</span><span data-i18n="home.card5.tag3">Team Lead</span></div>
-              <span class="work-link"><span data-i18n="home.card5.link">600K → 10M+ users</span> <span
-                  class="work-link-arrow">→</span></span>
-            </a>
-
             <a class="work-item work-extra rv" href="cases/elearn.html">
               <span class="work-media">
-                <img src="Img/elearn/Background%20Overlay.png" alt="Elearn App — learning platform for bootcamp students, teachers and admins"
+                <img src="Img/elearn/Background%20Overlay.png" alt="Elearn App: learning platform for bootcamp students, teachers and admins"
                   width="1440" height="810" data-i18n-attr="alt:home.card8.alt">
               </span>
               <span class="work-idx">/ 05</span>
@@ -1947,7 +1952,7 @@
 
             <a class="work-item work-extra rv" href="cases/aquaryu.html">
               <span class="work-media">
-                <img src="Img/aquaryu/aquaryu-cover.webp" alt="AquaryU — astrology-based dating app where compatibility comes from synastry"
+                <img src="Img/aquaryu/aquaryu-cover.webp" alt="AquaryU: astrology-based dating app where compatibility comes from synastry"
                   width="1440" height="810" data-i18n-attr="alt:home.card9.alt">
               </span>
               <span class="work-idx">/ 06</span>
@@ -1962,7 +1967,7 @@
 
             <a class="work-item work-extra rv" href="cases/cac.html">
               <span class="work-media">
-                <img src="Img/cac/cac-cover-3.webp" alt="Car Air Comfort — app to set the car temperature before the trip"
+                <img src="Img/cac/cac-cover-3.webp" alt="Car Air Comfort: app to set the car temperature before the trip"
                   width="1440" height="810" data-i18n-attr="alt:home.card10.alt">
               </span>
               <span class="work-idx">/ 07</span>
@@ -2024,7 +2029,7 @@
           <h2 class="sec-title aisys-title rv" data-i18n-html="home.aisys.title">How I design with AI <em>today</em>
           </h2>
           <p class="aisys-sub rv" data-i18n-html="home.aisys.sub">I don't use AI to replace creative direction. I built
-            a system of specialised agents — and I work as the orchestrator, <b>curating every decision</b> in the
+            a system of specialised agents, and I work as the orchestrator, <b>curating every decision</b> in the
             process.</p>
           <a class="btn-main rv" href="pipeline.html">
             <span class="flair"></span><span data-i18n="home.aisys.cta">See the full system →</span>
@@ -2637,7 +2642,7 @@
           if (item) ensureVisible(item);
         });
 
-        // "see more" card: only the first three cases show until it's clicked
+        // "see more" card: only the first four cases show until it's clicked
         var moreBtn = document.getElementById("workMore");
         var extras = track.querySelectorAll(".work-extra");
         if (moreBtn && extras.length) {
@@ -2691,9 +2696,27 @@
 
         var pos = { x: -9999, y: -9999 };
         var target = { x: -9999, y: -9999 };
+        var mouse = { x: -9999, y: -9999 };
         var primed = false; // avoids a fly-in from center screen on the very first hover
+        var docked = null; // hovered thumbnail whose artwork has text where the pointer would sit
+
+        /* data-cursor-dock="x y" (percent of the thumbnail): the pill parks on a free
+           area of the artwork instead of covering its copy, drifting slightly toward
+           the pointer so it still feels attached to it */
+        function dockTarget(media) {
+          var d = media.getAttribute("data-cursor-dock").split(/\s+/);
+          var r = media.getBoundingClientRect();
+          var x = r.left + r.width * parseFloat(d[0]) / 100;
+          var y = r.top + r.height * parseFloat(d[1]) / 100;
+          return { x: x + (mouse.x - x) * 0.08, y: y + (mouse.y - y) * 0.08 };
+        }
 
         function loop() {
+          if (docked) {
+            var t = dockTarget(docked);
+            target.x = t.x;
+            target.y = t.y;
+          }
           pos.x += (target.x - pos.x) * 0.2;
           pos.y += (target.y - pos.y) * 0.2;
           cursor.style.transform = "translate3d(" + pos.x + "px," + pos.y + "px,0)";
@@ -2702,14 +2725,24 @@
         requestAnimationFrame(loop);
 
         document.addEventListener("mousemove", function (e) {
-          target.x = e.clientX;
-          target.y = e.clientY;
+          mouse.x = e.clientX;
+          mouse.y = e.clientY;
+          if (!docked) {
+            target.x = e.clientX;
+            target.y = e.clientY;
+          }
           if (!primed) { pos.x = e.clientX; pos.y = e.clientY; primed = true; }
         });
 
         medias.forEach(function (media) {
-          media.addEventListener("mouseenter", function () { cursor.classList.add("is-visible"); });
-          media.addEventListener("mouseleave", function () { cursor.classList.remove("is-visible"); });
+          media.addEventListener("mouseenter", function () {
+            if (media.hasAttribute("data-cursor-dock")) docked = media;
+            cursor.classList.add("is-visible");
+          });
+          media.addEventListener("mouseleave", function () {
+            if (docked === media) docked = null;
+            cursor.classList.remove("is-visible");
+          });
         });
       })();
 

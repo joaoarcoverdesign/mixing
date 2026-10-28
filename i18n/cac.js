@@ -10,9 +10,9 @@ window.I18N_PAGE_STRINGS = {
 
   /* ─────────── META ─────────── */
   "cac.meta.title": {
-    en: "Car Air Comfort — Car Temperature App | Abdalla Design",
-    pt: "Car Air Comfort — App de temperatura do carro | Abdalla Design",
-    es: "Car Air Comfort — App de temperatura del auto | Abdalla Design"
+    en: "Car Air Comfort: Car Temperature App | Abdalla Design",
+    pt: "Car Air Comfort: App de temperatura do carro | Abdalla Design",
+    es: "Car Air Comfort: App de temperatura del auto | Abdalla Design"
   },
   "cac.meta.description": {
     en: "A mobile app that cools the car before you get in, so it is already at the right temperature when the trip starts.",

@@ -10,14 +10,14 @@ window.I18N_PAGE_STRINGS = {
 
   /* ─────────── META ─────────── */
   "qs.meta.title": {
-    en: "Quero Simulados — Mock Exam Platform | Abdalla Design",
-    pt: "Quero Simulados — Plataforma de Simulados | Abdalla Design",
-    es: "Quero Simulados — Plataforma de Simulacros | Abdalla Design"
+    en: "Quero Simulados: Mock Exam Platform | Abdalla Design",
+    pt: "Quero Simulados: Plataforma de Simulados | Abdalla Design",
+    es: "Quero Simulados: Plataforma de Simulacros | Abdalla Design"
   },
   "qs.meta.description": {
-    en: "UX case study: designing a mock exam and performance comparison platform inside Brazil's largest exam-prep product, used by 8M+ active students.",
-    pt: "Estudo de caso de UX: design de uma plataforma de simulados e comparação de desempenho dentro do maior produto de preparação para concursos do Brasil, usado por mais de 8M de estudantes ativos.",
-    es: "Caso de estudio de UX: diseño de una plataforma de simulacros y comparación de desempeño dentro del mayor producto de preparación para oposiciones de Brasil, usado por más de 8M de estudiantes activos."
+    en: "UX case study: designing a mock exam and performance comparison platform inside Brazil's largest exam-prep product, with 10M+ registered users.",
+    pt: "Estudo de caso de UX: design de uma plataforma de simulados e comparação de desempenho dentro do maior produto de preparação para concursos do Brasil, com mais de 10M de usuários cadastrados.",
+    es: "Caso de estudio de UX: diseño de una plataforma de simulacros y comparación de desempeño dentro del mayor producto de preparación para oposiciones de Brasil, con más de 10M de usuarios registrados."
   },
 
   /* ─────────── HERO ─────────── */
@@ -42,9 +42,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Investigación de UX · Product Design · Design System · Mobile First"
   },
   "qs.hero.img.alt": {
-    en: "Quero Simulados — study dashboard beside the distraction-free exam interface with a 2h30m timer",
-    pt: "Quero Simulados — painel de estudos ao lado da interface de prova sem distrações, com cronômetro de 2h30",
-    es: "Quero Simulados — panel de estudio junto a la interfaz de examen sin distracciones, con cronómetro de 2h30"
+    en: "Quero Simulados: study dashboard beside the distraction-free exam interface with a 2h30m timer",
+    pt: "Quero Simulados: painel de estudos ao lado da interface de prova sem distrações, com cronômetro de 2h30",
+    es: "Quero Simulados: panel de estudio junto a la interfaz de examen sin distracciones, con cronómetro de 2h30"
   },
 
   /* ─────────── OVERVIEW / THE CHALLENGE ─────────── */
@@ -52,9 +52,9 @@ window.I18N_PAGE_STRINGS = {
   "qs.overview.title": { en: "The challenge", pt: "O desafio", es: "El reto" },
   "qs.overview.biz.label": { en: "Business Context", pt: "Contexto de negócio", es: "Contexto de negocio" },
   "qs.overview.biz.text": {
-    en: "Qconcursos is Brazil's largest exam-prep platform, with over 8 million registered users. More than half of them already used a limited native simulation tool. That data revealed a clear product opportunity: build a dedicated mock exam experience born from real user demand.",
-    pt: "A Qconcursos é a maior plataforma de preparação para concursos do Brasil, com mais de 8 milhões de usuários cadastrados. Mais da metade deles já usava uma ferramenta de simulado nativa e limitada. Esse dado revelou uma oportunidade de produto clara: construir uma experiência de simulado dedicada, nascida da demanda real dos usuários.",
-    es: "Qconcursos es la mayor plataforma de preparación para oposiciones de Brasil, con más de 8 millones de usuarios registrados. Más de la mitad de ellos ya usaba una herramienta de simulacro nativa y limitada. Ese dato reveló una oportunidad de producto clara: construir una experiencia de simulacro dedicada, nacida de la demanda real de los usuarios."
+    en: "Qconcursos is Brazil's largest exam-prep platform, with over 10 million registered users. More than half of them already used a limited native simulation tool. That data revealed a clear product opportunity: build a dedicated mock exam experience born from real user demand.",
+    pt: "A Qconcursos é a maior plataforma de preparação para concursos do Brasil, com mais de 10 milhões de usuários cadastrados. Mais da metade deles já usava uma ferramenta de simulado nativa e limitada. Esse dado revelou uma oportunidade de produto clara: construir uma experiência de simulado dedicada, nascida da demanda real dos usuários.",
+    es: "Qconcursos es la mayor plataforma de preparación para oposiciones de Brasil, con más de 10 millones de usuarios registrados. Más de la mitad de ellos ya usaba una herramienta de simulacro nativa y limitada. Ese dato reveló una oportunidad de producto clara: construir una experiencia de simulacro dedicada, nacida de la demanda real de los usuarios."
   },
   "qs.overview.gap.label": { en: "The Gap", pt: "A lacuna", es: "La brecha" },
   "qs.overview.gap.text": {
@@ -63,9 +63,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Los estudiantes que se preparaban para oposiciones no tenían una forma estructurada de medir su desempeño frente a la competencia real. Sabían su nota, pero no lo que significaba. Sin datos de comparación, no había forma de saber si un 71 bastaba para aprobar. La experiencia era estresante, solitaria y sin rumbo."
   },
   "qs.overview.challenge.img.alt": {
-    en: "Quero Simulados concept mockups — student dashboard and results comparison across phone, desktop and mobile",
-    pt: "Mockups de conceito do Quero Simulados — painel do estudante e comparação de resultados em celular, desktop e mobile",
-    es: "Mockups de concepto de Quero Simulados — panel del estudiante y comparación de resultados en teléfono, escritorio y móvil"
+    en: "Quero Simulados concept mockups: student dashboard and results comparison across phone, desktop and mobile",
+    pt: "Mockups de conceito do Quero Simulados: painel do estudante e comparação de resultados em celular, desktop e mobile",
+    es: "Mockups de concepto de Quero Simulados: panel del estudiante y comparación de resultados en teléfono, escritorio y móvil"
   },
   "qs.overview.coreQuestion": {
     en: '<span class="lede-label">Core Question</span>How do we turn an individual exam score into a meaningful performance signal that tells students exactly where they stand against thousands of real competitors?',
@@ -92,7 +92,7 @@ window.I18N_PAGE_STRINGS = {
     pt: "Depois de 40 entrevistas com estudantes, identificamos 3 perfis de usuário distintos. Cada um tinha motivações, hábitos de estudo e níveis de ansiedade diferentes em relação ao desempenho nas provas.",
     es: "Tras 40 entrevistas con estudiantes, identificamos 3 perfiles de usuario distintos. Cada uno tenía motivaciones, hábitos de estudio y niveles de ansiedad diferentes respecto al desempeño en los exámenes."
   },
-  "qs.personas.p1.img.alt": { en: "Gabriel, 31 — beginner persona", pt: "Gabriel, 31 — persona iniciante", es: "Gabriel, 31 — persona principiante" },
+  "qs.personas.p1.img.alt": { en: "Gabriel, 31, beginner persona", pt: "Gabriel, 31, persona iniciante", es: "Gabriel, 31, persona principiante" },
   "qs.personas.p1.label": { en: "Beginner", pt: "Iniciante", es: "Principiante" },
   "qs.personas.p1.text": {
     en: "Determined and career-focused. Already has a degree but wants a government position for stability and salary.",
@@ -104,7 +104,7 @@ window.I18N_PAGE_STRINGS = {
     pt: "<strong>Objetivos principais</strong>Entender por onde começar, acompanhar o progresso ao longo do tempo, ganhar confiança antes da prova real.",
     es: "<strong>Objetivos principales</strong>Entender por dónde empezar, seguir el progreso a lo largo del tiempo, ganar confianza antes del examen real."
   },
-  "qs.personas.p2.img.alt": { en: "Diogo, 37 — intermediary persona", pt: "Diogo, 37 — persona intermediária", es: "Diogo, 37 — persona intermedia" },
+  "qs.personas.p2.img.alt": { en: "Diogo, 37, intermediary persona", pt: "Diogo, 37, persona intermediária", es: "Diogo, 37, persona intermedia" },
   "qs.personas.p2.label": { en: "Intermediary", pt: "Intermediário", es: "Intermedio" },
   "qs.personas.p2.text": {
     en: "Effortless and dedicated. Sees studying as a way to change his life. Has been preparing for a while but lacks direction.",
@@ -116,7 +116,7 @@ window.I18N_PAGE_STRINGS = {
     pt: "<strong>Objetivos principais</strong>Saber quais disciplinas precisam de mais atenção, comparar o desempenho com outros do mesmo nível, manter a motivação.",
     es: "<strong>Objetivos principales</strong>Saber qué materias necesitan más atención, comparar el desempeño con otros del mismo nivel, mantener la motivación."
   },
-  "qs.personas.p3.img.alt": { en: "Advanced student — perfectionist persona", pt: "Estudante avançado — persona perfeccionista", es: "Estudiante avanzado — persona perfeccionista" },
+  "qs.personas.p3.img.alt": { en: "Advanced student: perfectionist persona", pt: "Estudante avançado: persona perfeccionista", es: "Estudiante avanzado: persona perfeccionista" },
   "qs.personas.p3.label": { en: "Perfeccionista", pt: "Perfeccionista", es: "Perfeccionista" },
   "qs.personas.p3.name": { en: "Advanced Student", pt: "Estudante avançado", es: "Estudiante avanzado" },
   "qs.personas.p3.text": {
@@ -193,9 +193,9 @@ window.I18N_PAGE_STRINGS = {
     es: "La función más solicitada por los estudiantes se convirtió en el núcleo del producto. Al terminar un simulacro, el estudiante ve su nota, la media nacional y su posición en el ranking, desglosadas por materia y por estado. Un número se convirtió en un retrato completo de desempeño."
   },
   "qs.f1.img.alt": {
-    en: "Quero Simulados results — score, national average and ranking on desktop and mobile",
-    pt: "Resultados do Quero Simulados — nota, média nacional e ranking em desktop e mobile",
-    es: "Resultados de Quero Simulados — nota, media nacional y ranking en escritorio y móvil"
+    en: "Quero Simulados results: score, national average and ranking on desktop and mobile",
+    pt: "Resultados do Quero Simulados: nota, média nacional e ranking em desktop e mobile",
+    es: "Resultados de Quero Simulados: nota, media nacional y ranking en escritorio y móvil"
   },
   "qs.kd.label": { en: "Key Design Decisions", pt: "Principais decisões de design", es: "Principales decisiones de diseño" },
   "qs.f1.kd1": {
@@ -245,16 +245,16 @@ window.I18N_PAGE_STRINGS = {
     es: "<strong>Espacio de anotación:</strong> el estudiante puede añadir notas junto a cada pregunta durante el examen, replicando el comportamiento de un examen real."
   },
   "qs.f2.img.alt": {
-    en: "Exam interface — question on the left, collapsible dark navigator on the right with timer, colour-coded answer card and annotations panel",
-    pt: "Interface de prova — questão à esquerda, navegador escuro recolhível à direita com cronômetro, cartão-resposta por cor e painel de anotações",
-    es: "Interfaz de examen — pregunta a la izquierda, navegador oscuro plegable a la derecha con cronómetro, tarjeta de respuestas por color y panel de anotaciones"
+    en: "Exam interface: question on the left, collapsible dark navigator on the right with timer, colour-coded answer card and annotations panel",
+    pt: "Interface de prova: questão à esquerda, navegador escuro recolhível à direita com cronômetro, cartão-resposta por cor e painel de anotações",
+    es: "Interfaz de examen: pregunta a la izquierda, navegador oscuro plegable a la derecha con cronómetro, tarjeta de respuestas por color y panel de anotaciones"
   },
   "qs.f3.eyebrow": { en: "Feature 03 · Onboarding & Home", pt: "Funcionalidade 03 · Onboarding e home", es: "Función 03 · Onboarding y home" },
   "qs.f3.title": { en: "Friendly, familiar, communicative", pt: "Amigável, familiar, comunicativo", es: "Amigable, familiar, comunicativo" },
   "qs.f3.text": {
-    en: "First-time engagement is fragile. The onboarding and home were designed to introduce the product value without overwhelming new users. Clear interactions, easy to adapt and learn, with no training required — and a home page that balances the rational and the emotional.",
-    pt: "O primeiro contato é frágil. O onboarding e a home foram desenhados para apresentar o valor do produto sem sobrecarregar os novos usuários. Interações claras, fáceis de aprender e de se adaptar, sem necessidade de treinamento — e uma home que equilibra o racional e o emocional.",
-    es: "El primer contacto es frágil. El onboarding y la home se diseñaron para presentar el valor del producto sin abrumar a los nuevos usuarios. Interacciones claras, fáciles de aprender y de adaptarse, sin necesidad de formación — y una home que equilibra lo racional y lo emocional."
+    en: "First-time engagement is fragile. The onboarding and home were designed to introduce the product value without overwhelming new users. Clear interactions, easy to adapt and learn, with no training required, and a home page that balances the rational and the emotional.",
+    pt: "O primeiro contato é frágil. O onboarding e a home foram desenhados para apresentar o valor do produto sem sobrecarregar os novos usuários. Interações claras, fáceis de aprender e de se adaptar, sem necessidade de treinamento, e uma home que equilibra o racional e o emocional.",
+    es: "El primer contacto es frágil. El onboarding y la home se diseñaron para presentar el valor del producto sin abrumar a los nuevos usuarios. Interacciones claras, fáciles de aprender y de adaptarse, sin necesidad de formación, y una home que equilibra lo racional y lo emocional."
   },
   "qs.f3.li1": {
     en: "<strong>Mobile first:</strong> The entire onboarding flow was prototyped on mobile before scaling to desktop. The smallest screen defined the constraints for every other breakpoint.",
@@ -267,29 +267,29 @@ window.I18N_PAGE_STRINGS = {
     es: "<strong>Divulgación progresiva:</strong> un concepto por pantalla. Al estudiante no se le muestra todo a la vez. Cada paso revela solo lo necesario para avanzar."
   },
   "qs.f3.li3": {
-    en: "<strong>Emotional balance:</strong> The home page balances rational and emotional — sometimes stimulating the student about how close they are to the job position, sometimes offering tools to measure that progress.",
-    pt: "<strong>Equilíbrio emocional:</strong> a home equilibra o racional e o emocional — às vezes estimulando o estudante sobre o quão perto ele está da vaga, às vezes oferecendo ferramentas para medir esse progresso.",
-    es: "<strong>Equilibrio emocional:</strong> la home equilibra lo racional y lo emocional — a veces estimulando al estudiante sobre lo cerca que está del puesto, a veces ofreciendo herramientas para medir ese progreso."
+    en: "<strong>Emotional balance:</strong> The home page balances rational and emotional, sometimes stimulating the student about how close they are to the job position, sometimes offering tools to measure that progress.",
+    pt: "<strong>Equilíbrio emocional:</strong> a home equilibra o racional e o emocional, às vezes estimulando o estudante sobre o quão perto ele está da vaga, às vezes oferecendo ferramentas para medir esse progresso.",
+    es: "<strong>Equilibrio emocional:</strong> la home equilibra lo racional y lo emocional, a veces estimulando al estudiante sobre lo cerca que está del puesto, a veces ofreciendo herramientas para medir ese progreso."
   },
   "qs.f3.img.alt": {
-    en: "Quero Simulados home page — motivational hero, exclusive mock exams, performance-comparison section and free sign-up",
-    pt: "Home do Quero Simulados — hero motivacional, simulados exclusivos, seção de comparação de desempenho e cadastro gratuito",
-    es: "Home de Quero Simulados — hero motivacional, simulacros exclusivos, sección de comparación de desempeño y registro gratuito"
+    en: "Quero Simulados home page: motivational hero, exclusive mock exams, performance-comparison section and free sign-up",
+    pt: "Home do Quero Simulados: hero motivacional, simulados exclusivos, seção de comparação de desempenho e cadastro gratuito",
+    es: "Home de Quero Simulados: hero motivacional, simulacros exclusivos, sección de comparación de desempeño y registro gratuito"
   },
-  "qs.f3.caption": { en: "Home page — hover to scroll", pt: "Home — passe o mouse para rolar", es: "Home — pasa el ratón para desplazar" },
+  "qs.f3.caption": { en: "Home page: hover to scroll", pt: "Home: passe o mouse para rolar", es: "Home: pasa el ratón para desplazar" },
 
   /* ─────────── USER JOURNEY EMAILS ─────────── */
   "qs.emails.eyebrow": { en: "User Journey Emails", pt: "E-mails da jornada do usuário", es: "Correos del recorrido del usuario" },
   "qs.emails.title": { en: "From purchase to exam completion", pt: "Da compra à conclusão do simulado", es: "De la compra a la finalización del simulacro" },
   "qs.emails.lede": {
-    en: "To monitor the journey from purchase until the simulation is executed, we designed a full email sequence. Each email had one clear action and one clear message. No noise, no distraction — just the next step the student needed to take.",
-    pt: "Para acompanhar a jornada da compra até a realização do simulado, desenhamos uma sequência completa de e-mails. Cada e-mail tinha uma ação clara e uma mensagem clara. Sem ruído, sem distração — só o próximo passo que o estudante precisava dar.",
-    es: "Para acompañar el recorrido desde la compra hasta la realización del simulacro, diseñamos una secuencia completa de correos. Cada correo tenía una acción clara y un mensaje claro. Sin ruido, sin distracción — solo el siguiente paso que el estudiante debía dar."
+    en: "To monitor the journey from purchase until the simulation is executed, we designed a full email sequence. Each email had one clear action and one clear message. No noise, no distraction, just the next step the student needed to take.",
+    pt: "Para acompanhar a jornada da compra até a realização do simulado, desenhamos uma sequência completa de e-mails. Cada e-mail tinha uma ação clara e uma mensagem clara. Sem ruído, sem distração, só o próximo passo que o estudante precisava dar.",
+    es: "Para acompañar el recorrido desde la compra hasta la realización del simulacro, diseñamos una secuencia completa de correos. Cada correo tenía una acción clara y un mensaje claro. Sin ruido, sin distracción, solo el siguiente paso que el estudiante debía dar."
   },
   "qs.emails.img.alt": {
-    en: "Quero Simulados email sequence — welcome, purchase confirmation and performance-comparison emails, each with a single call to action",
-    pt: "Sequência de e-mails do Quero Simulados — boas-vindas, confirmação de compra e comparação de desempenho, cada um com uma única chamada para ação",
-    es: "Secuencia de correos de Quero Simulados — bienvenida, confirmación de compra y comparación de desempeño, cada uno con una única llamada a la acción"
+    en: "Quero Simulados email sequence: welcome, purchase confirmation and performance-comparison emails, each with a single call to action",
+    pt: "Sequência de e-mails do Quero Simulados: boas-vindas, confirmação de compra e comparação de desempenho, cada um com uma única chamada para ação",
+    es: "Secuencia de correos de Quero Simulados: bienvenida, confirmación de compra y comparación de desempeño, cada uno con una única llamada a la acción"
   },
   "qs.emails.c1.title": { en: "One action per email", pt: "Uma ação por e-mail", es: "Una acción por correo" },
   "qs.emails.c1.text": {
@@ -310,9 +310,9 @@ window.I18N_PAGE_STRINGS = {
     es: "La secuencia se diseñó como una experiencia conectada, no como mensajes aislados. Cada correo hacía referencia al paso anterior y apuntaba al siguiente."
   },
   "qs.scoreStrip.img.alt": {
-    en: "Quero Simulados comparison banner — three students scoring 93, 85 and 74 on the PRF 2019 mock exam",
-    pt: "Banner de comparação do Quero Simulados — três estudantes com notas 93, 85 e 74 no simulado da PRF 2019",
-    es: "Banner de comparación de Quero Simulados — tres estudiantes con notas 93, 85 y 74 en el simulacro de la PRF 2019"
+    en: "Quero Simulados comparison banner: three students scoring 93, 85 and 74 on the PRF 2019 mock exam",
+    pt: "Banner de comparação do Quero Simulados: três estudantes com notas 93, 85 e 74 no simulado da PRF 2019",
+    es: "Banner de comparación de Quero Simulados: tres estudiantes con notas 93, 85 y 74 en el simulacro de la PRF 2019"
   },
 
   /* ─────────── DESIGN DECISIONS ─────────── */
@@ -330,19 +330,19 @@ window.I18N_PAGE_STRINGS = {
     es: "La investigación mostró que los estudiantes no solo querían practicar. Querían saber dónde estaban. En lugar de construir otra pantalla de nota, pusimos el ranking como protagonista de la página de resultados. Tu nota solo tiene sentido en contexto. El comparativo dio ese contexto."
   },
   "qs.decisions.d1.img1.alt": {
-    en: "Score card — the student's mock exam score, questions answered, right, wrong and blank counts, and overall percentage",
-    pt: "Cartão de nota — a nota do estudante no simulado, questões respondidas, acertos, erros e em branco, e o percentual geral",
-    es: "Tarjeta de nota — la nota del estudiante en el simulacro, preguntas respondidas, aciertos, errores y en blanco, y el porcentaje general"
+    en: "Score card: the student's mock exam score, questions answered, right, wrong and blank counts, and overall percentage",
+    pt: "Cartão de nota: a nota do estudante no simulado, questões respondidas, acertos, erros e em branco, e o percentual geral",
+    es: "Tarjeta de nota: la nota del estudiante en el simulacro, preguntas respondidas, aciertos, errores y en blanco, y el porcentaje general"
   },
   "qs.decisions.d1.img2.alt": {
-    en: "National average card — the student's score next to the national average, above and below-average counts, and approval likelihood",
-    pt: "Cartão de média nacional — a nota do estudante ao lado da média nacional, contagem de acima e abaixo da média e chance de aprovação",
-    es: "Tarjeta de media nacional — la nota del estudiante junto a la media nacional, recuento de por encima y por debajo de la media y probabilidad de aprobación"
+    en: "National average card: the student's score next to the national average, above and below-average counts, and approval likelihood",
+    pt: "Cartão de média nacional: a nota do estudante ao lado da média nacional, contagem de acima e abaixo da média e chance de aprovação",
+    es: "Tarjeta de media nacional: la nota del estudiante junto a la media nacional, recuento de por encima y por debajo de la media y probabilidad de aprobación"
   },
   "qs.decisions.d1.img3.alt": {
-    en: "Ranking card — the student's overall ranking position with per-subject and per-state breakdowns",
-    pt: "Cartão de ranking — a posição geral do estudante no ranking, com detalhamento por disciplina e por estado",
-    es: "Tarjeta de ranking — la posición general del estudiante en el ranking, con desglose por materia y por estado"
+    en: "Ranking card: the student's overall ranking position with per-subject and per-state breakdowns",
+    pt: "Cartão de ranking: a posição geral do estudante no ranking, com detalhamento por disciplina e por estado",
+    es: "Tarjeta de ranking: la posición general del estudiante en el ranking, con desglose por materia y por estado"
   },
   "qs.decisions.d2.title": { en: "Distraction-Free Exam Interface", pt: "Interface de prova sem distrações", es: "Interfaz de examen sin distracciones" },
   "qs.decisions.d2.text": {
@@ -351,14 +351,14 @@ window.I18N_PAGE_STRINGS = {
     es: "Una oposición puede durar hasta 4 horas. La concentración es el producto. Todo elemento de UI que no era esencial para responder las preguntas se eliminó u ocultó. La barra lateral plegable, la cabecera mínima y el modo foco no eran extras. Eran el principio central de UX."
   },
   "qs.decisions.d2.img1.alt": {
-    en: "Exam question screen on mobile — just the question text, a minimal header and the collapsed timer",
-    pt: "Tela de questão de prova no mobile — apenas o texto da questão, um cabeçalho mínimo e o cronômetro recolhido",
-    es: "Pantalla de pregunta de examen en móvil — solo el texto de la pregunta, una cabecera mínima y el cronómetro plegado"
+    en: "Exam question screen on mobile: just the question text, a minimal header and the collapsed timer",
+    pt: "Tela de questão de prova no mobile: apenas o texto da questão, um cabeçalho mínimo e o cronômetro recolhido",
+    es: "Pantalla de pregunta de examen en móvil: solo el texto de la pregunta, una cabecera mínima y el cronómetro plegado"
   },
   "qs.decisions.d2.img2.alt": {
-    en: "Focus-mode timer on mobile — 2h30m countdown, progress bar and the answered-questions grid",
-    pt: "Cronômetro em modo de foco no mobile — contagem regressiva de 2h30, barra de progresso e grade de questões respondidas",
-    es: "Cronómetro en modo foco en móvil — cuenta atrás de 2h30, barra de progreso y cuadrícula de preguntas respondidas"
+    en: "Focus-mode timer on mobile: 2h30m countdown, progress bar and the answered-questions grid",
+    pt: "Cronômetro em modo de foco no mobile: contagem regressiva de 2h30, barra de progresso e grade de questões respondidas",
+    es: "Cronómetro en modo foco en móvil: cuenta atrás de 2h30, barra de progreso y cuadrícula de preguntas respondidas"
   },
   "qs.decisions.d3.title": { en: "Design System from Day One", pt: "Design system desde o primeiro dia", es: "Design system desde el primer día" },
   "qs.decisions.d3.text": {
@@ -367,14 +367,14 @@ window.I18N_PAGE_STRINGS = {
     es: "Construir la escala de espaciado, el grid atómico y la biblioteca de componentes en paralelo con las primeras pantallas hizo que cada decisión tomada pronto se mantuviera consistente hasta la entrega. Para un producto con tantos estados y tipos de pantalla, el sistema era el verdadero entregable."
   },
   "qs.decisions.d3.img1.alt": {
-    en: "Spacing patterns — base-10 and base-16 scales, atomic 4px grid and text-interpretation rules",
-    pt: "Padrões de espaçamento — escalas base 10 e base 16, grid atômico de 4px e regras de interpretação de texto",
-    es: "Patrones de espaciado — escalas base 10 y base 16, grid atómico de 4px y reglas de interpretación de texto"
+    en: "Spacing patterns: base-10 and base-16 scales, atomic 4px grid and text-interpretation rules",
+    pt: "Padrões de espaçamento: escalas base 10 e base 16, grid atômico de 4px e regras de interpretação de texto",
+    es: "Patrones de espaciado: escalas base 10 y base 16, grid atómico de 4px y reglas de interpretación de texto"
   },
   "qs.decisions.d3.img2.alt": {
-    en: "Contrast test — colour pairs run through a WCAG contrast checker, before and after adjustment",
-    pt: "Teste de contraste — pares de cores passados por um verificador de contraste WCAG, antes e depois do ajuste",
-    es: "Prueba de contraste — pares de colores pasados por un verificador de contraste WCAG, antes y después del ajuste"
+    en: "Contrast test: colour pairs run through a WCAG contrast checker, before and after adjustment",
+    pt: "Teste de contraste: pares de cores passados por um verificador de contraste WCAG, antes e depois do ajuste",
+    es: "Prueba de contraste: pares de colores pasados por un verificador de contraste WCAG, antes y después del ajuste"
   },
 
   /* ─────────── OUTCOME ─────────── */
@@ -418,9 +418,9 @@ window.I18N_PAGE_STRINGS = {
     es: "5 años liderando diseño en varios lanzamientos de producto en la mayor plataforma de oposiciones de Brasil"
   },
   "qs.closing.img.alt": {
-    en: "Isometric collage of Quero Simulados screens — answer card, score comparison and student dashboard",
-    pt: "Colagem isométrica de telas do Quero Simulados — cartão-resposta, comparação de nota e painel do estudante",
-    es: "Collage isométrico de pantallas de Quero Simulados — tarjeta de respuestas, comparación de nota y panel del estudiante"
+    en: "Isometric collage of Quero Simulados screens: answer card, score comparison and student dashboard",
+    pt: "Colagem isométrica de telas do Quero Simulados: cartão-resposta, comparação de nota e painel do estudante",
+    es: "Collage isométrico de pantallas de Quero Simulados: tarjeta de respuestas, comparación de nota y panel del estudiante"
   },
 
   /* ─────────── LEARNINGS ─────────── */

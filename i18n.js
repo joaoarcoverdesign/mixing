@@ -70,9 +70,9 @@
 
     /* ─────────── HOME (index.html) ─────────── */
     "home.meta.title": {
-      en: "João Abdalla — Senior Product Designer · UX/UI",
-      pt: "João Abdalla — Designer de Produto Sênior · UX/UI",
-      es: "João Abdalla — Diseñador de Producto Senior · UX/UI"
+      en: "João Abdalla, Senior Product Designer · UX/UI",
+      pt: "João Abdalla, Designer de Produto Sênior · UX/UI",
+      es: "João Abdalla, Diseñador de Producto Senior · UX/UI"
     },
     "home.meta.description": {
       en: "Designer who builds and operates AI systems for the design process. Remote from Brazil, working with US & EU teams.",
@@ -109,9 +109,9 @@
       es: "Traer Jalasoft al frente"
     },
     "home.mock.jala.alt": {
-      en: "Jalasoft — brand and web redesign, shown in browser",
-      pt: "Jalasoft — redesenho de marca e web, exibido no navegador",
-      es: "Jalasoft — rediseño de marca y web, mostrado en el navegador"
+      en: "Jalasoft: brand and web redesign, shown in browser",
+      pt: "Jalasoft: redesenho de marca e web, exibido no navegador",
+      es: "Jalasoft: rediseño de marca y web, mostrado en el navegador"
     },
     "home.mock.quero.aria": {
       en: "Bring Quero Simulados to front",
@@ -119,9 +119,9 @@
       es: "Traer Quero Simulados al frente"
     },
     "home.mock.quero.alt": {
-      en: "Quero Simulados — exam practice platform, shown in browser",
-      pt: "Quero Simulados — plataforma de simulados, exibida no navegador",
-      es: "Quero Simulados — plataforma de simulacros de examen, mostrada en el navegador"
+      en: "Quero Simulados: exam practice platform, shown in browser",
+      pt: "Quero Simulados: plataforma de simulados, exibida no navegador",
+      es: "Quero Simulados: plataforma de simulacros de examen, mostrada en el navegador"
     },
     "home.mock.qcon.aria": {
       en: "Open the Qconcursos case study",
@@ -129,9 +129,9 @@
       es: "Abrir el caso de estudio de Qconcursos"
     },
     "home.mock.qcon.alt": {
-      en: "Qconcursos — platform homepage, shown in browser",
-      pt: "Qconcursos — página inicial da plataforma, exibida no navegador",
-      es: "Qconcursos — página de inicio de la plataforma, mostrada en el navegador"
+      en: "Qconcursos: platform homepage, shown in browser",
+      pt: "Qconcursos: página inicial da plataforma, exibida no navegador",
+      es: "Qconcursos: página de inicio de la plataforma, mostrada en el navegador"
     },
 
     "home.stat.users": {
@@ -184,9 +184,9 @@
       es: 'Cómo diseño con IA <em>hoy</em>'
     },
     "home.aisys.sub": {
-      en: "I don't use AI to replace creative direction. I built a system of specialised agents — and I work as the orchestrator, <b>curating every decision</b> in the process.",
-      pt: "Não uso IA pra substituir direção criativa. Construí um sistema de agentes especializados — e atuo como orquestrador, <b>curando cada decisão</b> do processo.",
-      es: "No uso IA para reemplazar la dirección creativa. Construí un sistema de agentes especializados — y actúo como orquestador, <b>curando cada decisión</b> del proceso."
+      en: "I don't use AI to replace creative direction. I built a system of specialised agents, and I work as the orchestrator, <b>curating every decision</b> in the process.",
+      pt: "Não uso IA pra substituir direção criativa. Construí um sistema de agentes especializados, e atuo como orquestrador, <b>curando cada decisão</b> do processo.",
+      es: "No uso IA para reemplazar la dirección creativa. Construí un sistema de agentes especializados, y actúo como orquestador, <b>curando cada decisión</b> del proceso."
     },
     "home.aisys.cta": {
       en: "See the full system →",
@@ -215,9 +215,9 @@
     },
 
     "home.card1.alt": {
-      en: "QConcursos — cascading question filter, live product screenshot",
-      pt: "QConcursos — filtro de questões em cascata, captura do produto real",
-      es: "QConcursos — filtro de preguntas en cascada, captura del producto real"
+      en: "QConcursos: cascading question filter, live product screenshot",
+      pt: "QConcursos: filtro de questões em cascata, captura do produto real",
+      es: "QConcursos: filtro de preguntas en cascada, captura del producto real"
     },
     "home.card1.name": {
       en: "The Filter Behind the Growth",
@@ -225,9 +225,9 @@
       es: "El filtro detrás del crecimiento"
     },
     "home.card1.desc": {
-      en: "A 12-field cascading filter that turned a 605K-question database into a usable product — and a pricing call that quietly added R$27M a year.",
-      pt: "Um filtro em cascata de 12 campos que transformou um banco de 605 mil questões em um produto usável — e uma decisão de precificação que somou R$27M por ano de forma discreta.",
-      es: "Un filtro en cascada de 12 campos que convirtió una base de 605 mil preguntas en un producto usable — y una decisión de precios que sumó R$27M al año de forma discreta."
+      en: "A 12-field cascading filter that turned a 605K-question database into a usable product, and a pricing call that quietly added R$27M a year.",
+      pt: "Um filtro em cascata de 12 campos que transformou um banco de 605 mil questões em um produto usável, e uma decisão de precificação que somou R$27M por ano de forma discreta.",
+      es: "Un filtro en cascada de 12 campos que convirtió una base de 605 mil preguntas en un producto usable, y una decisión de precios que sumó R$27M al año de forma discreta."
     },
     "home.card1.tag1": { en: "Edtech", pt: "Edtech", es: "Edtech" },
     "home.card1.tag2": { en: "Filtering UX", pt: "UX de filtros", es: "UX de filtrado" },
@@ -239,9 +239,9 @@
     },
 
     "home.card2.alt": {
-      en: "BPM Platform Redesign — admin task view",
-      pt: "Plataforma BPM — visão de tarefas do administrador",
-      es: "Plataforma BPM — vista de tareas del administrador"
+      en: "BPM Platform Redesign: admin task view",
+      pt: "Plataforma BPM: visão de tarefas do administrador",
+      es: "Plataforma BPM: vista de tareas del administrador"
     },
     "home.card2.name": {
       en: "BPM Platform Redesign",
@@ -262,9 +262,9 @@
     },
 
     "home.card3.alt": {
-      en: "Valt Network — product design",
-      pt: "Valt Network — design de produto",
-      es: "Valt Network — diseño de producto"
+      en: "Valt Network: product design",
+      pt: "Valt Network: design de produto",
+      es: "Valt Network: diseño de producto"
     },
     "home.card3.name": { en: "Valt Network", pt: "Valt Network", es: "Valt Network" },
     "home.card3.desc": {
@@ -282,9 +282,9 @@
     },
 
     "home.card4.alt": {
-      en: "My Benefits Advice — personalized plan-recommendation flow",
-      pt: "My Benefits Advice — fluxo personalizado de recomendação de planos",
-      es: "My Benefits Advice — flujo personalizado de recomendación de planes"
+      en: "My Benefits Advice: personalized plan-recommendation flow",
+      pt: "My Benefits Advice: fluxo personalizado de recomendação de planos",
+      es: "My Benefits Advice: flujo personalizado de recomendación de planes"
     },
     "home.card4.name": { en: "My Benefits Advice", pt: "My Benefits Advice", es: "My Benefits Advice" },
     "home.card4.desc": {
@@ -302,18 +302,18 @@
     },
 
     "home.card5.alt": {
-      en: "Qconcursos — platform redesign",
-      pt: "Qconcursos — redesenho da plataforma",
-      es: "Qconcursos — rediseño de la plataforma"
+      en: "Qconcursos: platform redesign",
+      pt: "Qconcursos: redesenho da plataforma",
+      es: "Qconcursos: rediseño de la plataforma"
     },
     "home.card5.name": { en: "Qconcursos", pt: "Qconcursos", es: "Qconcursos" },
     "home.card5.desc": {
-      en: "From 600K to 10M — designing for scale at Brazil's largest exam-prep edtech.",
-      pt: "De 600 mil a 10 milhões — desenhar para escala na maior edtech de preparação para concursos do Brasil.",
-      es: "De 600 mil a 10 millones — diseñar para escala en la mayor edtech de preparación para oposiciones de Brasil."
+      en: "From 600K to 10M: designing for scale at Brazil's largest exam-prep edtech.",
+      pt: "De 600 mil a 10 milhões: desenhar para escala na maior edtech de preparação para concursos do Brasil.",
+      es: "De 600 mil a 10 millones: diseñar para escala en la mayor edtech de preparación para oposiciones de Brasil."
     },
     "home.card5.tag1": { en: "Edtech", pt: "Edtech", es: "Edtech" },
-    "home.card5.tag2": { en: "8M+ Users", pt: "8M+ usuários", es: "8M+ usuarios" },
+    "home.card5.tag2": { en: "10M+ Users", pt: "10M+ usuários", es: "10M+ usuarios" },
     "home.card5.tag3": { en: "Team Lead", pt: "Líder de time", es: "Líder de equipo" },
     "home.card5.link": {
       en: "600K → 10M+ users",
@@ -322,9 +322,9 @@
     },
 
     "home.card6.alt": {
-      en: "signFlow — proprietary document-signing tool built to replace DocuSign",
-      pt: "signFlow — ferramenta própria de assinatura de documentos, criada para substituir o DocuSign",
-      es: "signFlow — herramienta propia de firma de documentos, creada para sustituir a DocuSign"
+      en: "signFlow: proprietary document-signing tool built to replace DocuSign",
+      pt: "signFlow: ferramenta própria de assinatura de documentos, criada para substituir o DocuSign",
+      es: "signFlow: herramienta propia de firma de documentos, creada para sustituir a DocuSign"
     },
     "home.card6.name": { en: "signFlow", pt: "signFlow", es: "signFlow" },
     "home.card6.desc": {
@@ -342,9 +342,9 @@
     },
 
     "home.card7.alt": {
-      en: "Planning Poker — redesign of an Agile estimation app",
-      pt: "Planning Poker — redesign de um app de estimativa Agile",
-      es: "Planning Poker — rediseño de una app de estimación Agile"
+      en: "Planning Poker: redesign of an Agile estimation app",
+      pt: "Planning Poker: redesign de um app de estimativa Agile",
+      es: "Planning Poker: rediseño de una app de estimación Agile"
     },
     "home.card7.name": { en: "Planning Poker", pt: "Planning Poker", es: "Planning Poker" },
     "home.card7.desc": {
@@ -362,9 +362,9 @@
     },
 
     "home.card8.alt": {
-      en: "Elearn App — learning platform for bootcamp students, teachers and admins",
-      pt: "Elearn App — plataforma de aprendizado para alunos, professores e administradores de bootcamps",
-      es: "Elearn App — plataforma de aprendizaje para estudiantes, profesores y administradores de bootcamps"
+      en: "Elearn App: learning platform for bootcamp students, teachers and admins",
+      pt: "Elearn App: plataforma de aprendizado para alunos, professores e administradores de bootcamps",
+      es: "Elearn App: plataforma de aprendizaje para estudiantes, profesores y administradores de bootcamps"
     },
     "home.card8.name": { en: "Elearn App", pt: "Elearn App", es: "Elearn App" },
     "home.card8.desc": {
@@ -382,9 +382,9 @@
     },
 
     "home.card9.alt": {
-      en: "AquaryU — astrology-based dating app where compatibility comes from synastry",
-      pt: "AquaryU — app de namoro baseado em astrologia, em que a compatibilidade vem da sinastria",
-      es: "AquaryU — app de citas basada en astrología, donde la compatibilidad viene de la sinastría"
+      en: "AquaryU: astrology-based dating app where compatibility comes from synastry",
+      pt: "AquaryU: app de namoro baseado em astrologia, em que a compatibilidade vem da sinastria",
+      es: "AquaryU: app de citas basada en astrología, donde la compatibilidad viene de la sinastría"
     },
     "home.card9.name": { en: "AquaryU", pt: "AquaryU", es: "AquaryU" },
     "home.card9.desc": {
@@ -402,9 +402,9 @@
     },
 
     "home.card10.alt": {
-      en: "Car Air Comfort — app to set the car temperature before the trip",
-      pt: "Car Air Comfort — app para ajustar a temperatura do carro antes da viagem",
-      es: "Car Air Comfort — app para ajustar la temperatura del auto antes del viaje"
+      en: "Car Air Comfort: app to set the car temperature before the trip",
+      pt: "Car Air Comfort: app para ajustar a temperatura do carro antes da viagem",
+      es: "Car Air Comfort: app para ajustar la temperatura del auto antes del viaje"
     },
     "home.card10.name": { en: "Car Air Comfort", pt: "Car Air Comfort", es: "Car Air Comfort" },
     "home.card10.desc": {
@@ -449,7 +449,7 @@
     },
     "home.testi.2.quote": {
       en: "João built our design system from a brand guideline into a component library over a thousand people now build with daily.",
-      pt: "O João transformou nosso guia de marca em um design system — uma biblioteca de componentes que mais de mil pessoas usam todos os dias.",
+      pt: "O João transformou nosso guia de marca em um design system: uma biblioteca de componentes que mais de mil pessoas usam todos os dias.",
       es: "João convirtió nuestra guía de marca en un sistema de diseño: una biblioteca de componentes con la que más de mil personas trabajan a diario."
     },
     "home.testi.2.role": {
@@ -506,9 +506,9 @@
 
     /* ─────────── SOBRE (about.html) ─────────── */
     "about.meta.title": {
-      en: "About — João Abdalla — Senior Product Designer · UX/UI",
-      pt: "Sobre — João Abdalla — Designer de Produto Sênior · UX/UI",
-      es: "Acerca — João Abdalla — Diseñador de Producto Senior · UX/UI"
+      en: "About | João Abdalla, Senior Product Designer · UX/UI",
+      pt: "Sobre | João Abdalla, Designer de Produto Sênior · UX/UI",
+      es: "Acerca | João Abdalla, Diseñador de Producto Senior · UX/UI"
     },
     "about.meta.description": {
       en: "Senior Product Designer shipping digital products across edtech, fintech, and enterprise SaaS. Based in Brazil, working remotely with US and EU teams.",
@@ -539,7 +539,7 @@
     "about.hobby.chess.t": { en: "Challenge me at chess", pt: "Me desafie no xadrez", es: "Desafíame al ajedrez" },
     "about.hobby.chess.d": { en: "Let’s play on Chess.com", pt: "Vamos jogar no Chess.com", es: "Juguemos en Chess.com" },
     "about.badge.b.num": {
-      en: '<i>8M+</i> users', pt: '<i>8M+</i> usuários', es: '<i>8M+</i> usuarios'
+      en: '<i>10M+</i> users', pt: '<i>10M+</i> usuários', es: '<i>10M+</i> usuarios'
     },
     "about.badge.b.lab": {
       en: "Platform led at scale",
@@ -557,9 +557,9 @@
       es: "UX/UI, estrategia de producto y front-end en un solo diseñador"
     },
     "about.stat.2": {
-      en: "Active users on Brazil's largest exam-prep platform",
-      pt: "Usuários ativos na maior plataforma de preparação para concursos do Brasil",
-      es: "Usuarios activos en la mayor plataforma de preparación para oposiciones de Brasil"
+      en: "Registered users on Brazil's largest exam-prep platform",
+      pt: "Usuários cadastrados na maior plataforma de preparação para concursos do Brasil",
+      es: "Usuarios registrados en la mayor plataforma de preparación para oposiciones de Brasil"
     },
     "about.stat.3": {
       en: "Multi-role enterprise systems built from zero",
@@ -587,14 +587,14 @@
     },
     "about.ch2.name": { en: "Scale", pt: "Escala", es: "Escala" },
     "about.ch2.text": {
-      en: "I've led design for Brazil's largest exam-prep platform, with <b>8M+ active users</b>, built multi-role enterprise systems from zero, and shipped products for US-based SaaS teams as a remote contractor. I also teach UX/UI and Figma at <b>Jala University</b>, training the next generation of LATAM designers and engineers.",
-      pt: "Liderei o design da maior plataforma de preparação para concursos do Brasil, com <b>mais de 8M de usuários ativos</b>, construí sistemas corporativos multiperfil do zero e entreguei produtos para times de SaaS nos EUA como contratado remoto. Também ensino UX/UI e Figma na <b>Jala University</b>, formando a próxima geração de designers e engenheiros da América Latina.",
-      es: "Lideré el diseño de la mayor plataforma de preparación para oposiciones de Brasil, con <b>más de 8M de usuarios activos</b>, construí sistemas corporativos multiperfil desde cero y entregué productos para equipos de SaaS en EE. UU. como contratista remoto. También enseño UX/UI y Figma en <b>Jala University</b>, formando a la próxima generación de diseñadores e ingenieros de Latinoamérica."
+      en: "I've led design for Brazil's largest exam-prep platform, with <b>10M+ registered users</b>, built multi-role enterprise systems from zero, and shipped products for US-based SaaS teams as a remote contractor. I also teach UX/UI and Figma at <b>Jala University</b>, training the next generation of LATAM designers and engineers.",
+      pt: "Liderei o design da maior plataforma de preparação para concursos do Brasil, com <b>mais de 10M de usuários cadastrados</b>, construí sistemas corporativos multiperfil do zero e entreguei produtos para times de SaaS nos EUA como contratado remoto. Também ensino UX/UI e Figma na <b>Jala University</b>, formando a próxima geração de designers e engenheiros da América Latina.",
+      es: "Lideré el diseño de la mayor plataforma de preparación para oposiciones de Brasil, con <b>más de 10M de usuarios registrados</b>, construí sistemas corporativos multiperfil desde cero y entregué productos para equipos de SaaS en EE. UU. como contratista remoto. También enseño UX/UI y Figma en <b>Jala University</b>, formando a la próxima generación de diseñadores e ingenieros de Latinoamérica."
     },
     "about.quote": {
-      en: "I care about <em>the system underneath the screen</em> as much as the screen itself — because the best interface in the world doesn't help if the structure behind it is broken.",
-      pt: "Eu me importo com <em>o sistema por baixo da tela</em> tanto quanto com a tela em si — porque a melhor interface do mundo não adianta se a estrutura por trás dela está quebrada.",
-      es: "Me importa <em>el sistema que hay debajo de la pantalla</em> tanto como la pantalla en sí — porque la mejor interfaz del mundo no sirve si la estructura que hay detrás está rota."
+      en: "I care about <em>the system underneath the screen</em> as much as the screen itself, because the best interface in the world doesn't help if the structure behind it is broken.",
+      pt: "Eu me importo com <em>o sistema por baixo da tela</em> tanto quanto com a tela em si, porque a melhor interface do mundo não adianta se a estrutura por trás dela está quebrada.",
+      es: "Me importa <em>el sistema que hay debajo de la pantalla</em> tanto como la pantalla en sí, porque la mejor interfaz del mundo no sirve si la estructura que hay detrás está rota."
     },
     "about.contact.label": { en: "Contact", pt: "Contato", es: "Contacto" },
     "about.contact.title": {
@@ -618,9 +618,9 @@
       es: '<b>Radicado en</b> Brasilia, Brasil'
     },
     "about.contact.fact2": {
-      en: 'Working with <b>US &amp; EU</b> time zones, async and in real time — invoicing in <b>USD</b>.',
-      pt: 'Trabalhando nos fusos dos <b>EUA e da Europa</b>, de forma assíncrona e em tempo real — faturando em <b>USD</b>.',
-      es: 'Trabajando en las zonas horarias de <b>EE. UU. y Europa</b>, en asíncrono y en tiempo real — facturando en <b>USD</b>.'
+      en: 'Working with <b>US &amp; EU</b> time zones, async and in real time, invoicing in <b>USD</b>.',
+      pt: 'Trabalhando nos fusos dos <b>EUA e da Europa</b>, de forma assíncrona e em tempo real, faturando em <b>USD</b>.',
+      es: 'Trabajando en las zonas horarias de <b>EE. UU. y Europa</b>, en asíncrono y en tiempo real, facturando en <b>USD</b>.'
     },
     "about.contact.cta": {
       en: "Connect with me on LinkedIn →",

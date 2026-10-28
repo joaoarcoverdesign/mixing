@@ -10,9 +10,9 @@ window.I18N_PAGE_STRINGS = {
 
   /* ─────────── META ─────────── */
   "gc.meta.title": {
-    en: "Goal Coach — A Daily Plan by Email | Abdalla Design",
-    pt: "Goal Coach — Um plano por dia no e-mail | Abdalla Design",
-    es: "Goal Coach — Un plan diario por correo | Abdalla Design"
+    en: "Goal Coach: A Daily Plan by Email | Abdalla Design",
+    pt: "Goal Coach: Um plano por dia no e-mail | Abdalla Design",
+    es: "Goal Coach: Un plan diario por correo | Abdalla Design"
   },
   "gc.meta.description": {
     en: "A product I conceived, designed, built and launched: one plan a day with concrete actions, delivered by email every morning at 8 a.m.",

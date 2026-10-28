@@ -10,9 +10,9 @@ window.I18N_PAGE_STRINGS = {
 
   /* ─────────── META ─────────── */
   "elearn.meta.title": {
-    en: "Elearn App — Jalasoft & Jala University | Abdalla Design",
-    pt: "Elearn App — Jalasoft e Jala University | Abdalla Design",
-    es: "Elearn App — Jalasoft y Jala University | Abdalla Design"
+    en: "Elearn App: Jalasoft & Jala University | Abdalla Design",
+    pt: "Elearn App: Jalasoft e Jala University | Abdalla Design",
+    es: "Elearn App: Jalasoft y Jala University | Abdalla Design"
   },
   "elearn.meta.description": {
     en: "A bootcamp learning platform for Jalasoft and Jala University, serving students, teachers and admins through one connected product. Solo, end-to-end product design.",
@@ -27,9 +27,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Una plataforma de aprendizaje para estudiantes, profesores y administradores"
   },
   "elearn.hero.lede": {
-    en: "Elearn App is the platform designed for Jalasoft and Jala University's tech bootcamps. Students follow their courses, teachers own and publish the curriculum, and bootcamp coordinators set up cohorts and watch progress — all inside a single connected system.",
-    pt: "O Elearn App é a plataforma desenhada para os bootcamps de tecnologia da Jalasoft e da Jala University. Alunos acompanham seus cursos, professores são donos do currículo e o publicam, e coordenadores montam turmas e acompanham o progresso — tudo em um único sistema conectado.",
-    es: "Elearn App es la plataforma diseñada para los bootcamps de tecnología de Jalasoft y Jala University. Los estudiantes siguen sus cursos, los profesores son dueños del currículo y lo publican, y los coordinadores arman las cohortes y siguen el progreso — todo dentro de un único sistema conectado."
+    en: "Elearn App is the platform designed for Jalasoft and Jala University's tech bootcamps. Students follow their courses, teachers own and publish the curriculum, and bootcamp coordinators set up cohorts and watch progress, all inside a single connected system.",
+    pt: "O Elearn App é a plataforma desenhada para os bootcamps de tecnologia da Jalasoft e da Jala University. Alunos acompanham seus cursos, professores são donos do currículo e o publicam, e coordenadores montam turmas e acompanham o progresso, tudo em um único sistema conectado.",
+    es: "Elearn App es la plataforma diseñada para los bootcamps de tecnología de Jalasoft y Jala University. Los estudiantes siguen sus cursos, los profesores son dueños del currículo y lo publican, y los coordinadores arman las cohortes y siguen el progreso, todo dentro de un único sistema conectado."
   },
   "elearn.spec.1.label": { en: "Client", pt: "Cliente", es: "Cliente" },
   "elearn.spec.1.value": {
@@ -52,9 +52,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Investigación UX · Arquitectura de la información · UI · Design system"
   },
   "elearn.hero.img.alt": {
-    en: "Elearn App cover — the Jalasoft e-learn logo next to phones showing the login and course screens",
-    pt: "Capa do Elearn App — o logo e-learn da Jalasoft ao lado de celulares com as telas de login e de cursos",
-    es: "Portada de Elearn App — el logo e-learn de Jalasoft junto a teléfonos con las pantallas de login y cursos"
+    en: "Elearn App cover: the Jalasoft e-learn logo next to phones showing the login and course screens",
+    pt: "Capa do Elearn App: o logo e-learn da Jalasoft ao lado de celulares com as telas de login e de cursos",
+    es: "Portada de Elearn App: el logo e-learn de Jalasoft junto a teléfonos con las pantallas de login y cursos"
   },
 
   /* ─────────── OVERVIEW ─────────── */
@@ -88,14 +88,14 @@ window.I18N_PAGE_STRINGS = {
   "elearn.cap.6": { en: "UI Design", pt: "UI Design", es: "UI Design" },
   "elearn.cap.7": { en: "See the design system ↗", pt: "Ver o design system ↗", es: "Ver el design system ↗" },
   "elearn.overview.img.alt": {
-    en: "Elearn App on two phones and a laptop — login, course page and the bootcamp catalogue",
-    pt: "Elearn App em dois celulares e um laptop — login, página do curso e o catálogo de bootcamps",
-    es: "Elearn App en dos teléfonos y un portátil — login, página del curso y el catálogo de bootcamps"
+    en: "Elearn App on two phones and a laptop: login, course page and the bootcamp catalogue",
+    pt: "Elearn App em dois celulares e um laptop: login, página do curso e o catálogo de bootcamps",
+    es: "Elearn App en dos teléfonos y un portátil: login, página del curso y el catálogo de bootcamps"
   },
   "elearn.overview.img.cap": {
-    en: "Responsive from the start — phone and desktop",
-    pt: "Responsivo desde o início — celular e desktop",
-    es: "Responsivo desde el inicio — teléfono y escritorio"
+    en: "Responsive from the start: phone and desktop",
+    pt: "Responsivo desde o início: celular e desktop",
+    es: "Responsivo desde el inicio: teléfono y escritorio"
   },
 
   /* ─────────── CHALLENGE ─────────── */
@@ -243,9 +243,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Tablero del design system de Jalasoft con la tipografía Manrope y las paletas de rojo, gris y azul"
   },
   "elearn.ui.ds.cap": {
-    en: "Foundations — Manrope and the Jalasoft color system",
-    pt: "Fundamentos — Manrope e o sistema de cores da Jalasoft",
-    es: "Fundamentos — Manrope y el sistema de color de Jalasoft"
+    en: "Foundations: Manrope and the Jalasoft color system",
+    pt: "Fundamentos: Manrope e o sistema de cores da Jalasoft",
+    es: "Fundamentos: Manrope y el sistema de color de Jalasoft"
   },
   "elearn.ui.pattern.alt": {
     en: "A field of tilted Elearn App screens: logins, course lists, lessons and the Jalasoft logo",
@@ -273,9 +273,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Landing page de Elearn App en un portátil, con hero de UX/UI Design Training y la sección Sobre el curso"
   },
   "elearn.ui.landing.cap": {
-    en: "Course landing page — schedule, what you will learn, certificate",
-    pt: "Landing do curso — cronograma, o que você vai aprender, certificado",
-    es: "Landing del curso — cronograma, qué aprenderás, certificado"
+    en: "Course landing page: schedule, what you will learn, certificate",
+    pt: "Landing do curso: cronograma, o que você vai aprender, certificado",
+    es: "Landing del curso: cronograma, qué aprenderás, certificado"
   },
   "elearn.ui.tablet.alt": {
     en: "Admin views on two tablets, with lists of students and templates",
@@ -283,9 +283,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Pantallas del admin en dos tablets, con listas de estudiantes y plantillas"
   },
   "elearn.ui.tablet.cap": {
-    en: "Admin on tablet — lists built for scanning",
-    pt: "Admin no tablet — listas feitas para varredura rápida",
-    es: "Admin en tablet — listas hechas para escanear"
+    en: "Admin on tablet: lists built for scanning",
+    pt: "Admin no tablet: listas feitas para varredura rápida",
+    es: "Admin en tablet: listas hechas para escanear"
   },
 
   /* ─────────── LEARNINGS ─────────── */
@@ -351,9 +351,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Convertir el portal Jalasoft en bruto en una herramienta orientada a procesos para contratación, traslados y desvinculación entre unidades."
   },
   "elearn.more.also.img.alt": {
-    en: "BPM Platform Redesign — admin task view",
-    pt: "Plataforma BPM — visão de tarefas do administrador",
-    es: "Plataforma BPM — vista de tareas del administrador"
+    en: "BPM Platform Redesign: admin task view",
+    pt: "Plataforma BPM: visão de tarefas do administrador",
+    es: "Plataforma BPM: vista de tareas del administrador"
   },
   "elearn.more.next.label": { en: "Next Case Study", pt: "Próximo case", es: "Próximo caso" },
   "elearn.more.next.title": { en: "Planning Poker", pt: "Planning Poker", es: "Planning Poker" },
