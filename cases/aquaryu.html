@@ -8,21 +8,21 @@
 <link rel="apple-touch-icon" href="../Img/favicon.png">
 <script src="../i18n/aquaryu.js"></script>
 <script src="../i18n.js"></script>
-<title>AquaryU — Astrology-Based Dating App | Abdalla Design</title>
+<title>AquaryU: Astrology-Based Dating App | Abdalla Design</title>
 <meta name="description" content="A dating app where compatibility comes from synastry, not swipes, designed end-to-end from concept to clickable prototype.">
 <link rel="canonical" href="https://abdalladesign.vercel.app/cases/aquaryu.html">
 <!-- Open Graph / social preview -->
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Abdalla Design">
 <meta property="og:url" content="https://abdalladesign.vercel.app/cases/aquaryu.html">
-<meta property="og:title" content="AquaryU — Astrology-Based Dating App | Abdalla Design">
+<meta property="og:title" content="AquaryU: Astrology-Based Dating App | Abdalla Design">
 <meta property="og:description" content="A dating app where compatibility comes from synastry, not swipes, designed end-to-end from concept to clickable prototype.">
 <meta property="og:image" content="https://abdalladesign.vercel.app/Img/og-cover.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Selected work by João Abdalla — product and UX/UI design projects">
+<meta property="og:image:alt" content="Selected work by João Abdalla: product and UX/UI design projects">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AquaryU — Astrology-Based Dating App | Abdalla Design">
+<meta name="twitter:title" content="AquaryU: Astrology-Based Dating App | Abdalla Design">
 <meta name="twitter:description" content="A dating app where compatibility comes from synastry, not swipes, designed end-to-end from concept to clickable prototype.">
 <meta name="twitter:image" content="https://abdalladesign.vercel.app/Img/og-cover.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -145,7 +145,15 @@ nav.is-hidden{transform:translateY(-110%);}
 .stage{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(24px,4vw,56px);}
 .phones{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2.4vw,32px);align-items:end;}
 .phones img{width:100%;height:auto;}
-.phones.duo{grid-template-columns:repeat(2,minmax(0,240px));justify-content:center;gap:clamp(20px,5vw,72px);}
+
+/* app screens ticker */
+.screens{margin-top:72px;padding-top:72px;border-top:1px solid var(--line);}
+.ticker{overflow:hidden;padding:8px 0;}
+.ticker-track{display:flex;width:max-content;animation:ticker 40s linear infinite;}
+.ticker:hover .ticker-track{animation-play-state:paused;}
+.ticker-phone{flex:none;display:block;width:clamp(150px,13vw,180px);height:auto;margin-right:clamp(16px,2vw,28px);}
+@keyframes ticker{to{transform:translateX(-25%);}}
+@media (prefers-reduced-motion:reduce){.ticker{overflow-x:auto;}.ticker-track{animation:none;}}
 
 /* SECTIONS */
 section{padding:88px 0;}
@@ -191,6 +199,11 @@ section+section{border-top:1px solid var(--line);}
 .decision-text{font-family:var(--body);font-size:15px;color:var(--ink-soft);line-height:1.75;}
 .decision-media{border-radius:var(--radius-md);overflow:hidden;}
 .decision-media img{width:100%;height:auto;max-height:460px;object-fit:contain;}
+
+/* LENS — magnifier on hover (fine pointers only) */
+.lens{position:fixed;left:0;top:0;width:170px;height:170px;margin:-85px 0 0 -85px;border-radius:50%;pointer-events:none;z-index:90;background-repeat:no-repeat;box-shadow:0 0 0 2px rgba(255,255,255,.85),0 12px 36px rgba(0,0,0,.45);opacity:0;transform:scale(.6);transition:opacity .18s,transform .18s var(--ease);}
+.lens.is-on{opacity:1;transform:scale(1);}
+@media (hover:hover) and (pointer:fine){.lens-target{cursor:none;}}
 
 /* RESULT — surface card */
 .result-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(28px,4vw,48px);}
@@ -406,14 +419,43 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
       </div>
       <span class="img-caption rv" data-i18n="aquaryu.features.caption">App features mapped on the discovery screen.</span>
 
-      <div class="stage rv" style="margin-top:24px;">
-        <div class="phones duo">
-          <img src="../Img/aquaryu/aquaryu-splash.webp" alt="Splash screen with sign-in options" loading="lazy" data-i18n-attr="alt:aquaryu.splash.alt">
-          <img src="../Img/aquaryu/aquaryu-edit-profile.webp" alt="Edit profile screen for adding photos" loading="lazy" data-i18n-attr="alt:aquaryu.editprofile.alt">
+    </div>
+
+    <div class="screens rv" role="img" aria-label="AquaryU sign-in and onboarding screens: profile photos, gender, name, birth date, birth time and birth place" data-i18n-attr="aria-label:aquaryu.screens.alt">
+      <div class="ticker">
+        <div class="ticker-track">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/splash.webp" alt="" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/edit-profile.webp" alt="" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/gender.webp" alt="" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/name.webp" alt="" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/birth-date.webp" alt="" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/birth-time.webp" alt="" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/birth-place.webp" alt="" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/splash.webp" alt="" aria-hidden="true" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/edit-profile.webp" alt="" aria-hidden="true" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/gender.webp" alt="" aria-hidden="true" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/name.webp" alt="" aria-hidden="true" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/birth-date.webp" alt="" aria-hidden="true" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/birth-time.webp" alt="" aria-hidden="true" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/birth-place.webp" alt="" aria-hidden="true" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/splash.webp" alt="" aria-hidden="true" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/edit-profile.webp" alt="" aria-hidden="true" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/gender.webp" alt="" aria-hidden="true" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/name.webp" alt="" aria-hidden="true" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/birth-date.webp" alt="" aria-hidden="true" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/birth-time.webp" alt="" aria-hidden="true" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/birth-place.webp" alt="" aria-hidden="true" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/splash.webp" alt="" aria-hidden="true" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/edit-profile.webp" alt="" aria-hidden="true" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/gender.webp" alt="" aria-hidden="true" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/name.webp" alt="" aria-hidden="true" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/birth-date.webp" alt="" aria-hidden="true" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/birth-time.webp" alt="" aria-hidden="true" loading="lazy">
+          <img class="ticker-phone" src="../Img/aquaryu/app2/birth-place.webp" alt="" aria-hidden="true" loading="lazy">
         </div>
       </div>
-      <span class="img-caption rv" data-i18n="aquaryu.duo.caption">Sign-in and profile setup.</span>
     </div>
+    <div class="container"><span class="img-caption rv" data-i18n="aquaryu.screens.caption">Sign-in and onboarding, one question per screen.</span></div>
   </section>
 
   <!-- DECISIONS -->
@@ -528,7 +570,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
           <div class="next-label" data-i18n="aquaryu.more.next.label">Next Case Study</div>
           <h3 class="next-title">Elearn App</h3>
           <p class="next-text" data-i18n="home.card8.desc">One learning platform for students, teachers and admins at Jalasoft and Jala University bootcamps.</p>
-          <div class="next-media"><img src="../Img/elearn/Background%20Overlay.png" alt="Elearn App — learning platform for bootcamp students, teachers and admins" loading="lazy" data-i18n-attr="alt:home.card8.alt"></div>
+          <div class="next-media"><img src="../Img/elearn/Background%20Overlay.png" alt="Elearn App: learning platform for bootcamp students, teachers and admins" loading="lazy" data-i18n-attr="alt:home.card8.alt"></div>
         </a>
         <a class="next-card" href="valt.html">
           <div class="next-label" data-i18n="aquaryu.more.also.label">Also Worth Seeing</div>
@@ -600,6 +642,37 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
     });
     window.addEventListener("scroll", close, { passive: true });
   })();
+</script>
+<script>
+/* Lens: circular zoom that follows the cursor over the decision and outcome images */
+(function(){
+  if(!window.matchMedia("(hover:hover) and (pointer:fine)").matches) return;
+  var ZOOM=2.2, R=85;
+  var imgs=document.querySelectorAll(".decision-media img, .outcome-cards img");
+  if(!imgs.length) return;
+  var lens=document.createElement("div");
+  lens.className="lens"; lens.setAttribute("aria-hidden","true");
+  document.body.appendChild(lens);
+  imgs.forEach(function(img){
+    img.classList.add("lens-target");
+    img.addEventListener("mouseenter",function(){
+      lens.style.backgroundImage='url("'+(img.currentSrc||img.src)+'")';
+      lens.classList.add("is-on");
+    });
+    img.addEventListener("mouseleave",function(){lens.classList.remove("is-on");});
+    img.addEventListener("mousemove",function(e){
+      var r=img.getBoundingClientRect(), nw=img.naturalWidth, nh=img.naturalHeight;
+      if(!nw||!nh) return;
+      var cover=getComputedStyle(img).objectFit==="cover";
+      var sc=(cover?Math.max:Math.min)(r.width/nw,r.height/nh);
+      var dw=nw*sc, dh=nh*sc, ox=(r.width-dw)/2, oy=(r.height-dh)/2;
+      var x=e.clientX-r.left-ox, y=e.clientY-r.top-oy;
+      lens.style.left=e.clientX+"px"; lens.style.top=e.clientY+"px";
+      lens.style.backgroundSize=(dw*ZOOM)+"px "+(dh*ZOOM)+"px";
+      lens.style.backgroundPosition=(R-x*ZOOM)+"px "+(R-y*ZOOM)+"px";
+    });
+  });
+})();
 </script>
 
 </body>

@@ -10,9 +10,9 @@ window.I18N_PAGE_STRINGS = {
 
   /* ─────────── META ─────────── */
   "aquaryu.meta.title": {
-    en: "AquaryU — Astrology-Based Dating App | Abdalla Design",
-    pt: "AquaryU — App de namoro baseado em astrologia | Abdalla Design",
-    es: "AquaryU — App de citas basada en astrología | Abdalla Design"
+    en: "AquaryU: Astrology-Based Dating App | Abdalla Design",
+    pt: "AquaryU: App de namoro baseado em astrologia | Abdalla Design",
+    es: "AquaryU: App de citas basada en astrología | Abdalla Design"
   },
   "aquaryu.meta.description": {
     en: "A dating app where compatibility comes from synastry, not swipes, designed end-to-end from concept to clickable prototype.",
@@ -222,20 +222,15 @@ window.I18N_PAGE_STRINGS = {
     pt: "Funcionalidades do app mapeadas na tela de descoberta.",
     es: "Funcionalidades de la app mapeadas en la pantalla de descubrimiento."
   },
-  "aquaryu.splash.alt": {
-    en: "Splash screen with sign-in options",
-    pt: "Tela inicial com opções de login",
-    es: "Pantalla inicial con opciones de inicio de sesión"
+  "aquaryu.screens.caption": {
+    en: "Sign-in and onboarding, one question per screen.",
+    pt: "Login e cadastro, uma pergunta por tela.",
+    es: "Inicio de sesión y registro, una pregunta por pantalla."
   },
-  "aquaryu.editprofile.alt": {
-    en: "Edit profile screen for adding photos",
-    pt: "Tela de edição de perfil para adicionar fotos",
-    es: "Pantalla de edición de perfil para agregar fotos"
-  },
-  "aquaryu.duo.caption": {
-    en: "Sign-in and profile setup.",
-    pt: "Login e configuração de perfil.",
-    es: "Inicio de sesión y configuración de perfil."
+  "aquaryu.screens.alt": {
+    en: "AquaryU sign-in and onboarding screens: profile photos, gender, name, birth date, birth time and birth place",
+    pt: "Telas de login e cadastro do AquaryU: fotos do perfil, gênero, nome, data, horário e local de nascimento",
+    es: "Pantallas de inicio de sesión y registro de AquaryU: fotos del perfil, género, nombre, fecha, hora y lugar de nacimiento"
   },
 
   /* ─────────── DECISIONS ─────────── */
