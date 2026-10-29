@@ -36,7 +36,6 @@
       --bg: #11161A;
       --bg-deep: #0C1013;
       --surface: #1A2025;
-      --line: rgba(255, 255, 255, .08);
       --accent: #C2FC50;
       --white: #F4F6F3;
       --muted: #9BA4AA;
@@ -45,6 +44,16 @@
       --sans: 'Urbanist', sans-serif;
       --px: clamp(20px, 5vw, 72px);
       --ease: cubic-bezier(.22, 1, .36, 1);
+      /* motion tokens — strong ease-out for enter/feedback, ease-in-out for things
+         that move across the screen; durations stay short for repeated UI */
+      --ease-out: cubic-bezier(.23, 1, .32, 1);
+      --ease-in-out: cubic-bezier(.77, 0, .175, 1);
+      --dur-press: 140ms;
+      --dur-ui: 220ms;
+      --dur-move: 520ms;
+      /* hairlines tinted toward the brand hue instead of pure white */
+      --line: rgba(236, 246, 228, .08);
+      --line-strong: rgba(236, 246, 228, .2);
     }
 
     *,
@@ -67,6 +76,16 @@
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
       line-height: 1.5;
+    }
+
+    h1,
+    h2,
+    h3 {
+      text-wrap: balance;
+    }
+
+    p {
+      text-wrap: pretty;
     }
 
     ::selection {
@@ -106,7 +125,7 @@
       left: 0;
       right: 0;
       z-index: 900;
-      transition: transform .5s var(--ease);
+      transition: transform .4s var(--ease-out);
     }
 
     nav.is-hidden {
@@ -189,7 +208,7 @@
       color: var(--muted);
       position: relative;
       padding: 4px 0;
-      transition: color .25s;
+      transition: color var(--dur-ui) ease;
     }
 
     .nav-links a::after {
@@ -202,16 +221,18 @@
       background: var(--accent);
       transform: scaleX(0);
       transform-origin: right;
-      transition: transform .4s var(--ease);
+      transition: transform .35s var(--ease-out);
     }
 
-    .nav-links a:hover {
-      color: var(--white);
-    }
+    @media (hover:hover) and (pointer:fine) {
+      .nav-links a:hover {
+        color: var(--white);
+      }
 
-    .nav-links a:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
+      .nav-links a:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
     }
 
     @media (max-width:720px) {
@@ -252,6 +273,11 @@
         border: 1px solid var(--line);
         color: var(--white);
         flex: 0 0 auto;
+        transition: transform var(--dur-press) var(--ease-out);
+      }
+
+      .nav-toggle:active {
+        transform: scale(.94);
       }
 
       .nav-lang-slot {
@@ -285,15 +311,19 @@
         border-radius: 14px;
         padding: 6px;
         opacity: 0;
-        transform: translateY(-8px);
+        /* grows out of the hamburger it belongs to, not from the panel's center */
+        transform: translateY(-6px) scale(.96);
+        transform-origin: top right;
         pointer-events: none;
-        transition: opacity .3s var(--ease), transform .3s var(--ease);
+        /* closing is the system responding, so it's quicker than opening */
+        transition: opacity 150ms ease, transform 150ms var(--ease-out);
       }
 
       nav.is-open .nav-links {
         opacity: 1;
         transform: none;
         pointer-events: auto;
+        transition: opacity var(--dur-ui) var(--ease-out), transform var(--dur-ui) var(--ease-out);
       }
 
       nav.is-open.is-hidden {
@@ -337,11 +367,7 @@
       padding: 18px 34px;
       border-radius: 99px;
       overflow: hidden;
-      transition: transform .3s var(--ease);
-    }
-
-    .btn-main:hover {
-      transform: translateY(-2px);
+      transition: transform var(--dur-ui) var(--ease-out);
     }
 
     .btn-main .flair {
@@ -350,11 +376,23 @@
       background: var(--white);
       border-radius: inherit;
       transform: translateY(101%);
-      transition: transform .45s var(--ease);
+      transition: transform .4s var(--ease-out);
     }
 
-    .btn-main:hover .flair {
-      transform: translateY(0);
+    @media (hover:hover) and (pointer:fine) {
+      .btn-main:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-main:hover .flair {
+        transform: translateY(0);
+      }
+    }
+
+    /* press feedback beats hover lift: the button answers the click immediately */
+    .btn-main:active {
+      transform: scale(.97);
+      transition-duration: var(--dur-press);
     }
 
     .btn-main span {
@@ -439,6 +477,46 @@
       }
     }
 
+    /* first-load choreography — the one moment on the page that earns a staged
+       entrance. Only a `from` frame, so each element lands on its own resting
+       values (the sub keeps its .88 opacity). Short stagger, never blocks input. */
+    @keyframes hero-in {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+        filter: blur(6px);
+      }
+    }
+
+    .hero2-title,
+    .hero2-sub,
+    .hero2-meta,
+    .hero2-actions {
+      animation: hero-in .8s var(--ease-out) both;
+    }
+
+    .hero2-sub {
+      animation-delay: 80ms;
+    }
+
+    .hero2-meta {
+      animation-delay: 160ms;
+    }
+
+    .hero2-actions {
+      animation-delay: 240ms;
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+
+      .hero2-title,
+      .hero2-sub,
+      .hero2-meta,
+      .hero2-actions {
+        animation: none;
+      }
+    }
+
     .hero2-meta {
       font-size: 15px;
       color: var(--muted);
@@ -473,13 +551,20 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
-      transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+      color: var(--white);
+      transition: transform var(--dur-ui) var(--ease-out), box-shadow var(--dur-ui) var(--ease-out);
     }
 
-    .social-btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, .35);
+    @media (hover:hover) and (pointer:fine) {
+      .social-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 24px rgba(4, 8, 6, .4);
+      }
+    }
+
+    .social-btn:active {
+      transform: scale(.94);
+      transition-duration: var(--dur-press);
     }
 
     .social-btn.dribbble {
@@ -513,50 +598,69 @@
       position: relative;
       z-index: 1;
       height: clamp(360px, 40vw, 600px);
+      /* lets the slot recipes below position cards in frame units (cqw/cqh) */
+      container-type: size;
     }
 
+    /* every card has the same box (the front size, pinned top-left) and each slot
+       is a pure transform, so swapping slots never touches layout: it runs on the
+       compositor instead of re-laying out three 2K images every frame.
+       Same function list in every slot, so the browser interpolates each step.
+       The pivot math keeps the old rotate origins: the back cards turn around a
+       point near their top inner corner, scaled by --s. */
     .mock-card {
+      --x: 21cqw;
+      --y: -5.6cqh;
+      --ox: 0%;
+      --oy: 0%;
+      --r: 0deg;
+      --s: 1;
       position: absolute;
+      left: 0;
+      top: 0;
+      width: 58%;
       cursor: pointer;
-      will-change: left, top, width, transform;
-      transition: left .6s var(--ease), top .6s var(--ease), width .6s var(--ease),
-        transform .6s var(--ease), transform-origin .6s var(--ease);
+      border-radius: 10px;
+      transform-origin: 0 0;
+      transform: translate(var(--x), var(--y)) translate(var(--ox), var(--oy)) rotate(var(--r)) translate(calc(var(--ox) * -1), calc(var(--oy) * -1)) scale(var(--s));
+      transition: transform var(--dur-move) var(--ease-in-out);
     }
 
     .mock-card img {
       width: 100%;
       height: auto;
       display: block;
-      filter: drop-shadow(0 30px 55px rgba(0, 0, 0, .5));
+      filter: drop-shadow(0 30px 55px rgba(4, 8, 6, .5));
     }
 
     /* slot recipes — which card sits where is controlled by data-slot, swapped on click */
     .mock-card[data-slot="front"] {
-      left: 21%;
-      top: -5.6%;
-      width: 58%;
       z-index: 3;
-      transform: rotate(0deg);
-      transform-origin: 50% 50%;
-      cursor: pointer;
     }
 
+    /* 47/58 = .8103 scale; pivot 78%/22% x 16% of the scaled card */
     .mock-card[data-slot="back-left"] {
-      left: 1%;
-      top: 6%;
-      width: 47%;
+      --x: 1cqw;
+      --y: 6cqh;
+      --ox: 63.2%;
+      --oy: 13%;
+      --r: -9deg;
+      --s: .8103;
       z-index: 1;
-      transform: rotate(-9deg);
-      transform-origin: 78% 16%;
     }
 
     .mock-card[data-slot="back-right"] {
-      left: 52%;
-      top: 3%;
-      width: 47%;
+      --x: 52cqw;
+      --y: 3cqh;
+      --ox: 17.83%;
+      --oy: 13%;
+      --r: 9deg;
+      --s: .8103;
       z-index: 2;
-      transform: rotate(9deg);
-      transform-origin: 22% 16%;
+    }
+
+    .mock-card:focus-visible {
+      outline-offset: 6px;
     }
 
     @media (prefers-reduced-motion:reduce) {
@@ -578,7 +682,7 @@
 
       /* the frame clips, so the front card can't start above it or its browser bar is cut off */
       .mock-card[data-slot="front"] {
-        top: 0;
+        --y: 0cqh;
       }
     }
 
@@ -617,6 +721,10 @@
       height: 8px;
       border-radius: 50%;
       background: var(--accent);
+    }
+
+    .sec-head .sec-label {
+      margin-bottom: 18px;
     }
 
     .sec-count {
@@ -685,17 +793,19 @@
       align-items: center;
       justify-content: center;
       color: var(--white);
-      transition: background .25s, border-color .25s, transform .25s var(--ease);
+      transition: background-color var(--dur-ui) ease, border-color var(--dur-ui) ease, color var(--dur-ui) ease, transform var(--dur-press) var(--ease-out);
     }
 
-    .work-arrow:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: var(--bg-deep);
+    @media (hover:hover) and (pointer:fine) {
+      .work-arrow:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: var(--bg-deep);
+      }
     }
 
     .work-arrow:active {
-      transform: scale(.92);
+      transform: scale(.94);
     }
 
     .work-arrow:disabled {
@@ -761,6 +871,18 @@
       width: 100%;
       height: auto;
       display: block;
+      transition: transform .7s var(--ease-out);
+    }
+
+    @media (hover:hover) and (pointer:fine) {
+      .work-item:hover .work-media img {
+        transform: scale(1.025);
+      }
+    }
+
+    .work-item:focus-visible {
+      outline-offset: 8px;
+      border-radius: 6px;
     }
 
     /* fine-pointer only: native cursor disappears over the thumbnail, replaced by
@@ -803,11 +925,13 @@
       line-height: 1.05;
       margin-bottom: clamp(10px, 1.6vh, 18px);
       min-height: 2.1em;
-      transition: color .25s var(--ease);
+      transition: color var(--dur-ui) ease;
     }
 
-    .work-item:hover .work-name {
-      color: var(--accent);
+    @media (hover:hover) and (pointer:fine) {
+      .work-item:hover .work-name {
+        color: var(--accent);
+      }
     }
 
     .work-desc {
@@ -856,11 +980,13 @@
 
     .work-link-arrow {
       display: inline-block;
-      transition: transform .3s var(--ease);
+      transition: transform var(--dur-ui) var(--ease-out);
     }
 
-    .work-item:hover .work-link-arrow {
-      transform: translateX(5px);
+    @media (hover:hover) and (pointer:fine) {
+      .work-item:hover .work-link-arrow {
+        transform: translateX(5px);
+      }
     }
 
     /* "see more" card — cards after the 3rd stay hidden until it's clicked (JS adds
@@ -888,7 +1014,11 @@
       border-radius: 4px;
       background: var(--surface);
       margin-bottom: clamp(16px, 2.4vh, 28px);
-      transition: border-color .3s var(--ease), background .3s var(--ease);
+      transition: border-color var(--dur-ui) ease, transform var(--dur-press) var(--ease-out);
+    }
+
+    .work-more:active .work-more-media {
+      transform: scale(.985);
     }
 
     .work-more-count {
@@ -907,16 +1037,10 @@
       color: var(--muted);
     }
 
-    .work-more:hover .work-more-media {
-      border-color: var(--accent);
-    }
-
-    .work-more:hover .work-name {
-      color: var(--accent);
-    }
-
-    .work-more:hover .work-link-arrow {
-      transform: translateX(5px);
+    @media (hover:hover) and (pointer:fine) {
+      .work-more:hover .work-more-media {
+        border-color: var(--accent);
+      }
     }
 
     .work-footer {
@@ -975,9 +1099,11 @@
       padding: 10px 18px;
       border-radius: 99px;
       white-space: nowrap;
-      transform: translate(-50%, -50%) scale(.4);
+      /* starts close to full size: a pill growing from a dot reads as coming from nowhere */
+      transform: translate(-50%, -50%) scale(.85);
       opacity: 0;
-      transition: opacity .2s var(--ease), transform .2s var(--ease);
+      filter: blur(4px);
+      transition: opacity 180ms var(--ease-out), transform 180ms var(--ease-out), filter 180ms var(--ease-out);
     }
 
     .case-cursor-bubble svg {
@@ -989,6 +1115,7 @@
     .case-cursor.is-visible .case-cursor-bubble {
       opacity: 1;
       transform: translate(-50%, -50%) scale(1);
+      filter: none;
     }
 
     @media (hover:none),
@@ -1222,12 +1349,15 @@
       color: var(--white);
       min-height: clamp(96px, 14vw, 132px);
       margin-bottom: clamp(32px, 5vw, 48px);
-      transition: opacity .3s var(--ease), transform .3s var(--ease);
+      transition: opacity var(--dur-ui) var(--ease-out), transform var(--dur-ui) var(--ease-out), filter var(--dur-ui) var(--ease-out);
     }
 
+    /* blur bridges old and new quote so the swap reads as one text changing,
+       not two paragraphs crossing */
     .testi-quote.is-swap {
       opacity: 0;
       transform: translateY(6px);
+      filter: blur(3px);
     }
 
     .testi-author-row {
@@ -1258,17 +1388,24 @@
       opacity: .7;
       transform: scale(.86);
       filter: grayscale(.5);
-      transition: transform .4s var(--ease), opacity .4s var(--ease), filter .4s var(--ease), box-shadow .4s var(--ease);
+      transition: transform .3s var(--ease-out), opacity .3s var(--ease-out), filter .3s var(--ease-out), box-shadow .3s var(--ease-out);
     }
 
     .testi-avatar:first-child {
       margin-left: 0;
     }
 
-    .testi-avatar:hover {
-      opacity: 1;
-      filter: grayscale(0);
-      transform: scale(.94);
+    @media (hover:hover) and (pointer:fine) {
+      .testi-avatar:hover {
+        opacity: 1;
+        filter: grayscale(0);
+        transform: scale(.94);
+      }
+    }
+
+    .testi-avatar:active {
+      transform: scale(.82);
+      transition-duration: var(--dur-press);
     }
 
     .testi-avatar.is-active {
@@ -1287,6 +1424,7 @@
       color: var(--dim);
       flex: 0 0 auto;
       letter-spacing: .04em;
+      font-variant-numeric: tabular-nums;
     }
 
     .testi-count b {
@@ -1305,11 +1443,12 @@
       display: flex;
       flex-direction: column;
       gap: 2px;
-      transition: opacity .3s var(--ease);
+      transition: opacity var(--dur-ui) var(--ease-out), filter var(--dur-ui) var(--ease-out);
     }
 
     .testi-meta.is-swap {
       opacity: 0;
+      filter: blur(2px);
     }
 
     .testi-name {
@@ -1325,8 +1464,19 @@
 
     @media (prefers-reduced-motion:reduce) {
 
+      /* reduced motion = no movement, but the quote still fades so the swap
+         doesn't feel broken */
       .testi-quote,
-      .testi-meta,
+      .testi-meta {
+        transition: opacity 150ms ease;
+      }
+
+      .testi-quote.is-swap,
+      .testi-meta.is-swap {
+        transform: none;
+        filter: none;
+      }
+
       .testi-avatar {
         transition: none;
       }
@@ -1404,23 +1554,26 @@
       padding: 16px 22px;
       border-radius: 99px;
       border: 1px solid var(--line);
-      background: rgba(255, 255, 255, .03);
+      background: rgba(236, 246, 228, .03);
       color: var(--muted);
       font-family: var(--sans);
       font-size: 14px;
       font-weight: 600;
       letter-spacing: .01em;
-      transition: border-color .25s var(--ease), color .25s var(--ease), background .25s var(--ease), transform .3s var(--ease);
+      transition: border-color var(--dur-ui) ease, color var(--dur-ui) ease, transform var(--dur-ui) var(--ease-out);
     }
 
-    .email-copy:hover {
-      color: var(--white);
-      border-color: rgba(255, 255, 255, .22);
-      transform: translateY(-2px);
+    @media (hover:hover) and (pointer:fine) {
+      .email-copy:hover {
+        color: var(--white);
+        border-color: var(--line-strong);
+        transform: translateY(-2px);
+      }
     }
 
     .email-copy:active {
-      transform: translateY(0);
+      transform: scale(.97);
+      transition-duration: var(--dur-press);
     }
 
     .email-copy-icon {
@@ -1431,23 +1584,28 @@
       height: 18px;
       flex: 0 0 auto;
       color: var(--muted);
-      transition: color .25s var(--ease);
+      transition: color var(--dur-ui) ease;
     }
 
-    .email-copy:hover .email-copy-icon {
-      color: var(--accent);
+    @media (hover:hover) and (pointer:fine) {
+      .email-copy:hover .email-copy-icon {
+        color: var(--accent);
+      }
     }
 
+    /* copy → check morph: small scale delta + blur so the two glyphs blend
+       into one icon changing state instead of one popping out of nothing */
     .email-copy-icon svg {
       position: absolute;
       width: 18px;
       height: 18px;
-      transition: opacity .2s var(--ease), transform .2s var(--ease);
+      transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out), filter 200ms var(--ease-out);
     }
 
     .email-copy-icon .ic-check {
       opacity: 0;
-      transform: scale(.5);
+      transform: scale(.8);
+      filter: blur(3px);
     }
 
     .email-copy-icon .ic-copy {
@@ -1466,12 +1624,14 @@
 
     .email-copy.is-copied .email-copy-icon .ic-copy {
       opacity: 0;
-      transform: scale(.5);
+      transform: scale(.8);
+      filter: blur(3px);
     }
 
     .email-copy.is-copied .email-copy-icon .ic-check {
       opacity: 1;
       transform: scale(1);
+      filter: none;
     }
 
     .email-copy-toast {
@@ -1490,7 +1650,8 @@
       white-space: nowrap;
       opacity: 0;
       pointer-events: none;
-      transition: opacity .25s var(--ease), transform .25s var(--ease);
+      transform-origin: 50% 100%;
+      transition: opacity var(--dur-ui) var(--ease-out), transform var(--dur-ui) var(--ease-out);
     }
 
     .email-copy-toast.is-visible {
@@ -1513,7 +1674,7 @@
       .email-copy-icon,
       .email-copy-icon svg,
       .email-copy-toast {
-        transition: none;
+        transition: opacity 150ms ease;
       }
     }
 
@@ -1617,7 +1778,22 @@
       border: 1px solid var(--line);
       border-radius: 12px;
       background: var(--surface);
-      transition: border-color .45s var(--ease), transform .45s var(--ease);
+      transition: border-color .3s ease, transform .4s var(--ease-out);
+    }
+
+    /* the diagram reads top-down: each step nudges right a beat after the last */
+    @media (hover:hover) and (pointer:fine) {
+      .aisys:hover .aisys-block {
+        transform: translateX(6px);
+      }
+
+      .aisys:hover .aisys-block:nth-of-type(2) {
+        transition-delay: 0ms, 50ms;
+      }
+
+      .aisys:hover .aisys-block:nth-of-type(3) {
+        transition-delay: 0ms, 100ms;
+      }
     }
 
     .aisys-block:not(:last-child) {
@@ -1710,11 +1886,210 @@
       background: var(--bg-deep);
     }
 
+    /* ════════ GALLERY — long-page shots, hover pans the page, click opens it whole ════════ */
+    .gal {
+      position: relative;
+      z-index: 2;
+      background: var(--bg-deep);
+      border-top: 1px solid var(--line);
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .gal .sec-head {
+      padding: 0 var(--px);
+    }
+
+    .gal-track {
+      display: flex;
+      gap: clamp(16px, 1.4vw, 24px);
+      padding: 4px var(--px) 8px;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      scroll-padding: 0 var(--px);
+      scrollbar-width: none;
+      -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--px), #000 calc(100% - var(--px)), transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0, #000 var(--px), #000 calc(100% - var(--px)), transparent 100%);
+    }
+
+    .gal-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .gal-track.is-dragging {
+      scroll-snap-type: none;
+      cursor: grabbing;
+    }
+
+    .gal-item {
+      flex: 0 0 clamp(220px, 22vw, 300px);
+      scroll-snap-align: start;
+      text-align: left;
+      cursor: zoom-in;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    .gal-media {
+      position: relative;
+      display: block;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border-radius: 14px;
+      background: var(--surface);
+      outline: 1px solid var(--line);
+      outline-offset: -1px;
+      transition: transform var(--dur-press) var(--ease-out);
+    }
+
+    .gal-media img {
+      display: block;
+      width: 100%;
+      height: auto;
+      transform: translateY(0);
+      transition: transform .6s var(--ease-out);
+      -webkit-user-drag: none;
+      pointer-events: none;
+    }
+
+    .gal-item:active .gal-media {
+      transform: scale(.98);
+    }
+
+    .gal-item:focus-visible {
+      outline: none;
+    }
+
+    .gal-item:focus-visible .gal-media {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .gal-cap {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 14px 2px 0;
+    }
+
+    .gal-cap b {
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -.01em;
+    }
+
+    .gal-cap span {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* lightbox */
+    .lb {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+    }
+
+    .lb[hidden] {
+      display: none;
+    }
+
+    .lb-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(8, 11, 13, .86);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+
+    .lb-scroll {
+      position: absolute;
+      inset: 0;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: 72px var(--px) 96px;
+      scrollbar-width: thin;
+      scrollbar-color: #2c343a transparent;
+    }
+
+    .lb-img {
+      display: block;
+      width: min(1100px, 100%);
+      height: auto;
+      margin: 0 auto;
+      border-radius: 10px;
+      background: var(--surface);
+      transform-origin: 0 0;
+    }
+
+    .lb-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px var(--px);
+      pointer-events: none;
+    }
+
+    .lb-bar > * {
+      pointer-events: auto;
+    }
+
+    .lb-cap {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-size: 14px;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .lb-cap b {
+      color: var(--white);
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    .lb-count {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 14px;
+      color: var(--dim);
+      margin-right: 6px;
+    }
+
+    .lb .work-arrow {
+      background: rgba(17, 22, 26, .72);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+    }
+
+    .lb-chrome {
+      transition: opacity var(--dur-ui) var(--ease-out);
+    }
+
+    .lb:not(.is-open) .lb-chrome {
+      opacity: 0;
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+
+      .gal-media img,
+      .gal-media {
+        transition: none;
+      }
+    }
+
     /* ════════ REVEAL ════════ */
     .rv {
       opacity: 0;
-      transform: translateY(32px);
-      transition: opacity .9s var(--ease), transform .9s var(--ease);
+      transform: translateY(20px);
+      transition: opacity .8s var(--ease-out), transform .8s var(--ease-out);
     }
 
     .rv.is-in {
@@ -1839,7 +2214,7 @@
       <div class="work-pin" id="workPin">
         <div class="sec-head work-head">
           <div>
-            <span class="sec-label" style="margin-bottom:18px;" data-i18n="home.work.label">Selected work</span>
+            <span class="sec-label" data-i18n="home.work.label">Selected work</span>
             <h2 class="sec-title" data-i18n-html="home.work.title">Results that made a <em>difference</em></h2>
           </div>
           <div class="work-controls">
@@ -2054,6 +2429,144 @@
       </div>
     </section>
 
+    <!-- ════════ GALLERY ════════ -->
+    <section class="gal sec-pad" id="gallery">
+      <div class="sec-head">
+        <div>
+          <span class="sec-label rv" data-i18n="home.gal.label">Archive</span>
+          <h2 class="sec-title rv" data-i18n-html="home.gal.title">More <em>work</em></h2>
+        </div>
+        <div class="work-controls rv">
+          <button class="work-arrow" id="galPrev" type="button" aria-label="Previous"
+            data-i18n-attr="aria-label:home.gal.prev">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+          <button class="work-arrow" id="galNext" type="button" aria-label="Next"
+            data-i18n-attr="aria-label:home.gal.next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="gal-track rv" id="galTrack">
+        <button class="gal-item" type="button" data-full="Img/galeria/web/aqua.webp" data-w="1440" data-h="6350">
+          <span class="gal-media"><img src="Img/galeria/web/aqua-thumb.webp" alt="Aquaryu dating app, full page"
+              width="640" height="2822" loading="lazy" decoding="async"></span>
+          <span class="gal-cap"><b>Aquaryu</b><span data-i18n="home.gal.t.dating">Dating app</span></span>
+        </button>
+        <button class="gal-item" type="button" data-full="Img/galeria/web/workinly.webp" data-w="1440" data-h="4420">
+          <span class="gal-media"><img src="Img/galeria/web/workinly-thumb.webp" alt="Workinly product, full page"
+              width="640" height="1964" loading="lazy" decoding="async"></span>
+          <span class="gal-cap"><b>Workinly</b><span data-i18n="home.gal.t.product">Product design</span></span>
+        </button>
+        <button class="gal-item" type="button" data-full="Img/galeria/web/jalasoft.webp" data-w="1440" data-h="13189">
+          <span class="gal-media"><img src="Img/galeria/web/jalasoft-thumb.webp" alt="Jalasoft website, full page"
+              width="640" height="5862" loading="lazy" decoding="async"></span>
+          <span class="gal-cap"><b>Jalasoft</b><span data-i18n="home.gal.t.website">Website design</span></span>
+        </button>
+        <button class="gal-item" type="button" data-full="Img/galeria/web/jala-university.webp" data-w="1440"
+          data-h="3888">
+          <span class="gal-media"><img src="Img/galeria/web/jala-university-thumb.webp"
+              alt="Jala University website redesign, full page" width="640" height="1728" loading="lazy"
+              decoding="async"></span>
+          <span class="gal-cap"><b>Jala University</b><span data-i18n="home.gal.t.redesign">Website
+              redesign</span></span>
+        </button>
+        <button class="gal-item" type="button" data-full="Img/galeria/web/car-air-comfort.webp" data-w="1440"
+          data-h="10636">
+          <span class="gal-media"><img src="Img/galeria/web/car-air-comfort-thumb.webp"
+              alt="Car Air Comfort mobile app, full page" width="640" height="4727" loading="lazy"
+              decoding="async"></span>
+          <span class="gal-cap"><b>Car Air Comfort</b><span data-i18n="home.gal.t.mobile">Mobile app</span></span>
+        </button>
+        <button class="gal-item" type="button" data-full="Img/galeria/web/qs.jpg" data-w="1440" data-h="17422">
+          <span class="gal-media"><img src="Img/galeria/web/qs-thumb.webp" alt="Quero Simulados product, full page"
+              width="640" height="7743" loading="lazy" decoding="async"></span>
+          <span class="gal-cap"><b>Quero Simulados</b><span data-i18n="home.gal.t.product">Product
+              design</span></span>
+        </button>
+        <button class="gal-item" type="button" data-full="Img/galeria/web/bpm.webp" data-w="1440" data-h="6274">
+          <span class="gal-media"><img src="Img/galeria/web/bpm-thumb.webp" alt="BPM platform redesign, full page"
+              width="640" height="2788" loading="lazy" decoding="async"></span>
+          <span class="gal-cap"><b>BPM Platform</b><span data-i18n="home.gal.t.platform">Platform
+              redesign</span></span>
+        </button>
+        <button class="gal-item" type="button" data-full="Img/galeria/web/elearn-app.webp" data-w="1440"
+          data-h="4860">
+          <span class="gal-media"><img src="Img/galeria/web/elearn-app-thumb.webp"
+              alt="Jalasoft e-learn app, full page" width="640" height="2160" loading="lazy" decoding="async"></span>
+          <span class="gal-cap"><b>E-learn</b><span data-i18n="home.gal.t.elearn">E-learning app</span></span>
+        </button>
+        <button class="gal-item" type="button" data-full="Img/galeria/web/fds.webp" data-w="1440" data-h="7972">
+          <span class="gal-media"><img src="Img/galeria/web/fds-thumb.webp"
+              alt="Fundación del Saber website, full page" width="640" height="3543" loading="lazy"
+              decoding="async"></span>
+          <span class="gal-cap"><b>Fundación del Saber</b><span data-i18n="home.gal.t.website">Website
+              design</span></span>
+        </button>
+        <button class="gal-item" type="button" data-full="Img/galeria/web/training-in-company.webp" data-w="1440"
+          data-h="6496">
+          <span class="gal-media"><img src="Img/galeria/web/training-in-company-thumb.webp"
+              alt="UX UI Design Training landing page, full page" width="640" height="2887" loading="lazy"
+              decoding="async"></span>
+          <span class="gal-cap"><b>UX UI Training</b><span data-i18n="home.gal.t.landing">Landing page</span></span>
+        </button>
+        <button class="gal-item" type="button" data-full="Img/galeria/web/uiux-bootcamp.webp" data-w="1440"
+          data-h="15032">
+          <span class="gal-media"><img src="Img/galeria/web/uiux-bootcamp-thumb.webp"
+              alt="UX/UI course for developers, full page" width="640" height="6681" loading="lazy"
+              decoding="async"></span>
+          <span class="gal-cap"><b>UX/UI Course</b><span data-i18n="home.gal.t.course">Course page</span></span>
+        </button>
+        <button class="gal-item" type="button" data-full="Img/galeria/web/bb-portal-qualidade.jpg" data-w="1440"
+          data-h="22039">
+          <span class="gal-media"><img src="Img/galeria/web/bb-portal-qualidade-thumb.webp"
+              alt="Banco do Brasil quality portal, full page" width="640" height="9795" loading="lazy"
+              decoding="async"></span>
+          <span class="gal-cap"><b>Banco do Brasil</b><span data-i18n="home.gal.t.testing">Test automation
+              platform</span></span>
+        </button>
+      </div>
+    </section>
+
+    <div class="lb" id="galLb" role="dialog" aria-modal="true" aria-label="Project preview" hidden>
+      <div class="lb-backdrop lb-chrome" id="galLbBackdrop"></div>
+      <div class="lb-scroll" id="galLbScroll">
+        <img class="lb-img" id="galLbImg" alt="">
+      </div>
+      <div class="lb-bar lb-chrome">
+        <p class="lb-cap" id="galLbCap"></p>
+        <span class="lb-count" id="galLbCount"></span>
+        <button class="work-arrow" id="galLbPrev" type="button" aria-label="Previous"
+          data-i18n-attr="aria-label:home.gal.prev">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+        <button class="work-arrow" id="galLbNext" type="button" aria-label="Next"
+          data-i18n-attr="aria-label:home.gal.next">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </button>
+        <button class="work-arrow" id="galLbClose" type="button" aria-label="Close"
+          data-i18n-attr="aria-label:home.gal.close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
     <!-- ════════ TESTIMONIALS + CLOSING — shared kinetic-grid wrap, reads as one section ════════ -->
     <div class="kinetic-wrap" id="testiClosingWrap">
       <canvas class="kinetic-canvas" id="kineticCanvas2" aria-hidden="true"></canvas>
@@ -2062,7 +2575,7 @@
       <section class="testi sec-pad" id="testimonials">
         <div class="sec-head">
           <div>
-            <span class="sec-label" style="margin-bottom:18px;" data-i18n="home.testi.label">Testimonials</span>
+            <span class="sec-label" data-i18n="home.testi.label">Testimonials</span>
             <h2 class="sec-title" data-i18n-html="home.testi.title">What people <em>are saying</em></h2>
           </div>
         </div>
@@ -2520,14 +3033,24 @@
       if (reduceMotion || !("IntersectionObserver" in window)) {
         items.forEach(function (el) { el.classList.add("is-in"); });
       } else {
+        /* elements that cross into view in the same frame cascade (60ms apart)
+           instead of landing as one block. The stagger is per batch, so a card far
+           down a mobile list never waits on its siblings, and the delay is cleared
+           once it lands so it can't slow down later hover/press transitions. */
         var io = new IntersectionObserver(function (entries) {
+          var batch = 0;
           entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-in");
-              io.unobserve(entry.target);
+            if (!entry.isIntersecting) return;
+            var el = entry.target;
+            var delay = Math.min(batch++, 5) * 60;
+            if (delay) {
+              el.style.transitionDelay = delay + "ms";
+              window.setTimeout(function () { el.style.transitionDelay = ""; }, delay + 820);
             }
+            el.classList.add("is-in");
+            io.unobserve(el);
           });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.15, rootMargin: "0px 0px -6% 0px" });
         items.forEach(function (el) { io.observe(el); });
       }
 
@@ -2879,6 +3402,247 @@
         if (window.I18N && window.I18N.onChange) {
           window.I18N.onChange(function () { applyContent(current); });
         }
+      })();
+
+      /* gallery: hover pans the long page inside its card; click grows the card
+         into a scrollable full-page view (shared-element transition), and closing
+         flies it back into the card it came from */
+      (function () {
+        var track = document.getElementById("galTrack");
+        var lb = document.getElementById("galLb");
+        if (!track || !lb) return;
+        var items = Array.prototype.slice.call(track.querySelectorAll(".gal-item"));
+        var scroller = document.getElementById("galLbScroll");
+        var big = document.getElementById("galLbImg");
+        var cap = document.getElementById("galLbCap");
+        var count = document.getElementById("galLbCount");
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+        var EASE = "cubic-bezier(.32, .72, 0, 1)";
+        var index = -1;
+        var busy = false;
+
+        function thumbOf(item) { return item.querySelector(".gal-media img"); }
+        function mediaOf(item) { return item.querySelector(".gal-media"); }
+
+        /* current pan offset of a thumb, read mid-transition if needed */
+        function panOf(img) {
+          var t = getComputedStyle(img).transform;
+          if (!t || t === "none") return 0;
+          var m = t.match(/matrix\(([^)]+)\)/);
+          return m ? -parseFloat(m[1].split(",")[5]) || 0 : 0;
+        }
+
+        /* hover pan: speed stays constant (~420px/s) so short and long pages feel the same */
+        if (canHover && !reduce) {
+          items.forEach(function (item) {
+            var img = thumbOf(item);
+            item.addEventListener("mouseenter", function () {
+              var dist = img.offsetHeight - mediaOf(item).offsetHeight;
+              if (dist <= 0) return;
+              var dur = Math.min(Math.max(dist / 420, 2.4), 12);
+              img.style.transition = "transform " + dur + "s cubic-bezier(.45, 0, .55, 1)";
+              img.style.transform = "translateY(" + -dist + "px)";
+            });
+            item.addEventListener("mouseleave", function () {
+              img.style.transition = "";
+              img.style.transform = "";
+            });
+          });
+        }
+
+        /* rail arrows + mouse drag (touch scrolls natively) */
+        function step(dir) {
+          track.scrollBy({ left: dir * track.clientWidth * 0.8, behavior: reduce ? "auto" : "smooth" });
+        }
+        document.getElementById("galPrev").addEventListener("click", function () { step(-1); });
+        document.getElementById("galNext").addEventListener("click", function () { step(1); });
+        var prevBtn = document.getElementById("galPrev");
+        var nextBtn = document.getElementById("galNext");
+        function syncArrows() {
+          var max = track.scrollWidth - track.clientWidth - 2;
+          prevBtn.disabled = track.scrollLeft <= 2;
+          nextBtn.disabled = track.scrollLeft >= max;
+        }
+        track.addEventListener("scroll", syncArrows, { passive: true });
+        window.addEventListener("resize", syncArrows);
+        syncArrows();
+
+        var drag = null;
+        var dragged = false;
+        track.addEventListener("pointerdown", function (e) {
+          if (e.pointerType !== "mouse" || e.button !== 0) return;
+          drag = { x: e.clientX, left: track.scrollLeft };
+          dragged = false;
+        });
+        window.addEventListener("pointermove", function (e) {
+          if (!drag) return;
+          var dx = e.clientX - drag.x;
+          if (!dragged && Math.abs(dx) > 5) {
+            dragged = true;
+            track.classList.add("is-dragging");
+          }
+          if (dragged) track.scrollLeft = drag.left - dx;
+        });
+        window.addEventListener("pointerup", function () {
+          if (!drag) return;
+          drag = null;
+          if (dragged) {
+            /* re-enable snap from the released position so it settles on a card */
+            var left = track.scrollLeft;
+            track.classList.remove("is-dragging");
+            track.scrollLeft = left;
+          }
+        });
+
+        /* geometry for the flight between card and full view */
+        function flight(item, pan) {
+          var c = mediaOf(item).getBoundingClientRect();
+          var f = big.getBoundingClientRect();
+          var s = c.width / f.width;
+          var visible = c.height / s;
+          var top = pan / s;
+          var bottom = Math.max(f.height - top - visible, 0);
+          return {
+            transform: "translate(" + (c.left - f.left) + "px," + (c.top - f.top - pan) + "px) scale(" + s + ")",
+            clip: "inset(" + top + "px 0 " + bottom + "px 0 round " + 14 / s + "px)"
+          };
+        }
+
+        function fill(i) {
+          var item = items[i];
+          var w = +item.getAttribute("data-w");
+          var h = +item.getAttribute("data-h");
+          var thumb = thumbOf(item);
+          big.style.aspectRatio = w + " / " + h;
+          big.width = w;
+          big.height = h;
+          big.alt = thumb.alt;
+          /* show the already-loaded thumb instantly, swap to the sharp file when ready */
+          big.src = thumb.currentSrc || thumb.src;
+          var full = new Image();
+          full.onload = function () { if (index === i) big.src = full.src; };
+          full.src = item.getAttribute("data-full");
+          var name = item.querySelector(".gal-cap b").textContent;
+          var kind = item.querySelector(".gal-cap span").textContent;
+          cap.innerHTML = "";
+          var b = document.createElement("b");
+          b.textContent = name;
+          cap.appendChild(b);
+          cap.appendChild(document.createTextNode(kind));
+          count.textContent = String(i + 1).padStart(2, "0") + " / " + String(items.length).padStart(2, "0");
+        }
+
+        function open(i) {
+          if (busy) return;
+          var item = items[i];
+          var pan = panOf(thumbOf(item));
+          index = i;
+          fill(i);
+          lb.hidden = false;
+          scroller.scrollTop = 0;
+          document.documentElement.style.overflow = "hidden";
+          void lb.offsetWidth;
+          lb.classList.add("is-open");
+          if (!reduce) {
+            busy = true;
+            var from = flight(item, pan);
+            mediaOf(item).style.visibility = "hidden";
+            var anim = big.animate([
+              { transform: from.transform, clipPath: from.clip },
+              { transform: "none", clipPath: "inset(0px 0px 0px 0px round 10px)" }
+            ], { duration: 520, easing: EASE });
+            anim.onfinish = anim.oncancel = function () {
+              busy = false;
+              mediaOf(item).style.visibility = "";
+            };
+          }
+          document.getElementById("galLbClose").focus({ preventScroll: true });
+        }
+
+        function done() {
+          lb.hidden = true;
+          lb.classList.remove("is-open");
+          document.documentElement.style.overflow = "";
+          busy = false;
+        }
+
+        function close() {
+          if (busy || index < 0) return;
+          var item = items[index];
+          var thumb = thumbOf(item);
+          thumb.style.transition = "none";
+          thumb.style.transform = "";
+          lb.classList.remove("is-open");
+          var r = mediaOf(item).getBoundingClientRect();
+          var onScreen = r.right > 0 && r.left < window.innerWidth && r.bottom > 0 && r.top < window.innerHeight;
+          if (reduce || !onScreen) {
+            if (reduce) { done(); } else {
+              busy = true;
+              big.animate([{ opacity: 1, transform: "none" }, { opacity: 0, transform: "scale(.96)" }],
+                { duration: 220, easing: "ease-out" }).onfinish = done;
+            }
+          } else {
+            busy = true;
+            var to = flight(item, 0);
+            mediaOf(item).style.visibility = "hidden";
+            var anim = big.animate([
+              { transform: "none", clipPath: "inset(0px 0px 0px 0px round 10px)" },
+              { transform: to.transform, clipPath: to.clip }
+            ], { duration: 420, easing: EASE, fill: "forwards" });
+            anim.onfinish = function () {
+              mediaOf(item).style.visibility = "";
+              thumb.style.transition = "";
+              anim.cancel();
+              done();
+            };
+          }
+          item.focus({ preventScroll: true });
+          index = -1;
+        }
+
+        /* in-lightbox stepping: crossfade, and keep the rail in sync so closing lands on the right card */
+        function go(dir) {
+          if (busy || index < 0) return;
+          var i = (index + dir + items.length) % items.length;
+          index = i;
+          var item = items[i];
+          track.scrollTo({ left: item.offsetLeft - track.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft) });
+          if (reduce) { fill(i); scroller.scrollTop = 0; return; }
+          busy = true;
+          big.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 120, easing: "ease-out" }).onfinish = function () {
+            fill(i);
+            scroller.scrollTop = 0;
+            big.animate([{ opacity: 0, transform: "translateY(8px)" }, { opacity: 1, transform: "none" }],
+              { duration: 240, easing: "cubic-bezier(.23, 1, .32, 1)" });
+            busy = false;
+          };
+        }
+
+        items.forEach(function (item, i) {
+          item.addEventListener("click", function (e) {
+            if (dragged) { e.preventDefault(); dragged = false; return; }
+            open(i);
+          });
+        });
+        document.getElementById("galLbClose").addEventListener("click", close);
+        document.getElementById("galLbPrev").addEventListener("click", function () { go(-1); });
+        document.getElementById("galLbNext").addEventListener("click", function () { go(1); });
+        /* click on the empty sides of the scroll area closes, clicks on the image don't */
+        scroller.addEventListener("click", function (e) { if (e.target === scroller) close(); });
+        document.addEventListener("keydown", function (e) {
+          if (lb.hidden) return;
+          if (e.key === "Escape") close();
+          else if (e.key === "ArrowRight") go(1);
+          else if (e.key === "ArrowLeft") go(-1);
+          else if (e.key === "Tab") {
+            /* keep focus inside the dialog */
+            var f = lb.querySelectorAll("button");
+            var first = f[0], last = f[f.length - 1];
+            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+            else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+          }
+        });
       })();
     })();
   </script>

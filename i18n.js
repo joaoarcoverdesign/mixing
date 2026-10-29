@@ -198,6 +198,25 @@
       pt: "Orquestrador",
       es: "Orquestador"
     },
+    "home.gal.label": { en: "Archive", pt: "Arquivo", es: "Archivo" },
+    "home.gal.title": {
+      en: 'More <em>work</em>',
+      pt: 'Mais <em>trabalhos</em>',
+      es: 'Más <em>trabajos</em>'
+    },
+    "home.gal.prev": { en: "Previous", pt: "Anterior", es: "Anterior" },
+    "home.gal.next": { en: "Next", pt: "Próximo", es: "Siguiente" },
+    "home.gal.close": { en: "Close", pt: "Fechar", es: "Cerrar" },
+    "home.gal.t.dating": { en: "Dating app", pt: "App de relacionamento", es: "App de citas" },
+    "home.gal.t.product": { en: "Product design", pt: "Design de produto", es: "Diseño de producto" },
+    "home.gal.t.website": { en: "Website design", pt: "Design de site", es: "Diseño de sitio web" },
+    "home.gal.t.redesign": { en: "Website redesign", pt: "Redesign de site", es: "Rediseño de sitio web" },
+    "home.gal.t.mobile": { en: "Mobile app", pt: "App mobile", es: "App móvil" },
+    "home.gal.t.platform": { en: "Platform redesign", pt: "Redesign de plataforma", es: "Rediseño de plataforma" },
+    "home.gal.t.elearn": { en: "E-learning app", pt: "App de e-learning", es: "App de e-learning" },
+    "home.gal.t.landing": { en: "Landing page", pt: "Landing page", es: "Landing page" },
+    "home.gal.t.course": { en: "Course page", pt: "Página de curso", es: "Página de curso" },
+    "home.gal.t.testing": { en: "Test automation platform", pt: "Plataforma de automação de testes", es: "Plataforma de automatización de pruebas" },
     "home.aisys.b1": {
       en: "Context & direction",
       pt: "Contexto e direção",
