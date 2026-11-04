@@ -7,7 +7,9 @@
                            transform: scale() + transform-origin), para alinhar fotos de
                            enquadramentos diferentes.
      radiusScale          multiplica o raio responsivo (containers pequenos pedem gota maior).
-     onReady()            chamado quando as duas texturas carregaram e o 1º frame foi desenhado. */
+     onReady()            chamado quando as duas texturas carregaram e o 1º frame foi desenhado.
+     swap(x, y)           inunda o canvas com a imagem B a partir de (x, y) em coordenadas de
+                          cliente e, ao cobrir tudo, troca A e B (o hover passa a revelar a outra). */
 (function (global) {
   "use strict";
 
@@ -46,6 +48,8 @@ uniform float u_noise_scale;
 uniform float u_noise_strength;
 uniform float u_noise_speed;
 uniform float u_refraction_strength;
+uniform vec2 u_flood_center;
+uniform float u_flood;
 
 // --- Simplex Noise 2D — Ian McEwan, Ashima Arts (domínio público/MIT) ---
 vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
@@ -148,6 +152,13 @@ void main() {
   float mask = 1.0 - smoothstep(-u_edge_softness, u_edge_softness, deformedDist);
   mask = clamp(mask * u_progress, 0.0, 1.0);
 
+  // 4b. Inundação do clique: gota que cresce a partir do ponto clicado até cobrir tudo.
+  if (u_flood > 0.0) {
+    float maxR = length(aspect) * 1.15;
+    float fd = length(p - u_flood_center * aspect) - u_flood * maxR - noiseDisplacement * 2.0;
+    mask = max(mask, 1.0 - smoothstep(-u_edge_softness, u_edge_softness, fd));
+  }
+
   // 5. Refração de menisco: só na faixa da borda.
   float edgeBand = smoothstep(0.0, 0.5, mask) * smoothstep(1.0, 0.5, mask);
 
@@ -170,7 +181,7 @@ void main() {
     "u_texA", "u_texB", "u_resolution", "u_image_resolution", "u_image_resolution_b",
     "u_framing_a", "u_framing_b", "u_trail", "u_radii", "u_trail_count", "u_speed",
     "u_time", "u_progress", "u_edge_softness", "u_noise_scale", "u_noise_strength",
-    "u_noise_speed", "u_refraction_strength"
+    "u_noise_speed", "u_refraction_strength", "u_flood_center", "u_flood"
   ];
 
   function framing(f) {
@@ -182,6 +193,8 @@ void main() {
     this.canvas = opts.canvas;
     this.container = opts.container;
     this.onReady = opts.onReady || null;
+    this.onSwap = opts.onSwap || null;
+    this.swapped = false;
 
     this.radius = opts.radius != null ? opts.radius : 0.075;
     this.radiusScale = opts.radiusScale || 1;
@@ -216,6 +229,11 @@ void main() {
     this.texturesReady = 0;
     this.needsDraw = true;
     this.startTime = performance.now();
+    this.flood = 0;          // 0..1 durante a transição do clique
+    this.floodStart = 0;
+    this.floodDuration = reduced ? 350 : 900;
+    this.holdHover = false;  // após a troca, o hover só volta quando o mouse se mexe
+    this.holdFrom = { x: 0.5, y: 0.5 };
     this.raf = 0;
 
     this.gl = this.canvas.getContext("webgl", {
@@ -299,6 +317,7 @@ void main() {
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
       gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
       self[key] = tex;
+      self[unit === 0 ? "resA" : "resB"] = [img.naturalWidth, img.naturalHeight];
       gl.uniform2f(unit === 0 ? self.u.u_image_resolution : self.u.u_image_resolution_b,
         img.naturalWidth, img.naturalHeight);
       self.texturesReady++;
@@ -338,8 +357,12 @@ void main() {
       mousemove: function (e) {
         if (!self.isHovered) enter(e.clientX, e.clientY);
         else setTarget(e.clientX, e.clientY);
+        if (self.holdHover) {
+          var hx = self.targetMouse.x - self.holdFrom.x, hy = self.targetMouse.y - self.holdFrom.y;
+          if (hx * hx + hy * hy > 0.0036) self.holdHover = false;
+        }
       },
-      mouseleave: function () { self.isHovered = false; },
+      mouseleave: function () { self.isHovered = false; self.holdHover = false; },
       touchstart: function (e) { var t = e.touches[0]; if (t) enter(t.clientX, t.clientY); },
       touchmove: function (e) { var t = e.touches[0]; if (t) setTarget(t.clientX, t.clientY); },
       touchend: function () { self.isHovered = false; }
@@ -408,13 +431,22 @@ void main() {
       pts[i].y += (pts[i - 1].y - pts[i].y) * damping;
     }
 
+    // Inundação do clique
+    var flooding = this.floodStart > 0;
+    if (flooding) {
+      var ft = Math.min(1, (performance.now() - this.floodStart) / this.floodDuration);
+      this.flood = ft < 0.5 ? 4 * ft * ft * ft : 1 - Math.pow(-2 * ft + 2, 3) / 2; // easeInOutCubic
+      if (ft >= 1) this._commitSwap();
+    }
+
     // D) Progresso — entra rápido, sai devagar
-    if (this.isHovered) this.currentProgress += (1 - this.currentProgress) * 0.16;
+    var hoverOn = this.isHovered && !this.holdHover && this.floodStart === 0;
+    if (hoverOn) this.currentProgress += (1 - this.currentProgress) * 0.16;
     else this.currentProgress += (0 - this.currentProgress) * 0.09;
-    if (this.currentProgress < 0.0001 && !this.isHovered) this.currentProgress = 0;
+    if (this.currentProgress < 0.0001 && !hoverOn) this.currentProgress = 0;
 
     // Em repouso total a imagem A é estática: desenha uma vez e para.
-    if (this.currentProgress === 0 && !this.isHovered && !this.needsDraw) return;
+    if (this.currentProgress === 0 && !hoverOn && !flooding && !this.needsDraw) return;
     this.needsDraw = false;
 
     // E) Raios afinando + expansão por velocidade
@@ -438,6 +470,7 @@ void main() {
     gl.uniform1f(u.u_noise_strength, this.noiseStrength);
     gl.uniform1f(u.u_noise_speed, this.noiseSpeed);
     gl.uniform1f(u.u_refraction_strength, this.refractionStrength);
+    gl.uniform1f(u.u_flood, this.flood);
     gl.drawArrays(gl.TRIANGLES, 0, 6);
 
     if (this.onReady) {
@@ -445,6 +478,40 @@ void main() {
       this.onReady = null;
       cb();
     }
+  };
+
+  LiquidReveal.prototype.swap = function (clientX, clientY) {
+    if (this.failed || this.texturesReady < 2 || this.floodStart > 0) return false;
+    var r = this.container.getBoundingClientRect();
+    var x = clientX == null ? 0.5 : Math.min(1, Math.max(0, (clientX - r.left) / r.width));
+    var y = clientY == null ? 0.5 : Math.min(1, Math.max(0, (clientY - r.top) / r.height));
+    this.gl.uniform2f(this.u.u_flood_center, x, y);
+    this.floodStart = performance.now();
+    this.flood = 0;
+    return true;
+  };
+
+  // Fim da inundação: B cobre tudo, então trocar A<->B é invisível.
+  LiquidReveal.prototype._commitSwap = function () {
+    var gl = this.gl, u = this.u;
+    var tex = this.texA; this.texA = this.texB; this.texB = tex;
+    var res = this.resA; this.resA = this.resB; this.resB = res;
+    var fr = this.framingA; this.framingA = this.framingB; this.framingB = fr;
+    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, this.texA);
+    gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, this.texB);
+    gl.uniform2f(u.u_image_resolution, this.resA[0], this.resA[1]);
+    gl.uniform2f(u.u_image_resolution_b, this.resB[0], this.resB[1]);
+    gl.uniform3fv(u.u_framing_a, this.framingA);
+    gl.uniform3fv(u.u_framing_b, this.framingB);
+    this.flood = 0;
+    this.floodStart = 0;
+    this.currentProgress = 0;
+    this.holdHover = this.isHovered;
+    this.holdFrom.x = this.targetMouse.x;
+    this.holdFrom.y = this.targetMouse.y;
+    this.swapped = !this.swapped;
+    this.needsDraw = true;
+    if (this.onSwap) this.onSwap(this.swapped);
   };
 
   LiquidReveal.prototype.destroy = function () {

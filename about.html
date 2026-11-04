@@ -254,6 +254,8 @@ section{position:relative;}
   opacity:0;transition:opacity .4s var(--ease);
 }
 .portrait-liquid.is-ready{opacity:1;}
+.portrait-frame.is-swappable{cursor:pointer;}
+.portrait-frame.is-swappable:focus-visible{outline:2px solid var(--accent);outline-offset:6px;}
 .portrait-badge{
   position:absolute;z-index:3;
   background:var(--surface);border:1px solid var(--line);border-radius:16px;
@@ -849,7 +851,21 @@ section{position:relative;}
       framingA: { scale: 1.4, originX: 0.5, originY: 0.22 },   // same crop as the <img>
       framingB: { scale: 1.12, originX: 0.5, originY: 0.75 },  // lines the faces up
       radiusScale: 2.2,                                         // small 340px frame needs a bigger drop
-      onReady: function(){ liquidCanvas.classList.add("is-ready"); }
+      onReady: function(){
+        liquidCanvas.classList.add("is-ready");
+        frame.classList.add("is-swappable");
+        frame.setAttribute("role", "button");
+        frame.setAttribute("tabindex", "0");
+        frame.setAttribute("aria-pressed", "false");
+        frame.setAttribute("aria-label", "Swap portrait between João and the X-wing pilot version");
+      },
+      onSwap: function(swapped){ frame.setAttribute("aria-pressed", swapped ? "true" : "false"); }
+    });
+    /* click swaps the photos: the hover photo floods in from the click point and becomes the base */
+    var frame = liquidCanvas.parentNode;
+    frame.addEventListener("click", function(e){ liquid.swap(e.clientX, e.clientY); });
+    frame.addEventListener("keydown", function(e){
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); liquid.swap(); }
     });
     window.addEventListener("pagehide", function(e){ if (!e.persisted) liquid.destroy(); });
   }
