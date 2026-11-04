@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en" data-i18n-page="zack">
+<head>
+<script src="../analytics.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../Img/favicon.png">
+<link rel="apple-touch-icon" href="../Img/favicon.png">
+<script src="../i18n/zack.js"></script>
+<script src="../i18n.js"></script>
+<title>Zack: Scheduling and Attendance | Abdalla Design</title>
+<meta name="description" content="Zack, an internal tool to schedule recurring bootcamp classes and meetings and turn attendance into reports. Solo UX and UI design, web and mobile.">
+<link rel="canonical" href="https://www.abdallajoao.com/cases/zack.html">
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Abdalla Design">
+<meta property="og:url" content="https://www.abdallajoao.com/cases/zack.html">
+<meta property="og:title" content="Zack: Scheduling and Attendance | Abdalla Design">
+<meta property="og:description" content="Zack, an internal tool to schedule recurring bootcamp classes and meetings and turn attendance into reports. Solo UX and UI design, web and mobile.">
+<meta property="og:image" content="https://www.abdallajoao.com/Img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Selected work by João Abdalla: product and UX/UI design projects">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Zack: Scheduling and Attendance | Abdalla Design">
+<meta name="twitter:description" content="Zack, an internal tool to schedule recurring bootcamp classes and meetings and turn attendance into reports. Solo UX and UI design, web and mobile.">
+<meta name="twitter:image" content="https://www.abdallajoao.com/Img/og-cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* abdalladesign visual identity — matches index.html (Arcoverdesign v5) */
+  --bg:#11161A;
+  --bg-deep:#0C1013;
+  --surface:#1A2025;
+  --ink:#F4F6F3;
+  --ink-soft:#9BA4AA;
+  --ink-dim:#5E676D;
+  --num-dim:#333B41;
+  --line:rgba(255,255,255,.08);
+  --line-soft:rgba(255,255,255,.05);
+  --accent:#C2FC50;
+  --accent-soft:rgba(194,252,80,.12);
+  --radius-lg:16px;
+  --radius-md:14px;
+  --sans:'Urbanist', sans-serif;
+  --body:'Urbanist', sans-serif;
+  --serif:'Lora', Georgia, serif;
+  --px: clamp(20px, 5vw, 72px);
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6;
+}
+::selection{background:var(--accent);color:var(--bg-deep);}
+a{color:inherit;text-decoration:none;}
+button{font:inherit;background:none;border:none;cursor:pointer;color:inherit;}
+img{max-width:100%;display:block;}
+ul,ol{list-style:none;}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
+.container{max-width:1160px;margin:0 auto;padding:0 var(--px);}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;transition:transform .5s var(--ease);}
+nav.is-hidden{transform:translateY(-110%);}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px var(--px);
+  background:linear-gradient(rgba(12,16,19,.85),rgba(12,16,19,.4) 70%,transparent);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+}
+.nav-brand{display:flex;align-items:center;gap:13px;}
+.nav-avatar{width:44px;height:44px;border-radius:50%;flex:0 0 auto;object-fit:cover;border:2px solid var(--ink);}
+.nav-brand-text{display:flex;flex-direction:column;line-height:1.2;}
+.nav-name{font-family:var(--sans);font-weight:700;font-size:17px;letter-spacing:-.01em;color:var(--ink);}
+.nav-role{font-family:var(--sans);font-weight:400;font-size:12px;color:var(--ink-soft);margin-top:1px;}
+@media (max-width:480px){.nav-role{display:none;}}
+.nav-links{display:flex;gap:34px;list-style:none;align-items:center;}
+.nav-links a{
+  font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-soft);position:relative;padding:4px 0;transition:color .25s;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;
+  background:var(--accent);transform:scaleX(0);transform-origin:right;
+  transition:transform .4s var(--ease);
+}
+.nav-links a:hover{color:var(--ink);}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left;}
+@media (max-width:720px){.nav-links{gap:20px;}}
+
+/* mobile: hamburger + dropdown panel */
+.nav-toggle{display:none;}
+.nav-toggle svg{width:22px;height:22px;}
+.nav-toggle .icon-close{display:none;}
+.nav-lang-slot{display:none;}
+@media (max-width:760px){
+  .nav-toggle{
+    display:flex;align-items:center;justify-content:center;
+    width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
+    color:var(--ink);flex:0 0 auto;
+  }
+  .nav-lang-slot{display:inline-flex;margin-left:auto;margin-right:14px;}
+  .nav-links .lang-switch-li{display:none;}
+  nav.is-open .nav-toggle .icon-open{display:none;}
+  nav.is-open .nav-toggle .icon-close{display:block;}
+  .nav-links{
+    position:absolute;top:calc(100% - 6px);left:var(--px);right:var(--px);
+    flex-direction:column;align-items:stretch;gap:0;
+    background:var(--bg-deep);border:1px solid var(--line);border-radius:14px;
+    padding:6px;
+    opacity:0;transform:translateY(-8px);pointer-events:none;
+    transition:opacity .3s var(--ease),transform .3s var(--ease);
+  }
+  nav.is-open .nav-links{opacity:1;transform:none;pointer-events:auto;}
+  nav.is-open.is-hidden{transform:none;}
+  .nav-links li{border-bottom:1px solid var(--line);}
+  .nav-links li:last-child,
+  .nav-links li:nth-last-child(2){border-bottom:0;}
+  .nav-links a{display:block;padding:15px 14px;font-size:13px;letter-spacing:.12em;color:var(--ink);}
+  .nav-links a::after{display:none;}
+}
+
+/* HERO */
+.hero{padding:140px var(--px) 56px;}
+.hero-title{font-family:var(--sans);font-weight:800;font-size:clamp(32px,5.2vw,56px);line-height:1.06;letter-spacing:-.02em;margin-bottom:14px;color:var(--ink);}
+.hero-sub{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(18px,2.2vw,22px);color:var(--ink);opacity:.85;margin-bottom:24px;}
+.hero-text{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:640px;margin-bottom:40px;}
+.hero-specs{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid var(--line);padding-top:28px;margin-bottom:48px;}
+.spec-label{font-family:var(--sans);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-dim);margin-bottom:8px;}
+.spec-value{font-size:15px;font-weight:700;line-height:1.4;color:var(--ink);}
+
+/* IMAGES */
+.hero-banner{border-radius:var(--radius-lg);overflow:hidden;}
+.hero-banner img{display:block;width:100%;height:auto;}
+.img-placeholder.filled{background:var(--bg-deep);border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;}
+.img-placeholder.filled img{width:100%;height:auto;display:block;}
+.img-caption{display:block;margin-top:14px;font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);text-align:center;}
+.img-duo{display:flex;gap:16px;}
+.img-duo>div{flex:1;}
+
+/* SECTIONS */
+section{padding:88px 0;}
+section+section{border-top:1px solid var(--line);}
+.eyebrow{font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);flex:0 0 auto;}
+.sec-title{font-family:var(--sans);font-weight:800;font-size:clamp(26px,3.6vw,40px);line-height:1.18;letter-spacing:-.01em;max-width:760px;margin-bottom:22px;color:var(--ink);}
+.sec-lede{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:620px;margin-bottom:44px;}
+.sec-lede:last-child{margin-bottom:0;}
+
+/* two independent blocks side by side (brief) */
+.split-2{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
+
+/* three parallel cards */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:44px;}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:44px;}
+.insight-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:28px;}
+.insight-label{font-family:var(--sans);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:12px;}
+.insight-title{font-family:var(--sans);font-weight:800;font-size:17px;margin-bottom:10px;letter-spacing:-.01em;color:var(--ink);}
+.insight-text{font-family:var(--body);font-size:14.5px;color:var(--ink-soft);line-height:1.7;}
+
+/* sequential steps (no image) */
+.step{padding:32px 0;border-top:1px solid var(--line);}
+.step:first-child{border-top:none;padding-top:0;}
+.step-num{font-family:var(--serif);font-style:italic;font-weight:500;font-size:36px;color:var(--num-dim);line-height:1;margin-bottom:14px;}
+.step-title{font-family:var(--sans);font-weight:800;font-size:20px;margin-bottom:12px;letter-spacing:-.01em;max-width:640px;color:var(--ink);}
+.step-text{font-family:var(--body);color:var(--ink-soft);font-size:15px;line-height:1.75;max-width:720px;}
+
+/* RESULT — surface card */
+.result-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(28px,4vw,48px);}
+.result-card .eyebrow{margin-bottom:20px;}
+.result-card p{font-family:var(--body);font-size:clamp(18px,2.2vw,22px);line-height:1.5;color:var(--ink);max-width:44ch;}
+
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+.rv.is-in{opacity:1;transform:none;}
+
+footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep);}
+.footer-inner{text-align:center;font-family:var(--sans);font-weight:600;font-size:13px;color:var(--ink-dim);}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  .rv{opacity:1;transform:none;transition:none;}
+}
+
+@media (max-width:860px){
+  .hero-specs{grid-template-columns:repeat(2,1fr);gap:20px;}
+  .split-2{grid-template-columns:1fr;gap:32px;}
+  .grid-3,.grid-2{grid-template-columns:1fr;}
+  .nav-links{gap:18px;}
+}
+
+/* mobile screens row */
+.screens{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px;align-items:start;}
+.screens img{width:100%;height:auto;border-radius:18px;border:1px solid var(--line);background:var(--bg-deep);}
+@media (max-width:860px){.screens{grid-template-columns:repeat(2,1fr);gap:12px;}}
+.screens+.img-caption{margin-top:14px;}
+.zoomable{cursor:zoom-in;}
+.lightbox{position:fixed;inset:0;z-index:2000;display:flex;align-items:flex-start;justify-content:center;padding:clamp(14px,5vh,60px) clamp(14px,5vw,60px);background:rgba(8,10,13,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);opacity:0;visibility:hidden;transition:opacity .28s var(--ease),visibility .28s;overflow-y:auto;overscroll-behavior:contain;cursor:zoom-out;}
+.lightbox.is-open{opacity:1;visibility:visible;}
+.lightbox img{width:auto;max-width:min(1400px,100%);height:auto;margin:auto;border-radius:var(--radius-md);box-shadow:0 30px 90px rgba(0,0,0,.6);transform:scale(.96);transition:transform .28s var(--ease);cursor:default;}
+.lightbox.is-open img{transform:scale(1);}
+.lightbox-close{position:fixed;top:16px;right:18px;z-index:2001;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:rgba(20,25,30,.72);color:var(--ink);font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s var(--ease),transform .3s var(--ease);}
+.lightbox-close:hover{background:var(--surface);transform:rotate(90deg);}
+@media (max-width:600px){.lightbox{padding:10px;}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../index.html#top" class="nav-brand">
+      <img class="nav-avatar" src="../Img/joao-avatar.jpg" alt="João Abdalla">
+      <span class="nav-brand-text">
+        <span class="nav-name">João Abdalla</span>
+        <span class="nav-role" data-i18n="common.nav.role">Product designer UX UI</span>
+      </span>
+    </a>
+    <span class="lang-switch-slot nav-lang-slot"></span>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks" data-i18n-attr="aria-label:common.nav.menu">
+      <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#work" data-i18n="common.nav.works">Works</a></li>
+      <li><a href="../about.html" data-i18n="common.nav.about">About</a></li>
+      <li><a href="../index.html#contact" data-i18n="common.nav.contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <header class="hero container" role="banner">
+    <h1 class="hero-title rv">Zack</h1>
+    <p class="hero-sub rv" data-i18n="zack.hero.sub">Scheduling classes and tracking attendance</p>
+    <p class="hero-text rv" data-i18n="zack.hero.text">An internal Jalasoft tool for scheduling recurring classes and meetings across the Fullstack Bootcamps, and turning who showed up into reports the coordination team could actually use.</p>
+
+    <div class="hero-specs rv">
+      <div><div class="spec-label" data-i18n="zack.hero.spec1.label">Area</div><div class="spec-value" data-i18n="zack.hero.spec1.value">Product design</div></div>
+      <div><div class="spec-label" data-i18n="zack.hero.spec2.label">My Role</div><div class="spec-value" data-i18n="zack.hero.spec2.value">Solo designer, UX and UI</div></div>
+      <div><div class="spec-label" data-i18n="zack.hero.spec3.label">Platforms</div><div class="spec-value" data-i18n="zack.hero.spec3.value">Web and mobile</div></div>
+      <div><div class="spec-label" data-i18n="zack.hero.spec4.label">Focus</div><div class="spec-value" data-i18n="zack.hero.spec4.value">Scheduling and attendance</div></div>
+    </div>
+
+    <div class="hero-banner rv">
+      <img src="../Img/zack/web/zk-cover-hd.webp" alt="Zack on mobile and desktop: the list of appointments by bootcamp, with the actions menu open" width="1920" height="960" data-i18n-attr="alt:zack.cover.alt">
+    </div>
+  </header>
+
+  <!-- PROBLEM -->
+  <section id="brief">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="zack.brief.eyebrow">Problem Statement</div>
+      <h2 class="sec-title rv" data-i18n="zack.brief.title">Many bootcamps, many classes, no clear picture of who attended</h2>
+      <p class="sec-lede rv" data-i18n="zack.brief.body">Jalasoft runs Fullstack Bootcamps in Colombia, Brazil, Bolivia and Mexico. Every cohort has classes and meetings that repeat for months, with hundreds of participants. The coordination team needed one place to schedule all of it and to know, at the end, who had been there.</p>
+      <div class="grid-3 rv">
+        <div class="insight-card">
+          <div class="insight-label" data-i18n="zack.issues.1.label">Issue 01</div>
+          <h3 class="insight-title" data-i18n="zack.issues.1.title">Scattered schedules</h3>
+          <p class="insight-text" data-i18n="zack.issues.1.body">Classes and meetings for different countries, semesters and tracks lived in different places, with no shared structure.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-label" data-i18n="zack.issues.2.label">Issue 02</div>
+          <h3 class="insight-title" data-i18n="zack.issues.2.title">Recurrence at scale</h3>
+          <p class="insight-text" data-i18n="zack.issues.2.body">A single class could repeat three times a week for a whole semester, across time zones, with 999+ attendees to invite.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-label" data-i18n="zack.issues.3.label">Issue 03</div>
+          <h3 class="insight-title" data-i18n="zack.issues.3.title">Attendance without reports</h3>
+          <p class="insight-text" data-i18n="zack.issues.3.body">Knowing who attended a session meant manual work. There was no quick way to pull attendance for a period, a class or a person.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORGANIZE -->
+  <section id="organize">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="zack.organize.eyebrow">01 · Organize</div>
+      <h2 class="sec-title rv" data-i18n="zack.organize.title">Folders that mirror how the bootcamps are run</h2>
+      <p class="sec-lede rv" data-i18n="zack.organize.body">Appointments live in folders by country, year, semester, month and week, so the breadcrumb tells coordinators exactly where they are. Folders and appointments share one list, and every row has the same actions: edit, move, delete and reports.</p>
+      <div class="img-placeholder filled rv">
+        <img src="../Img/zack/web/zk-list.webp" alt="List of appointments on desktop, with bootcamp folders, appointments and the actions menu" loading="lazy" data-i18n-attr="alt:zack.organize.list.alt">
+      </div>
+      <span class="img-caption rv" data-i18n="zack.organize.list.caption">List of appointments, with the folder path in the breadcrumb.</span>
+
+      <div class="grid-2 rv" style="margin-top:44px;margin-bottom:0;">
+        <div>
+          <div class="img-placeholder filled"><img src="../Img/zack/web/zk-search.webp" alt="Search results for an attendee, listing the appointments they belong to" loading="lazy" data-i18n-attr="alt:zack.organize.search.alt"></div>
+          <span class="img-caption" data-i18n="zack.organize.search.caption">Search by attendee</span>
+        </div>
+        <div>
+          <div class="img-placeholder filled"><img src="../Img/zack/web/zk-move.webp" alt="Dialog to move an appointment to another folder" loading="lazy" data-i18n-attr="alt:zack.organize.move.alt"></div>
+          <span class="img-caption" data-i18n="zack.organize.move.caption">Move between folders</span>
+        </div>
+      </div>
+
+      <div class="screens rv">
+        <img src="../Img/zack/web/zk-m-list.webp" alt="Mobile list of appointments with the actions menu open" loading="lazy" data-i18n-attr="alt:zack.organize.m1.alt">
+        <img src="../Img/zack/web/zk-m-search.webp" alt="Mobile search results" loading="lazy" data-i18n-attr="alt:zack.organize.m2.alt">
+        <img src="../Img/zack/web/zk-m-folder.webp" alt="Mobile dialog to create a new folder" loading="lazy" data-i18n-attr="alt:zack.organize.m3.alt">
+        <img src="../Img/zack/web/zk-m-move.webp" alt="Mobile dialog to move an appointment" loading="lazy" data-i18n-attr="alt:zack.organize.m4.alt">
+      </div>
+      <span class="img-caption rv" data-i18n="zack.organize.mobile.caption">The same flows on mobile.</span>
+    </div>
+  </section>
+
+  <!-- CREATE -->
+  <section id="create">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="zack.create.eyebrow">02 · Schedule</div>
+      <h2 class="sec-title rv" data-i18n="zack.create.title">One form for a class that repeats all semester</h2>
+      <p class="sec-lede rv" data-i18n="zack.create.body">Creating an appointment keeps the calendar visible on the right, so the coordinator sees the week while filling the form. Three decisions made it work at bootcamp scale.</p>
+      <div class="rv">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3 class="step-title" data-i18n="zack.create.1.title">Attendees by the hundred</h3>
+          <p class="step-text" data-i18n="zack.create.1.body">Instead of typing emails one by one, coordinators drop a CSV with the whole cohort. Each attendee becomes a chip, and invalid or unregistered emails are flagged before saving.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3 class="step-title" data-i18n="zack.create.2.title">Recurrence in plain language</h3>
+          <p class="step-text" data-i18n="zack.create.2.body">The recurrence dialog picks the days of the week and the start and end dates, then sums it up in a sentence: "Occurs every Monday, Wednesday and Friday starting 31/07/2023 until 27/10/2023". The same sentence stays on the form, so nobody has to reopen the dialog to check.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3 class="step-title" data-i18n="zack.create.3.title">Time zones and safe exits</h3>
+          <p class="step-text" data-i18n="zack.create.3.body">Every appointment carries its time zone, because the same class reaches four countries. Leaving a half filled form asks for confirmation, so a long setup is never lost by accident.</p>
+        </div>
+      </div>
+      <div class="img-placeholder filled rv" style="margin-top:44px;">
+        <img src="../Img/zack/web/zk-new-filled.webp" alt="New appointment form filled in, next to the week calendar" loading="lazy" data-i18n-attr="alt:zack.create.form.alt">
+      </div>
+      <span class="img-caption rv" data-i18n="zack.create.form.caption">New appointment, with the week calendar beside it.</span>
+
+      <div class="grid-2 rv" style="margin-top:44px;margin-bottom:0;">
+        <div>
+          <div class="img-placeholder filled"><img src="../Img/zack/web/zk-attendees-csv.webp" alt="Dialog to import attendees from a CSV file" loading="lazy" data-i18n-attr="alt:zack.create.csv.alt"></div>
+          <span class="img-caption" data-i18n="zack.create.csv.caption">Import attendees from CSV</span>
+        </div>
+        <div>
+          <div class="img-placeholder filled"><img src="../Img/zack/web/zk-attendees.webp" alt="Attendee chips, with unregistered emails highlighted" loading="lazy" data-i18n-attr="alt:zack.create.chips.alt"></div>
+          <span class="img-caption" data-i18n="zack.create.chips.caption">Review and validate attendees</span>
+        </div>
+        <div>
+          <div class="img-placeholder filled"><img src="../Img/zack/web/zk-recurrence.webp" alt="Set recurrence dialog with days of the week and a summary sentence" loading="lazy" data-i18n-attr="alt:zack.create.recurrence.alt"></div>
+          <span class="img-caption" data-i18n="zack.create.recurrence.caption">Set recurrence</span>
+        </div>
+        <div>
+          <div class="img-placeholder filled"><img src="../Img/zack/web/zk-cancel.webp" alt="Confirmation dialog before discarding a new appointment" loading="lazy" data-i18n-attr="alt:zack.create.cancel.alt"></div>
+          <span class="img-caption" data-i18n="zack.create.cancel.caption">Confirm before discarding</span>
+        </div>
+      </div>
+
+      <div class="screens rv">
+        <img src="../Img/zack/web/zk-m-new.webp" alt="Mobile new appointment form, empty" loading="lazy" data-i18n-attr="alt:zack.create.m1.alt">
+        <img src="../Img/zack/web/zk-m-attendees.webp" alt="Mobile attendees dialog" loading="lazy" data-i18n-attr="alt:zack.create.m2.alt">
+        <img src="../Img/zack/web/zk-m-recurrence.webp" alt="Mobile set recurrence dialog" loading="lazy" data-i18n-attr="alt:zack.create.m3.alt">
+        <img src="../Img/zack/web/zk-m-filled.webp" alt="Mobile new appointment form, filled in" loading="lazy" data-i18n-attr="alt:zack.create.m4.alt">
+      </div>
+      <span class="img-caption rv" data-i18n="zack.create.mobile.caption">Scheduling on mobile.</span>
+    </div>
+  </section>
+
+  <!-- REVIEW -->
+  <section id="review">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="zack.review.eyebrow">03 · Review</div>
+      <h2 class="sec-title rv" data-i18n="zack.review.title">Every session, at the zoom level you need</h2>
+      <p class="sec-lede rv" data-i18n="zack.review.body">The review screen keeps the appointment details fixed on the left and lets the calendar change on the right: week, month, year or a plain list of every session. A single date can be edited without touching the whole series, and the appointment can be exported to Teams.</p>
+      <div class="img-placeholder filled rv">
+        <img src="../Img/zack/web/zk-week.webp" alt="Review appointment screen with the week view and the sessions of a recurring class" loading="lazy" data-i18n-attr="alt:zack.review.week.alt">
+      </div>
+      <span class="img-caption rv" data-i18n="zack.review.week.caption">Week view, with details and actions on the left.</span>
+
+      <div class="grid-2 rv" style="margin-top:44px;margin-bottom:0;">
+        <div>
+          <div class="img-placeholder filled"><img src="../Img/zack/web/zk-month.webp" alt="Month view with a session popover and a download report button" loading="lazy" data-i18n-attr="alt:zack.review.month.alt"></div>
+          <span class="img-caption" data-i18n="zack.review.month.caption">Month</span>
+        </div>
+        <div>
+          <div class="img-placeholder filled"><img src="../Img/zack/web/zk-year.webp" alt="Year view with twelve mini calendars" loading="lazy" data-i18n-attr="alt:zack.review.year.alt"></div>
+          <span class="img-caption" data-i18n="zack.review.year.caption">Year</span>
+        </div>
+        <div>
+          <div class="img-placeholder filled"><img src="../Img/zack/web/zk-list-view.webp" alt="List of every session of the appointment" loading="lazy" data-i18n-attr="alt:zack.review.list.alt"></div>
+          <span class="img-caption" data-i18n="zack.review.list.caption">List</span>
+        </div>
+        <div>
+          <div class="img-placeholder filled"><img src="../Img/zack/web/zk-edit-dates.webp" alt="Dialog to edit specific dates of a recurring appointment" loading="lazy" data-i18n-attr="alt:zack.review.edit.alt"></div>
+          <span class="img-caption" data-i18n="zack.review.edit.caption">Edit specific dates</span>
+        </div>
+      </div>
+
+      <div class="screens rv">
+        <img src="../Img/zack/web/zk-m-review.webp" alt="Mobile review appointment information" loading="lazy" data-i18n-attr="alt:zack.review.m1.alt">
+        <img src="../Img/zack/web/zk-m-day.webp" alt="Mobile day view" loading="lazy" data-i18n-attr="alt:zack.review.m2.alt">
+        <img src="../Img/zack/web/zk-m-range.webp" alt="Mobile date range view" loading="lazy" data-i18n-attr="alt:zack.review.m3.alt">
+      </div>
+      <span class="img-caption rv" data-i18n="zack.review.mobile.caption">Review on mobile: details, day and range.</span>
+    </div>
+  </section>
+
+  <!-- REPORTS -->
+  <section id="reports">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="zack.reports.eyebrow">04 · Report</div>
+      <h2 class="sec-title rv" data-i18n="zack.reports.title">Attendance reports in two clicks</h2>
+      <p class="sec-lede rv" data-i18n="zack.reports.body">The Reports tab filters sessions by title and date range, across every bootcamp. Coordinators select the sessions they need and download them together, one report per session or a single combined file, in PDF, CSV or DOCX.</p>
+      <div class="img-placeholder filled rv">
+        <img src="../Img/zack/web/zk-reports.webp" alt="Reports page listing sessions from July 31st to August 4th, with six selected" loading="lazy" data-i18n-attr="alt:zack.reports.list.alt">
+      </div>
+      <span class="img-caption rv" data-i18n="zack.reports.list.caption">Select sessions across bootcamps and download them at once.</span>
+      <div class="img-duo rv" style="margin-top:24px;align-items:flex-start;">
+        <div class="img-placeholder filled" style="flex:2.6;"><img src="../Img/zack/web/zk-report-type.webp" alt="Dialog to choose the report type and format" loading="lazy" data-i18n-attr="alt:zack.reports.type.alt"></div>
+        <div class="img-placeholder filled" style="flex:1;"><img src="../Img/zack/web/zk-m-report-type.webp" alt="Mobile dialog to choose the report type and format" loading="lazy" data-i18n-attr="alt:zack.reports.mtype.alt"></div>
+      </div>
+      <span class="img-caption rv" data-i18n="zack.reports.type.caption">Individual or combined, in PDF, CSV or DOCX.</span>
+    </div>
+  </section>
+
+  <!-- DESIGN SYSTEM -->
+  <section id="system">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="zack.system.eyebrow">Design System</div>
+      <h2 class="sec-title rv" data-i18n="zack.system.title">A small kit behind every screen</h2>
+      <p class="sec-lede rv" data-i18n="zack.system.body">Inputs, date and time pickers, search, attendee chips, buttons, the actions menu and the session cards were built once as components, with their states documented. Desktop and mobile share the same pieces, which kept both versions consistent and made the handoff to development direct.</p>
+      <div class="img-placeholder filled rv">
+        <img src="../Img/zack/web/zk-components.webp" alt="Zack components: selects, time and date pickers, search, buttons, chips, calendar and actions menu" loading="lazy" data-i18n-attr="alt:zack.system.alt">
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section id="conclusion">
+    <div class="container">
+      <div class="result-card rv">
+        <div class="eyebrow" data-i18n="zack.conclusion.title">Conclusion</div>
+        <p data-i18n="zack.conclusion.body1" style="margin-bottom:18px;">Zack covers the whole cycle in one tool: organize, schedule, review and report. The heavy parts of bootcamp logistics, like hundreds of attendees and classes that repeat for months, became a few clear steps.</p>
+        <p data-i18n="zack.conclusion.body2">Designing it alone, end to end, taught me to treat scale as a design problem: a CSV import and a sentence that explains a recurrence did more for coordinators than any extra screen would have.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+  <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
+  <img src="" alt="">
+</div>
+
+<footer>
+  <div class="container footer-inner">Copyright © abdalladesign 2026</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+</script>
+<script>
+  (function(){
+    var lastY = 0, nav = document.getElementById("nav");
+    if (!nav) return;
+    window.addEventListener("scroll", function(){
+      var y = window.scrollY;
+      if (y > 140 && y > lastY) nav.classList.add("is-hidden");
+      else nav.classList.remove("is-hidden");
+      lastY = y;
+    }, { passive: true });
+  })();
+</script>
+<script>
+  /* mobile nav — hamburger toggles the dropdown panel */
+  (function () {
+    var nav = document.getElementById("nav");
+    var toggle = document.getElementById("navToggle");
+    var panel = document.getElementById("navLinks");
+    if (!nav || !toggle || !panel) return;
+
+    function close() {
+      nav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+    function open() {
+      nav.classList.add("is-open");
+      toggle.setAttribute("aria-expanded", "true");
+    }
+
+    toggle.addEventListener("click", function () {
+      nav.classList.contains("is-open") ? close() : open();
+    });
+    panel.addEventListener("click", function (e) {
+      if (e.target.closest("a")) close();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") close();
+    });
+    document.addEventListener("click", function (e) {
+      if (nav.classList.contains("is-open") && !e.target.closest(".nav-inner")) close();
+    });
+    window.addEventListener("scroll", close, { passive: true });
+  })();
+</script>
+<script>
+  /* lightbox — zoom every screen of the case */
+  (function(){
+    var lb=document.getElementById('lightbox');
+    if(!lb) return;
+    var lbImg=lb.querySelector('img');
+    function open(src,alt){
+      lbImg.src=src;lbImg.alt=alt||'';lb.scrollTop=0;
+      lb.classList.add('is-open');lb.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+    }
+    function close(){
+      lb.classList.remove('is-open');lb.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
+      setTimeout(function(){if(!lb.classList.contains('is-open'))lbImg.removeAttribute('src');},300);
+    }
+    document.querySelectorAll('main img').forEach(function(im){
+      im.classList.add('zoomable');
+      im.addEventListener('click',function(){open(im.currentSrc||im.src,im.alt);});
+    });
+    lb.addEventListener('click',function(e){if(e.target!==lbImg)close();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('is-open'))close();});
+  })();
+</script>
+
+</body>
+</html>

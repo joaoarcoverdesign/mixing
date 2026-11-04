@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en" data-i18n-page="bp">
+<head>
+<script src="../analytics.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../Img/favicon.png">
+<link rel="apple-touch-icon" href="../Img/favicon.png">
+<script src="../i18n/blueprint.js"></script>
+<script src="../i18n.js"></script>
+<title>Blueprint: A Workflow Tool Built by Students | Abdalla Design</title>
+<meta name="description" content="Jalasoft and Jala University: I improved the design of a workflow tool, added Dark Mode, Filters and Card View, and mentored 60+ students through the build.">
+<link rel="canonical" href="https://www.abdallajoao.com/cases/blueprint.html">
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Abdalla Design">
+<meta property="og:url" content="https://www.abdallajoao.com/cases/blueprint.html">
+<meta property="og:title" content="Blueprint: A Workflow Tool Built by Students | Abdalla Design">
+<meta property="og:description" content="Jalasoft and Jala University: I improved the design of a workflow tool, added Dark Mode, Filters and Card View, and mentored 60+ students through the build.">
+<meta property="og:image" content="https://www.abdallajoao.com/Img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Selected work by João Abdalla: product and UX/UI design projects">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blueprint: A Workflow Tool Built by Students | Abdalla Design">
+<meta name="twitter:description" content="Jalasoft and Jala University: I improved the design of a workflow tool, added Dark Mode, Filters and Card View, and mentored 60+ students through the build.">
+<meta name="twitter:image" content="https://www.abdallajoao.com/Img/og-cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* abdalladesign visual identity — matches index.html (Arcoverdesign v5) */
+  --bg:#11161A;
+  --bg-deep:#0C1013;
+  --surface:#1A2025;
+  --ink:#F4F6F3;
+  --ink-soft:#9BA4AA;
+  --ink-dim:#5E676D;
+  --num-dim:#333B41;
+  --line:rgba(255,255,255,.08);
+  --line-soft:rgba(255,255,255,.05);
+  --accent:#C2FC50;
+  --accent-soft:rgba(194,252,80,.12);
+  --radius-lg:16px;
+  --radius-md:14px;
+  --sans:'Urbanist', sans-serif;
+  --body:'Urbanist', sans-serif;
+  --serif:'Lora', Georgia, serif;
+  --px: clamp(20px, 5vw, 72px);
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6;
+}
+::selection{background:var(--accent);color:var(--bg-deep);}
+a{color:inherit;text-decoration:none;}
+button{font:inherit;background:none;border:none;cursor:pointer;color:inherit;}
+img{max-width:100%;display:block;}
+ul,ol{list-style:none;}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
+.container{max-width:1160px;margin:0 auto;padding:0 var(--px);}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;transition:transform .5s var(--ease);}
+nav.is-hidden{transform:translateY(-110%);}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px var(--px);
+  background:linear-gradient(rgba(12,16,19,.85),rgba(12,16,19,.4) 70%,transparent);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+}
+.nav-brand{display:flex;align-items:center;gap:13px;}
+.nav-avatar{width:44px;height:44px;border-radius:50%;flex:0 0 auto;object-fit:cover;border:2px solid var(--ink);}
+.nav-brand-text{display:flex;flex-direction:column;line-height:1.2;}
+.nav-name{font-family:var(--sans);font-weight:700;font-size:17px;letter-spacing:-.01em;color:var(--ink);}
+.nav-role{font-family:var(--sans);font-weight:400;font-size:12px;color:var(--ink-soft);margin-top:1px;}
+@media (max-width:480px){.nav-role{display:none;}}
+.nav-links{display:flex;gap:34px;list-style:none;align-items:center;}
+.nav-links a{
+  font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-soft);position:relative;padding:4px 0;transition:color .25s;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;
+  background:var(--accent);transform:scaleX(0);transform-origin:right;
+  transition:transform .4s var(--ease);
+}
+.nav-links a:hover{color:var(--ink);}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left;}
+@media (max-width:720px){.nav-links{gap:20px;}}
+
+/* mobile: hamburger + dropdown panel */
+.nav-toggle{display:none;}
+.nav-toggle svg{width:22px;height:22px;}
+.nav-toggle .icon-close{display:none;}
+.nav-lang-slot{display:none;}
+@media (max-width:760px){
+  .nav-toggle{
+    display:flex;align-items:center;justify-content:center;
+    width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
+    color:var(--ink);flex:0 0 auto;
+  }
+  .nav-lang-slot{display:inline-flex;margin-left:auto;margin-right:14px;}
+  .nav-links .lang-switch-li{display:none;}
+  nav.is-open .nav-toggle .icon-open{display:none;}
+  nav.is-open .nav-toggle .icon-close{display:block;}
+  .nav-links{
+    position:absolute;top:calc(100% - 6px);left:var(--px);right:var(--px);
+    flex-direction:column;align-items:stretch;gap:0;
+    background:var(--bg-deep);border:1px solid var(--line);border-radius:14px;
+    padding:6px;
+    opacity:0;transform:translateY(-8px);pointer-events:none;
+    transition:opacity .3s var(--ease),transform .3s var(--ease);
+  }
+  nav.is-open .nav-links{opacity:1;transform:none;pointer-events:auto;}
+  nav.is-open.is-hidden{transform:none;}
+  .nav-links li{border-bottom:1px solid var(--line);}
+  .nav-links li:last-child,
+  .nav-links li:nth-last-child(2){border-bottom:0;}
+  .nav-links a{display:block;padding:15px 14px;font-size:13px;letter-spacing:.12em;color:var(--ink);}
+  .nav-links a::after{display:none;}
+}
+
+/* HERO */
+.hero{padding:140px var(--px) 56px;}
+.hero-title{font-family:var(--sans);font-weight:800;font-size:clamp(32px,5.2vw,56px);line-height:1.06;letter-spacing:-.02em;margin-bottom:14px;color:var(--ink);}
+.hero-sub{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(18px,2.2vw,22px);color:var(--ink);opacity:.85;margin-bottom:24px;}
+.hero-text{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:640px;margin-bottom:40px;}
+.hero-specs{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid var(--line);padding-top:28px;margin-bottom:48px;}
+.spec-label{font-family:var(--sans);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-dim);margin-bottom:8px;}
+.spec-value{font-size:15px;font-weight:700;line-height:1.4;color:var(--ink);}
+
+/* IMAGES */
+.hero-banner{border-radius:var(--radius-lg);overflow:hidden;}
+.hero-banner img{display:block;width:100%;height:auto;}
+.img-placeholder.filled{background:var(--bg-deep);border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;}
+.img-placeholder.filled img{width:100%;height:auto;display:block;}
+.img-caption{display:block;margin-top:14px;font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);text-align:center;}
+
+/* stage for transparent phone mockups */
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(24px,4vw,56px);}
+.phones{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2.4vw,32px);align-items:end;}
+.phones img{width:100%;height:auto;}
+.phones.duo{grid-template-columns:repeat(2,minmax(0,240px));justify-content:center;gap:clamp(20px,5vw,72px);}
+
+/* SECTIONS */
+section{padding:88px 0;}
+section+section{border-top:1px solid var(--line);}
+.eyebrow{font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);flex:0 0 auto;}
+.sec-title{font-family:var(--sans);font-weight:800;font-size:clamp(26px,3.6vw,40px);line-height:1.18;letter-spacing:-.01em;max-width:760px;margin-bottom:22px;color:var(--ink);}
+.sec-title .it{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--accent);display:block;}
+.sec-lede{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:620px;margin-bottom:44px;}
+.sec-lede:last-child{margin-bottom:0;}
+.sub-title{font-family:var(--sans);font-weight:800;font-size:clamp(20px,2.4vw,24px);letter-spacing:-.01em;margin-bottom:14px;color:var(--ink);}
+
+/* two independent blocks side by side */
+.split-2{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-bottom:56px;}
+.split-2:last-child{margin-bottom:0;}
+.split-2 .sec-lede{margin-bottom:0;}
+
+/* pull quote */
+.pull{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(20px,2.6vw,26px);line-height:1.45;color:var(--ink);max-width:760px;margin-top:56px;}
+.pull strong{font-weight:600;color:var(--accent);}
+
+/* cards */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.insight-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:28px;}
+.insight-label{font-family:var(--sans);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:12px;}
+.insight-title{font-family:var(--sans);font-weight:800;font-size:17px;margin-bottom:10px;letter-spacing:-.01em;color:var(--ink);}
+.insight-text{font-family:var(--body);font-size:14.5px;color:var(--ink-soft);line-height:1.7;}
+
+/* sequential steps */
+.step{padding:32px 0;border-top:1px solid var(--line);}
+.step:first-child{border-top:none;padding-top:0;}
+.step-num{font-family:var(--serif);font-style:italic;font-weight:500;font-size:36px;color:var(--num-dim);line-height:1;margin-bottom:14px;}
+.step-title{font-family:var(--sans);font-weight:800;font-size:20px;margin-bottom:12px;letter-spacing:-.01em;max-width:640px;color:var(--ink);}
+.step-text{font-family:var(--body);color:var(--ink-soft);font-size:15px;line-height:1.75;max-width:720px;}
+
+/* DECISIONS */
+.decision{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(28px,4vw,48px);margin-bottom:28px;overflow:hidden;}
+.decision:last-child{margin-bottom:0;}
+.decision.reverse .decision-media{order:-1;}
+.decision-eyebrow{font-family:var(--sans);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:12px;}
+.decision-title{font-family:var(--sans);font-weight:800;font-size:22px;margin-bottom:16px;letter-spacing:-.01em;color:var(--ink);}
+.decision-text{font-family:var(--body);font-size:15px;color:var(--ink-soft);line-height:1.75;}
+.decision-media{border-radius:var(--radius-md);overflow:hidden;}
+.decision-media img{width:100%;height:auto;max-height:460px;object-fit:contain;}
+
+/* RESULT — surface card */
+.result-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(28px,4vw,48px);}
+.result-card .eyebrow{margin-bottom:20px;}
+.result-card p{font-family:var(--body);font-size:clamp(18px,2.2vw,22px);line-height:1.5;color:var(--ink);max-width:44ch;}
+.result-card .sec-title{margin-bottom:18px;}
+.outcome-grid p{font-size:clamp(16px,1.6vw,18px);line-height:1.65;color:var(--ink-soft);}
+.outcome-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;}
+.outcome-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.outcome-cards img{width:100%;height:auto;}
+
+/* LEARNINGS */
+.grid-2x2{display:grid;grid-template-columns:1fr 1fr;gap:44px 56px;}
+.learn-card{padding:24px 0 0;border-top:1px solid var(--line);}
+.learn-tag{font-family:var(--sans);font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px;display:block;color:var(--ink-dim);}
+.learn-title{font-family:var(--sans);font-weight:800;font-size:17px;margin-bottom:10px;letter-spacing:-.005em;color:var(--ink);}
+.learn-text{font-family:var(--body);font-size:14px;color:var(--ink-soft);line-height:1.7;}
+
+/* MORE WORK */
+.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+.next-card{display:flex;flex-direction:column;}
+.next-label{font-family:var(--sans);font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-dim);margin-bottom:10px;}
+.next-title{font-family:var(--sans);font-weight:800;font-size:20px;margin-bottom:10px;letter-spacing:-.01em;color:var(--ink);transition:color .2s;}
+.next-card:hover .next-title{color:var(--accent);}
+.next-text{font-family:var(--body);font-size:14px;color:var(--ink-soft);margin-bottom:22px;max-width:420px;}
+.next-media{margin-top:auto;aspect-ratio:16/10;border-radius:var(--radius-md);overflow:hidden;background:var(--bg-deep);border:1px solid var(--line);}
+.next-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+.next-card:hover .next-media img{transform:scale(1.03);}
+
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+.rv.is-in{opacity:1;transform:none;}
+
+footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep);}
+.footer-inner{text-align:center;font-family:var(--sans);font-weight:600;font-size:13px;color:var(--ink-dim);}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  .rv{opacity:1;transform:none;transition:none;}
+  .next-media img{transition:none;}
+}
+
+@media (max-width:860px){
+  .hero-specs{grid-template-columns:repeat(2,1fr);gap:20px;}
+  .split-2{grid-template-columns:1fr;gap:32px;}
+  .grid-3,.grid-2{grid-template-columns:1fr;}
+  .decision{grid-template-columns:1fr;gap:28px;}
+  .decision.reverse .decision-media{order:0;}
+  .outcome-grid{grid-template-columns:1fr;gap:32px;}
+  .grid-2x2{grid-template-columns:1fr;gap:0;}
+  .learn-card{margin-top:32px;}
+  .next-grid{grid-template-columns:1fr;gap:44px;}
+  .nav-links{gap:18px;}
+}
+@media (max-width:600px){
+  .phones{grid-template-columns:repeat(2,1fr);row-gap:24px;}
+}
+
+/* image slots waiting for final screenshots */
+.img-slot{display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;border:1px dashed rgba(255,255,255,.16);border-radius:var(--radius-md);background:var(--bg-deep);color:var(--ink-dim);font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;}
+.img-slot.hero-slot{aspect-ratio:16/9;border-radius:var(--radius-lg);}
+.img-slot.step-slot{aspect-ratio:4/5;margin-bottom:20px;}
+.img-slot.wide-slot{aspect-ratio:4/3;}
+
+/* stats */
+.stat-num{font-family:var(--serif);font-style:italic;font-weight:500;font-size:48px;line-height:1;color:var(--accent);margin-bottom:14px;}
+
+/* solution steps */
+.flow-step .step-num{margin-bottom:10px;}
+.flow-step .insight-title{margin-bottom:8px;}
+
+/* pricing */
+.price-card{border:1px solid var(--line);border-radius:var(--radius-md);padding:28px;}
+.price-card.is-pro{border-color:var(--accent);background:var(--accent-soft);}
+.price-name{font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-dim);margin-bottom:10px;}
+.price-card.is-pro .price-name{color:var(--accent);}
+.price-value{font-weight:800;font-size:26px;letter-spacing:-.01em;color:var(--ink);margin-bottom:8px;}
+.price-text{font-size:14.5px;color:var(--ink-soft);line-height:1.65;}
+
+/* user feedback quote */
+.quote-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(28px,4vw,40px);max-width:760px;margin-top:20px;}
+.quote-text{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(19px,2.2vw,22px);line-height:1.5;color:var(--ink);margin-bottom:12px;}
+
+/* closing */
+.closing{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px;}
+.closing-text{font-family:var(--sans);font-weight:800;font-size:clamp(22px,3vw,32px);line-height:1.25;letter-spacing:-.01em;color:var(--ink);max-width:680px;}
+.closing-text .it{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--accent);}
+.btn-accent{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 28px;border-radius:999px;background:var(--accent);color:var(--bg-deep);font-weight:700;font-size:15px;transition:transform .3s var(--ease);}
+.btn-accent:hover{transform:translateY(-2px);}
+.spec-value a{color:var(--accent);}
+.spec-value a:hover{text-decoration:underline;}
+@media (prefers-reduced-motion: reduce){.btn-accent{transition:none;}}
+
+/* screenshots */
+.shot{background:var(--bg-deep);border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;}
+.shot img{width:100%;height:auto;display:block;}
+.zoomable{cursor:zoom-in;}
+.lightbox{position:fixed;inset:0;z-index:2000;display:flex;align-items:flex-start;justify-content:center;padding:clamp(14px,5vh,60px) clamp(14px,5vw,60px);background:rgba(8,10,13,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);opacity:0;visibility:hidden;transition:opacity .28s var(--ease),visibility .28s;overflow-y:auto;overscroll-behavior:contain;cursor:zoom-out;}
+.lightbox.is-open{opacity:1;visibility:visible;}
+.lightbox img{width:min(1400px,100%);height:auto;margin:auto;border-radius:var(--radius-md);box-shadow:0 30px 90px rgba(0,0,0,.6);transform:scale(.96);transition:transform .28s var(--ease);cursor:default;}
+.lightbox.is-open img{transform:scale(1);}
+.lightbox-close{position:fixed;top:16px;right:18px;z-index:2001;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:rgba(20,25,30,.72);color:var(--ink);font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s var(--ease),transform .3s var(--ease);}
+.lightbox-close:hover{background:var(--surface);transform:rotate(90deg);}
+@media (max-width:600px){.lightbox{padding:10px;}}
+.flow-step .shot{margin-bottom:22px;}
+.decision.wide{grid-template-columns:.8fr 1.2fr;}
+/* dark mode: text on top, the compare slider full width below */
+.decision.stack{grid-template-columns:1fr;gap:32px;}
+.decision.stack .decision-text{max-width:620px;}
+.decision-media.shot img{max-height:none;}
+.states-grid{gap:44px 32px;}
+.state-card .shot{margin-bottom:20px;}
+.kit-shot{max-width:1024px;margin:0 auto;}
+
+/* dark mode: liquid reveal from light to dark on hover; the light img is the fallback */
+.reveal-hint{margin-top:18px;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);}
+/* dark/light compare: the light screenshot sits on top and is clipped
+   from the right; a native range input drives it (keyboard + touch for free) */
+.compare{position:relative;border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;background:var(--bg-deep);touch-action:pan-y;}
+.compare img{width:100%;height:auto;max-height:none;display:block;user-select:none;-webkit-user-drag:none;}
+.compare .cmp-top{position:absolute;inset:0;height:100%;clip-path:inset(0 50% 0 0);}
+.cmp-handle{position:absolute;top:0;bottom:0;left:0;width:2px;margin-left:-1px;background:var(--accent);pointer-events:none;transform:translateX(50%);will-change:transform;}
+.cmp-handle::after{
+  content:"";position:absolute;top:50%;left:50%;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;
+  background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230C1013' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l-6 6 6 6M15 6l6 6-6 6'/%3E%3C/svg%3E") center/20px no-repeat;
+  box-shadow:0 8px 24px rgba(4,8,6,.45);
+  transition:transform .16s var(--ease);
+}
+.compare.is-dragging .cmp-handle::after{transform:scale(.92);}
+.cmp-range{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0;}
+.compare:has(.cmp-range:focus-visible) .cmp-handle::after{outline:3px solid var(--ink);outline-offset:3px;}
+.cmp-tag{position:absolute;bottom:14px;font-family:var(--sans);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:99px;pointer-events:none;}
+.cmp-tag.l{left:14px;background:rgba(237,239,233,.9);color:#161B1F;}
+.cmp-tag.r{right:14px;background:rgba(12,16,19,.8);color:var(--ink);}
+@media (max-width:860px){.decision.wide{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../index.html#top" class="nav-brand">
+      <img class="nav-avatar" src="../Img/joao-avatar.jpg" alt="João Abdalla">
+      <span class="nav-brand-text">
+        <span class="nav-name">João Abdalla</span>
+        <span class="nav-role" data-i18n="common.nav.role">Product designer UX UI</span>
+      </span>
+    </a>
+    <span class="lang-switch-slot nav-lang-slot"></span>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks" data-i18n-attr="aria-label:common.nav.menu">
+      <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#work" data-i18n="common.nav.works">Works</a></li>
+      <li><a href="../about.html" data-i18n="common.nav.about">About</a></li>
+      <li><a href="../index.html#contact" data-i18n="common.nav.contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<main>
+
+  <!-- HERO -->
+  <header class="hero container" role="banner">
+    <h1 class="hero-title rv">Blueprint</h1>
+    <p class="hero-sub rv" data-i18n="bp.hero.sub">Workflows a team can draw, run and hand off</p>
+    <p class="hero-text rv" data-i18n="bp.hero.text">Blueprint is a collaborative project between Jalasoft and Jala University, where final-semester IT students work on a real product, in a real team and company setting. As teacher and designer, my job was to improve the existing design of the tool and add three new features: Dark Mode, Filters and Card View. Then I guided the students through building them.</p>
+
+    <div class="hero-specs rv">
+      <div><div class="spec-label" data-i18n="bp.hero.spec1.label">My Role</div><div class="spec-value" data-i18n="bp.hero.spec1.value">Teacher · Product Designer</div></div>
+      <div><div class="spec-label" data-i18n="bp.hero.spec2.label">Context</div><div class="spec-value">Jalasoft × Jala University</div></div>
+      <div><div class="spec-label" data-i18n="bp.hero.spec3.label">Team</div><div class="spec-value" data-i18n="bp.hero.spec3.value">60+ final-semester students</div></div>
+      <div><div class="spec-label" data-i18n="bp.hero.spec4.label">Duration</div><div class="spec-value" data-i18n="bp.hero.spec4.value">6 months</div></div>
+    </div>
+
+    <div class="hero-banner rv"><img src="../Img/bp/bp-cover.webp" alt="Blueprint logo on a dark purple background" width="1920" height="960" data-i18n-attr="alt:bp.hero.alt"></div>
+  </header>
+
+  <!-- CONTEXT -->
+  <section id="context">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="bp.ctx.eyebrow">The Context</div>
+      <h2 class="sec-title rv" data-i18n-html="bp.ctx.title">A real product,<span class="it">built by students</span></h2>
+      <p class="sec-lede rv" data-i18n="bp.ctx.body">Blueprint was the final project of the Jala University development degree. The students were not doing an exercise: they joined an existing product, with a backlog, a codebase and a company on the other side. The design had to be clear enough for people building their first real product.</p>
+      <div class="grid-3 rv">
+        <div class="insight-card">
+          <div class="stat-num">60+</div>
+          <p class="insight-text" data-i18n="bp.ctx.s1">students mentored on the design</p>
+        </div>
+        <div class="insight-card">
+          <div class="stat-num">6</div>
+          <p class="insight-text" data-i18n="bp.ctx.s2">months, from redesign to implementation</p>
+        </div>
+        <div class="insight-card">
+          <div class="stat-num">3</div>
+          <p class="insight-text" data-i18n="bp.ctx.s3">new features: Dark Mode, Filters and Card View</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT -->
+  <section id="product">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="bp.prod.eyebrow">The Product</div>
+      <h2 class="sec-title rv" data-i18n-html="bp.prod.title">Draw the process once,<span class="it">run it every day</span></h2>
+      <p class="sec-lede rv" data-i18n="bp.prod.body">Blueprint turns a company process, like hiring a candidate, into a workflow anyone on the team can follow. Each person sees only the steps and actions that belong to them.</p>
+      <div class="grid-3 rv">
+        <div class="flow-step">
+          <div class="shot"><img src="../Img/bp/bp-flow-dark.webp" alt="Flow editor with hiring steps connected by actions and a step settings panel" width="1728" height="1117" loading="lazy" data-i18n-attr="alt:bp.prod.s1.alt"></div>
+          <div class="step-num">01</div>
+          <div class="insight-title" data-i18n="bp.prod.s1.title">Build the flow</div>
+          <p class="insight-text" data-i18n="bp.prod.s1.body">Steps and actions on a canvas, with versions, required fields per step and permissions.</p>
+        </div>
+        <div class="flow-step">
+          <div class="shot"><img src="../Img/bp/bp-publish-dark.webp" alt="Publish step explaining why to publish the workflow template" width="1728" height="1117" loading="lazy" data-i18n-attr="alt:bp.prod.s2.alt"></div>
+          <div class="step-num">02</div>
+          <div class="insight-title" data-i18n="bp.prod.s2.title">Publish the template</div>
+          <p class="insight-text" data-i18n="bp.prod.s2.body">Once published, the flow becomes a template the team can use to open new instances.</p>
+        </div>
+        <div class="flow-step">
+          <div class="shot"><img src="../Img/bp/bp-instance-dark.webp" alt="Application Tracking instance with the flow stepper, candidate data and comments" width="1728" height="1117" loading="lazy" data-i18n-attr="alt:bp.prod.s3.alt"></div>
+          <div class="step-num">03</div>
+          <div class="insight-title" data-i18n="bp.prod.s3.title">Move each case forward</div>
+          <p class="insight-text" data-i18n="bp.prod.s3.body">Every instance shows where it is in the flow, its data, comments with mentions and the next possible actions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRIEF / FEATURES -->
+  <section id="features">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="bp.brief.eyebrow">The Brief</div>
+      <h2 class="sec-title rv" data-i18n-html="bp.brief.title">Improve what exists,<span class="it">add three features</span></h2>
+      <p class="sec-lede rv" data-i18n="bp.brief.body">The tool already worked. The three new features answer the same need: see the work, find the work, and use the tool for hours without tiring your eyes.</p>
+
+      <div class="decision wide rv">
+        <div>
+          <div class="decision-eyebrow" data-i18n="bp.f1.eyebrow">Feature 01</div>
+          <h3 class="decision-title" data-i18n="bp.f1.title">Card View</h3>
+          <p class="decision-text" data-i18n="bp.f1.body">A board grouped by step, next to the list view, with one toggle between them. Each card shows the ID, the person, the role, the requester and the owner. Cards move between steps by dragging, and a column the user can't edit shows a lock and explains why instead of failing in silence.</p>
+        </div>
+        <div class="decision-media shot"><img src="../Img/bp/bp-kanban-dark.webp" alt="Card view board by step, with a card being dragged into a locked column and a permission message" width="1044" height="727" loading="lazy" data-i18n-attr="alt:bp.f1.alt"></div>
+      </div>
+
+      <div class="decision wide reverse rv">
+        <div>
+          <div class="decision-eyebrow" data-i18n="bp.f2.eyebrow">Feature 02</div>
+          <h3 class="decision-title" data-i18n="bp.f2.title">Filters</h3>
+          <p class="decision-text" data-i18n="bp.f2.body">One panel with the fields that matter: workflow status, name, ID, step, role, requester, owner and dates. Each field opens its own condition, like people as removable chips or a date on a calendar. Active filters stay visible above the results, with a single Clear filters.</p>
+        </div>
+        <div class="decision-media shot"><img src="../Img/bp/bp-filters-dark.webp" alt="Filters panel with workflow status, requester chips and a date picker" width="1728" height="1272" loading="lazy" data-i18n-attr="alt:bp.f2.alt"></div>
+      </div>
+
+      <div class="decision wide rv">
+        <div>
+          <div class="decision-eyebrow" data-i18n="bp.f2b.eyebrow">Feature 02 · Empty state</div>
+          <h3 class="decision-title" data-i18n="bp.f2b.title">No results is not a dead end</h3>
+          <p class="decision-text" data-i18n="bp.f2b.body">When a filter returns nothing, the screen says so in plain words, suggests trying another condition and offers the next action: create a new card.</p>
+        </div>
+        <div class="decision-media shot"><img src="../Img/bp/bp-empty-dark.webp" alt="Empty state for a filter with no cards, with active filters and a New Card button" width="1728" height="1117" loading="lazy" data-i18n-attr="alt:bp.f2b.alt"></div>
+      </div>
+
+      <div class="decision stack rv">
+        <div>
+          <div class="decision-eyebrow" data-i18n="bp.f3.eyebrow">Feature 03</div>
+          <h3 class="decision-title" data-i18n="bp.f3.title">Dark Mode</h3>
+          <p class="decision-text" data-i18n="bp.f3.body">People spend the whole day inside Blueprint. Dark Mode lives in the account menu and covers every screen, including the status colors of each step, which keep the same meaning on both backgrounds.</p>
+          <p class="reveal-hint" data-i18n="bp.f3.hint">Drag the handle to compare the two themes</p>
+        </div>
+        <div class="decision-media compare" id="compare">
+          <img src="../Img/bp/bp-kanban-dark.webp" width="1044" height="727" loading="lazy" alt="Card view board in dark mode" data-i18n-attr="alt:bp.f3.alt.dark">
+          <img class="cmp-top" id="cmpTop" src="../Img/bp/bp-kanban-light.webp" width="1044" height="727" loading="lazy" alt="Card view board in light mode" data-i18n-attr="alt:bp.f3.alt">
+          <span class="cmp-tag l" aria-hidden="true" data-i18n="bp.f3.light">Light</span>
+          <span class="cmp-tag r" aria-hidden="true" data-i18n="bp.f3.dark">Dark</span>
+          <span class="cmp-handle" id="cmpHandle" aria-hidden="true"></span>
+          <input class="cmp-range" id="cmpRange" type="range" min="0" max="100" value="50" step="1" aria-label="Compare dark and light mode" data-i18n-attr="aria-label:bp.f3.compare">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATES -->
+  <section id="states">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="bp.states.eyebrow">Design Decisions</div>
+      <h2 class="sec-title rv" data-i18n-html="bp.states.title">Designing beyond<span class="it">the happy path</span></h2>
+      <p class="sec-lede rv" data-i18n="bp.states.body">Students tend to build the screen that works. I designed the moments when something goes wrong too, so nobody had to invent them during implementation.</p>
+      <div class="grid-2 states-grid rv">
+        <div class="state-card">
+          <div class="shot"><img src="../Img/bp/bp-unauthorized-dark.webp" alt="Unauthorized page with an illustration and two actions" width="1728" height="1117" loading="lazy" data-i18n-attr="alt:bp.states.d1.alt"></div>
+          <div class="insight-title" data-i18n="bp.states.d1.title">No access, with a way out</div>
+          <p class="insight-text" data-i18n="bp.states.d1.body">The unauthorized page explains what happened and offers two paths: ask for permission or return to the dashboard.</p>
+        </div>
+        <div class="state-card">
+          <div class="shot"><img src="../Img/bp/bp-delete-dark.webp" alt="Confirmation modal before deleting a comment" width="1728" height="1117" loading="lazy" data-i18n-attr="alt:bp.states.d2.alt"></div>
+          <div class="insight-title" data-i18n="bp.states.d2.title">Confirm what can't be undone</div>
+          <p class="insight-text" data-i18n="bp.states.d2.body">Deleting a comment asks for confirmation first, because the history of a case is shared by the whole team.</p>
+        </div>
+        <div class="state-card">
+          <div class="shot"><img src="../Img/bp/bp-create-dark.webp" alt="New instance form with a required field highlighted" width="1728" height="1117" loading="lazy" data-i18n-attr="alt:bp.states.d3.alt"></div>
+          <div class="insight-title" data-i18n="bp.states.d3.title">Errors next to the field</div>
+          <p class="insight-text" data-i18n="bp.states.d3.body">Required fields are marked where they are, at the moment they matter, and not in a message at the top of the form.</p>
+        </div>
+        <div class="state-card">
+          <div class="shot"><img src="../Img/bp/bp-users-dark.webp" alt="Users and groups screen in three columns" width="1728" height="1117" loading="lazy" data-i18n-attr="alt:bp.states.d4.alt"></div>
+          <div class="insight-title" data-i18n="bp.states.d4.title">Groups people can manage</div>
+          <p class="insight-text" data-i18n="bp.states.d4.body">Users and groups in three columns: pick a group, see who is available and who is already in it, and move people with one click.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UI KIT -->
+  <section id="ui-kit">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="bp.kit.eyebrow">UI Kit</div>
+      <h2 class="sec-title rv" data-i18n-html="bp.kit.title">One set of components,<span class="it">two themes</span></h2>
+      <p class="sec-lede rv" data-i18n="bp.kit.body">Navigation, cards, lists, filters, dropdowns, toasts and statuses were organized as components. That made Dark Mode a matter of swapping colors, not redrawing screens, and gave the students one reference to build from.</p>
+      <div class="shot kit-shot rv"><img src="../Img/bp/bp-ui-kit.webp" alt="Blueprint components in dark mode: sidebar, groups, card, filters, dropdown and toasts" width="1024" height="768" loading="lazy" data-i18n-attr="alt:bp.kit.alt"></div>
+    </div>
+  </section>
+
+  <!-- HANDOFF -->
+  <section id="handoff">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="bp.hand.eyebrow">Handoff and Mentoring</div>
+      <h2 class="sec-title rv" data-i18n-html="bp.hand.title">The design only counts<span class="it">once it's built</span></h2>
+      <p class="sec-lede rv" data-i18n="bp.hand.body">I ran the handoff to the young developers and stayed with them through the implementation phase, so the new features made it into the product the way they were designed.</p>
+      <div class="grid-3 rv">
+        <div class="learn-card">
+          <div class="learn-title" data-i18n="bp.hand.h1.title">Documentation</div>
+          <p class="learn-text" data-i18n="bp.hand.h1.body">Complete specs for each feature: states, behaviors and edge cases, written for people building their first product.</p>
+        </div>
+        <div class="learn-card">
+          <div class="learn-title" data-i18n="bp.hand.h2.title">Training sessions</div>
+          <p class="learn-text" data-i18n="bp.hand.h2.body">Sessions to walk through the design, explain the decisions behind it and answer questions before the code started.</p>
+        </div>
+        <div class="learn-card">
+          <div class="learn-title" data-i18n="bp.hand.h3.title">Ongoing support</div>
+          <p class="learn-text" data-i18n="bp.hand.h3.body">Continuous support during implementation, answering questions and reviewing what was built along the way.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEARNINGS -->
+  <section id="learnings">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="bp.learn.eyebrow">Learnings</div>
+      <h2 class="sec-title rv" data-i18n-html="bp.learn.title">What teaching<span class="it">taught me about design</span></h2>
+      <div class="grid-2x2 rv">
+        <div class="learn-card">
+          <div class="learn-title" data-i18n="bp.learn.l1.title">A spec is a product too.</div>
+          <p class="learn-text" data-i18n="bp.learn.l1.body">Whoever builds is the first user of the design. If the documentation is confusing, the feature will be too.</p>
+        </div>
+        <div class="learn-card">
+          <div class="learn-title" data-i18n="bp.learn.l2.title">Error states are part of the scope.</div>
+          <p class="learn-text" data-i18n="bp.learn.l2.body">What isn't designed gets improvised. Drawing the empty, locked and denied screens up front meant nobody had to guess.</p>
+        </div>
+        <div class="learn-card">
+          <div class="learn-title" data-i18n="bp.learn.l3.title">Themes start in the components.</div>
+          <p class="learn-text" data-i18n="bp.learn.l3.body">Organizing the interface as components is what lets one design work in two themes. Without it, Dark Mode would be a second product.</p>
+        </div>
+        <div class="learn-card">
+          <div class="learn-title" data-i18n="bp.learn.l4.title">Explaining the why scales.</div>
+          <p class="learn-text" data-i18n="bp.learn.l4.body">With 60+ people building, I couldn't review every screen. Teaching the reasoning behind each decision let the students make the right call on their own.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section id="closing">
+    <div class="container closing rv">
+      <p class="closing-text" data-i18n-html="bp.closing.text">Good design for a team in training <span class="it">is design they can build.</span></p>
+      <a class="btn-accent" href="../index.html#contact"><span data-i18n="bp.closing.cta">Let's talk</span> <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- MORE WORK -->
+  <section id="more-work">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="bp.more.eyebrow">More Work</div>
+      <div class="next-grid rv">
+        <a class="next-card" href="elearn.html">
+          <div class="next-label" data-i18n="bp.more.next.label">Next Case Study</div>
+          <h3 class="next-title">Elearn App</h3>
+          <p class="next-text" data-i18n="home.card8.desc">One learning platform for students, teachers and admins at Jalasoft and Jala University bootcamps.</p>
+          <div class="next-media"><img src="../Img/elearn/Background%20Overlay.png" alt="Elearn App: learning platform for bootcamp students, teachers and admins" loading="lazy" data-i18n-attr="alt:home.card8.alt"></div>
+        </a>
+        <a class="next-card" href="cac.html">
+          <div class="next-label" data-i18n="bp.more.also.label">Also Worth Seeing</div>
+          <h3 class="next-title">Car Air Comfort</h3>
+          <p class="next-text" data-i18n="home.card10.desc">An app that cools the car before you get in.</p>
+          <div class="next-media"><img src="../Img/cac/cac-cover-3.webp" alt="Car Air Comfort: app to set the car temperature before the trip" loading="lazy" data-i18n-attr="alt:home.card10.alt"></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+  <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
+  <img src="" alt="">
+</div>
+
+<footer>
+  <div class="container footer-inner">Copyright © abdalladesign 2026</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+</script>
+<script>
+  (function(){
+    var lastY = 0, nav = document.getElementById("nav");
+    if (!nav) return;
+    window.addEventListener("scroll", function(){
+      var y = window.scrollY;
+      if (y > 140 && y > lastY) nav.classList.add("is-hidden");
+      else nav.classList.remove("is-hidden");
+      lastY = y;
+    }, { passive: true });
+  })();
+</script>
+<script>
+  /* mobile nav — hamburger toggles the dropdown panel */
+  (function () {
+    var nav = document.getElementById("nav");
+    var toggle = document.getElementById("navToggle");
+    var panel = document.getElementById("navLinks");
+    if (!nav || !toggle || !panel) return;
+
+    function close() {
+      nav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+    function open() {
+      nav.classList.add("is-open");
+      toggle.setAttribute("aria-expanded", "true");
+    }
+
+    toggle.addEventListener("click", function () {
+      nav.classList.contains("is-open") ? close() : open();
+    });
+    panel.addEventListener("click", function (e) {
+      if (e.target.closest("a")) close();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") close();
+    });
+    document.addEventListener("click", function (e) {
+      if (nav.classList.contains("is-open") && !e.target.closest(".nav-inner")) close();
+    });
+    window.addEventListener("scroll", close, { passive: true });
+  })();
+</script>
+<script>
+  /* lightbox — zoom the product screens */
+  (function(){
+    var lb=document.getElementById('lightbox');
+    if(!lb) return;
+    var lbImg=lb.querySelector('img');
+    function open(src,alt){
+      lbImg.src=src;lbImg.alt=alt||'';lb.scrollTop=0;
+      lb.classList.add('is-open');lb.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+    }
+    function close(){
+      lb.classList.remove('is-open');lb.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
+      setTimeout(function(){if(!lb.classList.contains('is-open'))lbImg.removeAttribute('src');},300);
+    }
+    document.querySelectorAll('.shot img').forEach(function(im){
+      im.classList.add('zoomable');
+      im.addEventListener('click',function(){open(im.currentSrc||im.src,im.alt);});
+    });
+    lb.addEventListener('click',function(e){if(e.target!==lbImg)close();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('is-open'))close();});
+  })();
+</script>
+
+<script>
+  /* dark/light compare — the range input owns pointer, touch and keyboard;
+     we only mirror its value onto the clip and the handle (transform, no layout) */
+  (function () {
+    var wrap = document.getElementById("compare");
+    var range = document.getElementById("cmpRange");
+    var top = document.getElementById("cmpTop");
+    var handle = document.getElementById("cmpHandle");
+    if (!wrap || !range || !top || !handle) return;
+
+    function paint() {
+      var p = Number(range.value);
+      top.style.clipPath = "inset(0 " + (100 - p) + "% 0 0)";
+      handle.style.transform = "translateX(" + (wrap.clientWidth * p / 100) + "px)";
+    }
+    range.addEventListener("input", paint);
+    range.addEventListener("pointerdown", function () { wrap.classList.add("is-dragging"); });
+    window.addEventListener("pointerup", function () { wrap.classList.remove("is-dragging"); });
+    window.addEventListener("resize", paint, { passive: true });
+    paint();
+  })();
+</script>
+</body>
+</html>

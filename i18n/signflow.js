@@ -10,26 +10,26 @@ window.I18N_PAGE_STRINGS = {
 
   /* ─────────── META ─────────── */
   "signflow.meta.title": {
-    en: "signFlow: Document Signing Tool | Abdalla Design",
-    pt: "signFlow: Case de Product Design | Abdalla Design",
-    es: "signFlow: Caso de Product Design | Abdalla Design"
+    en: "signFlow: Replacing DocuSign | Abdalla Design",
+    pt: "signFlow: Substituindo o DocuSign | Abdalla Design",
+    es: "signFlow: Sustituyendo a DocuSign | Abdalla Design"
   },
   "signflow.meta.description": {
-    en: "A proprietary document-signing tool, designed to replace DocuSign inside the company.",
-    pt: "Uma ferramenta própria de assinatura de documentos, desenhada para substituir o DocuSign dentro da empresa.",
-    es: "Una herramienta propia de firma de documentos, diseñada para sustituir a DocuSign dentro de la empresa."
+    en: "How an in-house signing tool replaced a projected $39K-a-year DocuSign bill, by being familiar enough that nobody had to learn it.",
+    pt: "Como uma ferramenta própria de assinatura substituiu uma conta projetada de US$ 39 mil por ano do DocuSign, sendo familiar o bastante para ninguém precisar aprender.",
+    es: "Cómo una herramienta propia de firma sustituyó una factura proyectada de US$ 39.000 al año de DocuSign, siendo lo bastante familiar para que nadie tuviera que aprenderla."
   },
 
   /* ─────────── HERO ─────────── */
   "signflow.hero.sub": {
-    en: "E-Signatures, Built In-House",
-    pt: "Assinatura eletrônica, feita internamente",
-    es: "Firma electrónica, hecha internamente"
+    en: "Replacing a $39K-a-year DocuSign bill with a tool nobody has to learn",
+    pt: "Trocando uma conta de US$ 39 mil por ano do DocuSign por uma ferramenta que ninguém precisa aprender",
+    es: "Cambiando una factura de US$ 39.000 al año de DocuSign por una herramienta que nadie necesita aprender"
   },
   "signflow.hero.text": {
-    en: "A proprietary document-signing tool, built to replace DocuSign.",
-    pt: "Uma ferramenta própria de assinatura de documentos, criada para substituir o DocuSign.",
-    es: "Una herramienta propia de firma de documentos, creada para sustituir a DocuSign."
+    en: "An in-house e-signature tool for Jalasoft and Jala University. I designed the flows, screens and interface, from the first wireframe to the system in use today.",
+    pt: "Uma ferramenta própria de assinatura eletrônica para a Jalasoft e a Jala University. Desenhei os fluxos, as telas e a interface, do primeiro wireframe ao sistema em uso hoje.",
+    es: "Una herramienta propia de firma electrónica para Jalasoft y Jala University. Diseñé los flujos, las pantallas y la interfaz, desde el primer wireframe hasta el sistema en uso hoy."
   },
   "signflow.hero.spec1.label": { en: "Area", pt: "Área", es: "Área" },
   "signflow.hero.spec1.value": { en: "Product design", pt: "Product design", es: "Product design" },
@@ -47,9 +47,9 @@ window.I18N_PAGE_STRINGS = {
   },
   "signflow.hero.spec4.label": { en: "Status", pt: "Status", es: "Estado" },
   "signflow.hero.spec4.value": {
-    en: "In use at the company",
-    pt: "Em uso na empresa",
-    es: "En uso en la empresa"
+    en: "In use, DocuSign replaced",
+    pt: "Em uso, DocuSign substituído",
+    es: "En uso, DocuSign sustituido"
   },
   "signflow.cover.alt": {
     en: "signFlow home screen with the document list in dark mode",
@@ -57,190 +57,311 @@ window.I18N_PAGE_STRINGS = {
     es: "Pantalla inicial de signFlow con la lista de documentos en modo oscuro"
   },
 
-  /* ─────────── BRIEF: PROBLEM / CHALLENGE ─────────── */
-  "signflow.brief.eyebrow": { en: "Context", pt: "Contexto", es: "Contexto" },
-  "signflow.problem.title": { en: "The problem", pt: "O problema", es: "El problema" },
-  "signflow.problem.body": {
-    en: "The company has many employees and many clients, and the cost of DocuSign was growing along with them. The decision was to build a proprietary tool to save money.",
-    pt: "A empresa tem muitos colaboradores e muitos clientes, e o custo do DocuSign crescia junto. A decisão foi construir uma ferramenta própria para economizar.",
-    es: "La empresa tiene muchos colaboradores y muchos clientes, y el costo de DocuSign crecía junto con ellos. La decisión fue construir una herramienta propia para ahorrar."
+  /* ─────────── THE BILL ─────────── */
+  "signflow.bill.eyebrow": { en: "The bill", pt: "A conta", es: "La factura" },
+  "signflow.bill.title": {
+    en: "What signing PDFs was costing",
+    pt: "Quanto custava assinar PDFs",
+    es: "Cuánto costaba firmar PDFs"
   },
-  "signflow.challenge.title": { en: "The challenge", pt: "O desafio", es: "El desafío" },
-  "signflow.challenge.body": {
-    en: "Cover the entire cycle, from whoever sends to whoever signs, inside or outside the company, in a way simple enough that no one would need training.",
-    pt: "Cobrir o ciclo inteiro, de quem envia a quem assina, dentro ou fora da empresa, de um jeito simples o bastante para ninguém precisar de treinamento.",
-    es: "Cubrir todo el ciclo, desde quien envía hasta quien firma, dentro o fuera de la empresa, de una forma lo bastante simple para que nadie necesite capacitación."
+  "signflow.bill.body": {
+    en: "DocuSign charges per sender, and every new hire, client contract and student enrollment adds envelopes to the count. This is a conservative estimate of the bill signFlow was built to replace.",
+    pt: "O DocuSign cobra por remetente, e cada contratação, contrato de cliente e matrícula de aluno soma envelopes à conta. Esta é uma estimativa conservadora da conta que o signFlow veio substituir.",
+    es: "DocuSign cobra por remitente, y cada contratación, contrato de cliente y matrícula de estudiante suma sobres a la cuenta. Esta es una estimación conservadora de la factura que signFlow vino a sustituir."
+  },
+  "signflow.bill.note": {
+    en: "Estimate built from public data: Jalasoft headcount (Revelio Labs, 2025), Jala University enrollment (Jala University, 2025) and the DocuSign Business Pro list price (2026), which includes 100 envelopes per seat per year. It leaves out what would make DocuSign more expensive, like Enterprise SSO and SMS or ID verification, and it doesn't subtract the internal cost of building signFlow.",
+    pt: "Estimativa feita com dados públicos: número de funcionários da Jalasoft (Revelio Labs, 2025), alunos da Jala University (Jala University, 2025) e preço de tabela do DocuSign Business Pro (2026), que inclui 100 envelopes por licença por ano. Ficam de fora custos que encareceriam o DocuSign, como SSO do plano Enterprise e verificação por SMS ou documento, e não desconta o custo interno de construir o signFlow.",
+    es: "Estimación hecha con datos públicos: plantilla de Jalasoft (Revelio Labs, 2025), estudiantes de Jala University (Jala University, 2025) y precio de lista de DocuSign Business Pro (2026), que incluye 100 sobres por licencia al año. Quedan fuera costos que encarecerían DocuSign, como el SSO del plan Enterprise y la verificación por SMS o documento, y no descuenta el costo interno de construir signFlow."
+  },
+  "signflow.rcpt.head": { en: "DocuSign · annual estimate", pt: "DocuSign · estimativa anual", es: "DocuSign · estimación anual" },
+  "signflow.rcpt.people": { en: "Who signs", pt: "Quem assina", es: "Quién firma" },
+  "signflow.rcpt.emp": { en: "Jalasoft employees", pt: "Funcionários Jalasoft", es: "Empleados de Jalasoft" },
+  "signflow.rcpt.emp.v": { en: "~1,500", pt: "~1.500", es: "~1.500" },
+  "signflow.rcpt.stu": { en: "Jala University students", pt: "Alunos Jala University", es: "Estudiantes de Jala University" },
+  "signflow.rcpt.stu.v": { en: "800+", pt: "800+", es: "800+" },
+  "signflow.rcpt.env": { en: "Envelopes per year", pt: "Envelopes por ano", es: "Sobres por año" },
+  "signflow.rcpt.hire": { en: "New-hire paperwork", pt: "Admissões", es: "Contrataciones" },
+  "signflow.rcpt.hire.d": { en: "300 hires × 3 docs", pt: "300 admissões × 3 docs", es: "300 ingresos × 3 docs" },
+  "signflow.rcpt.hire.v": { en: "900", pt: "900", es: "900" },
+  "signflow.rcpt.pol": { en: "Policies and renewals", pt: "Políticas e renovações", es: "Políticas y renovaciones" },
+  "signflow.rcpt.pol.d": { en: "1,500 × 2", pt: "1.500 × 2", es: "1.500 × 2" },
+  "signflow.rcpt.pol.v": { en: "3,000", pt: "3.000", es: "3.000" },
+  "signflow.rcpt.cli": { en: "Client and vendor contracts", pt: "Contratos de clientes e fornecedores", es: "Contratos de clientes y proveedores" },
+  "signflow.rcpt.cli.d": { en: "NDAs, SOWs", pt: "NDAs, SOWs", es: "NDAs, SOWs" },
+  "signflow.rcpt.cli.v": { en: "600", pt: "600", es: "600" },
+  "signflow.rcpt.enr": { en: "Student enrollment", pt: "Matrículas de alunos", es: "Matrículas de estudiantes" },
+  "signflow.rcpt.enr.d": { en: "800 × 3 docs", pt: "800 × 3 docs", es: "800 × 3 docs" },
+  "signflow.rcpt.enr.v": { en: "2,400", pt: "2.400", es: "2.400" },
+  "signflow.rcpt.uni": { en: "University staff and faculty", pt: "Equipe e docentes da universidade", es: "Personal y docentes de la universidad" },
+  "signflow.rcpt.uni.v": { en: "300", pt: "300", es: "300" },
+  "signflow.rcpt.envtotal": { en: "Total envelopes", pt: "Total de envelopes", es: "Total de sobres" },
+  "signflow.rcpt.envtotal.v": { en: "≈ 7,200", pt: "≈ 7.200", es: "≈ 7.200" },
+  "signflow.rcpt.seats": { en: "Paid sender seats", pt: "Licenças de remetente", es: "Licencias de remitente" },
+  "signflow.rcpt.seats.d": { en: "7,200 ÷ 100 envelopes", pt: "7.200 ÷ 100 envelopes", es: "7.200 ÷ 100 sobres" },
+  "signflow.rcpt.seats.v": { en: "72", pt: "72", es: "72" },
+  "signflow.rcpt.price": { en: "Business Pro, per seat", pt: "Business Pro, por licença", es: "Business Pro, por licencia" },
+  "signflow.rcpt.price.d": { en: "$45 × 12 months", pt: "US$ 45 × 12 meses", es: "US$ 45 × 12 meses" },
+  "signflow.rcpt.price.v": { en: "$540", pt: "US$ 540", es: "US$ 540" },
+  "signflow.rcpt.total": { en: "Projected cost per year", pt: "Custo projetado por ano", es: "Costo proyectado por año" },
+  "signflow.rcpt.total.v": { en: "$38,880", pt: "US$ 38.880", es: "US$ 38.880" },
+  "signflow.rcpt.stamp": { en: "Replaced by signFlow", pt: "Substituído pelo signFlow", es: "Sustituido por signFlow" },
+
+  /* ─────────── THE CATCH ─────────── */
+  "signflow.catch.eyebrow": { en: "The catch", pt: "O porém", es: "El problema" },
+  "signflow.catch.title": {
+    en: "The savings only exist if people switch",
+    pt: "A economia só existe se as pessoas migrarem",
+    es: "El ahorro solo existe si la gente se cambia"
+  },
+  "signflow.catch.body": {
+    en: "Deciding to build our own tool was the easy part. Everyone already knew DocuSign. If signFlow felt slower or stranger, people would ask for exceptions, contracts would drift back to DocuSign and the $39K would stay on the bill. Adoption was the real requirement, so it became the design brief.",
+    pt: "Decidir construir uma ferramenta própria foi a parte fácil. Todo mundo já conhecia o DocuSign. Se o signFlow parecesse mais lento ou estranho, as pessoas pediriam exceção, os contratos voltariam para o DocuSign e os US$ 39 mil continuariam na conta. A adoção era o requisito de verdade, e virou o brief de design.",
+    es: "Decidir construir una herramienta propia fue la parte fácil. Todos ya conocían DocuSign. Si signFlow se sentía más lento o extraño, la gente pediría excepciones, los contratos volverían a DocuSign y los US$ 39.000 seguirían en la factura. La adopción era el requisito real, y se convirtió en el brief de diseño."
+  },
+  "signflow.catch.1.label": { en: "01", pt: "01", es: "01" },
+  "signflow.catch.1.title": { en: "No training", pt: "Sem treinamento", es: "Sin capacitación" },
+  "signflow.catch.1.body": {
+    en: "Anyone who has signed a DocuSign envelope should know what to do on the first screen.",
+    pt: "Quem já assinou um envelope no DocuSign precisa saber o que fazer logo na primeira tela.",
+    es: "Quien ya firmó un sobre en DocuSign tiene que saber qué hacer desde la primera pantalla."
+  },
+  "signflow.catch.2.title": { en: "One login", pt: "Um só login", es: "Un solo login" },
+  "signflow.catch.2.body": {
+    en: "Employees and students already have a Jala account. Signing shouldn't ask for another password.",
+    pt: "Funcionários e alunos já têm uma conta Jala. Assinar não deveria pedir outra senha.",
+    es: "Empleados y estudiantes ya tienen una cuenta Jala. Firmar no debería pedir otra contraseña."
+  },
+  "signflow.catch.3.title": { en: "Outsiders too", pt: "Quem é de fora também", es: "También los de afuera" },
+  "signflow.catch.3.body": {
+    en: "Clients and candidates outside the company must sign without friction, or the contract goes back to DocuSign.",
+    pt: "Clientes e candidatos de fora da empresa precisam assinar sem atrito, senão o contrato volta para o DocuSign.",
+    es: "Clientes y candidatos de fuera de la empresa tienen que firmar sin fricción, o el contrato vuelve a DocuSign."
   },
 
-  /* ─────────── WIREFRAMES ─────────── */
-  "signflow.wireframes.eyebrow": { en: "Process", pt: "Processo", es: "Proceso" },
-  "signflow.wireframes.title": {
-    en: "From wireframe to final screen",
-    pt: "Do wireframe à tela final",
-    es: "Del wireframe a la pantalla final"
+  /* ─────────── ACCESS ─────────── */
+  "signflow.access.eyebrow": { en: "Access", pt: "Acesso", es: "Acceso" },
+  "signflow.access.title": {
+    en: "One door for four organizations",
+    pt: "Uma porta para quatro organizações",
+    es: "Una puerta para cuatro organizaciones"
   },
-  "signflow.wireframes.body": {
-    en: "The problem arrived already defined. I started with low-fidelity wireframes to validate the structure of login, home, upload, groups, signers, signature fields and document states. Only after that did I define the visual design.",
-    pt: "O problema já chegou definido. Comecei pelos wireframes de baixa fidelidade para validar a estrutura de login, home, upload, grupos, signatários, campos de assinatura e estados do documento. Só depois defini o visual.",
-    es: "El problema ya llegó definido. Empecé por wireframes de baja fidelidad para validar la estructura de login, inicio, carga, grupos, firmantes, campos de firma y estados del documento. Solo después definí lo visual."
+  "signflow.access.body": {
+    en: "The people on that bill don't all work for the same company. Login goes through Jala 360ID, the account everyone at Jalasoft, Jala Group, Fundación Jala and Jala University already uses. External signers create a light account with only name, email and password.",
+    pt: "As pessoas daquela conta não trabalham todas na mesma empresa. O login passa pelo Jala 360ID, a conta que todo mundo na Jalasoft, Jala Group, Fundación Jala e Jala University já usa. Quem é de fora cria uma conta leve, só com nome, e-mail e senha.",
+    es: "Las personas de esa factura no trabajan todas en la misma empresa. El login pasa por Jala 360ID, la cuenta que todos en Jalasoft, Jala Group, Fundación Jala y Jala University ya usan. Quien es de afuera crea una cuenta ligera, solo con nombre, correo y contraseña."
   },
-  "signflow.wireframes.caption": {
-    en: "Wireframes: structure validated before the visual design.",
-    pt: "Wireframes: estrutura validada antes do visual.",
-    es: "Wireframes: estructura validada antes de lo visual."
+  "signflow.access.login.caption": {
+    en: "Internal users: the Jala account they already have.",
+    pt: "Usuários internos: a conta Jala que eles já têm.",
+    es: "Usuarios internos: la cuenta Jala que ya tienen."
   },
-  "signflow.wireframes.alt": {
-    en: "signFlow wireframes: upload, groups, signers, signature fields and document states",
-    pt: "Wireframes do signFlow: upload, grupos, signatários, campos de assinatura e estados do documento",
-    es: "Wireframes de signFlow: carga, grupos, firmantes, campos de firma y estados del documento"
+  "signflow.access.login.alt": {
+    en: "Jala 360ID login with buttons for Jalasoft, Jala Group, Fundación Jala and Jala University accounts",
+    pt: "Login Jala 360ID com botões para contas Jalasoft, Jala Group, Fundación Jala e Jala University",
+    es: "Login Jala 360ID con botones para cuentas de Jalasoft, Jala Group, Fundación Jala y Jala University"
   },
-
-  /* ─────────── THREE FLOWS ─────────── */
-  "signflow.flows.eyebrow": { en: "Structure", pt: "Estrutura", es: "Estructura" },
-  "signflow.flows.title": { en: "Three flows", pt: "Três fluxos", es: "Tres flujos" },
-  "signflow.flows.1.label": { en: "Flow 01", pt: "Fluxo 01", es: "Flujo 01" },
-  "signflow.flows.1.title": { en: "Internal user signs", pt: "Usuário interno assina", es: "Usuario interno firma" },
-  "signflow.flows.1.body": {
-    en: "Login with company accounts, a document list with status filters, and document details. The signature can be typed, drawn or uploaded.",
-    pt: "Login com as contas da empresa, lista de documentos com filtros por status e detalhes do documento. A assinatura pode ser digitada, desenhada ou enviada por upload.",
-    es: "Inicio de sesión con las cuentas de la empresa, lista de documentos con filtros por estado y detalles del documento. La firma puede escribirse, dibujarse o subirse."
+  "signflow.access.ext.caption": {
+    en: "External signers: an account in four fields.",
+    pt: "Signatários externos: uma conta em quatro campos.",
+    es: "Firmantes externos: una cuenta en cuatro campos."
   },
-  "signflow.flows.2.label": { en: "Flow 02", pt: "Fluxo 02", es: "Flujo 02" },
-  "signflow.flows.2.title": { en: "External user signs", pt: "Usuário externo assina", es: "Usuario externo firma" },
-  "signflow.flows.2.body": {
-    en: "A dedicated journey for people outside the company, from \"Sign\" to \"Ready to download\".",
-    pt: "Uma jornada própria para quem não é da empresa, do \"Sign\" até o \"Ready to download\".",
-    es: "Un recorrido propio para quienes no son de la empresa, desde \"Sign\" hasta \"Ready to download\"."
-  },
-  "signflow.flows.3.label": { en: "Flow 03", pt: "Fluxo 03", es: "Flujo 03" },
-  "signflow.flows.3.title": { en: "Send document", pt: "Enviar documento", es: "Enviar documento" },
-  "signflow.flows.3.body": {
-    en: "File upload, groups, internal and external signers, signature fields and tracking until everyone has signed.",
-    pt: "Upload do arquivo, grupos, signatários internos e externos, campos de assinatura e acompanhamento até todos assinarem.",
-    es: "Carga del archivo, grupos, firmantes internos y externos, campos de firma y seguimiento hasta que todos firmen."
-  },
-  "signflow.flowsmap.caption": {
-    en: "The three flows in Figma.",
-    pt: "Os três fluxos no Figma.",
-    es: "Los tres flujos en Figma."
-  },
-  "signflow.flowsmap.alt": {
-    en: "Map with every screen of signFlow's three flows in Figma",
-    pt: "Mapa com todas as telas dos três fluxos do signFlow no Figma",
-    es: "Mapa con todas las pantallas de los tres flujos de signFlow en Figma"
+  "signflow.access.ext.alt": {
+    en: "Create account form with full name, email, password and password confirmation",
+    pt: "Formulário de criação de conta com nome completo, e-mail, senha e confirmação",
+    es: "Formulario de creación de cuenta con nombre completo, correo, contraseña y confirmación"
   },
 
-  /* ─────────── SIDEBAR ─────────── */
-  "signflow.sidebar.eyebrow": { en: "Interaction Model", pt: "Modelo de Interação", es: "Modelo de Interacción" },
-  "signflow.sidebar.title": {
-    en: "A sidebar that changes with the step",
-    pt: "Uma barra lateral que muda com a etapa",
-    es: "Una barra lateral que cambia con la etapa"
+  /* ─────────── PRINCIPLE ─────────── */
+  "signflow.principle.eyebrow": { en: "The principle", pt: "O princípio", es: "El principio" },
+  "signflow.principle.title": {
+    en: "The document never moves",
+    pt: "O documento nunca sai do lugar",
+    es: "El documento nunca se mueve"
   },
-  "signflow.sidebar.body": {
-    en: "The document stays visible at all times. New information comes from the sidebar, which adapts to the moment and surfaces the main action.",
-    pt: "O documento fica sempre visível. Quem manda a informação nova é a barra lateral, que se adapta ao momento e mostra a ação principal.",
-    es: "El documento permanece siempre visible. Quien aporta la información nueva es la barra lateral, que se adapta al momento y muestra la acción principal."
+  "signflow.principle.body": {
+    en: "DocuSign users expect the document at the center of the screen, so signFlow keeps it there at every step. What changes is the sidebar: it shows only what the current step needs and keeps the main action at the bottom, in the same place every time.",
+    pt: "Quem usa DocuSign espera o documento no centro da tela, então o signFlow mantém ele ali em todas as etapas. O que muda é a barra lateral: ela mostra só o que a etapa atual pede e deixa a ação principal embaixo, sempre no mesmo lugar.",
+    es: "Quien usa DocuSign espera el documento en el centro de la pantalla, así que signFlow lo mantiene ahí en cada etapa. Lo que cambia es la barra lateral: muestra solo lo que pide la etapa actual y deja la acción principal abajo, siempre en el mismo lugar."
   },
-  "signflow.states.1.title": { en: "Details", pt: "Detalhes", es: "Detalles" },
-  "signflow.states.1.body": {
-    en: "Owner, dates, deadline and status, with Sign, Reject or Download.",
-    pt: "Dono, datas, prazo e status, com Assinar, Rejeitar ou Download.",
-    es: "Propietario, fechas, plazo y estado, con Firmar, Rechazar o Descargar."
+  "signflow.principle.caption": {
+    en: "One sidebar for every step: details, signing, signers, fields and tracking.",
+    pt: "Uma barra lateral para cada etapa: detalhes, assinatura, signatários, campos e acompanhamento.",
+    es: "Una barra lateral para cada etapa: detalles, firma, firmantes, campos y seguimiento."
   },
-  "signflow.states.2.title": { en: "Sign", pt: "Assinar", es: "Firmar" },
-  "signflow.states.2.body": {
-    en: "Type, draw or upload the signature, for one page or all of them.",
-    pt: "Digitar, desenhar ou enviar a assinatura, para uma página ou todas.",
-    es: "Escribir, dibujar o subir la firma, para una página o todas."
-  },
-  "signflow.states.3.title": { en: "Signers", pt: "Signatários", es: "Firmantes" },
-  "signflow.states.3.body": {
-    en: "Signers and reviewers, with an optional signing order.",
-    pt: "Signatários e revisores, com ordem de assinatura opcional.",
-    es: "Firmantes y revisores, con orden de firma opcional."
-  },
-  "signflow.states.4.title": { en: "Fields", pt: "Campos", es: "Campos" },
-  "signflow.states.4.body": {
-    en: "Date, initials and signature, placed directly on the document.",
-    pt: "Data, iniciais e assinatura, posicionados direto no documento.",
-    es: "Fecha, iniciales y firma, colocados directamente en el documento."
-  },
-  "signflow.states.5.title": { en: "Tracking", pt: "Acompanhamento", es: "Seguimiento" },
-  "signflow.states.5.body": {
-    en: "Who has signed and who's left, until the document closes.",
-    pt: "Quem já assinou e quem falta, até o documento fechar.",
-    es: "Quién ya firmó y quién falta, hasta que el documento se cierre."
-  },
-  "signflow.sidebar.alt": {
-    en: "The five versions of the signFlow sidebar, one for each step",
-    pt: "As cinco versões da barra lateral do signFlow, uma para cada etapa",
-    es: "Las cinco versiones de la barra lateral de signFlow, una para cada etapa"
+  "signflow.sb.1": { en: "Details", pt: "Detalhes", es: "Detalles" },
+  "signflow.sb.2": { en: "Sign", pt: "Assinar", es: "Firmar" },
+  "signflow.sb.3": { en: "Signed", pt: "Assinado", es: "Firmado" },
+  "signflow.sb.4": { en: "Add signers", pt: "Signatários", es: "Firmantes" },
+  "signflow.sb.5": { en: "Place fields", pt: "Campos", es: "Campos" },
+  "signflow.sb.6": { en: "Send", pt: "Enviar", es: "Enviar" },
+  "signflow.sb.7": { en: "Tracking", pt: "Acompanhar", es: "Seguimiento" },
+  "signflow.sb.8": { en: "Complete", pt: "Concluído", es: "Completo" },
+  "signflow.principle.alt": {
+    en: "The signFlow sidebar in each of its states, side by side",
+    pt: "A barra lateral do signFlow em cada um dos seus estados, lado a lado",
+    es: "La barra lateral de signFlow en cada uno de sus estados, lado a lado"
   },
 
-  /* ─────────── SIGN IN A FEW STEPS ─────────── */
-  "signflow.sign.eyebrow": { en: "Core Flow", pt: "Fluxo Principal", es: "Flujo Principal" },
-  "signflow.sign.title": { en: "Sign in a few steps", pt: "Assinar em poucos passos", es: "Firmar en pocos pasos" },
-  "signflow.sign.body": {
-    en: "Three ways to sign, a confirmation before finishing, and a clear final state: once everyone has signed, the download unlocks and a copy arrives by email.",
-    pt: "Três formas de assinar, uma confirmação antes de finalizar e um estado final claro: quando todos assinam, o download é liberado e a cópia chega por e-mail.",
-    es: "Tres formas de firmar, una confirmación antes de finalizar y un estado final claro: cuando todos firman, se habilita la descarga y la copia llega por correo."
+  /* ─────────── JOURNEY ─────────── */
+  "signflow.journey.eyebrow": { en: "One document's journey", pt: "A jornada de um documento", es: "El recorrido de un documento" },
+  "signflow.journey.title": {
+    en: "From upload to “everyone has signed”",
+    pt: "Do upload ao “todos assinaram”",
+    es: "De la carga a “todos firmaron”"
   },
-  "signflow.sign.details.alt": {
-    en: "Document details, and signing by typed text and by drawing",
-    pt: "Detalhes do documento e assinatura por texto e por desenho",
-    es: "Detalles del documento y firma por texto y por dibujo"
+  "signflow.journey.body": {
+    en: "Follow one contract through the tool. Three moments matter: sending it, signing it and closing it.",
+    pt: "Acompanhe um contrato pela ferramenta. Três momentos importam: enviar, assinar e fechar.",
+    es: "Sigue un contrato por la herramienta. Importan tres momentos: enviarlo, firmarlo y cerrarlo."
   },
-  "signflow.sign.upload.alt": {
-    en: "Signing by file upload, and the Complete Signing confirmation modal",
-    pt: "Assinatura por upload e modal de confirmação Complete Signing",
-    es: "Firma por carga de archivo y el modal de confirmación Complete Signing"
+  "signflow.ch1.label": { en: "Send", pt: "Enviar", es: "Enviar" },
+  "signflow.ch1.title": {
+    en: "Decide who signs and who only reviews",
+    pt: "Decidir quem assina e quem só revisa",
+    es: "Decidir quién firma y quién solo revisa"
   },
-  "signflow.pair.list.caption": {
-    en: "Document list, with status filters and search.",
-    pt: "Lista de documentos, com filtros por status e busca.",
-    es: "Lista de documentos, con filtros por estado y búsqueda."
+  "signflow.ch1.body": {
+    en: "After the upload, the sender lists who needs to act. Each person is either a signer or a reviewer, and the difference is explicit: reviewers approve the content, signers make it binding. External emails go in the same way as internal ones.",
+    pt: "Depois do upload, quem envia lista quem precisa agir. Cada pessoa é signatária ou revisora, e a diferença é explícita: quem revisa aprova o conteúdo, quem assina dá validade. E-mails externos entram do mesmo jeito que os internos.",
+    es: "Después de la carga, quien envía indica quién debe actuar. Cada persona es firmante o revisora, y la diferencia es explícita: quien revisa aprueba el contenido, quien firma le da validez. Los correos externos se agregan igual que los internos."
   },
-  "signflow.pair.list.alt": {
-    en: "Document list in dark and light mode",
-    pt: "Lista de documentos em dark e light mode",
-    es: "Lista de documentos en modo oscuro y claro"
+  "signflow.ch1.alt": {
+    en: "Add signers sidebar with individual signer and reviewer fields, next to the document",
+    pt: "Barra lateral de adicionar signatários, com campos de signatário e revisor, ao lado do documento",
+    es: "Barra lateral para agregar firmantes, con campos de firmante y revisor, junto al documento"
   },
-  "signflow.pair.done.caption": {
-    en: "Everyone has signed: the download unlocks.",
-    pt: "Todos assinaram: o download é liberado.",
-    es: "Todos firmaron: se habilita la descarga."
+  "signflow.ch2.label": { en: "Sign", pt: "Assinar", es: "Firmar" },
+  "signflow.ch2.title": {
+    en: "Three ways to sign, one panel",
+    pt: "Três formas de assinar, um só painel",
+    es: "Tres formas de firmar, un solo panel"
   },
-  "signflow.pair.done.alt": {
-    en: "Document with all signatures completed and the download button",
-    pt: "Documento com todas as assinaturas concluídas e botão de download",
-    es: "Documento con todas las firmas completadas y el botón de descarga"
+  "signflow.ch2.body": {
+    en: "Some people draw their signature, some type their name, some already have a scanned one. All three live in the same panel as tabs, with options to apply the signature to every page. The document stays on the right, so the signer always sees what they're agreeing to.",
+    pt: "Tem quem desenhe a assinatura, quem digite o nome e quem já tenha uma escaneada. As três ficam no mesmo painel, como abas, com opção de aplicar a assinatura em todas as páginas. O documento continua à direita, então quem assina sempre vê o que está aceitando.",
+    es: "Hay quien dibuja su firma, quien escribe su nombre y quien ya tiene una escaneada. Las tres viven en el mismo panel, como pestañas, con opción de aplicar la firma en todas las páginas. El documento sigue a la derecha, así quien firma siempre ve lo que está aceptando."
+  },
+  "signflow.ch2.tabs": { en: "Signature method", pt: "Forma de assinatura", es: "Forma de firma" },
+  "signflow.ch2.tab.draw": { en: "Draw", pt: "Desenhar", es: "Dibujar" },
+  "signflow.ch2.tab.text": { en: "Type", pt: "Digitar", es: "Escribir" },
+  "signflow.ch2.tab.upload": { en: "Upload", pt: "Upload", es: "Subir" },
+  "signflow.ch2.draw.alt": {
+    en: "Sign panel with the Draw tab open and a handwritten signature",
+    pt: "Painel de assinatura com a aba Desenhar aberta e uma assinatura à mão",
+    es: "Panel de firma con la pestaña Dibujar abierta y una firma a mano"
+  },
+  "signflow.ch2.text.alt": {
+    en: "Sign panel with the Text tab open and the signer's typed name",
+    pt: "Painel de assinatura com a aba Texto aberta e o nome digitado",
+    es: "Panel de firma con la pestaña Texto abierta y el nombre escrito"
+  },
+  "signflow.ch2.upload.alt": {
+    en: "Sign panel with the Upload tab open and a drop area for a signature image",
+    pt: "Painel de assinatura com a aba Upload aberta e área para soltar a imagem da assinatura",
+    es: "Panel de firma con la pestaña Subir abierta y un área para soltar la imagen de la firma"
+  },
+  "signflow.ch3.label": { en: "Close", pt: "Fechar", es: "Cerrar" },
+  "signflow.ch3.title": {
+    en: "The download unlocks when it's really done",
+    pt: "O download libera quando está pronto de verdade",
+    es: "La descarga se habilita cuando de verdad terminó"
+  },
+  "signflow.ch3.body": {
+    en: "A document is only finished when every signer has signed. Until then, the sidebar shows what's missing. After that, it says “Everyone has signed”, unlocks the download and sends a copy by email. Nobody has to ask whether it's done.",
+    pt: "Um documento só termina quando todos os signatários assinam. Até lá, a barra lateral mostra o que falta. Depois, ela diz “Everyone has signed”, libera o download e manda uma cópia por e-mail. Ninguém precisa perguntar se já foi.",
+    es: "Un documento solo termina cuando todos los firmantes firman. Hasta entonces, la barra lateral muestra lo que falta. Después, dice “Everyone has signed”, habilita la descarga y envía una copia por correo. Nadie tiene que preguntar si ya está."
+  },
+  "signflow.ch3.alt": {
+    en: "Document details with the Everyone has signed status and the Download button",
+    pt: "Detalhes do documento com o status Everyone has signed e o botão de Download",
+    es: "Detalles del documento con el estado Everyone has signed y el botón de descarga"
   },
 
-  /* ─────────── VERSIONS ─────────── */
-  "signflow.versions.eyebrow": { en: "System", pt: "Sistema", es: "Sistema" },
-  "signflow.versions.title": {
-    en: "One system, four versions",
-    pt: "Um sistema, quatro versões",
-    es: "Un sistema, cuatro versiones"
+  /* ─────────── SYSTEM ─────────── */
+  "signflow.system.eyebrow": { en: "System", pt: "Sistema", es: "Sistema" },
+  "signflow.system.title": {
+    en: "Light, dark and familiar",
+    pt: "Light, dark e familiar",
+    es: "Claro, oscuro y familiar"
   },
-  "signflow.versions.body": {
-    en: "Every screen exists in light and dark mode, on desktop and mobile. In the document list, the card grid becomes a vertical list on mobile, without losing filters, search or deadlines.",
-    pt: "Todas as telas existem em light e dark mode, no desktop e no mobile. Na lista de documentos, a grade de cards vira uma lista vertical no celular, sem perder filtros, busca e prazos.",
-    es: "Todas las pantallas existen en modo claro y oscuro, en escritorio y móvil. En la lista de documentos, la cuadrícula de tarjetas se convierte en una lista vertical en el móvil, sin perder filtros, búsqueda ni plazos."
+  "signflow.system.body": {
+    en: "Every screen exists in light and dark mode, on desktop and mobile, on top of a small style guide: one type scale, a purple accent and colors for success, warning and error. Drag the handle to compare the two themes.",
+    pt: "Todas as telas existem em light e dark, no desktop e no mobile, sobre um style guide enxuto: uma escala tipográfica, um acento roxo e cores de sucesso, alerta e erro. Arraste o controle para comparar os dois temas.",
+    es: "Todas las pantallas existen en modo claro y oscuro, en escritorio y móvil, sobre una guía de estilo breve: una escala tipográfica, un acento morado y colores de éxito, alerta y error. Arrastra el control para comparar los dos temas."
   },
-  "signflow.versions.alt": {
-    en: "Document list on desktop and mobile, in light and dark mode",
-    pt: "Lista de documentos em desktop e mobile, nos modos light e dark",
-    es: "Lista de documentos en escritorio y móvil, en modo claro y oscuro"
+  "signflow.system.compare": {
+    en: "Compare dark and light mode",
+    pt: "Comparar dark e light mode",
+    es: "Comparar modo oscuro y claro"
+  },
+  "signflow.system.dark": { en: "Dark", pt: "Dark", es: "Oscuro" },
+  "signflow.system.light": { en: "Light", pt: "Light", es: "Claro" },
+  "signflow.system.dark.alt": {
+    en: "Document list in dark mode",
+    pt: "Lista de documentos em dark mode",
+    es: "Lista de documentos en modo oscuro"
+  },
+  "signflow.system.light.alt": {
+    en: "Document list in light mode",
+    pt: "Lista de documentos em light mode",
+    es: "Lista de documentos en modo claro"
+  },
+  "signflow.system.guide.caption": {
+    en: "Style guide: type scale, logo and color system.",
+    pt: "Style guide: escala tipográfica, logo e sistema de cores.",
+    es: "Guía de estilo: escala tipográfica, logo y sistema de color."
+  },
+  "signflow.system.guide.alt": {
+    en: "signFlow style guide with type scale, logo variations and color palette",
+    pt: "Style guide do signFlow com escala tipográfica, variações do logo e paleta de cores",
+    es: "Guía de estilo de signFlow con escala tipográfica, variaciones del logo y paleta de colores"
   },
 
   /* ─────────── RESULT ─────────── */
-  "signflow.result.title": { en: "Result", pt: "Resultado", es: "Resultado" },
+  "signflow.result.eyebrow": { en: "Result", pt: "Resultado", es: "Resultado" },
+  "signflow.result.title": { en: "DocuSign replaced", pt: "DocuSign substituído", es: "DocuSign sustituido" },
   "signflow.result.body": {
-    en: "signFlow is already in use at the company and has replaced DocuSign. The company no longer pays for a third-party tool and now has its own solution, built for its own flow.",
-    pt: "O signFlow já está em uso na empresa e substituiu o DocuSign. A empresa deixa de pagar uma ferramenta de terceiros e passa a ter uma solução própria, feita para o seu fluxo.",
-    es: "signFlow ya está en uso en la empresa y sustituyó a DocuSign. La empresa deja de pagar una herramienta de terceros y pasa a tener una solución propia, hecha para su flujo."
-  }
+    en: "signFlow is in use at the company and DocuSign is gone. By our estimate, that puts about $39K a year back in the budget, and Jala now owns a tool built around its own flow instead of renting one.",
+    pt: "O signFlow está em uso na empresa e o DocuSign saiu. Pela nossa estimativa, isso devolve cerca de US$ 39 mil por ano ao orçamento, e a Jala passa a ter uma ferramenta feita para o seu fluxo em vez de alugar uma.",
+    es: "signFlow está en uso en la empresa y DocuSign salió. Según nuestra estimación, eso devuelve cerca de US$ 39.000 al año al presupuesto, y Jala pasa a tener una herramienta hecha para su flujo en lugar de alquilar una."
+  },
+
+  /* ─────────── LEARNINGS ─────────── */
+  "signflow.learn.eyebrow": { en: "Learnings", pt: "Aprendizados", es: "Aprendizajes" },
+  "signflow.learn.title": { en: "What I took away", pt: "O que ficou", es: "Lo que me llevo" },
+  "signflow.learn.1.tag": { en: "What worked", pt: "O que funcionou", es: "Lo que funcionó" },
+  "signflow.learn.1.title": { en: "Familiar beats clever", pt: "Familiar vence esperto", es: "Lo familiar gana a lo ingenioso" },
+  "signflow.learn.1.body": {
+    en: "Keeping DocuSign's mental model, document in the center and one clear action, did more for adoption than any new idea would have.",
+    pt: "Manter o modelo mental do DocuSign, documento no centro e uma ação clara, fez mais pela adoção do que qualquer ideia nova faria.",
+    es: "Mantener el modelo mental de DocuSign, el documento en el centro y una acción clara, hizo más por la adopción que cualquier idea nueva."
+  },
+  "signflow.learn.2.tag": { en: "What I'd do differently", pt: "O que eu faria diferente", es: "Lo que haría distinto" },
+  "signflow.learn.2.title": { en: "Measure from day one", pt: "Medir desde o primeiro dia", es: "Medir desde el primer día" },
+  "signflow.learn.2.body": {
+    en: "The savings figure is an estimate. I'd track envelopes sent and time to completion from launch, to replace the projection with a measured number.",
+    pt: "O valor da economia é uma estimativa. Eu mediria envelopes enviados e tempo até a conclusão desde o lançamento, para trocar a projeção por um número medido.",
+    es: "La cifra de ahorro es una estimación. Mediría los sobres enviados y el tiempo hasta completar desde el lanzamiento, para cambiar la proyección por un número medido."
+  },
+  "signflow.learn.3.tag": { en: "Key insight", pt: "Insight principal", es: "Aprendizaje clave" },
+  "signflow.learn.3.title": { en: "Savings are a UX requirement", pt: "Economia é requisito de UX", es: "El ahorro es un requisito de UX" },
+  "signflow.learn.3.body": {
+    en: "When the business case depends on people switching tools, usability isn't polish. It decides whether the money is actually saved.",
+    pt: "Quando o caso de negócio depende das pessoas trocarem de ferramenta, usabilidade não é acabamento. É ela que decide se o dinheiro é economizado de fato.",
+    es: "Cuando el caso de negocio depende de que la gente cambie de herramienta, la usabilidad no es un detalle. Es lo que decide si el dinero realmente se ahorra."
+  },
+  "signflow.learn.4.tag": { en: "Room to grow", pt: "Próximos passos", es: "Próximos pasos" },
+  "signflow.learn.4.title": { en: "Bulk sending", pt: "Envio em massa", es: "Envío masivo" },
+  "signflow.learn.4.body": {
+    en: "Student enrollment sends the same document hundreds of times a year. One template to many signers is the natural next step.",
+    pt: "A matrícula de alunos envia o mesmo documento centenas de vezes por ano. Um modelo para muitos signatários é o próximo passo natural.",
+    es: "La matrícula de estudiantes envía el mismo documento cientos de veces al año. Una plantilla para muchos firmantes es el siguiente paso natural."
+  },
+
+  /* ─────────── MORE WORK ─────────── */
+  "signflow.more.eyebrow": { en: "More Work", pt: "Mais trabalhos", es: "Más trabajos" },
+  "signflow.more.next.label": { en: "Next Case Study", pt: "Próximo case", es: "Siguiente caso" },
+  "signflow.more.also.label": { en: "Also Worth Seeing", pt: "Vale ver também", es: "También vale la pena" }
 
 };
