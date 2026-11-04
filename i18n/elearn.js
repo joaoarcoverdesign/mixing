@@ -330,9 +330,9 @@ window.I18N_PAGE_STRINGS = {
     es: "El currículo detrás de la app se enseñó en 9 cohortes de bootcamp, alcanzando a más de 100 estudiantes en Brasil y LATAM."
   },
   "elearn.outcome.p2": {
-    en: "The work led to two follow-up projects. Blueprint was the final project of the Jala University development degree, built by a large class of students, and I led and mentored more than 60 of them on its design. The other was an internal employee training program. That year, I was recognized as the best bootcamp teacher.",
-    pt: "O trabalho levou a dois projetos seguintes. O Blueprint foi o projeto final da graduação de desenvolvimento da Jala University, feito por uma turma grande de alunos, da qual liderei e mentorei mais de 60 no design. O outro foi um programa interno de treinamento de colaboradores. Nesse ano, fui reconhecido como melhor professor do bootcamp.",
-    es: "El trabajo llevó a dos proyectos posteriores. Blueprint fue el proyecto final de la graduación de desarrollo de Jala University, hecho por una clase grande de alumnos, de la cual lideré y mentoreé a más de 60 en el diseño. El otro fue un programa interno de capacitación de empleados. Ese año, fui reconocido como el mejor profesor del bootcamp."
+    en: "The work led to two follow-up projects. <a href=\"blueprint.html\">Blueprint</a> was the final project of the Jala University development degree, built by a large class of students, and I led and mentored more than 60 of them on its design. The other was an internal employee training program. That year, I was recognized as the best bootcamp teacher.",
+    pt: "O trabalho levou a dois projetos seguintes. O <a href=\"blueprint.html\">Blueprint</a> foi o projeto final da graduação de desenvolvimento da Jala University, feito por uma turma grande de alunos, da qual liderei e mentorei mais de 60 no design. O outro foi um programa interno de treinamento de colaboradores. Nesse ano, fui reconhecido como melhor professor do bootcamp.",
+    es: "El trabajo llevó a dos proyectos posteriores. <a href=\"blueprint.html\">Blueprint</a> fue el proyecto final de la graduación de desarrollo de Jala University, hecho por una clase grande de alumnos, de la cual lideré y mentoreé a más de 60 en el diseño. El otro fue un programa interno de capacitación de empleados. Ese año, fui reconocido como el mejor profesor del bootcamp."
   },
   "elearn.outcome.cta": { en: "See the LinkedIn post →", pt: "Ver o post no LinkedIn →", es: "Ver el post en LinkedIn →" },
   "elearn.outcome.img.alt": {

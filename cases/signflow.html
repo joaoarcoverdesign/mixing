@@ -8,22 +8,22 @@
 <link rel="apple-touch-icon" href="../Img/favicon.png">
 <script src="../i18n/signflow.js"></script>
 <script src="../i18n.js"></script>
-<title>signFlow: Document Signing Tool | Abdalla Design</title>
-<meta name="description" content="A proprietary document-signing tool, designed to replace DocuSign inside the company.">
+<title>signFlow: Replacing DocuSign | Abdalla Design</title>
+<meta name="description" content="How an in-house signing tool replaced a projected $39K-a-year DocuSign bill, by being familiar enough that nobody had to learn it.">
 <link rel="canonical" href="https://www.abdallajoao.com/cases/signflow.html">
 <!-- Open Graph / social preview -->
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Abdalla Design">
 <meta property="og:url" content="https://www.abdallajoao.com/cases/signflow.html">
-<meta property="og:title" content="signFlow: Document Signing Tool | Abdalla Design">
-<meta property="og:description" content="A proprietary document-signing tool, designed to replace DocuSign inside the company.">
+<meta property="og:title" content="signFlow: Replacing DocuSign | Abdalla Design">
+<meta property="og:description" content="How an in-house signing tool replaced a projected $39K-a-year DocuSign bill, by being familiar enough that nobody had to learn it.">
 <meta property="og:image" content="https://www.abdallajoao.com/Img/og-cover.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Selected work by João Abdalla: product and UX/UI design projects">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="signFlow: Document Signing Tool | Abdalla Design">
-<meta name="twitter:description" content="A proprietary document-signing tool, designed to replace DocuSign inside the company.">
+<meta name="twitter:title" content="signFlow: Replacing DocuSign | Abdalla Design">
+<meta name="twitter:description" content="How an in-house signing tool replaced a projected $39K-a-year DocuSign bill, by being familiar enough that nobody had to learn it.">
 <meta name="twitter:image" content="https://www.abdallajoao.com/Img/og-cover.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,9 +37,13 @@
   --ink:#F4F6F3;
   --ink-soft:#9BA4AA;
   --ink-dim:#5E676D;
+  /* small uppercase labels need AA contrast; --ink-dim (~3:1) only for decoration */
+  --ink-mute:#7E888E;
   --num-dim:#333B41;
-  --line:rgba(255,255,255,.08);
-  --line-soft:rgba(255,255,255,.05);
+  /* hairlines tinted toward the brand hue instead of pure white */
+  --line:rgba(236,246,228,.08);
+  --line-soft:rgba(236,246,228,.05);
+  --line-strong:rgba(236,246,228,.2);
   --accent:#C2FC50;
   --accent-soft:rgba(194,252,80,.12);
   --radius-lg:16px;
@@ -49,6 +53,10 @@
   --serif:'Lora', Georgia, serif;
   --px: clamp(20px, 5vw, 72px);
   --ease: cubic-bezier(.22,1,.36,1);
+  /* motion tokens, same as index.html */
+  --ease-out: cubic-bezier(.23,1,.32,1);
+  --dur-press: 140ms;
+  --dur-ui: 220ms;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
@@ -61,11 +69,13 @@ a{color:inherit;text-decoration:none;}
 button{font:inherit;background:none;border:none;cursor:pointer;color:inherit;}
 img{max-width:100%;display:block;}
 ul,ol{list-style:none;}
+h1,h2,h3{text-wrap:balance;}
+p{text-wrap:pretty;}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
 .container{max-width:1160px;margin:0 auto;padding:0 var(--px);}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:900;transition:transform .5s var(--ease);}
+nav{position:fixed;top:0;left:0;right:0;z-index:900;transition:transform .4s var(--ease-out);}
 nav.is-hidden{transform:translateY(-110%);}
 .nav-inner{
   display:flex;align-items:center;justify-content:space-between;
@@ -82,15 +92,17 @@ nav.is-hidden{transform:translateY(-110%);}
 .nav-links{display:flex;gap:34px;list-style:none;align-items:center;}
 .nav-links a{
   font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--ink-soft);position:relative;padding:4px 0;transition:color .25s;
+  color:var(--ink-soft);position:relative;padding:4px 0;transition:color var(--dur-ui) ease;
 }
 .nav-links a::after{
   content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;
   background:var(--accent);transform:scaleX(0);transform-origin:right;
-  transition:transform .4s var(--ease);
+  transition:transform .35s var(--ease-out);
 }
-.nav-links a:hover{color:var(--ink);}
-.nav-links a:hover::after{transform:scaleX(1);transform-origin:left;}
+@media (hover:hover) and (pointer:fine){
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links a:hover::after{transform:scaleX(1);transform-origin:left;}
+}
 @media (max-width:720px){.nav-links{gap:20px;}}
 
 /* mobile: hamburger + dropdown panel */
@@ -103,7 +115,9 @@ nav.is-hidden{transform:translateY(-110%);}
     display:flex;align-items:center;justify-content:center;
     width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
     color:var(--ink);flex:0 0 auto;
+    transition:transform var(--dur-press) var(--ease-out);
   }
+  .nav-toggle:active{transform:scale(.94);}
   .nav-lang-slot{display:inline-flex;margin-left:auto;margin-right:14px;}
   .nav-links .lang-switch-li{display:none;}
   nav.is-open .nav-toggle .icon-open{display:none;}
@@ -113,10 +127,14 @@ nav.is-hidden{transform:translateY(-110%);}
     flex-direction:column;align-items:stretch;gap:0;
     background:var(--bg-deep);border:1px solid var(--line);border-radius:14px;
     padding:6px;
-    opacity:0;transform:translateY(-8px);pointer-events:none;
-    transition:opacity .3s var(--ease),transform .3s var(--ease);
+    /* grows out of the hamburger; closing is quicker than opening */
+    opacity:0;transform:translateY(-6px) scale(.96);transform-origin:top right;pointer-events:none;
+    transition:opacity 150ms ease,transform 150ms var(--ease-out);
   }
-  nav.is-open .nav-links{opacity:1;transform:none;pointer-events:auto;}
+  nav.is-open .nav-links{
+    opacity:1;transform:none;pointer-events:auto;
+    transition:opacity var(--dur-ui) var(--ease-out),transform var(--dur-ui) var(--ease-out);
+  }
   nav.is-open.is-hidden{transform:none;}
   .nav-links li{border-bottom:1px solid var(--line);}
   .nav-links li:last-child,
@@ -128,80 +146,242 @@ nav.is-hidden{transform:translateY(-110%);}
 /* HERO */
 .hero{padding:140px var(--px) 56px;}
 .hero-title{font-family:var(--sans);font-weight:800;font-size:clamp(32px,5.2vw,56px);line-height:1.06;letter-spacing:-.02em;margin-bottom:14px;color:var(--ink);}
-.hero-sub{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(18px,2.2vw,22px);color:var(--ink);opacity:.85;margin-bottom:24px;}
-.hero-text{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:640px;margin-bottom:40px;}
+.hero-sub{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(20px,2.6vw,28px);line-height:1.35;color:var(--ink);opacity:.9;max-width:26ch;margin-bottom:24px;}
+.hero-text{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:600px;margin-bottom:40px;}
 .hero-specs{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid var(--line);padding-top:28px;margin-bottom:48px;}
-.spec-label{font-family:var(--sans);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-dim);margin-bottom:8px;}
+.spec-label{font-family:var(--sans);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-mute);margin-bottom:8px;}
 .spec-value{font-size:15px;font-weight:700;line-height:1.4;color:var(--ink);}
 
 /* IMAGES */
 .hero-banner{border-radius:var(--radius-lg);overflow:hidden;}
 .hero-banner img{display:block;width:100%;height:auto;}
-.img-placeholder.filled{background:var(--bg-deep);border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;}
-.img-placeholder.filled img{width:100%;height:auto;display:block;}
-.img-caption{display:block;margin-top:14px;font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);text-align:center;}
-.img-duo{display:flex;gap:16px;}
-.img-duo>div{flex:1;}
+.shot{background:var(--bg-deep);border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;}
+.shot img{width:100%;height:auto;display:block;}
+.img-caption{display:block;margin-top:14px;font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute);}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:44px;}
+@media (max-width:640px){.duo{grid-template-columns:1fr;gap:28px;}}
+
+/* image reveal: the frame unmasks from slightly inset instead of sliding up,
+   so a large screenshot reads as one object arriving, not a block moving */
+.hero-banner.rv,.shot.rv{
+  transform:none;
+  clip-path:inset(3% 2% 3% 2% round var(--radius-md));
+  transition:opacity .8s var(--ease-out),clip-path 1s var(--ease-out);
+}
+.hero-banner.rv.is-in,.shot.rv.is-in{clip-path:inset(0 round var(--radius-md));}
+.hero-banner.rv.is-in{clip-path:inset(0 round var(--radius-lg));}
 
 /* SECTIONS */
-section{padding:88px 0;}
+section{padding:clamp(72px,10vw,112px) 0;}
 section+section{border-top:1px solid var(--line);}
-.eyebrow{font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.eyebrow{font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
 .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);flex:0 0 auto;}
-.sec-title{font-family:var(--sans);font-weight:800;font-size:clamp(26px,3.6vw,40px);line-height:1.18;letter-spacing:-.01em;max-width:760px;margin-bottom:22px;color:var(--ink);}
+.sec-title{font-family:var(--sans);font-weight:800;font-size:clamp(26px,3.6vw,40px);line-height:1.15;letter-spacing:-.015em;max-width:760px;margin-bottom:22px;color:var(--ink);}
 .sec-lede{font-family:var(--body);font-size:16.5px;color:var(--ink-soft);max-width:620px;margin-bottom:44px;}
 .sec-lede:last-child{margin-bottom:0;}
 
-/* two independent blocks side by side (brief) */
-.split-2{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
+/* THE BILL — copy beside a receipt. The receipt is the only "number" moment on
+   the page, set as a document (fitting for a signing tool) rather than a big
+   stat block: every line of the math is visible, so the total is checkable */
+.bill{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:clamp(40px,7vw,96px);align-items:start;}
+.bill-note{font-family:var(--body);font-size:13px;line-height:1.7;color:var(--ink-mute);max-width:52ch;margin-top:28px;padding-top:20px;border-top:1px solid var(--line);}
+@media (max-width:900px){.bill{grid-template-columns:1fr;}}
 
-/* three parallel cards */
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:44px;}
-.insight-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:28px;}
-.insight-label{font-family:var(--sans);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:12px;}
-.insight-title{font-family:var(--sans);font-weight:800;font-size:17px;margin-bottom:10px;letter-spacing:-.01em;color:var(--ink);}
-.insight-text{font-family:var(--body);font-size:14.5px;color:var(--ink-soft);line-height:1.7;}
-
-/* sequential steps (no image) */
-.step{padding:32px 0;border-top:1px solid var(--line);}
-.step:first-child{border-top:none;padding-top:0;}
-.step-num{font-family:var(--serif);font-style:italic;font-weight:500;font-size:36px;color:var(--num-dim);line-height:1;margin-bottom:14px;}
-.step-title{font-family:var(--sans);font-weight:800;font-size:20px;margin-bottom:12px;letter-spacing:-.01em;max-width:640px;color:var(--ink);}
-.step-text{font-family:var(--body);color:var(--ink-soft);font-size:15px;line-height:1.75;max-width:720px;}
-
-/* horizontal steps row */
-.steps-row{display:grid;grid-template-columns:repeat(5,1fr);}
-.steps-row .step{padding:0 24px;border-top:none;border-left:1px solid var(--line);}
-.steps-row .step:first-child{border-left:none;padding-left:0;}
-.steps-row .step:last-child{padding-right:0;}
-@media (max-width:860px){
-  .steps-row{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(220px,62%);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;}
-  .steps-row::-webkit-scrollbar{display:none;}
-  .steps-row .step{scroll-snap-align:start;}
+.receipt{
+  --perf:10px;
+  position:relative;
+  background:#EDEFE9;color:#161B1F;
+  padding:34px 30px 30px;
+  font-family:var(--sans);font-variant-numeric:tabular-nums;
+  /* perforated top and bottom edges */
+  -webkit-mask:radial-gradient(circle at 50% 0,transparent 5px,#000 5.5px) top/var(--perf) 51% repeat-x,
+               radial-gradient(circle at 50% 100%,transparent 5px,#000 5.5px) bottom/var(--perf) 51% repeat-x;
+          mask:radial-gradient(circle at 50% 0,transparent 5px,#000 5.5px) top/var(--perf) 51% repeat-x,
+               radial-gradient(circle at 50% 100%,transparent 5px,#000 5.5px) bottom/var(--perf) 51% repeat-x;
+  filter:drop-shadow(0 30px 50px rgba(4,8,6,.45));
+}
+.receipt-wrap{position:relative;}
+.rcpt-head{font-weight:800;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding-bottom:18px;border-bottom:1.5px dashed rgba(22,27,31,.3);margin-bottom:6px;}
+.rcpt-group{font-weight:700;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6A7378;padding:16px 0 4px;}
+.rcpt-line{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:7px 0;font-size:14px;line-height:1.35;}
+.rcpt-line .d{grid-column:1;font-size:12px;color:#6A7378;}
+.rcpt-line .v{grid-column:2;grid-row:1;font-weight:700;text-align:right;}
+.rcpt-line.sub{border-top:1.5px dashed rgba(22,27,31,.3);margin-top:8px;padding-top:12px;font-weight:700;}
+.rcpt-total{display:grid;grid-template-columns:1fr auto;align-items:end;gap:16px;border-top:2px solid #161B1F;margin-top:14px;padding-top:16px;}
+.rcpt-total .k{font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;}
+.rcpt-total .v{font-weight:800;font-size:clamp(30px,3.6vw,40px);letter-spacing:-.02em;line-height:1;}
+.rcpt-stamp{
+  /* sits on the corner, half off the paper, so it never covers a figure */
+  position:absolute;right:-26px;top:-18px;
+  font-family:var(--sans);font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+  color:#3E7A00;border:2px solid currentColor;border-radius:8px;padding:8px 14px;
+  background:rgba(194,252,80,.55);
+  transform:rotate(-9deg);
+  pointer-events:none;
 }
 
-/* RESULT — surface card */
-.result-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(28px,4vw,48px);}
-.result-card .eyebrow{margin-bottom:20px;}
-.result-card p{font-family:var(--body);font-size:clamp(18px,2.2vw,22px);line-height:1.5;color:var(--ink);max-width:44ch;}
+/* receipt choreography: lines print in order, the stamp lands last */
+.receipt-wrap.rv{transform:none;opacity:1;}
+.receipt-wrap.rv .rcpt-line,
+.receipt-wrap.rv .rcpt-group,
+.receipt-wrap.rv .rcpt-total{
+  opacity:0;transform:translateY(6px);
+  transition:opacity .45s var(--ease-out),transform .45s var(--ease-out);
+  transition-delay:calc(var(--i,0) * 60ms);
+}
+.receipt-wrap.rv .receipt{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out);}
+.receipt-wrap.rv .rcpt-stamp{opacity:0;transform:rotate(-9deg) scale(1.12);transition:opacity .25s var(--ease-out),transform .35s var(--ease-out);transition-delay:1050ms;}
+.receipt-wrap.rv.is-in .receipt,
+.receipt-wrap.rv.is-in .rcpt-line,
+.receipt-wrap.rv.is-in .rcpt-group,
+.receipt-wrap.rv.is-in .rcpt-total{opacity:1;transform:none;}
+.receipt-wrap.rv.is-in .rcpt-stamp{opacity:1;transform:rotate(-9deg) scale(1);}
 
-.rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+/* CRITERIA — ruled index (number | title | text), the .chapter pattern */
+.crit-list{border-bottom:1px solid var(--line);}
+.crit-row{display:grid;grid-template-columns:72px minmax(0,.8fr) minmax(0,1.4fr);gap:8px 40px;align-items:baseline;padding:26px 0;border-top:1px solid var(--line);}
+.crit-num{font-family:var(--serif);font-style:italic;font-weight:500;font-size:15px;color:var(--accent);}
+.crit-title{font-family:var(--sans);font-weight:800;font-size:clamp(19px,2vw,24px);letter-spacing:-.015em;line-height:1.2;color:var(--ink);}
+.crit-text{font-family:var(--body);font-size:15.5px;color:var(--ink-soft);line-height:1.7;max-width:52ch;}
+@media (max-width:760px){.crit-row{grid-template-columns:1fr;gap:6px;padding:22px 0;}}
+
+/* PRINCIPLE — oversized statement, the one big typographic moment */
+.principle-title{font-family:var(--sans);font-weight:800;font-size:clamp(36px,6.4vw,76px);line-height:1;letter-spacing:-.03em;max-width:12ch;margin-bottom:28px;color:var(--ink);}
+.principle-title em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--accent);letter-spacing:-.01em;}
+
+/* SIDEBAR STATES — full-bleed band on the portfolio background. Four per row keeps
+   each panel near its native 420px width; phones get a snapping strip */
+.sb-figure{margin-top:8px;}
+.sb-bleed{
+  width:100vw;margin-left:calc(50% - 50vw);
+  background:var(--bg);
+  padding:clamp(32px,5vw,72px) var(--px);
+}
+.sb-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2vw,28px) clamp(14px,1.6vw,24px);max-width:1440px;margin:0 auto;}
+/* labels pin to the row bottom so they stay aligned even if a panel's height drifts */
+.sb-item{display:flex;flex-direction:column;}
+.sb-item img{width:100%;height:auto;display:block;}
+.sb-label{display:flex;align-items:baseline;gap:8px;margin-top:auto;padding-top:12px;font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);}
+.sb-label i{font-family:var(--serif);font-weight:500;font-size:14px;letter-spacing:0;text-transform:none;color:var(--accent);}
+.sb-figure .img-caption{margin-top:20px;}
+@media (max-width:900px){.sb-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media (max-width:560px){
+  .sb-bleed{padding-inline:0;}
+  .sb-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:72%;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--px);padding-inline:var(--px);scrollbar-width:none;}
+  .sb-grid::-webkit-scrollbar{display:none;}
+  .sb-item{scroll-snap-align:start;}
+}
+
+/* JOURNEY — chapters: text column beside a large screen, no card wrapper */
+.chapter{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(32px,5vw,64px);align-items:start;padding-top:44px;margin-top:44px;border-top:1px solid var(--line);}
+.chapter:first-of-type{margin-top:0;}
+.chapter-num{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;}
+.chapter-num i{font-family:var(--serif);font-weight:500;font-size:40px;line-height:1;color:var(--num-dim);}
+.chapter-num span{font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);}
+.chapter-title{font-family:var(--sans);font-weight:800;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-.015em;margin-bottom:14px;color:var(--ink);}
+.chapter-text{font-family:var(--body);font-size:15.5px;line-height:1.75;color:var(--ink-soft);}
+.chapter-body{position:sticky;top:120px;}
+@media (max-width:860px){
+  .chapter{grid-template-columns:1fr;}
+  .chapter-body{position:static;}
+}
+
+/* sign-method tabs: three screens stacked in one grid cell, crossfaded with a
+   short blur so the swap reads as one panel changing, not two images */
+.tabs{display:inline-flex;gap:4px;padding:4px;border:1px solid var(--line);border-radius:99px;margin-top:24px;}
+.tab{
+  font-family:var(--sans);font-weight:700;font-size:13px;letter-spacing:.04em;
+  color:var(--ink-soft);padding:10px 18px;border-radius:99px;
+  transition:color var(--dur-ui) ease,background-color var(--dur-ui) ease,transform var(--dur-press) var(--ease-out);
+}
+.tab[aria-selected="true"]{background:var(--accent);color:var(--bg-deep);}
+.tab:active{transform:scale(.96);}
+@media (hover:hover) and (pointer:fine){.tab[aria-selected="false"]:hover{color:var(--ink);}}
+.tab-stage{display:grid;}
+.tab-stage>img{grid-area:1/1;width:100%;height:auto;transition:opacity 200ms var(--ease-out),filter 200ms var(--ease-out);}
+.tab-stage>img[hidden]{display:block;opacity:0;filter:blur(3px);pointer-events:none;visibility:hidden;transition:opacity 200ms var(--ease-out),filter 200ms var(--ease-out),visibility 0s 200ms;}
+
+/* SYSTEM — dark/light compare: the light screenshot sits on top and is clipped
+   from the right; a native range input drives it (keyboard + touch for free) */
+.compare{position:relative;border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;background:var(--bg-deep);touch-action:pan-y;}
+.compare img{width:100%;height:auto;display:block;user-select:none;-webkit-user-drag:none;}
+.compare .cmp-top{position:absolute;inset:0;height:100%;clip-path:inset(0 50% 0 0);}
+.cmp-handle{position:absolute;top:0;bottom:0;left:0;width:2px;margin-left:-1px;background:var(--accent);pointer-events:none;transform:translateX(50%);will-change:transform;}
+.cmp-handle::after{
+  content:"";position:absolute;top:50%;left:50%;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;
+  background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230C1013' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l-6 6 6 6M15 6l6 6-6 6'/%3E%3C/svg%3E") center/20px no-repeat;
+  box-shadow:0 8px 24px rgba(4,8,6,.45);
+  transition:transform var(--dur-press) var(--ease-out);
+}
+.compare.is-dragging .cmp-handle::after{transform:scale(.92);}
+.cmp-range{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0;}
+.compare:has(.cmp-range:focus-visible) .cmp-handle::after{outline:3px solid var(--ink);outline-offset:3px;}
+.cmp-tag{position:absolute;bottom:14px;font-family:var(--sans);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:99px;pointer-events:none;}
+.cmp-tag.l{left:14px;background:rgba(237,239,233,.9);color:#161B1F;}
+.cmp-tag.r{right:14px;background:rgba(12,16,19,.8);color:var(--ink);}
+.guide{margin-top:20px;}
+
+/* RESULT */
+.result-title{font-family:var(--sans);font-weight:800;font-size:clamp(30px,4.6vw,52px);line-height:1.05;letter-spacing:-.025em;margin-bottom:22px;color:var(--ink);}
+.result-body{font-family:var(--body);font-size:clamp(18px,2vw,21px);line-height:1.55;color:var(--ink);max-width:46ch;}
+
+/* LEARNINGS */
+.grid-2x2{display:grid;grid-template-columns:1fr 1fr;gap:44px 56px;}
+.learn-card{padding:24px 0 0;border-top:1px solid var(--line);}
+.learn-tag{font-family:var(--sans);font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px;display:block;color:var(--ink-mute);}
+.learn-title{font-family:var(--sans);font-weight:800;font-size:17px;margin-bottom:10px;letter-spacing:-.005em;color:var(--ink);}
+.learn-text{font-family:var(--body);font-size:14.5px;color:var(--ink-soft);line-height:1.7;}
+@media (max-width:760px){.grid-2x2{grid-template-columns:1fr;gap:32px;}}
+
+/* MORE WORK */
+.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+.next-card{display:flex;flex-direction:column;}
+.next-label{font-family:var(--sans);font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-mute);margin-bottom:10px;}
+.next-title{font-family:var(--sans);font-weight:800;font-size:20px;margin-bottom:10px;letter-spacing:-.01em;color:var(--ink);transition:color var(--dur-ui) ease;}
+.next-text{font-family:var(--body);font-size:14px;color:var(--ink-soft);margin-bottom:22px;max-width:420px;}
+.next-media{margin-top:auto;aspect-ratio:16/10;border-radius:var(--radius-md);overflow:hidden;background:var(--bg-deep);border:1px solid var(--line);}
+.next-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-out);}
+@media (hover:hover) and (pointer:fine){
+  .next-card:hover .next-title{color:var(--accent);}
+  .next-card:hover .next-media img{transform:scale(1.03);}
+}
+@media (max-width:760px){.next-grid{grid-template-columns:1fr;}}
+
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out);}
 .rv.is-in{opacity:1;transform:none;}
 
 footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep);}
-.footer-inner{text-align:center;font-family:var(--sans);font-weight:600;font-size:13px;color:var(--ink-dim);}
+.footer-inner{text-align:center;font-family:var(--sans);font-weight:600;font-size:13px;color:var(--ink-mute);}
 
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto;}
-  .rv{opacity:1;transform:none;transition:none;}
+  .rv,.hero-banner.rv,.shot.rv{opacity:1;transform:none;clip-path:none;transition:none;}
+  .receipt-wrap.rv .receipt,
+  .receipt-wrap.rv .rcpt-line,
+  .receipt-wrap.rv .rcpt-group,
+  .receipt-wrap.rv .rcpt-total,
+  .receipt-wrap.rv .rcpt-stamp{opacity:1;transform:none;transition:none;}
+  .receipt-wrap.rv .rcpt-stamp{transform:rotate(-9deg);}
+  .tab-stage>img,.tab-stage>img[hidden]{filter:none;transition:opacity 150ms ease,visibility 0s;}
+  .next-media img{transition:none;}
 }
 
 @media (max-width:860px){
   .hero-specs{grid-template-columns:repeat(2,1fr);gap:20px;}
-  .split-2{grid-template-columns:1fr;gap:32px;}
-  .grid-3{grid-template-columns:1fr;}
   .nav-links{gap:18px;}
 }
+@media (max-width:480px){
+  .receipt{padding:30px 20px 26px;}
+  .rcpt-stamp{right:-4px;}
+}
+.zoomable{cursor:zoom-in;}
+.lightbox{position:fixed;inset:0;z-index:2000;display:flex;align-items:flex-start;justify-content:center;padding:clamp(14px,5vh,60px) clamp(14px,5vw,60px);background:rgba(8,10,13,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);opacity:0;visibility:hidden;transition:opacity .28s var(--ease),visibility .28s;overflow-y:auto;overscroll-behavior:contain;cursor:zoom-out;}
+.lightbox.is-open{opacity:1;visibility:visible;}
+.lightbox img{width:auto;max-width:min(1400px,100%);height:auto;margin:auto;border-radius:var(--radius-md);box-shadow:0 30px 90px rgba(0,0,0,.6);transform:scale(.96);transition:transform .28s var(--ease);cursor:default;}
+.lightbox.is-open img{transform:scale(1);}
+.lightbox-close{position:fixed;top:16px;right:18px;z-index:2001;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:rgba(20,25,30,.72);color:var(--ink);font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s var(--ease),transform .3s var(--ease);}
+.lightbox-close:hover{background:var(--surface);transform:rotate(90deg);}
+@media (max-width:600px){.lightbox{padding:10px;}}
 </style>
 </head>
 <body>
@@ -209,7 +389,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
 <nav id="nav">
   <div class="nav-inner">
     <a href="../index.html#top" class="nav-brand">
-      <img class="nav-avatar" src="../Img/joao-avatar.jpg" alt="João Abdalla">
+      <img class="nav-avatar" src="../Img/joao-avatar.jpg" alt="João Abdalla" width="144" height="144">
       <span class="nav-brand-text">
         <span class="nav-name">João Abdalla</span>
         <span class="nav-role" data-i18n="common.nav.role">Product designer UX UI</span>
@@ -233,209 +413,351 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
   <!-- HERO -->
   <header class="hero container" role="banner">
     <h1 class="hero-title rv">signFlow</h1>
-    <p class="hero-sub rv" data-i18n="signflow.hero.sub">E-Signatures, Built In-House</p>
-    <p class="hero-text rv" data-i18n="signflow.hero.text">A proprietary document-signing tool, built to replace DocuSign.</p>
+    <p class="hero-sub rv" data-i18n="signflow.hero.sub">Replacing a $39K-a-year DocuSign bill with a tool nobody has to learn</p>
+    <p class="hero-text rv" data-i18n="signflow.hero.text">An in-house e-signature tool for Jalasoft and Jala University. I designed the flows, screens and interface, from the first wireframe to the system in use today.</p>
 
     <div class="hero-specs rv">
       <div><div class="spec-label" data-i18n="signflow.hero.spec1.label">Area</div><div class="spec-value" data-i18n="signflow.hero.spec1.value">Product design</div></div>
       <div><div class="spec-label" data-i18n="signflow.hero.spec2.label">My Role</div><div class="spec-value" data-i18n="signflow.hero.spec2.value">Wireframes, flows, screens and interface</div></div>
       <div><div class="spec-label" data-i18n="signflow.hero.spec3.label">Platforms</div><div class="spec-value" data-i18n="signflow.hero.spec3.value">Desktop and mobile, in light and dark</div></div>
-      <div><div class="spec-label" data-i18n="signflow.hero.spec4.label">Status</div><div class="spec-value" data-i18n="signflow.hero.spec4.value">In use at the company</div></div>
+      <div><div class="spec-label" data-i18n="signflow.hero.spec4.label">Status</div><div class="spec-value" data-i18n="signflow.hero.spec4.value">In use, DocuSign replaced</div></div>
     </div>
 
     <div class="hero-banner rv">
-      <img src="../Img/signflow/signflow-cover2.webp"
+      <img src="../Img/signflow/signflow-cover2.webp" width="1920" height="1080"
         alt="signFlow home screen with the document list in dark mode"
         data-i18n-attr="alt:signflow.cover.alt">
     </div>
   </header>
 
-  <!-- PROBLEM / CHALLENGE -->
-  <section id="brief">
-    <div class="container">
-      <div class="eyebrow rv" data-i18n="signflow.brief.eyebrow">The Brief</div>
-      <div class="split-2">
-        <div class="rv">
-          <h2 class="sec-title" style="font-size:clamp(22px,2.8vw,28px);" data-i18n="signflow.problem.title">The problem</h2>
-          <p class="sec-lede" data-i18n="signflow.problem.body">The company has many employees and many clients, and the cost of DocuSign was growing along with them. The decision was to build a proprietary tool to save money.</p>
+  <!-- THE BILL -->
+  <section id="bill">
+    <div class="container bill">
+      <div>
+        <div class="eyebrow rv" data-i18n="signflow.bill.eyebrow">The bill</div>
+        <h2 class="sec-title rv" data-i18n="signflow.bill.title">What signing PDFs was costing</h2>
+        <p class="sec-lede rv" data-i18n="signflow.bill.body">DocuSign charges per sender, and every new hire, client contract and student enrollment adds envelopes to the count. This is a conservative estimate of the bill signFlow was built to replace.</p>
+        <p class="bill-note rv" data-i18n="signflow.bill.note">Estimate built from public data: Jalasoft headcount (Revelio Labs, 2025), Jala University enrollment (Jala University, 2025) and the DocuSign Business Pro list price (2026), which includes 100 envelopes per seat per year. It leaves out what would make DocuSign more expensive, like Enterprise SSO and SMS or ID verification, and it doesn't subtract the internal cost of building signFlow.</p>
+      </div>
+
+      <div class="receipt-wrap rv">
+        <div class="receipt">
+          <div class="rcpt-head" data-i18n="signflow.rcpt.head">DocuSign · annual estimate</div>
+
+          <div class="rcpt-group" style="--i:1" data-i18n="signflow.rcpt.people">Who signs</div>
+          <div class="rcpt-line" style="--i:2"><span data-i18n="signflow.rcpt.emp">Jalasoft employees</span><span class="v" data-i18n="signflow.rcpt.emp.v">~1,500</span></div>
+          <div class="rcpt-line" style="--i:3"><span data-i18n="signflow.rcpt.stu">Jala University students</span><span class="v" data-i18n="signflow.rcpt.stu.v">800+</span></div>
+
+          <div class="rcpt-group" style="--i:4" data-i18n="signflow.rcpt.env">Envelopes per year</div>
+          <div class="rcpt-line" style="--i:5"><span data-i18n="signflow.rcpt.hire">New-hire paperwork</span><span class="v" data-i18n="signflow.rcpt.hire.v">900</span><span class="d" data-i18n="signflow.rcpt.hire.d">300 hires × 3 docs</span></div>
+          <div class="rcpt-line" style="--i:6"><span data-i18n="signflow.rcpt.pol">Policies and renewals</span><span class="v" data-i18n="signflow.rcpt.pol.v">3,000</span><span class="d" data-i18n="signflow.rcpt.pol.d">1,500 × 2</span></div>
+          <div class="rcpt-line" style="--i:7"><span data-i18n="signflow.rcpt.cli">Client and vendor contracts</span><span class="v" data-i18n="signflow.rcpt.cli.v">600</span><span class="d" data-i18n="signflow.rcpt.cli.d">NDAs, SOWs</span></div>
+          <div class="rcpt-line" style="--i:8"><span data-i18n="signflow.rcpt.enr">Student enrollment</span><span class="v" data-i18n="signflow.rcpt.enr.v">2,400</span><span class="d" data-i18n="signflow.rcpt.enr.d">800 × 3 docs</span></div>
+          <div class="rcpt-line" style="--i:9"><span data-i18n="signflow.rcpt.uni">University staff and faculty</span><span class="v" data-i18n="signflow.rcpt.uni.v">300</span></div>
+          <div class="rcpt-line sub" style="--i:10"><span data-i18n="signflow.rcpt.envtotal">Total envelopes</span><span class="v" data-i18n="signflow.rcpt.envtotal.v">≈ 7,200</span></div>
+
+          <div class="rcpt-line" style="--i:11"><span data-i18n="signflow.rcpt.seats">Paid sender seats</span><span class="v" data-i18n="signflow.rcpt.seats.v">72</span><span class="d" data-i18n="signflow.rcpt.seats.d">7,200 ÷ 100 envelopes</span></div>
+          <div class="rcpt-line" style="--i:12"><span data-i18n="signflow.rcpt.price">Business Pro, per seat</span><span class="v" data-i18n="signflow.rcpt.price.v">$540</span><span class="d" data-i18n="signflow.rcpt.price.d">$45 × 12 months</span></div>
+
+          <div class="rcpt-total" style="--i:14"><span class="k" data-i18n="signflow.rcpt.total">Projected cost per year</span><span class="v" data-i18n="signflow.rcpt.total.v">$38,880</span></div>
         </div>
-        <div class="rv">
-          <h2 class="sec-title" style="font-size:clamp(22px,2.8vw,28px);" data-i18n="signflow.challenge.title">The challenge</h2>
-          <p class="sec-lede" data-i18n="signflow.challenge.body">Cover the entire cycle, from whoever sends to whoever signs, inside or outside the company, in a way simple enough that no one would need training.</p>
+        <div class="rcpt-stamp" aria-hidden="true" data-i18n="signflow.rcpt.stamp">Replaced by signFlow</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE CATCH -->
+  <section id="catch">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="signflow.catch.eyebrow">The catch</div>
+      <h2 class="sec-title rv" data-i18n="signflow.catch.title">The savings only exist if people switch</h2>
+      <p class="sec-lede rv" data-i18n="signflow.catch.body">Deciding to build our own tool was the easy part. Everyone already knew DocuSign. If signFlow felt slower or stranger, people would ask for exceptions, contracts would drift back to DocuSign and the $39K would stay on the bill. Adoption was the real requirement, so it became the design brief.</p>
+
+      <div class="crit-list rv">
+        <div class="crit-row">
+          <span class="crit-num">01</span>
+          <h3 class="crit-title" data-i18n="signflow.catch.1.title">No training</h3>
+          <p class="crit-text" data-i18n="signflow.catch.1.body">Anyone who has signed a DocuSign envelope should know what to do on the first screen.</p>
+        </div>
+        <div class="crit-row">
+          <span class="crit-num">02</span>
+          <h3 class="crit-title" data-i18n="signflow.catch.2.title">One login</h3>
+          <p class="crit-text" data-i18n="signflow.catch.2.body">Employees and students already have a Jala account. Signing shouldn't ask for another password.</p>
+        </div>
+        <div class="crit-row">
+          <span class="crit-num">03</span>
+          <h3 class="crit-title" data-i18n="signflow.catch.3.title">Outsiders too</h3>
+          <p class="crit-text" data-i18n="signflow.catch.3.body">Clients and candidates outside the company must sign without friction, or the contract goes back to DocuSign.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WIREFRAMES -->
-  <section id="wireframes">
+  <!-- ACCESS -->
+  <section id="access">
     <div class="container">
-      <div class="eyebrow rv" data-i18n="signflow.wireframes.eyebrow">Process</div>
-      <h2 class="sec-title rv" data-i18n="signflow.wireframes.title">From wireframe to final screen</h2>
-      <p class="sec-lede rv" data-i18n="signflow.wireframes.body">The problem arrived already defined. I started with low-fidelity wireframes to validate the structure of login, home, upload, groups, signers, signature fields and document states. Only after that did I define the visual design.</p>
-      <div class="img-placeholder filled rv">
-        <img src="../Img/signflow/signflow-wireframes.webp"
-          alt="signFlow wireframes: upload, groups, signers, signature fields and document states"
-          loading="lazy" data-i18n-attr="alt:signflow.wireframes.alt">
-      </div>
-      <span class="img-caption rv" data-i18n="signflow.wireframes.caption">Wireframes: structure validated before the visual design.</span>
-    </div>
-  </section>
+      <div class="eyebrow rv" data-i18n="signflow.access.eyebrow">Access</div>
+      <h2 class="sec-title rv" data-i18n="signflow.access.title">One door for four organizations</h2>
+      <p class="sec-lede rv" data-i18n="signflow.access.body">The people on that bill don't all work for the same company. Login goes through Jala 360ID, the account everyone at Jalasoft, Jala Group, Fundación Jala and Jala University already uses. External signers create a light account with only name, email and password.</p>
 
-  <!-- THREE FLOWS -->
-  <section id="flows">
-    <div class="container">
-      <div class="eyebrow rv" data-i18n="signflow.flows.eyebrow">Structure</div>
-      <h2 class="sec-title rv" data-i18n="signflow.flows.title">Three flows</h2>
-      <div class="grid-3 rv">
-        <div class="insight-card">
-          <div class="insight-label" data-i18n="signflow.flows.1.label">Flow 01</div>
-          <h3 class="insight-title" data-i18n="signflow.flows.1.title">Internal user signs</h3>
-          <p class="insight-text" data-i18n="signflow.flows.1.body">Login with company accounts, a document list with status filters, and document details. The signature can be typed, drawn or uploaded.</p>
-        </div>
-        <div class="insight-card">
-          <div class="insight-label" data-i18n="signflow.flows.2.label">Flow 02</div>
-          <h3 class="insight-title" data-i18n="signflow.flows.2.title">External user signs</h3>
-          <p class="insight-text" data-i18n="signflow.flows.2.body">A dedicated journey for people outside the company, from "Sign" to "Ready to download".</p>
-        </div>
-        <div class="insight-card">
-          <div class="insight-label" data-i18n="signflow.flows.3.label">Flow 03</div>
-          <h3 class="insight-title" data-i18n="signflow.flows.3.title">Send document</h3>
-          <p class="insight-text" data-i18n="signflow.flows.3.body">File upload, groups, internal and external signers, signature fields and tracking until everyone has signed.</p>
-        </div>
-      </div>
-      <div class="img-placeholder filled rv">
-        <img src="../Img/signflow/signflow-flows-map.webp"
-          alt="Map with every screen of signFlow's three flows in Figma"
-          loading="lazy" data-i18n-attr="alt:signflow.flowsmap.alt">
-      </div>
-      <span class="img-caption rv" data-i18n="signflow.flowsmap.caption">The three flows in Figma.</span>
-    </div>
-  </section>
-
-  <!-- SIDEBAR STATES -->
-  <section id="sidebar">
-    <div class="container">
-      <div class="eyebrow rv" data-i18n="signflow.sidebar.eyebrow">Interaction Model</div>
-      <h2 class="sec-title rv" data-i18n="signflow.sidebar.title">A sidebar that changes with the step</h2>
-      <p class="sec-lede rv" data-i18n="signflow.sidebar.body">The document stays visible at all times. New information comes from the sidebar, which adapts to the moment and surfaces the main action.</p>
-
-      <div class="steps-row rv">
-        <div class="step">
-          <div class="step-num">01</div>
-          <h3 class="step-title" data-i18n="signflow.states.1.title">Details</h3>
-          <p class="step-text" data-i18n="signflow.states.1.body">Owner, dates, deadline and status, with Sign, Reject or Download.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">02</div>
-          <h3 class="step-title" data-i18n="signflow.states.2.title">Sign</h3>
-          <p class="step-text" data-i18n="signflow.states.2.body">Type, draw or upload the signature, for one page or all of them.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">03</div>
-          <h3 class="step-title" data-i18n="signflow.states.3.title">Signers</h3>
-          <p class="step-text" data-i18n="signflow.states.3.body">Signers and reviewers, with an optional signing order.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">04</div>
-          <h3 class="step-title" data-i18n="signflow.states.4.title">Fields</h3>
-          <p class="step-text" data-i18n="signflow.states.4.body">Date, initials and signature, placed directly on the document.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">05</div>
-          <h3 class="step-title" data-i18n="signflow.states.5.title">Tracking</h3>
-          <p class="step-text" data-i18n="signflow.states.5.body">Who has signed and who's left, until the document closes.</p>
-        </div>
-      </div>
-
-      <div class="img-placeholder filled rv" style="margin-top:44px;">
-        <img src="../Img/signflow/signflow-sidebar-states.webp"
-          alt="The five versions of the signFlow sidebar, one for each step"
-          loading="lazy" data-i18n-attr="alt:signflow.sidebar.alt">
+      <div class="duo">
+        <figure>
+          <div class="shot rv"><img src="../Img/signflow/sf-login-360id.webp" width="1440" height="1024" loading="lazy" alt="Jala 360ID login with buttons for Jalasoft, Jala Group, Fundación Jala and Jala University accounts" data-i18n-attr="alt:signflow.access.login.alt"></div>
+          <figcaption class="img-caption" data-i18n="signflow.access.login.caption">Internal users: the Jala account they already have.</figcaption>
+        </figure>
+        <figure>
+          <div class="shot rv"><img src="../Img/signflow/sf-create-account.webp" width="1440" height="1024" loading="lazy" alt="Create account form with full name, email, password and password confirmation" data-i18n-attr="alt:signflow.access.ext.alt"></div>
+          <figcaption class="img-caption" data-i18n="signflow.access.ext.caption">External signers: an account in four fields.</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
-  <!-- SIGN IN A FEW STEPS -->
-  <section id="sign">
+  <!-- PRINCIPLE -->
+  <section id="principle">
     <div class="container">
-      <div class="eyebrow rv" data-i18n="signflow.sign.eyebrow">Core Flow</div>
-      <h2 class="sec-title rv" data-i18n="signflow.sign.title">Sign in a few steps</h2>
-      <p class="sec-lede rv" data-i18n="signflow.sign.body">Three ways to sign, a confirmation before finishing, and a clear final state: once everyone has signed, the download unlocks and a copy arrives by email.</p>
+      <div class="eyebrow rv" data-i18n="signflow.principle.eyebrow">The principle</div>
+      <h2 class="principle-title rv" data-i18n="signflow.principle.title">The document never moves</h2>
+      <p class="sec-lede rv" data-i18n="signflow.principle.body">DocuSign users expect the document at the center of the screen, so signFlow keeps it there at every step. What changes is the sidebar: it shows only what the current step needs and keeps the main action at the bottom, in the same place every time.</p>
+      <figure class="sb-figure">
+        <div class="sb-bleed">
+          <ol class="sb-grid" aria-label="The signFlow sidebar in each of its states, side by side" data-i18n-attr="aria-label:signflow.principle.alt">
+            <li class="sb-item rv"><img src="../Img/signflow/sf-sb-01.webp" width="840" height="1726" loading="lazy" alt=""><span class="sb-label"><i>01</i><span data-i18n="signflow.sb.1">Details</span></span></li>
+            <li class="sb-item rv"><img src="../Img/signflow/sf-sb-02.webp" width="840" height="1726" loading="lazy" alt=""><span class="sb-label"><i>02</i><span data-i18n="signflow.sb.2">Sign</span></span></li>
+            <li class="sb-item rv"><img src="../Img/signflow/sf-sb-03.webp" width="840" height="1726" loading="lazy" alt=""><span class="sb-label"><i>03</i><span data-i18n="signflow.sb.3">Signed</span></span></li>
+            <li class="sb-item rv"><img src="../Img/signflow/sf-sb-04.webp" width="840" height="1726" loading="lazy" alt=""><span class="sb-label"><i>04</i><span data-i18n="signflow.sb.4">Add signers</span></span></li>
+            <li class="sb-item rv"><img src="../Img/signflow/sf-sb-05.webp" width="840" height="1726" loading="lazy" alt=""><span class="sb-label"><i>05</i><span data-i18n="signflow.sb.5">Place fields</span></span></li>
+            <li class="sb-item rv"><img src="../Img/signflow/sf-sb-06.webp" width="840" height="1726" loading="lazy" alt=""><span class="sb-label"><i>06</i><span data-i18n="signflow.sb.6">Send</span></span></li>
+            <li class="sb-item rv"><img src="../Img/signflow/sf-sb-07.webp" width="840" height="1726" loading="lazy" alt=""><span class="sb-label"><i>07</i><span data-i18n="signflow.sb.7">Tracking</span></span></li>
+            <li class="sb-item rv"><img src="../Img/signflow/sf-sb-08.webp" width="840" height="1728" loading="lazy" alt=""><span class="sb-label"><i>08</i><span data-i18n="signflow.sb.8">Complete</span></span></li>
+          </ol>
+        </div>
+        <figcaption class="img-caption" data-i18n="signflow.principle.caption">One sidebar for every step: details, signing, signers, fields and tracking.</figcaption>
+      </figure>
+    </div>
+  </section>
 
-      <div class="img-placeholder filled rv">
-        <img src="../Img/signflow/signflow-signature-details.webp"
-          alt="Document details, and signing by typed text and by drawing"
-          loading="lazy" data-i18n-attr="alt:signflow.sign.details.alt">
-      </div>
+  <!-- JOURNEY -->
+  <section id="journey">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="signflow.journey.eyebrow">One document's journey</div>
+      <h2 class="sec-title rv" data-i18n="signflow.journey.title">From upload to “everyone has signed”</h2>
+      <p class="sec-lede rv" data-i18n="signflow.journey.body">Follow one contract through the tool. Three moments matter: sending it, signing it and closing it.</p>
 
-      <div class="img-placeholder filled rv" style="margin-top:24px;">
-        <img src="../Img/signflow/signflow-signature-upload.webp"
-          alt="Signing by file upload, and the Complete Signing confirmation modal"
-          loading="lazy" data-i18n-attr="alt:signflow.sign.upload.alt">
-      </div>
+      <article class="chapter">
+        <div class="chapter-body rv">
+          <div class="chapter-num"><i>01</i><span data-i18n="signflow.ch1.label">Send</span></div>
+          <h3 class="chapter-title" data-i18n="signflow.ch1.title">Decide who signs and who only reviews</h3>
+          <p class="chapter-text" data-i18n="signflow.ch1.body">After the upload, the sender lists who needs to act. Each person is either a signer or a reviewer, and the difference is explicit: reviewers approve the content, signers make it binding. External emails go in the same way as internal ones.</p>
+        </div>
+        <div class="shot rv"><img src="../Img/signflow/sf-add-reviewer.webp" width="1440" height="1024" loading="lazy" alt="Add signers sidebar with individual signer and reviewer fields, next to the document" data-i18n-attr="alt:signflow.ch1.alt"></div>
+      </article>
 
-      <div class="img-duo rv" style="margin-top:24px;">
-        <div>
-          <div class="img-placeholder filled">
-            <img src="../Img/signflow/signflow-document-list.webp"
-              alt="Document list in dark and light mode"
-              loading="lazy" data-i18n-attr="alt:signflow.pair.list.alt">
+      <article class="chapter">
+        <div class="chapter-body rv">
+          <div class="chapter-num"><i>02</i><span data-i18n="signflow.ch2.label">Sign</span></div>
+          <h3 class="chapter-title" data-i18n="signflow.ch2.title">Three ways to sign, one panel</h3>
+          <p class="chapter-text" data-i18n="signflow.ch2.body">Some people draw their signature, some type their name, some already have a scanned one. All three live in the same panel as tabs, with options to apply the signature to every page. The document stays on the right, so the signer always sees what they're agreeing to.</p>
+          <div class="tabs" role="tablist" aria-label="Signature method" data-i18n-attr="aria-label:signflow.ch2.tabs" id="signTabs">
+            <button class="tab" type="button" role="tab" id="tab-draw" aria-selected="true" aria-controls="signStage" data-i18n="signflow.ch2.tab.draw">Draw</button>
+            <button class="tab" type="button" role="tab" id="tab-text" aria-selected="false" aria-controls="signStage" tabindex="-1" data-i18n="signflow.ch2.tab.text">Type</button>
+            <button class="tab" type="button" role="tab" id="tab-upload" aria-selected="false" aria-controls="signStage" tabindex="-1" data-i18n="signflow.ch2.tab.upload">Upload</button>
           </div>
-          <span class="img-caption" data-i18n="signflow.pair.list.caption">Document list, with status filters and search.</span>
         </div>
-        <div>
-          <div class="img-placeholder filled">
-            <img src="../Img/signflow/signflow-completed-document.webp"
-              alt="Document with all signatures completed and the download button"
-              loading="lazy" data-i18n-attr="alt:signflow.pair.done.alt">
+        <div class="shot rv">
+          <div class="tab-stage" id="signStage" role="tabpanel" aria-live="polite">
+            <img data-tab="tab-draw" src="../Img/signflow/sf-sign-draw.webp" width="1440" height="1024" loading="lazy" alt="Sign panel with the Draw tab open and a handwritten signature" data-i18n-attr="alt:signflow.ch2.draw.alt">
+            <img data-tab="tab-text" src="../Img/signflow/sf-sign-text.webp" width="1440" height="1024" loading="lazy" hidden alt="Sign panel with the Text tab open and the signer's typed name" data-i18n-attr="alt:signflow.ch2.text.alt">
+            <img data-tab="tab-upload" src="../Img/signflow/sf-sign-upload.webp" width="1440" height="1024" loading="lazy" hidden alt="Sign panel with the Upload tab open and a drop area for a signature image" data-i18n-attr="alt:signflow.ch2.upload.alt">
           </div>
-          <span class="img-caption" data-i18n="signflow.pair.done.caption">Everyone has signed: the download unlocks.</span>
         </div>
-      </div>
+      </article>
+
+      <article class="chapter">
+        <div class="chapter-body rv">
+          <div class="chapter-num"><i>03</i><span data-i18n="signflow.ch3.label">Close</span></div>
+          <h3 class="chapter-title" data-i18n="signflow.ch3.title">The download unlocks when it's really done</h3>
+          <p class="chapter-text" data-i18n="signflow.ch3.body">A document is only finished when every signer has signed. Until then, the sidebar shows what's missing. After that, it says “Everyone has signed”, unlocks the download and sends a copy by email. Nobody has to ask whether it's done.</p>
+        </div>
+        <div class="shot rv"><img src="../Img/signflow/sf-signed.webp" width="1440" height="1024" loading="lazy" alt="Document details with the Everyone has signed status and the Download button" data-i18n-attr="alt:signflow.ch3.alt"></div>
+      </article>
     </div>
   </section>
 
-  <!-- VERSIONS -->
-  <section id="versions">
+  <!-- SYSTEM -->
+  <section id="system">
     <div class="container">
-      <div class="eyebrow rv" data-i18n="signflow.versions.eyebrow">System</div>
-      <h2 class="sec-title rv" data-i18n="signflow.versions.title">One system, four versions</h2>
-      <p class="sec-lede rv" data-i18n="signflow.versions.body">Every screen exists in light and dark mode, on desktop and mobile. In the document list, the card grid becomes a vertical list on mobile, without losing filters, search or deadlines.</p>
-      <div class="img-placeholder filled rv">
-        <img src="../Img/signflow/signflow-responsive-modes.webp"
-          alt="Document list on desktop and mobile, in light and dark mode"
-          loading="lazy" data-i18n-attr="alt:signflow.versions.alt">
+      <div class="eyebrow rv" data-i18n="signflow.system.eyebrow">System</div>
+      <h2 class="sec-title rv" data-i18n="signflow.system.title">Light, dark and familiar</h2>
+      <p class="sec-lede rv" data-i18n="signflow.system.body">Every screen exists in light and dark mode, on desktop and mobile, on top of a small style guide: one type scale, a purple accent and colors for success, warning and error. Drag the handle to compare the two themes.</p>
+
+      <div class="compare rv" id="compare">
+        <img src="../Img/signflow/sf-list-dark.webp" width="1440" height="1024" loading="lazy" alt="Document list in dark mode" data-i18n-attr="alt:signflow.system.dark.alt">
+        <img class="cmp-top" id="cmpTop" src="../Img/signflow/sf-list-light.webp" width="1440" height="1024" loading="lazy" alt="Document list in light mode" data-i18n-attr="alt:signflow.system.light.alt">
+        <span class="cmp-tag l" aria-hidden="true" data-i18n="signflow.system.light">Light</span>
+        <span class="cmp-tag r" aria-hidden="true" data-i18n="signflow.system.dark">Dark</span>
+        <span class="cmp-handle" id="cmpHandle" aria-hidden="true"></span>
+        <input class="cmp-range" id="cmpRange" type="range" min="0" max="100" value="50" step="1" aria-label="Compare dark and light mode" data-i18n-attr="aria-label:signflow.system.compare">
       </div>
+
+      <figure class="guide">
+        <div class="shot rv"><img src="../Img/signflow/sf-styleguide.webp" width="1107" height="705" loading="lazy" alt="signFlow style guide with type scale, logo variations and color palette" data-i18n-attr="alt:signflow.system.guide.alt"></div>
+        <figcaption class="img-caption" data-i18n="signflow.system.guide.caption">Style guide: type scale, logo and color system.</figcaption>
+      </figure>
     </div>
   </section>
 
   <!-- RESULT -->
   <section id="result">
     <div class="container">
-      <div class="result-card rv">
-        <div class="eyebrow" data-i18n="signflow.result.title">Result</div>
-        <p data-i18n="signflow.result.body">signFlow is already in use at the company and has replaced DocuSign. The company no longer pays for a third-party tool and now has its own solution, built for its own flow.</p>
+      <div class="eyebrow rv" data-i18n="signflow.result.eyebrow">Result</div>
+      <h2 class="result-title rv" data-i18n="signflow.result.title">DocuSign replaced</h2>
+      <p class="result-body rv" data-i18n="signflow.result.body">signFlow is in use at the company and DocuSign is gone. By our estimate, that puts about $39K a year back in the budget, and Jala now owns a tool built around its own flow instead of renting one.</p>
+    </div>
+  </section>
+
+  <!-- LEARNINGS -->
+  <section id="learnings">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="signflow.learn.eyebrow">Learnings</div>
+      <h2 class="sec-title rv" data-i18n="signflow.learn.title">What I took away</h2>
+      <div class="grid-2x2 rv">
+        <div class="learn-card">
+          <span class="learn-tag" data-i18n="signflow.learn.1.tag">What worked</span>
+          <h3 class="learn-title" data-i18n="signflow.learn.1.title">Familiar beats clever</h3>
+          <p class="learn-text" data-i18n="signflow.learn.1.body">Keeping DocuSign's mental model, document in the center and one clear action, did more for adoption than any new idea would have.</p>
+        </div>
+        <div class="learn-card">
+          <span class="learn-tag" data-i18n="signflow.learn.2.tag">What I'd do differently</span>
+          <h3 class="learn-title" data-i18n="signflow.learn.2.title">Measure from day one</h3>
+          <p class="learn-text" data-i18n="signflow.learn.2.body">The savings figure is an estimate. I'd track envelopes sent and time to completion from launch, to replace the projection with a measured number.</p>
+        </div>
+        <div class="learn-card">
+          <span class="learn-tag" data-i18n="signflow.learn.3.tag">Key insight</span>
+          <h3 class="learn-title" data-i18n="signflow.learn.3.title">Savings are a UX requirement</h3>
+          <p class="learn-text" data-i18n="signflow.learn.3.body">When the business case depends on people switching tools, usability isn't polish. It decides whether the money is actually saved.</p>
+        </div>
+        <div class="learn-card">
+          <span class="learn-tag" data-i18n="signflow.learn.4.tag">Room to grow</span>
+          <h3 class="learn-title" data-i18n="signflow.learn.4.title">Bulk sending</h3>
+          <p class="learn-text" data-i18n="signflow.learn.4.body">Student enrollment sends the same document hundreds of times a year. One template to many signers is the natural next step.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MORE WORK -->
+  <section id="more-work">
+    <div class="container">
+      <div class="eyebrow rv" data-i18n="signflow.more.eyebrow">More Work</div>
+      <div class="next-grid rv">
+        <a class="next-card" href="bpm.html">
+          <div class="next-label" data-i18n="signflow.more.next.label">Next Case Study</div>
+          <h3 class="next-title" data-i18n="home.card2.name">BPM Platform Redesign</h3>
+          <p class="next-text" data-i18n="home.card2.desc">Turning the raw Jalasoft portal into a process-first tool for hiring, transfers and disassociation across units.</p>
+          <div class="next-media"><img src="../Img/cards%20home/card-bpm.png" width="1440" height="820" loading="lazy" alt="BPM Platform Redesign: admin task view" data-i18n-attr="alt:home.card2.alt"></div>
+        </a>
+        <a class="next-card" href="valt.html">
+          <div class="next-label" data-i18n="signflow.more.also.label">Also Worth Seeing</div>
+          <h3 class="next-title" data-i18n="home.card3.name">Valt Network</h3>
+          <p class="next-text" data-i18n="home.card3.desc">Designing the professional layer for private-market investors and high-growth companies.</p>
+          <div class="next-media"><img src="../Img/cards%20home/Valt.png" width="2880" height="1640" loading="lazy" alt="Valt Network: product design" data-i18n-attr="alt:home.card3.alt"></div>
+        </a>
       </div>
     </div>
   </section>
 
 </main>
 
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+  <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
+  <img src="" alt="">
+</div>
+
 <footer>
-  <div class="container footer-inner">Copyright © abdalladesign 2026</div>
+  <div class="container footer-inner" data-i18n="common.footer.rights">© 2026 João Abdalla. All rights reserved.</div>
 </footer>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-in');
-        observer.unobserve(entry.target);
-      }
+  /* elements entering together cascade 60ms apart (per batch, so nothing far down
+     the page waits on its siblings); the delay is cleared once they land */
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reveals = document.querySelectorAll('.rv');
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    reveals.forEach(el => el.classList.add('is-in'));
+  } else {
+    const observer = new IntersectionObserver((entries) => {
+      let batch = 0;
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const delay = Math.min(batch++, 5) * 60;
+        if (delay) {
+          el.style.transitionDelay = delay + 'ms';
+          setTimeout(() => { el.style.transitionDelay = ''; }, delay + 1000);
+        }
+        el.classList.add('is-in');
+        observer.unobserve(el);
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+  }
+</script>
+<script>
+  /* sign-method tabs — roving tabindex + arrow keys, like a native tab list */
+  (function () {
+    var list = document.getElementById("signTabs");
+    var stage = document.getElementById("signStage");
+    if (!list || !stage) return;
+    var tabs = Array.prototype.slice.call(list.querySelectorAll('[role="tab"]'));
+    var imgs = Array.prototype.slice.call(stage.querySelectorAll("img"));
+
+    function select(tab, focus) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute("aria-selected", on ? "true" : "false");
+        t.tabIndex = on ? 0 : -1;
+      });
+      imgs.forEach(function (img) { img.hidden = img.getAttribute("data-tab") !== tab.id; });
+      stage.setAttribute("aria-labelledby", tab.id);
+      if (focus) tab.focus();
+    }
+
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener("click", function () { select(tab); });
+      tab.addEventListener("keydown", function (e) {
+        var next = null;
+        if (e.key === "ArrowRight") next = tabs[(i + 1) % tabs.length];
+        else if (e.key === "ArrowLeft") next = tabs[(i - 1 + tabs.length) % tabs.length];
+        else if (e.key === "Home") next = tabs[0];
+        else if (e.key === "End") next = tabs[tabs.length - 1];
+        if (next) { e.preventDefault(); select(next, true); }
+      });
     });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+    stage.setAttribute("aria-labelledby", tabs[0].id);
+  })();
+</script>
+<script>
+  /* dark/light compare — the range input owns pointer, touch and keyboard;
+     we only mirror its value onto the clip and the handle (transform, no layout) */
+  (function () {
+    var wrap = document.getElementById("compare");
+    var range = document.getElementById("cmpRange");
+    var top = document.getElementById("cmpTop");
+    var handle = document.getElementById("cmpHandle");
+    if (!wrap || !range || !top || !handle) return;
+
+    function paint() {
+      var p = Number(range.value);
+      top.style.clipPath = "inset(0 " + (100 - p) + "% 0 0)";
+      handle.style.transform = "translateX(" + (wrap.clientWidth * p / 100) + "px)";
+    }
+    range.addEventListener("input", paint);
+    range.addEventListener("pointerdown", function () { wrap.classList.add("is-dragging"); });
+    window.addEventListener("pointerup", function () { wrap.classList.remove("is-dragging"); });
+    window.addEventListener("resize", paint, { passive: true });
+    paint();
+  })();
 </script>
 <script>
   (function(){
@@ -479,6 +801,30 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
       if (nav.classList.contains("is-open") && !e.target.closest(".nav-inner")) close();
     });
     window.addEventListener("scroll", close, { passive: true });
+  })();
+</script>
+<script>
+  /* lightbox — zoom the product screens */
+  (function(){
+    var lb=document.getElementById('lightbox');
+    if(!lb) return;
+    var lbImg=lb.querySelector('img');
+    function open(src,alt){
+      lbImg.src=src;lbImg.alt=alt||'';lb.scrollTop=0;
+      lb.classList.add('is-open');lb.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+    }
+    function close(){
+      lb.classList.remove('is-open');lb.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
+      setTimeout(function(){if(!lb.classList.contains('is-open'))lbImg.removeAttribute('src');},300);
+    }
+    document.querySelectorAll('.shot img').forEach(function(im){
+      im.classList.add('zoomable');
+      im.addEventListener('click',function(){open(im.currentSrc||im.src,im.alt);});
+    });
+    lb.addEventListener('click',function(e){if(e.target!==lbImg)close();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('is-open'))close();});
   })();
 </script>
 
