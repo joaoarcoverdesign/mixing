@@ -675,7 +675,7 @@
       pt: "Plataforma liderada em escala",
       es: "Plataforma liderada a escala"
     },
-    "home.hobby.teach.t": { en: "I teach UX/UI &amp; Figma", pt: "Ensino UX/UI e Figma", es: "Enseño UX/UI y Figma" },
+    "home.hobby.teach.t": { en: "I teach UX/UI & Figma", pt: "Ensino UX/UI e Figma", es: "Enseño UX/UI y Figma" },
     "home.hobby.teach.d": { en: "at Jala University", pt: "na Jala University", es: "en Jala University" },
     "about.portrait.caption": {
       en: '🎓 Teaching UX/UI &amp; Figma at <b>Jala University</b>',
