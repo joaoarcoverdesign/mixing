@@ -3,6 +3,8 @@
     { "source": "/pipeline", "destination": "/pipeline.html" }
   ],
   "redirects": [
+    { "source": "/about.html", "destination": "/", "permanent": true },
+    { "source": "/about", "destination": "/", "permanent": true },
     {
       "source": "/",
       "has": [{ "type": "host", "value": "mixing-pearl.vercel.app" }],
