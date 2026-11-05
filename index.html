@@ -4,6 +4,7 @@
 <head>
   <script src="i18n.js"></script>
 <script src="koi.js"></script>
+  <script src="liquid-reveal.js"></script>
   <script src="analytics.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,20 +12,20 @@
   <link rel="apple-touch-icon" href="Img/favicon.png">
   <title>João Abdalla, Senior Product Designer · UX/UI</title>
   <meta name="description" content="Designing clear, user-centered digital products. See my work.">
-  <link rel="canonical" href="https://abdalladesign.vercel.app/">
+  <link rel="canonical" href="https://www.abdallajoao.com/">
   <!-- Open Graph / social preview -->
   <meta property="og:title" content="João Abdalla, Senior Product Designer">
   <meta property="og:description" content="Designing clear, user-centered digital products. See my work.">
-  <meta property="og:image" content="https://abdalladesign.vercel.app/Img/og-cover.png">
+  <meta property="og:image" content="https://www.abdallajoao.com/Img/og-cover.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:url" content="https://abdalladesign.vercel.app/">
+  <meta property="og:url" content="https://www.abdallajoao.com/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="João Abdalla, Senior Product Designer">
   <meta name="twitter:description" content="Designing clear, user-centered digital products. See my work.">
-  <meta name="twitter:image" content="https://abdalladesign.vercel.app/Img/og-cover.png">
+  <meta name="twitter:image" content="https://www.abdallajoao.com/Img/og-cover.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -663,9 +664,69 @@
       outline-offset: 6px;
     }
 
+    /* caption under the front card. The Work section slides up over the bottom of
+       the mockups (its negative margin-top), so the caption sits centred in that
+       overlap band and stacks above Work (z-index 2) to stay visible. */
+    .mock-caption {
+      --band: clamp(60px, 8vw, 140px);
+      position: absolute;
+      left: 50%;
+      bottom: max(calc(var(--band) - 42px), 18px);
+      z-index: 3;
+      display: grid;
+      transform: translate(-50%, 50%);
+      pointer-events: none;
+      white-space: nowrap;
+      font-family: var(--sans);
+      font-size: clamp(13px, 1.05vw, 16px);
+      letter-spacing: .01em;
+      color: var(--muted);
+    }
+
+    .mock-caption-item {
+      grid-area: 1 / 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .45em;
+      opacity: 0;
+      filter: blur(4px);
+      transform: translateY(8px);
+      transition: opacity var(--dur-move) var(--ease-out), transform var(--dur-move) var(--ease-out), filter var(--dur-move) var(--ease-out);
+    }
+
+    .mock-caption-item b {
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .mock-caption-sep {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: .8;
+    }
+
+    /* the incoming caption waits for the cards to start moving, then eases in */
+    .mock-caption-item.is-active {
+      opacity: 1;
+      filter: blur(0);
+      transform: none;
+      transition-delay: 180ms;
+    }
+
     @media (prefers-reduced-motion:reduce) {
       .mock-card {
         transition: none;
+      }
+
+      .mock-caption-item,
+      .mock-caption-item.is-active {
+        transform: none;
+        filter: none;
+        transition: opacity 200ms linear;
+        transition-delay: 0ms;
       }
     }
 
@@ -756,6 +817,9 @@
       position: relative;
       z-index: 2;
       margin-top: clamp(-140px, -8vw, -60px);
+      /* breathing room between the hero caption (which sits in the overlap band)
+         and the "Selected work" label */
+      padding-top: clamp(20px, 2.4vw, 40px);
     }
 
     .work-pin {
@@ -863,13 +927,16 @@
       display: block;
       flex: 0 0 auto;
       width: 100%;
+      /* one frame for every cover, whatever its own ratio (Blueprint is 2:1) */
+      aspect-ratio: 1440 / 820;
       background: var(--surface);
       margin-bottom: clamp(16px, 2.4vh, 28px);
     }
 
     .work-media img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       display: block;
       transition: transform .7s var(--ease-out);
     }
@@ -1898,6 +1965,7 @@
 
     .gal .sec-head {
       padding: 0 var(--px);
+      align-items: flex-end;
     }
 
     .gal-track {
@@ -2104,6 +2172,89 @@
         transition: none;
       }
     }
+/* portrait stage */
+.portrait-stage{position:relative;width:min(340px,72vw);margin:0 auto;}
+.portrait-glow{
+  position:absolute;inset:-18% -14%;z-index:0;
+  background:radial-gradient(55% 55% at 50% 45%, rgba(194,252,80,.24), transparent 72%);
+  filter:blur(38px);
+}
+.portrait-frame{
+  position:relative;z-index:1;aspect-ratio:1/1;border-radius:50%;overflow:hidden;
+  border:3px solid var(--accent);
+  box-shadow:0 30px 60px rgba(0,0,0,.5);
+}
+.portrait-frame img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transform:scale(1.4);transform-origin:50% 22%;
+  filter:contrast(1.04) saturate(1.05);
+}
+/* liquid reveal — WebGL canvas over the photo; the img stays as fallback until it's ready */
+.portrait-liquid{
+  position:absolute;inset:0;width:100%;height:100%;display:block;
+  filter:contrast(1.04) saturate(1.05);
+  opacity:0;transition:opacity .4s var(--ease);
+}
+.portrait-liquid.is-ready{opacity:1;}
+.portrait-frame.is-swappable{cursor:pointer;}
+.portrait-frame.is-swappable:focus-visible{outline:2px solid var(--accent);outline-offset:6px;}
+.portrait-badge{
+  position:absolute;z-index:3;
+  background:var(--surface);border:1px solid var(--line);border-radius:16px;
+  padding:11px 16px;box-shadow:0 18px 40px rgba(0,0,0,.4);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  animation:float-badge 6s var(--ease) infinite;
+}
+.portrait-badge .num{font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--white);line-height:1;}
+.portrait-badge .num i{color:var(--accent);font-style:normal;}
+.portrait-badge .lab{margin-top:3px;font-size:10.5px;letter-spacing:.06em;color:var(--muted);white-space:nowrap;}
+.badge-a{top:6%;left:-6%;animation-delay:0s;}
+.hobby-badge{display:flex;align-items:center;gap:0;color:inherit;text-decoration:none;padding:8px;border-radius:16px;transition:gap .3s var(--ease),padding .3s var(--ease),border-color .25s var(--ease);}
+.hobby-badge:hover,.hobby-badge:focus-visible,.hobby-badge:focus-within{border-color:var(--accent);gap:12px;padding:8px 16px 8px 8px;}
+.hobby-ico{flex:0 0 auto;width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(194,252,80,.12);color:var(--accent);}
+.hobby-ico svg{width:22px;height:22px;}
+.hobby-txt{display:flex;flex-direction:column;max-width:0;opacity:0;overflow:hidden;white-space:nowrap;transition:max-width .35s var(--ease),opacity .25s var(--ease);}
+.hobby-badge:hover .hobby-txt,.hobby-badge:focus-visible .hobby-txt,.hobby-badge:focus-within .hobby-txt{max-width:260px;opacity:1;}
+.hobby-badge .num{font-size:16px;}
+.hobby-badge .lab{transition:color .25s var(--ease);}
+.hobby-badge .lab:hover{color:var(--accent);text-decoration:underline;text-underline-offset:3px;}
+.badge-b{bottom:6%;right:-16%;animation-delay:-3s;}
+@keyframes float-badge{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-8px);}
+}
+@media (max-width:900px){.badge-a{left:0;}.badge-b{right:-6%;}}
+@media (max-width:560px){.portrait-badge{display:none;}}
+@media (prefers-reduced-motion:reduce){.portrait-badge{animation:none;}}
+
+/* hero: text left, portrait right */
+.hero2-top{position:relative;z-index:1;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(40px,6vw,90px);align-items:center;margin-bottom:clamp(80px,11vh,120px);}
+.hero2-top .hero2-content{text-align:left;margin:0;max-width:none;}
+.hero2-top .hero2-title{margin-left:0;margin-right:0;}
+.hero2-top .hero2-sub{white-space:normal;margin-left:0;margin-right:0;}
+.hero2-top .hero2-actions{justify-content:flex-start;margin-bottom:0;}
+.hero2-portrait{animation:hero-in .8s var(--ease-out) both;animation-delay:200ms;}
+.badge-c{bottom:8%;right:-8%;animation-delay:-3s;}
+@media (max-width:900px){
+  .hero2-top{grid-template-columns:1fr;}
+  .hero2-top .hero2-content{text-align:center;}
+  .hero2-top .hero2-title,.hero2-top .hero2-sub{margin-left:auto;margin-right:auto;}
+  .hero2-top .hero2-actions{justify-content:center;}
+  .badge-c{right:0;}
+}
+@media (prefers-reduced-motion:reduce){.hero2-portrait{animation:none;}}
+/* hero copy: role in the pill, about headline + lede */
+.hero2-top .hero-role{color:var(--white);width:fit-content;padding:6px 12px 6px 10px;margin:0 0 clamp(16px,2.4vh,22px) -10px;border-radius:99px;background:rgba(17,22,26,.82);animation:hero-in .8s var(--ease-out) both;}
+.hero-role .sep{color:var(--accent);margin:0 2px;}
+.hero2-top .hero2-title{text-transform:none;font-size:clamp(34px,4.6vw,60px);line-height:1.1;letter-spacing:-.025em;max-width:none;margin-bottom:clamp(18px,2.6vh,26px);}
+.hero2-top .hero2-title i{color:var(--accent);font-style:normal;}
+.hero2-top .hero2-sub{font-size:clamp(17px,1.8vw,21px);line-height:1.6;max-width:52ch;opacity:.9;}
+@media (max-width:900px){.hero2-top .hero-role{margin-left:auto;margin-right:auto;}}
+/* mockup caption: hover hint that it opens the case */
+.mock-caption-item.is-active{pointer-events:auto;cursor:pointer;}
+.mock-caption-item b{transition:color .25s var(--ease-out);text-decoration:underline;text-decoration-color:transparent;text-underline-offset:4px;transition:color .25s var(--ease-out),text-decoration-color .25s var(--ease-out);}
+.mock-caption-item.is-active:hover b{color:var(--accent);text-decoration-color:var(--accent);}
+.mock-caption-item.is-active:hover{color:var(--white);}
   </style>
 </head>
 
@@ -2133,7 +2284,6 @@
       </button>
       <ul class="nav-links" id="navLinks">
         <li><a href="#work" data-i18n="common.nav.works">Works</a></li>
-        <li><a href="about.html" data-i18n="common.nav.about">About</a></li>
         <li><a href="#contact" data-i18n="common.nav.contact">Contact</a></li>
       </ul>
     </div>
@@ -2146,43 +2296,64 @@
       <canvas class="kinetic-canvas" id="kineticCanvas" aria-hidden="true"></canvas>
       <canvas class="kinetic-canvas" id="koiCanvas" aria-hidden="true"></canvas>
       <div class="hero2-glow" aria-hidden="true"></div>
-      <div class="hero2-content">
-        <h1 class="hero2-title" data-i18n-html="home.hero.title">Senior Product Designer <span class="sep">•</span> UX
-          UI</h1>
-        <p class="hero2-sub" data-i18n="home.hero.sub">Designer who builds and operates AI systems for the design
-          process.</p>
-        <p class="hero2-meta" data-i18n-html="home.hero.meta">Remote from <b>Brazil</b>, working with <b>US &amp; EU</b>
-          teams</p>
-      </div>
+      <div class="hero2-top">
+        <div class="hero2-left">
+        <div class="hero2-content">
+          <span class="sec-label hero-role" data-i18n-html="home.hero.title">Senior Product Designer <span class="sep">•</span> UX UI</span>
+          <h1 class="hero2-title" data-i18n-html="about.hero.title">I design the screens <i>nobody wants to&nbsp;design.</i></h1>
+          <p class="hero2-sub" data-i18n="about.hero.lede">Permissions, verification, admin portals, messy workflows. I turn them into products people actually trust.</p>
+          <p class="hero2-meta" data-i18n-html="home.hero.meta">Remote from <b>Brazil</b>, working with <b>US &amp; EU</b>
+            teams</p>
+        </div>
 
-      <div class="hero2-actions">
-        <a class="btn-main" href="#work"><span class="flair"></span><span data-i18n="home.hero.cta">View Case
-            Studies</span></a>
-        <div class="social-row">
-          <a class="social-btn dribbble" href="https://dribbble.com/abdalladesign" target="_blank" rel="noopener"
-            aria-label="Dribbble">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M12 2a10 10 0 100 20 10 10 0 000-20Zm6.6 4.6a8.4 8.4 0 011.9 5.1c-.3-.06-3-.6-5.7-.26-.06-.14-.1-.29-.17-.44-.17-.4-.35-.8-.54-1.18 3-1.24 4.4-3 4.48-3.2ZM12 3.6c1.9 0 3.6.68 4.96 1.8-.06.1-1.3 1.76-4.2 2.83A46.5 46.5 0 009.8 3.9 8.4 8.4 0 0112 3.6ZM8.1 4.5a44.3 44.3 0 012.94 4.24C7.9 9.5 5 9.5 4.7 9.5a8.44 8.44 0 013.4-5Zm-3.7 7.53v-.24c.3 0 3.75.05 7.03-1a17 17 0 01.4.83c-.1.03-.2.06-.28.09-3.4 1.1-5.2 4.1-5.35 4.36a8.36 8.36 0 01-1.8-4.04Zm7.6 6.87c-1.6 0-3.08-.5-4.3-1.36.12-.24 1.5-2.87 5.25-4.2.02 0 .03-.01.05-.02a35.7 35.7 0 011.87 6.9 8.4 8.4 0 01-2.87.68Zm4.28-1.34a37.4 37.4 0 00-1.7-6.28c2.5-.4 4.7.26 5 .35a8.44 8.44 0 01-3.3 5.93Z"
-                fill="#fff" />
-            </svg>
-          </a>
-          <a class="social-btn behance" href="https://www.behance.net/joaoabdalla" target="_blank" rel="noopener"
-            aria-label="Behance">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M4 6h5.6c1.4 0 2.5.34 3.3 1 .8.68 1.2 1.6 1.2 2.75 0 .68-.16 1.27-.48 1.77-.3.5-.76.9-1.36 1.2.82.24 1.44.65 1.86 1.24.42.6.63 1.32.63 2.16 0 .77-.14 1.44-.4 2-.28.56-.66 1-1.14 1.36-.48.35-1.04.6-1.68.76-.64.15-1.32.23-2.05.23H4V6Zm2.6 5.16h2.6c.6 0 1.08-.14 1.44-.42.36-.28.54-.7.54-1.24 0-.6-.18-1.03-.55-1.3-.36-.27-.86-.4-1.5-.4H6.6v3.36Zm0 5.5h2.9c.7 0 1.25-.16 1.65-.47.4-.32.6-.78.6-1.4 0-.62-.2-1.08-.6-1.4-.4-.3-.96-.46-1.68-.46H6.6v3.73ZM14.5 8.4h5.4v1.35h-5.4V8.4Zm2.7 3.1c1.5 0 2.65.42 3.46 1.26.8.83 1.2 2 1.2 3.5v.5h-6.65c.04.7.28 1.24.7 1.62.44.38 1 .57 1.7.57.5 0 .95-.1 1.32-.3.38-.2.66-.5.85-.87h2.03c-.3.9-.83 1.6-1.6 2.1-.77.5-1.66.76-2.68.76-1.4 0-2.55-.44-3.42-1.32-.87-.88-1.3-2.05-1.3-3.5 0-1.4.44-2.55 1.3-3.44.87-.9 2-1.34 3.34-1.34Zm-2.2 3.72h4.35c-.06-.63-.28-1.1-.66-1.44-.38-.34-.9-.5-1.5-.5-.6 0-1.1.17-1.5.5-.4.34-.63.82-.7 1.44Z"
-                fill="#fff" />
-            </svg>
-          </a>
-          <a class="social-btn linkedin" href="https://www.linkedin.com/in/abdalladesign/" target="_blank"
-            rel="noopener" aria-label="LinkedIn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M6.94 5a1.94 1.94 0 11-3.88 0 1.94 1.94 0 013.88 0ZM3.3 8.5h3.7V20H3.3V8.5Zm6.4 0h3.55v1.57h.05c.5-.9 1.7-1.86 3.5-1.86 3.75 0 4.44 2.4 4.44 5.5V20h-3.7v-5.5c0-1.3-.02-3-1.86-3-1.86 0-2.14 1.4-2.14 2.9V20H9.7V8.5Z"
-                fill="#fff" />
-            </svg>
-          </a>
+        <div class="hero2-actions">
+          <a class="btn-main" href="#work"><span class="flair"></span><span data-i18n="home.hero.cta">View Case
+              Studies</span></a>
+          <div class="social-row">
+            <a class="social-btn dribbble" href="https://dribbble.com/abdalladesign" target="_blank" rel="noopener"
+              aria-label="Dribbble">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 2a10 10 0 100 20 10 10 0 000-20Zm6.6 4.6a8.4 8.4 0 011.9 5.1c-.3-.06-3-.6-5.7-.26-.06-.14-.1-.29-.17-.44-.17-.4-.35-.8-.54-1.18 3-1.24 4.4-3 4.48-3.2ZM12 3.6c1.9 0 3.6.68 4.96 1.8-.06.1-1.3 1.76-4.2 2.83A46.5 46.5 0 009.8 3.9 8.4 8.4 0 0112 3.6ZM8.1 4.5a44.3 44.3 0 012.94 4.24C7.9 9.5 5 9.5 4.7 9.5a8.44 8.44 0 013.4-5Zm-3.7 7.53v-.24c.3 0 3.75.05 7.03-1a17 17 0 01.4.83c-.1.03-.2.06-.28.09-3.4 1.1-5.2 4.1-5.35 4.36a8.36 8.36 0 01-1.8-4.04Zm7.6 6.87c-1.6 0-3.08-.5-4.3-1.36.12-.24 1.5-2.87 5.25-4.2.02 0 .03-.01.05-.02a35.7 35.7 0 011.87 6.9 8.4 8.4 0 01-2.87.68Zm4.28-1.34a37.4 37.4 0 00-1.7-6.28c2.5-.4 4.7.26 5 .35a8.44 8.44 0 01-3.3 5.93Z"
+                  fill="#fff" />
+              </svg>
+            </a>
+            <a class="social-btn behance" href="https://www.behance.net/joaoabdalla" target="_blank" rel="noopener"
+              aria-label="Behance">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M4 6h5.6c1.4 0 2.5.34 3.3 1 .8.68 1.2 1.6 1.2 2.75 0 .68-.16 1.27-.48 1.77-.3.5-.76.9-1.36 1.2.82.24 1.44.65 1.86 1.24.42.6.63 1.32.63 2.16 0 .77-.14 1.44-.4 2-.28.56-.66 1-1.14 1.36-.48.35-1.04.6-1.68.76-.64.15-1.32.23-2.05.23H4V6Zm2.6 5.16h2.6c.6 0 1.08-.14 1.44-.42.36-.28.54-.7.54-1.24 0-.6-.18-1.03-.55-1.3-.36-.27-.86-.4-1.5-.4H6.6v3.36Zm0 5.5h2.9c.7 0 1.25-.16 1.65-.47.4-.32.6-.78.6-1.4 0-.62-.2-1.08-.6-1.4-.4-.3-.96-.46-1.68-.46H6.6v3.73ZM14.5 8.4h5.4v1.35h-5.4V8.4Zm2.7 3.1c1.5 0 2.65.42 3.46 1.26.8.83 1.2 2 1.2 3.5v.5h-6.65c.04.7.28 1.24.7 1.62.44.38 1 .57 1.7.57.5 0 .95-.1 1.32-.3.38-.2.66-.5.85-.87h2.03c-.3.9-.83 1.6-1.6 2.1-.77.5-1.66.76-2.68.76-1.4 0-2.55-.44-3.42-1.32-.87-.88-1.3-2.05-1.3-3.5 0-1.4.44-2.55 1.3-3.44.87-.9 2-1.34 3.34-1.34Zm-2.2 3.72h4.35c-.06-.63-.28-1.1-.66-1.44-.38-.34-.9-.5-1.5-.5-.6 0-1.1.17-1.5.5-.4.34-.63.82-.7 1.44Z"
+                  fill="#fff" />
+              </svg>
+            </a>
+            <a class="social-btn linkedin" href="https://www.linkedin.com/in/abdalladesign/" target="_blank"
+              rel="noopener" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M6.94 5a1.94 1.94 0 11-3.88 0 1.94 1.94 0 013.88 0ZM3.3 8.5h3.7V20H3.3V8.5Zm6.4 0h3.55v1.57h.05c.5-.9 1.7-1.86 3.5-1.86 3.75 0 4.44 2.4 4.44 5.5V20h-3.7v-5.5c0-1.3-.02-3-1.86-3-1.86 0-2.14 1.4-2.14 2.9V20H9.7V8.5Z"
+                  fill="#fff" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+
+        <div class="hero2-portrait">
+          <div class="portrait-stage">
+            <div class="portrait-glow" aria-hidden="true"></div>
+            <div class="portrait-frame">
+              <img src="Img/joao%20avatar%20grtande.jpg" alt="João Abdalla, Senior Product Designer" loading="eager">
+              <canvas class="portrait-liquid" id="portraitLiquid" aria-label="Portrait of João Abdalla: hover to reveal the X-wing pilot version"></canvas>
+            </div>
+            <a class="portrait-badge hobby-badge badge-a" href="https://www.chess.com/member/abdallajow" target="_blank" rel="noopener">
+              <span class="hobby-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 22H5v-2h14zM13 2c-1.25 0-2.42.62-3.11 1.66L7 8l2 2l2.06-1.37c.44-.31 1.08-.19 1.39.27c.02.03.05.06.05.1c.3.59.19 1.3-.28 1.77l-4.8 4.8c-.55.56-.55 1.46.01 2.01c.26.26.62.42.99.42H17V6a4 4 0 0 0-4-4"/></svg></span>
+              <span class="hobby-txt"><span class="num" data-i18n="about.hobby.chess.t">Challenge me at chess</span><span class="lab" data-i18n="about.hobby.chess.d">Let’s play on Chess.com</span></span>
+            </a>
+            <div class="portrait-badge hobby-badge badge-c" tabindex="0">
+              <span class="hobby-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 17a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H9.46c.35.61.54 1.3.54 2h10v11h-9v2m4-10v2H9v13H7v-6H5v6H3v-8H1.5V9a2 2 0 0 1 2-2H15M8 4a2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2 2 2 0 0 1 2 2Z"/></svg></span>
+              <span class="hobby-txt"><span class="num" data-i18n="home.hobby.teach.t">I teach UX/UI &amp; Figma</span><span class="lab" data-i18n="home.hobby.teach.d">at Jala University</span></span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -2197,15 +2368,27 @@
           </div>
           <div class="mock-card" data-slot="back-right" data-href="cases/quero-simulados.html" role="button"
             tabindex="0" aria-label="Bring Quero Simulados to front" data-i18n-attr="aria-label:home.mock.quero.aria">
-            <img src="Img/browser-2.png" alt="Quero Simulados: exam practice platform, shown in browser" width="970"
-              height="798" loading="lazy" data-i18n-attr="alt:home.mock.quero.alt">
+            <img src="Img/browser-02.png" alt="Quero Simulados: exam practice platform, shown in browser" width="1975"
+              height="1635" loading="lazy" data-i18n-attr="alt:home.mock.quero.alt">
           </div>
-          <div class="mock-card" data-slot="front" data-href="cases/qconcursos.html" role="button" tabindex="0"
-            aria-label="Open the Qconcursos case study" data-i18n-attr="aria-label:home.mock.qcon.aria">
-            <img src="Img/browser-1.png" alt="Qconcursos: platform homepage, shown in browser" width="1977"
-              height="1637" loading="lazy" data-i18n-attr="alt:home.mock.qcon.alt">
+          <div class="mock-card" data-slot="front" data-href="cases/valt.html" role="button" tabindex="0"
+            aria-label="Open the Valt case study" data-i18n-attr="aria-label:home.mock.valt.aria">
+            <img src="Img/browser-01.png" alt="Valt: private markets platform, shown in browser" width="1975"
+              height="1635" loading="lazy" data-i18n-attr="alt:home.mock.valt.alt">
           </div>
         </div>
+        <!-- caption for whichever card is in front; swapped by the mockup script -->
+        <p class="mock-caption" id="mockCaption" aria-live="polite">
+          <span class="mock-caption-item" data-case="cases/valt.html">
+            <b>Valt</b><span class="mock-caption-sep" aria-hidden="true"></span><span data-i18n="home.mock.valt.cap">Private markets platform</span>
+          </span>
+          <span class="mock-caption-item" data-case="cases/quero-simulados.html">
+            <b>Quero Simulados</b><span class="mock-caption-sep" aria-hidden="true"></span><span data-i18n="home.mock.quero.cap">Performance for public service exams</span>
+          </span>
+          <span class="mock-caption-item" data-case="cases/jalasoft.html">
+            <b>Jalasoft</b><span class="mock-caption-sep" aria-hidden="true"></span><span data-i18n="home.mock.jala.cap">Design system: web, BPM, Planning Poker &amp; Elearn App</span>
+          </span>
+        </p>
       </div>
     </section>
 
@@ -2238,35 +2421,36 @@
         <div class="work-viewport" id="workViewport">
           <div class="work-track" id="workTrack">
 
-            <a class="work-item rv" href="cases/valt.html">
+            <a class="work-item rv" href="cases/zack.html">
               <span class="work-media">
-                <img src="Img/cards%20home/Valt.png" alt="Valt Network: product design" width="2880" height="1640"
-                  data-i18n-attr="alt:home.card3.alt">
+                <img src="Img/zack/web/zk-card.webp" alt="Zack: scheduling and attendance tool on desktop and mobile"
+                  width="1600" height="911" data-i18n-attr="alt:home.card12.alt">
               </span>
               <span class="work-idx">/ 01</span>
-              <h3 class="work-name" data-i18n="home.card3.name">Valt Network</h3>
-              <p class="work-desc" data-i18n="home.card3.desc">Designing the professional layer for private-market
-                investors and high-growth companies.</p>
-              <div class="work-tags"><span data-i18n="home.card3.tag1">Fintech</span><span
-                  data-i18n="home.card3.tag2">Social Product</span><span data-i18n="home.card3.tag3">0 → 1</span></div>
-              <span class="work-link"><span data-i18n="home.card3.link">Live product</span> <span
+              <h3 class="work-name" data-i18n="home.card12.name">Zack</h3>
+              <p class="work-desc" data-i18n="home.card12.desc">An internal tool to schedule recurring bootcamp classes
+                and turn attendance into reports.</p>
+              <div class="work-tags"><span data-i18n="home.card12.tag1">Enterprise</span><span
+                  data-i18n="home.card12.tag2">Scheduling</span><span data-i18n="home.card12.tag3">Web + Mobile</span></div>
+              <span class="work-link"><span data-i18n="home.card12.link">Bootcamps in 4 countries</span> <span
                   class="work-link-arrow">→</span></span>
             </a>
 
-            <a class="work-item rv" href="cases/bpm.html">
+            <a class="work-item rv" href="cases/signflow.html">
               <span class="work-media">
-                <img src="Img/cards%20home/card-bpm.png" alt="BPM Platform Redesign: admin task view"
-                  width="1440" height="820" data-i18n-attr="alt:home.card2.alt">
+                <img src="Img/signflow/signflow-cover2.webp" alt="signFlow: proprietary document-signing tool built to replace DocuSign"
+                  width="1920" height="1080" data-i18n-attr="alt:home.card6.alt">
               </span>
               <span class="work-idx">/ 02</span>
-              <h3 class="work-name" data-i18n="home.card2.name">BPM Platform Redesign</h3>
-              <p class="work-desc" data-i18n="home.card2.desc">Turning the raw Jalasoft portal into a process-first tool for
-                hiring, transfers and disassociation across units.</p>
-              <div class="work-tags"><span data-i18n="home.card2.tag1">Enterprise</span><span
-                  data-i18n="home.card2.tag2">Process Platform</span></div>
-              <span class="work-link"><span data-i18n="home.card2.link">Redesigned end to end</span> <span
+              <h3 class="work-name" data-i18n="home.card6.name">signFlow</h3>
+              <p class="work-desc" data-i18n="home.card6.desc">A proprietary document-signing tool, built to
+                replace DocuSign.</p>
+              <div class="work-tags"><span data-i18n="home.card6.tag1">Enterprise</span><span
+                  data-i18n="home.card6.tag2">Document Signing</span><span data-i18n="home.card6.tag3">0 → 1</span></div>
+              <span class="work-link"><span data-i18n="home.card6.link">In use at the company</span> <span
                   class="work-link-arrow">→</span></span>
             </a>
+
 
             <a class="work-item rv" href="cases/mba.html">
               <span class="work-media">
@@ -2284,7 +2468,18 @@
                   class="work-link-arrow">→</span></span>
             </a>
 
-            <a class="work-item rv" href="cases/qconcursos.html">
+            <button class="work-item work-more rv" id="workMore" type="button" aria-expanded="false" hidden>
+              <span class="work-more-media">
+                <span class="work-more-count" aria-hidden="true">+4</span>
+                <span class="work-more-hint" data-i18n="home.work.more.hint">More projects</span>
+              </span>
+              <span class="work-idx">/ +</span>
+              <span class="work-name" data-i18n="home.work.more.name">See more projects</span>
+              <span class="work-link"><span data-i18n="home.work.more.link">Show all cases</span> <span
+                  class="work-link-arrow">→</span></span>
+            </button>
+
+            <a class="work-item work-extra rv" href="cases/qconcursos.html">
               <span class="work-media" data-cursor-dock="33 25">
                 <img src="Img/cards%20home/card-Qcon.png" alt="Qconcursos: platform redesign" width="1440" height="820"
                   data-i18n-attr="alt:home.card5.alt">
@@ -2299,38 +2494,13 @@
                   class="work-link-arrow">→</span></span>
             </a>
 
-            <button class="work-item work-more rv" id="workMore" type="button" aria-expanded="false" hidden>
-              <span class="work-more-media">
-                <span class="work-more-count" aria-hidden="true">+3</span>
-                <span class="work-more-hint" data-i18n="home.work.more.hint">More projects</span>
-              </span>
-              <span class="work-idx">/ +</span>
-              <span class="work-name" data-i18n="home.work.more.name">See more projects</span>
-              <span class="work-link"><span data-i18n="home.work.more.link">Show all cases</span> <span
-                  class="work-link-arrow">→</span></span>
-            </button>
-
-            <a class="work-item work-extra rv" href="cases/elearn.html">
-              <span class="work-media">
-                <img src="Img/elearn/Background%20Overlay.png" alt="Elearn App: learning platform for bootcamp students, teachers and admins"
-                  width="1440" height="810" data-i18n-attr="alt:home.card8.alt">
-              </span>
-              <span class="work-idx">/ 05</span>
-              <h3 class="work-name" data-i18n="home.card8.name">Elearn App</h3>
-              <p class="work-desc" data-i18n="home.card8.desc">One learning platform for students, teachers and admins
-                at Jalasoft and Jala University bootcamps.</p>
-              <div class="work-tags"><span data-i18n="home.card8.tag1">Edtech</span><span
-                  data-i18n="home.card8.tag2">Product Design</span><span data-i18n="home.card8.tag3">0 → 1</span></div>
-              <span class="work-link"><span data-i18n="home.card8.link">Taught to 100+ students</span> <span
-                  class="work-link-arrow">→</span></span>
-            </a>
 
             <a class="work-item work-extra rv" href="cases/aquaryu.html">
               <span class="work-media">
                 <img src="Img/aquaryu/aquaryu-cover.webp" alt="AquaryU: astrology-based dating app where compatibility comes from synastry"
                   width="1440" height="810" data-i18n-attr="alt:home.card9.alt">
               </span>
-              <span class="work-idx">/ 06</span>
+              <span class="work-idx">/ 05</span>
               <h3 class="work-name" data-i18n="home.card9.name">AquaryU</h3>
               <p class="work-desc" data-i18n="home.card9.desc">A dating app where compatibility comes from synastry,
                 not swipes.</p>
@@ -2345,7 +2515,7 @@
                 <img src="Img/cac/cac-cover-3.webp" alt="Car Air Comfort: app to set the car temperature before the trip"
                   width="1440" height="810" data-i18n-attr="alt:home.card10.alt">
               </span>
-              <span class="work-idx">/ 07</span>
+              <span class="work-idx">/ 06</span>
               <h3 class="work-name" data-i18n="home.card10.name">Car Air Comfort</h3>
               <p class="work-desc" data-i18n="home.card10.desc">An app that cools the car before you get in.</p>
               <div class="work-tags"><span data-i18n="home.card10.tag1">Mobile App</span><span
@@ -2354,28 +2524,30 @@
                   class="work-link-arrow">→</span></span>
             </a>
 
-            <!-- HIDDEN until refined: signFlow + Planning Poker
-            <a class="work-item rv" href="cases/signflow.html">
+            <a class="work-item work-extra rv" href="cases/blueprint.html">
               <span class="work-media">
-                <img src="Img/signflow/signflow-cover2.webp" alt="signFlow — proprietary document-signing tool built to replace DocuSign"
-                  data-i18n-attr="alt:home.card6.alt">
+                <img src="Img/bp/bp-cover.webp" alt="Blueprint: workflow tool redesigned and built with Jala University students"
+                  width="1920" height="960" data-i18n-attr="alt:home.card11.alt">
               </span>
-              <span class="work-idx">/ 05</span>
-              <h3 class="work-name" data-i18n="home.card6.name">signFlow</h3>
-              <p class="work-desc" data-i18n="home.card6.desc">A proprietary document-signing tool, built to
-                replace DocuSign.</p>
-              <div class="work-tags"><span data-i18n="home.card6.tag1">Enterprise</span><span
-                  data-i18n="home.card6.tag2">Document Signing</span><span data-i18n="home.card6.tag3">0 → 1</span></div>
-              <span class="work-link"><span data-i18n="home.card6.link">In use at the company</span> <span
+              <span class="work-idx">/ 07</span>
+              <h3 class="work-name" data-i18n="home.card11.name">Blueprint</h3>
+              <p class="work-desc" data-i18n="home.card11.desc">A workflow tool redesigned with Dark Mode, Filters and Card View,
+                built by final-semester students.</p>
+              <div class="work-tags"><span data-i18n="home.card11.tag1">Enterprise</span><span
+                  data-i18n="home.card11.tag2">Product Design</span><span data-i18n="home.card11.tag3">Mentoring</span></div>
+              <span class="work-link"><span data-i18n="home.card11.link">Led design for 60+ students</span> <span
                   class="work-link-arrow">→</span></span>
             </a>
 
+
+
+            <!-- HIDDEN until refined: Planning Poker
             <a class="work-item rv" href="cases/planning-poker.html">
               <span class="work-media">
                 <img src="Img/planning-poker/pp-cover.webp" alt="Planning Poker — redesign of an Agile estimation app"
                   data-i18n-attr="alt:home.card7.alt">
               </span>
-              <span class="work-idx">/ 06</span>
+              <span class="work-idx">/ 07</span>
               <h3 class="work-name" data-i18n="home.card7.name">Planning Poker</h3>
               <p class="work-desc" data-i18n="home.card7.desc">Redesigning an Agile estimation app to make it more
                 intuitive, efficient and easy to use.</p>
@@ -2455,20 +2627,10 @@
       </div>
 
       <div class="gal-track rv" id="galTrack">
-        <button class="gal-item" type="button" data-full="Img/galeria/web/aqua.webp" data-w="1440" data-h="6350">
-          <span class="gal-media"><img src="Img/galeria/web/aqua-thumb.webp" alt="Aquaryu dating app, full page"
-              width="640" height="2822" loading="lazy" decoding="async"></span>
-          <span class="gal-cap"><b>Aquaryu</b><span data-i18n="home.gal.t.dating">Dating app</span></span>
-        </button>
         <button class="gal-item" type="button" data-full="Img/galeria/web/workinly.webp" data-w="1440" data-h="4420">
           <span class="gal-media"><img src="Img/galeria/web/workinly-thumb.webp" alt="Workinly product, full page"
               width="640" height="1964" loading="lazy" decoding="async"></span>
           <span class="gal-cap"><b>Workinly</b><span data-i18n="home.gal.t.product">Product design</span></span>
-        </button>
-        <button class="gal-item" type="button" data-full="Img/galeria/web/jalasoft.webp" data-w="1440" data-h="13189">
-          <span class="gal-media"><img src="Img/galeria/web/jalasoft-thumb.webp" alt="Jalasoft website, full page"
-              width="640" height="5862" loading="lazy" decoding="async"></span>
-          <span class="gal-cap"><b>Jalasoft</b><span data-i18n="home.gal.t.website">Website design</span></span>
         </button>
         <button class="gal-item" type="button" data-full="Img/galeria/web/jala-university.webp" data-w="1440"
           data-h="3888">
@@ -2477,31 +2639,6 @@
               decoding="async"></span>
           <span class="gal-cap"><b>Jala University</b><span data-i18n="home.gal.t.redesign">Website
               redesign</span></span>
-        </button>
-        <button class="gal-item" type="button" data-full="Img/galeria/web/car-air-comfort.webp" data-w="1440"
-          data-h="10636">
-          <span class="gal-media"><img src="Img/galeria/web/car-air-comfort-thumb.webp"
-              alt="Car Air Comfort mobile app, full page" width="640" height="4727" loading="lazy"
-              decoding="async"></span>
-          <span class="gal-cap"><b>Car Air Comfort</b><span data-i18n="home.gal.t.mobile">Mobile app</span></span>
-        </button>
-        <button class="gal-item" type="button" data-full="Img/galeria/web/qs.jpg" data-w="1440" data-h="17422">
-          <span class="gal-media"><img src="Img/galeria/web/qs-thumb.webp" alt="Quero Simulados product, full page"
-              width="640" height="7743" loading="lazy" decoding="async"></span>
-          <span class="gal-cap"><b>Quero Simulados</b><span data-i18n="home.gal.t.product">Product
-              design</span></span>
-        </button>
-        <button class="gal-item" type="button" data-full="Img/galeria/web/bpm.webp" data-w="1440" data-h="6274">
-          <span class="gal-media"><img src="Img/galeria/web/bpm-thumb.webp" alt="BPM platform redesign, full page"
-              width="640" height="2788" loading="lazy" decoding="async"></span>
-          <span class="gal-cap"><b>BPM Platform</b><span data-i18n="home.gal.t.platform">Platform
-              redesign</span></span>
-        </button>
-        <button class="gal-item" type="button" data-full="Img/galeria/web/elearn-app.webp" data-w="1440"
-          data-h="4860">
-          <span class="gal-media"><img src="Img/galeria/web/elearn-app-thumb.webp"
-              alt="Jalasoft e-learn app, full page" width="640" height="2160" loading="lazy" decoding="async"></span>
-          <span class="gal-cap"><b>E-learn</b><span data-i18n="home.gal.t.elearn">E-learning app</span></span>
         </button>
         <button class="gal-item" type="button" data-full="Img/galeria/web/fds.webp" data-w="1440" data-h="7972">
           <span class="gal-media"><img src="Img/galeria/web/fds-thumb.webp"
@@ -2886,6 +3023,38 @@
       initKoi(document.getElementById("koiCanvas"), document.querySelector(".hero2"));
       initKineticCanvas(document.getElementById("kineticCanvas2"), document.getElementById("testiClosingWrap"));
       initKoi(document.getElementById("koiCanvas2"), document.getElementById("testiClosingWrap"));
+  /* portrait liquid reveal — hover turns the photo into the X-wing pilot version */
+  var liquidCanvas = document.getElementById("portraitLiquid");
+  if (liquidCanvas && window.LiquidReveal) {
+    var liquid = new LiquidReveal({
+      canvas: liquidCanvas,
+      container: liquidCanvas.parentNode,
+      imageAUrl: "Img/joao%20avatar%20grtande.jpg",
+      imageBUrl: "Img/luke/Gemini_Generated_Image_pca0t9pca0t9pca0.jpg",
+      framingA: { scale: 1.4, originX: 0.5, originY: 0.22 },   // same crop as the <img>
+      framingB: { scale: 1.12, originX: 0.5, originY: 0.75 },  // lines the faces up
+      radiusScale: 2.2,                                         // small 340px frame needs a bigger drop
+      onReady: function(){
+        liquidCanvas.classList.add("is-ready");
+        frame.classList.add("is-swappable");
+        frame.setAttribute("role", "button");
+        frame.setAttribute("tabindex", "0");
+        frame.setAttribute("aria-pressed", "false");
+        frame.setAttribute("aria-label", "Swap portrait between João and the X-wing pilot version");
+      },
+      onSwap: function(swapped){ frame.setAttribute("aria-pressed", swapped ? "true" : "false"); }
+    });
+    /* click swaps the photos: the hover photo floods in from the click point and becomes the base */
+    var frame = liquidCanvas.parentNode;
+    frame.addEventListener("click", function(e){ liquid.swap(e.clientX, e.clientY); });
+    frame.addEventListener("keydown", function(e){
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); liquid.swap(); }
+    });
+    window.addEventListener("pagehide", function(e){ if (!e.persisted) liquid.destroy(); });
+  }
+
+
+
 
       /* smooth in-page anchor scroll — eased scroll animation instead of an instant jump,
          offset so the fixed nav never covers the target section's top */
@@ -2979,6 +3148,22 @@
         var cards = Array.prototype.slice.call(frame.querySelectorAll(".mock-card"));
         if (!cards.length) return;
 
+        var captionItems = Array.prototype.slice.call(document.querySelectorAll("#mockCaption .mock-caption-item"));
+        function syncCaption() {
+          var front = cards.filter(function (c) { return c.dataset.slot === "front"; })[0];
+          var href = front ? front.dataset.href : "";
+          captionItems.forEach(function (item) {
+            item.classList.toggle("is-active", item.dataset.case === href);
+          });
+        }
+        captionItems.forEach(function (item) {
+          item.addEventListener("click", function () {
+            if (item.classList.contains("is-active")) window.location.href = item.dataset.case;
+          });
+        });
+        // first caption fades in shortly after load
+        setTimeout(syncCaption, 400);
+
         function bringToFront(card) {
           var clickedSlot = card.dataset.slot;
           if (clickedSlot === "front") return;
@@ -2986,6 +3171,7 @@
           if (!frontCard) return;
           frontCard.dataset.slot = clickedSlot;
           card.dataset.slot = "front";
+          syncCaption();
         }
 
         // a background card swaps to the front on click; the front card is a link

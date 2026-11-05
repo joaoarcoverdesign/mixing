@@ -123,6 +123,46 @@
       pt: "Quero Simulados: plataforma de simulados, exibida no navegador",
       es: "Quero Simulados: plataforma de simulacros de examen, mostrada en el navegador"
     },
+    "home.mock.valt.aria": {
+      en: "Open the Valt case study",
+      pt: "Abrir o estudo de caso da Valt",
+      es: "Abrir el caso de estudio de Valt"
+    },
+    "home.mock.valt.alt": {
+      en: "Valt: private markets platform, shown in browser",
+      pt: "Valt: plataforma de mercados privados, exibida no navegador",
+      es: "Valt: plataforma de mercados privados, mostrada en el navegador"
+    },
+    "home.mock.zack.aria": {
+      en: "Bring Zack to front",
+      pt: "Trazer Zack para a frente",
+      es: "Traer Zack al frente"
+    },
+    "home.mock.zack.alt": {
+      en: "Zack: appointments and reports tool, shown in browser",
+      pt: "Zack: ferramenta de agendamentos e relatórios, exibida no navegador",
+      es: "Zack: herramienta de citas e informes, mostrada en el navegador"
+    },
+    "home.mock.valt.cap": {
+      en: "Private markets platform",
+      pt: "Plataforma de mercados privados",
+      es: "Plataforma de mercados privados"
+    },
+    "home.mock.quero.cap": {
+      en: "Performance for public service exams",
+      pt: "Performance para concursos públicos",
+      es: "Rendimiento para oposiciones"
+    },
+    "home.mock.jala.cap": {
+      en: "Design system: web, BPM, Planning Poker & Elearn App",
+      pt: "Design system: web, BPM, Planning Poker e Elearn App",
+      es: "Design system: web, BPM, Planning Poker y Elearn App"
+    },
+    "home.mock.zack.cap": {
+      en: "Appointments & reports",
+      pt: "Agendamentos e relatórios",
+      es: "Citas e informes"
+    },
     "home.mock.qcon.aria": {
       en: "Open the Qconcursos case study",
       pt: "Abrir o estudo de caso da Qconcursos",
@@ -320,6 +360,36 @@
       es: "Onboarding un 43% más rápido"
     },
 
+    "home.card13.alt": {
+      en: "Quero Simulados: mock exam results on desktop and mobile",
+      pt: "Quero Simulados: resultado de simulado no desktop e no celular",
+      es: "Quero Simulados: resultados de simulacro en escritorio y móvil"
+    },
+    "home.card13.name": { en: "Quero Simulados", pt: "Quero Simulados", es: "Quero Simulados" },
+    "home.card13.desc": {
+      en: "A mock exam platform that lets students compare their performance before the real test.",
+      pt: "Uma plataforma de simulados para o aluno comparar seu desempenho antes da prova de verdade.",
+      es: "Una plataforma de simulacros para que el estudiante compare su desempeño antes del examen real."
+    },
+    "home.card13.tag1": { en: "Edtech", pt: "Edtech", es: "Edtech" },
+    "home.card13.tag2": { en: "Product Design", pt: "Product Design", es: "Product Design" },
+    "home.card13.tag3": { en: "10M+ Users", pt: "10M+ usuários", es: "10M+ usuarios" },
+    "home.card13.link": { en: "Mock exams and rankings", pt: "Simulados e ranking", es: "Simulacros y ranking" },
+    "home.card14.alt": {
+      en: "Jalasoft: design system applied to the BPM portal login",
+      pt: "Jalasoft: design system aplicado ao login do portal BPM",
+      es: "Jalasoft: design system aplicado al login del portal BPM"
+    },
+    "home.card14.name": { en: "Jalasoft: design system", pt: "Jalasoft: design system", es: "Jalasoft: design system" },
+    "home.card14.desc": {
+      en: "From brand guideline to light/dark tokens, reused across several products.",
+      pt: "Do brand guideline aos tokens light/dark, reaproveitado em vários produtos.",
+      es: "Del brand guideline a los tokens light/dark, reutilizado en varios productos."
+    },
+    "home.card14.tag1": { en: "Design System", pt: "Design System", es: "Design System" },
+    "home.card14.tag2": { en: "Tokens", pt: "Tokens", es: "Tokens" },
+    "home.card14.tag3": { en: "Enterprise", pt: "Enterprise", es: "Enterprise" },
+    "home.card14.link": { en: "One system, three platforms", pt: "Um sistema, três plataformas", es: "Un sistema, tres plataformas" },
     "home.card5.alt": {
       en: "Qconcursos: platform redesign",
       pt: "Qconcursos: redesenho da plataforma",
@@ -440,6 +510,46 @@
       es: "Del mapa mental al prototipo"
     },
 
+    "home.card11.alt": {
+      en: "Blueprint: workflow tool redesigned and built with Jala University students",
+      pt: "Blueprint: ferramenta de fluxos redesenhada e construída com alunos da Jala University",
+      es: "Blueprint: herramienta de flujos rediseñada y construida con alumnos de Jala University"
+    },
+    "home.card11.name": { en: "Blueprint", pt: "Blueprint", es: "Blueprint" },
+    "home.card11.desc": {
+      en: "A workflow tool redesigned with Dark Mode, Filters and Card View, built by final-semester students.",
+      pt: "Uma ferramenta de fluxos redesenhada com Dark Mode, Filtros e Card View, construída por alunos do último semestre.",
+      es: "Una herramienta de flujos rediseñada con Dark Mode, Filtros y Card View, construida por alumnos del último semestre."
+    },
+    "home.card11.tag1": { en: "Enterprise", pt: "Corporativo", es: "Corporativo" },
+    "home.card11.tag2": { en: "Product Design", pt: "Design de Produto", es: "Diseño de Producto" },
+    "home.card11.tag3": { en: "Mentoring", pt: "Mentoria", es: "Mentoría" },
+    "home.card11.link": {
+      en: "Led design for 60+ students",
+      pt: "Liderei o design para 60+ alunos",
+      es: "Lideré el diseño para 60+ alumnos"
+    },
+
+    "home.card12.alt": {
+      en: "Zack: scheduling and attendance tool on desktop and mobile",
+      pt: "Zack: ferramenta de agendamento e presença no desktop e no mobile",
+      es: "Zack: herramienta de agendamiento y asistencia en desktop y mobile"
+    },
+    "home.card12.name": { en: "Zack", pt: "Zack", es: "Zack" },
+    "home.card12.desc": {
+      en: "An internal tool to schedule recurring bootcamp classes and turn attendance into reports.",
+      pt: "Uma ferramenta interna para agendar aulas recorrentes dos bootcamps e transformar a presença em relatórios.",
+      es: "Una herramienta interna para agendar clases recurrentes de los bootcamps y convertir la asistencia en reportes."
+    },
+    "home.card12.tag1": { en: "Enterprise", pt: "Corporativo", es: "Corporativo" },
+    "home.card12.tag2": { en: "Scheduling", pt: "Agendamento", es: "Agendamiento" },
+    "home.card12.tag3": { en: "Web + Mobile", pt: "Web + Mobile", es: "Web + Mobile" },
+    "home.card12.link": {
+      en: "Bootcamps in 4 countries",
+      pt: "Bootcamps em 4 países",
+      es: "Bootcamps en 4 países"
+    },
+
     "home.testi.label": { en: "Testimonials", pt: "Depoimentos", es: "Testimonios" },
     "home.testi.title": {
       en: 'What people <em>are saying</em>',
@@ -551,9 +661,9 @@
       es: "Disponible para colaboración remota"
     },
     "about.hero.loc": {
-      en: 'Based in <b>Brasília, Brazil</b> · <b>US &amp; EU</b> teams',
-      pt: 'Baseado em <b>Brasília, Brasil</b> · times dos <b>EUA, LATAM e da Europa</b>',
-      es: 'Radicado en <b>Brasilia, Brasil</b> · equipos de <b>EE. UU. y Europa</b>'
+      en: 'Based in <b>Brasília, Brazil</b>',
+      pt: 'Baseado em <b>Brasília, Brasil</b>',
+      es: 'Radicado en <b>Brasilia, Brasil</b>'
     },
     "about.hobby.chess.t": { en: "Challenge me at chess", pt: "Me desafie no xadrez", es: "Desafíame al ajedrez" },
     "about.hobby.chess.d": { en: "Let’s play on Chess.com", pt: "Vamos jogar no Chess.com", es: "Juguemos en Chess.com" },
@@ -565,6 +675,8 @@
       pt: "Plataforma liderada em escala",
       es: "Plataforma liderada a escala"
     },
+    "home.hobby.teach.t": { en: "I teach UX/UI &amp; Figma", pt: "Ensino UX/UI e Figma", es: "Enseño UX/UI y Figma" },
+    "home.hobby.teach.d": { en: "at Jala University", pt: "na Jala University", es: "en Jala University" },
     "about.portrait.caption": {
       en: '🎓 Teaching UX/UI &amp; Figma at <b>Jala University</b>',
       pt: '🎓 Ensino UX/UI e Figma na <b>Jala University</b>',
