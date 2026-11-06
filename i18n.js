@@ -425,9 +425,9 @@
     "home.card6.tag2": { en: "Document Signing", pt: "Assinatura de Documentos", es: "Firma de Documentos" },
     "home.card6.tag3": { en: "0 → 1", pt: "0 → 1", es: "0 → 1" },
     "home.card6.link": {
-      en: "In use at the company",
-      pt: "Em uso na empresa",
-      es: "En uso en la empresa"
+      en: "An in-house e-signature tool",
+      pt: "Ferramenta interna de assinatura eletrônica",
+      es: "Herramienta interna de firma electrónica"
     },
 
     "home.card7.alt": {
@@ -545,9 +545,9 @@
     "home.card12.tag2": { en: "Scheduling", pt: "Agendamento", es: "Agendamiento" },
     "home.card12.tag3": { en: "Web + Mobile", pt: "Web + Mobile", es: "Web + Mobile" },
     "home.card12.link": {
-      en: "Bootcamps in 4 countries",
-      pt: "Bootcamps em 4 países",
-      es: "Bootcamps en 4 países"
+      en: "Scheduling recurring classes and meetings",
+      pt: "Agendamento de aulas e reuniões recorrentes",
+      es: "Programación de clases y reuniones recurrentes"
     },
 
     "home.testi.label": { en: "Testimonials", pt: "Depoimentos", es: "Testimonios" },
