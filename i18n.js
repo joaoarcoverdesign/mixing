@@ -83,9 +83,15 @@
        quebra em 3 linhas e fica ruim. "Senior Product Designer" já funciona
        como marca/cargo internacional. */
     "home.hero.title": {
-      en: 'Senior Product Designer <span class="sep">•</span> UX UI <span class="sep">•</span> AI Builder',
-      pt: 'Senior Product Designer <span class="sep">•</span> UX UI <span class="sep">•</span> AI Builder',
-      es: 'Senior Product Designer <span class="sep">•</span> UX UI <span class="sep">•</span> AI Builder'
+      en: 'AI Builder',
+      pt: 'AI Builder',
+      es: 'AI Builder'
+    },
+    "home.hero.word": { en: "Product Designer", pt: "Product Designer", es: "Product Designer" },
+    "home.hero.headline": {
+      en: 'Designer who builds and operates<br>AI systems for <em>the design process</em>',
+      pt: 'Designer que constrói e opera<br>sistemas de IA para <em>o processo de design</em>',
+      es: 'Diseñador que construye y opera<br>sistemas de IA para <em>el proceso de diseño</em>'
     },
     "home.hero.sub": {
       en: "Designer who builds and operates AI systems for the design process.",

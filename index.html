@@ -2246,6 +2246,12 @@
 /* hero copy: role in the pill, about headline + lede */
 .hero2-top .hero-role{color:var(--white);width:fit-content;padding:6px 12px 6px 10px;margin:0 0 clamp(16px,2.4vh,22px) -10px;border-radius:99px;background:rgba(17,22,26,.82);animation:hero-in .8s var(--ease-out) both;}
 .hero-role .sep{color:var(--accent);margin:0 2px;}
+.hero-pill{color:var(--white);width:fit-content;padding:6px 12px 6px 10px;margin:0 auto clamp(16px,2.4vh,22px);border-radius:99px;background:rgba(17,22,26,.82);animation:hero-in .8s var(--ease-out) both;}
+@media (prefers-reduced-motion:reduce){.hero-pill{animation:none;}}
+/* hero headline: one line, font size fitted to the container width by JS */
+.hero-headline{position:relative;z-index:1;text-align:center;font-family:var(--sans);font-weight:800;white-space:nowrap;font-size:clamp(40px,10vw,200px);line-height:.95;letter-spacing:-.03em;text-transform:uppercase;color:var(--white);margin:0 auto clamp(14px,2.2vh,24px);animation:hero-in .8s var(--ease-out) both;animation-delay:80ms;}
+.hero-headline em{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:lowercase;letter-spacing:-.01em;color:var(--accent);}
+@media (prefers-reduced-motion:reduce){.hero-headline{animation:none;}}
 .hero2-top .hero2-title{text-transform:none;font-size:clamp(34px,4.6vw,60px);line-height:1.1;letter-spacing:-.025em;max-width:none;margin-bottom:clamp(18px,2.6vh,26px);}
 .hero2-top .hero2-title i{color:var(--accent);font-style:normal;}
 .hero2-top .hero2-sub{font-size:clamp(17px,1.8vw,21px);line-height:1.6;max-width:52ch;opacity:.9;}
@@ -2284,6 +2290,7 @@
       </button>
       <ul class="nav-links" id="navLinks">
         <li><a href="#work" data-i18n="common.nav.works">Works</a></li>
+        <li><a href="about.html" data-i18n="common.nav.about">About</a></li>
         <li><a href="#contact" data-i18n="common.nav.contact">Contact</a></li>
       </ul>
     </div>
@@ -2296,62 +2303,39 @@
       <canvas class="kinetic-canvas" id="kineticCanvas" aria-hidden="true"></canvas>
       <canvas class="kinetic-canvas" id="koiCanvas" aria-hidden="true"></canvas>
       <div class="hero2-glow" aria-hidden="true"></div>
-      <div class="hero2-top">
-        <div class="hero2-left">
-        <div class="hero2-content">
-          <span class="sec-label hero-role" data-i18n-html="home.hero.title">Senior Product Designer <span class="sep">•</span> UX UI <span class="sep">•</span> AI Builder</span>
-          <h1 class="hero2-title" data-i18n-html="about.hero.title">I design the screens <i>nobody wants to&nbsp;design.</i></h1>
-          <p class="hero2-sub" data-i18n="about.hero.lede">Permissions, verification, admin portals, messy workflows. I turn them into products people actually trust.</p>
-        </div>
+      <div class="hero2-content">
+        <p class="sec-label hero-role hero-pill" data-i18n-html="home.hero.title">AI Builder</p>
+        <h1 class="hero-headline" id="heroHeadline" data-i18n="home.hero.word">Product Designer</h1>
+      </div>
 
-        <div class="hero2-actions">
-          <a class="btn-main" href="#work"><span class="flair"></span><span data-i18n="home.hero.cta">View Case
-              Studies</span></a>
-          <div class="social-row">
-            <a class="social-btn dribbble" href="https://dribbble.com/abdalladesign" target="_blank" rel="noopener"
-              aria-label="Dribbble">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M12 2a10 10 0 100 20 10 10 0 000-20Zm6.6 4.6a8.4 8.4 0 011.9 5.1c-.3-.06-3-.6-5.7-.26-.06-.14-.1-.29-.17-.44-.17-.4-.35-.8-.54-1.18 3-1.24 4.4-3 4.48-3.2ZM12 3.6c1.9 0 3.6.68 4.96 1.8-.06.1-1.3 1.76-4.2 2.83A46.5 46.5 0 009.8 3.9 8.4 8.4 0 0112 3.6ZM8.1 4.5a44.3 44.3 0 012.94 4.24C7.9 9.5 5 9.5 4.7 9.5a8.44 8.44 0 013.4-5Zm-3.7 7.53v-.24c.3 0 3.75.05 7.03-1a17 17 0 01.4.83c-.1.03-.2.06-.28.09-3.4 1.1-5.2 4.1-5.35 4.36a8.36 8.36 0 01-1.8-4.04Zm7.6 6.87c-1.6 0-3.08-.5-4.3-1.36.12-.24 1.5-2.87 5.25-4.2.02 0 .03-.01.05-.02a35.7 35.7 0 011.87 6.9 8.4 8.4 0 01-2.87.68Zm4.28-1.34a37.4 37.4 0 00-1.7-6.28c2.5-.4 4.7.26 5 .35a8.44 8.44 0 01-3.3 5.93Z"
-                  fill="#fff" />
-              </svg>
-            </a>
-            <a class="social-btn behance" href="https://www.behance.net/joaoabdalla" target="_blank" rel="noopener"
-              aria-label="Behance">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M4 6h5.6c1.4 0 2.5.34 3.3 1 .8.68 1.2 1.6 1.2 2.75 0 .68-.16 1.27-.48 1.77-.3.5-.76.9-1.36 1.2.82.24 1.44.65 1.86 1.24.42.6.63 1.32.63 2.16 0 .77-.14 1.44-.4 2-.28.56-.66 1-1.14 1.36-.48.35-1.04.6-1.68.76-.64.15-1.32.23-2.05.23H4V6Zm2.6 5.16h2.6c.6 0 1.08-.14 1.44-.42.36-.28.54-.7.54-1.24 0-.6-.18-1.03-.55-1.3-.36-.27-.86-.4-1.5-.4H6.6v3.36Zm0 5.5h2.9c.7 0 1.25-.16 1.65-.47.4-.32.6-.78.6-1.4 0-.62-.2-1.08-.6-1.4-.4-.3-.96-.46-1.68-.46H6.6v3.73ZM14.5 8.4h5.4v1.35h-5.4V8.4Zm2.7 3.1c1.5 0 2.65.42 3.46 1.26.8.83 1.2 2 1.2 3.5v.5h-6.65c.04.7.28 1.24.7 1.62.44.38 1 .57 1.7.57.5 0 .95-.1 1.32-.3.38-.2.66-.5.85-.87h2.03c-.3.9-.83 1.6-1.6 2.1-.77.5-1.66.76-2.68.76-1.4 0-2.55-.44-3.42-1.32-.87-.88-1.3-2.05-1.3-3.5 0-1.4.44-2.55 1.3-3.44.87-.9 2-1.34 3.34-1.34Zm-2.2 3.72h4.35c-.06-.63-.28-1.1-.66-1.44-.38-.34-.9-.5-1.5-.5-.6 0-1.1.17-1.5.5-.4.34-.63.82-.7 1.44Z"
-                  fill="#fff" />
-              </svg>
-            </a>
-            <a class="social-btn linkedin" href="https://www.linkedin.com/in/abdalladesign/" target="_blank"
-              rel="noopener" aria-label="LinkedIn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M6.94 5a1.94 1.94 0 11-3.88 0 1.94 1.94 0 013.88 0ZM3.3 8.5h3.7V20H3.3V8.5Zm6.4 0h3.55v1.57h.05c.5-.9 1.7-1.86 3.5-1.86 3.75 0 4.44 2.4 4.44 5.5V20h-3.7v-5.5c0-1.3-.02-3-1.86-3-1.86 0-2.14 1.4-2.14 2.9V20H9.7V8.5Z"
-                  fill="#fff" />
-              </svg>
-            </a>
-          </div>
-        </div>
-        </div>
-
-        <div class="hero2-portrait">
-          <div class="portrait-stage">
-            <div class="portrait-glow" aria-hidden="true"></div>
-            <div class="portrait-frame">
-              <img src="Img/joao%20avatar%20grtande.jpg" alt="João Abdalla, Senior Product Designer" loading="eager">
-              <canvas class="portrait-liquid" id="portraitLiquid" aria-label="Portrait of João Abdalla: hover to reveal the X-wing pilot version"></canvas>
-            </div>
-            <a class="portrait-badge hobby-badge badge-a" href="https://www.chess.com/member/abdallajow" target="_blank" rel="noopener">
-              <span class="hobby-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 22H5v-2h14zM13 2c-1.25 0-2.42.62-3.11 1.66L7 8l2 2l2.06-1.37c.44-.31 1.08-.19 1.39.27c.02.03.05.06.05.1c.3.59.19 1.3-.28 1.77l-4.8 4.8c-.55.56-.55 1.46.01 2.01c.26.26.62.42.99.42H17V6a4 4 0 0 0-4-4"/></svg></span>
-              <span class="hobby-txt"><span class="num" data-i18n="about.hobby.chess.t">Challenge me at chess</span><span class="lab" data-i18n="about.hobby.chess.d">Let’s play on Chess.com</span></span>
-            </a>
-            <div class="portrait-badge hobby-badge badge-c" tabindex="0">
-              <span class="hobby-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 17a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H9.46c.35.61.54 1.3.54 2h10v11h-9v2m4-10v2H9v13H7v-6H5v6H3v-8H1.5V9a2 2 0 0 1 2-2H15M8 4a2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2 2 2 0 0 1 2 2Z"/></svg></span>
-              <span class="hobby-txt"><span class="num" data-i18n="home.hobby.teach.t">I teach UX/UI &amp; Figma</span><span class="lab" data-i18n="home.hobby.teach.d">at Jala University</span></span>
-            </div>
-          </div>
+      <div class="hero2-actions">
+        <a class="btn-main" href="#work"><span class="flair"></span><span data-i18n="home.hero.cta">View Case
+            Studies</span></a>
+        <div class="social-row">
+          <a class="social-btn dribbble" href="https://dribbble.com/abdalladesign" target="_blank" rel="noopener"
+            aria-label="Dribbble">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 2a10 10 0 100 20 10 10 0 000-20Zm6.6 4.6a8.4 8.4 0 011.9 5.1c-.3-.06-3-.6-5.7-.26-.06-.14-.1-.29-.17-.44-.17-.4-.35-.8-.54-1.18 3-1.24 4.4-3 4.48-3.2ZM12 3.6c1.9 0 3.6.68 4.96 1.8-.06.1-1.3 1.76-4.2 2.83A46.5 46.5 0 009.8 3.9 8.4 8.4 0 0112 3.6ZM8.1 4.5a44.3 44.3 0 012.94 4.24C7.9 9.5 5 9.5 4.7 9.5a8.44 8.44 0 013.4-5Zm-3.7 7.53v-.24c.3 0 3.75.05 7.03-1a17 17 0 01.4.83c-.1.03-.2.06-.28.09-3.4 1.1-5.2 4.1-5.35 4.36a8.36 8.36 0 01-1.8-4.04Zm7.6 6.87c-1.6 0-3.08-.5-4.3-1.36.12-.24 1.5-2.87 5.25-4.2.02 0 .03-.01.05-.02a35.7 35.7 0 011.87 6.9 8.4 8.4 0 01-2.87.68Zm4.28-1.34a37.4 37.4 0 00-1.7-6.28c2.5-.4 4.7.26 5 .35a8.44 8.44 0 01-3.3 5.93Z"
+                fill="#fff" />
+            </svg>
+          </a>
+          <a class="social-btn behance" href="https://www.behance.net/joaoabdalla" target="_blank" rel="noopener"
+            aria-label="Behance">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M4 6h5.6c1.4 0 2.5.34 3.3 1 .8.68 1.2 1.6 1.2 2.75 0 .68-.16 1.27-.48 1.77-.3.5-.76.9-1.36 1.2.82.24 1.44.65 1.86 1.24.42.6.63 1.32.63 2.16 0 .77-.14 1.44-.4 2-.28.56-.66 1-1.14 1.36-.48.35-1.04.6-1.68.76-.64.15-1.32.23-2.05.23H4V6Zm2.6 5.16h2.6c.6 0 1.08-.14 1.44-.42.36-.28.54-.7.54-1.24 0-.6-.18-1.03-.55-1.3-.36-.27-.86-.4-1.5-.4H6.6v3.36Zm0 5.5h2.9c.7 0 1.25-.16 1.65-.47.4-.32.6-.78.6-1.4 0-.62-.2-1.08-.6-1.4-.4-.3-.96-.46-1.68-.46H6.6v3.73ZM14.5 8.4h5.4v1.35h-5.4V8.4Zm2.7 3.1c1.5 0 2.65.42 3.46 1.26.8.83 1.2 2 1.2 3.5v.5h-6.65c.04.7.28 1.24.7 1.62.44.38 1 .57 1.7.57.5 0 .95-.1 1.32-.3.38-.2.66-.5.85-.87h2.03c-.3.9-.83 1.6-1.6 2.1-.77.5-1.66.76-2.68.76-1.4 0-2.55-.44-3.42-1.32-.87-.88-1.3-2.05-1.3-3.5 0-1.4.44-2.55 1.3-3.44.87-.9 2-1.34 3.34-1.34Zm-2.2 3.72h4.35c-.06-.63-.28-1.1-.66-1.44-.38-.34-.9-.5-1.5-.5-.6 0-1.1.17-1.5.5-.4.34-.63.82-.7 1.44Z"
+                fill="#fff" />
+            </svg>
+          </a>
+          <a class="social-btn linkedin" href="https://www.linkedin.com/in/abdalladesign/" target="_blank"
+            rel="noopener" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M6.94 5a1.94 1.94 0 11-3.88 0 1.94 1.94 0 013.88 0ZM3.3 8.5h3.7V20H3.3V8.5Zm6.4 0h3.55v1.57h.05c.5-.9 1.7-1.86 3.5-1.86 3.75 0 4.44 2.4 4.44 5.5V20h-3.7v-5.5c0-1.3-.02-3-1.86-3-1.86 0-2.14 1.4-2.14 2.9V20H9.7V8.5Z"
+                fill="#fff" />
+            </svg>
+          </a>
         </div>
       </div>
 
@@ -2419,12 +2403,27 @@
         <div class="work-viewport" id="workViewport">
           <div class="work-track" id="workTrack">
 
+            <a class="work-item rv" href="cases/bpm.html">
+              <span class="work-media">
+                <img src="Img/cards%20home/card-bpm.png" alt="BPM Platform Redesign: admin task view"
+                  width="1440" height="820" data-i18n-attr="alt:home.card2.alt">
+              </span>
+              <span class="work-idx">/ 01</span>
+              <h3 class="work-name" data-i18n="home.card2.name">BPM Platform Redesign</h3>
+              <p class="work-desc" data-i18n="home.card2.desc">Turning the raw Jalasoft portal into a process-first tool for
+                hiring, transfers and disassociation across units.</p>
+              <div class="work-tags"><span data-i18n="home.card2.tag1">Enterprise</span><span
+                  data-i18n="home.card2.tag2">Process Platform</span></div>
+              <span class="work-link"><span data-i18n="home.card2.link">Redesigned end to end</span> <span
+                  class="work-link-arrow">→</span></span>
+            </a>
+
             <a class="work-item rv" href="cases/zack.html">
               <span class="work-media">
                 <img src="Img/zack/web/zk-card-v3.webp" alt="Zack: scheduling and attendance tool on desktop and mobile"
                   width="1920" height="1094" data-i18n-attr="alt:home.card12.alt">
               </span>
-              <span class="work-idx">/ 01</span>
+              <span class="work-idx">/ 02</span>
               <h3 class="work-name" data-i18n="home.card12.name">Zack</h3>
               <p class="work-desc" data-i18n="home.card12.desc">An internal tool to schedule recurring bootcamp classes
                 and turn attendance into reports.</p>
@@ -2439,7 +2438,7 @@
                 <img src="Img/signflow/signflow-cover3.webp" alt="signFlow: proprietary document-signing tool built to replace DocuSign"
                   width="1920" height="1080" data-i18n-attr="alt:home.card6.alt">
               </span>
-              <span class="work-idx">/ 02</span>
+              <span class="work-idx">/ 03</span>
               <h3 class="work-name" data-i18n="home.card6.name">signFlow</h3>
               <p class="work-desc" data-i18n="home.card6.desc">A proprietary document-signing tool, built to
                 replace DocuSign.</p>
@@ -2456,7 +2455,7 @@
                   alt="My Benefits Advice: personalized plan-recommendation flow" width="1440" height="820"
                   data-i18n-attr="alt:home.card4.alt">
               </span>
-              <span class="work-idx">/ 03</span>
+              <span class="work-idx">/ 04</span>
               <h3 class="work-name" data-i18n="home.card4.name">My Benefits Advice</h3>
               <p class="work-desc" data-i18n="home.card4.desc">Health benefits platform with a personalized
                 plan-recommendation engine for employees.</p>
@@ -2471,7 +2470,7 @@
                 <img src="Img/bp/bp-cover.webp" alt="Blueprint: workflow tool redesigned and built with Jala University students"
                   width="1920" height="960" data-i18n-attr="alt:home.card11.alt">
               </span>
-              <span class="work-idx">/ 04</span>
+              <span class="work-idx">/ 05</span>
               <h3 class="work-name" data-i18n="home.card11.name">Blueprint</h3>
               <p class="work-desc" data-i18n="home.card11.desc">A workflow tool redesigned with Dark Mode, Filters and Card View,
                 built by final-semester students.</p>
@@ -2497,7 +2496,7 @@
                 <img src="Img/cards%20home/card-Qcon.png" alt="Qconcursos: platform redesign" width="1440" height="820"
                   data-i18n-attr="alt:home.card5.alt">
               </span>
-              <span class="work-idx">/ 05</span>
+              <span class="work-idx">/ 06</span>
               <h3 class="work-name" data-i18n="home.card5.name">Qconcursos</h3>
               <p class="work-desc" data-i18n="home.card5.desc">From 600K to 10M: designing for scale at Brazil's
                 largest exam-prep edtech.</p>
@@ -2513,7 +2512,7 @@
                 <img src="Img/aquaryu/aquaryu-cover.webp" alt="AquaryU: astrology-based dating app where compatibility comes from synastry"
                   width="1440" height="810" data-i18n-attr="alt:home.card9.alt">
               </span>
-              <span class="work-idx">/ 06</span>
+              <span class="work-idx">/ 07</span>
               <h3 class="work-name" data-i18n="home.card9.name">AquaryU</h3>
               <p class="work-desc" data-i18n="home.card9.desc">A dating app where compatibility comes from synastry,
                 not swipes.</p>
@@ -2528,7 +2527,7 @@
                 <img src="Img/cac/cac-cover-3.webp" alt="Car Air Comfort: app to set the car temperature before the trip"
                   width="1440" height="810" data-i18n-attr="alt:home.card10.alt">
               </span>
-              <span class="work-idx">/ 07</span>
+              <span class="work-idx">/ 08</span>
               <h3 class="work-name" data-i18n="home.card10.name">Car Air Comfort</h3>
               <p class="work-desc" data-i18n="home.card10.desc">An app that cools the car before you get in.</p>
               <div class="work-tags"><span data-i18n="home.card10.tag1">Mobile App</span><span
@@ -3021,6 +3020,27 @@
       initKoi(document.getElementById("koiCanvas"), document.querySelector(".hero2"));
       initKineticCanvas(document.getElementById("kineticCanvas2"), document.getElementById("testiClosingWrap"));
       initKoi(document.getElementById("koiCanvas2"), document.getElementById("testiClosingWrap"));
+  /* hero headline: shrink/grow so the sentence always fits on one line */
+  (function(){
+    var h = document.getElementById("heroHeadline");
+    if (!h) return;
+    var MAX = 200, raf = 0;
+    function fit(){
+      raf = 0;
+      var cs = getComputedStyle(h.parentNode);
+      var w = h.parentNode.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+      if (!w) return;
+      h.style.fontSize = "100px";
+      var size = Math.min(MAX, 100 * w / h.scrollWidth);
+      h.style.fontSize = Math.floor(size * 10) / 10 + "px";
+    }
+    function queue(){ if (!raf) raf = requestAnimationFrame(fit); }
+    fit();
+    window.addEventListener("resize", queue);
+    window.addEventListener("load", queue);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(queue);
+    new MutationObserver(queue).observe(h, { childList: true, characterData: true, subtree: true });
+  })();
   /* portrait liquid reveal — hover turns the photo into the X-wing pilot version */
   var liquidCanvas = document.getElementById("portraitLiquid");
   if (liquidCanvas && window.LiquidReveal) {
@@ -3451,6 +3471,20 @@
             cursor.classList.remove("is-visible");
           });
         });
+
+        /* hero mockups: the front card links to its case, so it gets the same pill.
+           Back cards only swap to front on click, so they don't — re-checked on every
+           move/click because the cards change slots under a still pointer. */
+        var mockFrame = document.getElementById("mockFrame");
+        if (mockFrame) {
+          var syncMock = function () {
+            var front = mockFrame.querySelector('.mock-card[data-slot="front"]');
+            cursor.classList.toggle("is-visible", !!front && front.matches(":hover"));
+          };
+          mockFrame.addEventListener("mousemove", syncMock);
+          mockFrame.addEventListener("click", function () { setTimeout(syncMock, 0); });
+          mockFrame.addEventListener("mouseleave", function () { cursor.classList.remove("is-visible"); });
+        }
       })();
 
       /* copy-email — one click, no mail app handoff. Uses the async clipboard API
