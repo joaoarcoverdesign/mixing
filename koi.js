@@ -1,8 +1,12 @@
 /* Shared koi animation: call initKoi(canvas, section) */
 /* koi: top-down, follows the pointer with a slow, fluid swim.
    After the visitor opens 2 case studies (counted in analytics.js, localStorage
-   "koi.cases"), an orange companion joins and swims beside it. */
-function initKoi(canvas, section) {
+   "koi.cases"), an orange companion joins and swims beside it.
+   opts.stain: an element (the hero headline) that the koi "paints" as it swims
+   under it: a canvas over the section with mix-blend-mode:darken draws the fish
+   inside that element's box and fades it out, so the pattern shows only on the
+   white letters (darken leaves the dark background untouched). */
+function initKoi(canvas, section, opts) {
   if (!canvas) return;
   /* no cursor to follow on touch devices / phones: hide the koi entirely */
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
@@ -11,11 +15,20 @@ function initKoi(canvas, section) {
   var ctx = canvas.getContext("2d"), dpr = 1, W = 0, H = 0, visible = true;
   var off = document.createElement("canvas"), octx = off.getContext("2d");
   var N = 28, SEG = 7, mouse = null, inside = false, last = 0, t = 0, ft = 0;
+  var stainEl = opts && opts.stain, sc = null, sctx = null, stainIdle = 0, STAIN_FADE = 0.7;
+  if (stainEl) {
+    sc = document.createElement("canvas");
+    sc.className = "koi-stain"; sc.setAttribute("aria-hidden", "true");
+    sc.style.cssText = "position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;mix-blend-mode:darken";
+    section.appendChild(sc);
+    sctx = sc.getContext("2d");
+  }
   function resize() {
     var r = section.getBoundingClientRect();
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     W = r.width; H = r.height;
     canvas.width = off.width = W * dpr; canvas.height = off.height = H * dpr;
+    if (sc) { sc.width = W * dpr; sc.height = H * dpr; }
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
   resize();
@@ -40,16 +53,21 @@ function initKoi(canvas, section) {
     dorsal: "rgba(52,18,4,.6)", dorsalHi: "rgba(255,206,150,.22)",
     barbel: "rgba(255,158,64,.75)", eye: "rgba(255,224,176,.9)", pupil: "rgb(20,8,2)"
   };
-  function makeFish(col, scale, x, y, ph, flip) {
-    var f = { col: col, scale: scale, ph: ph, flip: flip, spine: [], head: { x: x, y: y, vx: 0, vy: 0, a: 0 } };
-    for (var i = 0; i < N; i++) f.spine.push({ x: x - i * SEG, y: y });
+  /* a = heading, v = starting speed along it; the body trails straight behind */
+  function makeFish(col, scale, x, y, ph, flip, a, v) {
+    a = a || 0; v = v || 0;
+    var f = { col: col, scale: scale, ph: ph, flip: flip, spine: [],
+      head: { x: x, y: y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, a: a } };
+    for (var i = 0; i < N; i++) f.spine.push({ x: x - Math.cos(a) * i * SEG, y: y - Math.sin(a) * i * SEG });
     return f;
   }
   var SCALE = 0.7, SHADOW = { x: 18, y: 26 };
-  var koi = makeFish(GREEN, SCALE, W * 0.55, H * 0.5, 0, 1), mate = null;
+  /* starts just above the top edge, already swimming down, so it shows up right away */
+  var DOWN = Math.PI / 2;
+  var koi = makeFish(GREEN, SCALE, W * 0.42, -20, 0, 1, DOWN, 90), mate = null;
   if (unlocked) {
-    var mx = entering ? (koi.head.x < W / 2 ? -80 : W + 80) : koi.head.x - 60;
-    mate = makeFish(ORANGE, 0.6, mx, koi.head.y + 50, 1.7, -1);
+    var mx = entering ? (koi.head.x < W / 2 ? -80 : W + 80) : koi.head.x + 60;
+    mate = makeFish(ORANGE, 0.6, mx, entering ? 60 : -70, 1.7, -1, entering ? 0 : DOWN, entering ? 0 : 90);
   }
 
   window.addEventListener("resize", resize);
@@ -171,7 +189,37 @@ function initKoi(canvas, section) {
       if (!met && Math.hypot(mate.head.x - head.x, mate.head.y - head.y) < 110) { met = true; forceUntil = now + 3000; }
     }
     draw();
+    stain(dt);
     updateTip(now);
+  }
+  /* headline paint: fade what's there, then stamp the fish again while it's under the text */
+  function stain(dt) {
+    if (!sc) return;
+    var s = section.getBoundingClientRect(), r = stainEl.getBoundingClientRect();
+    var x = r.left - s.left, y = r.top - s.top, w = r.width, h = r.height, pad = 45;
+    var fish = mate ? [mate, koi] : [koi];
+    var hit = fish.some(function (f) {
+      for (var i = 0; i < N; i += 3) {
+        var p = f.spine[i];
+        if (p.x > x - pad && p.x < x + w + pad && p.y > y - pad && p.y < y + h + pad) return true;
+      }
+      return false;
+    });
+    sctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (!hit) {
+      stainIdle += dt;
+      /* 8-bit alpha never quite reaches 0 with destination-out, so wipe once it's faded */
+      if (stainIdle > STAIN_FADE * 5) { if (stainIdle - dt <= STAIN_FADE * 5) sctx.clearRect(0, 0, W, H); return; }
+    } else stainIdle = 0;
+    sctx.globalCompositeOperation = "destination-out";
+    sctx.fillStyle = "rgba(0,0,0," + (1 - Math.exp(-dt / STAIN_FADE)).toFixed(3) + ")";
+    sctx.fillRect(0, 0, W, H);
+    sctx.globalCompositeOperation = "source-over";
+    if (!hit) return;
+    sctx.save();
+    sctx.beginPath(); sctx.rect(x, y, w, h); sctx.clip();
+    fish.forEach(function (f) { place(sctx, f, false); });
+    sctx.restore();
   }
   function normals(f) {
     var out = [], spine = f.spine;

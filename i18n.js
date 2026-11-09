@@ -83,9 +83,9 @@
        quebra em 3 linhas e fica ruim. "Senior Product Designer" já funciona
        como marca/cargo internacional. */
     "home.hero.title": {
-      en: 'AI Builder',
-      pt: 'AI Builder',
-      es: 'AI Builder'
+      en: 'UX UI <span class="sep">•</span> AI Builder',
+      pt: 'UX UI <span class="sep">•</span> AI Builder',
+      es: 'UX UI <span class="sep">•</span> AI Builder'
     },
     "home.hero.word": { en: "Product Designer", pt: "Product Designer", es: "Product Designer" },
     "home.hero.headline": {
@@ -158,6 +158,21 @@
       en: "Performance for public service exams",
       pt: "Performance para concursos públicos",
       es: "Rendimiento para oposiciones"
+    },
+    "home.mock.sf.aria": {
+      en: "Bring signFlow to front",
+      pt: "Trazer signFlow para a frente",
+      es: "Traer signFlow al frente"
+    },
+    "home.mock.sf.alt": {
+      en: "signFlow: document-signing tool, shown in browser",
+      pt: "signFlow: ferramenta de assinatura de documentos, exibida no navegador",
+      es: "signFlow: herramienta de firma de documentos, mostrada en el navegador"
+    },
+    "home.mock.sf.cap": {
+      en: "In-house document signing that replaced DocuSign",
+      pt: "Assinatura de documentos própria que substituiu o DocuSign",
+      es: "Firma de documentos propia que sustituyó a DocuSign"
     },
     "home.mock.jala.cap": {
       en: "Design system: web, BPM, Planning Poker & Elearn App",
@@ -367,9 +382,9 @@
     },
 
     "home.card13.alt": {
-      en: "Quero Simulados: mock exam results on desktop and mobile",
-      pt: "Quero Simulados: resultado de simulado no desktop e no celular",
-      es: "Quero Simulados: resultados de simulacro en escritorio y móvil"
+      en: "Quero Simulados: performance dashboard and mock exam screen",
+      pt: "Quero Simulados: painel de desempenho e tela de simulado",
+      es: "Quero Simulados: panel de rendimiento y pantalla de simulacro"
     },
     "home.card13.name": { en: "Quero Simulados", pt: "Quero Simulados", es: "Quero Simulados" },
     "home.card13.desc": {

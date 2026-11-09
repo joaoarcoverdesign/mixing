@@ -2304,7 +2304,7 @@
       <canvas class="kinetic-canvas" id="koiCanvas" aria-hidden="true"></canvas>
       <div class="hero2-glow" aria-hidden="true"></div>
       <div class="hero2-content">
-        <p class="sec-label hero-role hero-pill" data-i18n-html="home.hero.title">AI Builder</p>
+        <p class="sec-label hero-role hero-pill" data-i18n-html="home.hero.title">UX UI <span class="sep">•</span> AI Builder</p>
         <h1 class="hero-headline" id="heroHeadline" data-i18n="home.hero.word">Product Designer</h1>
       </div>
 
@@ -2348,10 +2348,10 @@
             <img src="Img/browser-3.png" alt="Jalasoft: brand and web redesign, shown in browser" width="953"
               height="778" loading="lazy" data-i18n-attr="alt:home.mock.jala.alt">
           </div>
-          <div class="mock-card" data-slot="back-right" data-href="cases/quero-simulados.html" role="button"
-            tabindex="0" aria-label="Bring Quero Simulados to front" data-i18n-attr="aria-label:home.mock.quero.aria">
-            <img src="Img/browser-02.png" alt="Quero Simulados: exam practice platform, shown in browser" width="1975"
-              height="1635" loading="lazy" data-i18n-attr="alt:home.mock.quero.alt">
+          <div class="mock-card" data-slot="back-right" data-href="cases/signflow.html" role="button"
+            tabindex="0" aria-label="Bring signFlow to front" data-i18n-attr="aria-label:home.mock.sf.aria">
+            <img src="Img/browser-sf.png" alt="signFlow: document-signing tool, shown in browser" width="1977"
+              height="1637" loading="lazy" data-i18n-attr="alt:home.mock.sf.alt">
           </div>
           <div class="mock-card" data-slot="front" data-href="cases/valt.html" role="button" tabindex="0"
             aria-label="Open the Valt case study" data-i18n-attr="aria-label:home.mock.valt.aria">
@@ -2364,8 +2364,8 @@
           <span class="mock-caption-item" data-case="cases/valt.html">
             <b>Valt</b><span class="mock-caption-sep" aria-hidden="true"></span><span data-i18n="home.mock.valt.cap">Private markets platform</span>
           </span>
-          <span class="mock-caption-item" data-case="cases/quero-simulados.html">
-            <b>Quero Simulados</b><span class="mock-caption-sep" aria-hidden="true"></span><span data-i18n="home.mock.quero.cap">Performance for public service exams</span>
+          <span class="mock-caption-item" data-case="cases/signflow.html">
+            <b>signFlow</b><span class="mock-caption-sep" aria-hidden="true"></span><span data-i18n="home.mock.sf.cap">In-house document signing that replaced DocuSign</span>
           </span>
           <span class="mock-caption-item" data-case="cases/jalasoft.html">
             <b>Jalasoft</b><span class="mock-caption-sep" aria-hidden="true"></span><span data-i18n="home.mock.jala.cap">Design system: web, BPM, Planning Poker &amp; Elearn App</span>
@@ -2433,18 +2433,18 @@
                   class="work-link-arrow">→</span></span>
             </a>
 
-            <a class="work-item rv" href="cases/signflow.html">
+            <a class="work-item rv" href="cases/quero-simulados.html">
               <span class="work-media">
-                <img src="Img/signflow/signflow-cover3.webp" alt="signFlow: proprietary document-signing tool built to replace DocuSign"
-                  width="1920" height="1080" data-i18n-attr="alt:home.card6.alt">
+                <img src="Img/og/quero-simulados.jpg" alt="Quero Simulados: performance dashboard and mock exam screen"
+                  width="1200" height="630" data-i18n-attr="alt:home.card13.alt">
               </span>
               <span class="work-idx">/ 03</span>
-              <h3 class="work-name" data-i18n="home.card6.name">signFlow</h3>
-              <p class="work-desc" data-i18n="home.card6.desc">A proprietary document-signing tool, built to
-                replace DocuSign.</p>
-              <div class="work-tags"><span data-i18n="home.card6.tag1">Enterprise</span><span
-                  data-i18n="home.card6.tag2">Document Signing</span><span data-i18n="home.card6.tag3">0 → 1</span></div>
-              <span class="work-link"><span data-i18n="home.card6.link">An in-house e-signature tool</span> <span
+              <h3 class="work-name" data-i18n="home.card13.name">Quero Simulados</h3>
+              <p class="work-desc" data-i18n="home.card13.desc">A mock exam platform that lets students compare their
+                performance before the real test.</p>
+              <div class="work-tags"><span data-i18n="home.card13.tag1">Edtech</span><span
+                  data-i18n="home.card13.tag2">Product Design</span><span data-i18n="home.card13.tag3">10M+ Users</span></div>
+              <span class="work-link"><span data-i18n="home.card13.link">Mock exams and rankings</span> <span
                   class="work-link-arrow">→</span></span>
             </a>
 
@@ -2599,7 +2599,7 @@
     </section>
 
     <!-- ════════ GALLERY ════════ -->
-    <section class="gal sec-pad" id="gallery">
+    <section class="gal sec-pad" id="gallery" hidden>
       <div class="sec-head">
         <div>
           <span class="sec-label rv" data-i18n="home.gal.label">Archive</span>
@@ -3017,7 +3017,7 @@
       }
 
       initKineticCanvas(document.getElementById("kineticCanvas"), document.querySelector(".hero2"));
-      initKoi(document.getElementById("koiCanvas"), document.querySelector(".hero2"));
+      initKoi(document.getElementById("koiCanvas"), document.querySelector(".hero2"), { stain: document.getElementById("heroHeadline") });
       initKineticCanvas(document.getElementById("kineticCanvas2"), document.getElementById("testiClosingWrap"));
       initKoi(document.getElementById("koiCanvas2"), document.getElementById("testiClosingWrap"));
   /* hero headline: shrink/grow so the sentence always fits on one line */
