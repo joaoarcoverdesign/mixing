@@ -297,8 +297,7 @@ section+section{border-top:1px solid var(--line);}
 .next-text{font-family:var(--body);font-size:14px;color:var(--ink-soft);margin-bottom:22px;max-width:420px;flex:1;}
 
 /* FOOTER */
-footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep);}
-.footer-inner{text-align:center;font-family:var(--sans);font-weight:600;font-size:13px;color:var(--ink-dim);}
+.foot-bottom{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:28px var(--px) 40px;border-top:1px solid var(--line);font-family:'Urbanist',sans-serif;font-size:13px;color:#5E676D;background:#0C1013;}
 
 .rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
 .rv.is-in{opacity:1;transform:none;}
@@ -340,6 +339,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
     </button>
     <ul class="nav-links" id="navLinks">
       <li><a href="../index.html#work" data-i18n="common.nav.works">Works</a></li>
+      <li><a href="../about.html" data-i18n="common.nav.about">About</a></li>
       <li><a href="../index.html#contact" data-i18n="common.nav.contact">Contact</a></li>
     </ul>
   </div>
@@ -619,7 +619,10 @@ footer{padding:40px 0;border-top:1px solid var(--line);background:var(--bg-deep)
 </main>
 
 <footer>
-  <div class="container footer-inner">Copyright © abdalladesign 2026</div>
+  <div class="foot-bottom">
+    <span data-i18n="common.footer.rights">© 2026 João Abdalla. All rights reserved.</span>
+    <span class="lang-switch-slot"></span>
+  </div>
 </footer>
 
 <script>

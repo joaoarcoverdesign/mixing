@@ -1,10 +1,9 @@
 {
   "rewrites": [
-    { "source": "/pipeline", "destination": "/pipeline.html" }
+    { "source": "/pipeline", "destination": "/pipeline.html" },
+    { "source": "/about", "destination": "/about.html" }
   ],
   "redirects": [
-    { "source": "/about.html", "destination": "/", "permanent": true },
-    { "source": "/about", "destination": "/", "permanent": true },
     {
       "source": "/",
       "has": [{ "type": "host", "value": "mixing-pearl.vercel.app" }],
