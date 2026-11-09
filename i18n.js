@@ -552,9 +552,9 @@
     },
 
     "home.card12.alt": {
-      en: "Zack: scheduling and attendance tool on desktop and mobile",
-      pt: "Zack: ferramenta de agendamento e presença no desktop e no mobile",
-      es: "Zack: herramienta de agendamiento y asistencia en desktop y mobile"
+      en: "Zack: recurring meeting calendar with appointment details",
+      pt: "Zack: calendário de reuniões recorrentes com os detalhes do agendamento",
+      es: "Zack: calendario de reuniones recurrentes con los detalles de la cita"
     },
     "home.card12.name": { en: "Zack", pt: "Zack", es: "Zack" },
     "home.card12.desc": {
