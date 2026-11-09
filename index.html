@@ -627,6 +627,26 @@
       transition: transform var(--dur-move) var(--ease-in-out);
     }
 
+    /* the screenshots carry a transparent drop-shadow margin (~7% each side, ~18%
+       below the window), so the card box is wider than the browser you see. Only
+       this inset layer takes the pointer: hover/click/the cursor pill start at the
+       window edge, not in the shadow. */
+    .mock-card {
+      pointer-events: none;
+    }
+
+    .mock-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 6.8% 18.4%;
+      z-index: 1;
+      pointer-events: auto;
+    }
+
+    .mock-card[data-href$="jalasoft.html"]::before {
+      inset: 0 5.1% 14.3%;
+    }
+
     .mock-card img {
       width: 100%;
       height: auto;
@@ -1177,6 +1197,24 @@
       width: 14px;
       height: 14px;
       flex: 0 0 auto;
+    }
+
+    /* hero side mockups: arrow only, no label — just signals the card can be swapped in */
+    .case-cursor.is-swap .case-cursor-bubble {
+      padding: 11px;
+    }
+
+    .case-cursor.is-swap .case-cursor-bubble span {
+      display: none;
+    }
+
+    .case-cursor.is-swap .case-cursor-bubble svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .case-cursor.is-swap-left .case-cursor-bubble svg {
+      transform: scaleX(-1);
     }
 
     .case-cursor.is-visible .case-cursor-bubble {
@@ -3464,6 +3502,8 @@
         medias.forEach(function (media) {
           media.addEventListener("mouseenter", function () {
             if (media.hasAttribute("data-cursor-dock")) docked = media;
+            /* the hero arrow-only state lingers through its fade-out; reset it here */
+            cursor.classList.remove("is-swap", "is-swap-left");
             cursor.classList.add("is-visible");
           });
           media.addEventListener("mouseleave", function () {
@@ -3477,9 +3517,13 @@
            move/click because the cards change slots under a still pointer. */
         var mockFrame = document.getElementById("mockFrame");
         if (mockFrame) {
+          /* front card: "View case" pill; side cards: arrow-only pill pointing their way */
           var syncMock = function () {
-            var front = mockFrame.querySelector('.mock-card[data-slot="front"]');
-            cursor.classList.toggle("is-visible", !!front && front.matches(":hover"));
+            var hovered = mockFrame.querySelector(".mock-card:hover");
+            var slot = hovered ? hovered.dataset.slot : "";
+            cursor.classList.toggle("is-swap", slot === "back-left" || slot === "back-right");
+            cursor.classList.toggle("is-swap-left", slot === "back-left");
+            cursor.classList.toggle("is-visible", !!hovered);
           };
           mockFrame.addEventListener("mousemove", syncMock);
           mockFrame.addEventListener("click", function () { setTimeout(syncMock, 0); });
