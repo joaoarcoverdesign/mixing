@@ -344,7 +344,7 @@ window.I18N_PAGE_STRINGS = {
   /* ─────────── MORE WORK ─────────── */
   "elearn.more.eyebrow": { en: "More Work", pt: "Mais trabalhos", es: "Más trabajos" },
   "elearn.more.also.label": { en: "Also at Jalasoft", pt: "Também na Jalasoft", es: "También en Jalasoft" },
-  "elearn.more.also.title": { en: "BPM Platform Redesign", pt: "Redesign da Plataforma BPM", es: "Rediseño de la Plataforma BPM" },
+  "elearn.more.also.title": { en: "Hiring & Transfers Management", pt: "Gestão de contratações e transferências", es: "Gestión de contrataciones y traslados" },
   "elearn.more.also.text": {
     en: "Turning the raw Jalasoft portal into a process-first tool for hiring, transfers and disassociation across units.",
     pt: "Transformar o portal Jalasoft bruto em uma ferramenta orientada a processos para contratação, transferências e desligamentos entre unidades.",

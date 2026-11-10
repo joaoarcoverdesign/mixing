@@ -10,10 +10,11 @@ window.I18N_PAGE_STRINGS = {
 
   /* ─────────── META ─────────── */
   "bpm.meta.title": {
-    en: "BPM Platform Redesign: Jalasoft | Abdalla Design",
-    pt: "Redesign da Plataforma BPM: Jalasoft | Abdalla Design",
-    es: "Rediseño de la Plataforma BPM: Jalasoft | Abdalla Design"
+    en: "Hiring & Transfers Management: Jalasoft | Abdalla Design",
+    pt: "Gestão de contratações e transferências: Jalasoft | Abdalla Design",
+    es: "Gestión de contrataciones y traslados: Jalasoft | Abdalla Design"
   },
+  "bpm.hero.title": { en: "Hiring & Transfers Management", pt: "Gestão de contratações e transferências", es: "Gestión de contrataciones y traslados" },
   "bpm.meta.description": {
     en: "Redesigning Jalasoft's internal BPM platform: turning the raw Jalasoft portal into a process-first tool for hiring, transfers and disassociation across units.",
     pt: "Redesign da plataforma BPM interna da Jalasoft: transformar o portal Jalasoft cru em uma ferramenta orientada ao processo para contratação, transferências e desligamento entre unidades.",
