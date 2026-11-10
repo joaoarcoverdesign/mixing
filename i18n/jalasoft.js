@@ -109,7 +109,7 @@ window.I18N_PAGE_STRINGS = {
 
   /* ─────────── THE FIRST TEST ─────────── */
   "jala.ft.eyebrow": { en: "02 · The First Test", pt: "02 · O Primeiro Teste", es: "02 · La Primera Prueba" },
-  "jala.ft.title": { en: "BPM Platform Redesign", pt: "Redesign da Plataforma BPM", es: "Rediseño de la Plataforma BPM" },
+  "jala.ft.title": { en: "Hiring & Transfers Management", pt: "Gestão de contratações e transferências", es: "Gestión de contrataciones y traslados" },
   "jala.ft.p1": {
     en: "The system's first real assignment was also its hardest: a redesign of the company's internal BPM platform, the tool employees used to manage tasks and the hiring process. This wasn't a greenfield product, where applying a clean system is easy. It was a platform already in use, with real flows and real complaints, surfaced through direct UX interviews with the people who used the tool every day.",
     pt: "A primeira missão real do sistema também foi a mais difícil: um redesign da plataforma interna de BPM da empresa, a ferramenta que os funcionários usavam para gerenciar tarefas e o processo de contratação. Não era um produto do zero, onde aplicar um sistema limpo é fácil. Era uma plataforma já em uso, com fluxos reais e reclamações reais, levantadas através de entrevistas diretas de UX com quem usava a ferramenta todos os dias.",

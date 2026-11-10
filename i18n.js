@@ -324,9 +324,9 @@
       es: "Plataforma BPM: vista de tareas del administrador"
     },
     "home.card2.name": {
-      en: "BPM Platform Redesign",
-      pt: "Redesign da Plataforma BPM",
-      es: "Rediseño de la Plataforma BPM"
+      en: "Hiring & Transfers Management",
+      pt: "Gestão de contratações e transferências",
+      es: "Gestión de contrataciones y traslados"
     },
     "home.card2.desc": {
       en: "Turning the raw Jalasoft portal into a process-first tool for hiring, transfers and disassociation across units.",
