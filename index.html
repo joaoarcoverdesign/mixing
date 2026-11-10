@@ -2290,6 +2290,11 @@
 .hero-headline{position:relative;z-index:1;text-align:center;font-family:var(--sans);font-weight:800;white-space:nowrap;font-size:clamp(40px,10vw,200px);line-height:.95;letter-spacing:-.03em;text-transform:uppercase;color:var(--white);margin:0 auto clamp(14px,2.2vh,24px);animation:hero-in .8s var(--ease-out) both;animation-delay:80ms;}
 .hero-headline em{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:lowercase;letter-spacing:-.01em;color:var(--accent);}
 @media (prefers-reduced-motion:reduce){.hero-headline{animation:none;}}
+/* word pull up: each word rises 20px + fades in, 0.2s stagger */
+.hero-headline.wpu{animation:none;}
+.hero-headline .wpu-word{display:inline-block;opacity:0;transform:translateY(20px);animation:wpu-in .6s cubic-bezier(.22,1,.36,1) both;animation-delay:calc(80ms + var(--i) * 200ms);}
+@keyframes wpu-in{to{opacity:1;transform:none;}}
+@media (prefers-reduced-motion:reduce){.hero-headline .wpu-word{animation:none;opacity:1;transform:none;}}
 .hero2-top .hero2-title{text-transform:none;font-size:clamp(34px,4.6vw,60px);line-height:1.1;letter-spacing:-.025em;max-width:none;margin-bottom:clamp(18px,2.6vh,26px);}
 .hero2-top .hero2-title i{color:var(--accent);font-style:normal;}
 .hero2-top .hero2-sub{font-size:clamp(17px,1.8vw,21px);line-height:1.6;max-width:52ch;opacity:.9;}
@@ -2347,8 +2352,6 @@
       </div>
 
       <div class="hero2-actions">
-        <a class="btn-main" href="#work"><span class="flair"></span><span data-i18n="home.hero.cta">View Case
-            Studies</span></a>
         <div class="social-row">
           <a class="social-btn dribbble" href="https://dribbble.com/abdalladesign" target="_blank" rel="noopener"
             aria-label="Dribbble">
@@ -2458,7 +2461,7 @@
 
             <a class="work-item rv" href="cases/zack.html">
               <span class="work-media">
-                <img src="Img/zack/web/zack-cover-card.webp" alt="Zack: recurring meeting calendar with appointment details"
+                <img src="Img/zack/Dribbble%20shot%20HD%20-%204.png" alt="Zack: recurring meeting calendar with appointment details"
                   width="1920" height="1094" data-i18n-attr="alt:home.card12.alt">
               </span>
               <span class="work-idx">/ 02</span>
@@ -3062,6 +3065,24 @@
   (function(){
     var h = document.getElementById("heroHeadline");
     if (!h) return;
+    /* word pull up — split plain text into staggered word spans; re-split when i18n swaps the text */
+    function pullUp(){
+      if (h.querySelector(".wpu-word") || !h.textContent.trim()) return;
+      var words = h.textContent.trim().split(/\s+/);
+      h.setAttribute("aria-label", words.join(" "));
+      h.textContent = "";
+      words.forEach(function(w, i){
+        if (i) h.appendChild(document.createTextNode(" "));
+        var s = document.createElement("span");
+        s.className = "wpu-word"; s.setAttribute("aria-hidden", "true");
+        s.style.setProperty("--i", i);
+        s.textContent = w;
+        h.appendChild(s);
+      });
+      h.classList.add("wpu");
+    }
+    pullUp();
+    new MutationObserver(pullUp).observe(h, { childList: true, characterData: true });
     var MAX = 200, raf = 0;
     function fit(){
       raf = 0;
