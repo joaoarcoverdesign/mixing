@@ -28,7 +28,7 @@
 <meta name="twitter:image" content="https://www.abdallajoao.com/Img/og/signflow.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Urbanist:wght@300;400;500;600;700;800&family=Poppins:wght@600;700&family=Alike&display=swap" rel="stylesheet">
 <style>
 :root{
   /* abdalladesign visual identity — matches index.html (Arcoverdesign v5) */
@@ -322,6 +322,33 @@ section+section{border-top:1px solid var(--line);}
 .cmp-tag.r{right:14px;background:rgba(12,16,19,.8);color:var(--ink);}
 .guide{margin-top:20px;}
 
+/* STYLE GUIDE — the signFlow tokens rebuilt as live HTML (was a screenshot) */
+.sg{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:20px;}
+.sg-panel{background:var(--bg-deep);border:1px solid var(--line);border-radius:var(--radius-md);padding:clamp(20px,3vw,32px);min-width:0;}
+.sg-col{display:flex;flex-direction:column;gap:20px;min-width:0;}
+.sg-h{font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:22px;display:flex;align-items:center;gap:10px;}
+.sg-h::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);}
+.sg-logos{display:grid;gap:14px;}
+.sg-logo{font-family:'Poppins',sans-serif;font-weight:700;font-size:clamp(26px,3vw,34px);letter-spacing:-.01em;line-height:1.2;color:var(--ink);padding:10px 16px;border:1px dashed rgba(208,114,255,.35);border-radius:10px;}
+.sg-logo b{font-weight:700;color:var(--c);}
+.sg-logo b::after{content:"";display:inline-block;width:.18em;height:.18em;border-radius:50%;background:var(--c);vertical-align:.7em;margin-left:.08em;}
+.sg-group+.sg-group{margin-top:24px;}
+.sg-gname{font-family:var(--sans);font-weight:700;font-size:13px;color:var(--ink-soft);margin-bottom:10px;}
+.sg-swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:14px;}
+.sg-sw{display:flex;flex-direction:column;gap:6px;font-size:12px;line-height:1.3;}
+.sg-chip{aspect-ratio:3/2;border-radius:8px;background:var(--c);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);}
+.sg-sw span{font-weight:700;color:var(--ink);}
+.sg-sw code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px;color:var(--ink-mute);text-transform:uppercase;}
+.sg-fonts{display:grid;grid-template-columns:1fr;gap:14px;}
+.sg-font{display:flex;align-items:center;gap:clamp(18px,3vw,32px);padding:clamp(18px,2.5vw,28px);border:1px solid var(--line-soft);border-radius:12px;}
+.sg-aa{font-size:clamp(56px,7vw,88px);line-height:1;color:var(--ink);}
+.sg-frole{font-family:var(--sans);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:6px;}
+.sg-fname{font-size:clamp(22px,2.4vw,28px);line-height:1.2;color:var(--ink);}
+.sg-fmeta{font-size:13px;color:var(--ink-soft);margin-top:4px;}
+.sg-aa.h,.sg-fname.h{font-family:'Poppins',sans-serif;font-weight:700;}
+.sg-aa.b,.sg-fname.b{font-family:'Alike',Georgia,serif;font-weight:400;}
+@media (max-width:860px){.sg{grid-template-columns:1fr;}}
+
 /* RESULT */
 .result-title{font-family:var(--sans);font-weight:800;font-size:clamp(30px,4.6vw,52px);line-height:1.05;letter-spacing:-.025em;margin-bottom:22px;color:var(--ink);}
 .result-body{font-family:var(--body);font-size:clamp(18px,2vw,21px);line-height:1.55;color:var(--ink);max-width:46ch;}
@@ -601,8 +628,96 @@ section+section{border-top:1px solid var(--line);}
       </div>
 
       <figure class="guide">
-        <div class="shot rv"><img src="../Img/signflow/sf-styleguide.webp" width="1107" height="705" loading="lazy" alt="signFlow style guide with type scale, logo variations and color palette" data-i18n-attr="alt:signflow.system.guide.alt"></div>
-        <figcaption class="img-caption" data-i18n="signflow.system.guide.caption">Style guide: type scale, logo and color system.</figcaption>
+        <div class="sg rv">
+          <div class="sg-col">
+            <div class="sg-panel">
+              <h3 class="sg-h" data-i18n="signflow.sg.logo">Logo</h3>
+              <div class="sg-logos">
+                <div class="sg-logo" style="--c:#0084FF">sign<b>Flow</b></div>
+                <div class="sg-logo" style="--c:#F4F6F3">sign<b>Flow</b></div>
+                <div class="sg-logo" style="--c:#E7C9F3">sign<b>Flow</b></div>
+                <div class="sg-logo" style="--c:#D072FF">sign<b>Flow</b></div>
+              </div>
+            </div>
+
+            <div class="sg-panel">
+              <h3 class="sg-h" data-i18n="signflow.sg.type">Typography</h3>
+              <div class="sg-fonts">
+                <div class="sg-font">
+                  <p class="sg-aa h">Aa</p>
+                  <div>
+                    <p class="sg-frole" data-i18n="signflow.sg.headline">Headline</p>
+                    <p class="sg-fname h">Poppins</p>
+                    <p class="sg-fmeta">Bold · SemiBold</p>
+                  </div>
+                </div>
+                <div class="sg-font">
+                  <p class="sg-aa b">Aa</p>
+                  <div>
+                    <p class="sg-frole" data-i18n="signflow.sg.body">Body</p>
+                    <p class="sg-fname b">Alike</p>
+                    <p class="sg-fmeta">Regular</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sg-panel">
+            <h3 class="sg-h" data-i18n="signflow.sg.colors">Colors</h3>
+            <div class="sg-group">
+              <p class="sg-gname" data-i18n="signflow.sg.primary">Primary</p>
+              <div class="sg-swatches">
+                <div class="sg-sw"><i class="sg-chip" style="--c:#BEDCF9"></i><span>Primary/01</span><code>#BEDCF9</code></div>
+                <div class="sg-sw"><i class="sg-chip" style="--c:#0084FF"></i><span>Primary/02</span><code>#0084FF</code></div>
+                <div class="sg-sw"><i class="sg-chip" style="--c:#02203B"></i><span>Primary/03</span><code>#02203B</code></div>
+              </div>
+            </div>
+            <div class="sg-group">
+              <p class="sg-gname" data-i18n="signflow.sg.secondary">Secondary</p>
+              <div class="sg-swatches">
+                <div class="sg-sw"><i class="sg-chip" style="--c:#E7C9F3"></i><span>Secondary/01</span><code>#E7C9F3</code></div>
+                <div class="sg-sw"><i class="sg-chip" style="--c:#D072FF"></i><span>Secondary/02</span><code>#D072FF</code></div>
+                <div class="sg-sw"><i class="sg-chip" style="--c:#1E1421"></i><span>Secondary/03</span><code>#1E1421</code></div>
+              </div>
+            </div>
+            <div class="sg-group">
+              <p class="sg-gname" data-i18n="signflow.sg.gray">Gray scale</p>
+              <div class="sg-swatches">
+                <div class="sg-sw"><i class="sg-chip" style="--c:#FFFFFF"></i><span>Gray/white</span><code>#FFFFFF</code></div>
+                <div class="sg-sw"><i class="sg-chip" style="--c:#F1F1F1"></i><span>Gray/01</span><code>#F1F1F1</code></div>
+                <div class="sg-sw"><i class="sg-chip" style="--c:#707070"></i><span>Gray/02</span><code>#707070</code></div>
+                <div class="sg-sw"><i class="sg-chip" style="--c:#4E4E4E"></i><span>Gray/03</span><code>#4E4E4E</code></div>
+              </div>
+            </div>
+            <div class="sg-group">
+              <p class="sg-gname" data-i18n="signflow.sg.danger">Danger</p>
+              <div class="sg-swatches">
+                <div class="sg-sw"><i class="sg-chip" style="--c:#FBAE9F"></i><span>Danger/01</span><code>#FBAE9F</code></div>
+                <div class="sg-sw"><i class="sg-chip" style="--c:#F4442E"></i><span>Danger/02</span><code>#F4442E</code></div>
+                <div class="sg-sw"><i class="sg-chip" style="--c:#650C01"></i><span>Danger/03</span><code>#650C01</code></div>
+              </div>
+            </div>
+            <div class="sg-group">
+              <p class="sg-gname" data-i18n="signflow.sg.success">Success</p>
+              <div class="sg-swatches">
+                <div class="sg-sw"><i class="sg-chip" style="--c:#BBF9E1"></i><span>Success/01</span><code>#BBF9E1</code></div>
+                <div class="sg-sw"><i class="sg-chip" style="--c:#63B995"></i><span>Success/02</span><code>#63B995</code></div>
+                <div class="sg-sw"><i class="sg-chip" style="--c:#035835"></i><span>Success/03</span><code>#035835</code></div>
+              </div>
+            </div>
+            <div class="sg-group">
+              <p class="sg-gname" data-i18n="signflow.sg.warning">Warning</p>
+              <div class="sg-swatches">
+                <div class="sg-sw"><i class="sg-chip" style="--c:#F5D8AA"></i><span>Warning/01</span><code>#F5D8AA</code></div>
+                <div class="sg-sw"><i class="sg-chip" style="--c:#DE9E38"></i><span>Warning/02</span><code>#DE9E38</code></div>
+                <div class="sg-sw"><i class="sg-chip" style="--c:#663F00"></i><span>Warning/03</span><code>#663F00</code></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <figcaption class="img-caption" data-i18n="signflow.system.guide.caption">Style guide: typography, logo and color system.</figcaption>
       </figure>
     </div>
   </section>

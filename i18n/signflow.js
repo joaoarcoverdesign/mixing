@@ -308,15 +308,27 @@ window.I18N_PAGE_STRINGS = {
     es: "Lista de documentos en modo claro"
   },
   "signflow.system.guide.caption": {
-    en: "Style guide: type scale, logo and color system.",
-    pt: "Style guide: escala tipográfica, logo e sistema de cores.",
-    es: "Guía de estilo: escala tipográfica, logo y sistema de color."
+    en: "Style guide: typography, logo and color system.",
+    pt: "Style guide: tipografia, logo e sistema de cores.",
+    es: "Guía de estilo: tipografía, logo y sistema de color."
   },
   "signflow.system.guide.alt": {
     en: "signFlow style guide with type scale, logo variations and color palette",
     pt: "Style guide do signFlow com escala tipográfica, variações do logo e paleta de cores",
     es: "Guía de estilo de signFlow con escala tipográfica, variaciones del logo y paleta de colores"
   },
+
+  "signflow.sg.logo": { en: "Logo", pt: "Logo", es: "Logo" },
+  "signflow.sg.type": { en: "Typography", pt: "Tipografia", es: "Tipografía" },
+  "signflow.sg.colors": { en: "Colors", pt: "Cores", es: "Colores" },
+  "signflow.sg.headline": { en: "Headline", pt: "Títulos", es: "Títulos" },
+  "signflow.sg.body": { en: "Body", pt: "Corpo", es: "Cuerpo" },
+  "signflow.sg.primary": { en: "Primary", pt: "Primária", es: "Primario" },
+  "signflow.sg.secondary": { en: "Secondary", pt: "Secundária", es: "Secundario" },
+  "signflow.sg.gray": { en: "Gray scale", pt: "Escala de cinza", es: "Escala de grises" },
+  "signflow.sg.danger": { en: "Danger", pt: "Erro", es: "Error" },
+  "signflow.sg.success": { en: "Success", pt: "Sucesso", es: "Éxito" },
+  "signflow.sg.warning": { en: "Warning", pt: "Alerta", es: "Advertencia" },
 
   /* ─────────── RESULT ─────────── */
   "signflow.result.eyebrow": { en: "Result", pt: "Resultado", es: "Resultado" },
