@@ -750,20 +750,92 @@
       }
     }
 
-    /* mobile — on desktop the mock cards overflow the frame and the Work section
-   slides up over their bottom edges. On small screens the cards scale down with
-   the viewport but the frame keeps its 360px floor, so the whole card (bottom
-   edge included) sits inside it with dead space below. Track the frame height to
-   the card size and clip, so the bottoms crop the same way they do on desktop. */
+    /* mobile — the overlapping mockups get too small to read, so the three cases
+       stack vertically, each followed by its own caption. .mock-frame and
+       .mock-caption dissolve (display: contents) so cards and captions become
+       siblings of one column and can be interleaved with `order`. */
     @media (max-width:860px) {
-      .mock-frame {
-        height: clamp(120px, 40vw, 320px);
-        overflow: hidden;
+      .hero2-media {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        max-width: 560px;
+        margin-top: 8px;
       }
 
-      /* the frame clips, so the front card can't start above it or its browser bar is cut off */
-      .mock-card[data-slot="front"] {
-        --y: 0cqh;
+      .mock-glow {
+        inset: 0 0 50%;
+      }
+
+      .mock-frame,
+      .mock-caption {
+        display: contents;
+      }
+
+      .mock-card,
+      .mock-card[data-slot] {
+        position: relative;
+        width: 100%;
+        transform: none;
+        transition: none;
+        z-index: 1;
+        pointer-events: auto;
+      }
+
+      .mock-card::before {
+        display: none;
+      }
+
+      /* the screenshots carry a transparent shadow band below the window, and it
+         isn't the same size in every file (the same insets the desktop hit-areas
+         use: 18.4% of height for Valt/signFlow, 14.3% for Jalasoft). Cancel each
+         one exactly, so every caption sits the same 14px under its browser. */
+      .mock-card img {
+        margin-bottom: -15.2%;
+        filter: drop-shadow(0 16px 28px rgba(4, 8, 6, .45));
+      }
+
+      /* Jalasoft's file also has narrower side margins (5.1% vs 6.8%), so its
+         window renders wider — shrink the card so all three windows match */
+      .mock-card[data-href$="jalasoft.html"] {
+        width: 96.2%;
+        margin: 0 auto;
+      }
+
+      .mock-card[data-href$="jalasoft.html"] img {
+        margin-bottom: -11.7%;
+      }
+      /* Valt, signFlow, Jalasoft — each card directly followed by its caption */
+      .mock-card[data-href$="valt.html"] { order: 1; }
+      .mock-caption-item[data-case$="valt.html"] { order: 2; }
+      .mock-card[data-href$="signflow.html"] { order: 3; }
+      .mock-caption-item[data-case$="signflow.html"] { order: 4; }
+      .mock-card[data-href$="jalasoft.html"] { order: 5; }
+      .mock-caption-item[data-case$="jalasoft.html"] { order: 6; }
+
+      .mock-caption-item,
+      .mock-caption-item.is-active {
+        position: relative;
+        z-index: 1;
+        flex-wrap: wrap;
+        margin: 14px 0 40px;
+        font-family: var(--sans);
+        font-size: 14px;
+        line-height: 1.45;
+        letter-spacing: .01em;
+        text-align: center;
+        color: var(--muted);
+        opacity: 1;
+        transform: none;
+        filter: none;
+        cursor: pointer;
+      }
+
+      /* the captions sit below the stack now, so Work no longer
+         needs to slide up over the mockups */
+      section.work {
+        margin-top: 0;
+        padding-top: 64px;
       }
     }
 
@@ -3227,6 +3299,8 @@
 
         var captionItems = Array.prototype.slice.call(document.querySelectorAll("#mockCaption .mock-caption-item"));
         function syncCaption() {
+          // mobile stacks every case with its own caption, all visible at once
+          if (window.matchMedia("(max-width:860px)").matches) return;
           var front = cards.filter(function (c) { return c.dataset.slot === "front"; })[0];
           var href = front ? front.dataset.href : "";
           captionItems.forEach(function (item) {
@@ -3235,7 +3309,7 @@
         }
         captionItems.forEach(function (item) {
           item.addEventListener("click", function () {
-            if (item.classList.contains("is-active")) window.location.href = item.dataset.case;
+            if (item.classList.contains("is-active") || window.matchMedia("(max-width:860px)").matches) window.location.href = item.dataset.case;
           });
         });
         // first caption fades in shortly after load
@@ -3253,9 +3327,12 @@
 
         // a background card swaps to the front on click; the front card is a link
         // straight to its case study
+        var mqStacked = window.matchMedia("(max-width:860px)");
+
         function activate(card) {
           userInteracted = true;
-          if (card.dataset.slot === "front") {
+          // mobile: the cases are stacked, so every card links straight to its case
+          if (mqStacked.matches || card.dataset.slot === "front") {
             if (card.dataset.href) window.location.href = card.dataset.href;
             return;
           }
@@ -3277,17 +3354,24 @@
         // so first-time visitors notice the mockups are clickable — runs twice, then stops for good
         if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
           setTimeout(function () {
-            if (userInteracted) return;
+            if (userInteracted || mqStacked.matches) return;
             var hintCard = cards.filter(function (c) { return c.dataset.slot === "back-left"; })[0];
             if (hintCard) bringToFront(hintCard);
 
             setTimeout(function () {
-              if (userInteracted) return;
+              if (userInteracted || mqStacked.matches) return;
               var secondHintCard = cards.filter(function (c) { return c.dataset.slot === "back-right"; })[0];
               if (secondHintCard) bringToFront(secondHintCard);
             }, 3000);
           }, 3000);
         }
+
+        // leaving the stacked mobile layout: show the front card's caption again
+        var onMq = function () {
+          if (!mqStacked.matches) syncCaption();
+        };
+        if (mqStacked.addEventListener) mqStacked.addEventListener("change", onMq);
+        else if (mqStacked.addListener) mqStacked.addListener(onMq);
       })();
 
       /* scroll reveal */
@@ -3539,9 +3623,11 @@
         var mockFrame = document.getElementById("mockFrame");
         if (mockFrame) {
           /* front card: "View case" pill; side cards: arrow-only pill pointing their way */
+          var mqMockStacked = window.matchMedia("(max-width:860px)");
           var syncMock = function () {
             var hovered = mockFrame.querySelector(".mock-card:hover");
-            var slot = hovered ? hovered.dataset.slot : "";
+            // stacked mobile layout: every card opens its case, so always "View case"
+            var slot = hovered && !mqMockStacked.matches ? hovered.dataset.slot : "";
             cursor.classList.toggle("is-swap", slot === "back-left" || slot === "back-right");
             cursor.classList.toggle("is-swap-left", slot === "back-left");
             cursor.classList.toggle("is-visible", !!hovered);
