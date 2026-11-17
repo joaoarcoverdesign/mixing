@@ -43,9 +43,9 @@ window.I18N_PAGE_STRINGS = {
     es: "Flujos de usuario, arquitectura de información, diseño UI y prototipo interactivo"
   },
   "aquaryu.cover.alt": {
-    en: "AquaryU \"It's a connection!\" screen between two phone mockups on a purple background",
-    pt: "Tela \"It's a connection!\" do AquaryU entre dois mockups de celular sobre fundo roxo",
-    es: "Pantalla \"It's a connection!\" de AquaryU entre dos mockups de celular sobre fondo morado"
+    en: "AquaryU dating app cover: zodiac wheel and logo next to two profile cards with compatibility scores on a purple background",
+    pt: "Capa do app de namoro AquaryU: roda do zodíaco e logo ao lado de dois cards de perfil com score de compatibilidade sobre fundo roxo",
+    es: "Portada de la app de citas AquaryU: rueda del zodiaco y logo junto a dos tarjetas de perfil con puntaje de compatibilidad sobre fondo morado"
   },
 
   /* ─────────── OVERVIEW ─────────── */
