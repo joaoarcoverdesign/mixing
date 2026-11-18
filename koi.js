@@ -96,41 +96,7 @@ function initKoi(canvas, section, opts) {
     new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }).observe(section);
   }
 
-  /* ── tooltip: canvas ignores the pointer, so hover is hit-tested on the spine ── */
-  if (!document.getElementById("koi-tip-css")) {
-    var css = document.createElement("style");
-    css.id = "koi-tip-css";
-    css.textContent =
-      ".koi-tip{position:absolute;left:0;top:0;z-index:5;pointer-events:none;max-width:230px;" +
-      "padding:10px 14px;border-radius:12px;background:var(--surface,#1A2025);" +
-      "border:1px solid var(--line,rgba(255,255,255,.08));color:var(--ink,#F4F6F3);" +
-      "font:600 13px/1.45 var(--sans,'Urbanist',sans-serif);text-align:center;" +
-      "box-shadow:0 10px 30px rgba(0,0,0,.35);opacity:0;transition:opacity .25s;will-change:transform}" +
-      ".koi-tip.is-on{opacity:1}" +
-      ".koi-tip b{color:var(--accent,#C2FC50);font-weight:800;margin-left:6px;white-space:nowrap}";
-    document.head.appendChild(css);
-  }
-  if (getComputedStyle(section).position === "static") section.style.position = "relative";
-  var tip = document.createElement("div");
-  tip.className = "koi-tip"; tip.setAttribute("role", "status");
-  section.appendChild(tip);
-  var tipKey = "", hoverAt = 0, leaveAt = 0, tipOn = false, forceUntil = 0, met = !entering;
-  function tr(k, fb) { return (window.I18N && window.I18N.t(k)) || fb; }
-  function renderTip() {
-    var key = unlocked ? "done" : seen >= 1 ? "one" : "need";
-    var lang = window.I18N ? window.I18N.lang : "";
-    if (key + lang === tipKey) return;
-    tipKey = key + lang;
-    var txt = key === "done" ? tr("koi.tip.done", "Thank you! Now I swim with company.")
-      : key === "one" ? tr("koi.tip.one", "Just one more case study until she arrives.")
-      : tr("koi.tip.need", "I need a companion. Visit 2 case studies.");
-    tip.textContent = txt;
-    if (!unlocked) {
-      var b = document.createElement("b");
-      b.textContent = Math.min(seen, 2) + "/2";
-      tip.appendChild(b);
-    }
-  }
+  /* canvas ignores the pointer, so hover is hit-tested on the spine */
   function over(f) { /* cursor near the drawn (scaled) body */
     if (!mouse || !inside) return false;
     var h = f.spine[0];
@@ -141,18 +107,9 @@ function initKoi(canvas, section, opts) {
     return false;
   }
   var hoverCursor = false;
-  function updateTip(now) {
-    var hit = over(koi) ? koi : mate && over(mate) ? mate : null;
+  function updateCursor() {
+    var hit = over(koi) || (mate && over(mate));
     if (!!hit !== hoverCursor) { hoverCursor = !!hit; section.style.cursor = hit ? "pointer" : ""; }
-    if (hit) { if (!hoverAt) hoverAt = now; leaveAt = 0; }
-    else { if (!leaveAt) leaveAt = now; hoverAt = 0; }
-    var show = (hit && now - hoverAt > 250) || (tipOn && !hit && now - leaveAt < 400) || now < forceUntil;
-    if (show) {
-      renderTip();
-      var a = hit || koi, x = Math.max(120, Math.min(W - 120, a.spine[0].x));
-      tip.style.transform = "translate(" + Math.round(x) + "px," + Math.round(a.spine[0].y - 34) + "px) translate(-50%,-100%)";
-    }
-    if (show !== tipOn) { tipOn = show; tip.classList.toggle("is-on", show); }
   }
 
   function width(k) { /* 0 snout .. 1 tail stalk: rounded head, widest behind the pectorals */
@@ -288,13 +245,12 @@ function initKoi(canvas, section, opts) {
       var mvx = head.vx + mdx * 1.2, mvy = head.vy + mdy * 1.2, mv = Math.hypot(mvx, mvy), cap = 190;
       if (mv > cap) { mvx *= cap / mv; mvy *= cap / mv; }
       swim(mate, mvx, mvy, dt);
-      if (!met && Math.hypot(mate.head.x - head.x, mate.head.y - head.y) < 110) { met = true; forceUntil = now + 3000; }
     }
     draw();
     drawFx(dt);
     drawPearl(now);
     stain(dt);
-    updateTip(now);
+    updateCursor();
   }
   /* headline paint: fade what's there, then stamp the fish again while it's under the text */
   function stain(dt) {
@@ -584,6 +540,5 @@ function initKoi(canvas, section, opts) {
     ctx.drawImage(off, 0, 0); ctx.restore();
     fish.forEach(function (f) { place(ctx, f, false); });
   }
-  if (window.I18N) window.I18N.onChange(function () { tipKey = ""; if (tipOn) renderTip(); });
   requestAnimationFrame(frame);
 }
